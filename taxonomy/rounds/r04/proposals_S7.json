@@ -1,0 +1,115 @@
+{
+ "staff": "S7",
+ "papers": [
+  "Nano_Letters/10.1021_nl201541y",
+  "Nature_Materials/10.1038_nmat2713",
+  "Nature_Materials/10.1038_s41563-023-01766-z",
+  "Nature_Materials/10.1038_s41563-024-01862-8"
+ ],
+ "types": [],
+ "rels": [],
+ "mm_ops": [],
+ "modalities": [],
+ "merges": [
+  {
+   "merge": [
+    "track_feature_across_series (spectral/diffraction/stacked-trace use)",
+    "compare_across_conditions"
+   ],
+   "into": "compare_across_conditions",
+   "why": "C1. Usage v03: compare_across_conditions [98,26], track_ [17,9]. In r04 I used track_ 3 times, all for stacked traces or a time map: nl201541y#a19->a23 (force-jump position across 50/70/100 mV traces), s41563-024-01862-8#d21->d25 ((003)Li through states I-IV) and #d23->d25 (in-situ XRD time map). In every case the OBS type (feature_shift / feature_presence) already states that one feature's position or presence is followed, so re-typing the op as compare_across_conditions loses nothing. I could not decide between the two ops for a19 or d21 on any principled ground. Keep track_feature_across_series only for object identity through frames (atoms, particles, crack tips), where the identity and aliasing audit is real. None of my 4 papers had such an edge."
+  },
+  {
+   "merge": [
+    "match_to_reference (when the reference is a model, fit or simulation)",
+    "overlay_model_on_data"
+   ],
+   "into": "overlay_model_on_data",
+   "why": "New candidate (boundary, not a full merge). Usage: match_to_reference [10,6], overlay_model_on_data [9,3]. I could not tell them apart for model curves: nl201541y#a12 (theory overlaid on data, F3) got overlay_, but #a21 (the same theory shown in a side-by-side panel, F5) got match_to_reference, although the reading is identical. s41563-024-01862-8#d12 (Rietveld calc vs obs) is match_to_reference, while #d14/#d22 (lever-rule line vs points) are overlay_. nmat2713#b23 (constructed tiling vs observed image) is match_to_reference. s41563-023-01766-z#c20/#c33/#c34 (two-fluid and Drude curves) are overlay_. Proposed rule: overlay_model_on_data covers ANY model/fit/simulation output compared with data, whether overlaid or side by side, and read region by region. match_to_reference keeps only empirical references (parent sample, standard, database card). The audits differ as follows: model adequacy and free parameters for overlay_, reference provenance for match_. That split follows reference provenance, which staff can fill reliably."
+  },
+  {
+   "merge": [
+    "quantify_from_intensity",
+    "quantify_from_position",
+    "convert_via_calibration"
+   ],
+   "into": "convert_to_quantity (attrs.via = intensity | position | calibration | model)",
+   "why": "Q1, support. Usage: intensity [8,6], position [2,2], calibration [5,2]. My papers used none of the three cleanly, and the one feature->quantity conversion that occurred fell between them: s41563-023-01766-z#c24->c25 converts a pump-induced THz amplitude dE(T) into a thermal quasiparticle density through the Rothwarf-Taylor model. It is not a peak intensity, not a position, and not an in-paper calibration. I used quantify_from_intensity as the nearest op. A single op with via=model would carry it exactly, and the audit would still name the relation that is trusted. This is evidence that 'via' is fillable and that the three-way split leaves gaps."
+  },
+  {
+   "merge": [
+    "extract_slope",
+    "fit_model"
+   ],
+   "into": "fit_model (attrs.form = linearised | nonlinear)",
+   "why": "Q2, support. Usage: extract_slope [7,6], fit_model [4,3]. nl201541y#a31->a32 is a straight-line fit on semi-log axes (Kramers: ln tau vs U), which gives a barrier slope and a prefactor. That is a two-parameter fit, the same act as s41563-023-01766-z#c11->c12 (two-fluid) and #c25->c27 (n_T(T) gap fit). The diagnostic chain stays visible without the op name: a32 -> PRP/diagnostic a33 -> KNW/model a34 -> MEC/identification a36."
+  },
+  {
+   "merge": [
+    "subtract_reference",
+    "overlay_model_on_data / replot_derived_series"
+   ],
+   "into": "overlay_model_on_data on evidence/qualifies edges; replot_derived_series on derives edges",
+   "why": "K1, support. Usage: subtract_reference [1,1]. s41563-023-01766-z#c34 is literally a residual after subtracting the Drude curve (shaded area in F5 g-j). The act that carries the inference is judging where data depart from the model, which overlay_model_on_data already names. flag_outlier [1,1] had its second use at nl201541y#a35 (non-monotone 60/70 mV residence times), now [2,2]. I would keep it only if r04 brings it to >=3 uses; otherwise merge it into cross_check_consistency."
+  }
+ ],
+ "splits": [],
+ "indistinguishable_siblings": [
+  {
+   "entries": [
+    "overlay_model_on_data",
+    "match_to_reference"
+   ],
+   "nodes": [
+    "Nano_Letters/10.1021_nl201541y#a12",
+    "#a21",
+    "Nature_Materials/10.1038_s41563-024-01862-8#d12",
+    "#d14",
+    "Nature_Materials/10.1038_nmat2713#b23"
+   ],
+   "note": "see merge 2"
+  },
+  {
+   "entries": [
+    "track_feature_across_series",
+    "compare_across_conditions"
+   ],
+   "nodes": [
+    "Nano_Letters/10.1021_nl201541y#a19",
+    "Nature_Materials/10.1038_s41563-024-01862-8#d21",
+    "#d23",
+    "#d11"
+   ],
+   "note": "d11 (same (003) peak across soaks) got compare_, d21 (across states) got track_: same act"
+  },
+  {
+   "entries": [
+    "OBS/signal/reference_match",
+    "OBS/response/trend"
+   ],
+   "nodes": [
+    "Nano_Letters/10.1021_nl201541y#a12",
+    "#a21",
+    "Nature_Materials/10.1038_s41563-023-01766-z#c20",
+    "#c33"
+   ],
+   "note": "model-vs-data on response curves (force-distance, sigma(omega)). reference_match is defined for patterns/spectra and fits only poorly. Suggest broadening reference_match to 'a measured trace or curve judged against a reference or model trace', not a new leaf"
+  },
+  {
+   "entries": [
+    "OBS/signal/feature_presence",
+    "OBS/signal/feature_assignment"
+   ],
+   "nodes": [
+    "Nature_Materials/10.1038_s41563-024-01862-8#d11",
+    "#d28"
+   ],
+   "note": "XRD 'which phases are present after soaking' is both; I used presence when a new peak appears across a series and assignment when reflections are indexed against tick marks. Distinguishable, but only by the figure's form"
+  }
+ ],
+ "not_needed_possibly_redundant": [
+  "PRP/partition and OBS/response/component_partition: P1 (merge PRP/partition into PRP/value) is supported, since I never needed PRP/partition. I oppose O2 (component_partition -> trend): s41563-023-01766-z#c34/#c35 read a Drude term plus a residual fluctuation term at fixed T and delay. No variable is varied, so 'trend' would mistype it. If component_partition merges at all, it should go into reference_match (model + residual), not trend.",
+  "PRF/figure_of_merit vs PRF/qualification: neither needed in 4 papers (single-molecule device, TEM defect, THz SC, ion exchange); no evidence either way."
+ ],
+ "comments": "No new types, mm_ops, rels or modalities. All 146 nodes are typed with v03 entries, none proposed; 3 fit=poor (nmat2713#b23 constructed-tiling reference_match; s41563-023-01766-z#c20, #c33 reference_match on sigma(omega) response curves). Keep-arguments: (1) P2, keep PRP/diagnostic: two r04 papers use the full diagnostic chain, and the leaf is what marks it. nl201541y#a33 (dE proportional to U, constant tau0) -> Kramers -> MEC/identification a36, and s41563-023-01766-z#c28 (2Delta/kBTc = 3.4) -> KNW/lookup c29 -> MEC/identification c30 (weak coupling). As PRP/value with role=diagnostic, the lookup step would be implicit. (2) O1, keep regime_map: s41563-024-01862-8#d38 is a second in-corpus use (ternary Li/Na exchange-pathway map with dual-exchange, single-exchange and kinetic-limited regions), now [2,2]. Its reading (locating compositions relative to region boundaries) has no op; I used read_characteristic_point. If regime maps recur, 'read_regime_boundaries' is the missing op, but one use is below the bar. Near-proposals withheld (one use each): a Burgers-circuit op (nmat2713#b12->b18: construct a closed circuit on an image, transfer it to a perfect reference lattice, read the closure failure; typed replot_derived_series + measure_feature_metric). Pairing symmetry as a STR/PRP leaf (typed PRP/behavior_class c21, which fits as 'class of electronic behaviour'). PACKET ANOMALIES: (a) nmat2713: the F1 image file contains paper Fig. 1 AND Fig. 2 side by side; F2 path is a bare directory; an unlisted near-duplicate composite 813100...jpg sits in images/. (b) s41563-023-01766-z: F4 path is a bare directory; the F5 image is paper Fig. 4 (a-j) and the F5 caption is the tail of the Fig. 4 caption. Figure ids in my graphs follow the image files. Multimodal highlight: nl201541y#a35 (F7 inset). The Kramers barrier slope 2.1 meV/mV checks against the plotted line (~1.9-2.0 meV/mV), but it rests on 4 points whose error bars span ~half a decade, and the 60 mV point lies above the 70 mV point. That audit is visible only in the image."
+}

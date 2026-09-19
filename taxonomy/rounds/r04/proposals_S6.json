@@ -1,0 +1,166 @@
+{
+ "staff": "S6",
+ "papers": [
+  "Journal_of_Materials_Science_&_Technology__j.jmst.2021.01.018",
+  "Materials_Characterization__j.matchar.2007.12.003",
+  "Materials_Characterization__j.matchar.2018.04.010",
+  "Nano_Letters__10.1021_nl101246z"
+ ],
+ "types": [],
+ "rels": [],
+ "mm_ops": [],
+ "modalities": [],
+ "broadenings": [
+  {
+   "entry": "STR/microstructure/damage",
+   "add": "environmental dissolution of a binder/cement phase that de-bonds grains (chemical weathering of stone, mortar, concrete; leaching of a composite matrix); attrs.aspect = binder_dissolution",
+   "why": "The next step is a grain-detachment / failure-mode inference (sanding off, granular disintegration), i.e. damage's inference, not a phase-amount inference (STR/phase/fraction, where I first put it). Without the sentence the node is poor under both entries.",
+   "examples": [
+    "Materials_Characterization__j.matchar.2007.12.003#w9"
+   ]
+  },
+  {
+   "entry": "STR/microstructure/distribution",
+   "add": "shell/coating coverage of a constituent on particles (core-shell completeness, attrs.aspect=coverage) and contact/connectivity of a filler network in a matrix (attrs.aspect=connectivity; next: percolation/conduction-path argument)",
+   "why": "Two nodes in one paper (coverage j8, filler contacts j9). Both are 'where is a constituent' claims; a leaf would not change the inference, but the current text (dispersion, agglomeration, segregation, gradient) does not signal that coverage and connectivity belong here. Porosity already owns pore connectivity, so filler connectivity needs an explicit home to avoid drifting there.",
+   "examples": [
+    "Journal_of_Materials_Science_&_Technology__j.jmst.2021.01.018#j8",
+    "Journal_of_Materials_Science_&_Technology__j.jmst.2021.01.018#j9"
+   ]
+  },
+  {
+   "entry": "overlay_model_on_data",
+   "add": "model output and data shown in paired side-by-side panels or on separate figures with matched axes (experiment | theory image pairs, measured vs calculated curves in sister panels), not only literally overlaid; audit: a model parameter tuned on the same data (threshold, fitted d) makes the agreement partly circular",
+   "why": "All 6 of my model-vs-data edges read paired panels: Nano F3b left/right (o8, o9 -> n8), F3d vs F3c (o10 -> n8), JMST F6c (o10/o9 -> j14). compare_with_reference_value does not fit (the reference is a model, not a value), so the op should state it covers paired panels. The circularity audit changed spine support in Nano (l1 qualifies n8).",
+   "examples": [
+    "Nano_Letters__10.1021_nl101246z#o8->n8",
+    "Nano_Letters__10.1021_nl101246z#o10->n8",
+    "Journal_of_Materials_Science_&_Technology__j.jmst.2021.01.018#o10->j14"
+   ]
+  },
+  {
+   "entry": "attr_values.property_family_notes",
+   "add": "tribology (friction coefficient, wear rate) -> surface; wear-mode classification -> PRP/behavior_class",
+   "why": "No family names friction/wear; I chose surface for COF/wear rate in B#t13 and would expect others to split between mechanical and surface.",
+   "examples": [
+    "Materials_Characterization__j.matchar.2018.04.010#t13",
+    "Materials_Characterization__j.matchar.2018.04.010#t12"
+   ]
+  }
+ ],
+ "merges": [
+  {
+   "merge": [
+    "track_feature_across_series (spectral/stack use)",
+    "compare_across_conditions"
+   ],
+   "into": "compare_across_conditions",
+   "why": "C1. usage track [17,9] vs compare [98,26]. Across my 4 papers no edge needed track: the Nano Dz series (F2a-e, a sequence of different spots, not one object) and the XRD temperature stacks of Matchar-2018 (F2) were read with compare_across_conditions/measure_feature_metric with no loss. Keep track_ only for object identity through frames.",
+   "evidence": [
+    "Nano_Letters__10.1021_nl101246z#o3->n10",
+    "Materials_Characterization__j.matchar.2018.04.010#o3->t7"
+   ]
+  },
+  {
+   "merge": [
+    "extract_slope",
+    "fit_model"
+   ],
+   "into": "fit_model (attrs.form = linear | power_law | nonlinear)",
+   "why": "Q2. usage [7,6] + [4,3]. Nano o4->o5: the 12 nm2/A slope is fitted only over Dz <= -3 A of a threshold-shaped curve (F3c). The failure mode is window choice, which is fit_model's failure mode; the linearised-axes reading adds nothing. No diagnostic lookup chain in my papers depended on the name.",
+   "evidence": [
+    "Nano_Letters__10.1021_nl101246z#o4->o5"
+   ]
+  },
+  {
+   "merge": [
+    "OBS/response/regime_map",
+    "OBS/response/trend"
+   ],
+   "into": "OBS/response/trend (attrs.dimension = 2D)",
+   "why": "O1. usage [1,1]; 0 uses in my 4 papers, including a reactive-sintering (ternary reaction) paper where a map would have been natural.",
+   "evidence": []
+  },
+  {
+   "merge": [
+    "OBS/response/component_partition",
+    "OBS/response/trend"
+   ],
+   "into": "OBS/response/trend",
+   "why": "O2 (with P1 PRP/partition -> PRP/value). usage [3,3] and [2,2]; 0 uses in my papers; the dominant-term reading is carried by compare_coplotted_quantities.",
+   "evidence": []
+  },
+  {
+   "merge": [
+    "flag_outlier",
+    "cross_check_consistency"
+   ],
+   "into": "cross_check_consistency",
+   "why": "K1. usage [1,1]; unused here. My two check edges that flagged a deviating series (Nano o11 ds magnitude, JMST o11 in-plane sim) were cross-checks/overlays, not outlier set-asides.",
+   "evidence": [
+    "Nano_Letters__10.1021_nl101246z#o11->n8"
+   ]
+  }
+ ],
+ "splits": [],
+ "indistinguishable_siblings": [
+  {
+   "pair": [
+    "OBS/response/characteristic_value",
+    "OBS/response/trend"
+   ],
+   "where": [
+    "Materials_Characterization__j.matchar.2007.12.003#o7",
+    "Materials_Characterization__j.matchar.2018.04.010#o9",
+    "Materials_Characterization__j.matchar.2018.04.010#o7"
+   ],
+   "note": "Per-sample values over a small design sweep (OP of 4 samples, COF per system, bending bars) are both 'values at conditions' and a ranking. I decided by whether the paper argues a direction; the rule should say so (direction/ranking argued -> trend)."
+  },
+  {
+   "pair": [
+    "OBS/signal/feature_presence",
+    "OBS/signal/feature_assignment"
+   ],
+   "where": [
+    "Materials_Characterization__j.matchar.2018.04.010#o2",
+    "Materials_Characterization__j.matchar.2018.04.010#o10"
+   ],
+   "note": "'No B4C/TiB2/graphite peaks' is simultaneously an assignment (indexing complete) and an absence. I typed the indexing as assignment and the audit absence (graphite 002 at 26.5 deg) as presence; a boundary sentence is needed: absence of a specific expected reflection -> feature_presence."
+  },
+  {
+   "pair": [
+    "PRP/behavior_class",
+    "PRF/service_capability"
+   ],
+   "where": [
+    "Materials_Characterization__j.matchar.2007.12.003#w15",
+    "Materials_Characterization__j.matchar.2007.12.003#w17"
+   ],
+   "note": "Degradation papers: the decay form per solution (behavior_class) and the ranking of solutions by damage under simulated service (service_capability) come from the same photographs (F2). Separable, but only because the test simulates a service condition."
+  }
+ ],
+ "never_needed": [
+  "OBS/response/regime_map",
+  "OBS/response/component_partition",
+  "PRP/partition",
+  "PRP/diagnostic",
+  "PRF/figure_of_merit",
+  "PRF/qualification",
+  "STR/phase/site_occupancy",
+  "STR/defect/point",
+  "STR/defect/extended",
+  "track_feature_across_series",
+  "quantify_from_intensity",
+  "quantify_from_position",
+  "convert_via_calibration",
+  "subtract_reference",
+  "collapse_by_normalization",
+  "flag_outlier",
+  "replot_derived_series",
+  "correlate_across_series",
+  "register_colocated_views",
+  "match_to_design",
+  "match_to_reference"
+ ],
+ "comments": "Confirmation round: 126 nodes, all typed with v03 entries, 2 poor fits (both resolved by boundary text, see broadenings), 0 new types/rels/ops/modalities. Never-needed list is informative only for the metallurgy/defect entries (STR/defect/*, site_occupancy): my papers were composites, stone and surface science, so absence there is corpus mix, not redundancy; I argue redundancy only for regime_map, component_partition/PRP/partition and flag_outlier. Spine rule issue (Nano): in method/tool papers the PROPERTY of the tool-workpiece assembly (junction field enhancement, PRP computed) causes the STRUCTURE made in the workpiece (dehydrogenated spot). Stage order PRC->STR->PRP is then reversed; I kept PRC -causes-> PRP -supports-> MEC -explains-> STR. Suggest the spine note allow PRP(object=tool/assembly) upstream of STR when the process acts through that property. Multimodal audits that changed spine support: Nano o11 (F3d computed apex shift 27-66 A vs measured 2-20 A in F3c; text says offsets reproduced), JMST o11 (F6c in-plane COMSOL curve 10-20 C below data though text says 'little different'), Matchar-2018 o10 (no graphite reflection yet graphite lubrication invoked), Matchar-2007 o5 (polygonal intragranular crack mesh with no untreated control). Packet anomaly: Matchar-2007 F6 caption assigns (c)=lower, (d)=upper for the concentrated-Mg block, but panel labels read c=15 U (OP 27.44%) and d=15 L (21.65%); the text follows the labels. Figure ids follow the image files. Read budget: 3-5 figures per paper opened; OBS from unopened figures are text_only with attrs.fig_ref."
+}

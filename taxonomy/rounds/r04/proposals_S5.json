@@ -1,0 +1,163 @@
+{
+ "staff": "S5",
+ "papers": [
+  "Journal_of_Advanced_Ceramics/s40145-021-0458-1",
+  "Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010",
+  "Journal_of_Magnesium_and_Alloys/j.jma.2021.03.034",
+  "Journal_of_Materials_Science_&_Technology/j.jmst.2019.08.010"
+ ],
+ "types": [],
+ "rels": [],
+ "mm_ops": [],
+ "modalities": [],
+ "merges": [
+  {
+   "merge": [
+    "track_feature_across_series (spectral/pattern-stack use)",
+    "compare_across_conditions"
+   ],
+   "into": "compare_across_conditions",
+   "keep": "track_feature_across_series only for object identity across frame/trajectory sequences",
+   "why": "Candidate C1. Usage [17,9] vs [98,26]. Test edge: Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010#b11->b19 (AZ31 basal-pole maxima moving toward the pole-figure centre across 10-3600 s). Typed as track_, but compare_across_conditions loses nothing: the src type OBS/signal/feature_shift already says a position moved, and attrs.direction says where. No identity problem arises for a peak in stacked patterns, unlike frames of a moving object, so the track-specific audits (identity, aliasing) do not apply."
+  },
+  {
+   "merge": [
+    "extract_slope",
+    "fit_model"
+   ],
+   "into": "fit_model",
+   "attr": "attrs.form = linearised | nonlinear",
+   "why": "Candidate Q2. Usage [7,6] + [4,3]. Test edge: Journal_of_Advanced_Ceramics/s40145-021-0458-1#a32->a34 (Tauc (alpha h nu)^2 extrapolation to the hv intercept). The audit is the fit audit (which range is taken as linear, and whether extrapolation is justified); the linearised axes add no separate failure mode. The diagnostic chain stays visible through PRP/diagnostic -> KNW/lookup, not through the op name."
+  },
+  {
+   "merge": [
+    "PRP/partition",
+    "PRP/value"
+   ],
+   "into": "PRP/value",
+   "attr": "attrs.aspect = partition",
+   "why": "Candidate P1. Usage [2,2]. Not needed in any of my 4 papers. In Journal_of_Advanced_Ceramics/s40145-021-0458-1 the COOP decomposition (a29) that attributes VBM/CBM to orbital contributions was typed OBS/signal/feature_assignment -> MEC/pathway without loss. Dominance is carried by OBS/response/component_partition or by compare_coplotted_quantities."
+  },
+  {
+   "merge": [
+    "OBS/response/component_partition",
+    "OBS/response/trend"
+   ],
+   "into": "OBS/response/trend",
+   "attr": "attrs.aspect = partition",
+   "why": "Candidate O2, with P1. Usage [3,3]. Not needed in my 4 papers. The op compare_coplotted_quantities already carries the 'total vs parts' reading."
+  },
+  {
+   "merge": [
+    "OBS/response/regime_map",
+    "OBS/response/trend"
+   ],
+   "into": "OBS/response/trend",
+   "attr": "attrs.dimension = 2D",
+   "why": "Candidate O1. Usage [1,1]. Two near-cases in Journal_of_Advanced_Ceramics/s40145-021-0458-1 did not need it: the enthalpy-vs-pressure crossings (a10) are characteristic points, and the shaded band-gap regimes on a 1D pressure axis (a21) are a trend. Nothing in r04 so far argues from a 2D state map."
+  },
+  {
+   "merge": [
+    "flag_outlier",
+    "cross_check_consistency"
+   ],
+   "into": "cross_check_consistency",
+   "attr": "attrs.aspect = outlier",
+   "why": "Candidate K1. Usage [1,1]; not needed in my papers. The discrepancy audits I did write (JMA2021 c20 ranking conflict, c28 dose-response step) were typed with compare_across_conditions or correlate_across_series on qualifies edges."
+  }
+ ],
+ "splits": [],
+ "keep": [
+  {
+   "entry": "collapse_by_normalization",
+   "why": "Candidate K1 lists it for pruning at [2,1]. Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010#b21 (F8b) is a second paper, and a textbook case: central (0002) intensity from 12 one-step and two-step annealing conditions falls on one line (adj. R2 0.974) once plotted against grain size instead of time or temperature. The paper's inference ('texture is governed by grain size, not route') rests on the merge itself. The op also has its own audit: a single high-leverage point (450 C/10 s at 9.6 um) sets the slope, and collapse alone cannot license the paper's further claim of equal growth rates (b25). New usage [3,2]; keep it."
+  },
+  {
+   "entry": "PRP/diagnostic",
+   "why": "No use in my papers and no evidence either way. I abstain on P2."
+  }
+ ],
+ "indistinguishable": [
+  {
+   "entries": [
+    "mm_op read_trend",
+    "mm_op read_characteristic_point"
+   ],
+   "refs": [
+    "Journal_of_Advanced_Ceramics/s40145-021-0458-1#a10->a11",
+    "Journal_of_Advanced_Ceramics/s40145-021-0458-1#a10->a12"
+   ],
+   "issue": "Both definitions claim crossings ('including crossings of overlaid curves' vs 'threshold crossing'). The enthalpy-vs-pressure crossing that fixes the alpha->beta transition at 80 GPa fits both.",
+   "suggest": "If the crossing yields a transition value, use read_characteristic_point. Keep only 'change of ranking' in read_trend, and delete 'crossings of overlaid curves' from it."
+  },
+  {
+   "entries": [
+    "OBS/signal/feature_quantification",
+    "OBS/response/trend"
+   ],
+   "refs": [
+    "Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010#b12",
+    "Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010#b41",
+    "Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010#b14",
+    "Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010#b15"
+   ],
+   "issue": "The same reading (texture intensity falls or rises with annealing time) is signal/feature_quantification when read from pole figures (orientation_distribution), and response/trend when read from the extracted MRD-vs-time plot (xy_curve).",
+   "suggest": "No merge. Add a boundary sentence: the panel decides. A feature read from a raw pattern or pole figure is OBS/signal. A plotted quantity against a variable is OBS/response, with a derives edge from the pattern node when both are present (as in b16 -> b14/b15)."
+  },
+  {
+   "entries": [
+    "MEC/identification",
+    "MEC/pathway"
+   ],
+   "refs": [
+    "Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010#b20",
+    "Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010#b23"
+   ],
+   "issue": "'Grain growth, not recrystallization, drives the texture transition' picks one of two catalogued processes, but it does so through a decoupling experiment (two-step anneal), not through a diagnostic value and a lookup as the definition says. I typed it identification with fit=poor.",
+   "suggest": "Broaden MEC/identification with: 'or by an experiment that isolates one candidate (decoupling, selective suppression)'. The next inference is the same (alternatives ruled out)."
+  },
+  {
+   "entries": [
+    "DES/route",
+    "DES/method",
+    "DES/variable_sweep"
+   ],
+   "refs": [
+    "Journal_of_Magnesium_and_Alloys/j.jma.2019.07.010#b7"
+   ],
+   "issue": "A processing schedule designed as an experimental control (180 C/5 h to finish recrystallization without growth, then 250 C) is a route, a method (it enables a measurement) and a sweep at once.",
+   "suggest": "Boundary sentence under DES/route: 'a processing schedule chosen to isolate one process is DES/route with attrs.purpose=decouple'. No new leaf."
+  },
+  {
+   "entries": [
+    "PRC/treatment",
+    "PRC/stimulus"
+   ],
+   "refs": [
+    "Journal_of_Advanced_Ceramics/s40145-021-0458-1#a9",
+    "Journal_of_Advanced_Ceramics/s40145-021-0458-1#a18"
+   ],
+   "issue": "In a computation-only high-pressure paper, one act (in-silico hydrostatic compression) makes the phase (treatment/synthesis role) and also probes its band structure (stimulus role). I split it into two nodes by role; a9 is marked fit=poor.",
+   "suggest": "Add to PRC/stimulus: 'in computation papers, a pressure/strain applied to read a property is stimulus; one applied to find the stable phase that is then kept is treatment (attrs.in_silico=true)'."
+  }
+ ],
+ "unused_in_my_papers": [
+  "PRP/partition",
+  "PRP/diagnostic",
+  "PRF/figure_of_merit",
+  "PRF/qualification",
+  "OBS/response/regime_map",
+  "OBS/response/component_partition",
+  "OBS/response/distribution",
+  "STR/defect/point",
+  "STR/defect/extended",
+  "STR/phase/site_occupancy",
+  "STR/microstructure/damage",
+  "DES/architecture",
+  "PRC/deposition",
+  "PRC/joining",
+  "KNW/lookup",
+  "mm_ops: match_to_reference, match_to_design, recognize_signature, quantify_from_intensity, quantify_from_position, convert_via_calibration, fit_model, subtract_reference, overlay_model_on_data, flag_outlier, read_distribution_statistics"
+ ],
+ "comments": "Confirmation round: 146 nodes over 4 papers (a computation-only high-pressure oxide, two Mg metallurgy papers, a W-Y2O3 powder-route paper), all typed with v03 entries. I propose 0 new types, rels, mm_ops or modalities; 3 nodes are fit=poor (A#a9, B#b7, B#b20), each resolvable by one boundary sentence (see 'indistinguishable'). Contentious points: (1) Keep collapse_by_normalization (JMA2019 F8b); it is now [3,2], and pruning it would force the evidence into read_trend, which does not say that the argument rests on the merge. (2) I support C1, Q2, P1+O2, O1 and flag_outlier -> cross_check_consistency. My test edges lost no information under the merged names. Q1 has no evidence in my set: the only Scherrer reading (JMST d10) is text_only because the packet's XRD image is missing. (3) PACKET ANOMALY, JMST j.jmst.2019.08.010: packet F2 carries the caption of paper Fig. 1 (XRD) but the image is paper Fig. 2 (SEM/TEM of BM and FD powders); F1 is a caption page. As in the r03 Acta case, figure ids follow the image files. Also, in JAC s40145-021-0458-1 packet F5 is paper Fig. 6, and paper Fig. 5 is absent. (4) Budget: I opened 4 figures per paper. Nodes on figures I did not open carry attrs.image_checked=false; their image_support is judged from caption and text. The judge may wish to discount them. (5) Multimodal audits worth a look: A#a33 (text-silent; the 0 GPa Tauc edge at 2.8 eV lies inside the plotted visible window, so the 'transparent' claim fails for violet light and at 13 GPa); C#c20 (the F8b compression curves rank 0.15 wt% highest, not 0.1 wt% as the text says); C#c28 (the CTE falls 72% at the first 0.05 wt% ND addition and then barely changes, against the paper's interface-density mechanism; F9c and F9d use different exponents)."
+}

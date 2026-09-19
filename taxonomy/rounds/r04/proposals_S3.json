@@ -1,0 +1,67 @@
+{
+ "staff": "S3",
+ "papers": [
+  "Advanced_Materials/10.1002_adma.201404945",
+  "Advanced_Materials/10.1002_adma.201706311",
+  "Bioactive_Materials/j.bioactmat.2020.11.026",
+  "Bioactive_Materials/j.bioactmat.2021.03.045"
+ ],
+ "types": [],
+ "rels": [],
+ "mm_ops": [],
+ "modalities": [],
+ "merges": [
+  {
+   "merge": ["track_feature_across_series (spectral/diffraction-stack use)", "compare_across_conditions"],
+   "into": "compare_across_conditions; track_feature_across_series kept only for identified objects through frame sequences",
+   "why": "Judge candidate C1 (usage compare_across_conditions [98,26], track [17,9]). In my 4 papers the spectral stacks (absorbance vs QD wt%, AdvMat 201404945#a23; post-immersion XRD across alloys, bioactmat.2021.03.045#z22) were read with compare_across_conditions / assign_features with no loss, because the OBS type (feature_quantification, feature_presence) already says what changes. The one edge that needed track_ was an object-identity reading: which layer is locked in each compression photograph (AdvMat 201706311#o22->o23/o24); identity of the layer across frames is what licenses the locking-order MEC (o24). That use keeps its information under the restricted definition.",
+   "evidence": ["Advanced_Materials/10.1002_adma.201404945#a23", "Bioactive_Materials/j.bioactmat.2021.03.045#z22", "Advanced_Materials/10.1002_adma.201706311#o22"]
+  },
+  {
+   "merge": ["extract_slope", "fit_model"],
+   "into": "fit_model (attrs.form = linear_segment | power_law | arrhenius | model)",
+   "why": "Judge candidate Q2 (extract_slope [7,6], fit_model [4,3]). I could not tell them apart on AdvMat 201706311#o13->o14: the pre/post-locking stiffnesses are slopes of straight segments reported with R2, i.e. both 'slope of a line' and 'one-parameter fit'. I chose fit_model; another annotator would reasonably choose extract_slope, so the pair splits identical acts across two labels. The diagnostic chain (slope -> PRP/diagnostic -> KNW/lookup) stays visible through the dst type, not the op. Nothing is lost if attrs.form records the linearised form.",
+   "evidence": ["Advanced_Materials/10.1002_adma.201706311#o14"]
+  },
+  {
+   "merge": ["PRP/partition", "PRP/value"],
+   "into": "PRP/value (attrs.aspect = partition)",
+   "why": "Judge candidate P1 (partition [2,2]). Never needed in 4 papers. The one partition-like reading I met (origami stiffness from crease bending before locking, from facet bending/twisting after; FE stress render F2e, AdvMat 201706311#o17->o18) is carried entirely by MEC/pathway + compare_across_conditions; a PRP/partition node would have duplicated the MEC. Support merge together with O2.",
+   "evidence": ["Advanced_Materials/10.1002_adma.201706311#o18"]
+  },
+  {
+   "merge": ["OBS/response/component_partition", "OBS/response/trend"],
+   "into": "OBS/response/trend (the op compare_coplotted_quantities carries the dominance reading)",
+   "why": "Judge candidate O2 (component_partition [3,3]). Never needed; coplotted quantities in my papers (absorbance vs ON/OFF, FE vs experiment curves) were typed trend/characteristic_value with the op naming the comparison. No r04 node of mine would lose information.",
+   "evidence": []
+  },
+  {
+   "merge": ["flag_outlier", "subtract_reference", "collapse_by_normalization"],
+   "into": "prune: flag_outlier -> cross_check_consistency; subtract_reference -> replot_derived_series; collapse_by_normalization -> overlay_model_on_data or cross_check_consistency",
+   "why": "Judge candidate K1. None used on 189 edges in my 4 r04 papers (and only 1-2 uses in r01-r03). quantify_from_position also had zero uses here.",
+   "evidence": []
+  }
+ ],
+ "splits": [
+  {
+   "entry": "OBS/response/regime_map",
+   "proposal": "Do NOT merge regime_map into trend wholesale (judge O1). Split by reading: contour maps of a single response over two design variables go to OBS/response/trend with attrs.dimension=2D; regime_map is kept for boundaries between states and for coexistence/stability windows, including 1-D ones (bistable frequency band, hysteresis window).",
+   "why": "Two r04 nodes in one paper test O1 from both sides. AdvMat 201706311#o6 (F1d,e: deformability and relative-volume contours over sector angles) is a trend in 2D; typing it trend lost nothing. But #o31 (F4c: high- and low-amplitude response branches coexist between ~12 and 25 Hz) is read for which state(s) exist at a given condition; the next node is a bistability PRF claim, which a trend (direction/monotonicity) does not license. The definition should say '1-D windows included' so this does not look like a poor fit.",
+   "examples": ["Advanced_Materials/10.1002_adma.201706311#o6", "Advanced_Materials/10.1002_adma.201706311#o31"]
+  }
+ ],
+ "indistinguishable_in_practice": [
+  {
+   "entries": ["OBS/response/trend", "OBS/response/characteristic_value"],
+   "nodes": ["Bioactive_Materials/j.bioactmat.2021.03.045#z17", "Bioactive_Materials/j.bioactmat.2021.03.045#z18", "Bioactive_Materials/j.bioactmat.2020.11.026#s15", "Bioactive_Materials/j.bioactmat.2020.11.026#s16", "Bioactive_Materials/j.bioactmat.2020.11.026#s18"],
+   "note": "Bar charts or curves of categorical groups (coated/uncoated, alloy A/B/C) are readable either as 'value at a condition' or as 'ranking'. I used trend when the ranking is the claim (s18, z18) and characteristic_value when named levels are read (s16, z17), but the choice is arbitrary for biomedical group comparisons, which dominate these journals. Proposed boundary text for trend: 'categorical groups ranked against each other = trend (attrs.aspect=ranking); named levels such as Ecorr or onset = characteristic_value.' No merge: the two leaves diverge clearly on continuous variables."
+  },
+  {
+   "entries": ["STR/chemistry/composition", "STR/phase/identity"],
+   "nodes": ["Bioactive_Materials/j.bioactmat.2020.11.026#s11", "Bioactive_Materials/j.bioactmat.2020.11.026#s12", "Bioactive_Materials/j.bioactmat.2021.03.045#z24"],
+   "note": "Coating 'phases' (brushite, MgF2, strontium phosphate) named only from EDS stoichiometry (Ca:P ~1:1) vs degradation products identified by XRD (ZnO, CaCO3). Proposed boundary text: a phase named without diffraction/spectroscopic structural evidence is STR/chemistry/composition with attrs.phase_named_from = stoichiometry; phase/identity requires structure-sensitive evidence. This matters because the audit s14 (inner 'MgF2' layer is Ca/P-dominated) only arises when the phase claim is seen to rest on composition."
+  }
+ ],
+ "never_needed_believed_redundant": ["PRP/partition", "OBS/response/component_partition", "flag_outlier", "subtract_reference", "collapse_by_normalization"],
+ "comments": "Confirmation round: 154 nodes / 189 edges over 4 papers (device photonics, architected metamaterial, two in-vivo biodegradable-metal papers). Every node is typed with a v03 entry, none poor and none proposed, so I make no type or op proposals. Boundary text did the work, as the judge predicted: in-vivo degradation -> PRP chemical_corrosion (s28, z39); bone endpoints -> PRF/service_capability (s32, z36); host-free cell data -> PRP biological; direct-write NW arches and laser drilling -> PRC/forming (a8, z8); hot extrusion of cast billets -> PRC/treatment (s6, z7); screen-then-choose -> DES/down_select via motivates (z16). Two small boundary gaps for the judge: (1) chemical conversion coatings (Sr-P, fluoride + Ca-P on Mg; s7, s8) react with the substrate rather than 'apply material'; I typed PRC/deposition with attrs.aspect=conversion and suggest one sentence in its definition. (2) Metamaterial prototypes: 'self-locking' is a kinematic behaviour of the built cell, and PRP/behavior_class with attrs.object carried it (o7). Figure-reading notes: (a) Bioactive 2021.03.045 packet is missing paper Fig. 5 (micro-CT); packet F5-F7 are paper Figs 6-8. (b) In Bioactive 2020.11.026 F3a the Sr-P OCP drifts ~75 mV toward active in the first 400 s, whereas the text says both coatings drift noble (s15 marked partial); F3a's axis says mV but values are in V. (c) The MatMech record for 2020.11.026 gives Ca-P in-vivo CR 0.032 mm/y; F7B shows ~0.35 mm/y. (d) AdvMat 201706311 F4c (dynamic bistability) is computed only, although the MatMech record calls it an experiment. Budget note: I opened 4 figures per paper (16 total). Figures I did not open appear as OBS with figs=[] and attrs.fig_ref, so no image_support is claimed for them."
+}

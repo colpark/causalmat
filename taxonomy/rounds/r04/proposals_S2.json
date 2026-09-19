@@ -1,0 +1,167 @@
+{
+ "staff": "S2",
+ "papers": [
+  "Advanced_Energy_Materials/aenm.201401880",
+  "Advanced_Energy_Materials/aenm.201501833",
+  "Advanced_Functional_Materials/10.1002_adfm.201806877",
+  "Advanced_Functional_Materials/10.1002_adfm.202002943"
+ ],
+ "types": [
+  {
+   "path": "STR/chemistry/bonding",
+   "kind": "broaden (boundary text, no new leaf)",
+   "definition": "Add: noncovalent intermolecular packing of molecular units: pi-pi stacking, J-/H-aggregation, host-guest inclusion that blocks stacking, donor-acceptor charge-transfer cocrystals (attrs.aspect=intermolecular_packing).",
+   "why_not_existing": "Two nodes in one review needed it and were typed bonding, fit poor. STR/phase/identity (mesoscale) is for periodic lattices, not dye packing, and STR/microstructure is for particle-scale units. The next step, packing -> exciton or charge-transfer coupling -> absorption shift or quenching, is the bond-level-change -> property step that bonding already licenses, so a leaf would not change the reasoning. It is general in dye, AIE, organic-semiconductor and cocrystal papers.",
+   "examples": [
+    "Advanced_Functional_Materials__10.1002_adfm.201806877#r14",
+    "Advanced_Functional_Materials__10.1002_adfm.201806877#r15"
+   ]
+  },
+  {
+   "path": "MEC/pathway",
+   "kind": "broaden (boundary text; extends r03 ruling #18)",
+   "definition": "Add: in-vivo biodistribution of the material itself (tumour accumulation by EPR, retention, clearance), when it is invoked to explain an in-vivo endpoint, is MEC/pathway (mechanism_class=pharmacokinetic), evidenced by in-vivo imaging OBS (spatial_map).",
+   "why_not_existing": "The r03 rule covers host biomarkers but not where the material goes. Accumulation is not an endpoint (PRF) and not a property measured on the material (PRP). It is the causal link between nanoscale size and in-vivo heating. One node here, but every nanomedicine paper has it.",
+   "examples": [
+    "Advanced_Functional_Materials__10.1002_adfm.201806877#r24"
+   ]
+  }
+ ],
+ "rels": [],
+ "mm_ops": [
+  {
+   "name": "compare_coplotted_quantities",
+   "kind": "broaden (definition text)",
+   "definition": "Add: the two quantities may sit in different figures that share the same axis quantity and units (emission spectrum in one figure read against an absorption spectrum in another). Audit: same medium and state (solution vs film) and the same axis scale. A NON-overlap reading is also a result: it rules out the overlap mechanism for that species and forces an alternative pathway.",
+   "why_not_existing": "T#t13 reads Eu emission (F4, 611 nm) inside the closed-DTE absorption band (F2, 530-720 nm), and Yb emission (970 nm) where the closed form has no absorption. This is the r03 overlap act with the panels split across figures. correlate_across_series does not fit, because no sample series co-varies.",
+   "examples": [
+    "Advanced_Functional_Materials__10.1002_adfm.202002943#t13->t14"
+   ]
+  }
+ ],
+ "modalities": [],
+ "merges": [
+  {
+   "merge": [
+    "track_feature_across_series (spectral/diffraction-stack use)",
+    "compare_across_conditions"
+   ],
+   "into": "compare_across_conditions",
+   "why": "C1. Usage track_ [17,9] vs compare_across_conditions [98,26]. r04 test: R#r12->r14 (ICG band 780->805 nm over 60 min) I typed track_. Retyping it compare_across_conditions loses nothing, because OBS/signal/feature_shift aspect=shift plus attrs already say a single band moved. T#t16/t26 (emission decay over repeated cycles) went to compare_across_conditions without friction. Keep track_ only for object identity in frame sequences; none of my papers had one."
+  },
+  {
+   "merge": [
+    "quantify_from_intensity",
+    "quantify_from_position",
+    "convert_via_calibration"
+   ],
+   "into": "convert_to_quantity (attrs.via = intensity | position | calibration | known_relation)",
+   "why": "Q1. Usage [8,6]+[2,2]+[5,2]. In r04, via was trivially fillable on every edge: A#n10->n13 (EDS intensities -> at%), T#t15->t17 and T#t25->t28 (emission intensity -> % quenched), R#r16->r18 (fluorescence ratio). B#m26o->m27 (discharge time -> capacitance by C = I*dt/dV) had no quantify home and went to replot_derived_series. A merged op with via=known_relation covers it. Keep each via's audit sentence: calibration range for calibration, background subtraction for intensity (T#t25: a raw 10% becomes 6% after background)."
+  },
+  {
+   "merge": [
+    "PRP/partition",
+    "PRP/value"
+   ],
+   "into": "PRP/value (attrs.aspect=partition)",
+   "why": "P1. Usage [2,2]. Not needed in 4 papers. The closest case, A F3e/f (disk vs ring currents -> 4e vs 2e pathway), was carried by OBS trend -> derived Faradaic efficiency -> PRF (A#n24o->n24->n25) with no loss."
+  },
+  {
+   "merge": [
+    "OBS/response/component_partition",
+    "OBS/response/trend"
+   ],
+   "into": "OBS/response/trend (op compare_coplotted_quantities carries the dominance reading)",
+   "why": "O2, together with P1. Usage [3,3]. Same A F3e case: the co-plotted disk/ring currents were typed trend and read without loss."
+  },
+  {
+   "merge": [
+    "OBS/response/regime_map",
+    "OBS/response/trend"
+   ],
+   "into": "OBS/response/trend (attrs.dimension=2D)",
+   "why": "O1. Usage [1,1]. None of my 4 papers (2 electrochemistry, 1 review, 1 photochemistry) needed it."
+  },
+  {
+   "merge": [
+    "flag_outlier",
+    "cross_check_consistency"
+   ],
+   "into": "cross_check_consistency",
+   "why": "K1. Usage [1,1]. My anomaly readings (B#m36 energy-density arithmetic, T#t24 cycling below PSS, A#n30 DFT/experiment ranking) were all cross_check_consistency, which flags and explains the deviant value."
+  },
+  {
+   "merge": [
+    "subtract_reference",
+    "replot_derived_series"
+   ],
+   "into": "replot_derived_series",
+   "why": "K1. Usage [1,1]. The only subtraction in r04 (the T#t25 emission background) was a step inside a quantify act and needed no op of its own."
+  }
+ ],
+ "keep_arguments": [
+  {
+   "entry": "PRP/diagnostic",
+   "position": "KEEP (P2)",
+   "why": "A Tafel slope in A (n19) is used only as an activity ranking, with no KNW/lookup after it, so it went to trend -> PRP/value. The same quantity used to identify a rate-determining step would be PRP/diagnostic. The leaf marks a difference in role that the attrs would hide, which is the kind of distinction a type should carry."
+  },
+  {
+   "entry": "PRF/figure_of_merit vs PRF/qualification",
+   "position": "KEEP both (F1)",
+   "why": "Separated cleanly in r04: B#m35 energy density at a power density (a combined metric) vs A#n22 eta10 (a community benchmark condition)."
+  }
+ ],
+ "hard_to_distinguish": [
+  {
+   "entries": [
+    "OBS/signal/feature_presence",
+    "OBS/signal/feature_quantification"
+   ],
+   "nodes": [
+    "Advanced_Functional_Materials__10.1002_adfm.202002943#t9",
+    "Advanced_Functional_Materials__10.1002_adfm.202002943#t21",
+    "Advanced_Functional_Materials__10.1002_adfm.202002943#t15",
+    "Advanced_Functional_Materials__10.1002_adfm.202002943#t25",
+    "Advanced_Energy_Materials__aenm.201501833#m7"
+   ],
+   "note": "When a band grows or decays continuously, 'appears/vanishes' and 'falls to 2-6%' are one reading at two precisions. My choice followed whether the paper quotes a residual %. Proposed rule: presence when qualitative on/off is argued; quantification when the residual or degree is argued. No merge."
+  },
+  {
+   "entries": [
+    "STR/microstructure/shape",
+    "STR/microstructure/porosity"
+   ],
+   "nodes": [
+    "Advanced_Energy_Materials__aenm.201401880#n15",
+    "Advanced_Energy_Materials__aenm.201501833#m17",
+    "Advanced_Energy_Materials__aenm.201501833#m19"
+   ],
+   "note": "Hollow particles (single inner cavity) fit both. Proposed boundary: a single designed cavity or shell is shape; pore volume fraction or specific surface area is porosity."
+  },
+  {
+   "entries": [
+    "MEC/pathway",
+    "PRF/service_capability"
+   ],
+   "nodes": [
+    "Advanced_Functional_Materials__10.1002_adfm.201806877#r24"
+   ],
+   "note": "In-vivo accumulation of the material. See the MEC/pathway broadening above."
+  }
+ ],
+ "never_needed": [
+  "OBS/response/component_partition",
+  "OBS/response/regime_map",
+  "PRP/partition",
+  "flag_outlier",
+  "subtract_reference",
+  "collapse_by_normalization",
+  "STR/defect/*",
+  "STR/microstructure/orientation",
+  "STR/microstructure/damage",
+  "PRC/joining",
+  "PRC/treatment"
+ ],
+ "never_needed_note": "Only the first five I consider redundant (see merges). The STR/PRC leaves are unused because of my paper mix (no metallurgy), not because they are redundant.",
+ "comments": "Round 4, confirmation. 144 nodes over 4 papers, all typed with v03 entries: 0 proposed types, 3 poor fits (R#r14, R#r15, R#r24). Two boundary broadenings and one mm_op broadening would absorb all three. None needs a new leaf. (1) Review papers (R) have a provenance gap. Every OBS is a figure reproduced from a cited study, so 'measured' is true of the source but not of this paper. I used attrs.reproduced_from=[ref] and suggest writing this into the provenance note rather than adding a value. Review graphs also compress several case studies onto one generic chain, and the useful audit is whether the reproduced evidence isolates the claimed effect (R#r29: only one of four cases has a free-dye control). (2) Figures not opened (schematics, structure views) are recorded as attrs.fig_ref_unopened with figs=[], so that image_support is never asserted unseen. (3) Numbers from figures vs text: A eta 'onset 0.25 V' is not resolvable in F3a (departure at ~1.52 V); R F5B quench reads ~76% vs text 70%; R F4D plateau ~68 C vs text ~65 C; T film quench ~6% residual after background vs text 5%. (4) Text-silent audits that matter: A#n11 (EDS dominated by Cu and S), B#m16 (unmentioned particulate population), B#m30 (battery-type plateau under an F/g capacitance claim), T#t24 (5ooo fatigue cycles run at under half of PSS conversion). (5) Packet notes: in B the packet F-ids are offset from paper numbering (F2 = paper Fig 1), and the F5d caption names two materials but shows one. R F2 and T F7/F8 have no caption."
+}

@@ -1,0 +1,129 @@
+{
+ "staff": "S8",
+ "papers": [
+  "Progress_in_Organic_Coatings/j.porgcoat.2013.10.008",
+  "Progress_in_Organic_Coatings/j.porgcoat.2019.06.017",
+  "Rare_Metals/s12598-020-01527-w",
+  "Rare_Metals/s12598-020-01698-6"
+ ],
+ "types": [],
+ "rels": [],
+ "mm_ops": [],
+ "modalities": [],
+ "merges": [
+  {
+   "merge": [
+    "track_feature_across_series (spectral/diffraction-stack use)",
+    "compare_across_conditions"
+   ],
+   "into": "compare_across_conditions",
+   "why": "Judge candidate C1. Usage: compare_across_conditions [98, 26], track_feature_across_series [17, 9]. In r04 every stacked-trace reading I made was a compare act, and the OBS type already said which feature was followed: Progress_in_Organic_Coatings__j.porgcoat.2013.10.008#p8 (basal reflection 7.9 -> 4.9 deg, OBS/signal/feature_shift) and #p11 (basal reflection absent, feature_presence), Progress_in_Organic_Coatings__j.porgcoat.2019.06.017#q9 (915 cm-1 epoxy band before/after in 4 stacked pairs), Rare_Metals__s12598-020-01698-6#c9 (XRD broadening micro vs nano). Nothing was lost by using compare_across_conditions. Keep track_feature_across_series only for following an identified object through frames (its identity/aliasing audit is real), and delete the spectral clause from its definition. No name change, so no migration counts as a new leaf."
+  },
+  {
+   "merge": [
+    "quantify_from_intensity",
+    "quantify_from_position",
+    "convert_via_calibration"
+   ],
+   "into": "convert_to_quantity (attrs.via = intensity | position | calibration)",
+   "why": "Judge candidate Q1. Usage: quantify_from_intensity [8, 6], quantify_from_position [2, 2], convert_via_calibration [5, 2]. The r04 test was whether `via` can be filled reliably, and it can: Progress_in_Organic_Coatings__j.porgcoat.2013.10.008 edge p8->p9 (2theta -> d001 by Bragg, via=position) and Rare_Metals__s12598-020-01698-6#c15 (Cu+/Cu2+ from XPS peak areas, via=intensity, text-only) needed no judgement. The failure mode differs only in which relation is trusted, and that follows from `via`. Condition: the merged definition must keep the calibration audit (target inside the calibrated range, monotone inversion) as the via=calibration clause, since that audit changed spine support in r03."
+  },
+  {
+   "merge": [
+    "extract_slope",
+    "fit_model"
+   ],
+   "into": "fit_model (attrs.form = linearised | nonlinear | decomposition)",
+   "why": "Judge candidate Q2. Usage: extract_slope [7, 6], fit_model [4, 3]. I could not draw the boundary in practice. Rare_Metals__s12598-020-01527-w r28->r29 (b from lg i vs lg v, a slope) and r27->r32 (Dunn i = k1 v + k2 v^1/2, which is also a straight-line fit of i/v^1/2 vs v^1/2 at each potential) are the same act, but the current definitions send one to extract_slope and one to fit_model. Progress_in_Organic_Coatings__j.porgcoat.2013.10.008 p17->p18 (Tafel extrapolation: two line fits plus an intersection) sits on the same boundary. The diagnostic chain the judge wanted to keep visible is already shown by the node types: r29 PRP/diagnostic -> r30 KNW/lookup -> r34 MEC/identification. The op does not need to name it again."
+  },
+  {
+   "merge": [
+    "PRP/partition",
+    "PRP/value"
+   ],
+   "into": "PRP/value (attrs.aspect = partition)",
+   "why": "Judge candidate P1. Usage: PRP/partition [2, 2]. In Rare_Metals__s12598-020-01527-w#r35 ('88-90% of stored charge is capacitive') the partition claim is the mechanism identification r34 ('storage is surface-controlled') stated as a number. The next spine step (rate capability r37) follows from the identification, not from the partition leaf. The dominant-term reading is carried by OBS/response/component_partition (r32) and compare_coplotted_quantities, so nothing is lost at PRP level."
+  },
+  {
+   "merge": [
+    "OBS/response/regime_map",
+    "OBS/response/trend"
+   ],
+   "into": "OBS/response/trend (attrs.dimension = 2D)",
+   "why": "Judge candidate O1. Usage [1, 1]. Not needed in any of my 4 papers (2 coatings, 1 battery, 1 thermoelectric). I support the merge unless another r04 staff brings TTT or phase-diagram papers."
+  },
+  {
+   "merge": [
+    "flag_outlier",
+    "cross_check_consistency"
+   ],
+   "into": "cross_check_consistency",
+   "why": "Judge candidate K1. Usage: flag_outlier [1, 1]. Never needed in r04. The anomalies I met (Rare_Metals__s12598-020-01698-6#c13, #c23) are readings that fail to close against another figure, which is cross_check_consistency. subtract_reference [1, 1] and collapse_by_normalization [2, 1] were also never needed. subtract_reference -> replot_derived_series, as the judge proposes: the kappa_L = kappa - L sigma T subtraction in c26->c27 was naturally typed replot_derived_series."
+  }
+ ],
+ "splits": [],
+ "indistinguishable_in_practice": [
+  {
+   "entries": [
+    "OBS/signal/feature_presence",
+    "OBS/signal/feature_quantification"
+   ],
+   "nodes": [
+    "Progress_in_Organic_Coatings__j.porgcoat.2019.06.017#q9"
+   ],
+   "note": "A band that only weakens ('diminished to some extent', 915 cm-1 still visible) fits both: presence covers 'disappears' and quantification covers 'fades'. The inferences do differ (conversion happened vs degree of conversion), so a merge is not proposed. Boundary text instead: presence = complete appearance/disappearance, or a qualitative yes/no reading; a partial change in intensity is quantification even when read qualitatively. q9 is marked fit poor for this reason."
+  },
+  {
+   "entries": [
+    "PRF/qualification",
+    "PRP/value",
+    "PRF/figure_of_merit"
+   ],
+   "nodes": [
+    "Progress_in_Organic_Coatings__j.porgcoat.2019.06.017#q20",
+    "Progress_in_Organic_Coatings__j.porgcoat.2013.10.008#p31",
+    "Progress_in_Organic_Coatings__j.porgcoat.2013.10.008#p30"
+   ],
+   "note": "Coatings papers report standard-test ratings (cross-cut grade 0-5 by GB/T 9286 or ASTM D3359) and normalised efficiencies (protection efficiency from Rp). By the v03 boundary, a rating ranked against formulation is PRP/value, but the same grade phrased as 'reaches level 0' reads as qualification. PEF is a single-property normalisation, so it is not a figure_of_merit (which combines properties), yet it is used as a performance metric. I typed ratings as PRP/value and routed PEF as a derived OBS into PRF/service_capability. Suggest one sentence: a standard rating is PRF/qualification only when it is compared with a pass threshold or spec; a normalised single-property efficiency is an OBS (derived), not a PRF leaf."
+  },
+  {
+   "entries": [
+    "STR/microstructure/distribution",
+    "STR/interface"
+   ],
+   "nodes": [
+    "Rare_Metals__s12598-020-01527-w#r13",
+    "Rare_Metals__s12598-020-01527-w#r14"
+   ],
+   "note": "'Nanosheets anchored on graphene' is both dispersion-on-support and contact state. I split it because the paper argues electron transfer from the contact, but both nodes rest on the same TEM/EDS and lead to the same MEC. This is not a merge case in general (reaction layers, coherency), only a practical overlap for supported-nanosheet composites."
+  },
+  {
+   "entries": [
+    "PRC/stimulus",
+    "PRF/* attrs.condition"
+   ],
+   "nodes": [
+    "Progress_in_Organic_Coatings__j.porgcoat.2013.10.008#p32",
+    "Progress_in_Organic_Coatings__j.porgcoat.2019.06.017#q33",
+    "Progress_in_Organic_Coatings__j.porgcoat.2019.06.017#q30",
+    "Rare_Metals__s12598-020-01527-w#r38"
+   ],
+   "note": "In all four papers the stimulus (30-day immersion, 300 C oven, 1990 galvanostatic cycles) is a standard service test, and the PRF node's attrs.condition carries it fully. A PRC/stimulus node would add nothing. Suggest a usage note: PRC/stimulus is needed only when the exposure produces a structural state that is argued (post-mortem STR), not for every service test."
+  }
+ ],
+ "never_needed": [
+  "OBS/response/regime_map",
+  "STR/phase/site_occupancy",
+  "STR/defect/extended",
+  "STR/microstructure/orientation",
+  "PRC/joining",
+  "track_feature_across_series",
+  "subtract_reference",
+  "collapse_by_normalization",
+  "flag_outlier",
+  "read_distribution_statistics",
+  "match_to_design",
+  "recognize_signature"
+ ],
+ "comments": "Confirmation round: 150 nodes in 4 papers, all typed with v03, no new type/op/rel/modality proposed, 1 poor fit (q9, a boundary issue). Every poor fit I considered was solved by existing boundary text: in-situ RTV cure = PRC/deposition (r02 precedent), electrostatic self-assembly in dispersion = PRC/synthesis, mix+anneal of a made powder = PRC/treatment, prepolymer storability = PRP/value with object=prepolymer. Contentious points: (1) Keep PRP/diagnostic (P2). Rare_Metals__s12598-020-01527-w#r29 (b-value) -> KNW/lookup r30 -> MEC/identification r34 is exactly the chain the leaf exists to expose, and typing r29 as PRP/value would hide why a lookup follows. The leaf, not the op, is what makes the chain readable, which is also why extract_slope can merge. (2) Keep OBS/response/component_partition, against O2. Rare_Metals__s12598-020-01527-w#r32 (F5c: capacitive share of one CV at one sweep rate) has no varied variable, so 'trend' would misdescribe it; r33 (share vs sweep rate) is correctly a trend. If O2 goes ahead, single-condition decompositions should go to characteristic_value with aspect=partition, not to trend. (3) MatMech extraction reliability: in three of my four papers the MatMech summaries carry numbers that are not in the figures (POC2013 |Z| 1e6 Ohm cm2 at 0.1 Hz where F6 shows <=1.5e4 Ohm down to 1 Hz; RM01527 '200 mAh/g after 1900 cycles' where F4 shows ~105; RM01698 'kappa_L reduced' where F5e shows kappa_L higher below 700 K). Staff should not seed labels from the MatMech block. (4) Notable figure-level audits: RM01698 c23 (cross_check_consistency: F6b carrier densities against F5a sigma and F6a mu, off by ~10x) and c26/c28 (total kappa and kappa_L of the multiscale samples higher than the reference at most temperatures, which the text never says); POC2019 q24 (DTG does not show the stated 95 C Tmax gain) and q28 (air heat test reverses the N2 TGA ranking); POC2013 p12 (XRD intensity rising toward the 2 deg limit leaves intercalation open) and p22 (impedance 4-5 orders below an intact barrier coating). (5) Packet anomaly: RM01698 anneal/SPS order is ambiguous between the MatMech block (SPS then anneal) and the text ('tetragonal retained after SPS'); recorded in notes. Figure ids follow the image files."
+}
