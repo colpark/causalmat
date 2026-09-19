@@ -1,0 +1,48 @@
+{
+ "staff": "S2",
+ "papers": [
+  "Advanced_Materials/10.1002_adma.200903105",
+  "Bioactive_Materials/j.bioactmat.2020.09.001",
+  "Biomaterials/j.biomaterials.2005.02.033",
+  "Biomaterials/j.biomaterials.2013.05.005"
+ ],
+ "types": [
+  {
+   "path": "OBS/signal/feature_shift",
+   "kind": "broaden (no new leaf)",
+   "definition": "A feature's position read relative to a reference: moving across a series or condition (shift), OR offset/overlap against a feature of another species or quantity on the same axis (emission vs absorption band, emission vs photonic stopband, band edge vs source spectrum). Direction, magnitude and reference feature in attrs",
+   "why_not_existing": "The v02 leaves have no home for a band-position reading against a different species' band. feature_assignment maps a feature to its origin, and reference_match compares a whole pattern with the same quantity. Broadening feature_shift is a better fit than adding a sibling, because the read feature is the same (position) and only the reference differs; attrs.aspect = overlap marks it",
+   "examples": [
+    "Advanced_Materials/10.1002_adma.200903105#a25",
+    "Advanced_Materials/10.1002_adma.200903105#a33"
+   ]
+  }
+ ],
+ "rels": [
+  {
+   "rel": "motivates",
+   "kind": "domain extension",
+   "definition": "Also allow src = a claim node (PRP/MEC/PRF) when dst = DES/down_select",
+   "why": "DES/down_select is defined as a decision made because of an observation, but in practice the decision rests on a weighed claim (a trade-off MEC) rather than a single OBS. v02 lists only HYP/DSC/OBS as motivates sources, so the spine edge MEC/tradeoff -> DES/down_select has no legal rel. supports is claim->claim and realizes is DES->PRC. Without this extension the spine breaks at every screen-then-choose paper",
+   "examples": [
+    "Bioactive_Materials/j.bioactmat.2020.09.001#b18->b19"
+   ]
+  }
+ ],
+ "mm_ops": [
+  {
+   "name": "assess_feature_overlap",
+   "family": "compare",
+   "definition": "Judge whether features of two DIFFERENT quantities or species coincide in position along a shared axis (spectral overlap of donor emission and acceptor absorption; emission band vs photonic stopband or plasmon resonance; absorption edge vs source spectrum; band-edge alignment), and how a shift changes that overlap. The overlap is the premise for a coupling mechanism (energy transfer, resonance, filtering, charge transfer). Failure modes: peak coincidence taken for overlap integral; shift judged without regard to bandwidth",
+   "why_not_existing": "compare_coplotted_quantities judges relative magnitude or dominance on shared axes, not positional coincidence. match_to_reference judges whether the SAME quantity matches a reference (identity). track_feature_across_series follows one feature through a series. Here, positions of two different quantities are set against each other and the conclusion is a coupling condition (MEC), not identity, dominance or trend. The next inference differs, and so does the audit: in F5d a ~10 nm shift of a ~100 nm-wide band against a ~20 nm stopband is too small to carry the claimed 40x vs 6x differential. General to FRET/photoswitch systems, plasmonic and photonic enhancement, photocatalyst absorption vs solar spectrum, and heterojunction band alignment",
+   "examples": [
+    "Advanced_Materials/10.1002_adma.200903105#a25->a12 (F2a)",
+    "Advanced_Materials/10.1002_adma.200903105#a33->a17 (F5d)"
+   ]
+  }
+ ],
+ "modalities": [],
+ "merges": [],
+ "splits": [],
+ "comments": "1) One mm_op only, with evidence from one paper but two figures. It is a real gap: every optical-coupling argument (FRET, photonic/plasmonic enhancement, sensitisation) rests on this reading, and none of the 7 compare ops licenses a coupling mechanism. If the judge wants to shrink the compare family, the alternative is to broaden compare_coplotted_quantities to 'magnitude OR positional overlap' with attrs.aspect. I argue against that: dominance and overlap lead to different MEC types (partition vs pathway). 2) Boundary rule request, no new type (biological papers, 3 of 4 here): in-vitro cell response measured against a material design variable = PRP/value (property_family biological); in-vivo application endpoint (closure, wound strength, bone repair) = PRF/service_capability; in-vivo host-tissue biomarkers (SOD, collagen content, histology scores) have no clean home. I typed them PRP/value + attrs.object='treated wound tissue', fit=poor (Biomaterials 2013 d13, d14). They are properties of the host, not the material, but a new type would change no inference, because they bridge release -> performance just as PRP does. I suggest a note in the PRP definition: attrs.object may be the host tissue in biomedical in-vivo studies. 3) Attr convention: I used property_family=chemical_corrosion for hydrolytic and enzymatic polymer biodegradation (Bioactive b12; chitosan c11-c13). Please confirm, or add 'biodegradation' to the chemical_corrosion note, so staff do not split it across biological, kinetic and chemical_corrosion. 4) Poor fits deliberately not proposed: mesoscale colloidal crystal fcc/(111) as STR/phase/identity (AM a9); polymer crystallinity as STR/phase/fraction (chitosan c10); a physical gel network as STR/microstructure/porosity (d9); micelle self-assembly as PRC/synthesis (d6); in-situ gelation on the wound as PRC/forming (d7); DLS size distribution as OBS/response/characteristic_value (d23; if another staff member's OBS/response/distribution proposal is accepted, d23 should migrate there). Each has one instance, and attrs carry the difference. 5) Multimodal notes for the judge: TEM vs DLS size in Biomaterials 2013 F1 (d24 contradicts: ~10 nm dots vs 26.9 nm claimed agreement), handled with cross_check_consistency on a contrasts edge. Chitosan F4: the adhesion series is flat while viability collapses (c31 text_silent), which undercuts the paper's adhesion mechanism. Bioactive F9: quantitative bars exist only for the chosen scaffold, so the between-group claim rests on unlabelled micro-CT renders (b39/b40 partial). 6) Audit nodes per paper: AM 0, Bioactive 1 (b32 pH), chitosan 1 (c31), curcumin 1 (d35). Everything else is in image_note/image_support."
+}

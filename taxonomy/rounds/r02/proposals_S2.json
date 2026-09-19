@@ -1,0 +1,47 @@
+{
+ "staff": "S2",
+ "papers": ["Biomaterials/s0142-9612(02)00276-4", "Journal_of_Advanced_Ceramics/s40145-019-0342-4"],
+ "types": [
+  {"path": "STR/microstructure/porosity",
+   "definition": "Amount, connectivity and hierarchy of porosity: pore/void volume fraction, relative density, open vs closed, interconnection, multi-level (designed + random) pore systems, unintended processing voids. Pore SIZE stays in STR/microstructure/feature_size",
+   "why_not_existing": "feature_size carries one length; distribution carries dispersion of a constituent; shape carries unit geometry. None carries a fraction or a connectivity. The next inference differs from both: a porosity claim either (a) triggers a correction/qualification of a property claim (kappa, modulus measured on porous bodies; Ceramics c33 -> c37 qualifies c34/c38) or (b) is the design target itself, feeding transport/ingrowth arguments (Biomaterials b28). Judge flagged porosity/density as an open STR leaf in r01; here it is in a ceramic and a polymer/ceramic scaffold paper.",
+   "examples": ["Biomaterials__s0142-9612(02)00276-4#b28", "Biomaterials__s0142-9612(02)00276-4#b30", "Journal_of_Advanced_Ceramics__s40145-019-0342-4#c33"]},
+  {"path": "STR/phase/ordering",
+   "definition": "Degree of long-range or sublattice order: random vs ordered site occupancy, order-disorder transitions, superstructure presence, configurational (high-entropy) disorder. Sublattice and state in attrs",
+   "why_not_existing": "phase/identity says which phase; defect/point says which species sits on a site with a charge; neither states whether a sublattice is ordered or random. Ordering has its own next steps: superstructure-reflection evidence, phonon-scattering/mass-disorder arguments, stability via configurational entropy. r01 Ceramics (s40145-013-0040-6) n30 'ordered structure scatters phonons less' had to be forced into MEC; here random A-site occupancy is the premise of the whole low-kappa argument (c28 -> c30 -> c34).",
+   "examples": ["Journal_of_Advanced_Ceramics__s40145-019-0342-4#c28", "Journal_of_Advanced_Ceramics__s40145-013-0040-6#n30 (r01)"]},
+  {"path": "DES/architecture",
+   "definition": "A priori choice of a geometric or spatial structural target to be built: pore/channel lattice, external shape, strut network (incl. image-derived biomimetic), layer stacking, spatial zoning of constituents (graded, discrete, core-shell). Geometry source and dimensions in attrs. A fidelity check (fabricated vs designed) follows",
+   "why_not_existing": "DES/base_system and DES/modification choose WHAT material; DES/route chooses HOW to process; DES/method chooses how to measure. None holds 'build this geometry'. The distinction changes the next inference: a designed architecture is followed by a design-fidelity check (mm_op match_to_design), not by an incorporation or phase check. Evidence is one paper (three nodes), but this is the core design act of every additive-manufacturing, scaffold, lattice-metamaterial and laminate paper; I expect r03 to confirm.",
+   "examples": ["Biomaterials__s0142-9612(02)00276-4#b5", "Biomaterials__s0142-9612(02)00276-4#b6", "Biomaterials__s0142-9612(02)00276-4#b7"]}
+ ],
+ "rels": [
+  {"rel": "feeds_into",
+   "definition": "src PRC act's product is the workpiece, precursor or template of dst PRC act (ordered multi-step route)",
+   "why_not_existing": "No PRC->PRC rel exists; produces is PRC->STR, premise_for is for assumptions/parameters. Without it multi-step routes are either collapsed into one node (losing which step a defect comes from) or left as disconnected PRC nodes. In indirect/replica processing the causal claim of the paper is that mold defects propagate to the product (b8 -> b9 -> b10, explained by b32).",
+   "examples": ["Biomaterials__s0142-9612(02)00276-4#b8->b9", "Biomaterials__s0142-9612(02)00276-4#b9->b10", "Journal_of_Advanced_Ceramics__s40145-019-0342-4#c8->c9"]}
+ ],
+ "mm_ops": [
+  {"name": "match_to_design", "family": "match",
+   "definition": "Compare an image of a fabricated object or structure with its intended geometry (CAD/STL/image-based design, mold, template, target dimension) and judge fidelity: shape, dimensions, connectivity, and replicated template features or defects",
+   "why_not_existing": "match_to_reference is defined for whole patterns/spectra vs reference traces, and its conclusion is identity (phase, compound). Here the reference is a geometric intent and the conclusion is process fidelity/capability. Alternative ruling I would accept: broaden match_to_reference to 'any measured output vs a reference, pattern or design'.",
+   "examples": ["Biomaterials__s0142-9612(02)00276-4#b12->b27", "Biomaterials__s0142-9612(02)00276-4#b15->b27", "Biomaterials__s0142-9612(02)00276-4#b22->b32"]},
+  {"name": "link_across_magnifications", "family": "compare",
+   "definition": "Relate low- and high-magnification views of the same specimen to establish that features at two length scales coexist and connect (nested/hierarchical structure, where a local feature sits in the global one)",
+   "why_not_existing": "compare_across_conditions needs panels differing in a material condition; inspect_local_feature reads one view and assumes representativeness; measure_feature_metric reads one scale. A hierarchy/connectivity claim is only licensed when the scales are registered to each other, and its failure mode (the high-mag field is not where the low-mag feature is) differs from every existing op. Zoom panel series are ubiquitous in microscopy figures.",
+   "examples": ["Biomaterials__s0142-9612(02)00276-4#b21->b28"]},
+  {"name": "quantify_from_position", "family": "quantify",
+   "definition": "Convert feature positions (peak 2theta, d-spacing, band or edge energy) into a physical parameter via a known relation (Bragg/cell refinement -> lattice parameter, strain; position -> composition via Vegard)",
+   "why_not_existing": "quantify_from_intensity covers intensities, areas and widths; extract_slope and fit_model need a curve fit. Positions -> lattice constants is the commonest XRD reduction and has no op: r01 Ceramics derives edges to lattice spacing were left without mm_op for this reason. Evidence here: c15 -> c16 (F2c peak shift -> F2d lattice parameters).",
+   "examples": ["Journal_of_Advanced_Ceramics__s40145-019-0342-4#c15->c16"]}
+ ],
+ "modalities": [
+  {"name": "volume_render",
+   "definition": "3D rendering (surface or volume) of tomographic or serial-section data (uCT, FIB-SEM, atom-probe reconstruction), often cut away or colour-segmented",
+   "why_not_existing": "spatial_map covers 2D maps and tomogram slices; simulation_render is for simulated output. A 3D render is the only form that supports connectivity/topology and penetration-depth judgements, and it carries its own artefacts (segmentation, surface smoothing: the F3B caption warns that curved interfaces are a rendering artefact). Currently recorded as spatial_map with attrs.proposed_modality.",
+   "examples": ["Biomaterials__s0142-9612(02)00276-4#b13", "Biomaterials__s0142-9612(02)00276-4#b18"]}
+ ],
+ "merges": [],
+ "splits": [],
+ "comments": "Coverage: 71/78 nodes typed with v01 entries (all 5 Bio proposed-type nodes are DES/architecture x3 and STR/porosity x2; Ceramics 2). Contentious points: (1) PRC/treatment vs PRC/stimulus. The only heat treatment in my papers is 1300 C/24 h aging used as a service test; I typed it PRC/stimulus because its effect is the object of study. I suggest the boundary rule 'treatment changes the material to be used; stimulus probes it' and would keep PRC/treatment provisional until a genuine ageing/annealing-for-properties paper appears. (2) STR/chemistry/composition (provisional): chemical homogeneity from EDS maps (c31) is a spatial-distribution claim, so I used STR/microstructure/distribution. I propose composition keep only stoichiometry/valence/solute content, and segregation/homogeneity go to distribution. (3) Reactive consolidation: solid-state reaction heated in a series is PRC/synthesis; the later 1500 C/3 h densification is PRC/forming, linked by feeds_into. (4) Staff-audit ops: c21 (co-located dark patches in Y, O and Zr EDS maps, i.e. topography not segregation) needs cross-channel co-registration. I used compare_coplotted_quantities rather than proposing an op, following the r01 ruling that audit-only operations are not mm_ops. (5) Method papers with no property test (Biomaterials) end at STR; the PRP node b35 is argued only, fit=poor. A flag attrs.basis=argued on PRP (as on MEC) would let such claims be filtered. (6) Strongest image/text conflict: Biomaterials F7C shows local pores of about 5-35 um against the 10 um bar, while the caption and text say 50-100 um (b20 contradicts). The paper half-concedes this (b33)."
+}

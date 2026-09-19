@@ -1,0 +1,76 @@
+{
+ "staff": "S4",
+ "papers": [
+  "Nano_Letters/10.1021_acs.nanolett.5b01940",
+  "Rare_Metals/s12598-009-0082-7"
+ ],
+ "types": [],
+ "rels": [
+  {
+   "rel": "realizes",
+   "kind": "broaden_definition",
+   "definition": "a DES choice is carried out by a PRC act or a measurement, OR (computation-first papers) by constructing an in-silico structure model, in which case dst may be a STR node",
+   "why_not_existing": "Computation-first papers have no PRC; without this, DES/modification (N substitution) cannot reach the STR/defect/point structure model except by misusing produces/causes. No new rel needed, only the dst set",
+   "examples": [
+    "Nano_Letters/10.1021_acs.nanolett.5b01940#n5->n8",
+    "Nano_Letters/10.1021_acs.nanolett.5b01940#n6->n8"
+   ]
+  },
+  {
+   "rel": "evidences",
+   "kind": "broaden_definition",
+   "definition": "allow DSC/comparison as dst (OBS directly evidences an agreement/disagreement verdict)",
+   "why_not_existing": "Already practised in r01 (Acta OBS->DSC/model_validation) and not flagged; the current text lists only STR/PRP/PRF/MEC",
+   "examples": [
+    "Nano_Letters/10.1021_acs.nanolett.5b01940#n9->n11"
+   ]
+  }
+ ],
+ "mm_ops": [
+  {
+   "name": "assign_features",
+   "kind": "broaden_definition",
+   "definition": "Assign individual peaks, reflections, bands, signals, steps OR image contrast levels/regions (Z-, mass-thickness, phase contrast) to phases, groups, sites or processes",
+   "why_not_existing": "Reading 'dark = Fe3O4, grey = TiO2' in a TEM image is the same match act as indexing a reflection (feature -> origin via a known mapping); recognize_signature is for mechanism-implying shapes and inspect_local_feature does not name the origin mapping. Broaden rather than add a sibling",
+   "examples": [
+    "Rare_Metals/s12598-009-0082-7#r14->r19"
+   ]
+  },
+  {
+   "name": "compare_with_literature",
+   "kind": "rename_broaden",
+   "into": "compare_with_reference_value",
+   "definition": "Position this work's data against reference values: prior-work points, incumbent values, or an in-paper benchmark system of known class computed/measured alongside",
+   "why_not_existing": "F6a places a PLY pi-dimer (known pancake bond) INTCOOP marker next to the NGP curve as a class benchmark. It is not literature data and not a whole-trace match_to_reference, but the inference (magnitude vs a known-class anchor -> same class) is the same as compare_with_literature",
+   "examples": [
+    "Nano_Letters/10.1021_acs.nanolett.5b01940#n27->n28",
+    "Nano_Letters/10.1021_acs.nanolett.5b01940#n9->n11"
+   ]
+  }
+ ],
+ "modalities": [
+  {
+   "name": "dispersion_diagram",
+   "definition": "Energy (or frequency) vs wavevector along a high-symmetry path: electronic band structure, phonon dispersion, magnon dispersion",
+   "why_not_existing": "Readouts are discrete features (band crossings of E_f, gaps, splittings, bandwidths, band labels) and are typed OBS/signal/*, but xy_curve is defined as quantity-vs-variable response (inviting trend reading), and spectrum is intensity vs energy. Band panels were typed xy_curve with attrs.modality_proposed. Fallback if rejected: a modality_note 'band structures -> xy_curve; DOS/COOP panels -> spectrum'",
+   "examples": [
+    "Nano_Letters/10.1021_acs.nanolett.5b01940#n21",
+    "Nano_Letters/10.1021_acs.nanolett.5b01940#n30",
+    "Nano_Letters/10.1021_acs.nanolett.5b01940#n32"
+   ]
+  }
+ ],
+ "merges": [],
+ "splits": [],
+ "attr_values": [
+  {
+   "attr": "property_family",
+   "add": [
+    "catalytic",
+    "energetic"
+   ],
+   "why": "Photocatalytic dye degradation (Rare_Metals#r30) was forced into chemical_corrosion; interlayer binding/cohesive energy (Nano#n19) into mechanical. Values only, no new types"
+  }
+ ],
+ "comments": "Coverage: 73/73 nodes typed with existing v01 leaves; 0 proposed types. Two poor fits, both boundary cases rather than missing leaves: (1) Rare_Metals#r8 calcination of a sol-gel precursor that crystallises anatase: typed PRC/synthesis because a phase-identity check follows (by the 'next inference' test), not PRC/treatment. Proposed boundary rule: a thermal step whose output claim is a NEW phase is synthesis; one that changes a pre-existing structure is treatment. PRC/treatment remains unobserved in my papers. (2) Nano#n8 substitutional N as STR/defect/point is imposed by model construction, not inferred from observation (hence the realizes broadening). STR/chemistry/composition (provisional) unused: N content is a design variable here, not a measured claim. Computation stress test (judge open question 2): signal/response/morphology + provenance=computed carried everything in a DFT paper without new readout kinds: band labels = feature_assignment, E_f shift vs DOS = feature_shift, crossings of E_f = feature_presence, INTCOOP/binding energy = trend/characteristic_value. Only the figure form (dispersion) lacks a modality. Flat PRP held: DOS at E_f and transfer integral are PRP/descriptor, metallic c-axis conduction is PRP/behavior_class. Notable multimodal ops: Nano F6a twin-axis 'mirror image' of INTCOOP vs D (compare_coplotted_quantities) plus a counterfactual control marker (compressed pristine bilayer, n25) used with rules_out. This controlled-computation pattern fits compare_across_conditions + rules_out, so no new op. Image audits: Rare_Metals F2b SAED ring labels contradict d-spacing order (inner ring labelled Fe3O4(311), d=2.53 A; outer anatase(101), d=3.52 A)."
+}

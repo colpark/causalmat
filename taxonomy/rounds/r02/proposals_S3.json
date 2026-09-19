@@ -1,0 +1,55 @@
+{
+ "staff": "S3",
+ "papers": [
+  "Journal_of_Magnesium_and_Alloys/j.jma.2020.02.028",
+  "Journal_of_Materials_Science_&_Technology/j.jmst.2019.10.041"
+ ],
+ "types": [
+  {
+   "path": "PRC/joining",
+   "definition": "Joining two pre-made bodies into one assembly across an interface (diffusion bonding, brazing, welding, transient-liquid-phase and adhesive bonding). The product is a joint; next checks are interface reaction layers, bond soundness and joint strength/fracture location",
+   "why_not_existing": "PRC/forming makes bulk shape from feedstock; PRC/treatment modifies an existing single material; PRC/deposition builds a layer from vapour/solution. Joining creates a NEW interface between two parents, so the inference that follows is specific: reaction-layer sequence per parent phase (STR/phase/identity + STR/interface), layer-growth kinetics, and a joint (assembly) strength whose failure locus is an interface. Welding/brazing/diffusion-bonding papers are a large share of JMST/metal journals; typing them as forming hides that the 'material' is an assembly",
+   "examples": [
+    "Journal_of_Materials_Science_&_Technology/j.jmst.2019.10.041#m9"
+   ],
+   "fallback": "If rejected, broaden PRC/forming definition to include joining and add attrs.object='joint'"
+  },
+  {
+   "path": "STR/microstructure/orientation",
+   "definition": "Crystallographic orientation state of a polycrystal: texture (preferred orientation, intensity, component) and grain-boundary character (misorientation distribution, LAGB/HAGB/twin-boundary fractions). Direction and component in attrs",
+   "why_not_existing": "feature_size carries Hall-Petch reasoning; distribution is spatial arrangement; phase/identity is which phase. Texture and boundary character lead to a different next inference: slip/twin-system activation (Schmid factor), plastic anisotropy and ductility, or recrystallization vs recovery diagnosis from HAGB fraction. Judge r01 listed texture as unresolved; this paper makes texture weakening + HAGB rise a separate causal branch to ductility (n26 -> n34 via n37) distinct from grain refinement (n19)",
+   "examples": [
+    "Journal_of_Magnesium_and_Alloys/j.jma.2020.02.028#n26"
+   ],
+   "note": "Only one paper in my set; expect support from any EBSD-bearing metals paper (Mg, Ti, steels, AM)"
+  }
+ ],
+ "rels": [],
+ "mm_ops": [
+  {
+   "name": "correlate_colocated_modalities",
+   "family": "match",
+   "definition": "Register two or more modalities acquired on the SAME region (BSE/TEM image with EDS/EPMA map, line scan, point analysis, SAED at marked positions, EBSD) so that chemistry or crystal structure read in one is attributed to a feature (layer, particle, grain) delineated in the other",
+   "why_not_existing": "assign_features maps a signal feature to a reference label (card, lookup) but does not place it in space; compare_across_conditions needs a varied condition; compare_coplotted_quantities needs shared axes; S1's proposed correlate_across_figures links co-variation across a SAMPLE SERIES, not spatial co-location within one sample. The inference differs: the claim 'layer II is Al(Co,Ni)2Ti' holds only if the map/profile/SAED position is registered onto that layer, and its failure modes are misregistration and probe size vs layer thickness (EPMA interaction volume ~1 um vs 0.6-1 um layers), not a reference mismatch",
+   "examples": [
+    "Journal_of_Materials_Science_&_Technology/j.jmst.2019.10.041#m15->m19 (EPMA maps vs BEI layers, F5/F6)",
+    "Journal_of_Materials_Science_&_Technology/j.jmst.2019.10.041#m16->m19 (line-scan steps aligned to BEI layers, F8)",
+    "Journal_of_Materials_Science_&_Technology/j.jmst.2019.10.041#m18->m19 (TEM-EDS vs DF image, F10)",
+    "Journal_of_Materials_Science_&_Technology/j.jmst.2019.10.041#m22->m24 (SAED positions 1-4 marked on BF image, F11)"
+   ]
+  }
+ ],
+ "modalities": [
+  {
+   "name": "orientation_distribution",
+   "definition": "Intensity over orientation space rather than physical space: pole figures, inverse-pole-figure density plots, ODF sections",
+   "why_not_existing": "spatial_map is a quantity over sample space; diffraction_pattern is intensity vs scattering angle; xy_curve is one variable vs another. Reading a pole figure means locating maxima relative to sample axes (ND/ED/TD) and reading MRD levels; none of the listed forms has axes like that",
+   "examples": [
+    "Journal_of_Magnesium_and_Alloys/j.jma.2020.02.028#n23 (F11 a,c pole figures)"
+   ]
+  }
+ ],
+ "merges": [],
+ "splits": [],
+ "comments": "1) Provisional leaves confirmed: PRC/treatment carries both ECAP (deformation processing) and electropulsing (J#n7,n12,n15). EPT is a making step here, not PRC/stimulus, because its effect is judged afterwards, not observed during. STR/chemistry/composition carries per-layer compositions from EPMA/TEM-EDS (T#m19) that are a premise for phase identity (supports m24), so keep it. 2) PRP/PRF boundary: joint shear strength (T#m34) is a property of an assembly, not an intrinsic material property as PRP is defined. I used PRP/value with attrs.object='joint' and fit poor rather than proposing a leaf; suggest the PRP definition read 'property of the material or assembly', with attrs.object. 3) Line scans (EPMA/EDS profile vs distance) have no stated modality; I used spatial_map (a 1D map). Please add to modality_notes so they are not coded xy_curve. 4) Misorientation histograms (J#n24) were typed OBS/morphology/feature_metric (poor) with quantify_from_intensity: integrating bins into a fraction. It works, but 'from_intensity' reads oddly for histograms; consider widening its definition to 'from intensities, areas or histogram bins'. 5) STR/defect/extended was stretched to 'stored energy / dislocation density' inferred but never measured (J#n14, fit poor). This is a common argument in SPD papers. attrs.basis='inferred' is enough; no new leaf proposed. 6) Image-audit highlights: J F11 pole figure has no pre-EPT baseline and maxima near TD, so 'basal texture weakened' is partial; J F11d ~86-90 deg spike (likely extension twins) is text-silent and inflates the HAGB fraction attributed to recrystallization; T F12 'parabolic growth' is fitted vs temperature at fixed time, and Q comes from 3-point fits; T F9 cannot separate AlNi2Ti from AlCo2Ti. 7) Two layered-kinetics patterns (w(T) -> ln w vs 1/T -> Q -> 'grows first') went fine through derives + extract_slope + PRP/value(kinetic); no new type needed."
+}

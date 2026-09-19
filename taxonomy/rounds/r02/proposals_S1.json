@@ -1,0 +1,26 @@
+{
+ "staff": "S1",
+ "papers": ["Advanced_Energy_Materials/aenm.201701686", "Bioactive_Materials/j.bioactmat.2020.02.005"],
+ "types": [
+  {
+   "path": "STR/phase/site_occupancy",
+   "definition": "Which crystallographic sites (Oh/Td, A/B, antisite, interstitial channel) a constituent occupies and in what proportion, including inversion degree and cation ordering; attrs.site_pref, attrs.direction with composition. Next inference: site-specific electronic structure / crystal field -> active-site or property argument, and site-selective probes (EXAFS shells, L-edge multiplets, NMR, Mossbauer) as evidence",
+   "why_not_existing": "STR/defect/point is framed as a dilute defect that drives carrier/diffusion arguments; at 44 at% Fe the substitution is a solid-solution site distribution, and the argument that follows (Co2+ confined to Td -> Td site is the active centre) is a site-identity-to-function inference, not a defect-chemistry one. STR/phase/lattice (cell size) and STR/chemistry/composition (valence) are separate readouts in the same paper (a16, a24) and are argued as consequences of a23, so folding occupancy into either loses the causal step. Second-class evidence: r01 Ceramics 'Cr3+ on Ti4+ site' and Bioactive 'Er/Ce substitute Ti4+' (MatMech-only, not graphed) were dopant-site claims typed as point defects; I suggest point stays for charge-state/carrier arguments and site_occupancy takes which-site claims",
+   "examples": ["Advanced_Energy_Materials/aenm.201701686#a23"]
+  }
+ ],
+ "rels": [],
+ "mm_ops": [
+  {
+   "name": "correlate_across_figures",
+   "family": "compare",
+   "definition": "Align the same sample series across two or more figures (or panels with different ordinates) and judge whether two readouts co-vary, including a shared optimum or turnover; the co-variation, not either readout alone, is the evidence for an attribution",
+   "why_not_existing": "compare_coplotted_quantities needs shared axes; cross_check_consistency tests that one quantity agrees arithmetically between figures (an audit), while here the paper infers a cause from rank agreement of two different quantities. read_trend reads one series. The inference that follows is correlational attribution (structure descriptor -> activity; activity -> performance), which should be flagged as weaker than an intervention, so the op must be distinguishable",
+   "examples": ["Advanced_Energy_Materials/aenm.201701686#a21->a38 (Co L3 Td shoulder F6 vs activity optimum F7/EIS incl. CoFe-0.49 turnover)", "Bioactive_Materials/j.bioactmat.2020.02.005#b32->b39 (dye degradation F8 ranking vs kill ratio F10)", "Bioactive_Materials/j.bioactmat.2020.02.005#b35->b39"]
+  }
+ ],
+ "modalities": [],
+ "merges": [],
+ "splits": [],
+ "comments": "Coverage: 91 of 92 nodes typed with v01 entries (1 proposed, 3 fit=poor). The flat, role-based PRP/MEC held for an electrocatalysis and a photocatalytic-antibacterial paper: overpotential/Rct -> PRP/value, Tafel slope -> PRP/diagnostic -> MEC/identification (RDS unchanged), recombination and Rct -> PRP/descriptor, kill ratio -> PRF/service_capability. No family-level leaves needed. (1) Provisionals: STR/chemistry/composition confirmed by both papers (Co oxidation state a24; Ce3+/Ce4+ b21). PRC/treatment used once (b7, calcination sets anatase/rutile ratio); boundary test that worked: calcination that converts a precursor into the compound is PRC/synthesis (AEM a8), calcination that crystallises/re-phases an as-made solid is PRC/treatment. (2) Attr value request, not a type: add 'catalytic' (or 'photo_electrocatalytic') to attrs.property_family - both papers' headline property is catalytic activity and neither ionic_electrochemical nor chemical_corrosion fits a dye-degradation rate (b33 fit=poor). (3) PRP/PRF boundary: overpotential at the 10 mA/cm2 benchmark is both a property trend (a37 PRP/value) and a benchmark claim (a46 PRF/qualification, poor). A crisp test: if the claim is ranked against a community benchmark condition it is PRF; if it is argued from structure it is PRP. (4) OBS/signal/feature_quantification requires conversion to an amount; a text-silent peak broadening read qualitatively (a13) fits poorly. I suggest broadening the definition to 'intensity/area/width read or converted' rather than a new leaf. (5) In-situ/operando XAS worked with PRC/stimulus + OBS/response/trend (provenance derived) + STR/phase/fraction (reversible attr); no operando leaf needed. (6) Image audit highlights: Bioactive F6 XPS Ce 3d/Er 4d is noise-level, yet the Ce3+/Ce4+ claim feeds two mechanisms (not_shown); F4a varies Ce not temperature and Ce0.3 has no rutile (contradicts 'all mixed-phase'); F10 dark/light bars show the doping advantage is mostly light-independent (text_silent b37, derived by replot_derived_series). AEM F9 cycle endpoints run opposite to the pristine-deactivation story (text_silent a42); F8 claimed peak-frequency shift unresolved."
+}

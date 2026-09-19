@@ -1,0 +1,980 @@
+{
+ "paper_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.02.028",
+ "title": "Extraordinary mechanical properties of AZ61 alloy processed by ECAP with 160 deg channel angle and EPT",
+ "vocab_version": "v01",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/need",
+   "label": "Rare-earth-free AZ61 needs both high strength and good ductility; conventional/SPD routes give unbalanced properties",
+   "attrs": {
+    "inferred": true,
+    "basis": "discussion text on F13/F14; packet has no introduction"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n2",
+   "type": "HYP/hypothesis",
+   "label": "Low-strain 160-degree ECAP stores high dislocation energy; EPT then statically recrystallizes it into ultrafine homogeneous grains",
+   "attrs": {
+    "inferred": true,
+    "expected_outcome": "strength-ductility balance"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n3",
+   "type": "DES/base_system",
+   "label": "Commercial hot-extruded AZ61 plate, homogenized 623 K 4 h, as starting material",
+   "attrs": {
+    "material": "AZ61 (Mg-6Al-1Zn)",
+    "initial_grain_size": "89 um"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n4",
+   "type": "DES/route",
+   "label": "Combine ECAP with 160-degree channel die (Bc route) and subsequent electropulsing treatment",
+   "attrs": {
+    "die_angle": "phi=160, psi=20 deg",
+    "route": "Bc",
+    "rate": "4 mm/s"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n5",
+   "type": "KNW/fact",
+   "label": "160-degree die imposes low equivalent strain per pass (~0.2) versus 90-degree dies",
+   "attrs": {
+    "source": "matmech",
+    "value": "eps_eq ~0.2 per pass"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n6",
+   "type": "DES/variable_sweep",
+   "label": "ECAP temperature (373/423/473 K) x passes (2-5, 8); EPT pulse duration (25-50 us) x time (5-20 min)",
+   "attrs": {
+    "variables": [
+     "ECAP temperature",
+     "ECAP passes",
+     "EPT pulse duration",
+     "EPT time"
+    ]
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n7",
+   "type": "PRC/treatment",
+   "label": "ECAP of AZ61 billets at 373, 423, 473 K for 2-5 passes",
+   "attrs": {
+    "technique": "ECAP",
+    "kind": "severe plastic deformation"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n8",
+   "type": "OBS/morphology/appearance",
+   "label": "373 K: deformed portion rises markedly from 2 to 3-4 passes; undeformed area dominant at 2 passes",
+   "attrs": {
+    "technique": "optical microscopy",
+    "object": "deformation twins/bands",
+    "image_note": "(a) twin-laden coarse grains; (b,c) dense crossing deformation bands cover nearly the whole field"
+   },
+   "figs": [
+    "F3"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n9",
+   "type": "OBS/response/characteristic_value",
+   "label": "Samples fracture at 5th ECAP pass at 373 K; at 423 K 5 passes succeed",
+   "attrs": {
+    "quantity": "workable pass count"
+   },
+   "figs": [],
+   "modality": "text_only",
+   "provenance": "measured",
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n10",
+   "type": "OBS/morphology/appearance",
+   "label": "DRX appears locally at 4 passes and in most areas at 5 passes (423 K); earlier and coarser at 473 K",
+   "attrs": {
+    "technique": "optical microscopy",
+    "object": "dynamically recrystallized grains",
+    "image_note": "At 50 um scale F4 shows twins and deformation bands; DRX grains in (c,d) are not individually resolved, (d) only shows a finer dark-etched texture"
+   },
+   "figs": [
+    "F4",
+    "F5"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n11",
+   "type": "DES/down_select",
+   "label": "Select 373K-4 samples (highest defect density) and design variable-temperature ECAP (423K-8 + 373K-3) for EPT",
+   "attrs": {
+    "reason": "373 K cannot exceed 4 passes; higher T triggers DRX that consumes stored energy"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n12",
+   "type": "PRC/treatment",
+   "label": "Variable-temperature ECAP: 8 passes at 423 K then 3 passes at 373 K",
+   "attrs": {
+    "technique": "ECAP"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n13",
+   "type": "OBS/morphology/appearance",
+   "label": "423K-8: grains markedly refined but not equiaxed; after +373K-3 refined and further elongated",
+   "attrs": {
+    "technique": "optical microscopy",
+    "image_note": "Both panels show a dense fine etched structure at 10 um scale; refinement (b vs a) visible, but grain elongation/equiaxedness not resolvable"
+   },
+   "figs": [
+    "F6"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n14",
+   "type": "STR/defect/extended",
+   "label": "Low-temperature (373 K / variable-T) ECAP suppresses DRX and accumulates high dislocation density (stored energy)",
+   "attrs": {
+    "basis": "inferred from incomplete DRX; dislocation density not measured",
+    "quantity": "dislocation density / deformation stored energy",
+    "direction": "increase"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "poor",
+   "proposed": false
+  },
+  {
+   "id": "n15",
+   "type": "PRC/treatment",
+   "label": "Electropulsing treatment of ECAPed samples: 25-50 us pulses, 5-20 min, 100 Hz",
+   "attrs": {
+    "technique": "EPT",
+    "current": "1e4 A (matmech)",
+    "parameters": "Table 1"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n16",
+   "type": "OBS/morphology/appearance",
+   "label": "EPT on 373K-4: recrystallization grows with time, full at 30us-10min; abnormal growth at longer time/pulse; 473K-ECAP gives coarse uneven grains",
+   "attrs": {
+    "technique": "optical microscopy",
+    "image_note": "F7 a->c partial to full equiaxed SRX, e/f coarse grains shown; F8 a deformed/twinned, d finest uniform grains; caption vs text disagree on pass numbers for F8 (4 vs 3) and F9 (3 vs 4)"
+   },
+   "figs": [
+    "F7",
+    "F8",
+    "F9"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n17",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Variable-T ECAP + EPT: 25us-10min gives uniform ~1 um equiaxed grains; 30us-7/10min ~2.5/3 um (abnormal growth)",
+   "attrs": {
+    "technique": "SEM",
+    "metric": "average grain size",
+    "value": "1 um; 2.5 um; 3 um",
+    "image_note": "(d) is a rough etched fine structure where boundaries are hard to delineate; (b,c) show 1-3 um grains that look fairly unimodal rather than abnormal"
+   },
+   "figs": [
+    "F10"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n18",
+   "type": "OBS/morphology/feature_metric",
+   "label": "EBSD orientation maps: ultrafine equiaxed grains (~1 um) at 25us-10min, visibly coarser at 30us-10min",
+   "attrs": {
+    "technique": "EBSD",
+    "metric": "grain size",
+    "image_note": "IPF maps clearly show ~1 um equiaxed grains (a) vs ~2-3 um (c)"
+   },
+   "figs": [
+    "F11"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n19",
+   "type": "STR/microstructure/feature_size",
+   "label": "Grain size refined from 89 um to ~1.0 um, homogeneous and equiaxed, after variable-T ECAP + 25us-10min EPT",
+   "attrs": {
+    "feature": "grain",
+    "direction": "refine",
+    "value": "89 -> 1.0 um"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n20",
+   "type": "MEC/pathway",
+   "label": "High ECAP stored energy plus instantaneous high-energy pulse completes static recrystallization in short time; low stored energy (high-T ECAP) leads to growth",
+   "attrs": {
+    "mechanism_class": "static recrystallization",
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n21",
+   "type": "OBS/morphology/distribution",
+   "label": "Fine bright second-phase particles dispersed throughout EPT samples",
+   "attrs": {
+    "technique": "SEM",
+    "object": "second-phase particles",
+    "image_note": "Bright sub-100 nm particles visible in all four panels, densest in (b,c); phase identity (Mg17Al12) is not shown by any figure"
+   },
+   "figs": [
+    "F10"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n22",
+   "type": "STR/microstructure/distribution",
+   "label": "Second phase (stated Mg17Al12) precipitated and dispersed by EPT",
+   "attrs": {
+    "constituent": "Mg17Al12 (identity asserted, not measured)",
+    "basis": "image + assertion"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n23",
+   "type": "OBS/morphology/distribution",
+   "label": "(0001) pole figures: max 3.85 MRD at 25us-10min with maxima toward TD rim; 4.57 at 30us-10min",
+   "attrs": {
+    "technique": "EBSD",
+    "quantity": "texture maximum intensity",
+    "value": "3.85; 4.57 MRD",
+    "image_note": "Maxima sit near the TD rim, not at the centre (ND); no pre-EPT pole figure is shown, so 'weakened' has no baseline in the figure"
+   },
+   "figs": [
+    "F11"
+   ],
+   "modality": "orientation_distribution",
+   "provenance": "measured",
+   "image_support": "partial",
+   "fit": "poor",
+   "proposed": false
+  },
+  {
+   "id": "n24",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Misorientation histograms: LAGB 20%, HAGB 65% (25 us); HAGB rises to 90% with broad 15-90 deg distribution (30 us)",
+   "attrs": {
+    "technique": "EBSD",
+    "metric": "boundary fraction by misorientation",
+    "image_note": "(b) dominated by a <2 deg bin (0.155) that is hard to reconcile with 20% LAGB in 2-10 deg; (d) broad 15-90 deg shelf shown"
+   },
+   "figs": [
+    "F11"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "partial",
+   "fit": "poor",
+   "proposed": false
+  },
+  {
+   "id": "n25",
+   "type": "OBS/signal/feature_presence",
+   "label": "Histograms show a distinct ~30 deg peak (25 us) and a spike at ~86-90 deg (30 us), unmentioned in text",
+   "attrs": {
+    "text_silent": true,
+    "technique": "EBSD",
+    "possible_meaning": "~86 deg is the {10-12} extension-twin misorientation in Mg; ~30 deg <0001> rotation typical of recrystallized Mg"
+   },
+   "figs": [
+    "F11"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "poor",
+   "proposed": false
+  },
+  {
+   "id": "n26",
+   "type": "STR/microstructure/orientation",
+   "label": "EPT weakens basal texture and raises HAGB fraction (65 -> 90%) through static recrystallization",
+   "attrs": {
+    "texture": "weakened basal, max 3.85 MRD",
+    "HAGB_fraction": "65-90%"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n27",
+   "type": "OBS/response/trend",
+   "label": "ECAP raises YS/UTS but lowers TEF (373K-4: 300/360 MPa, 7%); higher T lowers YS, raises TEF; 423K-8(+373K-3) strongest",
+   "attrs": {
+    "technique": "tensile test",
+    "quantity": "YS, UTS, TEF",
+    "image_note": "Curves agree with text ranking; as-received true-stress peak ~300 MPa vs 260 MPa quoted (Table 2 likely engineering)"
+   },
+   "figs": [
+    "F12"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n28",
+   "type": "OBS/response/trend",
+   "label": "YS rises monotonically with passes at 373 K (to 300 MPa); at 423 K peaks at 4 passes then falls at 5",
+   "attrs": {
+    "quantity": "YS vs ECAP passes",
+    "image_note": "Also shows 1-pass crossing (423 K > 373 K), not discussed"
+   },
+   "figs": [
+    "F15"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n29",
+   "type": "PRP/value",
+   "label": "ECAP strengthens AZ61 strongly (YS 100 -> 300-350 MPa) at the cost of ductility",
+   "attrs": {
+    "property_family": "mechanical",
+    "quantity": "YS, UTS, TEF",
+    "direction": "YS up, TEF down"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n30",
+   "type": "KNW/model",
+   "label": "sigma_ys = sigma_GB (Hall-Petch) + sigma_P (precipitation) + sigma_dislocation",
+   "attrs": {
+    "model": "additive strengthening + Hall-Petch"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n31",
+   "type": "MEC/pathway",
+   "label": "ECAP strength rise mainly from dislocation strengthening, plus grain-boundary and Mg17Al12 precipitation strengthening",
+   "attrs": {
+    "mechanism_class": "strengthening",
+    "basis": "argued (no contributions computed)"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n32",
+   "type": "OBS/response/characteristic_value",
+   "label": "423K-8+373K-3+25us-10min: YS 330 MPa, UTS 448 MPa, TEF 15%",
+   "attrs": {
+    "technique": "tensile test",
+    "image_note": "Blue curve: yield knee ~330-340 MPa, peak ~448 MPa, failure strain ~0.15"
+   },
+   "figs": [
+    "F13"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n33",
+   "type": "OBS/response/trend",
+   "label": "After EPT, YS decreases while UTS and TEF increase relative to the ECAPed state",
+   "attrs": {
+    "comparison": "F12 vs F13 same starting states",
+    "image_note": "423K-8+373K-3: ~350/420 MPa, 0.095 -> ~330/448 MPa, 0.15; 373K-4: TEF 0.06 -> 0.17"
+   },
+   "figs": [
+    "F12",
+    "F13"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n34",
+   "type": "PRP/value",
+   "label": "ECAP+EPT AZ61 reaches YS 330, UTS 448 MPa with TEF 15%: best strength-ductility combination",
+   "attrs": {
+    "property_family": "mechanical",
+    "quantity": "YS, UTS, TEF"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n35",
+   "type": "MEC/pathway",
+   "label": "EPT recovery/SRX removes stress concentration and dislocation tangles, weakening dislocation strengthening",
+   "attrs": {
+    "mechanism_class": "recovery/recrystallization softening",
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n36",
+   "type": "MEC/tradeoff",
+   "label": "Loss of dislocation strengthening is offset by ultrafine homogeneous grains and dispersed precipitates, restoring ductility",
+   "attrs": {
+    "mechanism_class": "strength-ductility balance",
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n37",
+   "type": "MEC/pathway",
+   "label": "Weakened basal texture and high HAGB fraction activate non-basal slip/GB sliding, raising elongation",
+   "attrs": {
+    "mechanism_class": "texture/slip activation",
+    "basis": "attributed",
+    "source": "matmech"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n38",
+   "type": "OBS/response/trend",
+   "label": "In UTS-vs-YS map this work's points lie up-right of all literature AZ61 routes",
+   "attrs": {
+    "technique": "literature compilation",
+    "image_note": "Three red points (~275/380, 295/355, 335/448 MPa) exceed all 10 other routes in both axes"
+   },
+   "figs": [
+    "F14"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n39",
+   "type": "DSC/comparison",
+   "label": "AZ61 by conventional deformation or SPD has unbalanced UTS/YS; ECAP+EPT gives markedly higher strength and ductility",
+   "attrs": {
+    "against": "prior_work",
+    "verdict": "superior"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n40",
+   "type": "DSC/design_guidance",
+   "label": "Use high-stored-energy low-T ECAP then short-pulse EPT (25 us, 10 min); longer pulses/times or high-T ECAP cause grain growth",
+   "attrs": {
+    "window": "25 us-10 min"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n41",
+   "type": "DSC/conclusion",
+   "label": "160-degree ECAP + EPT produces homogeneous ultrafine grains and extraordinary strength-ductility in RE-free AZ61",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "fit": "good",
+   "proposed": false
+  }
+ ],
+ "edges": [
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n4",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n7",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n7",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n15",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n7",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n15",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n14",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n8",
+   "dst": "n11",
+   "rel": "motivates",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n9",
+   "dst": "n11",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n11",
+   "rel": "motivates",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n11",
+   "dst": "n12",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n14",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n14",
+   "dst": "n19",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n19",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n16",
+   "dst": "n20",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n17",
+   "dst": "n19",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "n18",
+   "dst": "n19",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "n18",
+   "dst": "n17",
+   "rel": "contrasts",
+   "mm_op": "cross_check_consistency"
+  },
+  {
+   "src": "n20",
+   "dst": "n19",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n22",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n21",
+   "dst": "n22",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "n15",
+   "dst": "n26",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n23",
+   "dst": "n26",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "n24",
+   "dst": "n26",
+   "rel": "evidences",
+   "mm_op": "quantify_from_intensity"
+  },
+  {
+   "src": "n25",
+   "dst": "n26",
+   "rel": "qualifies",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "n27",
+   "dst": "n29",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n28",
+   "dst": "n29",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n14",
+   "dst": "n29",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n30",
+   "dst": "n31",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n31",
+   "dst": "n29",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n34",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n22",
+   "dst": "n34",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n26",
+   "dst": "n34",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n32",
+   "dst": "n34",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "n33",
+   "dst": "n36",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n35",
+   "dst": "n34",
+   "rel": "counteracts",
+   "mm_op": null
+  },
+  {
+   "src": "n35",
+   "dst": "n36",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n30",
+   "dst": "n36",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n36",
+   "dst": "n34",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n37",
+   "dst": "n34",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n38",
+   "dst": "n34",
+   "rel": "evidences",
+   "mm_op": "compare_with_literature"
+  },
+  {
+   "src": "n34",
+   "dst": "n39",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n20",
+   "dst": "n40",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n41",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n34",
+   "dst": "n41",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n39",
+   "dst": "n41",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n41",
+   "dst": "n2",
+   "rel": "supports",
+   "mm_op": null
+  }
+ ],
+ "notes": "Packet has no introduction text, so HYP nodes are inferred. Lost: per-sample Table 1-3 values, the 473 K ECAP branch detail (F5), as-received/homogenized micrographs (F2). Branch points: (i) ECAP-only strengthening line (n27-n31) vs ECAP+EPT balance line (n32-n36); (ii) the ductility argument via texture/HAGB (n37) exists only in MatMech extraction; packet text for F11 truncates. Image audit: F11 pole figure has no pre-EPT baseline, maxima lie near TD so 'basal texture weakened' is not shown; F11b <2 deg bin dominates the histogram; F11d has an unmentioned ~86-90 deg spike (extension twins?) that would inflate the HAGB fraction attributed to SRX (n25 qualifies n26). F10d SEM does not resolve the ~1 um equiaxed grains that the EBSD map (F11a) does show. F8/F9 captions disagree with text on pass numbers. Precipitate identity Mg17Al12 never shown. n14 dislocation density is never measured (fit poor: STR/defect/extended used for 'stored energy'). n41 -> n2 supports records the conclusion confirming the inferred hypothesis."
+}

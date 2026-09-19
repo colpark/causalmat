@@ -1,0 +1,59 @@
+{
+ "staff": "S4",
+ "papers": [
+  "Nano_Letters/10.1021_acs.nanolett.0c01191",
+  "Nature_Materials/10.1038_nmat4289",
+  "Progress_in_Organic_Coatings/j.porgcoat.2011.04.010",
+  "Rare_Metals/s12598-017-0936-3"
+ ],
+ "types": [],
+ "rels": [],
+ "mm_ops": [
+  {
+   "name": "convert_via_calibration",
+   "family": "transform",
+   "definition": "Convert a readout (pixel colour/hue, signal amplitude, spectrum-derived thickness) into a physical quantity by applying a calibration curve that the paper itself established on standards or a response series shown in another figure (colour->height, thickness->dose, sensor voltage->modulus). Used on derives edges from the raw readout and on premise_for edges from the calibration OBS. Failure modes: extrapolation beyond the calibrated range, calibration made on a different substrate/state, and non-monotone calibration (ambiguous inversion)",
+   "why_not_existing": "quantify_from_intensity and quantify_from_position apply a KNOWN physical relation (Scherrer, Bragg, Vegard) to spectral features; fit_model extracts parameters from one curve; replot_derived_series combines series arithmetically. None names the act of inverting an in-paper empirical calibration, and none carries its specific audit: is the target inside the calibration domain? That audit changed support of spine claims in two papers: Nature Materials m32 (skin moduli 2.8-7 MPa read through a PDMS calibration ending at 1.76 MPa) and Nano Letters (the CIE colour loop in F1d revisits hues, so colour->height inversion is only unique on a branch).",
+   "examples": [
+    "Nano_Letters__10.1021_acs.nanolett.0c01191#n23->n22",
+    "Nano_Letters__10.1021_acs.nanolett.0c01191#n14->n22",
+    "Nano_Letters__10.1021_acs.nanolett.0c01191#n12->n31",
+    "Nature_Materials__10.1038_nmat4289#m18->m19",
+    "Nature_Materials__10.1038_nmat4289#m13->m19"
+   ]
+  }
+ ],
+ "modalities": [],
+ "merges": [],
+ "splits": [],
+ "broadenings": [
+  {
+   "entry": "PRC/treatment",
+   "add": "size reduction and classification of an already-made powder (milling, grinding, centrifugal or sieve classification, spray drying of the made compound)",
+   "why": "Rare Metals s7/s8: comminution keeps the compound (not synthesis) and makes no bulk shape (not forming); the next step is a before/after size check, which is treatment's inference. Recurs in battery, ceramic and catalyst powders.",
+   "examples": [
+    "Rare_Metals__s12598-017-0936-3#s7",
+    "Rare_Metals__s12598-017-0936-3#s8"
+   ]
+  },
+  {
+   "entry": "PRC/forming",
+   "add": "lithographic or subtractive patterning of a deposited film into a designed geometry (photolithography + etching, laser ablation) and transfer printing onto a new substrate",
+   "why": "Nature Materials m6: patterning PZT into ribbon networks is shaping; its next step is match_to_design against DES/architecture, exactly as for AM/casting. A separate PRC/patterning leaf would change no inference.",
+   "examples": [
+    "Nature_Materials__10.1038_nmat4289#m6"
+   ]
+  },
+  {
+   "entry": "PRF/service_capability",
+   "add": "demonstrated function of a prototype or application (print, grating, sensor on tissue) even where no service condition (T, load, cycles) is stated; demonstration conditions in attrs",
+   "why": "Nano Letters n18/n21/n25 and Nature Materials m20/m22/m24 are all 'the built object does the job' claims. figure_of_merit and qualification do not fit; a new leaf would not change the next inference (an evidences edge from a demo figure, usually match_to_design or compare_with_reference_value).",
+   "examples": [
+    "Nano_Letters__10.1021_acs.nanolett.0c01191#n18",
+    "Nano_Letters__10.1021_acs.nanolett.0c01191#n25",
+    "Nature_Materials__10.1038_nmat4289#m22"
+   ]
+  }
+ ],
+ "comments": "Four papers (e-beam photonics, piezo bio-device, polymer nanocomposite coating, Si battery anode) typed with 0 new leaf types; 6 poor fits, all at two soft spots: PRC for non-chemical shaping/classification and PRF for demonstrations. I argue for broadening those definitions (above) rather than new leaves. One new mm_op, convert_via_calibration, with 5 edges in 2 papers from different classes. Its distinguishing audit (calibration domain) produced a spine-relevant text-silent node (NatMat m32). Spine friction: DES/method nodes that lead to a measurement (Nano n27, colour as a dosimeter for the PEF, which is a headline contribution) cannot sit on a connected spine, because no allowed spine rel runs DES->OBS->MEC. Suggest allowing DES/method on the spine when a spine MEC/STR claim is evidenced only by the measurement it enables (edge DES/method -motivates-> the claim, or treat as realizes). Image audits this round were substantive: Rare Metals s35 (every figure capacity ~1.35x below the quoted value, while CE matches, so the mass basis probably differs), s15 (SEM platelets 0.3-0.7 um vs a 20-160 nm histogram); Coatings c14 (TEM shows aggregates, contradicting 'very good dispersion') and c27/c28 (the 5-20 wt% transmittance curves coincide, with strong visible attenuation, qualifying 'transparent UV shield'). One flag for metrics: device papers (NatMat) put the argument in PRP of an assembly (attrs.object) and PRF of a test object, so their STR stage is thin by nature, not by omission."
+}
