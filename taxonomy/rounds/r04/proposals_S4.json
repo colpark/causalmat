@@ -1,0 +1,194 @@
+{
+ "staff": "S4",
+ "papers": [
+  "Bioactive_Materials__j.bioactmat.2021.09.035",
+  "Biomaterials__s0142-9612(00)00178-2",
+  "Biomaterials__s0142-9612(02)00177-1",
+  "Journal_of_Advanced_Ceramics__s40145-019-0329-1"
+ ],
+ "types": [],
+ "rels": [],
+ "mm_ops": [],
+ "modalities": [],
+ "broadenings": [
+  {
+   "entry": "mm_op quantify_from_intensity",
+   "add": "integrated signal intensity over an image region of interest (IVIS radiance, fluorescence-probe intensity in CLSM or plate reads) converted into a relative amount of the labelled species",
+   "why": "Bioactive o3->o4: tumour-ROI fluorescence is integrated from the IVIS maps into a bar chart that stands for NP accumulation. The act is intensity -> amount, as for peak areas; the audits are shared (saturation, background, attenuation with depth). measure_feature_metric (sizes, counts) does not fit. Becomes via=image_intensity if Q1 is merged.",
+   "examples": [
+    "Bioactive_Materials__j.bioactmat.2021.09.035#o3->o4"
+   ]
+  },
+  {
+   "entry": "mm_op register_colocated_views",
+   "add": "permit it on a derives edge when a colocalization coefficient (Pearson, Manders) or a ratio of counts across two registered channels of the same field is computed",
+   "why": "Bioactive o9->o10 (Pearson R from TRFC and MitoTracker channels) and PVA-hydrogel r2 (viable fraction = CMFDA-fluorescent count over total count in the matched phase-contrast field). The act that can fail is registration (channel bleed-through, misalignment, thresholds), not the arithmetic. The r03 rule 'derives ops must be transform/quantify' would force measure_feature_metric, which hides the two-view dependency. Alternative: state in the rule that register_colocated_views is the one compare op allowed on derives.",
+   "examples": [
+    "Bioactive_Materials__j.bioactmat.2021.09.035#o9->o10",
+    "Biomaterials__s0142-9612(02)00177-1#r2"
+   ]
+  },
+  {
+   "entry": "attr_values.property_family",
+   "add": "a note (or a value 'photochemical') for light-triggered generation or release of species by the material: photosensitized ROS, NO release from a donor, photo-uncaging",
+   "why": "Bioactive b10 is the property that the whole argument hangs on, yet none of the 12 families fits; 'catalytic' implies turnover, 'biological' only holds because it was read in cells. Recurs in PDT/PTT, photocatalysis side-products and photoresponsive drug release. Attr-level only; no type change.",
+   "examples": [
+    "Bioactive_Materials__j.bioactmat.2021.09.035#b10"
+   ]
+  },
+  {
+   "entry": "PRP/descriptor vs STR/defect/point",
+   "add": "remove 'defect concentration' from PRP/descriptor; vacancy/defect concentration claims are STR/defect/point (attrs.aspect=concentration); descriptor keeps carrier density, mobility, effective mass, diffusivity",
+   "why": "JAC j11 (oxide-ion vacancy concentration highest at x = 0.175, argued from band gap) fits both definitions verbatim. The next inference (carrier/diffusion argument) is point-defect's own, so the overlap is spurious.",
+   "examples": [
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#j11"
+   ]
+  }
+ ],
+ "merges": [
+  {
+   "merge": [
+    "track_feature_across_series (spectral/diffraction-stack use)",
+    "compare_across_conditions"
+   ],
+   "into": "compare_across_conditions",
+   "why": "C1. usage track [17,9], compare [98,26]. In r04 I used track three times on stacked traces (JAC s1: BiVO4 reflection through x and heat-treatment stages; s6: DSC beta->gamma endotherm 445 -> 421 -> ~400 C -> absent; s3: main reflection shift). In every case the dst OBS type (feature_presence / feature_shift) already says a single identified feature is followed, and the identity risk (is the shallow 400 C dip the same transition?) belongs to the upstream assignment, not to the compare act. Nothing is lost by retyping these to compare_across_conditions. Keep track_ only for object identity across frames (none in my papers).",
+   "examples": [
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s1",
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s6",
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s3"
+   ]
+  },
+  {
+   "merge": [
+    "quantify_from_intensity",
+    "quantify_from_position",
+    "convert_via_calibration"
+   ],
+   "into": "convert_to_quantity (attrs.via = intensity | position | calibration | image_intensity)",
+   "why": "Q1. usage [8,6] + [2,2] + [5,2]. In r04 `via` was unambiguous in both cases (JAC s4->s5 Rietveld positions -> c; Bioactive o3->o4 image ROI intensity -> accumulation). Merging also absorbs my image-intensity broadening without widening a leaf. Audits differ only by which relation is trusted, which via records.",
+   "examples": [
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s4->s5",
+    "Bioactive_Materials__j.bioactmat.2021.09.035#o3->o4"
+   ]
+  },
+  {
+   "merge": [
+    "extract_slope",
+    "fit_model"
+   ],
+   "into": "fit_model (attrs.form = linear | intercept | nonlinear | circuit)",
+   "why": "Q2. usage [7,6] + [4,3]. JAC uses three forms on one paper: Arrhenius slope (s10->s12), Tauc intercept (s8), equivalent-circuit fit (s15->s13). They share one failure mode, choice of the fitted window (the F5 Tauc lines are drawn over different ranges per sample). The diagnostic chain is carried by PRP/diagnostic (j14 -> KNW j21 -> MEC/identification j15), not by the op name, so P2 should stay while Q2 merges.",
+   "examples": [
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s10->s12",
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s8",
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s15->s13"
+   ]
+  },
+  {
+   "merge": [
+    "OBS/response/component_partition",
+    "OBS/response/trend"
+   ],
+   "into": "OBS/response/trend (attrs.aspect = partition)",
+   "why": "O2. usage [3,3]. JAC's partition claim (j16, Rg > Rgb) is evidenced by a fitted_parameter from an equivalent circuit, not by a coplotted total/component figure, so the OBS leaf is not what makes the partition inference visible. BUT keep PRP/partition (reject P1): j16 is the only node that shows that the paper's own impedance data undercut its grain-growth branch (j16 qualifies j12). As PRP/value(aspect=partition) that qualifier would read as one more value.",
+   "examples": [
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#j16",
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s13"
+   ]
+  },
+  {
+   "merge": [
+    "OBS/response/regime_map",
+    "OBS/response/trend"
+   ],
+   "into": "OBS/response/trend (attrs.dimension = 2D)",
+   "why": "O1. usage [1,1]. JAC is a phase-stability paper (phase vs composition and temperature via XRD, DSC, Arrhenius breaks) and still needed no regime map: stability windows were read as feature_presence along one variable.",
+   "examples": [
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s6",
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#s11"
+   ]
+  },
+  {
+   "merge": [
+    "flag_outlier",
+    "subtract_reference"
+   ],
+   "into": "cross_check_consistency / replot_derived_series respectively",
+   "why": "K1. usage [1,1] each; neither needed in 4 r04 papers with ~40 figure edges.",
+   "examples": []
+  }
+ ],
+ "splits": [],
+ "indistinguishable_siblings": [
+  {
+   "pair": [
+    "STR/microstructure/porosity",
+    "STR/microstructure/distribution"
+   ],
+   "refs": [
+    "Biomaterials__s0142-9612(00)00178-2#p6",
+    "Biomaterials__s0142-9612(00)00178-2#p7"
+   ],
+   "note": "In drug-loaded microspheres both are read from the same CLSM contrast (bright = BSA, dark = void): 'large internal pores' and 'non-uniform BSA' are one observation. Suggested boundary: when the constituent is the pore filler, type porosity and record distribution in attrs; not a merge (the two differ elsewhere)."
+  },
+  {
+   "pair": [
+    "OBS/morphology/appearance",
+    "OBS/morphology/distribution"
+   ],
+   "refs": [
+    "Bioactive_Materials__j.bioactmat.2021.09.035#o3",
+    "Bioactive_Materials__j.bioactmat.2021.09.035#o5",
+    "Bioactive_Materials__j.bioactmat.2021.09.035#o9"
+   ],
+   "note": "For fluorescence images whose brightness stands for amount and location (IVIS, probe CLSM, colocalization) I could not decide consistently; I typed o5 appearance and o3/o9 distribution. A note in the definitions ('where a labelled species is' = distribution; 'whether the signal is there' = appearance) would do."
+  },
+  {
+   "pair": [
+    "PRP/value (kinetic)",
+    "PRF/service_capability"
+   ],
+   "refs": [
+    "Biomaterials__s0142-9612(00)00178-2#p10",
+    "Biomaterials__s0142-9612(00)00178-2#p15"
+   ],
+   "note": "In-vitro release at the intended use temperature (22 C) is both the property and the service test. I split rate (PRP) from argued suitability (PRF, basis argued)."
+  },
+  {
+   "pair": [
+    "DES/base_system",
+    "DES/modification"
+   ],
+   "refs": [
+    "Bioactive_Materials__j.bioactmat.2021.09.035#b3",
+    "Bioactive_Materials__j.bioactmat.2021.09.035#b4",
+    "Biomaterials__s0142-9612(02)00177-1#h3",
+    "Biomaterials__s0142-9612(02)00177-1#h4"
+   ],
+   "note": "For molecularly designed chimeras (four-domain peptide) the 'base' is an arbitrary choice among domains. Workable, but the split carries no inference here."
+  },
+  {
+   "pair": [
+    "PRP/descriptor",
+    "STR/defect/point"
+   ],
+   "refs": [
+    "Journal_of_Advanced_Ceramics__s40145-019-0329-1#j11"
+   ],
+   "note": "See broadening 4."
+  }
+ ],
+ "never_needed": [
+  "PRF/figure_of_merit",
+  "PRF/qualification",
+  "OBS/response/regime_map",
+  "OBS/response/component_partition",
+  "flag_outlier",
+  "subtract_reference",
+  "collapse_by_normalization",
+  "STR/defect/extended",
+  "STR/microstructure/damage"
+ ],
+ "comments": "No new types, rels, mm_ops or modalities: 131 nodes over 4 papers all typed with v03, 1 poor fit (Bioactive b10, property_family only). Contentious points. (1) C1 merge: I support it on evidence from stacked XRD and DSC traces; identity risk sits in assignment, not in the compare act. (2) P1 vs O2: merge the OBS leaf, keep PRP/partition; in JAC it is the only visible carrier of an internal contradiction (grain-interior-dominated resistance vs claimed grain-growth benefit). (3) P2: keep PRP/diagnostic; the Arrhenius regime -> order-disorder identification in JAC runs through it. (4) The r03 rule 'derives ops must be transform/quantify' needs one exception for colocalization computed from registered channels (Bioactive o9->o10); otherwise registration errors become invisible. (5) Never-needed list reflects my biomedical/ceramic mix; low use of STR/defect/extended and damage is corpus mix (as the judge said), not redundancy, so I do not propose merging them. Packet anomalies: Biomaterials (02)00177-1 F3 image shows paper Fig. 4 (CMFDA + phase contrast) while its caption concatenates Fig. 3 (EDAC scheme) and Fig. 4; F2 has only the label 'Photoactive PVA with RGDS'. Biomaterials (00)00178-2 F2 caption says panel B = 0.1% PVA, text says 0.5%. Figure-text conflicts recorded: JAC F5 shows all doped band gaps below parent while text says blue shift (s9); JAC F1d main reflection moves to higher 2theta, not obviously consistent with the claimed c expansion (s3, text-silent); Bioactive F4b plotted Pearson max ~0.77 vs text 0.79; microsphere F10 burst ~20% at day 2, not the >50% in the MatMech extraction."
+}

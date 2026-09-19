@@ -1,0 +1,337 @@
+<title>MatMech Argument Graphs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F2F4F1; --panel:#FFFFFF; --ink:#17201B; --muted:#5B675F; --rule:#D3DAD4; --accent:#1E6B66; --warn:#B4412A;
+  --HYP:#6F4A9B; --DES:#335FA8; --PRC:#23807D; --OBS:#6B7580; --STR:#347F45;
+  --PRP:#A26A12; --PRF:#B24A2A; --MEC:#9A346B; --KNW:#6A7549; --DSC:#44505E;
+  --tint:14%;
+  --display:"Newsreader", Georgia, "Times New Roman", serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#111513; --panel:#181E1B; --ink:#E4EBE6; --muted:#98A69D; --rule:#2B3430; --accent:#62B7AF; --warn:#E3785F;
+    --HYP:#A98AD4; --DES:#7FA3E0; --PRC:#5CC1BC; --OBS:#9AA4AE; --STR:#77C488;
+    --PRP:#DDA64E; --PRF:#E48767; --MEC:#D778AA; --KNW:#A8B684; --DSC:#A3B0BF; --tint:20%;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#111513; --panel:#181E1B; --ink:#E4EBE6; --muted:#98A69D; --rule:#2B3430; --accent:#62B7AF; --warn:#E3785F;
+  --HYP:#A98AD4; --DES:#7FA3E0; --PRC:#5CC1BC; --OBS:#9AA4AE; --STR:#77C488;
+  --PRP:#DDA64E; --PRF:#E48767; --MEC:#D778AA; --KNW:#A8B684; --DSC:#A3B0BF; --tint:20%;
+}
+*{box-sizing:border-box}
+body{background:var(--ground); color:var(--ink); font:15px/1.55 var(--body); margin:0}
+.wrap{max-width:1180px; margin:0 auto; padding-inline:20px; padding-block:28px 64px}
+h1,h2,h3{font-family:var(--display); font-weight:600; text-wrap:balance; margin:0}
+h1{font-size:2.1rem; line-height:1.15}
+h2{font-size:1.5rem; margin-block:48px 10px}
+h3{font-size:1.2rem}
+p{max-width:68ch; margin-block:8px}
+.lede{color:var(--muted); font-size:1.02rem}
+.mono{font-family:var(--mono); font-size:.82rem}
+.eyebrow{font:500 .72rem/1 var(--body); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+a{color:var(--accent)}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-block:20px}
+.stat{border-top:2px solid var(--ink); padding-top:6px}
+.stat b{display:block; font:600 1.5rem/1.2 var(--display); font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted); font-size:.85rem}
+.sat{display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:28px; align-items:start}
+@media (max-width:760px){.sat{grid-template-columns:1fr}}
+.chart svg{width:100%; height:auto; display:block}
+.chart text{fill:var(--muted); font:11px var(--body)}
+table{border-collapse:collapse; width:100%; font-size:.85rem}
+th,td{text-align:left; padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:top; font-variant-numeric:tabular-nums}
+th{font-weight:600; color:var(--muted)}
+.tablewrap{overflow-x:auto}
+.vocab{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:10px 22px}
+details.l1{border-top:1px solid var(--rule); padding-block:8px}
+details.l1 summary{cursor:pointer; display:flex; gap:10px; align-items:baseline; list-style:none}
+details.l1 summary::-webkit-details-marker{display:none}
+.sw{width:10px; height:10px; border-radius:2px; flex:none; transform:translateY(1px)}
+.l1 summary b{font-family:var(--mono); font-size:.85rem}
+.l1 summary em{font-style:normal; color:var(--muted); font-size:.85rem}
+.l1 ul{list-style:none; padding-left:20px; margin:6px 0 0}
+.l1 li{margin-block:5px; font-size:.86rem}
+.l1 li code{font-family:var(--mono); font-size:.78rem; color:var(--ink)}
+.l1 li div{color:var(--muted)}
+.ops{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px}
+.ops h4{margin:0 0 4px; font:600 .78rem var(--body); text-transform:uppercase; letter-spacing:.06em; color:var(--accent)}
+.ops li{font-size:.84rem; margin-block:4px}
+.ops ul{padding-left:16px; margin:0}
+.case{margin-top:56px; padding-top:22px; border-top:2px solid var(--ink)}
+.meta{color:var(--muted); font-size:.88rem; display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:6px}
+.spine{display:flex; flex-wrap:wrap; gap:6px 4px; align-items:center; margin-block:16px}
+.chip{font-size:.8rem; padding:3px 8px; border-radius:3px; border:1px solid var(--c); background:color-mix(in srgb,var(--c) var(--tint),var(--panel)); max-width:100%}
+.chip i{font-style:normal; font-family:var(--mono); font-size:.68rem; color:var(--c); margin-right:5px}
+.arrow{color:var(--muted); font-size:.8rem}
+.controls{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-block:8px}
+.seg{display:inline-flex; border:1px solid var(--rule); border-radius:4px; overflow:hidden}
+.seg button{font:500 .8rem var(--body); background:var(--panel); color:var(--ink); border:0; padding:6px 11px; cursor:pointer}
+.seg button+button{border-left:1px solid var(--rule)}
+.seg button[aria-pressed="true"]{background:var(--ink); color:var(--ground)}
+button:focus-visible,summary:focus-visible,.gnode:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.legend{display:flex; flex-wrap:wrap; gap:4px 12px; font-size:.76rem; color:var(--muted)}
+.legend span{display:inline-flex; gap:5px; align-items:center}
+.stage{display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:16px; align-items:start}
+@media (max-width:900px){.stage{grid-template-columns:1fr}}
+.canvas{background:var(--panel); border:1px solid var(--rule); border-radius:6px; overflow:auto; max-height:78vh}
+.canvas svg{display:block}
+.gnode{cursor:pointer}
+.gnode rect{fill:color-mix(in srgb,var(--c) var(--tint),var(--panel)); stroke:var(--c); stroke-width:1}
+.gnode.spine rect{stroke-width:2.2}
+.gnode.audit rect{stroke:var(--warn); stroke-dasharray:4 3}
+.gnode.sel rect{stroke:var(--ink); stroke-width:3}
+.gnode .t{font:500 9.5px var(--mono); fill:var(--c)}
+.gnode .l{font:12px var(--body); fill:var(--ink)}
+.gnode.spine .l{font-weight:600}
+.gnode .fig{font:600 9px var(--mono); fill:var(--muted)}
+.edge{fill:none; stroke:var(--muted); stroke-opacity:.55; stroke-width:1.2}
+.edge.mm{stroke:var(--accent); stroke-opacity:.8}
+.edge.neg{stroke:var(--warn); stroke-dasharray:5 3}
+.edge.hot{stroke-opacity:1; stroke-width:2.4}
+.elabel{font:9.5px var(--mono); fill:var(--accent)}
+.panel{background:var(--panel); border:1px solid var(--rule); border-radius:6px; padding:14px; font-size:.86rem; position:sticky; top:calc(env(safe-area-inset-top,0px) + 12px)}
+.panel .ty{font-family:var(--mono); font-size:.8rem}
+.panel .def{color:var(--muted); margin-block:4px 10px}
+.panel img{border:1px solid var(--rule); border-radius:3px; margin-top:8px; background:#fff}
+.panel .cap{color:var(--muted); font-size:.76rem}
+.panel ul{padding-left:16px; margin:6px 0}
+.badge{display:inline-block; font:500 .7rem var(--body); padding:1px 6px; border-radius:3px; border:1px solid var(--rule); margin:2px 4px 2px 0}
+.badge.warn{border-color:var(--warn); color:var(--warn)}
+.figs{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; margin-top:14px}
+.figs figure{margin:0; font-size:.72rem; color:var(--muted)}
+.figs img{border:1px solid var(--rule); border-radius:3px; background:#fff; aspect-ratio:4/3; object-fit:contain; width:100%}
+.note{border-left:3px solid var(--accent); padding:4px 12px; color:var(--muted); font-size:.88rem; margin-block:12px}
+@media (prefers-reduced-motion:no-preference){.edge,.gnode rect{transition:stroke-width .15s, stroke-opacity .15s}}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">MatMech · paper → logical graph</div>
+  <h1>MatMech argument graphs</h1>
+  <p class="lede">Each paper becomes one directed graph that follows its argument: hypothesis → selection → processing → structure → property → performance → discussion. Measurements sit in between as evidence nodes, and each figure-to-claim edge names the multimodal reasoning step it performs. Node types come from a shared vocabulary built by a saturation sweep: staff agents decomposed papers and a senior-investigator agent ruled on every new type.</p>
+  <div class="stats" id="stats"></div>
+
+  <h2>Saturation</h2>
+  <div class="sat">
+    <div class="chart" id="satchart"></div>
+    <div class="tablewrap"><table id="sattable"></table></div>
+  </div>
+
+  <h2>Vocabulary</h2>
+  <p class="lede">Types name the role a node plays in the argument. Materials, techniques, values and directions go in attributes. Click a stage to expand it.</p>
+  <div class="vocab" id="vocab"></div>
+  <h3 style="margin-top:28px">Multimodal reasoning operations</h3>
+  <p class="lede">These are the verbs on figure → claim edges: what a reader does to the image to get the claim.</p>
+  <div class="ops" id="ops"></div>
+  <h3 style="margin-top:28px">Relations</h3>
+  <div class="tablewrap"><table id="rels"></table></div>
+
+  <h2>Cases</h2>
+  <p class="lede">Solid, thicker outlines mark the spine (the main argument). Teal edges carry a multimodal operation. Dashed red outlines are image-audit nodes, where the figure contradicts or adds to the text. Select a node for its definition, attributes and figure.</p>
+  <div class="legend" id="legend"></div>
+  <div id="cases"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.5/dagre.min.js"></script>
+<script>
+const DATA = /*__DATA__*/null;
+const STAGES = ["HYP","DES","PRC","OBS","STR","PRP","PRF","MEC","KNW","DSC"];
+const STAGE_NAME = {HYP:"Hypothesis",DES:"Design & selection",PRC:"Processing",OBS:"Observation",STR:"Structure",PRP:"Property",PRF:"Performance",MEC:"Mechanism",KNW:"Knowledge",DSC:"Discussion"};
+const el = (t, a = {}, ...kids) => { const e = document.createElement(t); for (const [k, v] of Object.entries(a)) { if (k === "style") e.style.cssText = v; else if (k in e && k !== "list") e[k] = v; else e.setAttribute(k, v); } kids.flat().forEach(c => c != null && e.append(c)); return e; };
+const svgEl = (t, a = {}) => { const e = document.createElementNS("http://www.w3.org/2000/svg", t); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); return e; };
+const l1 = t => (t || "").split("/")[0];
+const V = DATA.vocab, M = DATA.metrics;
+const leaves = Object.keys(V.types).filter(t => !Object.keys(V.types).some(u => u.startsWith(t + "/")));
+const isAudit = n => n.image_support === "contradicts" || (n.attrs && n.attrs.text_silent);
+
+// stats
+const nNodes = DATA.cases.reduce((s, c) => s + c.graph.nodes.length, 0);
+const papersSwept = M.reduce((s, r) => s + r.papers, 0);
+[[papersSwept, "papers swept"], [M.length, "rounds"], [leaves.length, "leaf node types"], [Object.keys(V.mm_ops || {}).length, "multimodal operations"], [Object.keys(V.rels).length, "relations"], [DATA.cases.length, "worked cases"]]
+  .forEach(([v, k]) => document.getElementById("stats").append(el("div", {className: "stat"}, el("b", {}, String(v)), el("span", {}, k))));
+
+// saturation chart
+(function () {
+  const W = 520, H = 230, pl = 44, pr = 44, pt = 16, pb = 34;
+  const s = svgEl("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "New leaf types per paper and coverage by round"});
+  const rows = M.filter(r => r.leaves_added_per_paper != null);
+  const maxY = Math.max(1, ...rows.map(r => r.leaves_added_per_paper));
+  const logY = v => Math.log10(Math.max(v, 0.01)) ;
+  const lo = -2, hi = Math.ceil(logY(maxY));
+  const x = i => pl + (i + 0.5) * (W - pl - pr) / rows.length;
+  const y = v => pt + (hi - logY(v)) / (hi - lo) * (H - pt - pb);
+  const yc = v => pt + (1 - v) * (H - pt - pb);
+  const cs = getComputedStyle(document.documentElement);
+  for (let e = lo; e <= hi; e++) { const v = Math.pow(10, e); s.append(svgEl("line", {x1: pl, x2: W - pr, y1: y(v), y2: y(v), stroke: cs.getPropertyValue("--rule")})); const t = svgEl("text", {x: pl - 6, y: y(v) + 4, "text-anchor": "end"}); t.textContent = v >= 1 ? v : v.toString(); s.append(t); }
+  const bw = (W - pl - pr) / rows.length * 0.42;
+  rows.forEach((r, i) => {
+    s.append(svgEl("rect", {x: x(i) - bw / 2, y: y(r.leaves_added_per_paper), width: bw, height: H - pb - y(r.leaves_added_per_paper), fill: cs.getPropertyValue("--ink"), rx: 1}));
+    const t = svgEl("text", {x: x(i), y: y(r.leaves_added_per_paper) - 5, "text-anchor": "middle"}); t.textContent = r.leaves_added_per_paper; s.append(t);
+    const tx = svgEl("text", {x: x(i), y: H - pb + 16, "text-anchor": "middle"}); tx.textContent = `r${r.round} · ${r.papers}p`; s.append(tx);
+  });
+  const pts = rows.map((r, i) => `${x(i)},${yc(r.coverage_by_prev_vocab)}`).join(" ");
+  s.append(svgEl("polyline", {points: pts, fill: "none", stroke: cs.getPropertyValue("--accent"), "stroke-width": 2}));
+  rows.forEach((r, i) => { s.append(svgEl("circle", {cx: x(i), cy: yc(r.coverage_by_prev_vocab), r: 3.5, fill: cs.getPropertyValue("--accent")})); });
+  [0, 0.5, 1].forEach(v => { const t = svgEl("text", {x: W - pr + 6, y: yc(v) + 4}); t.textContent = Math.round(v * 100) + "%"; t.setAttribute("style", "fill:" + cs.getPropertyValue("--accent")); s.append(t); });
+  const t1 = svgEl("text", {x: pl, y: 11}); t1.textContent = "new leaf types per paper (bars, log)"; s.append(t1);
+  const t2 = svgEl("text", {x: W - pr, y: 11, "text-anchor": "end"}); t2.textContent = "coverage by previous vocab (line)"; t2.setAttribute("style", "fill:" + cs.getPropertyValue("--accent")); s.append(t2);
+  document.getElementById("satchart").append(s);
+  const tb = document.getElementById("sattable");
+  tb.append(el("tr", {}, ["Round", "Papers", "Nodes/paper", "Coverage", "Leaves added", "mm_ops added", "Vocab types"].map(h => el("th", {}, h))));
+  M.forEach(r => tb.append(el("tr", {}, [`r${r.round}`, r.papers, r.nodes_per_paper, (r.coverage_by_prev_vocab * 100).toFixed(1) + "%", r.leaves_added ?? "–", r.mm_ops_added ?? "–", r.vocab_types_new ?? r.vocab_types_prev].map(v => el("td", {}, String(v))))));
+})();
+
+// vocabulary tree
+(function () {
+  const box = document.getElementById("vocab");
+  const counts = {};
+  DATA.cases.forEach(c => c.graph.nodes.forEach(n => counts[n.type] = (counts[n.type] || 0) + 1));
+  STAGES.forEach(s1 => {
+    const kids = Object.keys(V.types).filter(t => t.startsWith(s1 + "/")).sort();
+    const d = el("details", {className: "l1"});
+    d.append(el("summary", {}, el("span", {className: "sw", style: `background:var(--${s1})`}), el("b", {}, s1), el("span", {}, STAGE_NAME[s1]), el("em", {}, `${kids.filter(k => leaves.includes(k)).length} leaves`)));
+    d.append(el("p", {className: "lede", style: "font-size:.84rem;margin:4px 0 0 20px"}, (V.types[s1] || {}).definition || ""));
+    const ul = el("ul");
+    kids.forEach(k => {
+      const depth = k.split("/").length - 2;
+      const def = V.types[k] || {};
+      ul.append(el("li", {style: `margin-left:${depth * 14}px`}, el("code", {}, k.slice(s1.length + 1)), el("div", {}, def.definition || ""), def.example ? el("div", {style: "font-style:italic"}, "e.g. " + def.example) : null));
+    });
+    d.append(ul);
+    box.append(d);
+  });
+  const fam = {};
+  Object.entries(V.mm_ops || {}).forEach(([k, v]) => { const f = (typeof v === "object" ? v.family : "other") || "other"; (fam[f] = fam[f] || []).push([k, typeof v === "object" ? v.definition : v]); });
+  const ops = document.getElementById("ops");
+  Object.entries(fam).forEach(([f, list]) => ops.append(el("div", {}, el("h4", {}, f), el("ul", {}, list.map(([k, d]) => el("li", {}, el("code", {className: "mono"}, k), " — ", d))))));
+  const rt = document.getElementById("rels");
+  rt.append(el("tr", {}, el("th", {}, "Relation"), el("th", {}, "Meaning")));
+  Object.entries(V.rels).forEach(([k, v]) => rt.append(el("tr", {}, el("td", {className: "mono"}, k), el("td", {}, typeof v === "object" ? (v.definition || JSON.stringify(v)) : v))));
+  const lg = document.getElementById("legend");
+  STAGES.forEach(s => lg.append(el("span", {}, el("span", {className: "sw", style: `background:var(--${s})`}), STAGE_NAME[s])));
+})();
+
+// wrap text into lines
+function wrap(text, n, max) {
+  const words = String(text || "").split(/\s+/); const lines = []; let cur = "";
+  for (const w of words) { if ((cur + " " + w).trim().length > n) { if (cur) lines.push(cur); cur = w; } else cur = (cur + " " + w).trim(); }
+  if (cur) lines.push(cur);
+  if (lines.length > max) { lines.length = max; lines[max - 1] = lines[max - 1].replace(/.{0,2}$/, "…"); }
+  return lines;
+}
+
+function spineOrder(g) {
+  const sp = g.nodes.filter(n => n.spine);
+  const ids = new Set(sp.map(n => n.id));
+  const indeg = Object.fromEntries(sp.map(n => [n.id, 0]));
+  const out = {};
+  g.edges.forEach(e => { if (ids.has(e.src) && ids.has(e.dst)) { indeg[e.dst]++; (out[e.src] = out[e.src] || []).push(e.dst); } });
+  const rank = s => STAGES.indexOf(l1(s.type));
+  const q = sp.filter(n => indeg[n.id] === 0).sort((a, b) => rank(a) - rank(b));
+  const order = [], seen = new Set(), byId = Object.fromEntries(sp.map(n => [n.id, n]));
+  while (q.length) { const n = q.shift(); if (seen.has(n.id)) continue; seen.add(n.id); order.push(n); (out[n.id] || []).forEach(d => { if (--indeg[d] === 0) q.push(byId[d]); }); q.sort((a, b) => rank(a) - rank(b)); }
+  sp.forEach(n => { if (!seen.has(n.id)) order.push(n); });
+  return order;
+}
+
+function renderCase(c, idx) {
+  const g = c.graph;
+  const sec = el("section", {className: "case", id: "case" + (idx + 1)});
+  sec.append(el("div", {className: "eyebrow"}, `Case ${idx + 1} · ${c.paper_id.split("/")[0].replace(/_/g, " ")}`));
+  sec.append(el("h3", {style: "font-size:1.45rem;margin-top:4px"}, c.title));
+  sec.append(el("div", {className: "meta"}, el("span", {}, `${c.year}`), el("span", {}, `material: ${c.material}`), el("span", {}, `MatMech chain: ${c.chain}`), el("a", {href: c.doi, target: "_blank", rel: "noopener"}, c.doi.replace("https://doi.org/", "doi:")), el("span", {}, `${g.nodes.length} nodes · ${g.edges.length} edges · ${g.nodes.filter(n => n.spine).length} on spine`)));
+  const sp = el("div", {className: "spine", "aria-label": "Spine, in argument order"});
+  spineOrder(g).forEach((n, i) => { if (i) sp.append(el("span", {className: "arrow"}, "→")); sp.append(el("span", {className: "chip", style: `--c:var(--${l1(n.type)})`}, el("i", {}, n.type), n.label)); });
+  sec.append(el("div", {className: "eyebrow", style: "margin-top:14px"}, "Spine: this, so this, so this"), sp);
+  if (g.notes) sec.append(el("div", {className: "note"}, g.notes));
+
+  const modes = [["spine", "Spine"], ["evidence", "Spine + evidence"], ["all", "Everything"]];
+  let mode = "evidence";
+  const seg = el("div", {className: "seg", role: "group", "aria-label": "Graph detail"});
+  const btns = modes.map(([k, lab]) => { const b = el("button", {type: "button", "aria-pressed": String(k === mode)}, lab); b.onclick = () => { mode = k; btns.forEach((x, j) => x.setAttribute("aria-pressed", String(modes[j][0] === k))); draw(); }; return b; });
+  btns.forEach(b => seg.append(b));
+  sec.append(el("div", {className: "controls"}, seg));
+  const canvas = el("div", {className: "canvas"});
+  const panel = el("aside", {className: "panel"}, el("div", {className: "eyebrow"}, "Node"), el("p", {style: "color:var(--muted)"}, "Select a node in the graph."));
+  sec.append(el("div", {className: "stage"}, canvas, panel));
+
+  const figWrap = el("div", {className: "figs"});
+  Object.entries(c.figs).forEach(([f, v]) => figWrap.append(el("figure", {}, el("img", {src: v.src, alt: `${f}: ${v.caption.slice(0, 120)}`, loading: "lazy"}), el("figcaption", {}, el("b", {}, f + " "), v.caption.slice(0, 140) + (v.caption.length > 140 ? "…" : "")))));
+  sec.append(el("div", {className: "eyebrow", style: "margin-top:18px"}, "Figures used as evidence"), figWrap);
+
+  const byId = Object.fromEntries(g.nodes.map(n => [n.id, n]));
+  let sel = null;
+  function visible() {
+    if (mode === "all") return new Set(g.nodes.map(n => n.id));
+    const s = new Set(g.nodes.filter(n => n.spine).map(n => n.id));
+    if (mode === "evidence") g.edges.forEach(e => { if (s.has(e.dst) && ["OBS", "KNW"].includes(l1(byId[e.src]?.type))) s.add(e.src); });
+    return s;
+  }
+  function showNode(n) {
+    sel = n.id; panel.replaceChildren();
+    const st = l1(n.type), def = (V.types[n.type] || {}).definition;
+    panel.append(el("div", {className: "eyebrow", style: `color:var(--${st})`}, STAGE_NAME[st] || st), el("div", {className: "ty"}, n.type), def ? el("div", {className: "def"}, def) : null, el("div", {style: "font-weight:600"}, n.label));
+    const badges = el("div", {style: "margin-top:6px"});
+    if (n.spine) badges.append(el("span", {className: "badge"}, "spine"));
+    ["modality", "provenance"].forEach(k => n[k] && badges.append(el("span", {className: "badge"}, `${k}: ${n[k]}`)));
+    if (n.image_support) badges.append(el("span", {className: "badge" + (["contradicts", "not_shown"].includes(n.image_support) ? " warn" : "")}, `image: ${n.image_support}`));
+    if (n.attrs?.text_silent) badges.append(el("span", {className: "badge warn"}, "text-silent"));
+    panel.append(badges);
+    const attrs = Object.entries(n.attrs || {}).filter(([k]) => !["text_silent"].includes(k));
+    if (attrs.length) panel.append(el("table", {style: "margin-top:8px"}, attrs.map(([k, v]) => el("tr", {}, el("th", {}, k), el("td", {}, typeof v === "object" ? JSON.stringify(v) : String(v))))));
+    const ins = g.edges.filter(e => e.dst === n.id), outs = g.edges.filter(e => e.src === n.id);
+    const eline = (e, other, dir) => el("li", {}, `${dir} `, el("span", {className: "mono"}, e.rel), e.mm_op ? el("span", {className: "mono", style: "color:var(--accent)"}, ` [${e.mm_op}]`) : null, ` ${other?.label || ""}`);
+    if (ins.length) panel.append(el("div", {className: "eyebrow", style: "margin-top:10px"}, "From"), el("ul", {}, ins.map(e => eline(e, byId[e.src], "←"))));
+    if (outs.length) panel.append(el("div", {className: "eyebrow", style: "margin-top:10px"}, "To"), el("ul", {}, outs.map(e => eline(e, byId[e.dst], "→"))));
+    (n.figs || []).forEach(f => c.figs[f] && panel.append(el("img", {src: c.figs[f].src, alt: f}), el("div", {className: "cap"}, `${f}: ${c.figs[f].caption.slice(0, 220)}`)));
+    draw();
+  }
+  function draw() {
+    const vis = visible();
+    const gg = new dagre.graphlib.Graph({multigraph: true});
+    gg.setGraph({rankdir: "LR", nodesep: 12, ranksep: 54, edgesep: 8, marginx: 14, marginy: 14});
+    gg.setDefaultEdgeLabel(() => ({}));
+    const W = 186;
+    g.nodes.filter(n => vis.has(n.id)).forEach(n => { const lines = wrap(n.label, 30, 3); gg.setNode(n.id, {width: W, height: 26 + lines.length * 14, lines}); });
+    g.edges.forEach((e, i) => { if (vis.has(e.src) && vis.has(e.dst)) gg.setEdge(e.src, e.dst, {e}, "e" + i); });
+    dagre.layout(gg);
+    const gw = gg.graph().width, gh = gg.graph().height;
+    const s = svgEl("svg", {width: gw, height: gh, viewBox: `0 0 ${gw} ${gh}`, role: "img", "aria-label": `Argument graph for ${c.title}`});
+    const defs = svgEl("defs");
+    [["a", "var(--muted)"], ["m", "var(--accent)"], ["w", "var(--warn)"]].forEach(([id, col]) => { const mk = svgEl("marker", {id: `ar${id}${idx}`, viewBox: "0 0 8 8", refX: 7, refY: 4, markerWidth: 7, markerHeight: 7, orient: "auto"}); mk.append(svgEl("path", {d: "M0,0 L8,4 L0,8 z", style: `fill:${col}`})); defs.append(mk); });
+    s.append(defs);
+    gg.edges().forEach(ed => {
+      const o = gg.edge(ed), e = o.e, p = o.points;
+      let d = `M${p[0].x},${p[0].y}`;
+      for (let i = 1; i < p.length - 1; i++) { const mx = (p[i].x + p[i + 1].x) / 2, my = (p[i].y + p[i + 1].y) / 2; d += ` Q${p[i].x},${p[i].y} ${mx},${my}`; }
+      d += ` L${p[p.length - 1].x},${p[p.length - 1].y}`;
+      const neg = ["rules_out", "counteracts", "qualifies", "contrasts"].includes(e.rel);
+      const cls = "edge" + (e.mm_op ? " mm" : "") + (neg ? " neg" : "") + (sel && (e.src === sel || e.dst === sel) ? " hot" : "");
+      const path = svgEl("path", {d, class: cls, "marker-end": `url(#ar${e.mm_op ? "m" : neg ? "w" : "a"}${idx})`});
+      const tt = svgEl("title"); tt.textContent = `${byId[e.src].label} —${e.rel}${e.mm_op ? " [" + e.mm_op + "]" : ""}→ ${byId[e.dst].label}`; path.append(tt);
+      s.append(path);
+      if (e.mm_op && sel && (e.src === sel || e.dst === sel)) { const mid = p[Math.floor(p.length / 2)]; const t = svgEl("text", {x: mid.x, y: mid.y - 4, class: "elabel", "text-anchor": "middle"}); t.textContent = e.mm_op; s.append(t); }
+    });
+    gg.nodes().forEach(id => {
+      const nd = gg.node(id), n = byId[id], st = l1(n.type);
+      const grp = svgEl("g", {class: "gnode" + (n.spine ? " spine" : "") + (isAudit(n) ? " audit" : "") + (sel === id ? " sel" : ""), style: `--c:var(--${st})`, transform: `translate(${nd.x - nd.width / 2},${nd.y - nd.height / 2})`, tabindex: "0", role: "button", "aria-label": `${n.type}: ${n.label}`});
+      grp.append(svgEl("rect", {width: nd.width, height: nd.height, rx: 4}));
+      const t = svgEl("text", {x: 8, y: 13, class: "t"}); t.textContent = n.type.length > 30 ? "…" + n.type.slice(-29) : n.type; grp.append(t);
+      if (n.figs && n.figs.length) { const f = svgEl("text", {x: nd.width - 6, y: 13, class: "fig", "text-anchor": "end"}); f.textContent = n.figs.join(","); grp.append(f); }
+      nd.lines.forEach((ln, i) => { const tl = svgEl("text", {x: 8, y: 29 + i * 14, class: "l"}); tl.textContent = ln; grp.append(tl); });
+      grp.addEventListener("click", () => showNode(n));
+      grp.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); showNode(n); } });
+      s.append(grp);
+    });
+    canvas.replaceChildren(s);
+  }
+  draw();
+  return sec;
+}
+const casesBox = document.getElementById("cases");
+DATA.cases.forEach((c, i) => casesBox.append(renderCase(c, i)));
+</script>
