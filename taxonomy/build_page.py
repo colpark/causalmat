@@ -34,7 +34,8 @@ for gp in graph_paths:
                   "graph": g, "figs": fig_data})
 
 tpl = open(f"{TAX}/page_template.html").read()
-data = {"vocab": vocab, "metrics": metrics, "cases": cases}
+stage = json.load(open(f"{TAX}/stage_graph.json")) if os.path.exists(f"{TAX}/stage_graph.json") else None
+data = {"vocab": vocab, "metrics": metrics, "cases": cases, "stage": stage}
 html = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
 open(out, "w").write(html)
 print(out, f"{os.path.getsize(out) / 1e6:.2f} MB", [c["paper_id"] for c in cases])

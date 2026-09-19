@@ -111,6 +111,9 @@ button:focus-visible,summary:focus-visible,.gnode:focus-visible{outline:2px soli
 .review ol{margin:4px 0 0; padding-left:18px}
 .review li{margin-block:3px}
 .review p{margin:4px 0 0; color:var(--muted)}
+.stagebox{max-height:none}
+.stagebox svg{width:100%; height:auto; min-width:640px}
+.stagebox text{font-family:var(--body)}
 .note{border-left:3px solid var(--accent); padding:4px 12px; color:var(--muted); font-size:.88rem; margin-block:12px}
 @media (prefers-reduced-motion:no-preference){.edge,.gnode rect{transition:stroke-width .15s, stroke-opacity .15s}}
 </style>
@@ -120,6 +123,10 @@ button:focus-visible,summary:focus-visible,.gnode:focus-visible{outline:2px soli
   <h1>MatMech argument graphs</h1>
   <p class="lede">Each paper becomes one directed graph that follows its argument: hypothesis → selection → processing → structure → property → performance → discussion. Measurements sit in between as evidence nodes, and each figure-to-claim edge names the multimodal reasoning step it performs. Node types come from a shared vocabulary built by a saturation sweep: staff agents decomposed papers and a senior-investigator agent ruled on every new type.</p>
   <div class="stats" id="stats"></div>
+
+  <h2>The ten stages as one graph</h2>
+  <p class="lede">Every node in every paper belongs to one of ten first-level stages. Arrows are the actual edges between stages, summed over all 60 papers (2,625 edges). Arrow width is proportional to the count, and circle area to the number of nodes. The spine runs left to right. Mechanism bridges it from above, and observations and prior knowledge feed it from below. Loops within a stage are shown as ↻ counts. Hover an arrow for its relation types.</p>
+  <div class="canvas stagebox" id="stagegraph"></div>
 
   <h2>Saturation</h2>
   <div class="sat">
@@ -189,6 +196,51 @@ const papersSwept = M.reduce((s, r) => s + r.papers, 0);
   const tb = document.getElementById("sattable");
   tb.append(el("tr", {}, ["Round", "Papers", "Nodes/paper", "Coverage", "Leaves added", "mm_ops added", "Vocab types"].map(h => el("th", {}, h))));
   M.forEach(r => tb.append(el("tr", {}, [`r${r.round}`, r.papers, r.nodes_per_paper, (r.coverage_by_prev_vocab * 100).toFixed(1) + "%", r.leaves_added ?? "–", r.mm_ops_added ?? "–", r.vocab_types_new ?? r.vocab_types_prev].map(v => el("td", {}, String(v))))));
+})();
+
+// stage graph
+(function () {
+  const S = DATA.stage; if (!S) return;
+  const box = document.getElementById("stagegraph");
+  const W = 1000, H = 560;
+  const pos = {HYP:[70,280], DES:[205,280], PRC:[340,280], STR:[490,280], PRP:[650,280], PRF:[800,280], DSC:[935,280], MEC:[650,95], OBS:[560,470], KNW:[300,470]};
+  const r = k => 16 + Math.sqrt(S.nodes[k].count) * 1.25;
+  const s = svgEl("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Graph of the ten first-level stages with aggregated edge counts"});
+  const defs = svgEl("defs");
+  STAGES.forEach(k => { const m = svgEl("marker", {id: "sa" + k, viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 11, markerHeight: 11, markerUnits: "userSpaceOnUse", orient: "auto"}); m.append(svgEl("path", {d: "M0,0 L10,5 L0,10 z", style: `fill:var(--${k})`})); defs.append(m); });
+  s.append(defs);
+  const edges = S.edges.filter(e => e.src !== e.dst && e.count >= 11);
+  const maxC = Math.max(...edges.map(e => e.count));
+  const has = new Set(edges.map(e => e.src + ">" + e.dst));
+  edges.sort((a, b) => a.count - b.count).forEach(e => {
+    const [x1, y1] = pos[e.src], [x2, y2] = pos[e.dst];
+    const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
+    const sameRow = Math.abs(dy) < 5;
+    const bend = sameRow ? (L > 170 ? -(0.22 * L + 10) : 0) : (has.has(e.dst + ">" + e.src) ? 34 : 14);
+    const mx = (x1 + x2) / 2 - uy * bend, my = (y1 + y2) / 2 + ux * bend;
+    const sx = x1 + ux * r(e.src), sy = y1 + uy * r(e.src);
+    const ex = x2 - ux * (r(e.dst) + 3), ey = y2 - uy * (r(e.dst) + 3);
+    const w = 1 + 11 * e.count / maxC;
+    const p = svgEl("path", {d: `M${sx},${sy} Q${mx},${my} ${ex},${ey}`, fill: "none", "stroke-width": w, "stroke-opacity": .55, "marker-end": `url(#sa${e.src})`, style: `stroke:var(--${e.src})`});
+    const t = svgEl("title"); t.textContent = `${STAGE_NAME[e.src]} → ${STAGE_NAME[e.dst]}: ${e.count} edges in ${e.papers} papers · ` + Object.entries(e.rels).map(([k, v]) => `${k} ${v}`).join(", "); p.append(t);
+    s.append(p);
+    if (e.count >= 60 || (e.count >= 40 && !sameRow)) { const lx = 0.25 * sx + 0.5 * mx + 0.25 * ex, ly = 0.25 * sy + 0.5 * my + 0.25 * ey; const top = Object.keys(e.rels)[0];
+      const tx = svgEl("text", {x: lx, y: ly - 3, "text-anchor": "middle", "font-size": 11, style: "fill:var(--ink);paint-order:stroke;stroke:var(--panel);stroke-width:4px"}); tx.textContent = `${e.count} ${top}`; s.append(tx); }
+  });
+  STAGES.forEach(k => {
+    const [x, y] = pos[k], n = S.nodes[k], R = r(k);
+    const g = svgEl("g");
+    g.append(svgEl("circle", {cx: x, cy: y, r: R, style: `fill:color-mix(in srgb,var(--${k}) 22%,var(--panel));stroke:var(--${k})`, "stroke-width": ["OBS","KNW"].includes(k) ? 1.5 : 2.5, "stroke-dasharray": ["OBS","KNW"].includes(k) ? "5 3" : "none"}));
+    const a = svgEl("text", {x, y: y - 2, "text-anchor": "middle", "font-size": 15, "font-weight": 600, style: `fill:var(--${k})`}); a.textContent = k; g.append(a);
+    const b = svgEl("text", {x, y: y + 14, "text-anchor": "middle", "font-size": 10.5, style: "fill:var(--muted)"}); b.textContent = `${n.count} nodes`; g.append(b);
+    const nm = svgEl("text", {x, y: y + R + 15, "text-anchor": "middle", "font-size": 12, style: "fill:var(--ink)"}); nm.textContent = STAGE_NAME[k]; g.append(nm);
+    const loop = S.edges.find(e => e.src === k && e.dst === k);
+    if (loop) { const l = svgEl("text", {x: x + R * .72, y: y - R * .8, "font-size": 10.5, style: `fill:var(--${k})`}); l.textContent = "↻" + loop.count; g.append(l); }
+    const tt = svgEl("title"); tt.textContent = `${STAGE_NAME[k]}: ${n.count} nodes in ${n.papers} papers, ${n.spine} on a spine`; g.append(tt);
+    s.append(g);
+  });
+  const cap = svgEl("text", {x: 20, y: 24, "font-size": 12, style: "fill:var(--muted)"}); cap.textContent = "spine →  (solid circles on the spine row; dashed = evidence and premises, never on the spine)"; s.append(cap);
+  box.append(s);
 })();
 
 // vocabulary tree
