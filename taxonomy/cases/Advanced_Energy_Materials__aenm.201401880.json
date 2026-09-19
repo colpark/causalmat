@@ -111,7 +111,7 @@
    "figs": [
     "F1"
    ],
-   "modality": null,
+   "modality": "schematic",
    "provenance": null,
    "image_support": "shown",
    "spine": true,
@@ -193,14 +193,15 @@
    "label": "O* adsorption is rate-determining, so activity rises with O* binding; composition acts through reactivity",
    "attrs": {
     "mechanism_class": "adsorption energetics (reactivity-activity relationship)",
-    "basis": "evidenced",
+    "basis": "argued",
     "inference": "correlational: rank order of 4 DFT compositions vs 7 measured",
-    "image_note": "F5 schematic draws composition -> reactivity -> activity; CRR labelled 'DFT calculation: Figure 4b', CAR 'electrochemical measurement: Figure 3b', RAR labelled 'deduction: higher reactivity offers higher activity'"
+    "image_note": "F5 schematic draws composition -> reactivity -> activity; CRR labelled 'DFT calculation: Figure 4b', CAR 'electrochemical measurement: Figure 3b', RAR labelled 'deduction: higher reactivity offers higher activity'",
+    "basis_note": "composition->reactivity (F4b) and composition->activity (F3b) are evidenced; reactivity->activity is labelled \"deduction\" in F5 and rests on a rank match over 4 compositions (o23), so the pathway is argued"
    },
    "figs": [
     "F5"
    ],
-   "modality": null,
+   "modality": "schematic",
    "provenance": null,
    "image_support": "shown",
    "spine": true,
@@ -334,7 +335,7 @@
    "figs": [
     "F4"
    ],
-   "modality": null,
+   "modality": "simulation_render",
    "provenance": null,
    "image_support": "shown",
    "spine": false,
@@ -630,11 +631,12 @@
   {
    "id": "o15",
    "type": "OBS/response/characteristic_value",
-   "label": "F3a shows no sharp onset at 1.48 V; current rises gradually, exceeding 1 mA cm-2 near 1.52 V",
+   "label": "F3a does not resolve the stated 1.48 V onset: curves leave the ~0.4 mA cm-2 baseline gradually over ~1.47-1.52 V",
    "attrs": {
     "technique": "LSV (F3a)",
     "text_value": "sharp onset at ~1.48 V, eta = 0.25 V",
-    "image_note": "Co-rich curves sit on a ~0.4-0.5 mA cm-2 baseline from 1.40 V and bend up gradually between ~1.47 and 1.52 V; no break resolvable at 1.48 V"
+    "image_note": "Co-rich curves sit on a ~0.4-0.5 mA cm-2 baseline from 1.40 V and bend up gradually between ~1.47 and 1.52 V; no break resolvable at 1.48 V",
+    "audit_kind": "figure does not resolve the text value (not a contradiction): a sub-mA onset cannot be read on a 0-20 mA cm-2 axis"
    },
    "figs": [
     "F3"
@@ -782,7 +784,7 @@
     "F4"
    ],
    "modality": "xy_curve",
-   "provenance": "computed",
+   "provenance": "derived",
    "image_support": "shown",
    "spine": false,
    "fit": "good",
@@ -1117,8 +1119,42 @@
    "dst": "f1",
    "rel": "explains",
    "mm_op": null
+  },
+  {
+   "src": "o11",
+   "dst": "o23",
+   "rel": "derives",
+   "mm_op": "replot_derived_series",
+   "attrs": {
+    "aspect": "rank of j(1.60 V) at the compositions shared with DFT"
+   }
+  },
+  {
+   "src": "o22",
+   "dst": "o23",
+   "rel": "derives",
+   "mm_op": "replot_derived_series",
+   "attrs": {
+    "aspect": "rank of E_SB at 0, 33, 67, 100% Co"
+   }
   }
  ],
  "notes": "Lost: XANES/EXAFS spectra, BET, Cu2O templates, hollow-vs-solid LSV and post-test TEM sit in the SI, so amorphous local structure, template inheritance, the architecture gain and structural stability rest on text_only nodes; activity is per geometric area with no ECSA normalisation, and TOF (0.18 s-1) is a lower bound. The argument branches after synthesis into a composition line (EDS/XPS -> DFT O* binding -> volcano, joined only by rank correlation of F3b and F4b over four shared compositions, with the reactivity-activity link labelled 'deduction' in F5), an architecture line (hollow vs solid, attributed) and an amorphous-state line to 10 h stability. Image audits: the headline eta = 0.25 V onset is not resolved in F3a (eta10 = 0.35 V is, and F3c agrees), the EDS spectrum is dominated by Cu with S present while the formula omits both, and F2b shows debris the text denies; the F3e ring current is ~-140 uA, not small, and F3f closes the charge balance at ~2% peroxide.",
- "migrated_from": "graphs_v04/Advanced_Energy_Materials__aenm.201401880.json (rebuilt as showcase case C2)"
+ "migrated_from": "graphs_v04/Advanced_Energy_Materials__aenm.201401880.json (rebuilt as showcase case C2)",
+ "review": {
+  "judge": "senior investigator",
+  "verdict": "approved with changes",
+  "changes": [
+   "o15 relabelled as a non-resolution audit: F3a cannot resolve a sub-mA onset at 1.48 V on its 0-20 mA cm-2 axis (does not resolve, not contradicts); qualifies f1 kept.",
+   "m1 attrs.basis evidenced -> argued: F5 itself labels the reactivity->activity link 'deduction', and the only support is a 4-composition rank match (o23).",
+   "o23 provenance computed -> derived, with new derives edges from o11 (measured j) and o22 (DFT E_SB) so the audit's inputs are explicit.",
+   "Filled modality on figure-bearing non-OBS nodes: p1 and m1 schematic, k2 simulation_render."
+  ],
+  "key_multimodal_steps": [
+   "Correlate across series, measured vs computed (F3b x F4b -> m1): the measured j(1.60 V) volcano and the DFT O* binding curve share rank order at 0, 33, 100% Co and a peak near 67-73% Co; this is the paper's only bridge from reactivity to activity.",
+   "Convert ring/disk currents to a charge balance (F3e -> o18, F3f -> o19): FE = I_ring/(I_disk N) ~0.97-0.99 plus ~2% peroxide from the co-plotted ring current closes the 4e- claim for f2.",
+   "Register the EDS line scan on the TEM cage (F2c-d) and read the EDS spectrum against the formula (F2e): Co/Ni rise at both walls (hollow shell), while Cu and S peaks appear that the stated NiCo2.7(OH)x omits."
+  ],
+  "audit_summary": "Confirmed o2 (F2b debris contradicts 'exclusively nanocages'), o8 (Cu/S in the EDS spectrum, source unresolved) and o23 (volcano match rests on 4 shared compositions). Reframed, not overturned, o15: the 0.25 V onset is not resolved by F3a rather than contradicted."
+ }
 }

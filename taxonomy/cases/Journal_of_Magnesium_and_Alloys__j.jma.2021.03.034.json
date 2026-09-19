@@ -155,7 +155,7 @@
    "label": "ND particles embedded in alpha-Mg with gap-free ND/matrix contact",
    "attrs": {
     "sample": "ZK60+0.05ND",
-    "note": "the ~8 nm epitaxial interlayer of the MatMech summary is imaged at MgZn2/Mg, not at ND (see o7c)"
+    "note": "ND/matrix contact rests on one HRTEM view (o7d); the ~8 nm interlayer (s_int2) is imaged, and described by the paper, at MgZn2/alpha-Mg, not at ND"
    },
    "figs": [],
    "modality": null,
@@ -513,11 +513,10 @@
   {
    "id": "o7c",
    "type": "OBS/morphology/appearance",
-   "label": "HRTEM: ~8 nm interlayer lies between MgZn2 and alpha-Mg fringes, not at an ND particle",
+   "label": "HRTEM of the F7b box: ~8 nm interlayer between MgZn2 and alpha-Mg fringes",
    "attrs": {
     "technique": "HRTEM",
-    "text_silent": true,
-    "image_note": "band 7-10 nm between yellow lines; labels '2.415 nm MgZn2' and '2.451 nm Mg' are 10x too large (d ~0.24 nm); fringes continue across the lower boundary, epitaxy plausible but 'more HRTEM images' not shown"
+    "image_note": "band 7-10 nm between yellow lines; labels '2.415 nm MgZn2' and '2.451 nm Mg' are 10x too large (d ~0.24 nm); fringes continue across the lower boundary, epitaxy plausible but 'more HRTEM images' not shown. The paper text places this interlayer at the MgZn2 boxed in F7b, consistent with the image; only the MatMech summary moves it to ND/alpha-Mg (not a paper-vs-figure conflict; r04 ruling #37)."
    },
    "figs": [
     "F7"
@@ -604,7 +603,7 @@
    "label": "Compression: 0.15 wt% has the highest yield peak (~360 MPa), above 0.1 wt% (~340)",
    "attrs": {
     "text_silent": true,
-    "image_note": "text ranks CYS highest at 0.1 wt% (353.5 MPa); UCS highest at 0.1 wt% (~515 MPa)"
+    "image_note": "text ranks CYS highest at 0.1 wt% (353.5 MPa); UCS highest at 0.1 wt% (~515 MPa); the 0.15 wt% curve shows a yield-point drop at ~2.3% strain, so a 0.2%-offset CYS read there is also ~350-360 MPa: the figure contradicts the text's ranking whichever yield definition is used"
    },
    "figs": [
     "F8"
@@ -695,13 +694,13 @@
    "label": "CTE drops 72% at first 0.05 wt% ND, only 10-20% more up to 0.2 wt%",
    "attrs": {
     "text_silent": true,
-    "image_note": "~0.03 vol% ND cannot cut CTE 72% by mixture or interface-density scaling; a process or measurement offset between alloy and composites is likely"
+    "image_note": "~0.03 vol% ND cannot cut CTE 72% by mixture or interface-density scaling (k29); a step-then-plateau is not the 'more interface, lower CTE' scaling of c27. A process or measurement offset between the alloy and the composites is possible but untested in the paper; the figure agrees with the text's numbers."
    },
    "figs": [
     "F9"
    ],
    "modality": "xy_curve",
-   "provenance": "measured",
+   "provenance": "derived",
    "image_support": "shown",
    "spine": false,
    "fit": "good",
@@ -1031,12 +1030,6 @@
    "mm_op": "inspect_local_feature"
   },
   {
-   "src": "o7c",
-   "dst": "c18",
-   "rel": "qualifies",
-   "mm_op": "inspect_local_feature"
-  },
-  {
    "src": "c8",
    "dst": "s_int2",
    "rel": "produces",
@@ -1161,7 +1154,32 @@
    "dst": "c36",
    "rel": "supports",
    "mm_op": null
+  },
+  {
+   "src": "o9cd",
+   "dst": "o28",
+   "rel": "derives",
+   "mm_op": "convert_to_quantity",
+   "attrs": {
+    "via": "known_relation",
+    "relation": "relative change (CTE_x - CTE_0)/CTE_0 per cycle"
+   }
   }
  ],
- "notes": "The argument branches after extrusion into a mechanical line (grain refinement + MgZn2/ND dispersion -> attributed Hall-Petch/Orowan/CTE-mismatch strengthening -> yield peak near 0.1 wt%) and a thermal line (ND/matrix interfaces -> argued interface constraint -> 72% lower CTE -> dimensional stability); thermal conductivity is a side branch that only re-enters at the 0.05 wt% design guidance. Figures show three things the text misreads: the ~8 nm 'epitaxial' interlayer is imaged at MgZn2/alpha-Mg, not at ND (F7b-c); compression yield peaks at 0.15 wt% (F8b); residual strain is not monotone in ND (F9b); and the 72% CTE step at ~0.03 vol% ND (F9c-d) exceeds any mixture bound, so the thermal branch rests on an argued mechanism with a likely alloy/composite offset. Lost: Table 1 (not in packet), the Cp and phonon Umklapp argument behind the 473 K conductivity maxima, texture differences visible in XRD intensity ratios, and scale-label errors (F2b, F7c 10x; F10b axis)."
+ "notes": "The argument branches after extrusion into a mechanical line (grain refinement + MgZn2/ND dispersion -> attributed Hall-Petch/Orowan/CTE-mismatch strengthening -> yield peak near 0.1 wt%) and a thermal line (ND/matrix interfaces -> argued interface constraint -> 72% lower CTE -> dimensional stability); thermal conductivity is a side branch that only re-enters at the 0.05 wt% design guidance. Figures show three things the text misreads: compression yield peaks at 0.15 wt% (F8b); residual strain is not monotone in ND (F9b); the 72% CTE step at ~0.03 vol% ND (F9c-d) exceeds any mixture bound, so the thermal branch rests on an argued mechanism with a likely alloy/composite offset. Lost: Table 1 (not in packet), the Cp and phonon Umklapp argument behind the 473 K conductivity maxima, texture differences visible in XRD intensity ratios, and scale-label errors (F2b, F7c 10x; F10b axis). Judge: the F7c interlayer is at MgZn2/alpha-Mg in both figure and text; the ND attribution is a MatMech-summary error, so it is recorded on o7c, not as an audit.",
+ "review": {
+  "judge": "senior investigator",
+  "verdict": "approved with changes",
+  "changes": [
+   "Overturned audit o7c: removed o7c -qualifies-> c18 and text_silent; the ~8 nm interlayer is at MgZn2/alpha-Mg in both F7c and the paper text, the ND attribution came only from the MatMech summary (ruling #37). o7c now evidences s_int2 only; c18 note and case notes rewritten.",
+   "o28 provenance measured -> derived; added o9cd -derives-> o28 (convert_to_quantity, via=known_relation, relative change); image_note softened: offset between alloy and composites is possible, untested, and the figure agrees with the text numbers.",
+   "o8b image_note: the 0.15 wt% compression curve has a yield-point drop, so its lead over 0.1 wt% holds for peak and 0.2%-offset readings (the figure contradicts the text's ranking)."
+  ],
+  "key_multimodal_steps": [
+   "Register colocated views (F6): the HAADF bright particle, the Zn/Mg EDX maps and the 365 nm line scan are overlaid to name the particle MgZn2, converging with the XRD assignment (F3) that the figure only marks on one trace.",
+   "Correlate across series (F4f x F8a -> o24): grain size and yield across the ND series do not co-vary (0.05 wt% stronger at unchanged grain size, finest 0.2 wt% weaker), so the attributed Hall-Petch lead term is qualified.",
+   "Convert strain to CTE and compare with the text (F9a-d, F10): per-heating strain / 273 K reproduces 3.08e-5 and 8.6e-6 /K, but the cycle-5 residual strain in F9b is highest at 0.1 wt%, against the text's 'stability improves with ND content'."
+  ],
+  "audit_summary": "Confirmed 4: o8b and o_res (figure contradicts the text: compression peak at 0.15 wt%; residual strain not monotone), o24 (figure-derived series undercuts attributed Hall-Petch), o28 (figure agrees with the numbers, but a 72% step at ~0.03 vol% is not what the argued interface mechanism predicts). Overturned 1: o7c conflicted with the MatMech summary, not with the paper."
+ }
 }

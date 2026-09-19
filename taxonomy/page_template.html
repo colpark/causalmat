@@ -105,6 +105,12 @@ button:focus-visible,summary:focus-visible,.gnode:focus-visible{outline:2px soli
 .figs{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; margin-top:14px}
 .figs figure{margin:0; font-size:.72rem; color:var(--muted)}
 .figs img{border:1px solid var(--rule); border-radius:3px; background:#fff; aspect-ratio:4/3; object-fit:contain; width:100%}
+.review{background:var(--panel); border:1px solid var(--rule); border-radius:6px; padding:12px 14px; margin-block:12px}
+.review .rv{display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:18px; margin-top:6px; font-size:.88rem}
+@media (max-width:760px){.review .rv{grid-template-columns:1fr}}
+.review ol{margin:4px 0 0; padding-left:18px}
+.review li{margin-block:3px}
+.review p{margin:4px 0 0; color:var(--muted)}
 .note{border-left:3px solid var(--accent); padding:4px 12px; color:var(--muted); font-size:.88rem; margin-block:12px}
 @media (prefers-reduced-motion:no-preference){.edge,.gnode rect{transition:stroke-width .15s, stroke-opacity .15s}}
 </style>
@@ -247,6 +253,14 @@ function renderCase(c, idx) {
   const sp = el("div", {className: "spine", "aria-label": "Spine, in argument order"});
   spineOrder(g).forEach((n, i) => { if (i) sp.append(el("span", {className: "arrow"}, "→")); sp.append(el("span", {className: "chip", style: `--c:var(--${l1(n.type)})`}, el("i", {}, n.type), n.label)); });
   sec.append(el("div", {className: "eyebrow", style: "margin-top:14px"}, "Spine: this, so this, so this"), sp);
+  if (g.review) {
+    const r = g.review;
+    sec.append(el("div", {className: "review"},
+      el("div", {className: "eyebrow"}, `Senior investigator: ${r.verdict}`),
+      el("div", {className: "rv"},
+        el("div", {}, el("b", {}, "Key multimodal steps"), el("ol", {}, (r.key_multimodal_steps || []).map(s => el("li", {}, s)))),
+        el("div", {}, el("b", {}, "Image audit"), el("p", {}, r.audit_summary || "")))));
+  }
   if (g.notes) sec.append(el("div", {className: "note"}, g.notes));
 
   const modes = [["spine", "Spine"], ["evidence", "Spine + evidence"], ["all", "Everything"]];

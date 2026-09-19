@@ -16,6 +16,9 @@ The reasoning must be grounded on measurements. The analysis follows the `fm-adv
 | Path | What |
 |---|---|
 | [docs/ANALYSIS.md](docs/ANALYSIS.md) | **Main result.** The KEGG ↔ MatMech mapping, corpus counts, the text-only floor, measurement-grounding routes, five candidate tasks with FM-in-the-loop workflows and rulings, and the SFT/RL recipe |
+| [docs/TAXONOMY.md](docs/TAXONOMY.md) | **Papers as logical graphs.** A saturation sweep over 60 papers built the final node vocabulary v04 (64 leaves, 22 multimodal operations); it includes 3 reviewed showcase graphs and the MatMech data defects found |
+| `taxonomy/` | Protocol, vocabularies v00–v04, per-round graphs/proposals/judge rulings, `graphs_v04/` (60 migrated graphs), `cases/` (showcases), scripts |
+| `site/argument_graphs.html` | Interactive page: vocabulary tree, saturation curve, the 3 case graphs with their figures |
 | [docs/bioreason_kegg.md](docs/bioreason_kegg.md) | How BioReason builds SFT/RL data on KEGG, with our leakage and lookup checks on its HF data |
 | `results/corpus_stats.json` | Corpus counts over all 61,766 records |
 | `results/text_floor.json` | TF-IDF mechanical floor for the mechanism-selection and effect-prediction templates |

@@ -104,11 +104,12 @@
   {
    "id": "s1",
    "type": "STR/phase/identity",
-   "label": "Struts contain crystalline HAP plus PLLA and/or PGA phases, PGA share rising with ratio",
+   "label": "Struts retain HAP (PO4/OH bands in all five; HAP reflection resolved only in 1#) with crystalline PLLA and/or PGA, PGA share rising with ratio",
    "attrs": {
     "basis": "evidenced",
     "scale": "phase",
-    "convergence": "XRD (F2a) + FTIR (F2b) + DSC (F2c)"
+    "convergence": "XRD (F2a) + FTIR (F2b) + DSC (F2c)",
+    "note": "crystallinity of HAP in 2#-5# is not shown: XRD (o4) loses the 32 deg reflection; retention rests on FTIR (o5) and TGA residue"
    },
    "figs": [],
    "modality": null,
@@ -603,10 +604,10 @@
   {
    "id": "o11",
    "type": "OBS/response/trend",
-   "label": "Medium pH ~7 for 1# but ~3.2-4.5 for PGA scaffolds (3# ~3.6-4.5) over 4 weeks",
+   "label": "PBS medium pH ~7 for 1# but acidic for PGA scaffolds: 2# 5.7 to 4.2, 3# 4.5 to 3.6, 5# 3.9 to 3.2 over 4 weeks",
    "attrs": {
     "panel": "F5d",
-    "image_note": "Strongly acidic degradation medium for all PGA-containing scaffolds including the chosen 3#; apatite nucleation is disfavoured and HAP dissolution favoured at pH ~3.5, and the cell tests do not use degradation-conditioned media. The packet text (truncated) does not reconcile this with apatite deposition or cytocompatibility."
+    "image_note": "Strongly acidic PBS degradation medium for every PGA-containing scaffold including the chosen 3#. The pH of the SBF used for the apatite test and of the cell media is not reported, so the figure does not test, but makes doubtful, apatite nucleation (favoured near pH 7.4) and cytocompatibility under degradation. The packet text (truncated) does not reconcile this."
    },
    "figs": [
     "F5"
@@ -786,10 +787,11 @@
   {
    "id": "o22",
    "type": "OBS/morphology/appearance",
-   "label": "Micro-CT renders of three unlabelled groups show no evident between-group difference in defect filling",
+   "label": "Micro-CT renders of three unlabelled groups: between-group defect filling cannot be ranked from the figure",
    "attrs": {
     "technique": "micro-CT",
-    "image_note": "Defects partly filled at 4 wk and cortex more continuous at 8 wk in all columns; columns carry no group labels (text order 3#, PLLA/HAP, blank assumed). With BV/TV and BMD given only for 3# (F9 bars), the text claim of more bone than PLLA/HAP and blank has neither visual nor quantitative support."
+    "image_note": "Defects partly filled at 4 wk and cortex more continuous at 8 wk in all columns; columns carry no group labels (text order 3#, PLLA/HAP, blank assumed). With BV/TV and BMD given only for 3# (F9 bars), the text claim of more bone than PLLA/HAP and blank has neither visual nor quantitative support.",
+    "audit_kind": "figure does not resolve the comparative claim (no group labels, no per-group quantity), not a contradiction"
    },
    "figs": [
     "F9"
@@ -1154,7 +1156,10 @@
    "src": "o13",
    "dst": "s3",
    "rel": "evidences",
-   "mm_op": "register_colocated_views"
+   "mm_op": "register_colocated_views",
+   "attrs": {
+    "note": "registration unverifiable: the EDS analysed area is not marked on the SEM field (see a2)"
+   }
   },
   {
    "src": "o14",
@@ -1218,5 +1223,21 @@
   }
  ],
  "notes": "Spine: need -> PGA-blending hypothesis -> HAP/PLLA base + PGA + ratio sweep -> laser printing -> blended phases with HAP retained (XRD+FTIR+DSC) -> hydrophilicity -> hydrolytic degradation -> HAP exposure -> apatite formation, against a strength loss (second branch) meeting at the trade-off -> down-select 3# -> cytocompatibility -> in-vivo repair -> conclusion. Lost: TGA, stress-strain shapes, powder SEM/EDS (F1b maps do not register onto SEM fields), fracture-mode change, and the DSC evidence that PLLA and PGA crystallise separately (kept as image_note on o6; it weakens the side claim s2 of 'no interface'). The degradation->bioactivity link is correlational across one PGA series (o8/o10 correlate_across_series), and the image audits cut it at the chosen composition: F6 shows exposed particles clearly only on 5#, and those are 2-4 um rods (a1) >10x the raw HAP needles; apatite identity rests on EDS stoichiometry with an Au/P overlap (a2); media reach pH ~3.5 (o11), which works against apatite nucleation and is untested on cells. Cell and in-vivo tests use 3# only with no in-vitro control and no quantified control groups (o22), so the conclusion's comparative claims on cytocompatibility and bone repair are argued rather than measured.",
- "rebuilt_from": "graphs_v04/Bioactive_Materials__j.bioactmat.2020.09.001.json"
+ "rebuilt_from": "graphs_v04/Bioactive_Materials__j.bioactmat.2020.09.001.json",
+ "review": {
+  "judge": "senior investigator",
+  "verdict": "approved with changes",
+  "changes": [
+   "s1 relabelled: HAP retention in 2#-5# rests on FTIR PO4/OH bands and TGA residue; XRD shows the HAP reflection only in 1#, so 'crystalline HAP' was not shown.",
+   "o11 label corrected to the F5d values (2# starts at pH ~5.7, not within 3.2-4.5); image_note now says the medium is PBS and SBF/cell-media pH is not reported, so it is a plausibility audit, not a measured contradiction.",
+   "o22 relabelled from 'no evident difference' to 'cannot be ranked' (unlabelled columns, no control quantities): figure does not resolve, rather than contradicts, the comparative claim.",
+   "o13 -> s3 register_colocated_views edge annotated: registration cannot be verified because the EDS area is not marked (links the op to its failed audit a2)."
+  ],
+  "key_multimodal_steps": [
+   "Converge three modalities on one phase claim (F2a XRD, F2b FTIR, F2c DSC -> s1): FTIR carries HAP retention in every scaffold where XRD loses the HAP peak, and DSC shows PLLA and PGA melting separately.",
+   "Correlate across series (F5a x F5c -> b13): water uptake and weight loss rise together over the same five PLLA/PGA ratios, the only support for the hydrophilicity -> hydrolysis pathway.",
+   "Compare feature size across figures (F6f vs F1a -> a1): particles 'exposed' by degradation are 2-4 um rods, >10x the raw HAP needles, so the exposure step cannot be read as bare HAP filler."
+  ],
+  "audit_summary": "Confirmed a1 (exposed-particle identity not resolved), a2 (Au/P overlap and unmarked EDS area undercut the Ca/P apatite reading) and o11 (acidic degradation medium, narrowed to PBS). Reframed o22 as non-resolution: F9 cannot rank the groups, it does not show them equal."
+ }
 }
