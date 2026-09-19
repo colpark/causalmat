@@ -1,0 +1,772 @@
+{
+ "paper_id": "Journal_of_Magnesium_and_Alloys/j.jma.2015.01.001",
+ "title": "Investigation on mechanical properties and creep behavior of stir cast AZ91-SiCp composites",
+ "vocab_version": "v04",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/need",
+   "label": "Mg alloy AZ91 lacks creep resistance for components operating above ~150 °C",
+   "attrs": {
+    "material": "AZ91",
+    "use_condition": "T>150 °C, engine/powertrain parts",
+    "inferred": true
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n2",
+   "type": "HYP/hypothesis",
+   "label": "Particle reinforcement should raise strength and creep resistance of the Mg matrix",
+   "attrs": {
+    "reinforcement": "SiC particles",
+    "inferred": true
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n3",
+   "type": "DES/base_system",
+   "label": "AZ91 matrix reinforced with SiC particles; Al in matrix aids SiC wetting",
+   "attrs": {
+    "matrix": "AZ91",
+    "reinforcement": "SiCp",
+    "class": "metal matrix composite"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n4",
+   "type": "DES/variable_sweep",
+   "label": "Reinforcement content varied 0–25 wt% in 5 wt% steps",
+   "attrs": {
+    "variable": "SiCp content",
+    "levels": "0,5,10,15,20,25 wt%"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n5",
+   "type": "PRC/forming",
+   "label": "Stir casting: SiCp preheated 600 °C, added at 750 °C under Ar, poured into 300 °C mould",
+   "attrs": {
+    "technique": "stir casting",
+    "stir_speed": "750 rpm",
+    "stir_time": "10 min",
+    "atmosphere": "Ar"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n6",
+   "type": "OBS/morphology/distribution",
+   "label": "Dark SiC particles spread across matrix in all composites, few agglomerations claimed",
+   "attrs": {
+    "technique": "optical microscopy",
+    "magnification_scale": "200 µm bar"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": "micrograph",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n7",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Grain size 65 → 34 → 22 → 21 µm for 0, 5, 10, 25 wt% SiCp",
+   "attrs": {
+    "technique": "optical microscopy (etched)",
+    "quantity": "grain size",
+    "value": "65→22 µm",
+    "image_support": "grain boundaries not resolvable in composite panels b–f; values come from text only"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": "micrograph",
+   "fit": "poor",
+   "proposed": true
+  },
+  {
+   "id": "n8",
+   "type": "OBS/signal/feature_assignment",
+   "label": "XRD shows α-Mg, β-Mg17Al12 and only traces of MgO and Mg2Si",
+   "attrs": {
+    "technique": "XRD",
+    "figure_in_packet": false
+   },
+   "figs": [],
+   "modality": "text_only",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n9",
+   "type": "OBS/morphology/appearance",
+   "label": "High-magnification SEM: angular SiC particles with sharp, precipitate-free boundaries to matrix",
+   "attrs": {
+    "technique": "SEM",
+    "magnification": "x1500",
+    "composition": "AZ91-20SiCp"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "micrograph",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n10",
+   "type": "STR/microstructure/distribution",
+   "label": "Near-uniform SiCp distribution with few agglomerates",
+   "attrs": {
+    "direction": "uniform",
+    "caveat": "clustering visibly rises at 15–25 wt%"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n11",
+   "type": "STR/microstructure/feature_size",
+   "label": "Matrix grains refined, saturating above 10 wt% SiCp",
+   "attrs": {
+    "direction": "refined",
+    "value": "65→22 µm"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n12",
+   "type": "STR/interface",
+   "label": "Clean, reaction-free, well-bonded Mg/SiC interface",
+   "attrs": {
+    "interface": "Mg/SiCp"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n13",
+   "type": "STR/phase/identity",
+   "label": "Two-phase α-Mg + β-Mg17Al12 matrix; oxide/silicide negligible",
+   "attrs": {
+    "phases": [
+     "α-Mg",
+     "β-Mg17Al12"
+    ],
+    "minor": [
+     "MgO",
+     "Mg2Si"
+    ]
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n14",
+   "type": "MEC/pathway",
+   "label": "SiC particles act as heterogeneous nucleation sites and restrict grain growth",
+   "attrs": {
+    "mechanism": "heterogeneous nucleation / growth restriction"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n15",
+   "type": "KNW/precedent",
+   "label": "SiC wets Mg well; Al in AZ91 improves SiCp wettability [13]",
+   "attrs": {
+    "ref": "[13]"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n16",
+   "type": "OBS/response/trend",
+   "label": "Bar chart: YS 93→142 MPa rising monotonically; UTS 188→174 MPa slightly falling",
+   "attrs": {
+    "technique": "tensile test",
+    "quantity": [
+     "YS",
+     "UTS"
+    ],
+    "standard": "ASTM E8"
+   },
+   "figs": [
+    "F3"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n17",
+   "type": "PRP/value",
+   "label": "Tensile yield strength increases with SiCp; UTS not improved",
+   "attrs": {
+    "direction": {
+     "YS": "increase",
+     "UTS": "flat/slight decrease"
+    }
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n18",
+   "type": "OBS/response/trend",
+   "label": "Ultimate compressive strength increases with reinforcement content",
+   "attrs": {
+    "technique": "compression test",
+    "quantity": "UCS"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n19",
+   "type": "PRP/value",
+   "label": "Compressive strength increased markedly by SiCp",
+   "attrs": {
+    "quantity": "UCS",
+    "direction": "increase"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n20",
+   "type": "MEC/pathway",
+   "label": "Particles block dislocations; refined grains and load transfer strengthen the matrix",
+   "attrs": {
+    "mechanisms": [
+     "Orowan/particle",
+     "grain boundary (Hall–Petch)",
+     "load transfer"
+    ]
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n21",
+   "type": "KNW/fact",
+   "label": "SiC compressive strength 3900 MPa vs 310 MPa for base alloy",
+   "attrs": {
+    "value": "3900 MPa"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n22",
+   "type": "OBS/morphology/appearance",
+   "label": "Tensile fracture surfaces show tear ridges, dimples and cracked particles",
+   "attrs": {
+    "technique": "SEM fractography",
+    "magnification": "x150"
+   },
+   "figs": [
+    "F5"
+   ],
+   "modality": "micrograph",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n23",
+   "type": "PRP/behavior_class",
+   "label": "Mixed ductile–brittle fracture; brittle fraction grows with SiCp",
+   "attrs": {
+    "direction": "more brittle with SiCp"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n24",
+   "type": "MEC/pathway",
+   "label": "Agglomeration, porosity and residual stress limit UTS despite strengthening",
+   "attrs": {
+    "inferred": true,
+    "sign": "weakening"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "poor",
+   "proposed": true
+  },
+  {
+   "id": "n25",
+   "type": "OBS/response/trend",
+   "label": "Creep strain vs time and creep rate curves at 80–120 MPa; minimum rate within first 10% strain",
+   "attrs": {
+    "technique": "compression creep",
+    "T": "175 °C",
+    "stress": "80,100,120 MPa",
+    "composition": "AZ91-25SiCp"
+   },
+   "figs": [
+    "F6"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n26",
+   "type": "OBS/response/fitted_parameter",
+   "label": "Log–log minimum creep rate vs applied stress; lines for 15–25 wt% lie lower; apparent n 7.2→8.9",
+   "attrs": {
+    "quantity": "minimum creep rate",
+    "T": "175 °C"
+   },
+   "figs": [
+    "F7"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n27",
+   "type": "PRP/value",
+   "label": "Minimum creep rate reduced only for ≥15 wt% SiCp; 5–10 wt% ~ base alloy",
+   "attrs": {
+    "direction": "decrease",
+    "threshold_content": "15 wt%"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n28",
+   "type": "PRP/diagnostic",
+   "label": "Apparent stress exponent 7.2–8.9, too high for a single known mechanism",
+   "attrs": {
+    "quantity": "n",
+    "value": "7.2–8.9"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n29",
+   "type": "KNW/model",
+   "label": "Threshold-stress formalism σ_eff = σ − σ_thr; Li–Langdon extrapolation to 1e-10 s⁻¹",
+   "attrs": {
+    "ref": "[29]"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n30",
+   "type": "OBS/response/fitted_parameter",
+   "label": "Re-plotting against effective stress collapses all compositions to one band; n_t 5.4–5.8",
+   "attrs": {
+    "quantity": [
+     "σ_thr",
+     "n_t"
+    ],
+    "value": "n_t 5.4–5.8",
+    "source": "Fig.7b + Table 1"
+   },
+   "figs": [
+    "F7"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n31",
+   "type": "PRP/value",
+   "label": "Threshold stress increases with SiCp content",
+   "attrs": {
+    "direction": "increase"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n32",
+   "type": "KNW/lookup",
+   "label": "n_t ≈ 5 indicates dislocation climb controlled by lattice diffusion [21]",
+   "attrs": {
+    "ref": "[21]"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n33",
+   "type": "MEC/identification",
+   "label": "Climb-controlled creep unchanged by reinforcement; particles act through threshold stress",
+   "attrs": {
+    "mechanism": "dislocation climb",
+    "role_of_reinforcement": "back stress / Orowan"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n34",
+   "type": "PRF/service_capability",
+   "label": "Improved creep resistance at 175 °C, 80–120 MPa for 15–25 wt% SiCp composites",
+   "attrs": {
+    "use_condition": "175 °C, 80–120 MPa"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n35",
+   "type": "DSC/design_guidance",
+   "label": "Low SiCp (≤10 wt%) refines grains and raises YS; creep benefit needs ≥15 wt%; UTS never improves",
+   "attrs": {
+    "inferred": true
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n36",
+   "type": "DSC/comparison",
+   "label": "UCS rise consistent with SiCp-reinforced AZ92 composites [15]",
+   "attrs": {
+    "ref": "[15]"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  }
+ ],
+ "edges": [
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n5",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n5",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n10",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n11",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n12",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n13",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n10",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "n7",
+   "dst": "n11",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n8",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": "inspect_local_feature"
+  },
+  {
+   "src": "n14",
+   "dst": "n11",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n12",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n11",
+   "dst": "n17",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n17",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n16",
+   "dst": "n17",
+   "rel": "evidences",
+   "mm_op": "compare_coplotted_quantities"
+  },
+  {
+   "src": "n20",
+   "dst": "n17",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n19",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n21",
+   "dst": "n19",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n20",
+   "dst": "n19",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n22",
+   "dst": "n23",
+   "rel": "evidences",
+   "mm_op": "recognize_signature"
+  },
+  {
+   "src": "n23",
+   "dst": "n17",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n24",
+   "dst": "n17",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n25",
+   "dst": "n26",
+   "rel": "derives",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "n26",
+   "dst": "n27",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n26",
+   "dst": "n28",
+   "rel": "evidences",
+   "mm_op": "fit_model",
+   "attrs": {
+    "form": "linearised"
+   }
+  },
+  {
+   "src": "n28",
+   "dst": "n29",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n29",
+   "dst": "n30",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n26",
+   "dst": "n30",
+   "rel": "derives",
+   "mm_op": "collapse_by_normalization"
+  },
+  {
+   "src": "n30",
+   "dst": "n31",
+   "rel": "evidences",
+   "mm_op": "fit_model",
+   "attrs": {
+    "form": "linearised"
+   }
+  },
+  {
+   "src": "n30",
+   "dst": "n33",
+   "rel": "evidences",
+   "mm_op": "collapse_by_normalization"
+  },
+  {
+   "src": "n32",
+   "dst": "n33",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n33",
+   "dst": "n27",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n31",
+   "dst": "n27",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n31",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n27",
+   "dst": "n34",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n35",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n27",
+   "dst": "n35",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n11",
+   "dst": "n35",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n36",
+   "rel": "contrasts",
+   "mm_op": null
+  }
+ ],
+ "notes": "Argument branches after structure into three parallel property lines (tensile/compressive strength, fracture, creep) that rejoin only in the inferred trade-off discussion. Image-vs-text discrepancies: (1) F1 b–f do not show grain boundaries, so the 65→22 µm grain sizes (n7) cannot be read from the figure; they are text-only claims attached to F1 (fit=poor). (2) F1 d–f visibly show particle clustering/streaking at 15–25 wt%, while text claims 'very few agglomerations'. (3) F3 shows UTS declining slightly (188→174 MPa) — text is silent; MatMech says 'unchanged'. (4) F7a lines converge/cross at 120 MPa: 5 and 10 wt% composites creep FASTER than AZ91 at high stress, not stated in text. (5) F2a at x150 shows needle/flake-like bright features that look unlike the equiaxed particles in F1; F2b 'clean interface' is asserted at x1500, which cannot resolve thin reaction layers. (6) F5 panels a/b look near-identical at x150; the 'brittle region increases with SiCp' claim is weakly supported. Lost: Table 1 numbers, stirring parameter rationale, the creep-stage discussion of F6. n24 (UTS-limiting mechanism) comes from MatMech extraction, not visible in packet text.",
+ "migrated_from": "r01/graphs/Journal_of_Magnesium_and_Alloys__j.jma.2015.01.001.json"
+}

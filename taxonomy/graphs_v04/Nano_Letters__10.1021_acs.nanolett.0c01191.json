@@ -1,0 +1,914 @@
+{
+ "paper_id": "Nano_Letters/10.1021_acs.nanolett.0c01191",
+ "title": "Direct Color Printing with an Electron Beam",
+ "vocab_version": "v04",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/need",
+   "label": "Grayscale/colour nanofabrication by EBL needs multi-step resist development; PEF measurement needs high-contrast resists",
+   "attrs": {
+    "inferred": true
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n2",
+   "type": "HYP/hypothesis",
+   "label": "Dose-controlled e-beam shrinkage of PMMA inside an FP cavity tunes thickness and hence colour in one step",
+   "attrs": {
+    "inferred": true
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n3",
+   "type": "DES/architecture",
+   "label": "Salisbury-screen FP cavity: 6 nm Ni absorber / 500 nm PMMA / 60 nm Al back-reflector",
+   "attrs": {
+    "layers": "Ni 6 nm / PMMA 500 nm / Al 60 nm"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n4",
+   "type": "DES/route",
+   "label": "Direct e-beam write without development; local dose is the only control variable",
+   "attrs": {
+    "technique": "EBL, 100 kV"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n5",
+   "type": "DES/variable_sweep",
+   "label": "Exposure dose 0.05-10 mC/cm2 (patch arrays, graded layouts)",
+   "attrs": {
+    "variable": "dose",
+    "levels": "0.05-10 mC/cm2"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n6",
+   "type": "PRC/deposition",
+   "label": "Deposit Al, spin-coat PMMA, deposit thin Ni to form the cavity stack",
+   "attrs": {
+    "inferred": true
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n7",
+   "type": "PRC/treatment",
+   "label": "Spatially dose-modulated e-beam exposure of the made PMMA layer through the Ni top layer",
+   "attrs": {
+    "kind": "irradiation",
+    "fit_note": "irradiation of made polymer as part of making the part to be used -> treatment, not stimulus"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n8",
+   "type": "STR/microstructure/feature_size",
+   "label": "Exposed PMMA thins locally; shrinkage up to ~35% above 2 mC/cm2, fractional shrinkage independent of initial thickness",
+   "attrs": {
+    "quantity": "layer thickness",
+    "direction": "decrease",
+    "value": "up to ~35%"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n9",
+   "type": "MEC/pathway",
+   "label": "Chain scission and ester-group loss create volatile fragments removed in vacuum, so the film shrinks",
+   "attrs": {
+    "mechanism_class": "radiation chemistry",
+    "basis": "attributed"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n10",
+   "type": "KNW/precedent",
+   "label": "Fraction of PMMA monomers undergoing scission is constant at fixed dose (ref 35)",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n11",
+   "type": "OBS/response/trend",
+   "label": "Delta-h vs dose (log-log): rises linearly below 1 mC/cm2, saturates near 35% above 2 mC/cm2",
+   "attrs": {
+    "technique": "profilometry/AFM",
+    "image_note": "right axis gives Delta-h %, ~35-40% at 10 mC/cm2; 11 experimental points"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n12",
+   "type": "OBS/response/fitted_parameter",
+   "label": "Double-exponential fit of Delta-h(D) used as dose-thickness calibration curve",
+   "attrs": {
+    "model": "double exponential"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": "xy_curve",
+   "provenance": "derived",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n13",
+   "type": "PRP/value",
+   "label": "Reflectance dips red-shift with PMMA thickness; reflected colour sweeps a loop in CIE space with dose",
+   "attrs": {
+    "property_family": "optical",
+    "quantity": "reflectance/chromaticity"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n14",
+   "type": "OBS/morphology/appearance",
+   "label": "Dose map, height map and optical micrograph of 13 patches: each dose gives a distinct colour",
+   "attrs": {
+    "technique": "optical microscopy",
+    "image_note": "height colour bar labelled 500-65-330 nm (middle tick likely mislabelled); colours pink, olive, green, purple, cyan"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n15",
+   "type": "OBS/response/trend",
+   "label": "Measured chromaticity of patches traces a closed loop in CIE 1931 from 0 to 10 mC/cm2, mostly inside sRGB",
+   "attrs": {
+    "technique": "reflectance spectroscopy -> CIE"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n16",
+   "type": "OBS/morphology/distribution",
+   "label": "Computed |E| standing wave: at 390 nm field maximum sits on Ni and absorption concentrates in Ni; at 600 nm not",
+   "attrs": {
+    "technique": "FDTD/TMM"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": "simulation_render",
+   "provenance": "computed",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n17",
+   "type": "MEC/pathway",
+   "label": "FP interference between air/Ni and PMMA/Al reflections plus Ni absorption at field antinodes sets colour by thickness",
+   "attrs": {
+    "mechanism_class": "thin-film optics"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n18",
+   "type": "PRF/service_capability",
+   "label": "Full-colour prints (logos, 'PMMA') with 200 nm pixels written in one step, no development",
+   "attrs": {
+    "fit_note": "device/application demonstration; no service condition; no better PRF leaf"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "poor",
+   "proposed": false
+  },
+  {
+   "id": "n19",
+   "type": "OBS/morphology/appearance",
+   "label": "Optical micrographs of A*STAR, NUS, SUTD logos and multicolour 'PMMA' reproduce the intended patterns",
+   "attrs": {
+    "image_note": "bluish halo around NUS crest and PMMA letters beyond the written area = proximity exposure, discussed only later (F4)"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n20",
+   "type": "OBS/morphology/appearance",
+   "label": "Checkerboard pixels down to 50 nm give unchanged colours (Fig S5, not in packet)",
+   "attrs": {},
+   "figs": [],
+   "modality": "text_only",
+   "provenance": "measured",
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n21",
+   "type": "PRF/service_capability",
+   "label": "Structural colour serves as a colorimetric height metrology agreeing with AFM",
+   "attrs": {
+    "fit_note": "metrology capability demonstration"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "poor",
+   "proposed": false
+  },
+  {
+   "id": "n22",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Height map computed pixel-by-pixel from optical colours via the F1c colour-height calibration",
+   "attrs": {
+    "quantity": "PMMA height"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "spatial_map",
+   "provenance": "derived",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n23",
+   "type": "OBS/morphology/appearance",
+   "label": "Optical micrograph of three-step dose pattern: grey, pink, magenta, yellow stripes",
+   "attrs": {},
+   "figs": [
+    "F2"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n24",
+   "type": "OBS/morphology/feature_metric",
+   "label": "AFM height map of the same three-step pattern (0-120 nm scale)",
+   "attrs": {
+    "technique": "AFM"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n25",
+   "type": "PRF/service_capability",
+   "label": "Blazed grating (P = 650 nm, ~20 deg facet) fabricated in one exposure step",
+   "attrs": {
+    "fit_note": "grayscale-optics demonstration"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "poor",
+   "proposed": false
+  },
+  {
+   "id": "n26",
+   "type": "OBS/morphology/feature_metric",
+   "label": "AFM profile: periodic ridges, ~4 periods in 2.5 um, ~20 deg facet, ~100 nm peak-valley",
+   "attrs": {
+    "technique": "AFM",
+    "image_note": "profile only weakly asymmetric, closer to triangular than the sawtooth drawn in F2e"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n27",
+   "type": "DES/method",
+   "label": "Use FP reflectance/colour as a local dosimeter to measure the PEF on the actual resist-substrate stack with ordinary PMMA",
+   "attrs": {
+    "aspect": "technique"
+   },
+   "figs": [
+    "F3"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n28",
+   "type": "OBS/morphology/distribution",
+   "label": "Colour change around a 5 um disk exposed at 15 mC/cm2 extends >10 um from its edge",
+   "attrs": {
+    "technique": "optical microscopy"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n29",
+   "type": "OBS/signal/reference_match",
+   "label": "Reflectance spectra at four distances matched to simulated spectra",
+   "attrs": {
+    "image_note": "measured peaks/dips broader than simulation (height variation in spot); red trace deviates most"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n30",
+   "type": "OBS/response/characteristic_value",
+   "label": "Mean PMMA thickness at the four sampled areas (e.g. 440, 481 nm)",
+   "attrs": {},
+   "figs": [],
+   "modality": "text_only",
+   "provenance": "derived",
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n31",
+   "type": "OBS/response/fitted_parameter",
+   "label": "Double-Gaussian PEF coefficients solved from four ~200,000-term equations; backscatter range orders of magnitude beyond forward",
+   "attrs": {
+    "model": "double Gaussian",
+    "image_note": "in F4c the blue double-Gaussian falls to a 1e-5 plateau at ~0.1 um while ref-48 points decay gradually to ~10 um; only the black double-Gaussian+exponential follows them (text silent)"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "xy_curve",
+   "provenance": "derived",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n32",
+   "type": "KNW/model",
+   "label": "Double-Gaussian PEF and superposition of point exposures give the mean dose at each sampled area",
+   "attrs": {},
+   "figs": [
+    "F3"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n33",
+   "type": "MEC/pathway",
+   "label": "Backscattered electrons from the substrate deposit dose microns away (proximity effect)",
+   "attrs": {
+    "mechanism_class": "electron scattering"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n34",
+   "type": "STR/microstructure/distribution",
+   "label": "Thinning is not confined to the written pattern: a graded thickness halo extends >10 um",
+   "attrs": {
+    "quantity": "thickness change",
+    "fit_note": "spatial distribution of a structural change"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n36",
+   "type": "OBS/morphology/appearance",
+   "label": "Print simulated without PEF, experiment, and simulation with PEF: PEF adds purple/pink tint around features",
+   "attrs": {
+    "image_note": "with-PEF simulation matches the top-half background tint but not the lower shield colour"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "simulation_render",
+   "provenance": "computed",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n37",
+   "type": "DSC/comparison",
+   "label": "Extracted PEF comparable to literature values for Si substrate at similar voltage",
+   "attrs": {
+    "against": "prior_work",
+    "verdict": "agree (qualitative)"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n38",
+   "type": "DSC/conclusion",
+   "label": "Single-step e-beam direct colour printing with nm height control, grayscale optics and PEF measurement using ordinary PMMA",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n39",
+   "type": "DSC/limitation",
+   "label": "High doses carbonise PMMA (optical loss) and height variation in the collection spot broadens spectra",
+   "attrs": {
+    "kind": "method"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  }
+ ],
+ "edges": [
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n7",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n7",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n7",
+   "rel": "feeds_into",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n8",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n8",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n9",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n17",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n33",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n9",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n11",
+   "dst": "n8",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n11",
+   "dst": "n12",
+   "rel": "derives",
+   "mm_op": "fit_model"
+  },
+  {
+   "src": "n8",
+   "dst": "n13",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n14",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n15",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n16",
+   "dst": "n17",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n17",
+   "dst": "n13",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n18",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n18",
+   "rel": "evidences",
+   "mm_op": "match_to_design"
+  },
+  {
+   "src": "n20",
+   "dst": "n18",
+   "rel": "evidences",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n21",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n23",
+   "dst": "n22",
+   "rel": "derives",
+   "mm_op": "convert_to_quantity",
+   "attrs": {
+    "via": "calibration"
+   }
+  },
+  {
+   "src": "n14",
+   "dst": "n22",
+   "rel": "premise_for",
+   "mm_op": "convert_to_quantity",
+   "attrs": {
+    "via": "calibration"
+   }
+  },
+  {
+   "src": "n22",
+   "dst": "n21",
+   "rel": "evidences",
+   "mm_op": "cross_check_consistency"
+  },
+  {
+   "src": "n24",
+   "dst": "n21",
+   "rel": "evidences",
+   "mm_op": "cross_check_consistency"
+  },
+  {
+   "src": "n8",
+   "dst": "n25",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n26",
+   "dst": "n25",
+   "rel": "evidences",
+   "mm_op": "match_to_design"
+  },
+  {
+   "src": "n1",
+   "dst": "n27",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n27",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n27",
+   "dst": "n29",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n29",
+   "dst": "n30",
+   "rel": "derives",
+   "mm_op": "fit_model"
+  },
+  {
+   "src": "n30",
+   "dst": "n31",
+   "rel": "derives",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n31",
+   "rel": "premise_for",
+   "mm_op": "convert_to_quantity",
+   "attrs": {
+    "via": "calibration"
+   }
+  },
+  {
+   "src": "n32",
+   "dst": "n31",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n34",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n33",
+   "dst": "n34",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n28",
+   "dst": "n34",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "n31",
+   "dst": "n34",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n36",
+   "dst": "n34",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n31",
+   "dst": "n37",
+   "rel": "evidences",
+   "mm_op": "compare_with_reference_value"
+  },
+  {
+   "src": "n39",
+   "dst": "n34",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n38",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n25",
+   "dst": "n38",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n34",
+   "dst": "n38",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n21",
+   "dst": "n38",
+   "rel": "supports",
+   "mm_op": null
+  }
+ ],
+ "notes": "Spine: need -> hypothesis -> FP architecture + direct-write route -> stack deposition -> dose-modulated exposure -> thinning (MEC chain scission) -> colour (MEC FP interference) -> two PRF demos (prints, blazed grating) and a second branch: proximity halo (MEC backscatter) -> conclusion. DES/method n27 (colour as dosimeter for PEF) is a headline but kept off-spine because no spine rel runs DES->measurement->MEC; this is a vocabulary friction (see proposals). Proposed mm_op convert_via_calibration on n23->n22, n14->n22, n12->n31: the image/readout is converted to a physical quantity via an in-paper calibration curve. Lost: E-field detail, pixel-size study (S5), error map (S7). Text-silent: F4c double-Gaussian (blue) misses ref-48 points between 0.1-10 um; recorded as image_note on n31 because it bears only on DSC/comparison, not a spine claim.",
+ "migrated_from": "r03/graphs/Nano_Letters__10.1021_acs.nanolett.0c01191.json"
+}

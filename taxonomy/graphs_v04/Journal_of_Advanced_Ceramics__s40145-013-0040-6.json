@@ -1,0 +1,772 @@
+{
+ "paper_id": "Journal_of_Advanced_Ceramics/s40145-013-0040-6",
+ "title": "Thermoelectric performance enhancement of (BiS)1.2(TiS2)2 misfit layer sulfide by chromium doping",
+ "vocab_version": "v04",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/gap",
+   "label": "Pristine (BiS)1.2(TiS2)2 has modest ZT; carrier concentration is too high/not optimised",
+   "attrs": {
+    "inferred": true,
+    "material": "(BiS)1.2(TiS2)2 misfit layer sulfide",
+    "target": "ZT"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n2",
+   "type": "KNW/precedent",
+   "label": "Earlier alkaline-earth doping (Mg, Ca, Sr) lowered carriers but also lowered effective mass",
+   "attrs": {
+    "source": "authors' previous work",
+    "dopants": [
+     "Mg",
+     "Ca",
+     "Sr"
+    ]
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n3",
+   "type": "KNW/fact",
+   "label": "Host is a natural superlattice: double TiS2 layers alternating with one BiS layer along c",
+   "attrs": {
+    "source": "schematic"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": "schematic",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n4",
+   "type": "DES/modification",
+   "label": "Substitute Cr3+ on Ti4+ site (radius 0.63 vs 0.68 Å, not Bi3+ 0.96 Å) to tune carriers",
+   "attrs": {
+    "dopant": "Cr",
+    "host_site": "Ti",
+    "basis": "ionic radius match",
+    "intended_role": "acceptor"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n5",
+   "type": "DES/variable_sweep",
+   "label": "Dopant level series x = 0, 0.025, 0.05, 0.1",
+   "attrs": {
+    "variable": "Cr fraction x",
+    "levels": [
+     0,
+     0.025,
+     0.05,
+     0.1
+    ]
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n6",
+   "type": "PRC/forming",
+   "label": "Spark plasma sintering of powders into pellets, density >96%",
+   "attrs": {
+    "technique": "SPS",
+    "relative_density": ">96%",
+    "anisotropy": "measured perpendicular to pressing axis"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n7",
+   "type": "OBS/signal/reference_match",
+   "label": "Doped XRD patterns reproduce undoped (00l) reflections; no extra peaks; strong 00l orientation",
+   "attrs": {
+    "technique": "XRD",
+    "reference": "x=0 pattern"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "diffraction_pattern",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n8",
+   "type": "OBS/signal/feature_shift",
+   "label": "(0010) reflection near 27° shifts to higher 2θ with increasing x",
+   "attrs": {
+    "technique": "XRD",
+    "direction": "higher angle",
+    "image_note": "x=0.1 pattern is visibly noisier with a broad hump ~20-23° and weaker 00l peaks — not mentioned in text"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "diffraction_pattern",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n9",
+   "type": "STR/phase/identity",
+   "label": "Cr-doped samples keep the misfit-layer crystal structure; no secondary phase; (00l) textured",
+   "attrs": {
+    "texture": "(00l) preferred orientation"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n10",
+   "type": "STR/phase/lattice",
+   "label": "Layer spacing c shrinks linearly 16.9665 → 16.6849 Å from x=0 to 0.1",
+   "attrs": {
+    "quantity": "c",
+    "direction": "decrease",
+    "trend": "linear (Vegard-like)"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n11",
+   "type": "OBS/signal/reference_match",
+   "label": "Cr 2p3/2 binding energy of doped samples matches Cr2S3 (Cr3+) reference",
+   "attrs": {
+    "technique": "XPS",
+    "reference": "Cr2S3 standard",
+    "value": "~573 eV",
+    "image_note": "doped spectra are very noisy; Cr 2p features barely above noise"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "spectrum",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n12",
+   "type": "STR/defect/point",
+   "label": "Cr enters as Cr3+ substituting Ti4+ (acceptor-type substitutional defect)",
+   "attrs": {
+    "species": "Cr3+",
+    "site": "Ti4+",
+    "charge": "effectively negative"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n13",
+   "type": "OBS/response/trend",
+   "label": "Electrical conductivity falls with Cr content over whole T range; metallic T-dependence",
+   "attrs": {
+    "quantity": "σ",
+    "direction": "decrease with x"
+   },
+   "figs": [
+    "F3"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n14",
+   "type": "OBS/response/trend",
+   "label": "Hall carrier concentration decreases with Cr content",
+   "attrs": {
+    "technique": "Hall",
+    "quantity": "n",
+    "direction": "decrease with x",
+    "range": "~4.8→3.2 (axis scale ×10^20 cm^-3 implied)"
+   },
+   "figs": [
+    "F5"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n15",
+   "type": "PRP/descriptor",
+   "label": "Cr doping reduces carrier (electron) concentration, lowering σ",
+   "attrs": {
+    "quantity": "n",
+    "direction": "decrease"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n16",
+   "type": "MEC/pathway",
+   "label": "Aliovalent Cr3+ on Ti4+ compensates free electrons (acceptor doping)",
+   "attrs": {
+    "inferred": true
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n17",
+   "type": "OBS/response/fitted_parameter",
+   "label": "Hall mobility power-law exponent flattens: T^-1.445 (x=0) → T^-0.837 (x=0.1)",
+   "attrs": {
+    "quantity": "μH",
+    "fit": "power law in T",
+    "exponents": {
+     "0": -1.445,
+     "0.025": -1.074,
+     "0.05": -1.069,
+     "0.1": -0.837
+    }
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n18",
+   "type": "MEC/pathway",
+   "label": "Acoustic-phonon scattering dominates pristine; ionized-impurity/alloy scattering added by Cr",
+   "attrs": {
+    "carriers": "electrons"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n19",
+   "type": "OBS/response/trend",
+   "label": "Seebeck coefficient negative; |S| rises with x (≈-93 → -118 μV/K near 730 K)",
+   "attrs": {
+    "quantity": "S",
+    "sign": "negative (n-type)",
+    "direction": "increase |S| with x"
+   },
+   "figs": [
+    "F6"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n20",
+   "type": "KNW/model",
+   "label": "Pisarenko-type relation: S ∝ m* T / n^(2/3)",
+   "attrs": {
+    "equation": "S = (8π²kB²/3eh²) m* T (π/3n)^(2/3)"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n21",
+   "type": "OBS/response/trend",
+   "label": "Computed m* rises 5.6→7.1 m0 as n falls; lies above Mg/Ca/Sr-doped literature points",
+   "attrs": {
+    "quantity": "m*",
+    "derived_from": [
+     "S",
+     "n"
+    ],
+    "comparison_overlay": "prior dopants plotted on same axes"
+   },
+   "figs": [
+    "F5"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n22",
+   "type": "PRP/descriptor",
+   "label": "Effective mass increases with Cr, adding to the Seebeck gain beyond the n-reduction",
+   "attrs": {
+    "quantity": "m*",
+    "direction": "increase"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n23",
+   "type": "MEC/pathway",
+   "label": "Cr may create resonant states near the Fermi level, raising DOS effective mass",
+   "attrs": {
+    "speculative": true,
+    "evidence": "indirect (only m* trend)"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n24",
+   "type": "OBS/response/trend",
+   "label": "Power factor S²σ is lower for x=0.05, 0.1 and roughly unchanged for x=0.025",
+   "attrs": {
+    "quantity": "PF",
+    "derived_from": [
+     "S",
+     "σ"
+    ],
+    "image_note": "x=0.025 PF actually exceeds x=0 above ~600 K; text says Cr cannot optimise PF"
+   },
+   "figs": [
+    "F6"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n25",
+   "type": "KNW/model",
+   "label": "Wiedemann–Franz κe = LσT; κl = κ − κe",
+   "attrs": {
+    "L": "2.44e-8 W·Ω/K²"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n26",
+   "type": "OBS/response/component_partition",
+   "label": "Total κ and κe both fall with Cr; κe drops most",
+   "attrs": {
+    "quantity": "κ, κe",
+    "technique": "laser flash + WF",
+    "image_note": "x=0.1 κ_total (≈1.4) minus κe (≈0.6) ≠ plotted κl (≈1.27) — internal inconsistency between F7a and F7b"
+   },
+   "figs": [
+    "F7"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n27",
+   "type": "PRP/value",
+   "label": "Reduction of total κ is dominated by the electronic contribution",
+   "attrs": {
+    "quantity": "κ",
+    "dominant_term": "κe",
+    "aspect": "partition"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n28",
+   "type": "OBS/response/trend",
+   "label": "Lattice κl non-monotonic: lower for x=0.025, higher for x=0.05 and 0.1",
+   "attrs": {
+    "quantity": "κl",
+    "trend": "non-monotonic in x"
+   },
+   "figs": [
+    "F7"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n29",
+   "type": "STR/defect/extended",
+   "label": "Higher Cr levels remove planar stacking faults, giving a more ordered stacking",
+   "attrs": {
+    "defect": "planar stacking faults",
+    "direction": "eliminated at x≥0.05",
+    "inferred": true,
+    "evidence": "indirect, via κl + ref [10]"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "poor",
+   "proposed": true
+  },
+  {
+   "id": "n30",
+   "type": "MEC/pathway",
+   "label": "Ordered structure scatters phonons less, raising κl; x=0.025 lacks ordering",
+   "attrs": {
+    "carriers": "phonons"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n31",
+   "type": "OBS/response/trend",
+   "label": "ZT at 750 K: 0.24 (x=0) → 0.25–0.29 for doped; highest at x=0.025",
+   "attrs": {
+    "quantity": "ZT",
+    "condition": "750 K",
+    "image_note": "'0.24–0.3' in text are ZT values, not increments"
+   },
+   "figs": [
+    "F8"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n32",
+   "type": "PRF/figure_of_merit",
+   "label": "All Cr-doped samples show improved ZT at 750 K",
+   "attrs": {
+    "metric": "ZT",
+    "best": "x=0.025"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n33",
+   "type": "MEC/tradeoff",
+   "label": "Lower total κ outweighs the slight power-factor loss, so ZT rises",
+   "attrs": {
+    "gain_term": "κ decrease",
+    "loss_term": "PF decrease"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n34",
+   "type": "DSC/conclusion",
+   "label": "Cr doping optimises carrier concentration; unlike other acceptors it raises m*, a new route for misfit sulfides",
+   "attrs": {
+    "compared_to": "alkaline-earth dopants"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  }
+ ],
+ "edges": [
+  {
+   "src": "n1",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n4",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n5",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n9",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n10",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n12",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n9",
+   "rel": "evidences",
+   "mm_op": "match_to_reference"
+  },
+  {
+   "src": "n8",
+   "dst": "n10",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n11",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": "match_to_reference"
+  },
+  {
+   "src": "n10",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n16",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n15",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n14",
+   "dst": "n15",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n16",
+   "dst": "n15",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n18",
+   "rel": "evidences",
+   "mm_op": "fit_model",
+   "attrs": {
+    "form": "linearised"
+   }
+  },
+  {
+   "src": "n12",
+   "dst": "n18",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n22",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n20",
+   "dst": "n21",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n21",
+   "rel": "derives",
+   "mm_op": null
+  },
+  {
+   "src": "n14",
+   "dst": "n21",
+   "rel": "derives",
+   "mm_op": null
+  },
+  {
+   "src": "n21",
+   "dst": "n22",
+   "rel": "evidences",
+   "mm_op": "compare_with_reference_value"
+  },
+  {
+   "src": "n21",
+   "dst": "n2",
+   "rel": "contrasts",
+   "mm_op": "compare_with_reference_value"
+  },
+  {
+   "src": "n15",
+   "dst": "n19",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n23",
+   "dst": "n22",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n23",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n24",
+   "rel": "derives",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n24",
+   "rel": "derives",
+   "mm_op": null
+  },
+  {
+   "src": "n25",
+   "dst": "n26",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n26",
+   "rel": "derives",
+   "mm_op": null
+  },
+  {
+   "src": "n26",
+   "dst": "n27",
+   "rel": "evidences",
+   "mm_op": "compare_coplotted_quantities"
+  },
+  {
+   "src": "n15",
+   "dst": "n27",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n28",
+   "dst": "n29",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n29",
+   "dst": "n30",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n30",
+   "dst": "n28",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n27",
+   "dst": "n33",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n24",
+   "dst": "n33",
+   "rel": "counteracts",
+   "mm_op": null
+  },
+  {
+   "src": "n31",
+   "dst": "n32",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "n33",
+   "dst": "n32",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n32",
+   "dst": "n34",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n22",
+   "dst": "n34",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n34",
+   "dst": "n2",
+   "rel": "contrasts",
+   "mm_op": null
+  }
+ ],
+ "notes": "Spine: acceptor substitution → lattice/valence evidence → n↓ → σ↓ (so κe↓) and S↑ (n↓ plus m*↑) → PF slightly ↓ but κ↓ dominates → ZT↑. Branch: κl non-monotonic explained by stacking-fault elimination (only indirect; sound-velocity test in text truncated, dropped). Lost: temperature dependence details, sound-velocity modes, metallic-conductor classification. Image-only findings: (1) F7a vs F7b arithmetic inconsistency for x=0.1; (2) F2a x=0.1 XRD degraded (broad hump, weaker peaks) contradicts 'no substantial change'; (3) F6b x=0.025 PF ≥ x=0 at high T; (4) F5 axis unit label malformed (n/cm3 ×10^2). XPS Cr signal in doped samples near noise, so valence claim rests mainly on reference overlay. F3 image not opened; its node relies on caption/text.",
+ "migrated_from": "r01/graphs/Journal_of_Advanced_Ceramics__s40145-013-0040-6.json"
+}

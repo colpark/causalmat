@@ -1,0 +1,680 @@
+{
+ "paper_id": "Progress_in_Organic_Coatings/j.porgcoat.2015.05.014",
+ "title": "Eco-friendly polyurethane coatings from cottonseed and karanja oil",
+ "vocab_version": "v04",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/gap",
+   "label": "PU coatings rely on petroleum polyols and VOC solvents like xylene; bio-based, low-VOC alternatives needed",
+   "attrs": {
+    "inferred": true,
+    "driver": "sustainability"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n2",
+   "type": "DES/base_system",
+   "label": "Use non-edible cottonseed and karanja oils as polyol feedstock",
+   "attrs": {
+    "feedstocks": [
+     "cottonseed oil",
+     "karanja oil"
+    ],
+    "reason": "renewable, non-edible"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n3",
+   "type": "DES/route",
+   "label": "Replace xylene with bio-derived dipentene as coating solvent",
+   "attrs": {
+    "component": "solvent",
+    "chosen": "dipentene",
+    "baseline": "xylene"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n4",
+   "type": "DES/variable_sweep",
+   "label": "Vary oil (G/K), PEG molar mass (200/400/600) and diisocyanate (TDI/MDI/IPDI/HDI)",
+   "attrs": {
+    "variables": [
+     "oil type",
+     "PEG Mw",
+     "diisocyanate"
+    ],
+    "sample_codes": "PU-G1..G3, PU-K1..K3"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n5",
+   "type": "KNW/fact",
+   "label": "Fatty-acid profiles differ: cottonseed linoleic-rich (with C14), karanja oleic-rich without myristic acid",
+   "attrs": {
+    "source": "literature"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n6",
+   "type": "PRC/synthesis",
+   "label": "Epoxidise oil C=C with H2O2 over Amberlyst 15",
+   "attrs": {
+    "reaction": "epoxidation"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n7",
+   "type": "PRC/synthesis",
+   "label": "Acid-catalysed ring-opening of epoxidised oil with PEG, 140 °C, 3 h, to polyol",
+   "attrs": {
+    "reaction": "ring-opening/condensation",
+    "catalyst": "H2SO4"
+   },
+   "figs": [
+    "F1"
+   ],
+   "modality": "schematic",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n8",
+   "type": "PRC/synthesis",
+   "label": "React polyol with diisocyanate (1:1.2), DBTDL catalyst, in dipentene, RT 10 min",
+   "attrs": {
+    "reaction": "urethane formation"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "schematic",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n9",
+   "type": "PRC/deposition",
+   "label": "Bar-coat 120 μm films on steel panels and cure",
+   "attrs": {
+    "technique": "bar applicator",
+    "substrate": "steel"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n10",
+   "type": "KNW/lookup",
+   "label": "Standard IR band assignments (OH, C=O, NCO, C–O–C, epoxy) and 1H shift tables",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n11",
+   "type": "OBS/signal/feature_presence",
+   "label": "C=C band (~3010 cm⁻¹) disappears and epoxy band (~839 cm⁻¹) appears after epoxidation",
+   "attrs": {
+    "technique": "FTIR",
+    "image_note": "circled C=C feature sits at ~3000–3010 cm⁻¹, text says 3180"
+   },
+   "figs": [
+    "F3"
+   ],
+   "modality": "spectrum",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n12",
+   "type": "STR/chemistry/bonding",
+   "label": "Oil double bonds converted to oxirane rings",
+   "attrs": {
+    "from": "C=C",
+    "to": "epoxide"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n13",
+   "type": "OBS/signal/feature_presence",
+   "label": "Polyol shows broad OH (3429–3464) and ether C–O (1100–1200 cm⁻¹) bands",
+   "attrs": {
+    "technique": "FTIR"
+   },
+   "figs": [
+    "F3"
+   ],
+   "modality": "spectrum",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n14",
+   "type": "STR/chemistry/bonding",
+   "label": "Epoxides ring-opened by PEG: hydroxyl-terminated polyol with ether linkages",
+   "attrs": {
+    "from": "epoxide",
+    "to": "ether + OH"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n15",
+   "type": "OBS/signal/feature_assignment",
+   "label": "Six 1H NMR signals (a–f) mapped onto the drawn polyester-polyol structure",
+   "attrs": {
+    "technique": "1H NMR",
+    "image_note": "figure labels b at 1.49 and e at 1.13 ppm; text gives b 1.26, e 1.5 — assignments swapped"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "spectrum",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n16",
+   "type": "STR/chemistry/bonding",
+   "label": "Polyol has proposed structure: glycerol ester backbone, fatty chains, PEG-ether side arms",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n17",
+   "type": "OBS/signal/feature_presence",
+   "label": "IPDI NCO band 2257 cm⁻¹ absent in PU; urethane C=O 1734 and N–H ~3450 cm⁻¹ present",
+   "attrs": {
+    "technique": "FTIR",
+    "image_note": "NCO disappearance and N–H band shown in figure only; text lists peaks without drawing completion inference"
+   },
+   "figs": [
+    "F3"
+   ],
+   "modality": "spectrum",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n18",
+   "type": "STR/chemistry/bonding",
+   "label": "Urethane linkages formed; isocyanate fully consumed",
+   "attrs": {
+    "from": "NCO + OH",
+    "to": "urethane",
+    "inferred_from_image": true
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n19",
+   "type": "OBS/response/characteristic_value",
+   "label": "Three-step TGA mass loss: 184–355, 342–480, 480–655 °C; DTG minima for PU-K2",
+   "attrs": {
+    "technique": "TGA/DTG",
+    "image_note": "only one DTG trace shown; curves overlap, PU-K3 not visibly the most stable at onset"
+   },
+   "figs": [
+    "F5"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n20",
+   "type": "OBS/signal/feature_assignment",
+   "label": "Steps assigned to urethane cleavage, fatty-chain scission, residue decomposition",
+   "attrs": {
+    "basis": "literature [38]"
+   },
+   "figs": [],
+   "modality": "spectrum",
+   "fit": "poor",
+   "proposed": true
+  },
+  {
+   "id": "n21",
+   "type": "PRP/value",
+   "label": "PU-K3 shows best thermal stability of the series",
+   "attrs": {
+    "best": "PU-K3"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n22",
+   "type": "MEC/pathway",
+   "label": "Stability attributed to PEG-600 and absence of myristic acid in karanja oil",
+   "attrs": {
+    "factors": [
+     "PEG Mw",
+     "fatty-acid profile"
+    ],
+    "inferred": false,
+    "speculative": true
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n23",
+   "type": "OBS/response/characteristic_value",
+   "label": "DSC: low Tg for all films; cottonseed PUs lower Tg than karanja; common endotherm ~45–50 °C",
+   "attrs": {
+    "technique": "DSC",
+    "image_note": "curves vertically offset, Tg steps not marked; G vs K Tg ordering hard to read from image"
+   },
+   "figs": [
+    "F6"
+   ],
+   "modality": "xy_curve",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n24",
+   "type": "PRP/value",
+   "label": "Low Tg from flexible PEG chains; G-series Tg < K-series; hard-segment melting similar",
+   "attrs": {
+    "quantity": "Tg, Tm"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n25",
+   "type": "MEC/pathway",
+   "label": "Tg difference ascribed to chemical composition of cottonseed vs karanja oil",
+   "attrs": {
+    "factors": [
+     "fatty-acid profile"
+    ]
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n26",
+   "type": "OBS/morphology/appearance",
+   "label": "Panels by diisocyanate: MDI film streaked/defective, IPDI clear and uniform, TDI/HDI darker",
+   "attrs": {
+    "technique": "photograph",
+    "image_note": "defects on MDI panel visible only in image"
+   },
+   "figs": [
+    "F7"
+   ],
+   "modality": "photograph",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n27",
+   "type": "DES/down_select",
+   "label": "IPDI chosen as best diisocyanate from the screen",
+   "attrs": {
+    "chosen": "IPDI",
+    "basis": "coating quality"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n28",
+   "type": "OBS/morphology/appearance",
+   "label": "Dipentene film glossier and yellow-tinted vs duller xylene film (same KJ-600 polyol)",
+   "attrs": {
+    "comparator": "xylene",
+    "image_note": "gloss visible as specular highlight on left panel"
+   },
+   "figs": [
+    "F7"
+   ],
+   "modality": "photograph",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n29",
+   "type": "OBS/response/characteristic_value",
+   "label": "Gloss 102–104, pencil hardness 2H–4H, adhesion, mar resistance 100 g, chemical resistance",
+   "attrs": {
+    "standards": [
+     "ASTM D3363",
+     "ASTM D523"
+    ],
+    "best": "PU-K3"
+   },
+   "figs": [],
+   "modality": "table",
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n30",
+   "type": "PRF/qualification",
+   "label": "Bio-based PU coatings meet coating requirements; PU-K3 best (4H, gloss 104)",
+   "attrs": {
+    "metrics": [
+     "gloss",
+     "hardness",
+     "adhesion",
+     "mar",
+     "chemical resistance"
+    ]
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n31",
+   "type": "PRF/qualification",
+   "label": "Dipentene-based coatings equal or exceed xylene-based ones",
+   "attrs": {
+    "baseline": "xylene solvent"
+   },
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  },
+  {
+   "id": "n32",
+   "type": "DSC/outlook",
+   "label": "Suitable for floor-care, decorative paints and binders; can replace petroleum polyol + xylene",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "fit": "good",
+   "proposed": true
+  }
+ ],
+ "edges": [
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n1",
+   "dst": "n3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n7",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n8",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n8",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n9",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n8",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n12",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n14",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n18",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n11",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n13",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n17",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n11",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n13",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n15",
+   "dst": "n16",
+   "rel": "evidences",
+   "mm_op": "assign_features"
+  },
+  {
+   "src": "n14",
+   "dst": "n16",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n18",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n19",
+   "dst": "n20",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "n19",
+   "dst": "n21",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "n5",
+   "dst": "n22",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n22",
+   "dst": "n21",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n21",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n23",
+   "dst": "n24",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "n5",
+   "dst": "n25",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n25",
+   "dst": "n24",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n26",
+   "dst": "n27",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n27",
+   "dst": "n30",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n28",
+   "dst": "n31",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n3",
+   "dst": "n31",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n29",
+   "dst": "n30",
+   "rel": "evidences",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n30",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n21",
+   "dst": "n32",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n24",
+   "dst": "n32",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n30",
+   "dst": "n32",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n31",
+   "dst": "n32",
+   "rel": "causes",
+   "mm_op": null
+  }
+ ],
+ "notes": "Spine is a synthesis-verification chain (stepwise functional-group conversion evidenced by FTIR/NMR) feeding a property/qualification screen; weak structure→property link (hard/soft segment reasoning appears only in extracted mechanisms, not in the paper's own figures, so omitted). Feedback edge: OBS(photo) → DES/down_select (IPDI) is a design choice made AFTER observation — the spine is not strictly forward. Lost: chemical-resistance details, per-sample table values, VOC/biodegradability claims (asserted, not measured). Image-only: NCO band vanishing in PU (completion of reaction), MDI film defects, NMR b/e shift labels swapped vs text, C=C position 3010 vs text 3180. TGA 'PU-K3 most stable' and DSC 'G<K Tg' are not clearly readable from images — claims rest on text/table.",
+ "migrated_from": "r01/graphs/Progress_in_Organic_Coatings__j.porgcoat.2015.05.014.json"
+}

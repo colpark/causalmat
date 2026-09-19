@@ -1,0 +1,1691 @@
+{
+ "version": "v04",
+ "status": "final",
+ "note": "Final vocabulary after the merge phase (r01-r04, 60 papers, 2109 nodes, 2625 edges). Three levels at most: L1 argument stage -> L2 group (OBS and STR only) -> leaf. Types name the ROLE in the argument; technique, material, quantity, direction, mechanism class and basis go in attrs. Every leaf carries definition, rule (decision vs nearest sibling), example and usage. See vocab/HIERARCHY.md and rounds/r04/judge.md.",
+ "design_principles": [
+  "A distinction is a type only if it changes the next inference; everything else is an attribute (aspect, via, form, proxy, object, property_family).",
+  "Types name the role in the argument, never the technique or material; figure form (modality), data origin (provenance) and figure fidelity (image_support) are node fields, not types.",
+  "Keep the argument skeleton fixed (HYP -> DES -> PRC -> STR -> PRP -> PRF -> DSC, with OBS/KNW as evidence and premises and MEC as bridge) and absorb new cases with boundary rules before adding leaves.",
+  "Siblings are separated by a written decision rule a new annotator can apply; where staff could not apply it, the siblings were merged unless the next inference differs.",
+  "An entry used in fewer than 2 of 60 papers survives only if clearly general across material classes.",
+  "mm_ops name the figure act and its failure modes; what follows from the act is carried by the dst node type, not by the op name."
+ ],
+ "types": {
+  "HYP": {
+   "level": 1,
+   "definition": "Stage 1, why: the motivation, gap, need or testable expectation the work sets out from."
+  },
+  "HYP/gap": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Something is unknown, unmeasured, unexplained or contradictory in the literature; closing it yields knowledge. attrs.gap_kind = unobserved_regime | unexplained_effect | conflicting_reports.",
+   "rule": "vs need: closing a gap yields KNOWLEDGE; closing a need yields a BETTER MATERIAL. If both are stated, type the one the conclusion answers.",
+   "example": "Kinetics of the alpha-to-beta transformation in Ti at ns time scales have never been measured directly",
+   "usage": {
+    "nodes": 27,
+    "papers": 27
+   }
+  },
+  "HYP/need": {
+   "level": 2,
+   "leaf": true,
+   "definition": "An application or societal requirement (property level, cost, sustainability, safety) that current materials fail to meet.",
+   "rule": "vs gap: see gap. vs hypothesis: a need states a shortfall, not what should fix it.",
+   "example": "Mg alloy AZ91 lacks creep resistance above 150 C",
+   "usage": {
+    "nodes": 44,
+    "papers": 44
+   }
+  },
+  "HYP/hypothesis": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A testable expectation or proposed strategy: doing X should produce Y. The work later confirms, refutes or qualifies it.",
+   "rule": "vs DES/*: the hypothesis states the expected effect; the DES node states the concrete choice that tests it.",
+   "example": "Adding SiC particles should raise the strength and creep resistance of the Mg matrix",
+   "usage": {
+    "nodes": 53,
+    "papers": 53
+   }
+  },
+  "DES": {
+   "level": 1,
+   "definition": "Stage 2, choice: a reasoned decision about material, geometry, route, method or comparison axis."
+  },
+  "DES/base_system": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Choice of the host/base material or starting feedstock, with the reason (cost, renewability, known structure, availability). For a molecule designed as a whole (multi-domain peptide, chimera) with no identifiable host, the whole design is base_system.",
+   "rule": "vs modification: modification only when something is ADDED TO or SUBSTITUTED INTO a named base; no identifiable base -> base_system.",
+   "example": "Use non-edible karanja oil as the polyol feedstock; choose AZ91 as matrix",
+   "usage": {
+    "nodes": 51,
+    "papers": 51
+   }
+  },
+  "DES/modification": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Choice to add or substitute a constituent into a base (dopant, alloying element, reinforcement, filler, co-monomer, additive). Site, amount and intended role in attrs. Verification of incorporation follows.",
+   "rule": "vs base_system: see base_system. vs variable_sweep: the constituent is the modification; its levels are the sweep.",
+   "example": "Substitute Cr3+ on the Ti4+ site because the ionic radii match",
+   "usage": {
+    "nodes": 29,
+    "papers": 28
+   }
+  },
+  "DES/architecture": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A priori geometric or spatial target to be built: pore/channel lattice, external shape, strut network, layer stacking, core-shell, graded placement. Geometry source and dimensions in attrs. A design-fidelity check (match_to_design) follows.",
+   "rule": "vs route: architecture is WHAT geometry is targeted; route is HOW it is made.",
+   "example": "8 mm cylinders with orthogonal 500-800 um channels at 50% designed pore volume",
+   "usage": {
+    "nodes": 13,
+    "papers": 10
+   }
+  },
+  "DES/route": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Choice of processing route, technique, schedule or auxiliary (solvent, catalyst, atmosphere) justified against a baseline or a structural target, including a schedule designed to isolate one process (attrs.purpose = decouple).",
+   "rule": "vs method: route decides how the material is MADE; method decides how it is MEASURED. A processing schedule that exists to isolate a process is still route (purpose=decouple), not method or sweep.",
+   "example": "Replace xylene with bio-derived dipentene; 180 C/5 h to finish recrystallisation before growth at 250 C",
+   "usage": {
+    "nodes": 15,
+    "papers": 14
+   }
+  },
+  "DES/method": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Choice of characterization/test method, specimen geometry or sampling protocol because it enables or validates a measurement. attrs.aspect = technique | specimen | sampling. Spine only when the method is a headline contribution; it then realizes the claim it makes measurable.",
+   "rule": "vs route: see route.",
+   "example": "Use single-shot dynamic TEM on 75 nm films, each shot on a fresh region",
+   "usage": {
+    "nodes": 16,
+    "papers": 14
+   }
+  },
+  "DES/variable_sweep": {
+   "level": 2,
+   "leaf": true,
+   "definition": "The controlled variable(s) and levels that form the comparison axis of the study. Variable and levels in attrs.",
+   "rule": "vs modification/route: the sweep node carries the LEVELS; what is varied is typed separately only if its choice is argued.",
+   "example": "Reinforcement content 0-25 wt% in 5 wt% steps",
+   "usage": {
+    "nodes": 46,
+    "papers": 45
+   }
+  },
+  "DES/down_select": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A design decision made after, and because of, an observation, screen or weighed claim; reached by motivates from OBS/PRP/PRF/MEC. Screen-then-choose papers put it on the spine.",
+   "rule": "vs other DES: down_select has an incoming motivates edge from a RESULT of this paper; a priori choices are the other DES leaves.",
+   "example": "IPDI chosen as the diisocyanate after the coating-quality screen",
+   "usage": {
+    "nodes": 10,
+    "papers": 9
+   }
+  },
+  "PRC": {
+   "level": 1,
+   "definition": "Stage 3, act: a processing act or exposure applied to make, shape, modify or probe the material."
+  },
+  "PRC/synthesis": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A reaction or assembly step that turns precursors into the target compound, phase, polymer or colloidal object (solid-state reaction, sol-gel incl. calcination of the gel, co-precipitation, polymerisation, functionalisation, self-assembly in dispersion). Reactive consolidation (reactive HP/SPS, SHS) is ONE synthesis node with attrs.concurrent_forming=true.",
+   "rule": "vs treatment: if the input is not yet the target compound (precursor, gel, hydroxide, salt, mixed oxides) it is synthesis even when thermal; if it already is, treatment.",
+   "example": "Epoxidise oil C=C bonds with H2O2 over Amberlyst 15",
+   "usage": {
+    "nodes": 43,
+    "papers": 33
+   }
+  },
+  "PRC/forming": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Turning feedstock (powder, melt, solution, sol, pellets) into a bulk body or designed shape: casting, sintering/HP/SPS of the made compound, compaction, extrusion or moulding of feedstock, additive manufacturing, composite mixing-and-solidification, in-situ gelation, lithographic/subtractive patterning, direct writing, laser drilling, transfer printing.",
+   "rule": "vs treatment: forming turns FEEDSTOCK into a body; working an already-made solid body (rolling, forging, ECAP, hot extrusion of a cast billet) is treatment. vs deposition: onto a substrate as film/coating = deposition.",
+   "example": "Spark plasma sintering of powders into >96% dense pellets",
+   "usage": {
+    "nodes": 30,
+    "papers": 25
+   }
+  },
+  "PRC/deposition": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Applying material onto a substrate as film, coating or layer (PVD, CVD, spin/bar coating, electrodeposition, spraying, on-substrate self-assembly, in-situ cure of an applied coating), including chemical conversion coatings grown by reaction with the substrate (attrs.aspect = conversion).",
+   "rule": "vs forming: the product sits on a substrate and substrate-coating properties follow -> deposition; a free-standing body -> forming.",
+   "example": "Bar-coat 120 um films on steel panels; Sr-P conversion coating on Mg",
+   "usage": {
+    "nodes": 11,
+    "papers": 9
+   }
+  },
+  "PRC/joining": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Joining pre-made bodies into one assembly across a new interface: diffusion bonding, brazing, welding, TLP and adhesive bonding. Joint properties follow with attrs.object='joint'.",
+   "rule": "vs deposition: joining bonds two pre-made BODIES; deposition grows new material on one.",
+   "example": "Vacuum diffusion bonding of EHEA and TiAl blocks at 900-1000 C",
+   "usage": {
+    "nodes": 2,
+    "papers": 2
+   }
+  },
+  "PRC/treatment": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Modifying the structure of an already-made material of the target compound: annealing, ageing, solution treatment, quenching, curing of a made polymer, thermomechanical working, electropulsing, surface/irradiation treatment as part of making, milling/classification of a made powder. In computation papers, a pressure/strain applied to find the stable phase that is then kept (attrs.in_silico=true).",
+   "rule": "vs stimulus: treatment makes the material to be USED; stimulus probes or tests the finished material. vs synthesis: see synthesis.",
+   "example": "Solution treatment at 520 C then ageing at 180 C; wet milling of Si to d50 = 62 nm",
+   "usage": {
+    "nodes": 22,
+    "papers": 15
+   }
+  },
+  "PRC/stimulus": {
+   "level": 2,
+   "leaf": true,
+   "definition": "An external perturbation or exposure (thermal pulse, load, field, bias or cycling, corrosive/biological environment, irradiation; in silico, a pressure applied to read a property) whose effect IS the object of study. Create a stimulus node only when the exposure produces an argued state (post-mortem STR, in-situ readout); a standard service test is carried by attrs.condition on the PRF node.",
+   "rule": "vs treatment: see treatment. vs PRF attrs.condition: no argued structural/response state from the exposure -> no stimulus node.",
+   "example": "Single 12 ns laser pulse heats the film at 1e11 K/s during pump-probe imaging",
+   "usage": {
+    "nodes": 15,
+    "papers": 15
+   }
+  },
+  "OBS": {
+   "level": 1,
+   "definition": "Evidence: a readout from a measurement or computation before interpretation; never spine. Subtype names WHAT FEATURE of the data is read; modality, provenance and image_support are node fields."
+  },
+  "OBS/signal": {
+   "level": 2,
+   "definition": "Discrete features of a trace (peaks, bands, reflections, edges, steps, pole-figure maxima) read individually, or a whole trace judged against a reference or model trace."
+  },
+  "OBS/signal/reference_match": {
+   "level": 3,
+   "leaf": true,
+   "definition": "A whole measured trace (pattern, spectrum or response curve) judged to coincide or not with a reference trace: parent sample, standard, database card, or model/fit/simulation output (Rietveld, theory curve, constructed image).",
+   "rule": "vs feature_assignment: WHOLE-trace coincidence -> reference_match; INDIVIDUAL features mapped to origins -> assignment. Op: empirical reference -> match_to_reference; model reference -> overlay_model_on_data.",
+   "example": "Doped XRD patterns reproduce the undoped reflections, no extra peaks",
+   "usage": {
+    "nodes": 23,
+    "papers": 16
+   }
+  },
+  "OBS/signal/feature_assignment": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Individual features assigned to origins: reflections indexed to phases, bands to groups, NMR signals to sites, DTG/DSC steps to processes, superposed patterns read for orientation relationship (attrs.aspect = orientation_relationship).",
+   "rule": "vs feature_presence: indexing a set of features -> assignment; the appearance/absence of ONE specific expected feature across samples -> presence.",
+   "example": "Six 1H NMR signals a-f mapped onto sites of the drawn polyol structure",
+   "usage": {
+    "nodes": 48,
+    "papers": 30
+   }
+  },
+  "OBS/signal/feature_presence": {
+   "level": 3,
+   "leaf": true,
+   "definition": "A feature appears or disappears between samples, stages or times, or a specific expected feature is absent (qualitative yes/no).",
+   "rule": "vs feature_quantification: complete appearance/disappearance or a yes/no reading -> presence; any partial change or a residual/degree that is argued -> quantification.",
+   "example": "NCO band at 2257 cm-1 absent after urethane formation",
+   "usage": {
+    "nodes": 41,
+    "papers": 25
+   }
+  },
+  "OBS/signal/feature_shift": {
+   "level": 3,
+   "leaf": true,
+   "definition": "A feature's position read relative to a reference: moving across a series (aspect=shift), or offset/overlapping with a feature of another species on the same axis, also across figures sharing that axis (aspect=overlap).",
+   "rule": "vs feature_quantification: POSITION -> shift; intensity/area/width -> quantification.",
+   "example": "(0 0 10) reflection shifts to higher 2theta with Cr content",
+   "usage": {
+    "nodes": 18,
+    "papers": 14
+   }
+  },
+  "OBS/signal/feature_quantification": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Feature intensity, area or width read as a measure of an amount or degree, qualitatively (grows, fades) or as a number: phase fraction, conversion, concentration, crystallite size, texture strength.",
+   "rule": "vs presence: see presence. vs OBS/response/trend: read from the raw pattern/pole figure -> signal; read from a plotted quantity-vs-variable -> response (derives edge from the pattern node if both exist).",
+   "example": "Integrated difference-pattern intensities give 26 +/- 5% beta phase",
+   "usage": {
+    "nodes": 36,
+    "papers": 21
+   }
+  },
+  "OBS/response": {
+   "level": 2,
+   "definition": "A quantity read as a function of a variable or condition, over an ensemble, or split into contributions."
+  },
+  "OBS/response/trend": {
+   "level": 3,
+   "leaf": true,
+   "definition": "How a quantity changes with a varied variable or ranks across groups: direction, monotonicity, ranking (attrs.aspect=ranking for categorical groups), saturation; 2-D contours of a single response over two variables (attrs.dimension=2D).",
+   "rule": "vs characteristic_value: a direction or ranking across >=2 conditions is ARGUED -> trend; named levels are read (onset, Ecorr, value at a condition) -> characteristic_value.",
+   "example": "Yield strength rises monotonically with SiCp content",
+   "usage": {
+    "nodes": 225,
+    "papers": 53
+   }
+  },
+  "OBS/response/characteristic_value": {
+   "level": 3,
+   "leaf": true,
+   "definition": "A defined point or level read from a curve, test or table: onset, peak, step, minimum, crossing that fixes a transition, value at a condition, standard-test rating, single summary statistic.",
+   "rule": "vs trend: see trend. vs distribution: a single statistic whose spread is not argued -> characteristic_value.",
+   "example": "Pencil hardness 4H; alpha-beta enthalpy crossing at 80 GPa",
+   "usage": {
+    "nodes": 124,
+    "papers": 48
+   }
+  },
+  "OBS/response/fitted_parameter": {
+   "level": 3,
+   "leaf": true,
+   "definition": "A parameter obtained by fitting a functional form or model to data: exponent, slope, activation energy, rate constant, circuit element.",
+   "rule": "vs characteristic_value: needs a functional form fitted over a range (op fit_model); a point read off the curve is characteristic_value.",
+   "example": "Apparent stress exponent n = 7.2-8.9 from log-log creep rate vs stress",
+   "usage": {
+    "nodes": 25,
+    "papers": 18
+   }
+  },
+  "OBS/response/distribution": {
+   "level": 3,
+   "leaf": true,
+   "definition": "The spread and shape of a non-imaged quantity over an ensemble (computed sites, specimens, DLS classes, indents) read as the result: range, width, tails, multimodality, overlap.",
+   "rule": "vs characteristic_value: the SPREAD is argued -> distribution. vs OBS/morphology/feature_metric: statistics of imaged features -> feature_metric.",
+   "example": "Vacancy formation energies over all SQS sites span 2.45-3.94 eV",
+   "usage": {
+    "nodes": 9,
+    "papers": 3
+   }
+  },
+  "OBS/response/component_partition": {
+   "level": 3,
+   "leaf": true,
+   "definition": "A total response shown with its separated contributions (co-plotted or decomposed, at one condition or across conditions) so the dominant term can be read. Next: PRP/value (aspect=partition) or MEC.",
+   "rule": "vs trend: no variable needs to vary; if the claim is WHICH TERM DOMINATES -> component_partition; how the total changes with a variable -> trend.",
+   "example": "Capacitive vs diffusion-controlled share of one CV at 1 mV/s",
+   "usage": {
+    "nodes": 7,
+    "papers": 6
+   }
+  },
+  "OBS/response/regime_map": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Boundaries between states or regimes in a condition space, 2-D or 1-D: TTT/CCT, phase or exchange-pathway diagram, deformation-mechanism map, stability, bistability or hysteresis window. Read for WHICH STATE exists at a condition.",
+   "rule": "vs trend: a single response's contours over two variables is trend (dimension=2D); boundaries between qualitatively different states is regime_map.",
+   "example": "High- and low-amplitude branches coexist between ~12 and 25 Hz",
+   "usage": {
+    "nodes": 3,
+    "papers": 3
+   }
+  },
+  "OBS/morphology": {
+   "level": 2,
+   "definition": "Spatial/visual content of an image or map (micrograph, photograph, element map, tomogram, fluorescence image)."
+  },
+  "OBS/morphology/appearance": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Qualitative reading of what imaged features look like, or whether a signal is there: shape, surface/fracture features, interface sharpness, defects, colour, gloss, film uniformity. attrs.object.",
+   "rule": "vs distribution: WHAT it looks like / WHETHER a labelled signal is present -> appearance; WHERE features or a labelled species are across the field -> distribution. vs feature_metric: a number read -> feature_metric.",
+   "example": "Fracture surface shows dimples and tear ridges",
+   "usage": {
+    "nodes": 131,
+    "papers": 49
+   }
+  },
+  "OBS/morphology/feature_metric": {
+   "level": 3,
+   "leaf": true,
+   "definition": "A measured metric of imaged features: size or size distribution, number density, thickness, area fraction, porosity, fringe spacing, boundary fractions (also as a histogram of image-derived values).",
+   "rule": "vs appearance: see appearance. vs OBS/response/distribution: see distribution.",
+   "example": "TEM bright field: grains 50-100 nm",
+   "usage": {
+    "nodes": 60,
+    "papers": 37
+   }
+  },
+  "OBS/morphology/distribution": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Spatial arrangement of features, elements or a labelled species across the field: uniformity, clustering, alignment, segregation, gradients, localisation (fluorescence, IVIS, colocalisation).",
+   "rule": "vs appearance: see appearance.",
+   "example": "Dark SiC particles spread across the matrix with local clustering",
+   "usage": {
+    "nodes": 39,
+    "papers": 27
+   }
+  },
+  "STR": {
+   "level": 1,
+   "definition": "Stage 4, structure: a claim about the material's structure at any scale, inferred from observations (or imposed by model construction)."
+  },
+  "STR/phase": {
+   "level": 2,
+   "definition": "Crystal/phase-level structure: which phases, how much, cell dimensions, site occupancy."
+  },
+  "STR/phase/identity": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Which phases or crystal structures are present, incl. 'no secondary phase' and mesoscale periodic arrangements (attrs.scale=mesoscale). Requires structure-sensitive evidence (diffraction, spectroscopy of structure).",
+   "rule": "vs STR/chemistry/composition: a phase named only from stoichiometry (EDS Ca:P) is composition with attrs.phase_named_from=stoichiometry. vs fraction: WHICH vs HOW MUCH.",
+   "example": "beta-Ti (bcc) forms within 30 ns",
+   "usage": {
+    "nodes": 38,
+    "papers": 32
+   }
+  },
+  "STR/phase/fraction": {
+   "level": 3,
+   "leaf": true,
+   "definition": "How much of a crystalline phase is present, incl. its evolution: phase fraction, degree of transformation, polymer crystallinity. A proxy is named in attrs.proxy.",
+   "rule": "vs identity: see identity. vs STR/chemistry/composition: amount of a CRYSTALLINE phase -> fraction; loss or gain of an amorphous/organic constituent or element content -> composition (attrs.scope).",
+   "example": "Transformation completes in 200-300 ns near Tm",
+   "usage": {
+    "nodes": 14,
+    "papers": 13
+   }
+  },
+  "STR/phase/lattice": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Unit-cell dimensions, interlayer spacing or lattice strain and their change.",
+   "rule": "vs site_occupancy: HOW BIG the cell is -> lattice; WHO sits where -> site_occupancy.",
+   "example": "Layer spacing c shrinks linearly from 16.97 to 16.68 A with Cr",
+   "usage": {
+    "nodes": 12,
+    "papers": 11
+   }
+  },
+  "STR/phase/site_occupancy": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Distribution of constituents over the crystallographic sites of a phase: site preference, inversion, antisites, sublattice order/disorder (attrs.aspect = preference | ordering).",
+   "rule": "vs STR/defect/point: which-site/ordering claims WITHOUT a charge, carrier or diffusion argument -> site_occupancy; with one -> defect/point.",
+   "example": "Fe3+ takes octahedral sites, confining Co2+ to tetrahedral sites",
+   "usage": {
+    "nodes": 5,
+    "papers": 5
+   }
+  },
+  "STR/chemistry": {
+   "level": 2,
+   "definition": "Molecular/chemical-level structure: bonds and configuration, elemental composition and valence."
+  },
+  "STR/chemistry/bonding": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Bonds, functional groups, linkages or coordination present or converted, up to full molecular structure; configuration/conformation (aspect=configuration); noncovalent intermolecular packing: pi-stacking, J/H-aggregation, host-guest, charge-transfer cocrystals (aspect=intermolecular_packing).",
+   "rule": "vs composition: HOW atoms are bonded or packed -> bonding; WHAT elements/valences are present -> composition.",
+   "example": "Oil double bonds converted to oxirane rings; J-aggregation of ICG",
+   "usage": {
+    "nodes": 24,
+    "papers": 17
+   }
+  },
+  "STR/chemistry/composition": {
+   "level": 3,
+   "leaf": true,
+   "definition": "WHAT a phase or region is made of: elemental composition, stoichiometry, valence, solute content, per-layer composition, loss/gain of an amorphous or organic constituent (attrs.scope), phases named only from stoichiometry.",
+   "rule": "vs STR/microstructure/distribution: WHAT -> composition; WHERE -> distribution. vs phase/fraction and phase/identity: see those.",
+   "example": "Reaction layer II is Co/Ni-rich Al(Co,Ni)2Ti",
+   "usage": {
+    "nodes": 11,
+    "papers": 10
+   }
+  },
+  "STR/defect": {
+   "level": 2,
+   "definition": "Crystallographic defects: point (0-D) vs line/planar (1-D/2-D)."
+  },
+  "STR/defect/point": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Substitutional, interstitial or vacancy species by charge state, compensation, position (aspect=position) or concentration (aspect=concentration); drives carrier, ionic, diffusion arguments. May be imposed by model construction (basis=imposed).",
+   "rule": "vs site_occupancy: see site_occupancy. vs PRP/descriptor: a defect CONCENTRATION is defect/point; carrier density, mobility, m*, diffusivity are descriptor.",
+   "example": "Cr3+ substitutes Ti4+ as an acceptor-type defect",
+   "usage": {
+    "nodes": 8,
+    "papers": 5
+   }
+  },
+  "STR/defect/extended": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Line and planar defects (dislocations, stacking faults, twins, APBs) and their density; drives mechanical and phonon arguments.",
+   "rule": "vs point: dimensionality. vs microstructure/damage: crystallographic defects vs loss of continuity (cracks, voids).",
+   "example": "Higher Cr levels remove planar stacking faults",
+   "usage": {
+    "nodes": 5,
+    "papers": 3
+   }
+  },
+  "STR/microstructure": {
+   "level": 2,
+   "definition": "Arrangement of grains, particles, pores, phases and cracks at meso/micro scale."
+  },
+  "STR/microstructure/feature_size": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Size of structural units (grains, particles, crystallites, pores, layers); refine/coarsen as attrs.direction.",
+   "rule": "vs shape: HOW BIG -> feature_size; WHAT FORM -> shape.",
+   "example": "Matrix grains refined from 65 to 22 um",
+   "usage": {
+    "nodes": 29,
+    "papers": 25
+   }
+  },
+  "STR/microstructure/distribution": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Spatial distribution of a constituent: dispersion, agglomeration, segregation, gradient, shell/coating coverage (aspect=coverage) and filler-network contact/connectivity (aspect=connectivity).",
+   "rule": "vs shape: coverage/where a constituent lies -> distribution; the geometry of a built unit (core-shell, sheath, hollow) -> shape. vs porosity: when the argued quantity is the void, porosity; when it is where the constituent is, distribution. vs STR/interface: contact STATE (bonding, charge transfer) across the boundary -> interface.",
+   "example": "Near-uniform SiCp distribution with few agglomerates; CNT network fully covers the fibre",
+   "usage": {
+    "nodes": 23,
+    "papers": 21
+   }
+  },
+  "STR/microstructure/shape": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Shape and topography of structural units or of a built architecture (lenticular, equiaxed, lamellar, core-shell, hollow single-cavity, strut network, facets, roughness).",
+   "rule": "vs distribution: see distribution. vs porosity: a single designed cavity or shell -> shape; pore volume fraction, SSA or connectivity -> porosity.",
+   "example": "Lens-shaped beta grains, about one nucleus per alpha grain",
+   "usage": {
+    "nodes": 20,
+    "papers": 16
+   }
+  },
+  "STR/microstructure/porosity": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Amount, connectivity and hierarchy of porosity: void fraction, relative density, open vs closed, interconnection, network mesh, processing voids, specific surface area. Next: transport/ingrowth or correction of property values.",
+   "rule": "vs feature_size: pore SIZE -> feature_size. vs damage: load/environment-induced voids -> damage. vs shape: see shape.",
+   "example": "Ceramics remain 20-29% porous after 1500 C sintering",
+   "usage": {
+    "nodes": 15,
+    "papers": 14
+   }
+  },
+  "STR/microstructure/orientation": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Orientation state: crystallographic texture, molecular/fibre orientation, grain-boundary character (misorientation distribution, LAGB/HAGB/twin fractions).",
+   "rule": "vs feature_size/shape: an orientation claim licenses anisotropy/slip/recrystallisation inferences; size and shape claims do not.",
+   "example": "Electropulsing weakens the basal texture and raises the HAGB fraction",
+   "usage": {
+    "nodes": 4,
+    "papers": 3
+   }
+  },
+  "STR/microstructure/damage": {
+   "level": 3,
+   "leaf": true,
+   "definition": "Loss of continuity induced in a made material by load, thermal cycling or environment: microcracks, gouge, delamination, fibre fracture, degradation-opened cracks, binder dissolution that de-bonds grains (aspect=binder_dissolution).",
+   "rule": "vs porosity: designed or processing pores -> porosity. vs defect/extended: see extended.",
+   "example": "Gouge of loose debris flanked by comb cracks, damage zone 2-3 grains wide",
+   "usage": {
+    "nodes": 3,
+    "papers": 2
+   }
+  },
+  "STR/interface": {
+   "level": 2,
+   "leaf": true,
+   "definition": "State of an interface or boundary between constituents or with a substrate: bonding, reaction layer, coherency/orientation relationship, wetting, adhesion, contact enabling charge transfer.",
+   "rule": "vs microstructure/distribution: see distribution.",
+   "example": "Clean, reaction-free Mg/SiC interface",
+   "usage": {
+    "nodes": 11,
+    "papers": 10
+   }
+  },
+  "PRP": {
+   "level": 1,
+   "definition": "Stage 5, property: a claim about a property of the material or of an assembly (attrs.object); attrs.property_family required; attrs.basis=argued when unmeasured."
+  },
+  "PRP/value": {
+   "level": 2,
+   "leaf": true,
+   "definition": "The level of a property or its change with a design variable or condition, incl. a claim that one contribution dominates the total (attrs.aspect = partition). Quantity, direction and family in attrs.",
+   "rule": "vs PRF/*: argued from structure or ranked against the design variable -> value; judged at a use condition, against an external criterion, or as a composite metric -> PRF. vs diagnostic: see diagnostic.",
+   "example": "Tensile yield strength increases with SiCp; reduction of kappa is dominated by the electronic part (aspect=partition)",
+   "usage": {
+    "nodes": 137,
+    "papers": 57
+   }
+  },
+  "PRP/behavior_class": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A categorical classification of how the material behaves: failure/wear/decay mode, conduction type, magnetic order, pairing symmetry, kinematic behaviour of an architected cell.",
+   "rule": "vs value: a CATEGORY, not a level. vs PRF/service_capability: how it fails -> behavior_class; ranking or pass under a (simulated) service condition -> service_capability.",
+   "example": "Mixed ductile-brittle fracture, brittle fraction growing with SiCp",
+   "usage": {
+    "nodes": 19,
+    "papers": 18
+   }
+  },
+  "PRP/descriptor": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A microscopic descriptor between structure and a measured property as intermediate cause: carrier density, mobility, effective mass, diffusivity.",
+   "rule": "vs STR/defect/point: defect concentration is STR. vs value: descriptor is not itself the measured headline property; it explains one.",
+   "example": "Effective mass increases with Cr, adding to the Seebeck gain",
+   "usage": {
+    "nodes": 13,
+    "papers": 10
+   }
+  },
+  "PRP/diagnostic": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A quantity whose role is to identify a mechanism via a known mapping (stress exponent, activation energy, Avrami exponent, Tafel slope, b-value, 2Delta/kTc). Next: KNW/lookup -> MEC/identification.",
+   "rule": "vs value: the same quantity is diagnostic ONLY if a KNW/lookup or KNW/model -> MEC/identification follows; used as a level or ranking it is value.",
+   "example": "True stress exponent 5.4-5.8",
+   "usage": {
+    "nodes": 7,
+    "papers": 7
+   }
+  },
+  "PRF": {
+   "level": 1,
+   "definition": "Stage 6, performance: a claim about how the material, device or process performs in a use or test condition."
+  },
+  "PRF/figure_of_merit": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A composite application metric combining several properties or normalising a property per mass, volume or cost in the field's ranking convention (ZT, energy density at a power density, specific strength, specific capacitance at a stated rate).",
+   "rule": "vs qualification: no external pass/fail threshold -> FOM. vs PRP/value: argued from structure as a trend -> value; used to rank devices/materials against others -> FOM.",
+   "example": "ZT at 750 K rises from 0.24 to 0.29",
+   "usage": {
+    "nodes": 6,
+    "papers": 6
+   }
+  },
+  "PRF/service_capability": {
+   "level": 2,
+   "leaf": true,
+   "definition": "The material, device or method performs (or fails) under a stated use condition, or a built prototype or process demonstrably does the job; includes in-vivo endpoints and endpoint-quality tissue markers.",
+   "rule": "vs qualification: no external criterion applied. vs MEC/pathway: host biomarkers and biodistribution invoked to EXPLAIN an endpoint are MEC/pathway.",
+   "example": "Improved creep resistance at 175 C and 80-120 MPa for >=15 wt% SiCp",
+   "usage": {
+    "nodes": 55,
+    "papers": 39
+   }
+  },
+  "PRF/qualification": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Performance judged against an external criterion: standard pass/fail, spec, rating compared with a threshold, or a community benchmark condition (overpotential at 10 mA/cm2).",
+   "rule": "vs FOM and PRP/value: only when a threshold, spec or benchmark condition is applied; a standard rating ranked against formulation is PRP/value.",
+   "example": "Coatings meet hardness, gloss, adhesion and chemical-resistance requirements",
+   "usage": {
+    "nodes": 6,
+    "papers": 5
+   }
+  },
+  "MEC": {
+   "level": 1,
+   "definition": "Bridge: a mechanistic explanation linking cause to effect across stages; attrs.mechanism_class names the physics."
+  },
+  "MEC/pathway": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A causal pathway by which a cause produces an effect; incl. explanatory host biomarkers and in-vivo biodistribution (mechanism_class=pharmacokinetic). attrs.basis = evidenced | argued | attributed.",
+   "rule": "vs identification: a pathway BUILT from evidence -> pathway; one member PICKED from a known catalogue -> identification.",
+   "example": "SiC particles act as heterogeneous nucleation sites and restrict grain growth",
+   "usage": {
+    "nodes": 132,
+    "papers": 58
+   }
+  },
+  "MEC/identification": {
+   "level": 2,
+   "leaf": true,
+   "definition": "The operative mechanism is identified as one member of a known catalogue (rate-controlling step, transformation mode, scattering regime), via a diagnostic and a lookup or via an experiment that isolates one candidate (decoupling, selective suppression).",
+   "rule": "vs pathway: see pathway.",
+   "example": "Creep is climb-controlled; texture change is driven by grain growth, not recrystallisation",
+   "usage": {
+    "nodes": 17,
+    "papers": 14
+   }
+  },
+  "MEC/tradeoff": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A net outcome explained by one contribution outweighing an opposing one; carries counteracts edges.",
+   "rule": "vs pathway: needs two opposing contributions and a counteracts edge.",
+   "example": "Lower total thermal conductivity outweighs the power-factor loss, so ZT rises",
+   "usage": {
+    "nodes": 7,
+    "papers": 7
+   }
+  },
+  "KNW": {
+   "level": 1,
+   "definition": "Premise: prior knowledge, literature or theory brought in as an input; never spine."
+  },
+  "KNW/precedent": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A specific earlier result (own or others') used as analogy, support or comparator.",
+   "rule": "vs fact: a RESULT of a study -> precedent; a tabulated constant or known structure -> fact.",
+   "example": "Isothermal martensite in Fe-Ni shows S-shaped autocatalytic kinetics",
+   "usage": {
+    "nodes": 49,
+    "papers": 36
+   }
+  },
+  "KNW/model": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A named model, formalism or governing equation used to compute, fit or predict.",
+   "rule": "vs lookup: an equation to compute with -> model; a mapping from a value/feature to its meaning -> lookup.",
+   "example": "Threshold-stress formalism; Wiedemann-Franz law",
+   "usage": {
+    "nodes": 38,
+    "papers": 29
+   }
+  },
+  "KNW/lookup": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A known mapping from an observable value or feature to its interpretation: diagnostic value -> mechanism, band position -> group, reference card.",
+   "rule": "vs model: see model.",
+   "example": "n ~ 5 indicates lattice-diffusion-controlled climb; 1730 cm-1 is urethane C=O",
+   "usage": {
+    "nodes": 22,
+    "papers": 20
+   }
+  },
+  "KNW/fact": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A tabulated fact or known structure of a constituent used as a premise (constant, radius, composition, crystal-structure model).",
+   "rule": "vs precedent: see precedent.",
+   "example": "SiC compressive strength 3900 MPa",
+   "usage": {
+    "nodes": 24,
+    "papers": 21
+   }
+  },
+  "DSC": {
+   "level": 1,
+   "definition": "Stage 7, discussion: conclusion, comparison, guidance, limitation or outlook drawn from the results."
+  },
+  "DSC/conclusion": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Summary claim of what was shown and what is new; the spine terminus.",
+   "rule": "vs design_guidance: what WAS shown -> conclusion; what to DO -> guidance.",
+   "example": "Cr doping optimises carrier concentration and, unlike other acceptors, raises m*",
+   "usage": {
+    "nodes": 57,
+    "papers": 57
+   }
+  },
+  "DSC/comparison": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Results set against prior work, a model prediction or an incumbent; attrs.against = prior_work | model | baseline, attrs.verdict.",
+   "rule": "vs KNW/precedent: the precedent is the input; the comparison is the verdict drawn in this paper.",
+   "example": "Models agree above 1400 K but overestimate Ea by 50% at 1200 K",
+   "usage": {
+    "nodes": 21,
+    "papers": 20
+   }
+  },
+  "DSC/design_guidance": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A generalised design rule, optimum window or trade-off recommendation drawn from the results.",
+   "rule": "vs conclusion: see conclusion. vs outlook: guidance is backed by this paper's results; outlook is proposed next work.",
+   "example": "<=10 wt% SiCp suffices for strength; creep benefit needs >=15 wt%",
+   "usage": {
+    "nodes": 21,
+    "papers": 21
+   }
+  },
+  "DSC/limitation": {
+   "level": 2,
+   "leaf": true,
+   "definition": "A stated limit of method or data, or an anomaly attributed to artefact, that bounds a claim (kind = method | anomaly | scope).",
+   "rule": "vs OBS audit nodes: the limitation is the paper's (or annotator's) stated bound; the readout that reveals it is an OBS with a qualifies edge.",
+   "example": "beta < 10% undetectable; the 1575 K outlier attributed to laser misalignment",
+   "usage": {
+    "nodes": 23,
+    "papers": 20
+   }
+  },
+  "DSC/outlook": {
+   "level": 2,
+   "leaf": true,
+   "definition": "Proposed application or next experiment (kind = application | research).",
+   "rule": "vs design_guidance: see design_guidance.",
+   "example": "Suitable for floor-care and decorative coatings",
+   "usage": {
+    "nodes": 17,
+    "papers": 17
+   }
+  }
+ },
+ "rels": {
+  "motivates": "HYP/DSC/OBS gives reason for a DES/PRC choice or a test; a weighed claim (PRP/PRF/MEC, e.g. a trade-off or ranking) may motivate a DES/down_select (screen-then-choose)",
+  "realizes": "a DES choice is carried out by a PRC act or a measurement; in computation-first papers also by constructing an in-silico structure, in which case dst may be a STR node with attrs.basis=imposed; a spine DES/method whose measurement is a headline contribution may realize the STR/PRP/MEC claim it makes measurable",
+  "feeds_into": "src PRC act's product is the workpiece, precursor, mold or template of dst PRC act (ordered multi-step route). PRC->PRC only; replaces realizes/premise_for between PRC nodes",
+  "produces": "a PRC act or condition yields a structural state",
+  "evidences": "an OBS supports a claim (STR/PRP/PRF/MEC) or a DSC/comparison or DSC/limitation verdict. Source must be OBS",
+  "causes": "physical causation in the material: one state leads to another (processing -> structure -> property -> performance). Not for claim-to-conclusion reasoning",
+  "explains": "a MEC accounts for a claim",
+  "premise_for": "a KNW node, or an in-paper node used as an input, supplies an assumption, equation, parameter or condition value for another inference or derivation (absorbs proposed 'parameterizes')",
+  "contrasts": "a claim or OBS is compared against a control, baseline, model or alternative",
+  "rules_out": "evidence or reasoning rejects an alternative explanation",
+  "derives": "dst OBS is computed from src OBS by arithmetic, data reduction, fitting or re-plotting; dst is NOT independent evidence (absorbs proposed 'reduces_to'). Carries an mm_op when src has a figure",
+  "qualifies": "a limitation, caveat, anomaly or contradicting readout bounds the scope or confidence of a claim, or contradicts it outright; the strength of the conflict is carried by the target's image_support (partial | contradicts) and the audit node's label",
+  "counteracts": "src effect opposes the outcome dst stands for (the loss term of a trade-off)",
+  "supports": "a claim is used as a premise for another claim or conclusion (claim -> claim or claim -> DSC reasoning), as opposed to physical causation (causes) or direct measurement (evidences)"
+ },
+ "modalities": [
+  "micrograph",
+  "diffraction_pattern",
+  "spectrum",
+  "xy_curve",
+  "spatial_map",
+  "table",
+  "schematic",
+  "photograph",
+  "simulation_render",
+  "text_only",
+  "volume_render",
+  "orientation_distribution",
+  "dispersion_diagram"
+ ],
+ "modality_notes": {
+  "diffraction_pattern": "Intensity vs scattering angle/vector, 1D (XRD trace, radial profile) or 2D (SAED, detector image)",
+  "spectrum": "Intensity vs energy/wavenumber/shift/binding energy (IR, Raman, XPS, NMR, UV-vis, EDS spectrum, XAS), and real-space radial functions (FT-EXAFS, PDF); computed DOS/pDOS/COOP curves",
+  "xy_curve": "Any quantitative plot of a quantity vs a variable or category: line, scatter, bar/histogram (incl. histograms of image-derived values), log-log, contour of a response. Not for 1D diffraction traces, spectra, line scans or dispersion diagrams",
+  "micrograph": "Optical/electron/probe microscopy image",
+  "spatial_map": "Map of a quantity or element over sample space in 2D (EDS/EBSD/EPMA map, strain map, tomogram slice, property map of hardness/modulus/conductivity) or 1D (EDS/EPMA line scan vs distance, intensity line profile across an image)",
+  "photograph": "Macroscopic camera image of samples or devices",
+  "schematic": "Drawn diagram, reaction scheme or structure model",
+  "simulation_render": "Rendered simulation output (atomistic snapshot, FEM field)",
+  "table": "Tabulated values",
+  "text_only": "Readout stated in text with no figure in the packet",
+  "composite_rule": "For multi-panel figures use the modality of the panel actually read; if a node reads two panel kinds, split the node",
+  "volume_render": "3D surface or volume rendering of experimental tomographic or serial-section data (micro-CT, FIB-SEM, electron tomography, atom-probe reconstruction), often cut away or colour-segmented; segmentation/smoothing artefacts apply. Simulated 3D output stays simulation_render",
+  "orientation_distribution": "Intensity over orientation space, not physical space: pole figures, inverse-pole-figure density plots, ODF sections. An EBSD IPF-coloured map is spatial_map",
+  "dispersion_diagram": "Energy or frequency vs wavevector along a high-symmetry path: electronic band structure, phonon or magnon dispersion. The DOS panel beside it is spectrum. Kept with 1 paper of 60 because band-structure and phonon-dispersion plots are standard in computational papers of every material class"
+ },
+ "node_fields": {
+  "provenance": {
+   "applies_to": "OBS (required)",
+   "values": {
+    "measured": "directly recorded by an instrument or test",
+    "derived": "computed in this paper from other OBS (must have an incoming derives edge)",
+    "computed": "output of simulation, theory or model calculation (DFT, FEM, CALPHAD, analytic model)"
+   },
+   "note": "Review papers: an OBS reproduced from a cited study keeps the source's provenance and adds attrs.reproduced_from=[ref]."
+  },
+  "image_support": {
+   "applies_to": "any node with non-empty figs (required)",
+   "values": {
+    "shown": "the figure visibly shows the claim as stated",
+    "partial": "the figure supports a weaker, qualified or subset version (some panels/samples, within noise, low magnification)",
+    "not_shown": "the figure does not resolve the claimed feature; the claim rests on text or tables",
+    "contradicts": "the figure shows something inconsistent with the stated claim"
+   },
+   "note": "Record what the image shows instead in attrs.image_note. Things the figure shows that the text never states become their own OBS node with attrs.text_silent=true. An audit OBS node whose label states the discrepancy itself has image_support=shown (the figure shows the discrepancy); the conflict is carried by its qualifies/contrasts edge. From v04: fill image_support only after opening the image; nodes whose figure was not opened carry figs=[] and attrs.fig_ref (the figure id), never an image_support judged from the caption. Figure ids follow the image file, not the caption."
+  },
+  "spine": {
+   "applies_to": "every node (required from r03)",
+   "values": {
+    "true": "node lies on the paper's primary line of argument (HYP -> DES -> PRC -> STR -> PRP -> PRF -> DSC/conclusion, with bridging MEC)",
+    "false": "evidence, premise, audit or side branch"
+   },
+   "note": "See PROTOCOL.md 'Spine and periphery'. OBS and KNW nodes are never spine; 10-20 spine nodes per paper. From v03: at most two parallel branches plus one control branch that ends in a PRP/STR linked by contrasts to the main branch; DES/method may be spine when the method is a headline contribution (link by realizes to the claim it makes measurable); DES/down_select is reached by motivates from the weighed claim. From v04: in method/tool papers a PRP of the tool-workpiece assembly (attrs.object=assembly) may sit upstream of the STR it produces (PRC -causes-> PRP -supports-> MEC -explains-> STR)."
+  },
+  "basis": {
+   "applies_to": "attrs.basis on STR/PRP/PRF/MEC claims (optional; default evidenced)",
+   "values": {
+    "evidenced": "supported by incoming evidences edges in this paper",
+    "argued": "reasoned from other claims or literature, no direct measurement (e.g. dislocation density inferred from incomplete DRX)",
+    "attributed": "asserted cause without a pathway or evidence",
+    "imposed": "set by model construction in a computation (e.g. substitutional N placed in a DFT cell)"
+   },
+   "note": "Evidence through a proxy (KAM for transformed fraction, colour for dose) is still evidenced; name the proxy in attrs.proxy"
+  },
+  "text_silent": {
+   "applies_to": "attrs.text_silent on OBS nodes (optional)",
+   "values": {
+    "true": "the figure shows content the text never states AND it bears on a spine claim (qualifies, contradicts or would change it)"
+   },
+   "note": "Otherwise record the content in attrs.image_note of the nearest OBS node. Numbers in labels are read from the figure; the text value goes in image_note."
+  },
+  "modality": {
+   "applies_to": "OBS (required)",
+   "values": "see modalities and modality_notes; split a node that reads two panel kinds"
+  }
+ },
+ "mm_op_families": {
+  "read": "Extract a feature from one figure: a direction, a point, a spread, a local feature or a spatial pattern.",
+  "compare": "Set two or more traces, panels, figures or sources against each other and read the difference, co-variation or coincidence.",
+  "match": "Map figure content to a reference, a design, a label or a known class.",
+  "quantify": "Turn figure content into numbers, parameters or a new derived series (the ops allowed on derives edges, plus register_colocated_views for two-channel ratios).",
+  "check": "Test agreement or consistency: model against data, curves under normalisation, figures against each other or against the text."
+ },
+ "mm_ops": {
+  "read_trend": {
+   "family": "read",
+   "definition": "Read the direction, monotonicity, saturation or change of ranking of a quantity across an ordered series or along an axis.",
+   "rule": "vs read_characteristic_point: if a crossing or point yields a VALUE (transition pressure, onset) use read_characteristic_point; read_trend only for direction or ranking.",
+   "usage": {
+    "edges": 92,
+    "papers": 43
+   }
+  },
+  "read_characteristic_point": {
+   "family": "read",
+   "definition": "Read a defined point from a curve or scan: onset, peak, minimum, inflection/step, threshold or curve crossing, value at a condition; also locating a sample relative to regime boundaries.",
+   "rule": "vs read_trend: see read_trend.",
+   "usage": {
+    "edges": 60,
+    "papers": 35
+   }
+  },
+  "read_distribution_statistics": {
+   "family": "read",
+   "definition": "Read range, central value, width, tails, per-class offsets or overlap from a distribution of a non-imaged quantity. Failure modes: few counts, binning, colour classes, intensity vs number weighting.",
+   "rule": "vs measure_feature_metric: image-derived histograms go to measure_feature_metric.",
+   "usage": {
+    "edges": 9,
+    "papers": 3
+   }
+  },
+  "inspect_local_feature": {
+   "family": "read",
+   "definition": "Judge a local feature (interface, defect, grain shape) in one high-magnification view; representativeness is an assumption.",
+   "rule": "vs assess_spatial_distribution: ONE feature in one view vs arrangement ACROSS a field.",
+   "usage": {
+    "edges": 24,
+    "papers": 17
+   }
+  },
+  "assess_spatial_distribution": {
+   "family": "read",
+   "definition": "Judge uniformity, clustering, alignment, segregation or localisation of features, elements or a labelled species across a field or map.",
+   "rule": "vs inspect_local_feature: see inspect_local_feature.",
+   "usage": {
+    "edges": 17,
+    "papers": 15
+   }
+  },
+  "compare_across_conditions": {
+   "family": "compare",
+   "definition": "Compare panels, frames, traces or curves that differ in one condition (design variable, stage, time, before/after) and read the difference, incl. following a spectral or diffraction feature through a stack of traces.",
+   "rule": "vs track_feature_across_series: use track only when the IDENTITY of an object through frames is what the inference needs.",
+   "usage": {
+    "edges": 270,
+    "papers": 57
+   }
+  },
+  "track_feature_across_series": {
+   "family": "compare",
+   "definition": "Follow one identified OBJECT (atom, particle, layer, crack tip, domain wall, ion) through time-lapse, trajectory or loading frames and read its displacement, sequence or appearance. Failure modes: object identity between frames, frame-interval aliasing (sequential vs simultaneous events).",
+   "rule": "vs compare_across_conditions: a peak followed through stacked traces is compare_across_conditions (the OBS type already says a feature moved).",
+   "usage": {
+    "edges": 4,
+    "papers": 3
+   }
+  },
+  "compare_coplotted_quantities": {
+   "family": "compare",
+   "definition": "Read two or more different quantities, species or components on shared axes (or in separate figures sharing axis quantity and units) and judge dominance or positional overlap (aspect=overlap). Audit: bandwidths, same medium/state, same scale; a non-overlap is also a result.",
+   "rule": "vs correlate_across_series: coplotted = different quantities on ONE axis; correlate = same sample series across DIFFERENT ordinates.",
+   "usage": {
+    "edges": 21,
+    "papers": 15
+   }
+  },
+  "compare_with_reference_value": {
+   "family": "compare",
+   "definition": "Position this work's data against reference VALUES plotted, tabulated or quoted alongside: prior work, incumbents, constants, an in-paper benchmark system.",
+   "rule": "vs match_to_reference: reference values (points) -> this op; a reference TRACE judged for coincidence -> match_to_reference.",
+   "usage": {
+    "edges": 16,
+    "papers": 11
+   }
+  },
+  "correlate_across_series": {
+   "family": "compare",
+   "definition": "Align the same sample series across two or more figures with different ordinates and judge co-variation; licenses correlational attribution only.",
+   "rule": "vs compare_coplotted_quantities: see that op.",
+   "usage": {
+    "edges": 17,
+    "papers": 13
+   }
+  },
+  "register_colocated_views": {
+   "family": "compare",
+   "definition": "Register two or more views of the SAME region (image + map, line scan, point analysis, SAED at marked positions, magnifications, probe/indent positions on a photograph) so content read in one is located on a feature in the other; allowed on derives edges when a colocalisation coefficient or channel ratio is computed. Failure modes: misregistration, probe size, bleed-through, thresholds.",
+   "rule": "vs compare_across_conditions: same region, different channels; not different conditions.",
+   "usage": {
+    "edges": 23,
+    "papers": 17
+   }
+  },
+  "match_to_reference": {
+   "family": "match",
+   "definition": "Judge a whole trace or image against an EMPIRICAL reference (parent sample, standard, database card).",
+   "rule": "vs overlay_model_on_data: a model, fit or simulation reference goes to overlay_model_on_data.",
+   "usage": {
+    "edges": 11,
+    "papers": 7
+   }
+  },
+  "match_to_design": {
+   "family": "match",
+   "definition": "Compare an image of a fabricated object with its intended geometry (CAD/STL, mold, template, target dimension) and judge fidelity.",
+   "rule": "vs match_to_reference: the reference is the design intent, not a measured or model trace.",
+   "usage": {
+    "edges": 9,
+    "papers": 6
+   }
+  },
+  "assign_features": {
+   "family": "match",
+   "definition": "Assign individual peaks, bands, signals, steps or contrast levels to phases, groups, sites or processes via a known mapping; incl. orientation relationship in superposed patterns (aspect=orientation_relationship).",
+   "rule": "vs recognize_signature: individual features -> assign; a whole shape -> recognize_signature.",
+   "usage": {
+    "edges": 42,
+    "papers": 23
+   }
+  },
+  "recognize_signature": {
+   "family": "match",
+   "definition": "Match a visible morphology or a curve shape to a known class that implies a mechanism (dimples -> ductile; lenticular -> martensitic; sigmoid, C-curve).",
+   "rule": "vs assign_features: see assign_features.",
+   "usage": {
+    "edges": 19,
+    "papers": 14
+   }
+  },
+  "measure_feature_metric": {
+   "family": "quantify",
+   "definition": "Measure sizes, counts, densities, thicknesses, area or boundary fractions of imaged features, or extract a line profile from one image.",
+   "rule": "vs convert_to_quantity: measuring geometry in the image -> this op; converting a signal through a relation -> convert_to_quantity.",
+   "usage": {
+    "edges": 43,
+    "papers": 26
+   }
+  },
+  "convert_to_quantity": {
+   "family": "quantify",
+   "definition": "Convert a feature or readout into a physical quantity through a stated relation; attrs.via = intensity (peak/ROI integrals -> amount; audit background, saturation) | position (Bragg, Vegard; audit reference and calibration of axis) | calibration (in-paper calibration; audit target inside calibrated range, comparable state, monotone inversion) | known_relation (C = I dt/dV, Arrhenius from two points) | model (Rothwarf-Taylor inversion).",
+   "rule": "vs fit_model: a relation applied to given points -> convert; parameters obtained by fitting a form over a range -> fit_model.",
+   "usage": {
+    "edges": 24,
+    "papers": 17
+   }
+  },
+  "fit_model": {
+   "family": "quantify",
+   "definition": "Fit a functional form to data to obtain parameters: slope/intercept on linearised axes, power law, Arrhenius, Tauc, equivalent circuit, deconvolution; attrs.form = linearised | power_law | nonlinear | circuit | decomposition. Audit: fitted window, constraints, number of points.",
+   "rule": "vs convert_to_quantity: see convert_to_quantity.",
+   "usage": {
+    "edges": 31,
+    "papers": 20
+   }
+  },
+  "replot_derived_series": {
+   "family": "quantify",
+   "definition": "Build a new series or diagram from other readouts: arithmetic combination, subtraction of a background/reference trace, aggregation, resampling at iso-levels, re-plot against another variable.",
+   "rule": "vs collapse_by_normalization: if the re-plot is made to TEST whether curves merge, use collapse_by_normalization on the evidences edge.",
+   "usage": {
+    "edges": 46,
+    "papers": 18
+   }
+  },
+  "overlay_model_on_data": {
+   "family": "check",
+   "definition": "Judge agreement region by region between model/fit/simulation output and data, overlaid, side by side or in matched panels. Audit: a parameter tuned on the same data makes agreement circular.",
+   "rule": "vs match_to_reference: see match_to_reference.",
+   "usage": {
+    "edges": 33,
+    "papers": 13
+   }
+  },
+  "collapse_by_normalization": {
+   "family": "check",
+   "definition": "Re-plot against a normalised or corrected variable and check whether curves or points from different conditions merge; the merge is the evidence. Audit: high-leverage points.",
+   "rule": "vs replot_derived_series: see replot_derived_series.",
+   "usage": {
+    "edges": 5,
+    "papers": 3
+   }
+  },
+  "cross_check_consistency": {
+   "family": "check",
+   "definition": "Verify that quantities read from different figures, panels or the text agree arithmetically or in trend; incl. flagging a point or series that deviates and setting it aside (aspect=outlier).",
+   "rule": "vs overlay_model_on_data: data vs data or data vs text; model vs data is overlay.",
+   "usage": {
+    "edges": 28,
+    "papers": 19
+   }
+  }
+ },
+ "renames": {
+  "PRP/partition": "PRP/value",
+  "quantify_from_intensity": "convert_to_quantity",
+  "quantify_from_position": "convert_to_quantity",
+  "convert_via_calibration": "convert_to_quantity",
+  "extract_slope": "fit_model",
+  "flag_outlier": "cross_check_consistency",
+  "subtract_reference": "replot_derived_series"
+ },
+ "rename_attrs": {
+  "PRP/partition": {
+   "aspect": "partition"
+  },
+  "quantify_from_intensity": {
+   "via": "intensity"
+  },
+  "quantify_from_position": {
+   "via": "position"
+  },
+  "convert_via_calibration": {
+   "via": "calibration"
+  },
+  "extract_slope": {
+   "form": "linearised"
+  },
+  "flag_outlier": {
+   "aspect": "outlier"
+  },
+  "subtract_reference": {
+   "aspect": "subtraction"
+  }
+ },
+ "conditional_renames": [
+  {
+   "from": "track_feature_across_series",
+   "to": "compare_across_conditions",
+   "when": "src node type is OBS/signal/* (a feature followed through stacked traces)",
+   "edges_migrated": 25
+  },
+  {
+   "from": "compare_across_conditions",
+   "to": "track_feature_across_series",
+   "when": "identity of an imaged/simulated object through frames licenses the inference (r03 ruling #9 edges adfm.201901327 o20->s8, aenm.201902373 o26->e6)",
+   "edges_migrated": 2
+  },
+  {
+   "from": "match_to_reference",
+   "to": "overlay_model_on_data",
+   "when": "the reference is model, fit or simulation output (nmat2713 b23, nl201541y a21, s41563-024-01862-8 d12)",
+   "edges_migrated": 3
+  }
+ ],
+ "family_renames": {
+  "transform": "quantify"
+ },
+ "attr_values": {
+  "property_family": [
+   "mechanical",
+   "thermal",
+   "thermodynamic",
+   "electrical",
+   "ionic_electrochemical",
+   "catalytic",
+   "magnetic",
+   "optical",
+   "chemical_corrosion",
+   "kinetic",
+   "biological",
+   "surface",
+   "photochemical"
+  ],
+  "property_family_notes": {
+   "catalytic": "activity/selectivity of a catalyst: electro-, photo-, thermocatalytic (OER overpotential, dye-degradation rate)",
+   "thermodynamic": "formation, binding, cohesive, surface or interfacial energies and phase stability",
+   "ionic_electrochemical": "ionic conduction, redox capacity, battery/supercapacitor behaviour; not catalytic activity",
+   "chemical_corrosion": "corrosion, oxidation, chemical resistance, degradation in environment, including hydrolytic, enzymatic and in-body biodegradation (Mg implant corrosion, polymer hydrolysis, scaffold mass loss)",
+   "biological": "in-vitro response of cells, bacteria or proteins to the material (viability, adhesion, proliferation, antibacterial activity, haemolysis); in-vivo endpoints are PRF/service_capability",
+   "photochemical": "light-triggered generation or release of species by the material (photosensitised ROS, NO release, photo-uncaging); not turnover catalysis",
+   "surface": "wetting, adhesion, friction coefficient and wear rate (tribology); a wear-mode classification is PRP/behavior_class"
+  }
+ },
+ "attr_renames": {},
+ "changelog": [
+  "FINAL (merge phase). Types 82 -> 81 entries (10 L1 + 7 L2 + 64 leaves); mm_ops 27 -> 22; mm_op families 6 -> 5; rels 14 (qualifies redefined); modalities 13 (unchanged).",
+  "Merged types: PRP/partition -> PRP/value (attrs.aspect=partition).",
+  "Merged mm_ops: quantify_from_intensity + quantify_from_position + convert_via_calibration -> convert_to_quantity (attrs.via); extract_slope -> fit_model (attrs.form); flag_outlier -> cross_check_consistency (aspect=outlier); subtract_reference -> replot_derived_series.",
+  "Narrowed: track_feature_across_series to object identity through frames (stacked-trace uses -> compare_across_conditions); match_to_reference to empirical references (model references -> overlay_model_on_data, which now covers side-by-side panels). Family transform folded into quantify.",
+  "Kept against merge proposals: OBS/response/component_partition (single-condition decompositions have no varied variable), OBS/response/regime_map (3 papers; incl. 1-D state windows), PRP/diagnostic (diagnostic chain in 7 papers), collapse_by_normalization (3 papers), PRF/figure_of_merit vs PRF/qualification (sharpened).",
+  "Every leaf and mm_op now carries a decision rule vs its nearest sibling and usage over 60 papers; L1 and L2 entries carry one-line definitions and a level field.",
+  "Boundary broadenings: bonding (+intermolecular packing), MEC/pathway (+biodistribution), MEC/identification (+decoupling experiments), DES/route (+purpose=decouple), DES/base_system (whole-molecule designs), PRC/deposition (+conversion coatings), PRC/treatment and PRC/stimulus (in-silico pressure), PRC/stimulus usage note, microstructure/distribution (+coverage, connectivity), damage (+binder dissolution), STR/defect/point (+concentration; removed from PRP/descriptor), OBS/signal/reference_match (+response curves vs model), compare_coplotted_quantities (+cross-figure), register_colocated_views (+allowed on derives), convert_to_quantity via=intensity (+image ROI).",
+  "Node-field rules: image_support only from opened images (figs=[] + attrs.fig_ref otherwise); review provenance attrs.reproduced_from; spine allows PRP(object=assembly) upstream of STR in tool papers; text_silent documented as a node field.",
+  "attr_values: property_family +photochemical; tribology -> surface."
+ ],
+ "usage": {
+  "scope": "r01-r04 graphs (60 papers, 2109 nodes, 2625 edges) after v01-v04 renames and v04 conditional_renames; [count, papers]",
+  "types": {
+   "HYP/gap": [
+    27,
+    27
+   ],
+   "HYP/need": [
+    44,
+    44
+   ],
+   "HYP/hypothesis": [
+    53,
+    53
+   ],
+   "DES/base_system": [
+    51,
+    51
+   ],
+   "DES/modification": [
+    29,
+    28
+   ],
+   "DES/architecture": [
+    13,
+    10
+   ],
+   "DES/route": [
+    15,
+    14
+   ],
+   "DES/method": [
+    16,
+    14
+   ],
+   "DES/variable_sweep": [
+    46,
+    45
+   ],
+   "DES/down_select": [
+    10,
+    9
+   ],
+   "PRC/synthesis": [
+    43,
+    33
+   ],
+   "PRC/forming": [
+    30,
+    25
+   ],
+   "PRC/deposition": [
+    11,
+    9
+   ],
+   "PRC/joining": [
+    2,
+    2
+   ],
+   "PRC/treatment": [
+    22,
+    15
+   ],
+   "PRC/stimulus": [
+    15,
+    15
+   ],
+   "OBS/signal/reference_match": [
+    23,
+    16
+   ],
+   "OBS/signal/feature_assignment": [
+    48,
+    30
+   ],
+   "OBS/signal/feature_presence": [
+    41,
+    25
+   ],
+   "OBS/signal/feature_shift": [
+    18,
+    14
+   ],
+   "OBS/signal/feature_quantification": [
+    36,
+    21
+   ],
+   "OBS/response/trend": [
+    225,
+    53
+   ],
+   "OBS/response/characteristic_value": [
+    124,
+    48
+   ],
+   "OBS/response/fitted_parameter": [
+    25,
+    18
+   ],
+   "OBS/response/distribution": [
+    9,
+    3
+   ],
+   "OBS/response/component_partition": [
+    7,
+    6
+   ],
+   "OBS/response/regime_map": [
+    3,
+    3
+   ],
+   "OBS/morphology/appearance": [
+    131,
+    49
+   ],
+   "OBS/morphology/feature_metric": [
+    60,
+    37
+   ],
+   "OBS/morphology/distribution": [
+    39,
+    27
+   ],
+   "STR/phase/identity": [
+    38,
+    32
+   ],
+   "STR/phase/fraction": [
+    14,
+    13
+   ],
+   "STR/phase/lattice": [
+    12,
+    11
+   ],
+   "STR/phase/site_occupancy": [
+    5,
+    5
+   ],
+   "STR/chemistry/bonding": [
+    24,
+    17
+   ],
+   "STR/chemistry/composition": [
+    11,
+    10
+   ],
+   "STR/defect/point": [
+    8,
+    5
+   ],
+   "STR/defect/extended": [
+    5,
+    3
+   ],
+   "STR/microstructure/feature_size": [
+    29,
+    25
+   ],
+   "STR/microstructure/distribution": [
+    23,
+    21
+   ],
+   "STR/microstructure/shape": [
+    20,
+    16
+   ],
+   "STR/microstructure/porosity": [
+    15,
+    14
+   ],
+   "STR/microstructure/orientation": [
+    4,
+    3
+   ],
+   "STR/microstructure/damage": [
+    3,
+    2
+   ],
+   "STR/interface": [
+    11,
+    10
+   ],
+   "PRP/value": [
+    137,
+    57
+   ],
+   "PRP/behavior_class": [
+    19,
+    18
+   ],
+   "PRP/descriptor": [
+    13,
+    10
+   ],
+   "PRP/diagnostic": [
+    7,
+    7
+   ],
+   "PRF/figure_of_merit": [
+    6,
+    6
+   ],
+   "PRF/service_capability": [
+    55,
+    39
+   ],
+   "PRF/qualification": [
+    6,
+    5
+   ],
+   "MEC/pathway": [
+    132,
+    58
+   ],
+   "MEC/identification": [
+    17,
+    14
+   ],
+   "MEC/tradeoff": [
+    7,
+    7
+   ],
+   "KNW/precedent": [
+    49,
+    36
+   ],
+   "KNW/model": [
+    38,
+    29
+   ],
+   "KNW/lookup": [
+    22,
+    20
+   ],
+   "KNW/fact": [
+    24,
+    21
+   ],
+   "DSC/conclusion": [
+    57,
+    57
+   ],
+   "DSC/comparison": [
+    21,
+    20
+   ],
+   "DSC/design_guidance": [
+    21,
+    21
+   ],
+   "DSC/limitation": [
+    23,
+    20
+   ],
+   "DSC/outlook": [
+    17,
+    17
+   ]
+  },
+  "mm_ops": {
+   "read_trend": [
+    92,
+    43
+   ],
+   "read_characteristic_point": [
+    60,
+    35
+   ],
+   "read_distribution_statistics": [
+    9,
+    3
+   ],
+   "inspect_local_feature": [
+    24,
+    17
+   ],
+   "assess_spatial_distribution": [
+    17,
+    15
+   ],
+   "compare_across_conditions": [
+    270,
+    57
+   ],
+   "track_feature_across_series": [
+    4,
+    3
+   ],
+   "compare_coplotted_quantities": [
+    21,
+    15
+   ],
+   "compare_with_reference_value": [
+    16,
+    11
+   ],
+   "correlate_across_series": [
+    17,
+    13
+   ],
+   "register_colocated_views": [
+    23,
+    17
+   ],
+   "match_to_reference": [
+    11,
+    7
+   ],
+   "match_to_design": [
+    9,
+    6
+   ],
+   "assign_features": [
+    42,
+    23
+   ],
+   "recognize_signature": [
+    19,
+    14
+   ],
+   "measure_feature_metric": [
+    43,
+    26
+   ],
+   "convert_to_quantity": [
+    24,
+    17
+   ],
+   "fit_model": [
+    31,
+    20
+   ],
+   "replot_derived_series": [
+    46,
+    18
+   ],
+   "overlay_model_on_data": [
+    33,
+    13
+   ],
+   "collapse_by_normalization": [
+    5,
+    3
+   ],
+   "cross_check_consistency": [
+    28,
+    19
+   ]
+  },
+  "rels": {
+   "evidences": [
+    755,
+    60
+   ],
+   "supports": [
+    388,
+    56
+   ],
+   "causes": [
+    290,
+    59
+   ],
+   "motivates": [
+    243,
+    60
+   ],
+   "premise_for": [
+    177,
+    57
+   ],
+   "produces": [
+    171,
+    58
+   ],
+   "realizes": [
+    163,
+    60
+   ],
+   "explains": [
+    150,
+    60
+   ],
+   "derives": [
+    108,
+    37
+   ],
+   "qualifies": [
+    104,
+    53
+   ],
+   "feeds_into": [
+    42,
+    32
+   ],
+   "contrasts": [
+    20,
+    16
+   ],
+   "counteracts": [
+    8,
+    8
+   ],
+   "rules_out": [
+    6,
+    6
+   ]
+  },
+  "modalities": {
+   "xy_curve": [
+    336,
+    56
+   ],
+   "micrograph": [
+    146,
+    47
+   ],
+   "text_only": [
+    82,
+    37
+   ],
+   "spectrum": [
+    75,
+    27
+   ],
+   "diffraction_pattern": [
+    56,
+    25
+   ],
+   "spatial_map": [
+    35,
+    18
+   ],
+   "photograph": [
+    22,
+    15
+   ],
+   "table": [
+    13,
+    8
+   ],
+   "simulation_render": [
+    10,
+    7
+   ],
+   "orientation_distribution": [
+    7,
+    2
+   ],
+   "schematic": [
+    3,
+    2
+   ],
+   "volume_render": [
+    2,
+    2
+   ],
+   "null": [
+    1,
+    1
+   ],
+   "dispersion_diagram": [
+    1,
+    1
+   ]
+  },
+  "provenance": {
+   "measured": [
+    588,
+    53
+   ],
+   "derived": [
+    83,
+    34
+   ],
+   "computed": [
+    74,
+    21
+   ],
+   "null": [
+    44,
+    4
+   ]
+  },
+  "image_support": {
+   "shown": [
+    547,
+    56
+   ],
+   "partial": [
+    155,
+    48
+   ],
+   "null": [
+    44,
+    4
+   ],
+   "contradicts": [
+    10,
+    8
+   ],
+   "not_shown": [
+    4,
+    2
+   ]
+  }
+ }
+}
