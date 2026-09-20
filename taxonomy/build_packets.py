@@ -11,24 +11,39 @@ import sys
 
 ROOT = os.path.abspath("matmech")
 TAX = os.path.abspath("taxonomy")
-rnd, n = int(sys.argv[1]), int(sys.argv[2])
-seed = int(sys.argv[3]) if len(sys.argv) > 3 else rnd
-rng = random.Random(seed)
+if sys.argv[1] == "--papers-file":          # build packets for an explicit list
+    PAPERS_FILE, OUTDIR = sys.argv[2], sys.argv[3]
+    rnd = n = 0
+    rng = random.Random(0)
+else:
+    PAPERS_FILE = OUTDIR = None
+    rnd, n = int(sys.argv[1]), int(sys.argv[2])
+    seed = int(sys.argv[3]) if len(sys.argv) > 3 else rnd
+    rng = random.Random(seed)
+
+if PAPERS_FILE:
+    picked = [f"{json.loads(l)['journal']}/{json.loads(l)['doi']}" for l in open(PAPERS_FILE)]
+    out = OUTDIR
+    os.makedirs(f"{out}/packets", exist_ok=True)
+    open(f"{out}/papers.txt", "w").write("\n".join(picked) + "\n")
+else:
+    picked = None
 
 used = set()
 for f in glob.glob(f"{TAX}/rounds/*/papers.txt"):
     used |= set(open(f).read().split())
 
 by_j = {}
-for f in sorted(glob.glob(f"{ROOT}/*/*/data.json")):
+for f in ([] if PAPERS_FILE else sorted(glob.glob(f"{ROOT}/*/*/data.json"))):
     pid = os.path.relpath(os.path.dirname(f), ROOT)
     if pid not in used:
         by_j.setdefault(pid.split("/")[0], []).append(pid)
 for v in by_j.values():
     rng.shuffle(v)
 
-picked, journals = [], sorted(by_j)
-while len(picked) < n:
+if not PAPERS_FILE:
+  picked, journals = [], sorted(by_j)
+  while len(picked) < n:
     rng.shuffle(journals)
     for j in journals:
         while by_j[j]:
@@ -40,10 +55,11 @@ while len(picked) < n:
         if len(picked) == n:
             break
 
-out = f"{TAX}/rounds/r{rnd:02d}"
-os.makedirs(f"{out}/packets", exist_ok=True)
-os.makedirs(f"{out}/graphs", exist_ok=True)
-open(f"{out}/papers.txt", "w").write("\n".join(picked) + "\n")
+if not PAPERS_FILE:
+    out = f"{TAX}/rounds/r{rnd:02d}"
+    os.makedirs(f"{out}/packets", exist_ok=True)
+    os.makedirs(f"{out}/graphs", exist_ok=True)
+    open(f"{out}/papers.txt", "w").write("\n".join(picked) + "\n")
 
 
 def clip(s, k):
