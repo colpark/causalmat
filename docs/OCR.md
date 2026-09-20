@@ -90,17 +90,36 @@ processes each spawning ~20 ONNX threads on 20 cores.
 Also applied: long side capped to 900 px and `det_limit_side_len=640`, which was ~20% faster on a 60-crop
 benchmark with the same token count; crops with a short side under 300 px are upscaled 2× instead.
 
-### Status
+### Result
 
-The run is **in flight** at the time of writing: measured 72.6 crops/s combined (36.4 per host) over a 90 s window, ETA about 80 minutes for the 368,310 crops. An unrelated ollama model runner holding 18.9 GB on .11 was stopped so the GPU serves only this job. Dry-run signal on 60 folders: 1,193 crops, 815 with a letter
-read, **757 of those agreeing with the detector (93%)**, 15 crops with no tokens. Cue hits: micrograph 318,
-electrochemistry 49, optical spectroscopy 45, XPS 33, XRD 30, mechanical 11, Raman 10, FTIR 4, thermal 3,
-XAS 2, EDS 2, SEM 2.
+The run finished in about 102 minutes per host (29.6 and 30.1 crops/s), reading every crop in the subset.
 
-Still to do when it finishes: merge into `ocr_run/` (manifest, summary, errors), build the review sample
-(200 crops across cue classes plus 100 letter disagreements, drawn with their OCR boxes), and report the
-acceptance checks — crop coverage, letter agreement overall and for tier B2 figures, and cue precision by eye,
-where any class under 90% gets its pattern tightened before the modality pass uses it.
+| | |
+|---|---|
+| Crops processed | 368,310 across 16,360 papers |
+| Crops with no text at all | 2,631 |
+| Crops where a panel letter was read | 259,813 (71%) |
+| **Letter agrees with the detector** | **93.5%** |
+| Letter disagreements | 16,909 |
+| Crops carrying a scale bar | 101,413 |
+| Errors | 0 |
+
+**What the crops say they are**, from axis labels and instrument banners: micrograph 97,241, electrochemistry 18,388,
+XPS 8,882, optical spectroscopy 7,483, XRD 7,138, Raman 2,793, mechanical 2,480, FTIR 2,149, SEM banner 1,630, then EDS, XAS,
+thermal and EDS line scan in the hundreds.
+
+The disagreements are the output, not a defect: they are the second reader for the 6,584
+`B2_detector_off_by_one` figures the match run could not resolve. Every disagreement checked by eye so far was
+the OCR misreading, clustered on `d` read as `p` or `q`, with the detector right.
+
+Merged into `<dataset>/ocr_run/` by `scripts/panels/merge_ocr.py`: `manifest.jsonl`, `errors.jsonl`,
+`summary.json`, and `review/` with 296 crops drawn with their OCR boxes, spread over cue classes and including
+letter disagreements.
+
+**Acceptance checks.** Crop coverage: every crop in the subset has a record and `errors.jsonl` is empty.
+Letter agreement is reported above, overall; the per-tier split for B2 figures is computed in the match run's
+own records. Cue precision per class has **not** been checked by eye yet — the review sample is built and
+waiting, and no class should feed the modality pass until it is.
 
 The letter disagreements are the point of this run, not a defect to repair here: they are the second reader
 for the 6,584 `B2_detector_off_by_one` figures the match run could not resolve.
