@@ -178,8 +178,31 @@ def suppress(s, hits):
     return out
 
 
+CONTROLLED = re.compile(r"^[A-Z]{2,9}(?::[A-Za-z0-9_]+)?$")
+
+
+def already_controlled(s):
+    """A value written in the controlled form (FAMILY or FAMILY:mode, '+'-joined for two instruments)
+    passes through unchanged: the back-fill writes these directly, and the word rules below match
+    instrument names, not family tokens."""
+    parts = [p.strip() for p in str(s).split("+") if p.strip()]
+    if not parts or not all(CONTROLLED.match(p) for p in parts):
+        return None
+    out = []
+    for p in parts:
+        fam = p.split(":")[0]
+        if fam not in FAMILIES:
+            return None
+        if p not in out:
+            out.append(p)
+    return out
+
+
 def normalize(s):
     """Returns (list of FAMILY:mode, flags)."""
+    pre = already_controlled(s)
+    if pre:
+        return pre, (["multi_technique"] if len(pre) > 1 else [])
     hits, flags = [], []
     for rx, fam, mode in RULES:
         if rx.search(s):

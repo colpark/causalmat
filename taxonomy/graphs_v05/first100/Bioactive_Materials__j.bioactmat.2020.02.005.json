@@ -5,113 +5,1247 @@
  "batch": "v05_first100",
  "rank": 1,
  "nodes": [
-  {"id": "b1", "type": "HYP/need", "label": "Photocatalytic disinfection needs a catalyst that kills bacteria fast under visible/solar light, not only UV", "attrs": {"inferred": true}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b2", "type": "HYP/hypothesis", "label": "Co-doping TiO2 with Er (NIR up-conversion) and Ce (gap narrowing, carrier trapping) should give rapid visible-light bacterial killing", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b3", "type": "DES/base_system", "label": "TiO2 nanoparticles as the photocatalyst host", "attrs": {"material": "TiO2", "reason": "known photocatalyst and efficient up-conversion matrix"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b4", "type": "DES/modification", "label": "Substitute Er3+ and Ce3+/Ce4+ into the TiO2 lattice as co-dopants", "attrs": {"site": "Ti4+", "role": "up-conversion sensitiser (Er) and carrier trap / gap narrower (Ce)"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b5", "type": "DES/variable_sweep", "label": "Er 0.25-1 mol%, then Ce 0.1-0.3 mol% at fixed Er, with calcination temperature 700-900 C", "attrs": {"variables": "Er content, Ce content, calcination temperature", "levels": "Er 0.25/0.5/0.75/1 mol%; Ce 0.1/0.2/0.3 mol%; 700/800/900 C"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b6", "type": "PRC/synthesis", "label": "Sol-gel from titanium butoxide plus Ce/Er nitrates, gelled at 60 C, aged and dried, then annealed 3 h", "attrs": {"route": "sol-gel", "calcination": "800 C, 3 h", "additives": "PEG 400, acetic acid"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b7", "type": "PRP/value", "label": "Er doping adds visible f-f absorption that is strongest at 0.5 mol% Er and falls at higher Er", "attrs": {"property_family": "optical", "quantity": "visible absorbance", "direction": "maximum at 0.5 mol% Er"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b8", "type": "DES/down_select", "label": "Er fixed at 0.5 mol% for the co-doped series", "attrs": {"basis_of_choice": "best visible absorption and strongest up-conversion emission"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b9", "type": "STR/phase/identity", "label": "Co-doped powders are mixed anatase-rutile; the rutile reflections weaken as Ce content rises", "attrs": {"phases": "anatase + rutile", "basis": "evidenced"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b10", "type": "STR/chemistry/composition", "label": "Er and Ce are incorporated in a Ti4+ host with surface hydroxyl and adsorbed oxygen; Ce is claimed as mixed Ce3+/Ce4+", "attrs": {"elements": "Ti, O, Er, Ce", "valence": "Ti4+, Er3+, Ce3+/Ce4+", "basis": "evidenced"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b11", "type": "STR/microstructure/feature_size", "label": "Faceted polyhedral nanoparticles of uneven size fused into aggregates", "attrs": {"size": "~30-60 nm individual polyhedra", "direction": "none argued"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "b12", "type": "PRP/value", "label": "Band gap falls from 2.90 eV for TiO2 to 2.20 eV at 0.2 mol% Ce, with strongly raised visible absorption", "attrs": {"property_family": "optical", "quantity": "optical band gap", "direction": "decrease", "value": "2.90 -> 2.20 eV"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b13", "type": "PRP/descriptor", "label": "Photogenerated electron-hole recombination is suppressed and interfacial charge-transfer resistance drops after co-doping", "attrs": {"property_family": "electrical", "quantity": "carrier recombination rate / charge-transfer resistance", "direction": "decrease"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b14", "type": "MEC/pathway", "label": "Ce 4f/5d levels narrow the gap and trap carriers while Er3+ up-converts NIR into visible light, so more long-lived visible-light carriers are produced", "attrs": {"mechanism_class": "electronic band structure and charge trapping", "basis": "argued"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b15", "type": "PRP/value", "label": "Photocatalytic dye degradation in 60 min rises from ~20% (TiO2) to ~46%, peaking at 0.2 mol% Ce", "attrs": {"property_family": "catalytic", "quantity": "degradation in 60 min", "direction": "increase"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b16", "type": "MEC/pathway", "label": "The separated carriers generate ROS at the particle surface, and ROS oxidise bacterial membranes and kill the cells", "attrs": {"mechanism_class": "photocatalytic ROS generation", "basis": "argued"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b17", "type": "PRF/service_capability", "label": "20 min of simulated sunlight with Er0.5Ce0.2Ti-O kills ~92% of S. aureus and ~93% of E. coli", "attrs": {"condition": "5000 ppm powder, 20 min simulated sunlight at double solar intensity", "object": "material"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b18", "type": "DSC/conclusion", "label": "Er-Ce co-doped TiO2 is a solar-driven photocatalyst that disinfects rapidly through enhanced visible absorption and carrier separation", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "b19", "type": "DSC/design_guidance", "label": "Optimum co-doping is 0.5 mol% Er with 0.2 mol% Ce; more Ce lowers the light-driven activity", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "b20", "type": "MEC/pathway", "label": "Ce ions alone damage bacterial cell walls, giving dark killing that grows with Ce content", "attrs": {"mechanism_class": "ion-cell wall chemical attack", "basis": "attributed"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "b21", "type": "DSC/limitation", "label": "The XRD panel varies Ce content at one calcination temperature, so the claimed annealing-temperature control of the rutile ratio is not shown", "attrs": {"kind": "method"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "b22", "type": "DSC/limitation", "label": "The Er 4d and Ce 3d XPS windows are unresolved noise, so the Er3+ and Ce3+/Ce4+ valence assignment is weakly supported", "attrs": {"kind": "method"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-
-  {"id": "o1", "type": "OBS/signal/feature_assignment", "label": "XRD reflections of the co-doped powders indexed to anatase (A) and rutile (R)", "attrs": {"panel_conditions": [{"condition": "XRD", "source": "caption"}], "image_note": "A labels on the Er0.5Ce0.3Ti-O trace, R labels on the Er0.5Ce0.1Ti-O trace, 2theta 20-70 deg", "technique": "XRD", "technique_source": "ocr"}, "figs": ["F4"], "modality": "diffraction_pattern", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F4a"]},
-  {"id": "o2", "type": "OBS/signal/feature_presence", "label": "Rutile reflections visible in the 0.1 mol% Ce trace are absent from the 0.2 and 0.3 mol% Ce traces", "attrs": {"image_note": "the three stacked traces differ in Ce content at one calcination temperature; no annealing-temperature series is plotted", "technique": "XRD", "technique_source": "ocr"}, "figs": ["F4"], "modality": "diffraction_pattern", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F4a"]},
-  {"id": "o3", "type": "OBS/response/trend", "label": "All co-doped samples absorb more across 400-800 nm than pure TiO2 and their absorption edge is red-shifted", "attrs": {"panel_conditions": [{"condition": "UV-vis spectra", "source": "caption"}], "image_note": "TiO2 edge falls at ~410 nm; co-doped traces carry sharp Er f-f peaks at ~522 and ~654 nm, tallest for Er0.5Ce0.2Ti-O", "technique": "UVVIS", "technique_source": "caption"}, "figs": ["F4"], "modality": "spectrum", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F4b"]},
-  {"id": "o4", "type": "OBS/response/characteristic_value", "label": "Tauc intercepts give 2.90 eV (TiO2), 2.46 eV (Ce0.1), 2.20 eV (Ce0.2) and 2.32 eV (Ce0.3)", "attrs": {"image_note": "values read from the labels printed beside the extrapolation lines in the panel; the MatMech block's '3.2 -> 2.4 eV' matches neither the pure nor the co-doped value", "technique": "UVVIS:Tauc", "technique_source": "v04"}, "figs": ["F4"], "modality": "xy_curve", "provenance": "derived", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F4c"]},
-  {"id": "o5", "type": "OBS/morphology/feature_metric", "label": "Faceted particles of uneven size, roughly 30-60 nm across, fused into dense aggregates", "attrs": {"panel_conditions": [{"condition": "SEM image", "source": "caption"}], "image_note": "sized against the 200 nm bar in the SEM panel and the 100 nm bar in the TEM panel (OCR cue line); the stated 30 nm average is the lower end of what the panels resolve", "technique": "SEM+TEM", "technique_source": "caption"}, "figs": ["F5"], "modality": "micrograph", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F5a", "10.1016/j.bioactmat.2020.02.005#F5c"]},
-  {"id": "o6", "type": "OBS/signal/feature_assignment", "label": "EDS peaks assigned to O, Ti, Er and Ce on the co-doped particle surface", "attrs": {"panel_conditions": [{"condition": "EDS spectrum", "source": "caption"}], "image_note": "the tallest peak in the panel is C (adventitious); the Er (~1.4 keV) and Ce (~4.9 keV) peaks are small shoulders only just above background", "technique": "EDS:spectrum", "technique_source": "caption"}, "figs": ["F5"], "modality": "spectrum", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F5b"]},
-  {"id": "o8", "type": "OBS/morphology/feature_metric", "label": "HRTEM lattice fringes measured at 0.233 nm and 0.328 nm in neighbouring domains", "attrs": {"image_note": "0.233 nm A(112) and 0.328 nm R(110) are printed on the panel; the OCR cue line reports 0.233 nm as a scale bar, which it is not", "technique": "TEM:HRTEM", "technique_source": "caption"}, "figs": ["F5"], "modality": "micrograph", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F5d"]},
-  {"id": "o9", "type": "OBS/signal/feature_assignment", "label": "SAED rings indexed to anatase (101) 0.360 nm, anatase (105) 0.179 nm and rutile (101) 0.246 nm", "attrs": {"panel_conditions": [{"condition": "selected area electron diffraction (SAED) pattern", "source": "caption"}], "image_note": "the pattern is spotty rather than continuous; the OCR cue line calls this panel a micrograph with a 0.360 nm scale bar, but 0.360 nm is a d-spacing label", "technique": "TEM:SAED", "technique_source": "caption"}, "figs": ["F5"], "modality": "diffraction_pattern", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F5e"]},
-  {"id": "o10", "type": "OBS/signal/feature_assignment", "label": "Ti 2p3/2 at 458.5 eV and 2p1/2 at 464.2 eV assigned to Ti4+; O 1s components at 529.0, 531.2 and 533.0 eV to lattice O, hydroxyl and adsorbed oxygen", "attrs": {"image_note": "binding energies read from the labels on the two panels; both fits sit on clean, high-count traces", "technique": "XPS", "technique_source": "ocr"}, "figs": ["F6"], "modality": "spectrum", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F6a", "10.1016/j.bioactmat.2020.02.005#F6b"]},
-  {"id": "o11", "type": "OBS/signal/feature_presence", "label": "The Er 4d and Ce 3d windows show no peak above noise: the 168.8 eV Er feature is a single spike under a drawn envelope and the eight Ce 3d u/v markers sit on an unsmoothed noise trace", "attrs": {"image_note": "audit node: the figure shows the discrepancy with the text, which reads these panels as confirming Er3+ and the Ce3+/Ce4+ pair", "technique": "XPS", "technique_source": "ocr"}, "figs": ["F6"], "modality": "spectrum", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F6c", "10.1016/j.bioactmat.2020.02.005#F6d"]},
-  {"id": "o12", "type": "OBS/signal/feature_quantification", "label": "The 390-430 nm photoluminescence band falls steeply from TiO2 to Er0.5Ti-O and again to Er0.5Ce0.2Ti-O", "attrs": {"image_note": "the co-doped band is roughly one fifth of the TiO2 band height on the shared arbitrary intensity axis", "technique": "PL", "technique_source": "caption"}, "figs": ["F7"], "modality": "spectrum", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F7"]},
-  {"id": "o13", "type": "OBS/response/trend", "label": "The Nyquist arc of the co-doped sample is far smaller than that of TiO2", "attrs": {"aspect": "ranking", "image_note": "the TiO2 trace rises almost vertically to -Z'' ~1.1e4 Ohm, while the co-doped trace turns over below Z' ~1.5e3 Ohm into a sloping line; judge check of F9a: neither arc closes within the plotted window, so the TiO2 arc diameter is a lower bound only and the comparison is of arc size, not of a fitted Rct", "technique": "ECHEM:EIS", "technique_source": "caption"}, "figs": ["F9"], "modality": "xy_curve", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F9a"]},
-  {"id": "o14", "type": "OBS/response/characteristic_value", "label": "Chopped-light photocurrent plateaus at ~7.2 uA/cm2 for the co-doped sample against ~5.4 uA/cm2 for TiO2", "attrs": {"panel_conditions": [{"condition": "Light on / Light off", "source": "image"}], "image_note": "plateau values read against the panel's y ticks; the dark baseline is ~3 uA/cm2 rather than negligible, and both traces drift down over the eight cycles", "technique": "ECHEM", "technique_source": "caption"}, "figs": ["F9"], "modality": "xy_curve", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F9b"]},
-  {"id": "o15", "type": "OBS/response/trend", "label": "Dye degradation after 60 min ranks Ce0.2 (~46%) > Ce0.3 (~41%) > Ce0.1 (~31%) > TiO2 (~20%)", "attrs": {"image_note": "read off the curve ends at 60 min; the caption names the dye MO while the linked text calls it MB", "technique": "ASSAY:catalysis", "technique_source": "caption"}, "figs": ["F8"], "modality": "xy_curve", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F8"]},
-  {"id": "o16", "type": "OBS/morphology/appearance", "label": "Colony plates are nearly cleared for the co-doped samples under light and still crowded for the control and TiO2", "attrs": {"panel_conditions": [{"condition": "Dark / Light rows, Control-TiO2-Er0.5Ce0.1/0.2/0.3Ti-O columns", "source": "image"}], "image_note": "the sparsest light-row plate in both panels is Er0.5Ce0.2Ti-O", "technique": "ASSAY", "technique_source": "caption"}, "figs": ["F10"], "modality": "photograph", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F10a", "10.1016/j.bioactmat.2020.02.005#F10b"]},
-  {"id": "o17", "type": "OBS/response/characteristic_value", "label": "Under light the antibacterial ratio of Er0.5Ce0.2Ti-O reaches ~92% (S. aureus) and ~93% (E. coli) against ~45% for TiO2", "attrs": {"panel_conditions": [{"condition": "Dark and Light bar groups", "source": "image"}], "image_note": "bar heights read against the panels' 0-100% axes; error bars are a few percent", "technique": "ASSAY", "technique_source": "caption"}, "figs": ["F10"], "modality": "xy_curve", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F10c", "10.1016/j.bioactmat.2020.02.005#F10d"]},
-  {"id": "o18", "type": "OBS/response/characteristic_value", "label": "In the dark the 0.3 mol% Ce sample reaches ~45-47%, slightly above the 0.2 mol% sample's ~43%", "attrs": {"image_note": "the dark bar groups rank Ce0.3 above Ce0.2 in both panels, the reverse of the light ranking", "technique": "ASSAY", "technique_source": "caption"}, "figs": ["F10"], "modality": "xy_curve", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F10c", "10.1016/j.bioactmat.2020.02.005#F10d"]},
-  {"id": "o19", "type": "OBS/response/trend", "label": "Visible absorbance of the Er-only series is highest at 0.5 mol% Er and lower at 0.75 and 1 mol%, while the absorption edge does not move", "attrs": {"image_note": "at 522 nm Er0.5Ti-O reaches ~0.38 a.u. against ~0.19 for Er0.75Ti-O, about a factor of two, so the text's 'only tiny difference' understates the gap; all edges fall at ~410-420 nm", "technique": "UVVIS", "technique_source": "caption"}, "figs": ["F2"], "modality": "spectrum", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.bioactmat.2020.02.005#F2"]},
-
-  {"id": "k1", "type": "KNW/lookup", "label": "Lower photoluminescence intensity means a slower electron-hole recombination rate and longer carrier lifetime", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "k2", "type": "KNW/fact", "label": "Ce ions have incompletely occupied 4f and 5d orbitals that introduce intermediate energy levels in the TiO2 gap", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "k3", "type": "KNW/precedent", "label": "Er3+ in a TiO2 host up-converts 808 and 980 nm excitation into green and red emission", "attrs": {"fig_ref": "F3 (not opened)"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "k4", "type": "KNW/precedent", "label": "ROS such as hydroxyl and superoxide radicals disrupt bacterial membranes and cellular components", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "k5", "type": "KNW/precedent", "label": "Ce ions react with bacterial cell walls and interfere with cellular respiration", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false}
+  {
+   "id": "b1",
+   "type": "HYP/need",
+   "label": "Photocatalytic disinfection needs a catalyst that kills bacteria fast under visible/solar light, not only UV",
+   "attrs": {
+    "inferred": true
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b2",
+   "type": "HYP/hypothesis",
+   "label": "Co-doping TiO2 with Er (NIR up-conversion) and Ce (gap narrowing, carrier trapping) should give rapid visible-light bacterial killing",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b3",
+   "type": "DES/base_system",
+   "label": "TiO2 nanoparticles as the photocatalyst host",
+   "attrs": {
+    "material": "TiO2",
+    "reason": "known photocatalyst and efficient up-conversion matrix"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b4",
+   "type": "DES/modification",
+   "label": "Substitute Er3+ and Ce3+/Ce4+ into the TiO2 lattice as co-dopants",
+   "attrs": {
+    "site": "Ti4+",
+    "role": "up-conversion sensitiser (Er) and carrier trap / gap narrower (Ce)"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b5",
+   "type": "DES/variable_sweep",
+   "label": "Er 0.25-1 mol%, then Ce 0.1-0.3 mol% at fixed Er, with calcination temperature 700-900 C",
+   "attrs": {
+    "variables": "Er content, Ce content, calcination temperature",
+    "levels": "Er 0.25/0.5/0.75/1 mol%; Ce 0.1/0.2/0.3 mol%; 700/800/900 C"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b6",
+   "type": "PRC/synthesis",
+   "label": "Sol-gel from titanium butoxide plus Ce/Er nitrates, gelled at 60 C, aged and dried, then annealed 3 h",
+   "attrs": {
+    "route": "sol-gel",
+    "calcination": "800 C, 3 h",
+    "additives": "PEG 400, acetic acid"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b7",
+   "type": "PRP/value",
+   "label": "Er doping adds visible f-f absorption that is strongest at 0.5 mol% Er and falls at higher Er",
+   "attrs": {
+    "property_family": "optical",
+    "quantity": "visible absorbance",
+    "direction": "maximum at 0.5 mol% Er"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b8",
+   "type": "DES/down_select",
+   "label": "Er fixed at 0.5 mol% for the co-doped series",
+   "attrs": {
+    "basis_of_choice": "best visible absorption and strongest up-conversion emission"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b9",
+   "type": "STR/phase/identity",
+   "label": "Co-doped powders are mixed anatase-rutile; the rutile reflections weaken as Ce content rises",
+   "attrs": {
+    "phases": "anatase + rutile",
+    "basis": "evidenced"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b10",
+   "type": "STR/chemistry/composition",
+   "label": "Er and Ce are incorporated in a Ti4+ host with surface hydroxyl and adsorbed oxygen; Ce is claimed as mixed Ce3+/Ce4+",
+   "attrs": {
+    "elements": "Ti, O, Er, Ce",
+    "valence": "Ti4+, Er3+, Ce3+/Ce4+",
+    "basis": "evidenced"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b11",
+   "type": "STR/microstructure/feature_size",
+   "label": "Faceted polyhedral nanoparticles of uneven size fused into aggregates",
+   "attrs": {
+    "size": "~30-60 nm individual polyhedra",
+    "direction": "none argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b12",
+   "type": "PRP/value",
+   "label": "Band gap falls from 2.90 eV for TiO2 to 2.20 eV at 0.2 mol% Ce, with strongly raised visible absorption",
+   "attrs": {
+    "property_family": "optical",
+    "quantity": "optical band gap",
+    "direction": "decrease",
+    "value": "2.90 -> 2.20 eV"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b13",
+   "type": "PRP/descriptor",
+   "label": "Photogenerated electron-hole recombination is suppressed and interfacial charge-transfer resistance drops after co-doping",
+   "attrs": {
+    "property_family": "electrical",
+    "quantity": "carrier recombination rate / charge-transfer resistance",
+    "direction": "decrease"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b14",
+   "type": "MEC/pathway",
+   "label": "Ce 4f/5d levels narrow the gap and trap carriers while Er3+ up-converts NIR into visible light, so more long-lived visible-light carriers are produced",
+   "attrs": {
+    "mechanism_class": "electronic band structure and charge trapping",
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b15",
+   "type": "PRP/value",
+   "label": "Photocatalytic dye degradation in 60 min rises from ~20% (TiO2) to ~46%, peaking at 0.2 mol% Ce",
+   "attrs": {
+    "property_family": "catalytic",
+    "quantity": "degradation in 60 min",
+    "direction": "increase"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b16",
+   "type": "MEC/pathway",
+   "label": "The separated carriers generate ROS at the particle surface, and ROS oxidise bacterial membranes and kill the cells",
+   "attrs": {
+    "mechanism_class": "photocatalytic ROS generation",
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b17",
+   "type": "PRF/service_capability",
+   "label": "20 min of simulated sunlight with Er0.5Ce0.2Ti-O kills ~92% of S. aureus and ~93% of E. coli",
+   "attrs": {
+    "condition": "5000 ppm powder, 20 min simulated sunlight at double solar intensity",
+    "object": "material"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b18",
+   "type": "DSC/conclusion",
+   "label": "Er-Ce co-doped TiO2 is a solar-driven photocatalyst that disinfects rapidly through enhanced visible absorption and carrier separation",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b19",
+   "type": "DSC/design_guidance",
+   "label": "Optimum co-doping is 0.5 mol% Er with 0.2 mol% Ce; more Ce lowers the light-driven activity",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b20",
+   "type": "MEC/pathway",
+   "label": "Ce ions alone damage bacterial cell walls, giving dark killing that grows with Ce content",
+   "attrs": {
+    "mechanism_class": "ion-cell wall chemical attack",
+    "basis": "attributed"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b21",
+   "type": "DSC/limitation",
+   "label": "The XRD panel varies Ce content at one calcination temperature, so the claimed annealing-temperature control of the rutile ratio is not shown",
+   "attrs": {
+    "kind": "method"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "b22",
+   "type": "DSC/limitation",
+   "label": "The Er 4d and Ce 3d XPS windows are unresolved noise, so the Er3+ and Ce3+/Ce4+ valence assignment is weakly supported",
+   "attrs": {
+    "kind": "method"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o1",
+   "type": "OBS/signal/feature_assignment",
+   "label": "XRD reflections of the co-doped powders indexed to anatase (A) and rutile (R)",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "XRD",
+      "source": "caption"
+     }
+    ],
+    "image_note": "A labels on the Er0.5Ce0.3Ti-O trace, R labels on the Er0.5Ce0.1Ti-O trace, 2theta 20-70 deg",
+    "technique": "XRD",
+    "technique_source": "ocr",
+    "technique_norm": "XRD"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "diffraction_pattern",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F4a"
+   ]
+  },
+  {
+   "id": "o2",
+   "type": "OBS/signal/feature_presence",
+   "label": "Rutile reflections visible in the 0.1 mol% Ce trace are absent from the 0.2 and 0.3 mol% Ce traces",
+   "attrs": {
+    "image_note": "the three stacked traces differ in Ce content at one calcination temperature; no annealing-temperature series is plotted",
+    "technique": "XRD",
+    "technique_source": "ocr",
+    "technique_norm": "XRD"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "diffraction_pattern",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F4a"
+   ]
+  },
+  {
+   "id": "o3",
+   "type": "OBS/response/trend",
+   "label": "All co-doped samples absorb more across 400-800 nm than pure TiO2 and their absorption edge is red-shifted",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "UV-vis spectra",
+      "source": "caption"
+     }
+    ],
+    "image_note": "TiO2 edge falls at ~410 nm; co-doped traces carry sharp Er f-f peaks at ~522 and ~654 nm, tallest for Er0.5Ce0.2Ti-O",
+    "technique": "UVVIS",
+    "technique_source": "caption",
+    "technique_norm": "UVVIS"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F4b"
+   ]
+  },
+  {
+   "id": "o4",
+   "type": "OBS/response/characteristic_value",
+   "label": "Tauc intercepts give 2.90 eV (TiO2), 2.46 eV (Ce0.1), 2.20 eV (Ce0.2) and 2.32 eV (Ce0.3)",
+   "attrs": {
+    "image_note": "values read from the labels printed beside the extrapolation lines in the panel; the MatMech block's '3.2 -> 2.4 eV' matches neither the pure nor the co-doped value",
+    "technique": "UVVIS:Tauc",
+    "technique_source": "v04",
+    "technique_norm": "UVVIS:Tauc"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "xy_curve",
+   "provenance": "derived",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F4c"
+   ]
+  },
+  {
+   "id": "o5",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Faceted particles of uneven size, roughly 30-60 nm across, fused into dense aggregates",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "SEM image",
+      "source": "caption"
+     }
+    ],
+    "image_note": "sized against the 200 nm bar in the SEM panel and the 100 nm bar in the TEM panel (OCR cue line); the stated 30 nm average is the lower end of what the panels resolve",
+    "technique": "SEM+TEM",
+    "technique_source": "caption",
+    "technique_norm": [
+     "SEM",
+     "TEM"
+    ],
+    "technique_flags": [
+     "multi_technique"
+    ]
+   },
+   "figs": [
+    "F5"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F5a",
+    "10.1016/j.bioactmat.2020.02.005#F5c"
+   ]
+  },
+  {
+   "id": "o6",
+   "type": "OBS/signal/feature_assignment",
+   "label": "EDS peaks assigned to O, Ti, Er and Ce on the co-doped particle surface",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "EDS spectrum",
+      "source": "caption"
+     }
+    ],
+    "image_note": "the tallest peak in the panel is C (adventitious); the Er (~1.4 keV) and Ce (~4.9 keV) peaks are small shoulders only just above background",
+    "technique": "EDS:spectrum",
+    "technique_source": "caption",
+    "technique_norm": "EDS:spectrum"
+   },
+   "figs": [
+    "F5"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F5b"
+   ]
+  },
+  {
+   "id": "o8",
+   "type": "OBS/morphology/feature_metric",
+   "label": "HRTEM lattice fringes measured at 0.233 nm and 0.328 nm in neighbouring domains",
+   "attrs": {
+    "image_note": "0.233 nm A(112) and 0.328 nm R(110) are printed on the panel; the OCR cue line reports 0.233 nm as a scale bar, which it is not",
+    "technique": "TEM:HRTEM",
+    "technique_source": "caption",
+    "technique_norm": "TEM:HRTEM"
+   },
+   "figs": [
+    "F5"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F5d"
+   ]
+  },
+  {
+   "id": "o9",
+   "type": "OBS/signal/feature_assignment",
+   "label": "SAED rings indexed to anatase (101) 0.360 nm, anatase (105) 0.179 nm and rutile (101) 0.246 nm",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "selected area electron diffraction (SAED) pattern",
+      "source": "caption"
+     }
+    ],
+    "image_note": "the pattern is spotty rather than continuous; the OCR cue line calls this panel a micrograph with a 0.360 nm scale bar, but 0.360 nm is a d-spacing label",
+    "technique": "TEM:SAED",
+    "technique_source": "caption",
+    "technique_norm": "TEM:SAED"
+   },
+   "figs": [
+    "F5"
+   ],
+   "modality": "diffraction_pattern",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F5e"
+   ]
+  },
+  {
+   "id": "o10",
+   "type": "OBS/signal/feature_assignment",
+   "label": "Ti 2p3/2 at 458.5 eV and 2p1/2 at 464.2 eV assigned to Ti4+; O 1s components at 529.0, 531.2 and 533.0 eV to lattice O, hydroxyl and adsorbed oxygen",
+   "attrs": {
+    "image_note": "binding energies read from the labels on the two panels; both fits sit on clean, high-count traces",
+    "technique": "XPS",
+    "technique_source": "ocr",
+    "technique_norm": "XPS"
+   },
+   "figs": [
+    "F6"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F6a",
+    "10.1016/j.bioactmat.2020.02.005#F6b"
+   ]
+  },
+  {
+   "id": "o11",
+   "type": "OBS/signal/feature_presence",
+   "label": "The Er 4d and Ce 3d windows show no peak above noise: the 168.8 eV Er feature is a single spike under a drawn envelope and the eight Ce 3d u/v markers sit on an unsmoothed noise trace",
+   "attrs": {
+    "image_note": "audit node: the figure shows the discrepancy with the text, which reads these panels as confirming Er3+ and the Ce3+/Ce4+ pair",
+    "technique": "XPS",
+    "technique_source": "ocr",
+    "technique_norm": "XPS"
+   },
+   "figs": [
+    "F6"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F6c",
+    "10.1016/j.bioactmat.2020.02.005#F6d"
+   ]
+  },
+  {
+   "id": "o12",
+   "type": "OBS/signal/feature_quantification",
+   "label": "The 390-430 nm photoluminescence band falls steeply from TiO2 to Er0.5Ti-O and again to Er0.5Ce0.2Ti-O",
+   "attrs": {
+    "image_note": "the co-doped band is roughly one fifth of the TiO2 band height on the shared arbitrary intensity axis",
+    "technique": "PL",
+    "technique_source": "caption",
+    "technique_norm": "PL"
+   },
+   "figs": [
+    "F7"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F7"
+   ]
+  },
+  {
+   "id": "o13",
+   "type": "OBS/response/trend",
+   "label": "The Nyquist arc of the co-doped sample is far smaller than that of TiO2",
+   "attrs": {
+    "aspect": "ranking",
+    "image_note": "the TiO2 trace rises almost vertically to -Z'' ~1.1e4 Ohm, while the co-doped trace turns over below Z' ~1.5e3 Ohm into a sloping line; judge check of F9a: neither arc closes within the plotted window, so the TiO2 arc diameter is a lower bound only and the comparison is of arc size, not of a fitted Rct",
+    "technique": "ECHEM:EIS",
+    "technique_source": "caption",
+    "technique_norm": "ECHEM:EIS"
+   },
+   "figs": [
+    "F9"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F9a"
+   ]
+  },
+  {
+   "id": "o14",
+   "type": "OBS/response/characteristic_value",
+   "label": "Chopped-light photocurrent plateaus at ~7.2 uA/cm2 for the co-doped sample against ~5.4 uA/cm2 for TiO2",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "Light on / Light off",
+      "source": "image"
+     }
+    ],
+    "image_note": "plateau values read against the panel's y ticks; the dark baseline is ~3 uA/cm2 rather than negligible, and both traces drift down over the eight cycles",
+    "technique": "ECHEM",
+    "technique_source": "caption",
+    "technique_norm": "ECHEM",
+    "technique_flags": [
+     "unmapped"
+    ]
+   },
+   "figs": [
+    "F9"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F9b"
+   ]
+  },
+  {
+   "id": "o15",
+   "type": "OBS/response/trend",
+   "label": "Dye degradation after 60 min ranks Ce0.2 (~46%) > Ce0.3 (~41%) > Ce0.1 (~31%) > TiO2 (~20%)",
+   "attrs": {
+    "image_note": "read off the curve ends at 60 min; the caption names the dye MO while the linked text calls it MB",
+    "technique": "ASSAY:catalysis",
+    "technique_source": "caption",
+    "technique_norm": "ASSAY:catalysis",
+    "technique_flags": [
+     "unmapped"
+    ]
+   },
+   "figs": [
+    "F8"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F8"
+   ]
+  },
+  {
+   "id": "o16",
+   "type": "OBS/morphology/appearance",
+   "label": "Colony plates are nearly cleared for the co-doped samples under light and still crowded for the control and TiO2",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "Dark / Light rows, Control-TiO2-Er0.5Ce0.1/0.2/0.3Ti-O columns",
+      "source": "image"
+     }
+    ],
+    "image_note": "the sparsest light-row plate in both panels is Er0.5Ce0.2Ti-O",
+    "technique": "ASSAY",
+    "technique_source": "caption",
+    "technique_norm": "ASSAY",
+    "technique_flags": [
+     "unmapped"
+    ]
+   },
+   "figs": [
+    "F10"
+   ],
+   "modality": "photograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F10a",
+    "10.1016/j.bioactmat.2020.02.005#F10b"
+   ]
+  },
+  {
+   "id": "o17",
+   "type": "OBS/response/characteristic_value",
+   "label": "Under light the antibacterial ratio of Er0.5Ce0.2Ti-O reaches ~92% (S. aureus) and ~93% (E. coli) against ~45% for TiO2",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "Dark and Light bar groups",
+      "source": "image"
+     }
+    ],
+    "image_note": "bar heights read against the panels' 0-100% axes; error bars are a few percent",
+    "technique": "ASSAY",
+    "technique_source": "caption",
+    "technique_norm": "ASSAY",
+    "technique_flags": [
+     "unmapped"
+    ]
+   },
+   "figs": [
+    "F10"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F10c",
+    "10.1016/j.bioactmat.2020.02.005#F10d"
+   ]
+  },
+  {
+   "id": "o18",
+   "type": "OBS/response/characteristic_value",
+   "label": "In the dark the 0.3 mol% Ce sample reaches ~45-47%, slightly above the 0.2 mol% sample's ~43%",
+   "attrs": {
+    "image_note": "the dark bar groups rank Ce0.3 above Ce0.2 in both panels, the reverse of the light ranking",
+    "technique": "ASSAY",
+    "technique_source": "caption",
+    "technique_norm": "ASSAY",
+    "technique_flags": [
+     "unmapped"
+    ]
+   },
+   "figs": [
+    "F10"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F10c",
+    "10.1016/j.bioactmat.2020.02.005#F10d"
+   ]
+  },
+  {
+   "id": "o19",
+   "type": "OBS/response/trend",
+   "label": "Visible absorbance of the Er-only series is highest at 0.5 mol% Er and lower at 0.75 and 1 mol%, while the absorption edge does not move",
+   "attrs": {
+    "image_note": "at 522 nm Er0.5Ti-O reaches ~0.38 a.u. against ~0.19 for Er0.75Ti-O, about a factor of two, so the text's 'only tiny difference' understates the gap; all edges fall at ~410-420 nm",
+    "technique": "UVVIS",
+    "technique_source": "caption",
+    "technique_norm": "UVVIS"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F2"
+   ]
+  },
+  {
+   "id": "k1",
+   "type": "KNW/lookup",
+   "label": "Lower photoluminescence intensity means a slower electron-hole recombination rate and longer carrier lifetime",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k2",
+   "type": "KNW/fact",
+   "label": "Ce ions have incompletely occupied 4f and 5d orbitals that introduce intermediate energy levels in the TiO2 gap",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k3",
+   "type": "KNW/precedent",
+   "label": "Er3+ in a TiO2 host up-converts 808 and 980 nm excitation into green and red emission",
+   "attrs": {
+    "fig_ref": "F3 (not opened)"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k4",
+   "type": "KNW/precedent",
+   "label": "ROS such as hydroxyl and superoxide radicals disrupt bacterial membranes and cellular components",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k5",
+   "type": "KNW/precedent",
+   "label": "Ce ions react with bacterial cell walls and interfere with cellular respiration",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  }
  ],
  "edges": [
-  {"src": "b1", "dst": "b2", "rel": "motivates", "mm_op": null},
-  {"src": "b2", "dst": "b3", "rel": "motivates", "mm_op": null},
-  {"src": "b2", "dst": "b4", "rel": "motivates", "mm_op": null},
-  {"src": "b2", "dst": "b5", "rel": "motivates", "mm_op": null},
-  {"src": "b3", "dst": "b6", "rel": "realizes", "mm_op": null},
-  {"src": "b4", "dst": "b6", "rel": "realizes", "mm_op": null},
-  {"src": "b5", "dst": "b6", "rel": "realizes", "mm_op": null},
-  {"src": "b6", "dst": "b7", "rel": "causes", "mm_op": null},
-  {"src": "b7", "dst": "b8", "rel": "motivates", "mm_op": null},
-  {"src": "b8", "dst": "b6", "rel": "realizes", "mm_op": null},
-  {"src": "b6", "dst": "b9", "rel": "produces", "mm_op": null},
-  {"src": "b6", "dst": "b10", "rel": "produces", "mm_op": null},
-  {"src": "b6", "dst": "b11", "rel": "produces", "mm_op": null},
-  {"src": "b9", "dst": "b12", "rel": "causes", "mm_op": null},
-  {"src": "b10", "dst": "b12", "rel": "causes", "mm_op": null},
-  {"src": "b10", "dst": "b13", "rel": "causes", "mm_op": null},
-  {"src": "b12", "dst": "b14", "rel": "supports", "mm_op": null},
-  {"src": "b13", "dst": "b14", "rel": "supports", "mm_op": null},
-  {"src": "b14", "dst": "b15", "rel": "explains", "mm_op": null},
-  {"src": "b15", "dst": "b16", "rel": "supports", "mm_op": null},
-  {"src": "b16", "dst": "b17", "rel": "explains", "mm_op": null},
-  {"src": "b15", "dst": "b17", "rel": "causes", "mm_op": null},
-  {"src": "b17", "dst": "b18", "rel": "supports", "mm_op": null},
-  {"src": "b14", "dst": "b18", "rel": "supports", "mm_op": null},
-  {"src": "b17", "dst": "b19", "rel": "supports", "mm_op": null},
-  {"src": "b10", "dst": "b20", "rel": "causes", "mm_op": null},
-  {"src": "b20", "dst": "b17", "rel": "contrasts", "mm_op": null},
-  {"src": "b21", "dst": "b9", "rel": "qualifies", "mm_op": null},
-  {"src": "b22", "dst": "b10", "rel": "qualifies", "mm_op": null},
-
-  {"src": "o1", "dst": "b9", "rel": "evidences", "mm_op": "assign_features"},
-  {"src": "o2", "dst": "b9", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o2", "dst": "b21", "rel": "evidences", "mm_op": "cross_check_consistency"},
-  {"src": "o3", "dst": "b12", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o3", "dst": "o4", "rel": "derives", "mm_op": "fit_model"},
-  {"src": "o4", "dst": "b12", "rel": "evidences", "mm_op": "read_characteristic_point"},
-  {"src": "o5", "dst": "b11", "rel": "evidences", "mm_op": "measure_feature_metric"},
-  {"src": "o6", "dst": "b10", "rel": "evidences", "mm_op": "assign_features"},
-  {"src": "o8", "dst": "b9", "rel": "evidences", "mm_op": "measure_feature_metric"},
-  {"src": "o9", "dst": "b9", "rel": "evidences", "mm_op": "assign_features"},
-  {"src": "o10", "dst": "b10", "rel": "evidences", "mm_op": "assign_features"},
-  {"src": "o11", "dst": "b22", "rel": "evidences", "mm_op": "cross_check_consistency"},
-  {"src": "o11", "dst": "b10", "rel": "qualifies", "mm_op": "cross_check_consistency"},
-  {"src": "o12", "dst": "b13", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o13", "dst": "b13", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o14", "dst": "b13", "rel": "evidences", "mm_op": "read_characteristic_point"},
-  {"src": "o15", "dst": "b15", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o16", "dst": "b17", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o17", "dst": "b17", "rel": "evidences", "mm_op": "read_characteristic_point"},
-  {"src": "o18", "dst": "b20", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o18", "dst": "b19", "rel": "qualifies", "mm_op": "compare_across_conditions"},
-  {"src": "o19", "dst": "b7", "rel": "evidences", "mm_op": "compare_across_conditions"},
-
-  {"src": "k1", "dst": "b13", "rel": "premise_for", "mm_op": null},
-  {"src": "k2", "dst": "b14", "rel": "premise_for", "mm_op": null},
-  {"src": "k3", "dst": "b14", "rel": "premise_for", "mm_op": null},
-  {"src": "k4", "dst": "b16", "rel": "premise_for", "mm_op": null},
-  {"src": "k5", "dst": "b20", "rel": "premise_for", "mm_op": null}
+  {
+   "src": "b1",
+   "dst": "b2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "b2",
+   "dst": "b3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "b2",
+   "dst": "b4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "b2",
+   "dst": "b5",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "b3",
+   "dst": "b6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "b4",
+   "dst": "b6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "b5",
+   "dst": "b6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "b6",
+   "dst": "b7",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "b7",
+   "dst": "b8",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "b8",
+   "dst": "b6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "b6",
+   "dst": "b9",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "b6",
+   "dst": "b10",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "b6",
+   "dst": "b11",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "b9",
+   "dst": "b12",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "b10",
+   "dst": "b12",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "b10",
+   "dst": "b13",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "b12",
+   "dst": "b14",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "b13",
+   "dst": "b14",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "b14",
+   "dst": "b15",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "b15",
+   "dst": "b16",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "b16",
+   "dst": "b17",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "b15",
+   "dst": "b17",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "b17",
+   "dst": "b18",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "b14",
+   "dst": "b18",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "b17",
+   "dst": "b19",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "b10",
+   "dst": "b20",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "b20",
+   "dst": "b17",
+   "rel": "contrasts",
+   "mm_op": null
+  },
+  {
+   "src": "b21",
+   "dst": "b9",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "b22",
+   "dst": "b10",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "o1",
+   "dst": "b9",
+   "rel": "evidences",
+   "mm_op": "assign_features"
+  },
+  {
+   "src": "o2",
+   "dst": "b9",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o2",
+   "dst": "b21",
+   "rel": "evidences",
+   "mm_op": "cross_check_consistency"
+  },
+  {
+   "src": "o3",
+   "dst": "b12",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o3",
+   "dst": "o4",
+   "rel": "derives",
+   "mm_op": "fit_model"
+  },
+  {
+   "src": "o4",
+   "dst": "b12",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o5",
+   "dst": "b11",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o6",
+   "dst": "b10",
+   "rel": "evidences",
+   "mm_op": "assign_features"
+  },
+  {
+   "src": "o8",
+   "dst": "b9",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o9",
+   "dst": "b9",
+   "rel": "evidences",
+   "mm_op": "assign_features"
+  },
+  {
+   "src": "o10",
+   "dst": "b10",
+   "rel": "evidences",
+   "mm_op": "assign_features"
+  },
+  {
+   "src": "o11",
+   "dst": "b22",
+   "rel": "evidences",
+   "mm_op": "cross_check_consistency"
+  },
+  {
+   "src": "o11",
+   "dst": "b10",
+   "rel": "qualifies",
+   "mm_op": "cross_check_consistency"
+  },
+  {
+   "src": "o12",
+   "dst": "b13",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o13",
+   "dst": "b13",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o14",
+   "dst": "b13",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o15",
+   "dst": "b15",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o16",
+   "dst": "b17",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o17",
+   "dst": "b17",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o18",
+   "dst": "b20",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o18",
+   "dst": "b19",
+   "rel": "qualifies",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o19",
+   "dst": "b7",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "k1",
+   "dst": "b13",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k2",
+   "dst": "b14",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k3",
+   "dst": "b14",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k4",
+   "dst": "b16",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k5",
+   "dst": "b20",
+   "rel": "premise_for",
+   "mm_op": null
+  }
  ],
  "notes": "Screen-then-choose paper: an Er-only optical screen (F2) fixes Er at 0.5 mol% (b7 -> b8) before the Ce sweep, so the spine carries a PRP -> DES/down_select step. Control branch: dark killing (b20, o18) is attributed to Ce ions alone and contrasts with the light-driven performance. Two audits. b21: the XRD panel F4a stacks three Ce contents at one calcination temperature, while the linked text reads the vanishing rutile reflections as an annealing-temperature effect, which the panel does not show. b22: the Er 4d and Ce 3d XPS panels (F6c, F6d) are unresolved noise with drawn envelopes and dashed markers, so the Er3+/Ce3+/Ce4+ valence claim that carries the Ce-trap mechanism rests on the text. Numbers are read from the panels: band gaps 2.90/2.46/2.20/2.32 eV from the F4c labels (the MatMech block's 3.2 -> 2.4 eV matches neither), degradation ~46% vs ~20% at 60 min from F8, antibacterial ratios ~92/93% from F10c/d. Panel-section defects: the 'definition' caption spans are offset by one panel throughout (F6a is Ti 2p but is given the 'O 1s' span, F10a is S. aureus but is given the 'and E. coli' span), F10d's OCR read the label as (p) against the detector's d, and the OCR cue lines call the d-spacing labels 0.233 nm and 0.360 nm 'scale bars' and type the SAED panel F5e as a micrograph. Lost: Fig. 2 up-conversion spectra (F3, not opened; carried as premise k3), the XPS survey and Ce-only PL of the supplement, and the Raman panel F4d, whose legend is a 700 C series while the XRD is at 800 C.",
  "review": {
