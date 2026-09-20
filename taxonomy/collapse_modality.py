@@ -306,7 +306,10 @@ def collapse(g, file_name):
         assert RANK.get(node["verdict"], 3) <= worst, (
             f"{node['id']}: merged verdict {node['verdict']} ranks above its worst member")
     kinds = {n["necessity"] for n, _, _, _, _ in nodes}
-    assert len(kinds) > 1 or len(nodes) < 3, (
+    # the failure this guards against is the flattening the state-keyed bug produced: every node called
+    # redundant (or decorative) because some other claim in the same state kept support. Uniform
+    # "necessary" is a legitimate outcome when each lane node is the sole support of its own claim.
+    assert not (len(kinds) == 1 and kinds <= {"redundant", "decorative"}) or len(nodes) < 3, (
         f"all {len(nodes)} lane nodes share necessity {kinds}; the removal test is not discriminating")
 
     spec_nodes = [n for n, _, _, _, _ in nodes]
