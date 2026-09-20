@@ -60,12 +60,11 @@ def assign(tokens):
         add("Raman")
 
     # 4. XRD: require 2-theta adjacency, not a bare "20" tick beside "(deg)".
-    if re.search(r"2\s*θ|2\s*theta|2-?theta", txt, re.I) or \
-       re.search(r"2\s*0\s*\(?\s*(?:°|deg)", txt, re.I) and re.search(r"intensity|counts|a\.?\s*u", txt, re.I):
+    if re.search(r"2\s*θ|2\s*theta|2-?theta|\(2\s*0\s*\)", txt, re.I):
         add("XRD")
 
     # 5. XPS: binding energy in eV; an axis running into keV is an EDX spectrum.
-    if re.search(r"binding\s*energy", txt, re.I) and not _num_before(txt, r"\bkeV\b", lo=1):
+    if re.search(r"binding\s*energy", txt, re.I) and not re.search(r"\bkeV\b", txt, re.I):
         add("XPS")
 
     # 6. EDS: a keV energy axis, but not a hard X-ray absorption edge.
@@ -82,26 +81,28 @@ def assign(tokens):
         add("thermal")
     if re.search(r"thermal\s*conductivit|\bκ\b|\bkappa\b.*temperature", txt, re.I):
         add("thermal transport")          # its own class, see the module docstring
-    if re.search(r"vs\.?\s*RHE|potential\s*\(V|mA\s*cm|mAh|voltage\s*\(V|capacity", txt, re.I):
+    if re.search(r"vs\.?\s*RHE|potential\s*\(V|mA\s*cm|mAh", txt, re.I):
         add("electrochemistry")
     if re.search(r"wavelength\s*\(?\s*nm", txt, re.I):
         add("optical spectroscopy")
     sem_banner = re.search(r"\bkV\b|\bWD\b|SE2|InLens|\bBSE\b|\bSEI\b|mag\b", txt, re.I)
 
     # 8. micrograph: the scale-bar token must not be an axis tick or a data label.
+    AXIS_WORD = re.compile(r"position|distance|wavelength|size|diameter|thickness|depth|length|width|"
+                           r"\bd\s*=|spacing|gap|scale\s*=", re.I)
+    numeric = sum(1 for t in tokens if re.fullmatch(r"[-+]?\d+(?:\.\d+)?", t["text"].strip()))
     scale = None
-    for t in tokens:
-        m = NUM_UNIT.search(t["text"])
-        if not m:
-            continue
-        near_axis = any(
-            o is not t and re.fullmatch(r"[-+]?\d+(?:\.\d+)?", o["text"].strip()) and
-            abs((o["box"][1] + o["box"][3]) / 2 - (t["box"][1] + t["box"][3]) / 2) < 12
-            for o in tokens)
-        if not near_axis:
-            scale = m.group(0)
-            break
-    if sem_banner and scale:
+    if numeric < 8:                       # a plot's tick ladder means this is not a micrograph
+        for t in tokens:
+            m = NUM_UNIT.search(t["text"])
+            if not m or AXIS_WORD.search(t["text"]):
+                continue
+            row_mates = sum(1 for o in tokens if o is not t and
+                            abs((o["box"][1] + o["box"][3]) / 2 - (t["box"][1] + t["box"][3]) / 2) < 12)
+            if row_mates <= 1:            # a scale bar stands alone, a tick sits in a row of ticks
+                scale = m.group(0)
+                break
+    if sem_banner:            # an instrument banner alone was 1.000 precise in the v1 eye check
         add("SEM")
     elif scale and not cues:
         add("micrograph")

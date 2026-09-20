@@ -77,3 +77,53 @@ definition choice, not a pattern bug.
 `modality_agrees` may only consult the seven enabled classes. For a node whose panel's only cue is disabled,
 the link is **not** a failure — it is unknown, so the chain reports `partial` rather than `unverified`, exactly
 as a missing OCR record does.
+
+---
+
+# v2 and v2.1: the tightenings, measured
+
+The seven tightenings were implemented in `scripts/panels/cue_rules_v2.py` and **re-derived from the stored OCR
+tokens with no OCR re-run** — `ocr.json` keeps every token with its box, so a pattern change is replayed
+offline. The same 295 crops were then rescored by eye.
+
+**v2 was not an improvement overall.** It fixed what it aimed at (XAS 15→5 assignments, EDS line scan 13→2,
+FTIR 14→1) but regressed three classes, and the regressions were mine: while tightening some patterns I
+broadened others. `micrograph` became the catch-all whenever a scale-like token appeared and nothing else
+matched, dropping it to 0.45; `electrochemistry` gained `voltage (V)|capacity` and produced new false
+positives on an XPS panel, a coating schematic and a thermal-conductivity plot.
+
+**v2.1** reverted those broadenings, restored SEM to banner-only (1.000 in v1), required an explicit 2θ token
+for XRD, rejected any keV axis for XPS, and made a scale bar mean *a lone unit-bearing token in a crop without
+a tick ladder*.
+
+| class | v1 | v2.1 | judged | enabled |
+|---|---|---|---|---|
+| SEM | 1.000 | 1.000 | 9 | yes |
+| thermal | 1.000 | 1.000 | 8 | yes |
+| mechanical | 0.833 | 1.000 | 5 | yes |
+| optical spectroscopy | 1.000 | 0.917 | 12 | yes |
+| EDS | 0.909 | 0.857 | 7 | no |
+| Raman | 0.929 | 0.800 | 10 | no |
+| XAS | 0.357 | 0.800 | 5 | no |
+| electrochemistry | 1.000 | 0.688 | 16 | no |
+| XPS | 0.857 | 0.625 | 16 | no |
+| micrograph | 0.909 | 0.577 | 26 | no |
+| XRD | 0.800 | 0.250 | 4 | no |
+| EDS line scan | 0.077 | 1.000 | 2 | too few to enable |
+| FTIR | 0.714 | 1.000 | 1 | too few to enable |
+
+Precision is over the crops whose (crop, class) pair the eye check judged; v2.1 reuses those judgments where
+the assignment did not change. Classes with fewer than 4 judged pairs are not enabled whatever their score.
+
+## The conclusion this forces
+
+**Text cues cannot carry `modality_agrees` for diffraction.** Two rounds of tightening moved XRD from 0.800 to
+0.250 — the stricter pattern kept only four assignments and three were still wrong. A diffraction pattern is
+recognisable by its shape, not by tokens the OCR reliably reads: `2θ` comes back as `20`, `(deg)` is shared
+with any angular plot, and axis titles are often unreadable at crop resolution.
+
+So the verification chain should **not** take its modality opinion from OCR cues for the FM lanes. The
+graph's own `modality` field — assigned by an agent that opened the figure — is the better source, and the
+enabled cues (SEM, thermal, mechanical, optical spectroscopy) serve only as a secondary, corroborating check.
+`modality_agrees` therefore reads: agreement when the node's family matches the panel's `modality`, with an
+enabled cue able to confirm but never to overturn it, and `null` when neither source speaks.
