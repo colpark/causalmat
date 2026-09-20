@@ -1,5 +1,7 @@
 import json, re, sys
 
+KIT_VERSION = "modality-kit/v2"   # v2 = panel-crop support (D.panels); stamped into every spec and printed per run
+
 OUTDIR = "/home/aid1/Documents/causalmat/site/modality"
 try:   # only the built-in Ni-Co example needs this; --specs mode does not
     site = json.load(open("/home/claude/nico/case_site.json"))
@@ -272,6 +274,7 @@ def build(spec):
                    state_x=STATE_X, nodes=nodes_out, edges=routed, figs=spec["figs"], n_fm=n_fm,
                    panels=spec.get("panels", {}),
                    figs_note=("" if (spec["figs"] or spec.get("panels")) else "Figures for this paper are not in the repo, so the panel shows evidence text without thumbnails."))
+    spec["kit_version"] = KIT_VERSION
     out = f"{OUTDIR}/{spec['file']}"
     open(out, "w", encoding="utf-8").write(PAGE.replace("__DATA__", json.dumps(payload).replace("</", "<\\/")).replace("__TITLE__", spec["short"]))
     print("wrote", out, "canvas", W, "x", H)

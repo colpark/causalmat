@@ -33,7 +33,7 @@ for gp in graph_paths:
                   "material": d.get("material_object"), "chain": d.get("casual_chain"),
                   "graph": g, "figs": fig_data})
 
-tpl = open(f"{TAX}/page_template.html").read()
+tpl = open(f"{TAX}/case_page_template.html").read()
 stage = json.load(open(f"{TAX}/stage_graph.json")) if os.path.exists(f"{TAX}/stage_graph.json") else None
 data = {"vocab": vocab, "metrics": metrics, "cases": cases, "stage": stage}
 html = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))

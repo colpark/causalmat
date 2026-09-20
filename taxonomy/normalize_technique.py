@@ -14,10 +14,10 @@ from pathlib import Path
 
 FAMILIES = ["SEM", "TEM", "XRD", "XAS", "EBSD", "EDS", "XPS", "RAMAN", "IR", "UVVIS", "PL", "NMR", "AFM",
             "OPTICAL", "CT", "APT", "ECHEM", "MECH", "THERMAL", "TRANSPORT", "ATOM", "PROCESS", "DERIVED",
-            "ASSAY", "OTHER"]
+            "ASSAY", "PHYS", "OTHER"]
 # modes are a fixed list per family; anything else in that family is the bare family name
 MODES = {
-    "SEM": ["BSE", "FEG", "crosssection", "imageanalysis"],
+    "SEM": ["BSE", "SE", "FEG", "crosssection", "imageanalysis"],
     "TEM": ["HRTEM", "SAED", "STEM", "HAADF", "brightfield", "EBSDtransmission"],
     "XRD": ["synchrotron", "insitu", "poleFigure", "CXD", "powder", "SAXS"],
     "XAS": ["EXAFS", "XANES", "operando"],
@@ -32,13 +32,16 @@ MODES = {
     "THERMAL": ["TGA", "DSC", "laserflash", "transient", "IRcamera"],
     "TRANSPORT": ["Hall", "fourprobe", "Seebeck", "VNA", "dielectric"],
     "ATOM": ["DFT", "MD", "CALPHAD", "FEM"],
-    "PROCESS": [], "DERIVED": [], "ASSAY": ["stain", "survival", "tumour", "catalysis"], "OTHER": [],
+    "PROCESS": [], "DERIVED": [], "ASSAY": ["stain", "survival", "tumour", "catalysis"],
+    # physical-property measurement: density, porosity, surface area, particle size
+    "PHYS": ["density", "porosity", "surfacearea", "particlesize"], "OTHER": [],
 }
 
 # (regex, family, mode) — first match wins inside a family pass; order matters within each block
 RULES = [
     # imaging
     (r"\bSEM[- ]?BSE\b|\bSEM BSE\b|\bBSE\b", "SEM", "BSE"),
+    (r"\bSEM[- ]?SE\b|\bSE2\b|secondary electron", "SEM", "SE"),
     (r"image analysis of SEM", "SEM", "imageanalysis"),
     (r"\bFE-?SEM\b|\bFESEM\b", "SEM", "FEG"),
     (r"SEM cross-?section", "SEM", "crosssection"),
@@ -138,10 +141,14 @@ RULES = [
      r"induction melting|VAR ?/ ?VIM|casting|\bSLM\b|\bECAP\b|\bFSP\b|\bPVD\b|spin coating|freeze[- ]drying|"
      r"freeze-thaw|sonication|polymerisation|meniscus-guided|direct writing|electropulsing|vapour reduction|"
      r"cutting and polishing|mixing \+|ligand substitution|coating tests", "PROCESS", None),
+    # physical-property measurement, distinct from a quantity computed from other data
+    (r"Archimedes|apparent density|bulk density|relative density", "PHYS", "density"),
+    (r"porosity|pore size distribution|NLDFT", "PHYS", "porosity"),
+    (r"N2 physisorption|\bBET\b|isotherm", "PHYS", "surfacearea"),
+    (r"particle size distribution|\bDLS\b|zeta potential", "PHYS", "particlesize"),
     # quantities computed from other measurements
     (r"Scherrer|power factor|engineering ZT|ZT from|Wiedemann-Franz|derived from|computed from|"
-     r"isosteric heat|NLDFT|transmission-line calculation|literature comparison|"
-     r"N2 physisorption|\bBET\b|sessile drop", "DERIVED", None),
+     r"isosteric heat|transmission-line calculation|literature comparison|sessile drop", "DERIVED", None),
 ]
 RULES = [(re.compile(p, re.I), f, m) for p, f, m in RULES]
 MULTI = re.compile(r"\band\b|-EDS\b|\bwith\b|\bvs\b|\+", re.I)

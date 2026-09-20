@@ -130,6 +130,16 @@ def collapse(g, file_name):
 
     def lane_for(n):
         fams = fam(n) or []
+        # a multi-technique string ("SEM-EDS", "AC HAADF-STEM with line profiles") must not set the lane
+        # from its first element: the lane comes from the node's own modality and the panel's modality
+        # votes, and the technique list only refines the label
+        if len(fams) > 1:
+            want = MODALITY_LANE.get(n.get("modality"))
+            if want and want in lane_index_keys:
+                return want
+            if n.get("modality"):
+                return "spec" if ("XAS" in fams and "spec" in lane_index_keys) else "classic"
+            return "classic"
         # a node naming two families (e.g. "HAADF-STEM with EDS line profiles") is placed by the modality
         # of the panel it reads, so a spectrum does not land in the microscopy lane
         mod = n.get("modality")
@@ -151,15 +161,35 @@ def collapse(g, file_name):
                 return lane_of_family[f]
         return "classic"
 
+    def target_claim(nid, depth=0, seen=None):
+        """The first spine node an evidence node feeds. A state absorbs several claims, so the removal
+        test must key on the claim: otherwise evidence for one claim looks redundant because a different
+        claim in the same state still has support."""
+        seen = seen or set()
+        if nid in seen or depth > 4:
+            return None
+        seen.add(nid)
+        for e in out_edges[nid]:
+            d = N.get(e["dst"])
+            if d is not None and d.get("spine"):
+                return d["id"]
+        for e in out_edges[nid]:
+            c = target_claim(e["dst"], depth + 1, seen)
+            if c:
+                return c
+        return None
+
     # ---- support map, for the removal test ------------------------------------------------------
     def is_shown(n):
         return bool(n.get("figs")) and n.get("image_support") == "shown"
 
-    support = defaultdict(list)          # state id -> evidence node ids with image_support shown
+    support = defaultdict(list)          # claim id -> evidence node ids with image_support shown
+    claim_of = {}
     for n in obs:
-        st = target_state(n["id"])
-        if st and is_shown(n):
-            support[st].append(n["id"])
+        c = target_claim(n["id"])
+        claim_of[n["id"]] = c
+        if c and is_shown(n):
+            support[c].append(n["id"])
 
     # ---- lane nodes ----------------------------------------------------------------------------
     groups = defaultdict(list)
@@ -237,7 +267,9 @@ def collapse(g, file_name):
     # ---- necessity, by removal on the full graph -------------------------------------------------
     for node, members, ln, st, audit in nodes:
         mine = {m["id"] for m in members}
-        others = [i for i in support.get(st, []) if i not in mine]
+        claims = [c for c in dict.fromkeys(claim_of.get(m["id"]) for m in members) if c]
+        node["claims"] = claims
+        others = [i for c in claims for i in support.get(c, []) if i not in mine]
         shown_here = [m["id"] for m in members if is_shown(m)]
         if audit:
             node["necessity"] = "corrective"
@@ -246,23 +278,36 @@ def collapse(g, file_name):
                                                     for m in members if m["id"] not in shown_here)[:240])
         elif shown_here and not others:
             node["necessity"] = "necessary"
-            node["necessity_reason"] = f"Only figure-backed support with image_support shown for {st} ({', '.join(shown_here)})."
+            node["necessity_reason"] = (f"Only figure-backed support with image_support shown for "
+                                        f"{', '.join(claims) or st} ({', '.join(shown_here)}).")
         elif shown_here and others:
             node["necessity"] = "redundant"
-            node["necessity_reason"] = f"{st} keeps shown support from {', '.join(others[:4])} after removal."
+            node["necessity_reason"] = (f"{', '.join(claims) or st} keeps shown support from "
+                                        f"{', '.join(others[:4])} after removal.")
         elif others:
             node["necessity"] = "redundant"
-            node["necessity_reason"] = (f"No member reaches image_support shown, and {st} keeps shown support "
-                                        f"from {', '.join(others[:4])}.")
+            node["necessity_reason"] = (f"No member reaches image_support shown, and {', '.join(claims) or st} "
+                                        f"keeps shown support from {', '.join(others[:4])}.")
         else:
             node["necessity"] = "decorative"
-            node["necessity_reason"] = f"No member reaches image_support shown and {st} has no other figure-backed support."
+            node["necessity_reason"] = (f"No member reaches image_support shown and {', '.join(claims) or st} "
+                                        f"has no other figure-backed support.")
     # lane-level test: an FM lane whose removal leaves every state it serves with other shown support
     lane_states = defaultdict(set)
     for node, members, ln, st, audit in nodes:
         lane_states[ln].add(st)
     fm_critical = any(n["necessity"] in ("necessary", "corrective")
                       for n, _, ln, _, _ in nodes if ln != "classic")
+
+    # guards: this class of bug must fail loudly, not quietly flatten the view
+    RANK = {"contradicts": 0, "not_shown": 1, "partial": 2, "shown": 3}
+    for node, members, ln, st, audit in nodes:
+        worst = min((RANK.get(m.get("image_support"), 3) for m in members), default=3)
+        assert RANK.get(node["verdict"], 3) <= worst, (
+            f"{node['id']}: merged verdict {node['verdict']} ranks above its worst member")
+    kinds = {n["necessity"] for n, _, _, _, _ in nodes}
+    assert len(kinds) > 1 or len(nodes) < 3, (
+        f"all {len(nodes)} lane nodes share necessity {kinds}; the removal test is not discriminating")
 
     spec_nodes = [n for n, _, _, _, _ in nodes]
     edges = []

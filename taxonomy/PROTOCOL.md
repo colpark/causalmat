@@ -16,6 +16,12 @@ Measurements (images and data) sit in between as evidence. The graph loses detai
 - `label`: the paper-specific content, ≤ 20 words.
 - `attrs`: specifics that are *not* types, e.g. `{technique: "XRD", quantity: "lattice parameter", value: "4.05 Å", material: "Al-Mg"}`.
 - `figs`: figure ids from the packet (F1, F2, …) that carry this node.
+- `attrs.technique`: **required on every OBS node that carries `figs`.** It names the instrument or method that
+  produced the panel, in the controlled form `FAMILY:mode` used by `normalize_technique.py` (`SEM`, `SEM:BSE`,
+  `TEM:HRTEM`, `XRD:synchrotron`, `XAS:EXAFS`, `ATOM:DFT`, `PHYS:density`, …). It names the **instrument, not the
+  subject**: write `SEM`, never `SEM of worn surfaces`, and leave the subject in the node label. A node whose
+  panel comes from two instruments carries both, as a list. Without it the modality view cannot assign a lane,
+  and half of the v05 batch had to be back-filled because the field was optional.
 - `modality`: required on OBS nodes. One of the modality list in the vocabulary (see `modality_notes`: 1D diffraction traces are `diffraction_pattern`, bar charts are `xy_curve`; if a node reads two panel kinds, split it).
 - `provenance` (from v01): required on OBS nodes. `measured` (recorded by an instrument/test) | `derived` (computed in this paper from other OBS; must have an incoming `derives` edge) | `computed` (simulation, theory or model output). Provenance is not a type: the OBS type still names what feature of the data is read.
 - `image_support` (from v01): required on every node with non-empty `figs`; states whether the attached figure actually shows the claim, judged from the image, not the caption:

@@ -13,8 +13,12 @@ For each paper:
    - When the node reads a whole figure, or a panel the store does not offer (tier C figure, an inset, a supplementary figure), set "panel_ids": [] and keep "figs" as before.
    - When a caption span or use sentence in the panel section states the panel's condition and you rely on it, copy it into attrs.panel_conditions with {"condition": ..., "source": "caption"|"text"}; if you read the condition off a label in the image itself, use "source": "image". Otherwise omit the field.
    - Rule 37 stands: numbers come from the panel, never from the MatMech summary. If you use a number from the OCR cue line (scale bar, tick, table cell), say so in attrs.image_note.
-4. Validate before writing: every type/mm_op/rel/modality exists in v04; every edge endpoint exists; the spine is one connected path; every panel_id appears in that paper's panel section.
-5. Write the graph to graphs_v05/first100/<the packet basename without .md>.json (v04 schema plus panel_ids and attrs.panel_conditions; set "vocab_version":"v04", "batch":"v05_first100", "rank": <rank>), and a sibling build file graphs_v05/first100/<same name>.build.json: {"figures_in_packet":, "panels_offered":, "panels_cited":, "panels_opened_not_cited":, "ocr_present":, "figures_opened": [...]}.
+4. `attrs.technique` is REQUIRED on every OBS node that carries `figs`: the instrument in the controlled form
+   `FAMILY:mode` (`SEM`, `SEM:BSE`, `TEM:HRTEM`, `XRD:synchrotron`, `XAS:EXAFS`, `ATOM:DFT`, `PHYS:density`, …),
+   naming the instrument and not the subject — `SEM`, never `SEM of worn surfaces`, with the subject left in the
+   label. Two instruments on one panel means a list. A figure-backed OBS node without it is invalid.
+5. Validate before writing: every type/mm_op/rel/modality exists in v04; every edge endpoint exists; the spine is one connected path; every panel_id appears in that paper's panel section; every figure-backed OBS node has attrs.technique.
+6. Write the graph to graphs_v05/first100/<the packet basename without .md>.json (v04 schema plus panel_ids and attrs.panel_conditions; set "vocab_version":"v04", "batch":"v05_first100", "rank": <rank>), and a sibling build file graphs_v05/first100/<same name>.build.json: {"figures_in_packet":, "panels_offered":, "panels_cited":, "panels_opened_not_cited":, "ocr_present":, "figures_opened": [...]}.
 
 Scratch files only under /tmp/claude-1000/-home-aid1-Documents-causalmat/1a43af2c-5a47-47df-a4e1-7d54da6fd57e/scratchpad/v05_{STAFF}/. Do not run git.
 
