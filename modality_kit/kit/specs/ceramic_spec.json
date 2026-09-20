@@ -1,0 +1,290 @@
+{
+ "file": "zrb2_sic_modality_graph.html",
+ "short": "Self-toughening ZrB2-SiC composites",
+ "journal": "Journal of Advanced Ceramics",
+ "year": 2019,
+ "title": "Fabrication and mechanical properties of self-toughening ZrB2-SiC composites from in-situ reaction",
+ "doi": "https://doi.org/10.1007/s40145-019-0334-4",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM (BSE, fracture, crack)",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: XRD",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "In-situ reaction of ZrSi2 + B4C + C with excess ZrSi2 should densify the composite and grow platelet ZrB2 for self-toughening.",
+   "detail": "Need: ZrB2-SiC ultra-high-temperature ceramics densify poorly because of covalent bonding and have low fracture toughness. Design: Reaction (1), 2ZrSi2 + B4C + 3C = 2ZrB2 + 4SiC, with excess ZrSi2 at 0, 10, 15, 20, 25 vol% as a liquid-forming sintering additive (samples RZSZ-0 to RZSZ-25). Processing: high-energy ball milling with WC media, then reactive hot pressing at 1550 C, 30 min, 40 MPa in vacuum.",
+   "figs": [],
+   "source": "c1 to c6, c5"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Phase state",
+   "head": "Reaction (1) runs to completion: ZrB2 and SiC are the main phases, with WSi2 from WC milling debris, ZrC at 20 vol% excess and above, and residual ZrSi2.",
+   "detail": "Phase identity c12 with the reaction-sequence mechanism c11: B4C is consumed preferentially by Reaction (1), so ZrC formed from ZrSi2 and WC survives at high ZrSi2 loading.",
+   "figs": [],
+   "source": "c12, c11"
+  },
+  {
+   "id": "S2",
+   "stage": "STR",
+   "title": "Microstructure state",
+   "head": "Excess ZrSi2 raises relative density from 91.8 to 98.5% at 15 vol%, then slightly down. ZrB2 grows into interlocking platelets, most developed at 20 vol%, and SiC refines to nano size.",
+   "detail": "Porosity c15, platelet shape c19 and SiC refinement c16, with mechanism c21: the exothermic reaction locally melts ZrSi2, and the liquid plus oxide impurities promote anisotropic ZrB2 growth and particle sliding. Premise c20: hexagonal ZrB2 grows fastest on the {010} and {110} faces.",
+   "figs": [],
+   "source": "c15, c16, c19, c21, c20"
+  },
+  {
+   "id": "S3",
+   "stage": "PRP",
+   "title": "Property and toughening state",
+   "head": "Hardness, flexural strength and fracture toughness all peak at 20 vol% excess ZrSi2 (17.1 GPa, 655 MPa, 6.08 MPa m1/2). Interlocked platelets and SiC-rich regions toughen by pull-out, bridging, deflection and branching.",
+   "detail": "Property c23 and mechanism c28, with mixed intergranular and transgranular fracture (c29) and the CTE-mismatch residual stress around SiC (c27) as a premise.",
+   "figs": [],
+   "source": "c23, c28, c29, c27"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Reactive hot pressing with 20 vol% excess ZrSi2 gives dense, self-toughened ZrB2-SiC with interlocking platelets and the best mechanical properties.",
+   "detail": "Not covered in the packet: the RZSZ-25 degradation detail, the RZSZ-15 fracture surface in Figure 6, the toughening schematic in Figure 9, and the origin of the ZrO2 and WC impurities.",
+   "figs": [],
+   "source": "c30"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "BSE SEM, Figure 5",
+   "tech": "SEM (BSE)",
+   "figs": [
+    "F5"
+   ],
+   "panel": "F5a to d",
+   "head": "Grey elongated ZrB2 grains among black SiC, with white WSi2. An interlocking cluster and non-uniform ZrB2 size in RZSZ-20. Elongation is clear at the 1 um bar in (c) but weak at the 2 um bar in (a, b, d).",
+   "solves": "Platelet shape in the microstructure state.",
+   "op": "assess spatial distribution",
+   "verdict": "partial",
+   "fm": "SEM foundation model. Grain aspect ratio from BSE contrast across the series. The partial verdict makes this a good discrimination item: is anisotropy real or a magnification effect?",
+   "source": "c17",
+   "necessity": "necessary",
+   "necessity_reason": "No non-SEM evidence for platelet shape, and the toughening mechanism runs through it. Partial read, so it needs M2."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S2",
+   "line": 1,
+   "title": "Fracture-surface SEM, Figure 8",
+   "tech": "SEM",
+   "figs": [
+    "F8"
+   ],
+   "panel": "F8",
+   "head": "RZSZ-0 shows open pores and submicron SiC; RZSZ-10 and 15 tiny pores and nano-sized SiC; RZSZ-20 a dense cluster of interlocked ZrB2 platelets; RZSZ-25 coarse ZrB2 with secondary phases.",
+   "solves": "Porosity, SiC refinement and platelet interlocking in the microstructure state, and the fracture mode in the property state.",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "fm": "SEM foundation model. Pore fraction and grain size per sample, then the trend across five loadings.",
+   "source": "c14, c18",
+   "necessity": "necessary",
+   "necessity_reason": "Only evidence for platelet interlocking and SiC refinement. Porosity alone is redundant with the density curve."
+  },
+  {
+   "id": "M3",
+   "lane": 0,
+   "row": "S3",
+   "line": 0,
+   "title": "Indentation crack SEM, Figure 8",
+   "tech": "SEM",
+   "figs": [
+    "F8"
+   ],
+   "panel": "F8",
+   "head": "An indentation crack in RZSZ-20 shows deflection, bridging, grain pull-out and branching into a SiC-rich region.",
+   "solves": "The toughening mechanism in the property state.",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "fm": "SEM foundation model. Crack-path segmentation and event counting (deflections, bridges, pull-outs) along the crack.",
+   "note": "Figure 6 (RZSZ-15 fracture surface) and Figure 9 (toughening schematic) were not opened.",
+   "source": "c26",
+   "necessity": "necessary",
+   "necessity_reason": "Only evidence for the toughening events. Property values stand on the mechanical tests without it."
+  },
+  {
+   "id": "D1",
+   "lane": 1,
+   "row": "S1",
+   "line": 0,
+   "title": "XRD, Figures 1 and 2",
+   "tech": "XRD",
+   "figs": [
+    "F1",
+    "F2"
+   ],
+   "panel": "F1, F2a to d",
+   "head": "RZSZ-0: ZrSi2 and B4C reflections vanish, ZrB2 and SiC dominate, new WSi2 and trace ZrO2. Across the series the WSi2 peak grows with excess ZrSi2, ZrC reflections appear, and weak residual ZrSi2 remains.",
+   "solves": "The phase state.",
+   "op": "assign features, recognize signature",
+   "verdict": "partial",
+   "inner_audit": "ZrC markers are labelled only on RZSZ-25. On RZSZ-20 the ~38.5 degree ZrC (200) peak is barely above noise, so 'at 20 vol% and above' is shown only for 25.",
+   "fm": "XRD phase-identification models (Dara, multi-hypothesis) can put a number on the ZrC-at-20 claim. Peak assignment itself is a library match.",
+   "source": "c7, c8",
+   "necessity": "necessary",
+   "necessity_reason": "Only evidence that the in situ reaction ran to completion. EDS confirms one grain."
+  },
+  {
+   "id": "C1",
+   "lane": 2,
+   "row": "S1",
+   "line": 1,
+   "title": "EDS, Figure 5",
+   "tech": "EDS",
+   "figs": [
+    "F5"
+   ],
+   "panel": "F5 zones A, B",
+   "head": "Zone A: W 21.4 and Si 59.5 at%, a WSi2 grain. Zone B: a SiC-rich region.",
+   "solves": "Secondary-phase identity in the phase state.",
+   "op": "convert to quantity",
+   "verdict": "shown",
+   "inner_audit": "Zone B reads C 58.9 at% against Si 34.5, far beyond SiC stoichiometry. Light-element EDS quantification is unreliable, and the text is silent.",
+   "fm": "No foundation model. Standardless quantification with its known light-element limits.",
+   "source": "c9",
+   "necessity": "redundant",
+   "necessity_reason": "XRD carries the phase state. EDS confirms WSi2 and adds the light-element caveat."
+  },
+  {
+   "id": "C2",
+   "lane": 2,
+   "row": "S1",
+   "line": 2,
+   "title": "Thermodynamics, Figure 3",
+   "tech": "Computed dG(T)",
+   "figs": [
+    "F3"
+   ],
+   "panel": "F3",
+   "head": "Computed dG(T): Reactions (1) to (3) are all negative. Reaction (1) sits near -500 kJ/mol, far below (2) near -85 and (3).",
+   "solves": "The reaction-sequence mechanism in the phase state.",
+   "op": "read trend",
+   "verdict": "shown",
+   "note": "dG is per mole of reaction as written. The reactions have different stoichiometries, and a dG ranking says nothing about kinetics.",
+   "fm": "No model. Thermochemical tables.",
+   "source": "c10, c11",
+   "necessity": "decorative",
+   "necessity_reason": "Ranks driving forces but the phase state stands on XRD."
+  },
+  {
+   "id": "C3",
+   "lane": 2,
+   "row": "S2",
+   "line": 2,
+   "title": "Density and mechanics, Figs 4, 7",
+   "tech": "Archimedes, indentation, bending, SEVNB",
+   "figs": [
+    "F4",
+    "F7"
+   ],
+   "panel": "F4, F7",
+   "head": "Relative density 91.8, 94.9, 98.5 (RZSZ-15), 97.6, 96.4%. Hardness, strength and KIC rise to maxima at RZSZ-20 (17.1 GPa, 655 MPa, 6.08 MPa m1/2), then fall.",
+   "solves": "Porosity in the microstructure state and the property state.",
+   "op": "read trend",
+   "verdict": "shown",
+   "inner_audit": "The density optimum (RZSZ-15) and the property optimum (RZSZ-20) do not coincide, so densification alone cannot set the property optimum. This is a derived cross-check of Figures 4 and 7.",
+   "fm": "No foundation model. Instrument outputs and a two-figure comparison.",
+   "source": "c13, c22, c24, c25",
+   "necessity": "necessary",
+   "necessity_reason": "Density and property values. Its cross-check makes the SEM platelet story more necessary."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "produces"
+  ],
+  [
+   "S2",
+   "S3",
+   "causes"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "M1",
+   "S2",
+   "evidences"
+  ],
+  [
+   "M2",
+   "S2",
+   "evidences"
+  ],
+  [
+   "M2",
+   "S3",
+   "evidences"
+  ],
+  [
+   "M3",
+   "S3",
+   "evidences"
+  ],
+  [
+   "D1",
+   "S1",
+   "evidences"
+  ],
+  [
+   "C1",
+   "S1",
+   "evidences"
+  ],
+  [
+   "C2",
+   "S1",
+   "evidences"
+  ],
+  [
+   "C3",
+   "S2",
+   "evidences"
+  ],
+  [
+   "C3",
+   "S3",
+   "evidences"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}

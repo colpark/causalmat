@@ -1,0 +1,296 @@
+{
+ "file": "photodetector_modality_graph.html",
+ "short": "Stretchable QD-P3HT nanowire photodetector",
+ "journal": "Advanced Materials",
+ "year": 2015,
+ "title": "A Stretchable Nanowire UV-Vis-NIR Photodetector with High Performance",
+ "doi": "https://doi.org/10.1002/adma.201404945",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM, TEM, optical",
+   "sub": "foundation model in hand or candidate"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "PbS quantum dots dispersed in P3HT nanowires sensitize the NIR response, and freestanding nanowire arches tolerate substrate stretching.",
+   "detail": "Need: stretchable optoelectronics want broadband UV to NIR photodetectors, and prior UV-NIR nanowire detectors have low ON/OFF ratios. Design: a P3HT conjugated-polymer nanowire as the UV-vis photoconducting matrix, PbS quantum dots blended in as NIR sensitizers, QD loading swept 0 to 60 wt% at 4.4 nm and QD size swept 4.4 to 9.1 nm at 60 wt%, single freestanding arches bridging Au-Al electrodes and a 3x3 array embedded in PDMS. Processing: meniscus-guided direct writing from a toluene blend.",
+   "figs": [],
+   "source": "a1 to a6, a8, a7, a9"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "A freestanding arched nanowire bridges the electrodes, with PbS quantum dots uniformly dispersed in the P3HT wire and still rock-salt PbS.",
+   "detail": "Arch shape (a11), QD dispersion (a14) and QD phase identity (a15). The structure stage is thin: one SEM inset, one TEM field, one EDS spectrum.",
+   "figs": [],
+   "source": "a11, a14, a15"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Broadband UV to NIR response with ON/OFF up to ~600 and sub-0.2 s UV-vis response. ON/OFF rises with QD loading and falls with QD size.",
+   "detail": "Two property strands (a20, a25) with three mechanisms: the NIR response comes from excitonic absorption of the PbS QDs (a21), more QDs raise absorbance and photocarrier generation (a26, correlational only), and photoinduced hole transfer from QD to P3HT is restricted for larger dots by band alignment (a28).",
+   "figs": [],
+   "source": "a20, a21, a25, a26, a28"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state under stretch",
+   "head": "The arch unfolds to absorb substrate strain, so the array keeps its UV-NIR photoresponse up to 100% stretch and through 100 cycles.",
+   "detail": "Mechanism a30 (the nanowire itself is barely strained because the arch geometry changes) and performance a33.",
+   "figs": [],
+   "source": "a30, a33"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Direct-written QD-P3HT nanowire arches give stretchable broadband photodetectors with high, strain-insensitive photoresponse.",
+   "detail": "The paper adds that the UV-vis ON/OFF sits two orders above previous UV-NIR nanowire detectors (a35) and points to wearable optoelectronics (a37).",
+   "figs": [],
+   "source": "a36, a35, a37"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "SEM inset, Figure 1",
+   "tech": "SEM",
+   "figs": [
+    "F1"
+   ],
+   "panel": "F1 inset",
+   "head": "A single nanowire arch spans the Au-Al electrode gap. The arch path is marked by a drawn curve, and the thin wire is barely resolved at the 10 um scale.",
+   "solves": "Arch geometry in the structure state.",
+   "op": "inspect local feature",
+   "verdict": "partial",
+   "fm": "SEM foundation model, but a weak item: the read depends on the drawn guide more than on the image.",
+   "source": "a10",
+   "necessity": "redundant",
+   "necessity_reason": "The optical images at 0% strain show the same arch, and this read is partial."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 1,
+   "title": "TEM, Figure 1",
+   "tech": "TEM",
+   "figs": [
+    "F1"
+   ],
+   "panel": "F1",
+   "head": "Dark QD dots of a few nanometres are scattered along the whole wire without visible aggregates. One wire, one field.",
+   "solves": "QD dispersion in the structure state.",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "fm": "TEM candidates: EM-DINO, EMCF, SAM based segmentation. A dispersed-versus-aggregated classifier on the embedding, with DINOv2 as the control. One field limits what any model can claim.",
+   "source": "a12",
+   "necessity": "decorative",
+   "necessity_reason": "Uniform dispersion feeds nothing. Sensitization needs QDs present, which absorption and EDS show."
+  },
+  {
+   "id": "M3",
+   "lane": 0,
+   "row": "S3",
+   "line": 0,
+   "title": "Optical microscopy, Figure 4",
+   "tech": "Optical",
+   "figs": [
+    "F4"
+   ],
+   "panel": "F4a, F4b",
+   "head": "The arch straightens from curved at 0% to nearly flat at 100% stretch and stays attached. F4b is a photograph of the PDMS array bent by hand.",
+   "solves": "Arch unfolding in the performance state.",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "fm": "Not an SEM or TEM item. A generic vision model with a curvature read (arch height against strain) is the natural probe.",
+   "source": "a29",
+   "necessity": "necessary",
+   "necessity_reason": "Only support for the arch-unfolding mechanism. The performance numbers stand on electrical data regardless. Generic vision, not SEM or TEM."
+  },
+  {
+   "id": "C1",
+   "lane": 1,
+   "row": "S1",
+   "line": 2,
+   "title": "EDS, Figure 1",
+   "tech": "EDS",
+   "figs": [
+    "F1"
+   ],
+   "panel": "F1",
+   "head": "The EDS spectrum shows Pb and S lines. Cu and most of the C come from the grid and mesh.",
+   "solves": "QD identity in the structure state. Rock-salt PbS is asserted without a diffraction figure.",
+   "op": "assign features",
+   "verdict": "shown",
+   "fm": "No foundation model. Line-library lookup.",
+   "source": "a13, a15",
+   "necessity": "necessary",
+   "necessity_reason": "Confirms PbS is present."
+  },
+  {
+   "id": "C2",
+   "lane": 1,
+   "row": "S2",
+   "line": 0,
+   "title": "Optical spectroscopy, Figure 3",
+   "tech": "Absorption, PL",
+   "figs": [
+    "F3"
+   ],
+   "panel": "F3",
+   "head": "An absorption band near 1150 nm appears in QD films and is absent in P3HT; clear at 60 and 40 wt%, barely visible at 20. Absorbance at 300 to 650 nm rises stepwise with wt%. QD PL is quenched in the blend, strongly at 4.4 nm and weakly at 5.5 nm.",
+   "detail": "Three spectral reads carry the mechanisms. The 1150 nm band supports QD sensitization (a21). The stepwise absorbance rise across the same wt% series supports the absorbance explanation (a26), which is correlational only. The PL quenching ratios, about 0.67 at 4.4 nm, 0.8 at 4.7 and 0.9 at 5.5, support size-limited hole transfer (a28).",
+   "solves": "The sensitization and charge-transfer mechanisms in the property state.",
+   "op": "recognize signature, read trend",
+   "verdict": "partial",
+   "fm": "No foundation model for QD film spectra. Peak presence and quenching ratios are classical reads.",
+   "source": "a19, a23, a27",
+   "necessity": "necessary",
+   "necessity_reason": "Carries the sensitization and charge-transfer mechanisms."
+  },
+  {
+   "id": "C3",
+   "lane": 1,
+   "row": "S2",
+   "line": 1,
+   "title": "Photoresponse, Figs 2 to 4",
+   "tech": "I-t curves",
+   "figs": [
+    "F2",
+    "F3",
+    "F4"
+   ],
+   "panel": "F2, F3a, F3c, F4c to e",
+   "head": "Single wire: ON/OFF ~300 at 365 nm, ~600 at 625 nm, ~15 at 850 nm; rise and fall below 0.16 and 0.11 s in the UV. ON/OFF rises with wt% and falls with QD size. Array: ~50/28/4 and flat over 0 to 100% stretch and 100 cycles.",
+   "detail": "Single-wire ON/OFF over six cycles with the 625 nm ON level drifting from ~620 to ~480 (a16), response times of 0.16/0.11 s UV, 0.16/0.12 s visible, 0.58/0.48 s NIR (a17), no NIR response at 0 wt% (a18), ON/OFF rising with wt% at all nine wavelengths, 625 nm from ~9 to ~200 (a22), falling with QD size 4.4 to 9.1 nm (a24), and array ON/OFF and times flat across strain and cycles (a31, a32).",
+   "solves": "The property state and the performance state.",
+   "op": "read characteristic point, read trend",
+   "verdict": "shown",
+   "fm": "No foundation model for photocurrent transients. Peak ratios and rise times are classical and verifiable.",
+   "source": "a16, a17, a18, a22, a24, a31, a32",
+   "necessity": "necessary",
+   "necessity_reason": "Carries both property and performance states."
+  },
+  {
+   "id": "C4",
+   "lane": 1,
+   "row": "S3",
+   "line": 1,
+   "audit": true,
+   "title": "Photoresponse audit, Figs 2 to 4",
+   "tech": "I-t curves",
+   "figs": [
+    "F2",
+    "F3",
+    "F4"
+   ],
+   "panel": "F2 vs F3a vs F4e",
+   "head": "Array ON/OFF at 625 nm (~50) sits ~10x below the single-wire value in Figure 2 (~600), and Figure 3a gives ~200 for the same composition. Light intensities are similar. The text calls both 'high performance'.",
+   "solves": "Qualifies both the property and the performance states.",
+   "op": "cross check consistency",
+   "verdict": "qualifies",
+   "text_silent": true,
+   "fm": "A cross-figure consistency item. No model needed, only three reads and a ratio.",
+   "source": "a34",
+   "necessity": "corrective",
+   "necessity_reason": "Ten-fold gap between single-wire and array ON/OFF that the text does not acknowledge."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S1",
+   "S3",
+   "causes"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "M1",
+   "S1",
+   "evidences"
+  ],
+  [
+   "M2",
+   "S1",
+   "evidences"
+  ],
+  [
+   "M3",
+   "S3",
+   "evidences"
+  ],
+  [
+   "C1",
+   "S1",
+   "evidences"
+  ],
+  [
+   "C2",
+   "S2",
+   "evidences"
+  ],
+  [
+   "C3",
+   "S2",
+   "evidences"
+  ],
+  [
+   "C3",
+   "S3",
+   "evidences"
+  ],
+  [
+   "C4",
+   "S2",
+   "qualifies"
+  ],
+  [
+   "C4",
+   "S3",
+   "qualifies"
+  ],
+  [
+   "C3",
+   "C4",
+   "derives"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": false
+}

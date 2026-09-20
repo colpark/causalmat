@@ -1,0 +1,311 @@
+{
+ "file": "silicon_anode_modality_graph.html",
+ "short": "Scalable Si nanoparticle anode",
+ "journal": "Rare Metals",
+ "year": 2017,
+ "title": "A scalable synthesis of silicon nanoparticles as high-performance anode material for lithium-ion batteries",
+ "doi": "https://doi.org/10.1007/s12598-017-0936-3",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM, HRTEM",
+   "sub": "foundation model in hand or candidate"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: XRD",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Scalable wet milling plus centrifugation can bring Si below the ~150 nm fracture size, and removing the surface SiOx should raise capacity and first-cycle efficiency.",
+   "detail": "Need: Si anodes offer high capacity but fracture on lithiation, and nano-Si routes do not scale. Design: commercial micrometre Si feedstock, wet bead milling with 0.3 mm YSZ beads in ethanol for up to 11 h at 1800 rpm, centrifugation at 11,000 rpm for 5 min, spray drying, then HF etching at 5 wt% for 30 min. Sweep: d50 = 628, 162, 126, 62 nm, and 62 nm as-received against HF-etched.",
+   "figs": [],
+   "source": "s1 to s9, s6"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Size and phase state",
+   "head": "Si nanoparticles with d50 = 62 nm and d99 = 147 nm, below the 150 nm fracture size, still single-phase fcc Si with broadened reflections from milling strain.",
+   "detail": "Feature size (s10) rests on laser diffraction, the SEM count and the precedent that particles below ~150 nm do not fracture on lithiation (s16). Phase (s17) rests on XRD. No cycling-stability data test the fracture-size premise.",
+   "figs": [],
+   "source": "s10, s16, s17"
+  },
+  {
+   "id": "S2",
+   "stage": "STR",
+   "title": "Surface state",
+   "head": "As-received particles carry a ~3 nm amorphous SiOx shell and Zr traces from the milling media. HF etching removes both.",
+   "detail": "Composition claim s19, resolved by HRTEM and EDX. The EDX oxygen signal only partly supports the removal.",
+   "figs": [],
+   "source": "s19"
+  },
+  {
+   "id": "S3",
+   "stage": "PRP",
+   "title": "Size-effect property state",
+   "head": "Smaller unetched particles give lower initial capacity and lower first-cycle efficiency (2980 to 1485 mAh/g, 82 to 55%), because they carry relatively more SiOx and far more surface area for SEI (16 to 198 m2/g).",
+   "detail": "Property s22 with mechanism s27. Crystalline Li15Si4 formation is suppressed for d50 at or below 162 nm (s25), argued from a 0.45 V plateau and the self-limiting lithiation precedent (s26).",
+   "figs": [],
+   "source": "s22, s27, s25, s26"
+  },
+  {
+   "id": "S4",
+   "stage": "PRF",
+   "title": "Etching performance state",
+   "head": "HF etching raises the 62 nm Si initial delithiation capacity from 1485 to 2801 mAh/g and first CE from 55.0 to 68.9%. The etched anode gives 2940/2801/2417 mAh/g at 0.01/0.05/0.10 C.",
+   "detail": "Property s29, mechanism s32 (the SiOx shell slows Li+ and electron transport and consumes Li irreversibly), performance s33.",
+   "figs": [],
+   "source": "s29, s32, s33"
+  },
+  {
+   "id": "S5",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Scalable milling and centrifugation give 62 nm Si, and HF removal of SiOx makes it a high-capacity anode.",
+   "detail": "The framing that small is good sits in tension with the paper's own size series, where smaller is worse until etched.",
+   "figs": [],
+   "source": "s36"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "SEM, Figure 4",
+   "tech": "SEM",
+   "figs": [
+    "F4"
+   ],
+   "panel": "F4",
+   "head": "Pristine Si is several-micrometre angular grains; milled Si is irregular platelets. A 150-particle SEM count gives 20 to 160 nm, mean ~80 nm, close to laser diffraction.",
+   "solves": "Particle size and shape in the size state.",
+   "op": "measure feature metric",
+   "verdict": "shown",
+   "fm": "SEM foundation model. Particle segmentation and a size histogram against the scale bar is the textbook task.",
+   "source": "s13, s14",
+   "necessity": "redundant",
+   "necessity_reason": "Laser diffraction alone gives d50 = 62 nm."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 1,
+   "audit": true,
+   "title": "SEM audit, Figure 4",
+   "tech": "SEM",
+   "figs": [
+    "F4"
+   ],
+   "panel": "F4b",
+   "head": "The platelets in the micrograph measure 0.3 to 0.7 um against the 2 um bar, inconsistent with the 20 to 160 nm histogram. Either the count came from another field or the bar is misreported. Nothing supports 'no agglomerates'.",
+   "solves": "Qualifies the size state.",
+   "op": "measure feature metric",
+   "verdict": "contradicts",
+   "text_silent": true,
+   "fm": "An SEM model size read against the scale bar is exactly this test, and the answer is a number.",
+   "source": "s15",
+   "necessity": "corrective",
+   "necessity_reason": "Puts the 62 nm claim itself in doubt, and that claim is the premise of the fracture-size argument."
+  },
+  {
+   "id": "M3",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "HRTEM, Figure 5",
+   "tech": "TEM",
+   "figs": [
+    "F5"
+   ],
+   "panel": "F5",
+   "head": "A ~3 nm amorphous rim on the as-received particle. The etched particle shows lattice fringes to the edge, with a ~1 nm disordered rim still visible.",
+   "solves": "The surface state.",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "fm": "TEM candidates (EM-DINO, EMCF). Shell-thickness measurement from a lattice-resolved edge, with the residual 1 nm rim as the hard case.",
+   "note": "The residual rim means removal is partial, which the EDX oxygen also says.",
+   "source": "s20",
+   "necessity": "necessary",
+   "necessity_reason": "Only strong evidence for the shell and its removal. EDX oxygen barely drops."
+  },
+  {
+   "id": "D1",
+   "lane": 1,
+   "row": "S1",
+   "line": 2,
+   "title": "XRD, Figure 3",
+   "tech": "XRD",
+   "figs": [
+    "F3"
+   ],
+   "panel": "F3",
+   "head": "Nano-Si reflections are much weaker and broader than raw Si, with no extra phases.",
+   "solves": "Phase in the size state: single fcc Si with lattice strain and reduced crystalline fraction.",
+   "op": "recognize signature",
+   "verdict": "shown",
+   "fm": "XRD models (Dara for phase identification, XtalNet or DiffractGPT for structure) can confirm single-phase Si. Crystallite size from peak width is classical Scherrer.",
+   "source": "s18, s17",
+   "necessity": "decorative",
+   "necessity_reason": "No downstream node uses single-phase Si."
+  },
+  {
+   "id": "C1",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "Laser PSD and BET, Fig 2, Table 1",
+   "tech": "Laser diffraction, BET",
+   "figs": [
+    "F2"
+   ],
+   "panel": "F2",
+   "head": "d50 falls to 174 nm in 6 h, then plateaus near 126 nm by 11 h. Centrifugation narrows the PSD to a 0.1 um cut-off. BET rises from 16 to 198 m2/g as d50 falls to 62 nm.",
+   "detail": "The milling-time trend (s11) was not opened and rests on caption and text. The PSD shift (s12) is shown in Figure 2. BET areas come from Table 1 (s28) and feed the surface-area mechanism in the size-effect state.",
+   "solves": "Size in the size state and surface area in the size-effect state.",
+   "op": "read trend, convert to quantity",
+   "verdict": "shown",
+   "fm": "No foundation model. Laser diffraction and BET are instrument outputs.",
+   "source": "s11, s12, s28",
+   "necessity": "necessary",
+   "necessity_reason": "Size series and BET carry the size-effect state."
+  },
+  {
+   "id": "C2",
+   "lane": 2,
+   "row": "S2",
+   "line": 1,
+   "title": "EDX, Figure 5",
+   "tech": "EDS",
+   "figs": [
+    "F5"
+   ],
+   "panel": "F5",
+   "head": "Zr peaks (0.51 wt%) vanish after HF. Oxygen falls only from 6.42 to 4.55 wt%. Cu comes from the grid.",
+   "solves": "The surface state.",
+   "op": "assign features",
+   "verdict": "partial",
+   "inner_audit": "Oxygen largely persists after etching, so EDX does not support full SiOx removal. The text is silent on this.",
+   "fm": "No foundation model. Line-library lookup and standardless quantification.",
+   "source": "s21",
+   "necessity": "redundant",
+   "necessity_reason": "HRTEM carries the surface state. EDX adds the Zr removal and the oxygen caveat."
+  },
+  {
+   "id": "C3",
+   "lane": 2,
+   "row": "S4",
+   "line": 0,
+   "title": "Electrochemistry, Figs 6 to 8",
+   "tech": "Galvanostatic, CV",
+   "figs": [
+    "F6",
+    "F7",
+    "F8"
+   ],
+   "panel": "F6, F7, F8",
+   "head": "First-cycle curves rank delithiation capacity 628 > 162 > 126 > 62 nm. A 0.45 V Li15Si4 plateau is clean only for 628 nm. Rate curves at 0.01/0.05/0.10 C fall with rate. CV of as-received Si shows activation over cycles 1 to 3 and an extra anodic peak near 0.25 V.",
+   "detail": "Capacity ranking by size (s23), the Li15Si4 plateau read (s24, partial: the 126 and 162 nm curves also flatten near 0.42 V), Table 2 for as-received against etched capacity and CE (s30), the CV activation and extra peak (s31), and the rate series (s34).",
+   "solves": "The size-effect state and the etching performance state.",
+   "op": "read trend, read characteristic point, recognize signature",
+   "verdict": "shown",
+   "inner_audit": "Every figure end point sits ~1.35x below the quoted delithiation capacity (for example 2050 against 2801 mAh/g). The constant factor suggests a different mass basis between figures and tables. Coulombic efficiency is unaffected. Text silent.",
+   "fm": "No foundation model for charge-discharge curves at this scale. End points, plateaus and CV peaks are classical reads, and the 1.35x audit is a ratio.",
+   "source": "s23, s24, s30, s31, s34, s35",
+   "necessity": "necessary",
+   "necessity_reason": "All capacity and CE numbers live here."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "produces"
+  ],
+  [
+   "S1",
+   "S3",
+   "causes"
+  ],
+  [
+   "S2",
+   "S4",
+   "causes"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S4",
+   "S5",
+   "supports"
+  ],
+  [
+   "M1",
+   "S1",
+   "evidences"
+  ],
+  [
+   "M2",
+   "S1",
+   "qualifies"
+  ],
+  [
+   "M3",
+   "S2",
+   "evidences"
+  ],
+  [
+   "D1",
+   "S1",
+   "evidences"
+  ],
+  [
+   "C1",
+   "S1",
+   "evidences"
+  ],
+  [
+   "C1",
+   "S3",
+   "evidences"
+  ],
+  [
+   "C2",
+   "S2",
+   "evidences"
+  ],
+  [
+   "C3",
+   "S3",
+   "evidences"
+  ],
+  [
+   "C3",
+   "S4",
+   "evidences"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}

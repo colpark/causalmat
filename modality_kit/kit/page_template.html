@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Modality graph: __TITLE__</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f6f4ee; --panel:#fffdf8; --ink:#1e2126; --ink-2:#5a6270; --line:#d9d4c8; --line-2:#c2bcae;
+  --spine:#2b2f36; --ev:#6f7a8a; --audit:#b9312c; --audit-bg:#fbeae8;
+  --hyp:#4a6da7; --str:#6a5cb8; --mec:#6a8b2a; --prf:#1f6e9e; --dsc:#4b4f57;
+  --micro:#2c8a86; --atom:#7a5fb3; --classic:#8a8f98;
+  --shown:#2f8f5b; --partial:#d29a2b; --none:#9aa1ab; --focus:#1f6e9e;
+  --font:"Instrument Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171b; --panel:#1d2026; --ink:#e8e6df; --ink-2:#a3a9b3; --line:#2e323a; --line-2:#444a54;
+    --spine:#d8dbe0; --ev:#8f98a6; --audit:#e0645d; --audit-bg:#3a2321;
+    --hyp:#8aa8dd; --str:#a397e0; --mec:#a2c05a; --prf:#63a9d8; --dsc:#b3b8c2;
+    --micro:#5fbdb8; --atom:#a894d8; --classic:#8f96a2;
+    --shown:#5fbf85; --partial:#e0b04a; --none:#6c737d; --focus:#63a9d8;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171b; --panel:#1d2026; --ink:#e8e6df; --ink-2:#a3a9b3; --line:#2e323a; --line-2:#444a54;
+  --spine:#d8dbe0; --ev:#8f98a6; --audit:#e0645d; --audit-bg:#3a2321;
+  --hyp:#8aa8dd; --str:#a397e0; --mec:#a2c05a; --prf:#63a9d8; --dsc:#b3b8c2;
+  --micro:#5fbdb8; --atom:#a894d8; --classic:#8f96a2;
+  --shown:#5fbf85; --partial:#e0b04a; --none:#6c737d; --focus:#63a9d8;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px); height:100%}
+body{margin:0; height:100%; background:var(--bg); color:var(--ink); font-family:var(--font); font-size:14px; line-height:1.45; display:flex; flex-direction:column; overflow:hidden}
+*{box-sizing:inherit}
+header{padding:14px 18px 10px; border-bottom:1px solid var(--line); background:var(--panel); flex:0 0 auto}
+header h1{font-size:17px; font-weight:600; margin:0 0 2px; line-height:1.3}
+header .meta{color:var(--ink-2); font-size:13px; margin:0}
+header .meta a{color:inherit}
+.controls{display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-top:10px}
+.controls .sep{width:1px; height:20px; background:var(--line-2); margin:0 4px}
+.chip{border:1px solid var(--line-2); background:transparent; color:var(--ink); border-radius:999px; padding:4px 11px; font:inherit; font-size:12.5px; cursor:pointer; line-height:1.2}
+.chip[aria-pressed="true"]{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.chip.audit[aria-pressed="true"]{background:var(--audit); border-color:var(--audit); color:#fff}
+.chip:focus-visible, button:focus-visible{outline:2px solid var(--focus); outline-offset:2px}
+main{flex:1 1 auto; display:flex; min-height:0; position:relative}
+#stage{flex:1 1 auto; min-width:0; position:relative; overflow:hidden; touch-action:none; cursor:grab}
+#stage.dragging{cursor:grabbing}
+#stage svg{width:100%; height:100%; display:block}
+.zoom{position:absolute; left:12px; bottom:12px; display:flex; gap:4px; z-index:2}
+.zoom button{width:34px; height:34px; border-radius:8px; border:1px solid var(--line-2); background:var(--panel); color:var(--ink); font:inherit; font-size:16px; cursor:pointer}
+.zoom button.fit{width:auto; padding:0 10px; font-size:12.5px}
+.legend{position:absolute; right:12px; bottom:12px; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:8px 10px; font-size:11.5px; color:var(--ink-2); display:grid; grid-template-columns:auto auto; gap:3px 10px; z-index:2}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend i{display:inline-block; width:22px; height:0; border-top:2px solid var(--spine)}
+.legend i.ev{border-top-color:var(--ev)}
+.legend i.au{border-top:2px dashed var(--audit)}
+.legend i.de{border-top:1.5px solid var(--ev); opacity:.6}
+.legend b{display:inline-block; width:9px; height:9px; border-radius:50%}
+aside{flex:0 0 400px; max-width:44vw; border-left:1px solid var(--line); background:var(--panel); overflow:auto; padding:16px 18px 24px; display:none}
+aside.open{display:block}
+aside .close{float:right; border:0; background:transparent; color:var(--ink-2); font:inherit; font-size:20px; cursor:pointer; line-height:1; padding:0 2px}
+aside .kicker{font-size:12px; color:var(--ink-2); margin:0 0 4px}
+aside h2{font-size:15px; font-weight:600; margin:0 0 10px; line-height:1.35}
+aside p{margin:0 0 10px; font-size:13.5px}
+aside dl{display:grid; grid-template-columns:auto 1fr; gap:4px 12px; margin:0 0 12px; font-size:13px}
+aside dt{color:var(--ink-2)}
+aside dd{margin:0}
+aside .note{background:var(--bg); border-left:3px solid var(--line-2); padding:8px 10px; font-size:13px; margin:0 0 12px}
+aside .note.audit{border-left-color:var(--audit); background:var(--audit-bg)}
+aside .note.fm{border-left-color:var(--atom)}
+aside figure{margin:0 0 12px}
+aside figure img{max-width:100%; display:block; border:1px solid var(--line); border-radius:4px}
+aside figcaption{font-size:12px; color:var(--ink-2); margin-top:5px}
+aside h3{font-size:12.5px; color:var(--ink-2); font-weight:500; margin:12px 0 4px}
+aside ul{margin:0; padding-left:18px; font-size:13px}
+aside li button{border:0; background:transparent; color:var(--focus); font:inherit; padding:0; cursor:pointer; text-decoration:underline}
+.sup{display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:5px; vertical-align:middle}
+.node{cursor:pointer}
+.node rect.body{fill:var(--panel); stroke:var(--line-2); stroke-width:1}
+.node.state rect.body{stroke-width:1.4}
+.node text{font-family:var(--font); fill:var(--ink); font-size:11.5px}
+.node.state text.head{font-size:12px}
+.node text.kind{fill:var(--ink-2); font-size:10px}
+.node text.solve{fill:var(--ink-2); font-size:10.5px; font-style:italic}
+.node.audit rect.body{stroke:var(--audit); stroke-width:1.6}
+.node.audit text.flag{fill:var(--audit); font-size:10px; font-weight:600}
+.node.dim{opacity:.18}
+.node.hot rect.body{stroke:var(--focus); stroke-width:2.2}
+.node.selected rect.body{stroke:var(--focus); stroke-width:2.6}
+.edge{fill:none; stroke:var(--ev); stroke-width:1.5}
+.edge.spine{stroke:var(--spine); stroke-width:1.9}
+.edge.audit{stroke:var(--audit); stroke-width:1.6; stroke-dasharray:5 4}
+.edge.derive{stroke:var(--ev); stroke-width:1.2; opacity:.65}
+.edge.dim{opacity:.08}
+.edge.hot{stroke:var(--focus); stroke-width:2.4; opacity:1}
+.band{fill:var(--ink); opacity:.035}
+.band-label{font-family:var(--font); font-size:11.5px; fill:var(--ink-2); font-weight:500}
+.lane-label{font-family:var(--font); font-size:12px; fill:var(--ink); font-weight:600}
+.lane-sub{font-family:var(--font); font-size:10.5px; fill:var(--ink-2)}
+.lane-rule{stroke:var(--line-2); stroke-width:1}
+@media (max-width:760px){
+  header{padding:10px 12px 8px} header h1{font-size:15px}
+  main{flex-direction:column}
+  aside{flex:0 0 46%; max-width:none; border-left:0; border-top:1px solid var(--line)}
+  .legend{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title"></h1>
+  <p class="meta" id="meta"></p>
+  <div class="controls" id="controls"></div>
+</header>
+<main>
+  <div id="stage">
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Modality graph of the paper"></svg>
+    <div class="zoom"><button class="fit" id="fit">Fit</button><button id="zin">+</button><button id="zout">−</button></div>
+    <div class="legend">
+      <span><i></i>argument step</span><span><b style="background:var(--shown)"></b>figure shows it</span>
+      <span><i class="ev"></i>resolves the state</span><span><b style="background:var(--none)"></b>text only</span>
+      <span><i class="au"></i>audit (qualifies)</span><span><i class="de"></i>derived from</span>
+      <span style="grid-column:1/3">tag at node corner: necessary, corrective, redundant, decorative</span>
+    </div>
+  </div>
+  <aside id="panel" aria-live="polite"></aside>
+</main>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const svg = document.getElementById('svg'); const NS='http://www.w3.org/2000/svg';
+const byId = Object.fromEntries(D.nodes.map(n=>[n.id,n]));
+const el=(t,a={},p)=>{const e=document.createElementNS(NS,t); for(const k in a) e.setAttribute(k,a[k]); if(p) p.appendChild(e); return e;};
+document.getElementById('title').textContent = D.title;
+document.getElementById('meta').innerHTML = `${D.journal}, ${D.year}. <a href="${D.doi}" target="_blank" rel="noopener">${D.doi.replace('https://doi.org/','doi:')}</a>. ${D.nodes.filter(n=>n.kind==='state').length} argument states, ${D.n_fm} foundation-model lane${D.n_fm===1?'':'s'}, classical tools collapsed. Click any node for how it resolves the state and which model could do it.${D.figs_note?' '+D.figs_note:''}`;
+const STAGE_VAR={HYP:'--hyp',STR:'--str',MEC:'--mec',PRF:'--prf',DSC:'--dsc'};
+const LANE_VAR=D.lanes.map(l=>l.var);
+const root=el('g',{},svg), gBands=el('g',{},root), gEdges=el('g',{},root), gNodes=el('g',{},root);
+const defs=el('defs',{},svg);
+for (const [id,col] of [['arr','var(--spine)'],['arr-ev','var(--ev)'],['arr-au','var(--audit)'],['arr-hot','var(--focus)']]){
+  const m=el('marker',{id,viewBox:'0 0 10 10',refX:'9',refY:'5',markerWidth:'7',markerHeight:'7',orient:'auto-start-reverse'},defs);
+  el('path',{d:'M0,1 L9,5 L0,9 z',fill:col},m);
+}
+for (const b of D.bands){ el('rect',{class:'band',x:0,y:b.y0,width:D.W,height:b.y1-b.y0},gBands); const t=el('text',{class:'band-label',x:14,y:b.y0+20},gBands); t.textContent=b.label; }
+// lane headers
+{ const t=el('text',{class:'lane-label',x:D.state_x-170,y:22},gBands); t.textContent='Argument states'; const s=el('text',{class:'lane-sub',x:D.state_x-170,y:38},gBands); s.textContent=`the paper, collapsed to ${D.nodes.filter(n=>n.kind==='state').length} claims`; }
+for (const l of D.lanes){ const t=el('text',{class:'lane-label',x:l.x-140,y:22},gBands); t.textContent=l.label; const s=el('text',{class:'lane-sub',x:l.x-140,y:38},gBands); s.textContent=l.sub; el('line',{class:'lane-rule',x1:l.x-140,x2:l.x+140,y1:46,y2:46},gBands); }
+function pathD(pts){ if(pts.length===2) return `M${pts[0][0]},${pts[0][1]} L${pts[1][0]},${pts[1][1]}`; let d=`M${pts[0][0]},${pts[0][1]}`; const r=10;
+  for(let i=1;i<pts.length-1;i++){ const [px,py]=pts[i-1],[cx,cy]=pts[i],[nx,ny]=pts[i+1]; const dx1=Math.sign(cx-px),dy1=Math.sign(cy-py),dx2=Math.sign(nx-cx),dy2=Math.sign(ny-cy); const l1=Math.min(r,Math.hypot(cx-px,cy-py)/2),l2=Math.min(r,Math.hypot(nx-cx,ny-cy)/2); d+=` L${cx-dx1*l1},${cy-dy1*l1} Q${cx},${cy} ${cx+dx2*l2},${cy+dy2*l2}`; }
+  const L=pts[pts.length-1]; return d+` L${L[0]},${L[1]}`; }
+const edgeEls=[];
+for (const e of D.edges){ const marker=e.kind==='spine'?'arr':e.kind==='audit'?'arr-au':'arr-ev'; const p=el('path',{class:'edge '+e.kind,d:pathD(e.pts),'marker-end':`url(#${marker})`},gEdges); p.dataset.src=e.src; p.dataset.dst=e.dst; edgeEls.push(p); }
+function wrap(text,maxChars){ const words=text.split(' '); const lines=[]; let cur=''; for(const w of words){ if((cur+' '+w).trim().length>maxChars){lines.push(cur.trim()); cur=w;} else cur+=' '+w; } if(cur.trim()) lines.push(cur.trim()); return lines; }
+const nodeEls={};
+for (const n of D.nodes){
+  const isState=n.kind==='state';
+  const g=el('g',{class:'node'+(isState?' state':'')+(n.audit?' audit':''),transform:`translate(${n.x-n.w/2},${n.y-n.h/2})`,tabindex:'0',role:'button'},gNodes);
+  g.dataset.id=n.id; nodeEls[n.id]=g;
+  el('rect',{class:'body',width:n.w,height:n.h,rx:5},g);
+  const col=isState?`var(${STAGE_VAR[n.stage]})`:`var(${LANE_VAR[n.lane]})`;
+  el('rect',{x:0,y:0,width:5,height:n.h,rx:2,fill:col},g);
+  const kind=el('text',{class:'kind',x:12,y:12},g); kind.textContent=isState?n.title:n.title;
+  const maxc=isState?52:44; const lines=wrap(n.head,maxc).slice(0,5);
+  lines.forEach((ln,i)=>{ const t=el('text',{class:isState?'head':'',x:12,y:26+i*12.5},g); t.textContent=ln; });
+  if(!isState && n.solves && lines.length<5){ const s=el('text',{class:'solve',x:12,y:26+lines.length*12.5},g); s.textContent=wrap(n.solves,50)[0]; }
+  if(!isState){ const c={shown:'var(--shown)',partial:'var(--partial)',contradicts:'var(--audit)',qualifies:'var(--audit)'}[n.verdict]||'var(--none)'; el('circle',{cx:n.w-10,cy:9,r:4,fill:c},g); }
+  if(n.text_silent){ const f=el('text',{class:'flag',x:n.w-20,y:12,'text-anchor':'end'},g); f.textContent='text silent'; }
+  if(n.inner_audit){ const f=el('text',{class:'flag',x:n.w-20,y:12,'text-anchor':'end',fill:'var(--audit)','font-size':'10','font-weight':'600'},g); f.textContent='1 audit inside'; }
+  if(n.panel_check){ const ok=n.panel_check.status==='verified'; const f=el('text',{x:12,y:n.h-7,'font-size':'10','font-weight':'600',fill:ok?'var(--shown)':n.panel_check.status==='partial'?'var(--partial)':'var(--audit)'},g); f.textContent=ok?'panel verified':n.panel_check.status==='partial'?'panel partly verified':'panel unverified'; }
+  if(n.necessity){ const col={necessary:'var(--shown)',corrective:'var(--audit)',redundant:'var(--partial)',decorative:'var(--none)'}[n.necessity]||'var(--none)'; const f=el('text',{x:n.w-10,y:n.h-7,'text-anchor':'end','font-size':'10','font-weight':'600',fill:col},g); f.textContent=n.necessity; }
+  const title=el('title',{},g); title.textContent=n.head;
+  g.addEventListener('click',ev=>{ev.stopPropagation(); if(moved) return; select(n.id);});
+  g.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ev.preventDefault(); select(n.id);} });
+  g.addEventListener('mouseenter',()=>hot(n.id,true)); g.addEventListener('mouseleave',()=>hot(n.id,false));
+}
+// view
+let vb={x:0,y:0,w:D.W,h:D.H};
+function apply(){ svg.setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`); }
+function fit(){ const r=svg.getBoundingClientRect(); const s=Math.max(D.W/r.width,D.H/r.height); vb={x:-6,y:-6,w:r.width*s+12,h:r.height*s+12}; apply(); }
+function fitWidth(){ const r=svg.getBoundingClientRect(); const s=D.W/r.width; vb={x:-6,y:-6,w:D.W+12,h:r.height*s}; apply(); }
+function zoomAt(f,cx,cy){ const r=svg.getBoundingClientRect(); const px=vb.x+(cx-r.left)/r.width*vb.w,py=vb.y+(cy-r.top)/r.height*vb.h; vb.w*=f; vb.h*=f; vb.x=px-(cx-r.left)/r.width*vb.w; vb.y=py-(cy-r.top)/r.height*vb.h; apply(); }
+const stage=document.getElementById('stage');
+document.getElementById('fit').onclick=fit;
+document.getElementById('zin').onclick=()=>{const r=svg.getBoundingClientRect(); zoomAt(0.8,r.left+r.width/2,r.top+r.height/2);};
+document.getElementById('zout').onclick=()=>{const r=svg.getBoundingClientRect(); zoomAt(1.25,r.left+r.width/2,r.top+r.height/2);};
+stage.addEventListener('wheel',ev=>{ ev.preventDefault(); if(ev.ctrlKey||ev.metaKey){ zoomAt(ev.deltaY>0?1.1:0.9,ev.clientX,ev.clientY); } else { const r=svg.getBoundingClientRect(); vb.x+=ev.deltaX*vb.w/r.width; vb.y+=ev.deltaY*vb.h/r.height; apply(); } },{passive:false});
+let drag=null,pinch=null,moved=false; const pts=new Map();
+stage.addEventListener('pointerdown',ev=>{ if(ev.target.closest('.zoom')) return; pts.set(ev.pointerId,{x:ev.clientX,y:ev.clientY}); moved=false; if(pts.size===1){ drag={x:ev.clientX,y:ev.clientY,vx:vb.x,vy:vb.y}; } else if(pts.size===2){ const [a,b]=[...pts.values()]; pinch={d:Math.hypot(a.x-b.x,a.y-b.y),w:vb.w,h:vb.h,cx:(a.x+b.x)/2,cy:(a.y+b.y)/2}; drag=null; } });
+window.addEventListener('pointermove',ev=>{ if(!pts.has(ev.pointerId)) return; pts.set(ev.pointerId,{x:ev.clientX,y:ev.clientY}); const r=svg.getBoundingClientRect();
+  if(pinch&&pts.size===2){ const [a,b]=[...pts.values()]; const d=Math.hypot(a.x-b.x,a.y-b.y); const f=pinch.d/d; const px=vb.x+(pinch.cx-r.left)/r.width*vb.w,py=vb.y+(pinch.cy-r.top)/r.height*vb.h; vb.w=pinch.w*f; vb.h=pinch.h*f; vb.x=px-(pinch.cx-r.left)/r.width*vb.w; vb.y=py-(pinch.cy-r.top)/r.height*vb.h; apply(); moved=true; }
+  else if(drag){ if(Math.hypot(ev.clientX-drag.x,ev.clientY-drag.y)>4){ moved=true; stage.classList.add('dragging'); } if(moved){ vb.x=drag.vx-(ev.clientX-drag.x)*vb.w/r.width; vb.y=drag.vy-(ev.clientY-drag.y)*vb.h/r.height; apply(); } } });
+const up=ev=>{ pts.delete(ev.pointerId); if(pts.size<2) pinch=null; if(pts.size===0){ drag=null; stage.classList.remove('dragging'); } };
+window.addEventListener('pointerup',up); window.addEventListener('pointercancel',up);
+function hot(id,on){ nodeEls[id].classList.toggle('hot',on); for(const p of edgeEls){ if(p.dataset.src===id||p.dataset.dst===id) p.classList.toggle('hot',on); } }
+const filters={audits:false,fmOnly:false,fig:null};
+function applyFilters(){
+  for(const n of D.nodes){ const g=nodeEls[n.id]; let show=true,dim=false;
+    if(filters.fmOnly && n.kind==='classic') show=false;
+    if(filters.audits){ dim=!(n.audit||n.inner_audit||n.kind==='state'&&D.edges.some(e=>e.kind==='audit'&&e.dst===n.id)); }
+    if(filters.fig){ dim=dim||!(n.figs||[]).includes(filters.fig); }
+    g.style.display=show?'':'none'; g.classList.toggle('dim',dim); }
+  for(const p of edgeEls){ const s=byId[p.dataset.src],d=byId[p.dataset.dst]; const hidden=nodeEls[s.id].style.display==='none'||nodeEls[d.id].style.display==='none'; p.style.display=hidden?'none':''; p.classList.toggle('dim',nodeEls[s.id].classList.contains('dim')||nodeEls[d.id].classList.contains('dim')); }
+}
+const C=document.getElementById('controls'); const chips=[];
+function chip(label,cls,get,set){ const b=document.createElement('button'); b.className='chip'+(cls?' '+cls:''); b.textContent=label; b.setAttribute('aria-pressed',String(!!get())); b.onclick=()=>{ set(); for(const c of chips) c.setAttribute('aria-pressed',String(!!c._get())); applyFilters(); }; b._get=get; C.appendChild(b); chips.push(b); }
+chip('Audits','audit',()=>filters.audits,()=>{filters.audits=!filters.audits;});
+chip('FM lanes only','',()=>filters.fmOnly,()=>{filters.fmOnly=!filters.fmOnly;});
+const sep=document.createElement('span'); sep.className='sep'; C.appendChild(sep);
+for(const f of [...new Set(D.nodes.flatMap(n=>n.figs||[]))].sort()) chip('Fig '+f.slice(1),'',()=>filters.fig===f,()=>{filters.fig=filters.fig===f?null:f;});
+const panel=document.getElementById('panel'); let selected=null;
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+const REL={produces:'produces',causes:'causes',explains:'explains',supports:'supports',evidences:'is resolved by',qualifies:'is qualified by',derives:'is derived from'};
+function select(id){
+  if(selected) nodeEls[selected].classList.remove('selected'); selected=id; const n=byId[id]; nodeEls[id].classList.add('selected');
+  let h=`<button class="close" aria-label="Close" onclick="closePanel()">×</button>`;
+  const kicker = n.kind==='state' ? `Argument state · ${esc(n.id)} · from nodes ${esc(n.source)}` : `${n.kind==='classic'?'Classical tools':'Foundation-model lane'} · ${esc(n.id)} · from nodes ${esc(n.source)}`;
+  h+=`<p class="kicker">${kicker}</p><h2>${esc(n.head)}</h2>`;
+  if(n.kind==='state'){ h+=`<p>${esc(n.detail)}</p>`; }
+  else {
+    if(n.detail) h+=`<p>${esc(n.detail)}</p>`;
+    h+=`<dl>`;
+    if(n.tech) h+=`<dt>Technique</dt><dd>${esc(n.tech)}</dd>`;
+    if(n.panel) h+=`<dt>Figure</dt><dd>${esc(n.panel)}</dd>`;
+    if(n.op) h+=`<dt>Operation</dt><dd>${esc(n.op)}</dd>`;
+    if(n.solves) h+=`<dt>Resolves</dt><dd>${esc(n.solves)}</dd>`;
+    const vc={shown:'shown',partial:'partial',contradicts:'contradicts',qualifies:'qualifies'}[n.verdict]; const vcol=n.verdict==='shown'?'shown':n.verdict==='partial'?'partial':(n.verdict==='contradicts'||n.verdict==='qualifies')?'audit':'none';
+    h+=`<dt>Verdict</dt><dd><span class="sup" style="background:var(--${vcol})"></span>${esc(n.verdict)}</dd></dl>`;
+    if(n.text_silent) h+=`<div class="note audit"><b>Text silent.</b> The paper's text never states this. The figure does.</div>`;
+    if(n.inner_audit) h+=`<div class="note audit"><b>Audit inside.</b> ${esc(n.inner_audit)}</div>`;
+    if(n.note) h+=`<div class="note">${esc(n.note)}</div>`;
+    if(n.fm) h+=`<div class="note fm"><b>Model.</b> ${esc(n.fm)}</div>`;
+    if(n.necessity) h+=`<div class="note"><b>Necessity: ${esc(n.necessity)}.</b> ${esc(n.necessity_reason||'')}</div>`;
+    if(n.panel_ids&&n.panel_ids.length){ h+=`<h3>Panels cited</h3><ul>${n.panel_ids.map(p=>'<li>'+esc(p)+'</li>').join('')}</ul>`; }
+    if(n.panel_check){ const c=n.panel_check; const row=(k,v)=>`<dt>${k}</dt><dd>${v===true?'yes':v===false?'no':esc(v||'not run')}</dd>`;
+      h+=`<h3>Panel verification: ${esc(c.status||'unverified')}</h3><dl>${row('Store id exists',c.id_exists)}${row('Match tier',c.tier)}${row('OCR letter agrees',c.ocr_agrees)}${row('Modality votes agree',c.modality_agrees)}${row('Judge opened crop',c.judge_opened)}${row('Human check',c.human)}</dl>`; }
+  }
+  for(const f of (n.figs||[])){ const F=D.figs[f]; if(F) h+=`<figure><img src="${F.src}" alt="${esc(f)}"><figcaption>${esc(F.caption)}</figcaption></figure>`; }
+  const outs=D.edges.filter(e=>e.src===id), ins=D.edges.filter(e=>e.dst===id);
+  const line=(e,o)=>`<li>${esc(REL[e.rel]||e.rel)} <button onclick="select('${o}')">${esc(byId[o].title)}</button></li>`;
+  if(ins.length) h+=`<h3>This node</h3><ul>${ins.map(e=>line(e,e.src)).join('')}</ul>`;
+  if(outs.length) h+=`<h3>It leads to</h3><ul>${outs.map(e=>line(e,e.dst)).join('')}</ul>`;
+  panel.innerHTML=h; panel.classList.add('open');
+}
+function closePanel(){ panel.classList.remove('open'); if(selected){ nodeEls[selected].classList.remove('selected'); selected=null; } }
+applyFilters();
+function initial(){ const r=svg.getBoundingClientRect(); if(r.width<700){ const w=780; vb={x:D.state_x-w/2+120,y:-6,w:w,h:r.height*w/r.width}; apply(); } else fitWidth(); }
+requestAnimationFrame(initial);
+</script>
+</body>
+</html>

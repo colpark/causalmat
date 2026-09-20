@@ -1,0 +1,326 @@
+{
+ "file": "nico_modality_graph.html",
+ "short": "Ni-Co hydroxide nanocages",
+ "journal": "Advanced Energy Materials",
+ "year": 2015,
+ "title": "Efficient Electrocatalytic Water Oxidation by Using Amorphous Ni-Co Double Hydroxides Nanocages",
+ "doi": "https://doi.org/10.1002/aenm.201401880",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM, TEM",
+   "sub": "foundation model in hand or candidate"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistics: DFT to universal MLIP",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "The Ni/Co ratio in amorphous Ni-Co hydroxide sets surface O* reactivity and thereby OER activity.",
+   "detail": "Need: an efficient, stable, earth-abundant OER catalyst in alkaline media. Gap: why activity varies with metal ratio across double hydroxides is unexplained. Design: seven compositions from Ni(OH)2 to Co(OH)2, hollow nanocages templated on Cu2O by Na2S2O3 etching, and solid ~10 nm particles as the architecture control. Figure 1 is the synthesis schematic.",
+   "figs": [
+    "F1"
+   ],
+   "source": "h1, h2, h3, d1, d2, d3, p1"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Hollow ~80 nm cages with a ~15 nm rough amorphous shell, composition NiCo2.7(OH)x, both metals divalent.",
+   "detail": "Three claims sit here: cage morphology (s1), amorphous state (s2), composition and valence (s3). Microscopy resolves the first. SAED, EDS, XPS and EXAFS resolve the second and third.",
+   "figs": [],
+   "source": "s1, s2, s3"
+  },
+  {
+   "id": "S2",
+   "stage": "MEC",
+   "title": "Reactivity state and mechanism",
+   "head": "O* binding energy is non-monotonic in Co content and peaks near 67% Co. O* adsorption is rate-determining, so composition acts through reactivity.",
+   "detail": "The computed descriptor (r1) and the paper's mechanism (m1). Premises: O* binding reported as the OER rate-determining step in earlier work (k3), with the Sabatier caveat that stronger binding can impede O-O bond making (k4). Figure 5 draws composition to reactivity to activity and labels the last link 'deduction'.",
+   "figs": [
+    "F5"
+   ],
+   "source": "r1, m1, k3, k4"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Activity and performance state",
+   "head": "OER activity is a volcano in Co content peaking at 73% Co. eta10 = 0.35 V and 10 h stability at 10 mA cm-2 through the 4e- path.",
+   "detail": "Property r2, performance f1 and f2, and the architecture claim m2 that cages add activity beyond composition (hollow eta10 0.36 V against solid 0.39 V, text only).",
+   "figs": [],
+   "source": "r2, f1, f2, m2, o21"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Amorphous NiCo2.7(OH)x cages are efficient and stable because the Ni/Co ratio maximizes O* binding.",
+   "detail": "Supported by f1, f2 and m1. The comparison node x1 places the catalyst beside reported transition-metal catalysts, with NiFe-GO LDH still better at eta10 = 0.21 V.",
+   "figs": [],
+   "source": "c1, x1"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "SEM, Figure 2a",
+   "tech": "SEM",
+   "figs": [
+    "F2"
+   ],
+   "panel": "F2a",
+   "head": "Measures cage size and surface texture: rough spheroids 50 to 105 nm, mostly 70 to 85 nm.",
+   "solves": "Size and roughness in the structure state.",
+   "op": "measure feature metric",
+   "verdict": "shown",
+   "fm": "BNL SEM foundation model (ViT-L masked autoencoder with mixture of experts, 125k images). Needs a task head for size distribution and texture.",
+   "source": "o1",
+   "necessity": "necessary",
+   "necessity_reason": "Only figure evidence for cage size and roughness, but the structure state is off the path to the conclusion. The composition line never touches morphology."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 1,
+   "title": "TEM, Figure 2b, c",
+   "tech": "TEM",
+   "figs": [
+    "F2"
+   ],
+   "panel": "F2b, F2c",
+   "head": "Shows the shells are hollow: dark 12 to 15 nm rim around a light core, a ~40 nm cavity in a 70 nm cage.",
+   "solves": "Hollowness in the structure state, which SEM cannot see.",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "fm": "Candidates: EM-DINO (EM-5M), the EMCF corpus, SAM based zero-shot segmentation. Control arm: DINOv2 or DINOv3 with a linear probe.",
+   "note": "Outlines are rounded or ovoid rather than the faceted rhombus drawn in Figure 1.",
+   "source": "o1",
+   "necessity": "necessary",
+   "necessity_reason": "Only evidence for hollowness. Feeds the architecture branch alone, whose hollow-versus-solid data are text only."
+  },
+  {
+   "id": "M3",
+   "lane": 0,
+   "row": "S1",
+   "line": 2,
+   "audit": true,
+   "title": "TEM audit, Figure 2b",
+   "tech": "TEM",
+   "figs": [
+    "F2"
+   ],
+   "panel": "F2b",
+   "head": "The field shows flaky sheet debris and dark collapsed particles between cages. The text says the product is exclusively high-quality nanocages.",
+   "solves": "Qualifies the structure state. The figure contradicts the text.",
+   "op": "assess spatial distribution",
+   "verdict": "contradicts",
+   "text_silent": true,
+   "fm": "Same candidates as TEM. A debris-present classifier on the embedding is the cleanest test item in this paper.",
+   "source": "o2",
+   "necessity": "corrective",
+   "necessity_reason": "Dormant. Activity is per geometric area with no ECSA, so debris could change the intrinsic-activity claim. The paper never makes that link."
+  },
+  {
+   "id": "M4",
+   "lane": 0,
+   "row": "S3",
+   "line": 0,
+   "textonly": true,
+   "title": "TEM after 10 h (text only)",
+   "tech": "TEM",
+   "figs": [],
+   "panel": null,
+   "head": "The paper says the cages keep shape, size and amorphous state after 10 h. The image sits in the supplement, outside the packet.",
+   "solves": "Stability in the activity state, as a text claim only.",
+   "op": null,
+   "verdict": "text only",
+   "fm": "Becomes a TEM item once the supplementary image is pulled in.",
+   "source": "o20",
+   "necessity": "decorative",
+   "necessity_reason": "Text only. Stability stands on the CA and CP curves."
+  },
+  {
+   "id": "A1",
+   "lane": 1,
+   "row": "S2",
+   "line": 0,
+   "title": "DFT, Figure 4a, b",
+   "tech": "DFT",
+   "figs": [
+    "F4"
+   ],
+   "panel": "F4a, F4b",
+   "head": "A NixCo(3-x)O6H6 cluster with an O* adsorbate. O* binding at 0, 33, 67, 100% Co: 4.21, 4.87, 6.17, 5.09 eV.",
+   "solves": "The descriptor in the reactivity state.",
+   "op": "read trend",
+   "verdict": "shown",
+   "fm": "A universal MLIP (UMA, MACE-MPA-0, MatterSim, Orb-v3) can re-relax the clusters and add the missing 50, 85 and 90% points, with a DFT single point as the check. A radical O* on a charged hydroxide cluster sits at the edge of their training data.",
+   "source": "k2, o22",
+   "necessity": "necessary",
+   "necessity_reason": "Only support for the reactivity state, and the conclusion's 'because' clause cannot be stated without it."
+  },
+  {
+   "id": "A2",
+   "lane": 1,
+   "row": "S2",
+   "line": 1,
+   "audit": true,
+   "title": "Bridge audit, Figure 3b x Figure 4b",
+   "tech": "DFT + Electrochem",
+   "figs": [
+    "F3",
+    "F4"
+   ],
+   "panel": "F3b, F4b",
+   "head": "The reactivity to activity link rests on a rank match over four shared compositions. DFT peaks at 67% Co, the measurement at 73%, and 50, 85, 90% have no DFT counterpart.",
+   "solves": "Qualifies the mechanism. A four-point rank match cannot separate a monotonic from a volcano relation.",
+   "op": "correlate across series",
+   "verdict": "qualifies",
+   "text_silent": true,
+   "fm": "Filling the DFT gap with a universal MLIP turns this audit into a counterfactual item: does the completed computed curve still rank the measured one?",
+   "source": "o23, o11, o22",
+   "necessity": "corrective",
+   "necessity_reason": "Shows the necessary DFT link is a four-point rank match, so it is necessary but not sufficient."
+  },
+  {
+   "id": "C1",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "Classical, Figure 2c to h",
+   "tech": "SAED, EDS, XPS, EXAFS",
+   "figs": [
+    "F2"
+   ],
+   "panel": "F2c inset, F2d, F2e, F2f to h",
+   "head": "SAED: diffuse halo, no rings. EDS: Co 10.84, Ni 3.99 at% (1:2.72). XPS: 2p splittings 17.6 and 16.1 eV with satellites. EXAFS: N about 5, text only.",
+   "detail": "SAED on the cages shows a diffuse halo and no Bragg rings, so the shells are amorphous. The EDS table gives Co 10.84 and Ni 3.99 at%, a 1:2.72 ratio, and the line scan shows Co and Ni rising at both walls with Co about twice Ni. XPS puts Ni 2p3/2 at 856.1 eV and Co 2p3/2 at 781.3 eV, with 17.6 and 16.1 eV splittings and strong satellites, so both metals are divalent. EXAFS coordination numbers near 5 against 6 in crystalline references appear only in the text.",
+   "solves": "Phase, composition and valence in the structure state.",
+   "op": "recognize signature, convert to quantity, assign features",
+   "verdict": "shown",
+   "inner_audit": "The EDS spectrum's tallest peak is Cu with S beside it. The formula names only Ni and Co, and the at% table omits Cu, S, O and C.",
+   "fm": "No foundation model. Line-library lookup, NMF unmixing and reference splittings do this exactly.",
+   "source": "o3, o4, o5, o6, o7, o8, o9, k1",
+   "necessity": "necessary",
+   "necessity_reason": "Composition and valence carry the whole composition line."
+  },
+  {
+   "id": "C2",
+   "lane": 2,
+   "row": "S3",
+   "line": 1,
+   "title": "Electrochemistry, Figure 3",
+   "tech": "LSV, Tafel, CA, CP, RRDE",
+   "figs": [
+    "F3"
+   ],
+   "panel": "F3a to F3f",
+   "head": "LSV: volcano in j at 1.60 V, 17.8 mA cm-2 at 73% Co. Tafel 65 mV/dec. eta10 0.35 V at 1.58 V. 10 h CA and CP. RRDE: FE 0.98 to 0.99, ~2% peroxide.",
+   "detail": "The LSV curves and the current density at 1.60 V give the volcano in Co content, 17.8 mA cm-2 at 73% Co. Tafel slopes fall from 182 to 65 mV/dec at 73% Co. The NiCo2.7 curve crosses 10 mA cm-2 near 1.58 V, so eta10 is 0.35 V. Chronoamperometry and chronopotentiometry hold for 10 h with a slight improvement. The rotating ring-disk data give an O2 Faradaic efficiency of 0.98 to 0.99 with about 2% peroxide, which closes the charge balance for the 4e- path.",
+   "solves": "The activity and performance state.",
+   "op": "read trend, fit model, read characteristic point, compare coplotted quantities",
+   "verdict": "shown",
+   "inner_audit": "The stated 1.48 V onset is not resolvable on Figure 3a's 0 to 20 mA cm-2 axis. The curves leave the baseline gradually between 1.47 and 1.52 V.",
+   "fm": "No foundation model for polarization curves. Tafel fits, characteristic points and the ring-disk charge balance are classical and verifiable.",
+   "source": "o10 to o19",
+   "necessity": "necessary",
+   "necessity_reason": "All headline numbers live here."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "explains"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ],
+  [
+   "M1",
+   "S1",
+   "evidences"
+  ],
+  [
+   "M2",
+   "S1",
+   "evidences"
+  ],
+  [
+   "M3",
+   "S1",
+   "qualifies"
+  ],
+  [
+   "M4",
+   "S3",
+   "evidences"
+  ],
+  [
+   "A1",
+   "S2",
+   "evidences"
+  ],
+  [
+   "A2",
+   "S2",
+   "qualifies"
+  ],
+  [
+   "A1",
+   "A2",
+   "derives"
+  ],
+  [
+   "C2",
+   "A2",
+   "derives"
+  ],
+  [
+   "C1",
+   "S1",
+   "evidences"
+  ],
+  [
+   "C2",
+   "S3",
+   "evidences"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}

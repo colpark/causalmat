@@ -91,7 +91,8 @@
    "type": "PRC/deposition",
    "label": "Physical vapour deposition of a 475 nm Au film on fused silica",
    "attrs": {
-    "technique": "PVD"
+    "technique": "PVD",
+    "technique_norm": "PROCESS"
    },
    "figs": [],
    "panel_ids": [],
@@ -390,7 +391,8 @@
       "condition": "cross-sectional SEM of a sample prepared under similar conditions",
       "source": "caption"
      }
-    ]
+    ],
+    "technique_norm": "SEM:crosssection"
    },
    "figs": [
     "F1"
@@ -411,7 +413,8 @@
    "label": "Plan-view SEM of the FIB-isolated island: a dense polycrystal of a few hundred grains, most between roughly 0.5 and 3 um across",
    "attrs": {
     "technique": "SEM BSE",
-    "image_note": "counted against the 5 um scale bar in the panel (OCR cue); the text's figure of about 450 grains and a 0.3 um lower bound cannot be checked at this magnification"
+    "image_note": "counted against the 5 um scale bar in the panel (OCR cue); the text's figure of about 450 grains and a 0.3 um lower bound cannot be checked at this magnification",
+    "technique_norm": "SEM:BSE"
    },
    "figs": [
     "F1"
@@ -431,7 +434,8 @@
    "type": "OBS/morphology/distribution",
    "label": "EBSD orientation map: almost every grain is blue (<111> out of plane), with a handful of red <100> grains scattered through the island",
    "attrs": {
-    "technique": "EBSD"
+    "technique": "EBSD",
+    "technique_norm": "EBSD"
    },
    "figs": [
     "F1"
@@ -452,7 +456,8 @@
    "label": "The {111} pole figure resolves individual grain maxima; one isolated, non-overlapped maximum (circled) is available for the CXD measurement",
    "attrs": {
     "technique": "high-resolution XRD pole figure",
-    "image_note": "the map is dense and many maxima do overlap; the circled one sits in a relatively empty patch near (13.1, -0.42) deg"
+    "image_note": "the map is dense and many maxima do overlap; the circled one sits in a relatively empty patch near (13.1, -0.42) deg",
+    "technique_norm": "XRD:poleFigure"
    },
    "figs": [
     "F1"
@@ -479,6 +484,13 @@
       "condition": "(a-c) theoretical pattern from the exact grain shape without strain; (d-f) experimental pattern, Ta = 35 C",
       "source": "caption"
      }
+    ],
+    "technique_norm": [
+     "XRD:CXD",
+     "ATOM:FEM"
+    ],
+    "technique_flags": [
+     "multi_technique"
     ]
    },
    "figs": [
@@ -505,7 +517,8 @@
    "label": "Out-of-plane strain rises with temperature and returns on a lower branch: the grain starts at -0.05% near 35 C and comes back to about -0.17% at 50 C",
    "attrs": {
     "technique": "CXD peak centre of mass",
-    "image_note": "read from the green (synchrotron cycle 1) curve; the blue second cycle closes at about -0.18% at 50 C"
+    "image_note": "read from the green (synchrotron cycle 1) curve; the blue second cycle closes at about -0.18% at 50 C",
+    "technique_norm": "XRD:CXD"
    },
    "figs": [
     "F4"
@@ -525,7 +538,14 @@
    "type": "OBS/signal/reference_match",
    "label": "None of the measured branches follows the ideal thermo-elastic line, which is about three times steeper than every measured cycle",
    "attrs": {
-    "technique": "CXD vs thermo-elastic calculation"
+    "technique": "CXD vs thermo-elastic calculation",
+    "technique_norm": [
+     "XRD:CXD",
+     "ATOM:FEM"
+    ],
+    "technique_flags": [
+     "multi_technique"
+    ]
    },
    "figs": [
     "F4"
@@ -551,7 +571,8 @@
       "condition": "red = laboratory source, many (111) grains; green = single-grain cycle 1; blue = single-grain cycle 2",
       "source": "caption"
      }
-    ]
+    ],
+    "technique_norm": "XRD:CXD"
    },
    "figs": [
     "F4"
@@ -572,7 +593,8 @@
    "label": "The qx peak width grows monotonically from 1.35e-3 to 4.9e-3 A^-1 between 35 and 265 C",
    "attrs": {
     "technique": "CXD peak width",
-    "quantity": "dqx"
+    "quantity": "dqx",
+    "technique_norm": "XRD:CXD"
    },
    "figs": [
     "F4"
@@ -593,7 +615,8 @@
    "label": "On cooling the qx width stays above the heating branch at every temperature and returns only to 1.95e-3 A^-1, 45% above the 1.35e-3 starting value",
    "attrs": {
     "technique": "CXD peak width",
-    "image_note": "the two branches only merge above about 230 C; the residual offset at 50 C is the part of the broadening that does not recover"
+    "image_note": "the two branches only merge above about 230 C; the residual offset at 50 C is the part of the broadening that does not recover",
+    "technique_norm": "XRD:CXD"
    },
    "figs": [
     "F4"
@@ -614,7 +637,8 @@
    "label": "The size-only broadening of the grain is 6.61e-4 A^-1, two to seven times smaller than the measured qx widths",
    "attrs": {
     "technique": "Scherrer estimate",
-    "image_note": "value read from the annotation printed inside panel (b); the comparison uses the measured dqx values of the same panel"
+    "image_note": "value read from the annotation printed inside panel (b); the comparison uses the measured dqx values of the same panel",
+    "technique_norm": "DERIVED"
    },
    "figs": [
     "F4"
@@ -641,7 +665,8 @@
       "condition": "Tu = 50, 140, 240 C on heating (a-c); Td = 140, 50 C on cooling (d, e)",
       "source": "image"
      }
-    ]
+    ],
+    "technique_norm": "XRD:CXD"
    },
    "figs": [
     "F6"
@@ -665,7 +690,8 @@
    "type": "OBS/morphology/distribution",
    "label": "EBSD map of the neighbourhood: g4 and g2 sit above and g5 below g1 along Y, while g6 and g3 flank it along X",
    "attrs": {
-    "technique": "EBSD in-plane orientation map"
+    "technique": "EBSD in-plane orientation map",
+    "technique_norm": "EBSD"
    },
    "figs": [
     "F7"
@@ -686,7 +712,8 @@
    "label": "Projected <110> in-plane directions: g1, g5, g4 and g2 fall within about 10 deg of each other, g6 lies some 15-20 deg and g3 some 25-30 deg away",
    "attrs": {
     "technique": "EBSD, <110> projection",
-    "image_note": "angles measured off the drawn arrows of the panel; the paper tabulates the exact misorientations in Table 2, which is not in the packet"
+    "image_note": "angles measured off the drawn arrows of the panel; the paper tabulates the exact misorientations in Table 2, which is not in the packet",
+    "technique_norm": "EBSD:step"
    },
    "figs": [
     "F7"
@@ -707,7 +734,8 @@
    "label": "In BSE the g1-g6 and g1-g3 boundaries are irregular and wavy while the g1-g2, g1-g4 and g1-g5 boundaries run comparatively straight",
    "attrs": {
     "technique": "SEM BSE",
-    "image_note": "the claimed grooving is not resolved at this magnification; what the image shows is boundary irregularity, and the g1-g6 boundary is additionally drawn twice (yellow dotted and orange dashed)"
+    "image_note": "the claimed grooving is not resolved at this magnification; what the image shows is boundary irregularity, and the g1-g6 boundary is additionally drawn twice (yellow dotted and orange dashed)",
+    "technique_norm": "SEM:BSE"
    },
    "figs": [
     "F7"
@@ -729,7 +757,8 @@
    "attrs": {
     "technique": "biaxial-modulus conversion",
     "text_silent": true,
-    "image_note": "the quoted 250 MPa corresponds to eps = -0.11%, but the cycles close at -0.167% (green) and -0.183% (blue) at 50 C in panel (a)"
+    "image_note": "the quoted 250 MPa corresponds to eps = -0.11%, but the cycles close at -0.167% (green) and -0.183% (blue) at 50 C in panel (a)",
+    "technique_norm": "MECH"
    },
    "figs": [
     "F4"

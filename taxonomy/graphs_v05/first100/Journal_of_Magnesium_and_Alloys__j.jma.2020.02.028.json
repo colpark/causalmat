@@ -5,122 +5,1168 @@
  "batch": "v05_first100",
  "rank": 6,
  "nodes": [
-  {"id": "n1", "type": "HYP/need", "label": "Wrought Mg alloys trade strength against ductility; AZ61 needs both without rare-earth additions", "attrs": {"inferred": true}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n2", "type": "HYP/hypothesis", "label": "Storing dislocations by low-strain ECAP and then recrystallising them statically with a short electropulse should give ultrafine equiaxed grains with strength and ductility together", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n3", "type": "DES/base_system", "label": "Commercial hot-extruded AZ61 (Mg-6Al-1Zn) plate, billets 10 x 10 x 70 mm", "attrs": {"material": "AZ61"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n4", "type": "DES/route", "label": "ECAP through a shallow die, intersection angle 160 deg and outer curvature 20 deg, route Bc at 4 mm/s", "attrs": {"technique": "ECAP", "purpose": "low strain per pass so dislocations accumulate without recrystallising"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n5", "type": "DES/variable_sweep", "label": "ECAP at 373, 423 and 473 K for 2-8 passes; electropulsing at 25-50 us pulse duration for 5-20 min", "attrs": {"variables": "ECAP temperature and passes, EPT pulse duration and time", "levels": "373/423/473 K, 2-8 passes; 25/30/40/50 us, 5/7/8/10/20 min"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n6", "type": "PRC/treatment", "label": "Homogenise the billets at 623 K for 4 h before pressing", "attrs": {"conditions": "623 K, 4 h"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n7a", "type": "PRC/treatment", "label": "Screening ECAP: 2-5 passes at each of 373, 423 and 473 K", "attrs": {"aspect": "screening trials"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n11", "type": "STR/microstructure/shape", "label": "Single-temperature ECAP gives either an underdeformed billet that fractures by the fifth pass at 373 K or a dynamically recrystallised structure at 423-473 K", "attrs": {"basis": "evidenced"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n10", "type": "MEC/pathway", "label": "The ECAP temperature sets a balance: too low and the billet cannot take the strain, too high and dynamic recrystallisation consumes the stored energy", "attrs": {"mechanism_class": "strain accumulation versus dynamic recrystallisation", "basis": "argued"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n9", "type": "DES/down_select", "label": "Adopt variable-temperature ECAP: 8 passes at 423 K followed by 3 passes at 373 K", "attrs": {"basis_of_choice": "accumulate strain warm, then add strain cold without triggering recrystallisation"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n7", "type": "PRC/treatment", "label": "Variable-temperature ECAP: 8 passes at 423 K then 3 passes at 373 K", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n12", "type": "STR/microstructure/shape", "label": "After variable-temperature ECAP the grains are refined but elongated and not equiaxed, so dynamic recrystallisation is incomplete", "attrs": {"basis": "evidenced"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n13", "type": "STR/defect/extended", "label": "The incomplete recrystallisation leaves a high stored dislocation density", "attrs": {"basis": "argued"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n8", "type": "PRC/treatment", "label": "Electropulsing treatment at 25 us pulse duration for 10 min", "attrs": {"technique": "electropulsing", "conditions": "25 us, 10 min"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n14", "type": "STR/microstructure/feature_size", "label": "The pulse completes static recrystallisation at an average grain size near 1 um, from 89 um in the starting plate", "attrs": {"direction": "refine", "basis": "evidenced"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n15", "type": "STR/microstructure/orientation", "label": "The recrystallised structure has a weak basal texture, maximum 3.85 mrd, and a boundary population dominated by high-angle boundaries", "attrs": {"basis": "evidenced"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n16", "type": "PRP/value", "label": "Yield strength 330 MPa and tensile strength 448 MPa, against 100 and 260 MPa as received", "attrs": {"property_family": "mechanical", "quantity": "YS and UTS", "direction": "increase"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n17", "type": "PRP/value", "label": "Elongation to failure reaches 15%, against 7% for the 4-pass 373 K ECAP state", "attrs": {"property_family": "mechanical", "quantity": "tensile elongation to failure", "direction": "increase"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n18", "type": "MEC/tradeoff", "label": "The pulse erases the dislocation strengthening, but the further grain refinement and texture weakening more than repay it, so strength and ductility rise together", "attrs": {"mechanism_class": "recovery and static recrystallisation against grain-boundary strengthening", "basis": "argued"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-  {"id": "n21", "type": "DSC/conclusion", "label": "Variable-temperature 160 deg ECAP followed by a short electropulse gives AZ61 an ultrafine grain size with 330 MPa YS, 448 MPa UTS and 15% elongation", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": true, "fit": "good", "proposed": false},
-
-  {"id": "n19", "type": "MEC/pathway", "label": "The yield stress is the sum of grain-boundary, precipitation and dislocation strengthening contributions", "attrs": {"mechanism_class": "additive strengthening", "basis": "argued"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "n20", "type": "DSC/comparison", "label": "The strength-ductility combination sits above every literature AZ61 processed by conventional deformation or other severe plastic deformation routes", "attrs": {"against": "prior_work", "verdict": "better"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "n22", "type": "DSC/limitation", "label": "The sub-2 um grain claims rest on optical micrographs that cannot resolve grains of that size; only the SEM and EBSD panels do", "attrs": {"kind": "method"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "n23", "type": "DSC/limitation", "label": "The panel credited with uniform ultrafine equiaxed grains shows a fine but clearly elongated lath structure, closer to the deformed panel of the same figure", "attrs": {"kind": "anomaly"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "n24", "type": "DSC/limitation", "label": "The texture is called weakened although no as-received or as-ECAPed pole figure is shown as a baseline", "attrs": {"kind": "method"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "n25", "type": "STR/microstructure/feature_size", "label": "The starting plate has abnormally coarse grains averaging 89 um, with a necklace of fine grains that homogenisation absorbs", "attrs": {"basis": "evidenced"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "n26", "type": "STR/microstructure/distribution", "label": "Fine bright second-phase particles, taken as Mg17Al12, decorate the boundaries and grain interiors after electropulsing", "attrs": {"basis": "attributed", "constituent": "Mg17Al12"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "n27", "type": "PRP/value", "label": "Electropulsing removes the tangled dislocations, so the dislocation-strengthening share of the yield stress falls relative to the as-ECAPed state", "attrs": {"property_family": "mechanical", "quantity": "dislocation strengthening contribution", "direction": "decrease", "basis": "argued"}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-
-  {"id": "o1", "type": "OBS/morphology/feature_metric", "label": "As-extruded grains are tens of micrometres across with a necklace of much finer grains on their boundaries; after homogenisation the necklace is gone and the grains are coarser and heavily twinned", "attrs": {"panel_conditions": [{"condition": "before (as hot extruded) / after homogenization", "source": "caption"}], "image_note": "sized against the 50 um bars in both panels; the largest grains fill much of the field, consistent with but not resolving the quoted 89 um average"}, "figs": ["F2"], "modality": "micrograph", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F2a", "10.1016/j.jma.2020.02.028#F2b"]},
-  {"id": "o2", "type": "OBS/morphology/appearance", "label": "At 423 K slip and twin bands thicken from 2 to 4 passes and by 5 passes dark fine-grained recrystallised patches occupy much of the field", "attrs": {"panel_conditions": [{"condition": "2 passes / 3 passes / 4 passes / 5 passes", "source": "caption"}], "image_note": "all four panels carry 50 um bars; at 5 passes the recrystallised patches cover roughly half the field, not 'most of the areas' as the text says, and the 373 K and 473 K series were not opened"}, "figs": ["F4"], "modality": "micrograph", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F4a", "10.1016/j.jma.2020.02.028#F4b", "10.1016/j.jma.2020.02.028#F4c", "10.1016/j.jma.2020.02.028#F4d"]},
-  {"id": "o3", "type": "OBS/morphology/appearance", "label": "After 8 passes at 423 K the etched structure is fine and directional, and after 3 further passes at 373 K it is finer still and remains directional", "attrs": {"panel_conditions": [{"condition": "after 8-pass at 423 K / then 3-pass ECAP at 373 K", "source": "caption"}], "image_note": "both panels carry 10 um bars (OCR cue); at that optical magnification the individual grains are not resolved and only the overall etch texture can be judged"}, "figs": ["F6"], "modality": "micrograph", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F6a", "10.1016/j.jma.2020.02.028#F6b"]},
-  {"id": "o4", "type": "OBS/morphology/feature_metric", "label": "Across the pulse series the structure goes from deformed laths at 30 us-5 min to equiaxed grains of about 2 um at 7 min and 3 um at 10 min, while 25 us-10 min gives features of about 0.5-1 um", "attrs": {"panel_conditions": [{"condition": "30 us-5 min / 30 us-7 min / 30 us-10 min / 25 us-10 min sample", "source": "caption"}], "image_note": "all four SEM panels carry 2 um bars (OCR cue); sizes measured against them"}, "figs": ["F10"], "modality": "micrograph", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F10a", "10.1016/j.jma.2020.02.028#F10b", "10.1016/j.jma.2020.02.028#F10c", "10.1016/j.jma.2020.02.028#F10d"]},
-  {"id": "o5", "type": "OBS/morphology/appearance", "label": "The 25 us-10 min panel shows fine elongated lath-like features aligned in one direction, much like the deformed 30 us-5 min panel and unlike the equiaxed panels between them", "attrs": {"image_note": "audit node: the figure shows the discrepancy with the text, which reads this panel as uniform ultrafine equiaxed grains of about 1 um"}, "figs": ["F10"], "modality": "micrograph", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F10a", "10.1016/j.jma.2020.02.028#F10d"]},
-  {"id": "o6", "type": "OBS/morphology/distribution", "label": "Bright sub-micron particles are scattered over boundaries and grain interiors in every panel of the pulse series", "attrs": {"image_note": "the particles are well under the 2 um bar and no composition measurement accompanies them, so the Mg17Al12 identification is not made in this figure"}, "figs": ["F10"], "modality": "micrograph", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F10c", "10.1016/j.jma.2020.02.028#F10d"]},
-  {"id": "o7", "type": "OBS/morphology/feature_metric", "label": "The orientation maps give densely packed equiaxed grains of about 1-2 um for the 25 us sample and about 3-5 um for the 30 us sample", "attrs": {"panel_conditions": [{"condition": "25 us-10 min sample / 30 us-10 min sample", "source": "caption"}], "image_note": "sized against the 5 um bars on the two maps; colours are random-orientation IPF colours, so grain identity is read from colour boundaries"}, "figs": ["F11"], "modality": "spatial_map", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F11a", "10.1016/j.jma.2020.02.028#F11c"]},
-  {"id": "o8", "type": "OBS/response/characteristic_value", "label": "The (0001) pole figures give maxima of 3.85 mrd for the 25 us sample and 4.57 mrd for the 30 us sample, with the density concentrated off-centre toward TD", "attrs": {"image_note": "maxima are printed under each pole figure; the OCR cue line mistakes the 4.57 mrd maximum for a 4.57 um scale bar. No as-received or as-ECAPed pole figure is shown, so there is no baseline for a weakening claim"}, "figs": ["F11"], "modality": "orientation_distribution", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F11a", "10.1016/j.jma.2020.02.028#F11c"]},
-  {"id": "o9", "type": "OBS/response/distribution", "label": "Both misorientation histograms carry a tall spike below about 3 deg plus a broad band peaking near 30 deg, which spreads out toward 90 deg for the longer pulse", "attrs": {"image_note": "judge retype: a misorientation-angle histogram is the spread of a non-imaged quantity over the boundary ensemble, not a metric of imaged features, so this is OBS/response/distribution read by read_distribution_statistics. The sub-3 deg spike is the tallest bin in both panels (0.155 and 0.068 frequency), which the quoted 20% low-angle fraction does not obviously reflect; the panel prints no cumulative fractions"}, "figs": ["F11"], "modality": "xy_curve", "provenance": "measured", "image_support": "partial", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F11b", "10.1016/j.jma.2020.02.028#F11d"]},
-  {"id": "o10", "type": "OBS/response/characteristic_value", "label": "The variable-temperature plus 25 us-10 min curve yields near 330 MPa, peaks at about 448 MPa and fails at true strain 0.148, above the two other pulsed states", "attrs": {"image_note": "read against the panel's stress and true-strain axes; the other two curves peak at about 370 MPa (strain 0.17) and 357 MPa (strain 0.195) from lower yield points"}, "figs": ["F13"], "modality": "xy_curve", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F13"]},
-  {"id": "o11", "type": "OBS/response/trend", "label": "On the UTS versus YS plane the three points of this work sit above and to the right of every literature point for AZ61", "attrs": {"image_note": "the best point reads about 335 MPa YS and 448 MPa UTS; the literature cluster spans 70-240 MPa YS and 175-320 MPa UTS"}, "figs": ["F14"], "modality": "xy_curve", "provenance": "measured", "image_support": "shown", "spine": false, "fit": "good", "proposed": false, "panel_ids": ["10.1016/j.jma.2020.02.028#F14"]},
-  {"id": "o12", "type": "OBS/response/characteristic_value", "label": "Baseline tensile values: as received 100 MPa YS, 260 MPa UTS and 16% elongation; 4-pass 373 K ECAP 300 MPa, 360 MPa and 7%", "attrs": {"fig_ref": "F12 and Table 2 (not opened)"}, "figs": [], "modality": "text_only", "provenance": "measured", "image_support": null, "spine": false, "fit": "good", "proposed": false, "panel_ids": []},
-
-  {"id": "p1", "type": "KNW/fact", "label": "A 160 deg ECAP die imposes only about 0.2 equivalent strain per pass, far less than a 90 deg die", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "p2", "type": "KNW/model", "label": "Hall-Petch: the strength of a bulk metal rises as the grain size falls", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "p3", "type": "KNW/precedent", "label": "Mg17Al12 precipitates form in AZ61 during deformation and thermal cycling and pin dislocations", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "p4", "type": "KNW/precedent", "label": "A weak basal texture and a high high-angle boundary fraction let non-basal slip and boundary sliding operate, raising ductility in Mg", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false},
-  {"id": "p5", "type": "KNW/fact", "label": "Electropulsing delivers a high peak current density whose electron-wind force drives dislocation motion and recrystallisation nucleation", "attrs": {}, "figs": [], "modality": null, "provenance": null, "image_support": null, "spine": false, "fit": "good", "proposed": false}
+  {
+   "id": "n1",
+   "type": "HYP/need",
+   "label": "Wrought Mg alloys trade strength against ductility; AZ61 needs both without rare-earth additions",
+   "attrs": {
+    "inferred": true
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n2",
+   "type": "HYP/hypothesis",
+   "label": "Storing dislocations by low-strain ECAP and then recrystallising them statically with a short electropulse should give ultrafine equiaxed grains with strength and ductility together",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n3",
+   "type": "DES/base_system",
+   "label": "Commercial hot-extruded AZ61 (Mg-6Al-1Zn) plate, billets 10 x 10 x 70 mm",
+   "attrs": {
+    "material": "AZ61"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n4",
+   "type": "DES/route",
+   "label": "ECAP through a shallow die, intersection angle 160 deg and outer curvature 20 deg, route Bc at 4 mm/s",
+   "attrs": {
+    "technique": "ECAP",
+    "purpose": "low strain per pass so dislocations accumulate without recrystallising",
+    "technique_norm": "PROCESS"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n5",
+   "type": "DES/variable_sweep",
+   "label": "ECAP at 373, 423 and 473 K for 2-8 passes; electropulsing at 25-50 us pulse duration for 5-20 min",
+   "attrs": {
+    "variables": "ECAP temperature and passes, EPT pulse duration and time",
+    "levels": "373/423/473 K, 2-8 passes; 25/30/40/50 us, 5/7/8/10/20 min"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n6",
+   "type": "PRC/treatment",
+   "label": "Homogenise the billets at 623 K for 4 h before pressing",
+   "attrs": {
+    "conditions": "623 K, 4 h"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n7a",
+   "type": "PRC/treatment",
+   "label": "Screening ECAP: 2-5 passes at each of 373, 423 and 473 K",
+   "attrs": {
+    "aspect": "screening trials"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n11",
+   "type": "STR/microstructure/shape",
+   "label": "Single-temperature ECAP gives either an underdeformed billet that fractures by the fifth pass at 373 K or a dynamically recrystallised structure at 423-473 K",
+   "attrs": {
+    "basis": "evidenced"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n10",
+   "type": "MEC/pathway",
+   "label": "The ECAP temperature sets a balance: too low and the billet cannot take the strain, too high and dynamic recrystallisation consumes the stored energy",
+   "attrs": {
+    "mechanism_class": "strain accumulation versus dynamic recrystallisation",
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n9",
+   "type": "DES/down_select",
+   "label": "Adopt variable-temperature ECAP: 8 passes at 423 K followed by 3 passes at 373 K",
+   "attrs": {
+    "basis_of_choice": "accumulate strain warm, then add strain cold without triggering recrystallisation"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n7",
+   "type": "PRC/treatment",
+   "label": "Variable-temperature ECAP: 8 passes at 423 K then 3 passes at 373 K",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n12",
+   "type": "STR/microstructure/shape",
+   "label": "After variable-temperature ECAP the grains are refined but elongated and not equiaxed, so dynamic recrystallisation is incomplete",
+   "attrs": {
+    "basis": "evidenced"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n13",
+   "type": "STR/defect/extended",
+   "label": "The incomplete recrystallisation leaves a high stored dislocation density",
+   "attrs": {
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n8",
+   "type": "PRC/treatment",
+   "label": "Electropulsing treatment at 25 us pulse duration for 10 min",
+   "attrs": {
+    "technique": "electropulsing",
+    "conditions": "25 us, 10 min",
+    "technique_norm": "PROCESS"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n14",
+   "type": "STR/microstructure/feature_size",
+   "label": "The pulse completes static recrystallisation at an average grain size near 1 um, from 89 um in the starting plate",
+   "attrs": {
+    "direction": "refine",
+    "basis": "evidenced"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n15",
+   "type": "STR/microstructure/orientation",
+   "label": "The recrystallised structure has a weak basal texture, maximum 3.85 mrd, and a boundary population dominated by high-angle boundaries",
+   "attrs": {
+    "basis": "evidenced"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n16",
+   "type": "PRP/value",
+   "label": "Yield strength 330 MPa and tensile strength 448 MPa, against 100 and 260 MPa as received",
+   "attrs": {
+    "property_family": "mechanical",
+    "quantity": "YS and UTS",
+    "direction": "increase"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n17",
+   "type": "PRP/value",
+   "label": "Elongation to failure reaches 15%, against 7% for the 4-pass 373 K ECAP state",
+   "attrs": {
+    "property_family": "mechanical",
+    "quantity": "tensile elongation to failure",
+    "direction": "increase"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n18",
+   "type": "MEC/tradeoff",
+   "label": "The pulse erases the dislocation strengthening, but the further grain refinement and texture weakening more than repay it, so strength and ductility rise together",
+   "attrs": {
+    "mechanism_class": "recovery and static recrystallisation against grain-boundary strengthening",
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n21",
+   "type": "DSC/conclusion",
+   "label": "Variable-temperature 160 deg ECAP followed by a short electropulse gives AZ61 an ultrafine grain size with 330 MPa YS, 448 MPa UTS and 15% elongation",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n19",
+   "type": "MEC/pathway",
+   "label": "The yield stress is the sum of grain-boundary, precipitation and dislocation strengthening contributions",
+   "attrs": {
+    "mechanism_class": "additive strengthening",
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n20",
+   "type": "DSC/comparison",
+   "label": "The strength-ductility combination sits above every literature AZ61 processed by conventional deformation or other severe plastic deformation routes",
+   "attrs": {
+    "against": "prior_work",
+    "verdict": "better"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n22",
+   "type": "DSC/limitation",
+   "label": "The sub-2 um grain claims rest on optical micrographs that cannot resolve grains of that size; only the SEM and EBSD panels do",
+   "attrs": {
+    "kind": "method"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n23",
+   "type": "DSC/limitation",
+   "label": "The panel credited with uniform ultrafine equiaxed grains shows a fine but clearly elongated lath structure, closer to the deformed panel of the same figure",
+   "attrs": {
+    "kind": "anomaly"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n24",
+   "type": "DSC/limitation",
+   "label": "The texture is called weakened although no as-received or as-ECAPed pole figure is shown as a baseline",
+   "attrs": {
+    "kind": "method"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n25",
+   "type": "STR/microstructure/feature_size",
+   "label": "The starting plate has abnormally coarse grains averaging 89 um, with a necklace of fine grains that homogenisation absorbs",
+   "attrs": {
+    "basis": "evidenced"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n26",
+   "type": "STR/microstructure/distribution",
+   "label": "Fine bright second-phase particles, taken as Mg17Al12, decorate the boundaries and grain interiors after electropulsing",
+   "attrs": {
+    "basis": "attributed",
+    "constituent": "Mg17Al12"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n27",
+   "type": "PRP/value",
+   "label": "Electropulsing removes the tangled dislocations, so the dislocation-strengthening share of the yield stress falls relative to the as-ECAPed state",
+   "attrs": {
+    "property_family": "mechanical",
+    "quantity": "dislocation strengthening contribution",
+    "direction": "decrease",
+    "basis": "argued"
+   },
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o1",
+   "type": "OBS/morphology/feature_metric",
+   "label": "As-extruded grains are tens of micrometres across with a necklace of much finer grains on their boundaries; after homogenisation the necklace is gone and the grains are coarser and heavily twinned",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "before (as hot extruded) / after homogenization",
+      "source": "caption"
+     }
+    ],
+    "image_note": "sized against the 50 um bars in both panels; the largest grains fill much of the field, consistent with but not resolving the quoted 89 um average"
+   },
+   "figs": [
+    "F2"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F2a",
+    "10.1016/j.jma.2020.02.028#F2b"
+   ]
+  },
+  {
+   "id": "o2",
+   "type": "OBS/morphology/appearance",
+   "label": "At 423 K slip and twin bands thicken from 2 to 4 passes and by 5 passes dark fine-grained recrystallised patches occupy much of the field",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "2 passes / 3 passes / 4 passes / 5 passes",
+      "source": "caption"
+     }
+    ],
+    "image_note": "all four panels carry 50 um bars; at 5 passes the recrystallised patches cover roughly half the field, not 'most of the areas' as the text says, and the 373 K and 473 K series were not opened"
+   },
+   "figs": [
+    "F4"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F4a",
+    "10.1016/j.jma.2020.02.028#F4b",
+    "10.1016/j.jma.2020.02.028#F4c",
+    "10.1016/j.jma.2020.02.028#F4d"
+   ]
+  },
+  {
+   "id": "o3",
+   "type": "OBS/morphology/appearance",
+   "label": "After 8 passes at 423 K the etched structure is fine and directional, and after 3 further passes at 373 K it is finer still and remains directional",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "after 8-pass at 423 K / then 3-pass ECAP at 373 K",
+      "source": "caption"
+     }
+    ],
+    "image_note": "both panels carry 10 um bars (OCR cue); at that optical magnification the individual grains are not resolved and only the overall etch texture can be judged"
+   },
+   "figs": [
+    "F6"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F6a",
+    "10.1016/j.jma.2020.02.028#F6b"
+   ]
+  },
+  {
+   "id": "o4",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Across the pulse series the structure goes from deformed laths at 30 us-5 min to equiaxed grains of about 2 um at 7 min and 3 um at 10 min, while 25 us-10 min gives features of about 0.5-1 um",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "30 us-5 min / 30 us-7 min / 30 us-10 min / 25 us-10 min sample",
+      "source": "caption"
+     }
+    ],
+    "image_note": "all four SEM panels carry 2 um bars (OCR cue); sizes measured against them"
+   },
+   "figs": [
+    "F10"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F10a",
+    "10.1016/j.jma.2020.02.028#F10b",
+    "10.1016/j.jma.2020.02.028#F10c",
+    "10.1016/j.jma.2020.02.028#F10d"
+   ]
+  },
+  {
+   "id": "o5",
+   "type": "OBS/morphology/appearance",
+   "label": "The 25 us-10 min panel shows fine elongated lath-like features aligned in one direction, much like the deformed 30 us-5 min panel and unlike the equiaxed panels between them",
+   "attrs": {
+    "image_note": "audit node: the figure shows the discrepancy with the text, which reads this panel as uniform ultrafine equiaxed grains of about 1 um"
+   },
+   "figs": [
+    "F10"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F10a",
+    "10.1016/j.jma.2020.02.028#F10d"
+   ]
+  },
+  {
+   "id": "o6",
+   "type": "OBS/morphology/distribution",
+   "label": "Bright sub-micron particles are scattered over boundaries and grain interiors in every panel of the pulse series",
+   "attrs": {
+    "image_note": "the particles are well under the 2 um bar and no composition measurement accompanies them, so the Mg17Al12 identification is not made in this figure"
+   },
+   "figs": [
+    "F10"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F10c",
+    "10.1016/j.jma.2020.02.028#F10d"
+   ]
+  },
+  {
+   "id": "o7",
+   "type": "OBS/morphology/feature_metric",
+   "label": "The orientation maps give densely packed equiaxed grains of about 1-2 um for the 25 us sample and about 3-5 um for the 30 us sample",
+   "attrs": {
+    "panel_conditions": [
+     {
+      "condition": "25 us-10 min sample / 30 us-10 min sample",
+      "source": "caption"
+     }
+    ],
+    "image_note": "sized against the 5 um bars on the two maps; colours are random-orientation IPF colours, so grain identity is read from colour boundaries"
+   },
+   "figs": [
+    "F11"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F11a",
+    "10.1016/j.jma.2020.02.028#F11c"
+   ]
+  },
+  {
+   "id": "o8",
+   "type": "OBS/response/characteristic_value",
+   "label": "The (0001) pole figures give maxima of 3.85 mrd for the 25 us sample and 4.57 mrd for the 30 us sample, with the density concentrated off-centre toward TD",
+   "attrs": {
+    "image_note": "maxima are printed under each pole figure; the OCR cue line mistakes the 4.57 mrd maximum for a 4.57 um scale bar. No as-received or as-ECAPed pole figure is shown, so there is no baseline for a weakening claim"
+   },
+   "figs": [
+    "F11"
+   ],
+   "modality": "orientation_distribution",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F11a",
+    "10.1016/j.jma.2020.02.028#F11c"
+   ]
+  },
+  {
+   "id": "o9",
+   "type": "OBS/response/distribution",
+   "label": "Both misorientation histograms carry a tall spike below about 3 deg plus a broad band peaking near 30 deg, which spreads out toward 90 deg for the longer pulse",
+   "attrs": {
+    "image_note": "judge retype: a misorientation-angle histogram is the spread of a non-imaged quantity over the boundary ensemble, not a metric of imaged features, so this is OBS/response/distribution read by read_distribution_statistics. The sub-3 deg spike is the tallest bin in both panels (0.155 and 0.068 frequency), which the quoted 20% low-angle fraction does not obviously reflect; the panel prints no cumulative fractions"
+   },
+   "figs": [
+    "F11"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F11b",
+    "10.1016/j.jma.2020.02.028#F11d"
+   ]
+  },
+  {
+   "id": "o10",
+   "type": "OBS/response/characteristic_value",
+   "label": "The variable-temperature plus 25 us-10 min curve yields near 330 MPa, peaks at about 448 MPa and fails at true strain 0.148, above the two other pulsed states",
+   "attrs": {
+    "image_note": "read against the panel's stress and true-strain axes; the other two curves peak at about 370 MPa (strain 0.17) and 357 MPa (strain 0.195) from lower yield points"
+   },
+   "figs": [
+    "F13"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F13"
+   ]
+  },
+  {
+   "id": "o11",
+   "type": "OBS/response/trend",
+   "label": "On the UTS versus YS plane the three points of this work sit above and to the right of every literature point for AZ61",
+   "attrs": {
+    "image_note": "the best point reads about 335 MPa YS and 448 MPa UTS; the literature cluster spans 70-240 MPa YS and 175-320 MPa UTS"
+   },
+   "figs": [
+    "F14"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": [
+    "10.1016/j.jma.2020.02.028#F14"
+   ]
+  },
+  {
+   "id": "o12",
+   "type": "OBS/response/characteristic_value",
+   "label": "Baseline tensile values: as received 100 MPa YS, 260 MPa UTS and 16% elongation; 4-pass 373 K ECAP 300 MPa, 360 MPa and 7%",
+   "attrs": {
+    "fig_ref": "F12 and Table 2 (not opened)"
+   },
+   "figs": [],
+   "modality": "text_only",
+   "provenance": "measured",
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false,
+   "panel_ids": []
+  },
+  {
+   "id": "p1",
+   "type": "KNW/fact",
+   "label": "A 160 deg ECAP die imposes only about 0.2 equivalent strain per pass, far less than a 90 deg die",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "p2",
+   "type": "KNW/model",
+   "label": "Hall-Petch: the strength of a bulk metal rises as the grain size falls",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "p3",
+   "type": "KNW/precedent",
+   "label": "Mg17Al12 precipitates form in AZ61 during deformation and thermal cycling and pin dislocations",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "p4",
+   "type": "KNW/precedent",
+   "label": "A weak basal texture and a high high-angle boundary fraction let non-basal slip and boundary sliding operate, raising ductility in Mg",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "p5",
+   "type": "KNW/fact",
+   "label": "Electropulsing delivers a high peak current density whose electron-wind force drives dislocation motion and recrystallisation nucleation",
+   "attrs": {},
+   "figs": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  }
  ],
  "edges": [
-  {"src": "n1", "dst": "n2", "rel": "motivates", "mm_op": null},
-  {"src": "n2", "dst": "n3", "rel": "motivates", "mm_op": null},
-  {"src": "n2", "dst": "n4", "rel": "motivates", "mm_op": null},
-  {"src": "n2", "dst": "n5", "rel": "motivates", "mm_op": null},
-  {"src": "n3", "dst": "n6", "rel": "realizes", "mm_op": null},
-  {"src": "n4", "dst": "n7a", "rel": "realizes", "mm_op": null},
-  {"src": "n5", "dst": "n7a", "rel": "realizes", "mm_op": null},
-  {"src": "n6", "dst": "n7a", "rel": "feeds_into", "mm_op": null},
-  {"src": "n7a", "dst": "n11", "rel": "produces", "mm_op": null},
-  {"src": "n11", "dst": "n10", "rel": "supports", "mm_op": null},
-  {"src": "n10", "dst": "n9", "rel": "motivates", "mm_op": null},
-  {"src": "n9", "dst": "n7", "rel": "realizes", "mm_op": null},
-  {"src": "n6", "dst": "n7", "rel": "feeds_into", "mm_op": null},
-  {"src": "n7", "dst": "n12", "rel": "produces", "mm_op": null},
-  {"src": "n12", "dst": "n13", "rel": "causes", "mm_op": null},
-  {"src": "n7", "dst": "n8", "rel": "feeds_into", "mm_op": null},
-  {"src": "n5", "dst": "n8", "rel": "realizes", "mm_op": null},
-  {"src": "n8", "dst": "n14", "rel": "produces", "mm_op": null},
-  {"src": "n8", "dst": "n15", "rel": "produces", "mm_op": null},
-  {"src": "n8", "dst": "n26", "rel": "produces", "mm_op": null},
-  {"src": "n8", "dst": "n27", "rel": "causes", "mm_op": null},
-  {"src": "n13", "dst": "n18", "rel": "supports", "mm_op": null},
-  {"src": "n27", "dst": "n18", "rel": "supports", "mm_op": null},
-  {"src": "n27", "dst": "n16", "rel": "counteracts", "mm_op": null},
-  {"src": "n14", "dst": "n16", "rel": "causes", "mm_op": null},
-  {"src": "n14", "dst": "n17", "rel": "causes", "mm_op": null},
-  {"src": "n15", "dst": "n17", "rel": "causes", "mm_op": null},
-  {"src": "n18", "dst": "n16", "rel": "explains", "mm_op": null},
-  {"src": "n18", "dst": "n17", "rel": "explains", "mm_op": null},
-  {"src": "n19", "dst": "n16", "rel": "explains", "mm_op": null},
-  {"src": "n26", "dst": "n19", "rel": "supports", "mm_op": null},
-  {"src": "n16", "dst": "n21", "rel": "supports", "mm_op": null},
-  {"src": "n17", "dst": "n21", "rel": "supports", "mm_op": null},
-  {"src": "n16", "dst": "n20", "rel": "supports", "mm_op": null},
-  {"src": "n17", "dst": "n20", "rel": "supports", "mm_op": null},
-  {"src": "n20", "dst": "n21", "rel": "supports", "mm_op": null},
-  {"src": "n6", "dst": "n25", "rel": "produces", "mm_op": null},
-  {"src": "n25", "dst": "n14", "rel": "contrasts", "mm_op": null},
-  {"src": "n22", "dst": "n12", "rel": "qualifies", "mm_op": null},
-  {"src": "n22", "dst": "n14", "rel": "qualifies", "mm_op": null},
-  {"src": "n23", "dst": "n14", "rel": "qualifies", "mm_op": null},
-  {"src": "n24", "dst": "n15", "rel": "qualifies", "mm_op": null},
-
-  {"src": "o1", "dst": "n25", "rel": "evidences", "mm_op": "measure_feature_metric"},
-  {"src": "o2", "dst": "n11", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o3", "dst": "n12", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o3", "dst": "n22", "rel": "evidences", "mm_op": "inspect_local_feature"},
-  {"src": "o4", "dst": "n14", "rel": "evidences", "mm_op": "measure_feature_metric"},
-  {"src": "o5", "dst": "n23", "rel": "evidences", "mm_op": "compare_across_conditions"},
-  {"src": "o5", "dst": "n14", "rel": "qualifies", "mm_op": "compare_across_conditions"},
-  {"src": "o6", "dst": "n26", "rel": "evidences", "mm_op": "assess_spatial_distribution"},
-  {"src": "o7", "dst": "n14", "rel": "evidences", "mm_op": "measure_feature_metric"},
-  {"src": "o8", "dst": "n15", "rel": "evidences", "mm_op": "read_characteristic_point"},
-  {"src": "o8", "dst": "n24", "rel": "evidences", "mm_op": "cross_check_consistency"},
-  {"src": "o9", "dst": "n15", "rel": "evidences", "mm_op": "read_distribution_statistics"},
-  {"src": "o10", "dst": "n16", "rel": "evidences", "mm_op": "read_characteristic_point"},
-  {"src": "o10", "dst": "n17", "rel": "evidences", "mm_op": "read_characteristic_point"},
-  {"src": "o11", "dst": "n20", "rel": "evidences", "mm_op": "compare_with_reference_value"},
-  {"src": "o12", "dst": "n16", "rel": "evidences", "mm_op": null},
-  {"src": "o12", "dst": "n17", "rel": "evidences", "mm_op": null},
-
-  {"src": "p1", "dst": "n10", "rel": "premise_for", "mm_op": null},
-  {"src": "p2", "dst": "n19", "rel": "premise_for", "mm_op": null},
-  {"src": "p3", "dst": "n26", "rel": "premise_for", "mm_op": null},
-  {"src": "p4", "dst": "n17", "rel": "premise_for", "mm_op": null},
-  {"src": "p5", "dst": "n18", "rel": "premise_for", "mm_op": null}
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n5",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n7a",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n7a",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n7a",
+   "rel": "feeds_into",
+   "mm_op": null
+  },
+  {
+   "src": "n7a",
+   "dst": "n11",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n11",
+   "dst": "n10",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n9",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n7",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n7",
+   "rel": "feeds_into",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n12",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n13",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n8",
+   "rel": "feeds_into",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n8",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n14",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n15",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n26",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n27",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n18",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n27",
+   "dst": "n18",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n27",
+   "dst": "n16",
+   "rel": "counteracts",
+   "mm_op": null
+  },
+  {
+   "src": "n14",
+   "dst": "n16",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n14",
+   "dst": "n17",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n17",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n16",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n17",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n16",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n26",
+   "dst": "n19",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n16",
+   "dst": "n21",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n21",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n16",
+   "dst": "n20",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n20",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n20",
+   "dst": "n21",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n25",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n25",
+   "dst": "n14",
+   "rel": "contrasts",
+   "mm_op": null
+  },
+  {
+   "src": "n22",
+   "dst": "n12",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "n22",
+   "dst": "n14",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "n23",
+   "dst": "n14",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "n24",
+   "dst": "n15",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "o1",
+   "dst": "n25",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o2",
+   "dst": "n11",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o3",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o3",
+   "dst": "n22",
+   "rel": "evidences",
+   "mm_op": "inspect_local_feature"
+  },
+  {
+   "src": "o4",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o5",
+   "dst": "n23",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o5",
+   "dst": "n14",
+   "rel": "qualifies",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o6",
+   "dst": "n26",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "o7",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o8",
+   "dst": "n15",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o8",
+   "dst": "n24",
+   "rel": "evidences",
+   "mm_op": "cross_check_consistency"
+  },
+  {
+   "src": "o9",
+   "dst": "n15",
+   "rel": "evidences",
+   "mm_op": "read_distribution_statistics"
+  },
+  {
+   "src": "o10",
+   "dst": "n16",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o10",
+   "dst": "n17",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o11",
+   "dst": "n20",
+   "rel": "evidences",
+   "mm_op": "compare_with_reference_value"
+  },
+  {
+   "src": "o12",
+   "dst": "n16",
+   "rel": "evidences",
+   "mm_op": null
+  },
+  {
+   "src": "o12",
+   "dst": "n17",
+   "rel": "evidences",
+   "mm_op": null
+  },
+  {
+   "src": "p1",
+   "dst": "n10",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "p2",
+   "dst": "n19",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "p3",
+   "dst": "n26",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "p4",
+   "dst": "n17",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "p5",
+   "dst": "n18",
+   "rel": "premise_for",
+   "mm_op": null
+  }
  ],
  "notes": "Screen-then-choose process paper: the single-temperature ECAP trials (n7a -> n11) feed the mechanism n10 that motivates the variable-temperature down-select n9, and the spine then runs ECAP -> stored dislocations -> electropulse -> ultrafine grains and weak texture -> strength and ductility, closed by the trade-off n18 with its counteracts edge from the lost dislocation strengthening n27. Numbers are read from the panels: 330/448 MPa and true strain 0.148 from F13, 335/448 MPa against the literature cluster from F14, grain sizes against the 2 um bars of F10 and the 5 um bars of F11, pole-figure maxima 3.85 and 4.57 mrd printed on F11. Three audits. n22 with OBS o3: the sub-2 um grain claims of Figures 6 and 10 are made from optical micrographs at 10 um bars that cannot resolve them. n23 with OBS o5: the 25 us-10 min panel credited with uniform ultrafine equiaxed grains shows a fine but clearly elongated, directional lath structure, closer to the deformed 30 us-5 min panel than to the equiaxed 7 and 10 min panels. n24 with OBS o8: no as-received or as-ECAPed pole figure is shown, so 'weakened basal texture' has no baseline in the figure, and the only in-figure comparison gives the longer pulse the stronger maximum. Also noted: at 5 passes and 423 K the recrystallised patches cover about half the field rather than 'most areas'; the sub-3 deg spike is the tallest bin of both misorientation histograms, which the quoted 20% LAGB fraction does not obviously reflect; and the captions of Figures 8 and 9 give pass counts (4-pass at 423 K, 3-pass at 473 K) that the linked text reverses. OCR defects: the F11c cue line reads the texture maximum 'Max=4.57' as a 4.57 um scale bar, and the F11b/F11d cue lines type the misorientation histograms as XRD. Figure 1 is tier C with no panels offered. Lost: the 373 K and 473 K micrograph series (F3, F5), the EPT series on the single-temperature samples (F7-F9), the stress-strain curves of the as-ECAPed states (F12), the YS-versus-pass plot (F15) and Tables 1-4.",
  "review": {
