@@ -1,0 +1,647 @@
+{
+ "file": "Nano_Letters__10.1021_acs.nanolett.6b04294.html",
+ "short": "Insights into the Distinct Lithiation/Sodiation of Porous Co",
+ "journal": "Nano_Letters",
+ "year": null,
+ "title": "Insights into the Distinct Lithiation/Sodiation of Porous Cobalt Oxide by in Operando Synchrotron X-ray Techniques and Ab Initio Molecular Dynamics Simulations",
+ "doi": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: XRD",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "spec",
+   "label": "Spectroscopy: XAS",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Why cobalt oxide stores lithium well but sodium badly has not been resolved at the structural level. Watching one porous cobalt oxide cycle against Li and against Na in operando should locate where sodiation fails.",
+   "detail": "Absorbed: n2 (HYP/gap), n3 (HYP/hypothesis), n4 (DES/base_system), n5 (DES/route), n6 (DES/method), n7 (DES/variable_sweep), n8 (PRC/synthesis), n9 (PRC/stimulus)",
+   "figs": [],
+   "source": "n2, n3, n4, n5, n6, n7, n8, n9"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "The product is a two-phase mixture of cubic Co3O4 (Fd-3m) and cubic CoO (Fm-3m), about 79:21 by weight. Lithiation drives the crystalline oxide fully amorphous and charging does not bring the crystallinity back.",
+   "detail": "Absorbed: n10 (STR/phase/identity), n14 (STR/phase/fraction), n15 (STR/phase/fraction), n16 (STR/chemistry/composition), n17 (STR/chemistry/composition), n18 (STR/microstructure/porosity). Premises: Co foil, CoO and Co3O4 standards fix where the Co K-edge and its FT shells sit for each valence; Mesoporous Co3O4 in LIBs is known to recharge to CoO rather than back to Co3O4",
+   "figs": [],
+   "source": "n10, n14, n15, n16, n17, n18"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Against lithium: 1330 mA h/g first discharge, 871 reversible, still ~850 after 40 cycles. Against sodium: 866 mA h/g first discharge but only 472 reversible, decaying to ~65 by cycle 40.",
+   "detail": "Absorbed: n12 (PRP/value), n13 (PRP/value), n19 (MEC/identification), n20 (MEC/pathway)",
+   "figs": [],
+   "source": "n12, n13, n19, n20"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "The porous oxide serves as a good lithium-ion anode and a poor sodium-ion anode",
+   "detail": "Absorbed: n21 (PRF/service_capability)",
+   "figs": [],
+   "source": "n21"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Poor sodium storage in cobalt oxide is a limit of the Na-O conversion chemistry, not of the pore architecture",
+   "detail": "Absorbed: n22 (DSC/conclusion)",
+   "figs": [],
+   "source": "n22"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 1,
+   "row": "S1",
+   "line": 0,
+   "title": "XRD:synchrotron, F1",
+   "tech": "XRD:synchrotron",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F1a",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F1a"
+   ],
+   "head": "Rietveld calculated pattern sits on the observed one with a flat difference curve; weights are 78.6% Co3O4 and 21.4% CoO",
+   "solves": "The product is a two-phase mixture of cubic Co3O4 (Fd-3m) and cubic CoO (Fm-3m), about 79:21 by weight",
+   "op": "overlay model on data",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "attrs",
+   "note": "weights are printed in F1a; both Co3O4 and CoO tick rows are needed to account for the peaks, and the residual shows only small misfits at 2.7 and 4.4 deg",
+   "necessity": "redundant",
+   "necessity_reason": "S1 keeps shown support from o2, o8, o9, o10 after removal."
+  },
+  {
+   "id": "M2",
+   "lane": 1,
+   "row": "S1",
+   "line": 1,
+   "title": "XRD:synchrotron, F4",
+   "tech": "XRD:synchrotron",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F4a, 10.1021/acs.nanolett.6b04294#F4b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F4a",
+    "10.1021/acs.nanolett.6b04294#F4b"
+   ],
+   "head": "Li cell: the 16.4 and 19.2 deg reflections fade to a flat trace part way down the discharge and never reappear on charge. Na cell: the 16.4, 19.2 and 20.1 deg reflections persist through the whole cycle, only slightly weaker and not shifted",
+   "solves": "Lithiation drives the crystalline oxide fully amorphous and charging does not bring the crystallinity back",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o9, o10",
+   "tech_source": "attrs",
+   "panel_conditions": [
+    {
+     "condition": "1st discharge/charge at 0.1 C",
+     "source": "caption"
+    },
+    {
+     "condition": "1st discharge/charge at 0.1 C",
+     "source": "caption"
+    }
+   ],
+   "note": "in F4a the peaks are already gone by about 5 h, near 1 V, not only at the 0.01 V endpoint the text names F4b covers 16-21 deg; the intensity at the end of charge is below the pristine trace but the peaks are intact",
+   "necessity": "redundant",
+   "necessity_reason": "S1 keeps shown support from o1, o2, o8, o11 after removal."
+  },
+  {
+   "id": "M3",
+   "lane": 2,
+   "row": "S1",
+   "line": 2,
+   "title": "XAS:EXAFS, F5",
+   "tech": "XAS:EXAFS",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F5b, 10.1021/acs.nanolett.6b04294#F5e, 10.1021/acs.nanolett.6b04294#F5d, 10.1021/acs.nanolett.6b04294#F5f",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F5b",
+    "10.1021/acs.nanolett.6b04294#F5e",
+    "10.1021/acs.nanolett.6b04294#F5d",
+    "10.1021/acs.nanolett.6b04294#F5f"
+   ],
+   "head": "Li cell: the Co white line collapses and moves towards Co foil, and the FT shell moves from 1.48/2.48 to a single ~2.1 A peak. Na cell: all cycled XANES curves stay bunched near the pristine trace and the FT keeps its two Co3O4 shells throughout",
+   "solves": "Lithiation reduces Co towards the metal; recharging returns it only to a CoO-like state, not to pristine PCO",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o11, o12",
+   "tech_source": "attrs",
+   "note": "F5b: the 1st and 2nd charge curves lie on the CoO reference, not on the OCV curve; F5e shows the Co3O4 double shell replaced by one Co-Co shell at the bottom of discharge F5d is the Na/PCO XANES. The cycled curves (1st/2nd discharge and charge) are bunched at a white line of ~1.30 and sit essentially on the Co3O4 reference; the OCV trace is sharper (~1.49) and slightly higher in energy, so sodiation does change the edge somewhat, but nothing moves towards the Co-foil edge. F5f keeps the two Co3O4 shells at 1.56 and 2.48 A.",
+   "necessity": "redundant",
+   "necessity_reason": "S1 keeps shown support from o1, o2, o8, o9 after removal."
+  },
+  {
+   "id": "C4",
+   "lane": 4,
+   "row": "S1",
+   "line": 3,
+   "title": "THERMAL:TGA, F1",
+   "tech": "THERMAL:TGA",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F1b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F1b"
+   ],
+   "head": "Weight falls to 95.8 wt% between about 250 and 420 C, then creeps back to ~96.3% by 800 C",
+   "solves": "",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o2",
+   "tech_source": "attrs",
+   "note": "95.8 wt% is the label printed on the F1b plateau; the slow gain above 500 C is not mentioned in the text",
+   "detail": "o2: Weight falls to 95.8 wt% between about 250 and 420 C, then creeps back to ~96.3% by 800 C",
+   "necessity": "redundant",
+   "necessity_reason": "S1 keeps shown support from o1, o8, o9, o10 after removal."
+  },
+  {
+   "id": "C5",
+   "lane": 4,
+   "row": "S1",
+   "line": 4,
+   "title": "XRD:SAXS, F3",
+   "tech": "XRD:SAXS",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F3a, 10.1021/acs.nanolett.6b04294#F3b, 10.1021/acs.nanolett.6b04294#F3c, 10.1021/acs.nanolett.6b04294#F3d",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F3a",
+    "10.1021/acs.nanolett.6b04294#F3b",
+    "10.1021/acs.nanolett.6b04294#F3c",
+    "10.1021/acs.nanolett.6b04294#F3d"
+   ],
+   "head": "SAXS: in the Li cell low-q intensity falls and moves to lower q while high-q intensity rises, and neither returns on charge",
+   "solves": "Lithiation fills the large pores and creates new fine scatterers, and neither recovers on charge",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o8",
+   "tech_source": "attrs",
+   "note": "contours read from F3a and F3c against the co-plotted voltage curve; in F3b the 0.02 V Li trace falls below OCV at low q and grows a bump near q = 0.2, and the 3 V trace does not return, while the Na traces in F3d superimpose at every state",
+   "detail": "o8: SAXS: in the Li cell low-q intensity falls and moves to lower q while high-q intensity rises, and neither returns on charge",
+   "necessity": "redundant",
+   "necessity_reason": "S1 keeps shown support from o1, o2, o9, o10 after removal."
+  },
+  {
+   "id": "M6",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "SEM, F1",
+   "tech": "SEM",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F1d",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F1d"
+   ],
+   "head": "SEM at 70k shows interconnected rough blocks of ~100-200 nm; the 10-20 nm particles claimed in the text are not resolved",
+   "solves": "",
+   "op": "inspect local feature",
+   "verdict": "partial",
+   "source": "o4",
+   "tech_source": "attrs",
+   "note": "sized against the 500 nm bar (OCR cue) in F1d; surface texture is visible but individual nanograins are not",
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and S2 keeps shown support from o3, o5, o6, o7."
+  },
+  {
+   "id": "M7",
+   "lane": 3,
+   "row": "S2",
+   "line": 1,
+   "title": "ATOM:MD, F6",
+   "tech": "ATOM:MD",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F6a, 10.1021/acs.nanolett.6b04294#F6b, 10.1021/acs.nanolett.6b04294#F6c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F6a",
+    "10.1021/acs.nanolett.6b04294#F6b",
+    "10.1021/acs.nanolett.6b04294#F6c"
+   ],
+   "head": "AIMD snapshots: Li pulls oxygen out and disorders the Co3O4 slab; Na leaves it ordered but does disorder the Co3S4 slab",
+   "solves": "Sodium cannot strip oxygen from Co3O4 and stays largely un-oxidised, whereas it does attack the softer sulfide sublattice",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o13",
+   "tech_source": "attrs",
+   "note": "compared frame by frame from 0.2 to 2.0 ps in F6a, F6b and F6c; in F6b only the topmost oxygen row moves",
+   "necessity": "redundant",
+   "necessity_reason": "S2 keeps shown support from o3, o5, o6, o7 after removal."
+  },
+  {
+   "id": "C8",
+   "lane": 4,
+   "row": "S2",
+   "line": 2,
+   "title": "DERIVED, F1",
+   "tech": "DERIVED",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F1c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F1c"
+   ],
+   "head": "Type IV isotherm with a high-pressure hysteresis loop reaching ~112 cm3/g; the pore-size inset is bimodal near 5.5 and 6.7 nm",
+   "solves": "",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "attrs",
+   "note": "read from the F1c axes and its pore-size inset, which runs only to 10 nm",
+   "detail": "o3: Type IV isotherm with a high-pressure hysteresis loop reaching ~112 cm3/g; the pore-size inset is bimodal near 5.5 and 6.7 nm",
+   "necessity": "redundant",
+   "necessity_reason": "S2 keeps shown support from o5, o6, o7, o13 after removal."
+  },
+  {
+   "id": "C9",
+   "lane": 4,
+   "row": "S2",
+   "line": 3,
+   "title": "ECHEM:galvanostatic, F2",
+   "tech": "ECHEM:galvanostatic",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F2a, 10.1021/acs.nanolett.6b04294#F2b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F2a",
+    "10.1021/acs.nanolett.6b04294#F2b"
+   ],
+   "head": "Li cell first discharge ends at ~1330 mA h/g after a long 1.05 V plateau; first charge returns ~870 on a 2.0 V plateau. Li capacity climbs from ~870 to ~1090 mA h/g by cycle 17 and then falls back to ~850 at cycle 40, at ~95% efficiency",
+   "solves": "Against lithium: 1330 mA h/g first discharge, 871 reversible, still ~850 after 40 cycles",
+   "op": "read characteristic point, read trend",
+   "verdict": "shown",
+   "source": "o5, o6",
+   "tech_source": "attrs",
+   "note": "read from the F2a capacity axis; the 40th discharge curve has lost the low plateau and ends near 850 read from F2b; the quoted 96.4% retention compares cycle 40 with cycle 1 and hides the rise and fall",
+   "detail": "o5: Li cell first discharge ends at ~1330 mA h/g after a long 1.05 V plateau; first charge returns ~870 on a 2.0 V plateau; o6: Li capacity climbs from ~870 to ~1090 mA h/g by cycle 17 and then falls back to ~850 at cycle 40, at ~95% efficiency",
+   "necessity": "redundant",
+   "necessity_reason": "S2 keeps shown support from o3, o7, o13, o14 after removal."
+  },
+  {
+   "id": "C10",
+   "lane": 4,
+   "row": "S2",
+   "line": 4,
+   "title": "ECHEM:galvanostatic, F2",
+   "tech": "ECHEM:galvanostatic",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F2c, 10.1021/acs.nanolett.6b04294#F2d",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F2c",
+    "10.1021/acs.nanolett.6b04294#F2d"
+   ],
+   "head": "Na cell gives ~866 mA h/g first discharge but only ~470 charge, and decays monotonically to ~65 mA h/g by cycle 40",
+   "solves": "Against sodium: 866 mA h/g first discharge but only 472 reversible, decaying to ~65 by cycle 40",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o7",
+   "tech_source": "attrs",
+   "note": "read from F2c and F2d; the 40th Na curve is a nearly vertical line, i.e. almost no capacity left",
+   "detail": "o7: Na cell gives ~866 mA h/g first discharge but only ~470 charge, and decays monotonically to ~65 mA h/g by cycle 40",
+   "necessity": "redundant",
+   "necessity_reason": "S2 keeps shown support from o3, o5, o6, o13 after removal."
+  },
+  {
+   "id": "C11",
+   "lane": 4,
+   "row": "S2",
+   "line": 5,
+   "title": "ATOM:MD, F6",
+   "tech": "ATOM:MD",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F6d",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F6d"
+   ],
+   "head": "Degree of oxidation at 2 ps: Li-Co3O4 ~90%, Na-Co3S4 ~59%, Na-Co3O4 ~36% and already flat after 0.8 ps",
+   "solves": "Sodium cannot strip oxygen from Co3O4 and stays largely un-oxidised, whereas it does attack the softer sulfide sublattice",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o14",
+   "tech_source": "attrs",
+   "note": "read from F6d; the Na-Co3O4 curve plateaus by 0.8 ps while the Li curve is still rising at 2 ps",
+   "detail": "o14: Degree of oxidation at 2 ps: Li-Co3O4 ~90%, Na-Co3S4 ~59%, Na-Co3O4 ~36% and already flat after 0.8 ps",
+   "necessity": "redundant",
+   "necessity_reason": "S2 keeps shown support from o3, o5, o6, o7 after removal."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "realizes"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "causes"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {
+  "F1": {
+   "caption": "Figure 1. (a) Rietveld refinement of HEXRD, (b) TGA curve at air atmosphere, (c) $\\Nu_{2}$ adsorption/de-sorption isotherm curve and (d) SEM image of the as-prepared PCO. "
+  },
+  "F2": {
+   "caption": "Figure 2. (a) Discharge/charge curves and (b) cycle performance of Li/PCO cell at $0.1~\\mathrm{~C~}$ $\\left(1{\\mathrm{C}}{=}890~\\mathrm{mA~g}^{-1}\\right)$ ); (c) Discharge/charge curves and (d) cycle performance of $\\mathrm{Na/PCO}$ cell at 0.1 C ( $\\mathrm{1C{=}890~m A~g^{-1}}$ ). "
+  },
+  "F3": {
+   "caption": "Figure 3. (a) 2D contour plot of in operando SAXS data along with the $1^{\\mathrm{st}}$ discharge/charge curve at 0.1 C and (b) typical SAXS data at different charge/discharge states of Li/PCO cell; (c) 2D contour plot of in operando SAXS data along with the $1^{\\mathrm{st}}$ discharge/charge curve at $0.1~\\mathrm{~C~}$ and (d) typical SAXS data at different charge/discharge states of $\\mathrm{Na/"
+  },
+  "F4": {
+   "caption": "Figure 4. In operando SXRD patterns along with the $1^{\\mathrm{st}}$ discharge/charge curve at 0.1 C of (a) Li/PCO cell and (b) Na/PCO cell. "
+  },
+  "F5": {
+   "caption": "Figure 5 (a) 2D contour plot of in operando XANES data along with its discharge/charge curves at $0.2\\mathrm{~C~}$ and (b) typical XANES spectrum at different charge/discharge states of $\\mathrm{Li}/\\mathrm{PCO}$ cell; (c) 2D contour plot of in operando XANES data along with its discharge/charge curves at $0.2\\:C$ and (d) typical XANES spectrum at different charge/discharge states of $\\mathrm{Na/P"
+  },
+  "F6": {
+   "caption": "Figure 6. The structure evolution of (a) lithiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ , (b) sodiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ and (c) sodiated ${\\mathrm{Co}}_{3}{\\mathrm{S}}_{4}$ as a function of MD simulations time; d) the degree of oxidation of Li/Na as a function of MD simulation time for lithiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ , sodiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ an"
+  }
+ },
+ "fm_critical": false,
+ "panels": {
+  "10.1021/acs.nanolett.6b04294#F1a": {
+   "figure": "F1",
+   "letter": "a",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "Rietveld refinement of HEXRD",
+   "use": [
+    "Figure 1a shows the synchrotron high energy X-ray diffraction (HEXRD) pattern of the as-prepared PCO material, in which strong diffraction peaks could be clearly seen."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F4a": {
+   "figure": "F4",
+   "letter": "a",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "Li/PCO cell and",
+   "use": [
+    "Figure 4a shows the in operando SXRD data of the Li/PCO cell along with its initial discharge/charge curve at $0.1~\\mathrm{~C~}$ ."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F4b": {
+   "figure": "F4",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "Na/PCO cell",
+   "use": []
+  },
+  "10.1021/acs.nanolett.6b04294#F5b": {
+   "figure": "F5",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "typical XANES spectrum at different charge/discharge states of $\\mathrm{Li}/\\mathrm{PCO}$ cell",
+   "use": [
+    "The typical Co K-edge XANES spectra of the PCO electrode at different discharge/charge states along with references of Co foil, CoO and ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ are shown in Figure 5b."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F5e": {
+   "figure": "F5",
+   "letter": "e",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "Fourier Transform of in operando EXAFS data along with its discharge/charge curves of Li/PCO cell and",
+   "use": [
+    "The Fourier transforms (FT) of the EXAFS spectra for Li/PCO and Na/PCO cell in the course of the $1^{\\mathrm{st}}$ discharge/charge process along with CoO, ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ and Co foil references were shown in Figure 5e and Figure 5f, respectively."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F5d": {
+   "figure": "F5",
+   "letter": "d",
+   "tier": "A",
+   "ocr_agrees": false,
+   "definition": "typical XANES spectrum at different charge/discharge states of $\\mathrm{Na/PCO}$ cell",
+   "use": [
+    "Figure 5d shows typical XANES spectra of Na/PCO cell at different discharge/charge states."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F5f": {
+   "figure": "F5",
+   "letter": "f",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "Na/PCO cell",
+   "use": [
+    "The Fourier transforms (FT) of the EXAFS spectra for Li/PCO and Na/PCO cell in the course of the $1^{\\mathrm{st}}$ discharge/charge process along with CoO, ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ and Co foil references were shown in Figure 5e and Figure 5f, respectively."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F1b": {
+   "figure": "F1",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "TGA curve at air atmosphere",
+   "use": [
+    "Figure 1b shows the thermo gravimetric analysis (TGA) curve of the PCO under air atmosphere from room temperature to 800 $^{\\mathrm{o}}\\mathrm{C}$ , in which a weight loss of around $4.2\\mathrm{wt}.\\%$ is observed at a temperature range of $200–400^{\\mathrm{~o~}}\\mathrm{C}$ ."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F3a": {
+   "figure": "F3",
+   "letter": "a",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "2D contour plot of in operando SAXS data along with the $1^{\\mathrm{st}}$ discharge/charge curve at 0.1 C and",
+   "use": [
+    "Figure 3a shows the 2D contour plot of in operando SAXS data along with the $1^{\\mathrm{st}}$ discharge/charge curve of the Li/PCO cell at $0.1~\\mathrm{~C~}$ .",
+    "After that, it followed the structural changes in both high and low $q$ region as indicated in Figure. 3a."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F3b": {
+   "figure": "F3",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "typical SAXS data at different charge/discharge states of Li/PCO cell",
+   "use": [
+    "The irreversible porous structural change is also reported in the case of mesoporous ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ anode for LIBs, which may be due to the well-known de-lithiation reaction $\\mathrm{(Co~+}$ $\\mathrm{Li}_{2}\\mathrm{O}\\longrightarrow\\mathrm{CoO}+2\\mathrm{Li})$ , where CoO phase is also formed at the end of charge process, rather than completely reversible formation of $C o_{3}\\mathrm{O}_{4}$ phase.31 Figure 3b shows the typical SAXS data of the Li/PCO cell at different discharge/charge states."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F3c": {
+   "figure": "F3",
+   "letter": "c",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "2D contour plot of in operando SAXS data along with the $1^{\\mathrm{st}}$ discharge/charge curve at $0.1~\\mathrm{~C~}$ and",
+   "use": [
+    "Figure 3c and Figure 3d shows the 2D contour plot of in operando SAXS data along with the $1^{\\mathrm{st}}$ discharge/charge curve and typical SAXS data at different discharge/charge states of the Na/PCO cell at 0.1 C, respectively."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F3d": {
+   "figure": "F3",
+   "letter": "d",
+   "tier": "A",
+   "ocr_agrees": false,
+   "definition": "typical SAXS data at different charge/discharge states of $\\mathrm{Na/PCO}$ cell. The color scale bar means the intensity of the SAXS spectra, red means high, blue means low",
+   "use": [
+    "Figure 3c and Figure 3d shows the 2D contour plot of in operando SAXS data along with the $1^{\\mathrm{st}}$ discharge/charge curve and typical SAXS data at different discharge/charge states of the Na/PCO cell at 0.1 C, respectively."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F1d": {
+   "figure": "F1",
+   "letter": "d",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "SEM image of the as-prepared PCO",
+   "use": [
+    "The scanning electron microscopy (SEM) image of the PCO in Figure 1d shows that it present a porous structure."
+   ],
+   "cues": [
+    "micrograph",
+    "scale bar 500nm"
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F6a": {
+   "figure": "F6",
+   "letter": "a",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "lithiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$",
+   "use": [
+    "Figure 6a, 6b and 6c shows the structural evolution processes of lithiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ , sodiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ and sodiated ${\\mathrm{Co}}_{3}{\\mathrm{S}}_{4}$ as a function of $a b$ initio MD simulations time, respectively."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F6b": {
+   "figure": "F6",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "sodiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ and",
+   "use": []
+  },
+  "10.1021/acs.nanolett.6b04294#F6c": {
+   "figure": "F6",
+   "letter": "c",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "sodiated ${\\mathrm{Co}}_{3}{\\mathrm{S}}_{4}$ as a function of MD simulations time",
+   "use": []
+  },
+  "10.1021/acs.nanolett.6b04294#F1c": {
+   "figure": "F1",
+   "letter": "c",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "$\\Nu_{2}$ adsorption/de-sorption isotherm curve and",
+   "use": [
+    "Figure 1c shows the $\\Nu_{2}$ adsorption-desorption isotherms curve of the PCO, which presents a typical type IV isotherm, indicating the existence of porous structures."
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F2a": {
+   "figure": "F2",
+   "letter": "a",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "Discharge/charge curves and",
+   "use": [
+    "Figure 2a shows the $1^{\\mathrm{st}},2^{\\mathrm{nd}}$ and $40^{\\mathrm{th}}$ discharge/charge curves of the Li/PCO cell at a discharge/charge rate of $0.1~\\mathrm{C}$ $\\scriptstyle(1{\\mathrm{C}}=890{\\mathrm{mA}}{\\mathrm{g}}^{-1})$ )."
+   ],
+   "cues": [
+    "electrochemistry"
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F2b": {
+   "figure": "F2",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "cycle performance of Li/PCO cell at $0.1~\\mathrm{~C~}$ $\\left(1{\\mathrm{C}}{=}890~\\mathrm{mA~g}^{-1}\\right)$ )",
+   "use": [
+    "The excess capacity is usually ascribed to the decomposition of electrolytes to form a solid electrolyte interphase (SEI) layer.34 The initial reversible capacity is measured at $870.8\\mathrm{mAhg}^{-1}$ , accounting for an initial coulombic efficiency of $65.4\\%$ that is common for transition metal oxides anode materials.20 The corresponding cycling performance of the PCO anode is shown in Figure 2b."
+   ],
+   "cues": [
+    "electrochemistry"
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F2c": {
+   "figure": "F2",
+   "letter": "c",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "Discharge/charge curves and",
+   "use": [
+    "Figure 2c shows the $1^{\\mathrm{st}},2^{\\mathrm{nd}}$ and $40^{\\mathrm{th}}$ discharge/charge curves of the $\\mathrm{Na/PCO}$ cell at $0.1~\\mathrm{~C~}$ $\\mathrm{(1C=890mAg^{-1}}.$ ), which present a characteristic voltage profile of cobalt oxide as anode of SIBs, including a sloping curve in the potential range of $1{-}0.2\\mathrm{~V~}$ (vs."
+   ],
+   "cues": [
+    "electrochemistry"
+   ]
+  },
+  "10.1021/acs.nanolett.6b04294#F2d": {
+   "figure": "F2",
+   "letter": "d",
+   "tier": "A",
+   "ocr_agrees": false,
+   "definition": "cycle performance of $\\mathrm{Na/PCO}$ cell at 0.1 C ( $\\mathrm{1C{=}890~m A~g^{-1}}$ )",
+   "use": []
+  },
+  "10.1021/acs.nanolett.6b04294#F6d": {
+   "figure": "F6",
+   "letter": "d",
+   "tier": "A",
+   "ocr_agrees": false,
+   "definition": "the degree of oxidation of Li/Na as a function of MD simulation time for lithiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ , sodiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ and sodiated ${\\mathrm{Co}}_{3}{\\mathrm{S}}_{4}$ . The grey and purple atoms represent Li and $\\mathrm{Na}$ , respectively. The red atom means Oxygen, the blue atom means Cobalt and the yellow atom means Sulfur",
+   "use": [
+    "Figure 6d further compares the degree of Li/Na oxidation for lithiatied ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ , sodiated ${\\mathrm{Co}}_{3}{\\mathrm{O}}_{4}$ and sodiated ${\\mathrm{Co}}_{3}{\\mathrm{S}}_{4}$ as a function of $a b$ initio MD simulations time, in which the degree of oxidation is defined as the ratio between the calculated positive charges in Li or Na and the theoretical positive charges when they were fully oxidized and can be used as indicator for lithiation/sodiation activity."
+   ]
+  }
+ },
+ "assets_note": "images stripped for the repo, regenerate with taxonomy/embed_panels.py"
+}

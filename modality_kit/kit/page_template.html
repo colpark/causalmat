@@ -238,7 +238,23 @@ function select(id){
     if(n.panel_check){ const c=n.panel_check; const row=(k,v)=>`<dt>${k}</dt><dd>${v===true?'yes':v===false?'no':esc(v||'not run')}</dd>`;
       h+=`<h3>Panel verification: ${esc(c.status||'unverified')}</h3><dl>${row('Store id exists',c.id_exists)}${row('Match tier',c.tier)}${row('OCR letter agrees',c.ocr_agrees)}${row('Modality votes agree',c.modality_agrees)}${row('Judge opened crop',c.judge_opened)}${row('Human check',c.human)}</dl>`; }
   }
-  for(const f of (n.figs||[])){ const F=D.figs[f]; if(F) h+=`<figure><img src="${F.src}" alt="${esc(f)}"><figcaption>${esc(F.caption)}</figcaption></figure>`; }
+  // panel crops first (the data the node was read from), then the whole figure for context
+  const seenFig=new Set();
+  for(const pid of (n.panel_ids||[])){
+    const P=(D.panels||{})[pid]; if(!P) continue;
+    const bits=[]; if(P.letter) bits.push('panel '+esc(P.letter)); if(P.tier) bits.push('tier '+esc(P.tier));
+    if(P.ocr_agrees===true) bits.push('ocr agrees'); else if(P.ocr_agrees===false) bits.push('ocr differs');
+    if(P.cues&&P.cues.length) bits.push(esc(P.cues.join(', ')));
+    h+=`<figure><img src="${P.src}" alt="${esc(pid)}">`+
+       `<figcaption><b>${esc(pid.split('#').pop())}</b>${bits.length?' &middot; '+bits.join(' &middot; '):''}`+
+       (P.definition?`<br>${esc(P.definition)}`:'')+
+       (P.use&&P.use.length?`<br><i>${esc(P.use.slice(0,2).join(' '))}</i>`:'')+
+       `</figcaption></figure>`;
+    if(P.figure) seenFig.add(P.figure);
+  }
+  for(const f of (n.figs||[])){ const F=D.figs[f]; if(!F) continue;
+    const dup=seenFig.has(f);
+    h+=`<figure><img src="${F.src}" alt="${esc(f)}"><figcaption>${dup?'Whole figure ':''}${esc(f)}. ${esc(F.caption)}</figcaption></figure>`; }
   const outs=D.edges.filter(e=>e.src===id), ins=D.edges.filter(e=>e.dst===id);
   const line=(e,o)=>`<li>${esc(REL[e.rel]||e.rel)} <button onclick="select('${o}')">${esc(byId[o].title)}</button></li>`;
   if(ins.length) h+=`<h3>This node</h3><ul>${ins.map(e=>line(e,e.src)).join('')}</ul>`;

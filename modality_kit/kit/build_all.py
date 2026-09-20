@@ -1,8 +1,12 @@
 import json, re, sys
 
-OUTDIR = "/mnt/user-data/outputs"
-site = json.load(open("/home/claude/nico/case_site.json"))
-NICO_FIGS = {fid: {"src": f["src"], "caption": re.sub(r"\s+", " ", f["caption"]).strip()} for fid, f in site["figs"].items()}
+OUTDIR = "/home/aid1/Documents/causalmat/site/modality"
+try:   # only the built-in Ni-Co example needs this; --specs mode does not
+    site = json.load(open("/home/claude/nico/case_site.json"))
+    NICO_FIGS = {fid: {"src": f["src"], "caption": re.sub(r"\s+", " ", f["caption"]).strip()} for fid, f in site["figs"].items()}
+except FileNotFoundError:
+    site = {"figs": {}, "title": "Ni-Co example (not available here)", "doi": "", "journal": "", "year": 0}
+    NICO_FIGS = {}
 
 LANE_VARS = {"micro": "--micro", "atom": "--atom", "diff": "--atom", "spec": "--atom", "classic": "--classic"}
 
@@ -266,13 +270,14 @@ def build(spec):
     n_fm = sum(1 for l in spec["lanes"] if l["key"] != "classic")
     payload = dict(title=spec["title"], journal=spec["journal"], year=spec["year"], doi=spec["doi"], W=W, H=H, bands=bands, lanes=lanes,
                    state_x=STATE_X, nodes=nodes_out, edges=routed, figs=spec["figs"], n_fm=n_fm,
-                   figs_note=("" if spec["figs"] else "Figures for this paper are not in the repo, so the panel shows evidence text without thumbnails."))
+                   panels=spec.get("panels", {}),
+                   figs_note=("" if (spec["figs"] or spec.get("panels")) else "Figures for this paper are not in the repo, so the panel shows evidence text without thumbnails."))
     out = f"{OUTDIR}/{spec['file']}"
     open(out, "w", encoding="utf-8").write(PAGE.replace("__DATA__", json.dumps(payload).replace("</", "<\\/")).replace("__TITLE__", spec["short"]))
     print("wrote", out, "canvas", W, "x", H)
     return out
 
-PAGE = open("/home/claude/nico/page_template.html", encoding="utf-8").read()
+PAGE = open(__file__.rsplit("/",1)[0] + "/page_template.html", encoding="utf-8").read()
 
 if __name__ == "__main__":
     import glob, os

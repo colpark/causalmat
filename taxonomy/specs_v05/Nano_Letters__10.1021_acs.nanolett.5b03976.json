@@ -1,0 +1,609 @@
+{
+ "file": "Nano_Letters__10.1021_acs.nanolett.5b03976.html",
+ "short": "Direct Bandgap Light Emission from Strained Germanium Nanowi",
+ "journal": "Nano_Letters",
+ "year": null,
+ "title": "Direct Bandgap Light Emission from Strained Germanium Nanowires Coupled with High-Q Nanophotonic Cavities",
+ "doi": "Nano_Letters/10.1021_acs.nanolett.5b03976",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Silicon photonics needs a CMOS-compatible on-chip light source, and germanium is indirect-gap. Whether high tensile strain plus a high-Q cavity can bring Ge to net optical gain is unsettled, with conflicting lasing reports.",
+   "detail": "Absorbed: g1 (HYP/need), g2 (HYP/gap), g3 (HYP/hypothesis), g4 (DES/base_system), g5 (DES/architecture), g6 (DES/variable_sweep), g7 (DES/route), g8 (PRC/forming), g9 (PRC/treatment), g10 (PRC/deposition)",
+   "figs": [],
+   "source": "g1, g2, g3, g4, g5, g6, g7, g8, g9, g10"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "The fabricated device reproduces the design: an 8 um wire between tapered pads with curved DBR stacks in a 200 nm Ge layer. The wire carries about 2.4% uniform uniaxial tensile strain along its length, from 0.2% in the as-grown layer.",
+   "detail": "Absorbed: g11 (STR/microstructure/shape), g12 (STR/phase/lattice), g13 (STR/interface)",
+   "figs": [],
+   "source": "g11, g12, g13"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Tensile strain narrows the gap and pulls the direct valley down, while the wire-to-pad strain gradient builds a pseudo-heterostructure that confines carriers in the wire. Direct-gap photoluminescence redshifts from ~1560 nm unstrained to ~1960-1990 nm at 1.95-2.37% strain, more than 400 nm of tuning.",
+   "detail": "Absorbed: g14 (MEC/pathway), g15 (PRP/value), g17 (PRP/value), g18 (MEC/identification). Premises: Tensile strain narrows the Ge bandgap and lowers the direct valley relative to the indirect one; Empirical pseudopotential method used to compute the gain and the individual loss terms",
+   "figs": [],
+   "source": "g14, g15, g17, g18"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "The cavity delivers resonances with a 24.6 nm free spectral range and a fitted Q of 2020, and the reattached device survives more than ten times the pump power of the free-standing one",
+   "detail": "Absorbed: g16 (PRF/service_capability)",
+   "figs": [],
+   "source": "g16"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Strain plus a high-Q cavity gives strong, widely tunable direct-gap Ge emission, but free-carrier and inter-valence-band absorption hold net gain negative, so no lasing is seen",
+   "detail": "Absorbed: g19 (DSC/conclusion)",
+   "figs": [],
+   "source": "g19"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 1,
+   "row": "S0",
+   "line": 0,
+   "title": "ATOM, F3",
+   "tech": "ATOM",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F3a",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F3a"
+   ],
+   "head": "The FDTD Ey field forms a standing wave along the wire that spreads into the tapers toward the mirrors",
+   "solves": "An 8 um x 700 nm nanowire widening to 13.7 um tapers and 20 um pads, with 10-period curved DBR mirrors of 380 nm period and 21% duty cycle about 30 um apart",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "source": "h5",
+   "tech_source": "modality",
+   "panel_conditions": [
+    {
+     "condition": "Ey field distribution for the optical mode at 2.0 um free-space wavelength, FDTD",
+     "source": "caption"
+    }
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for S0 (h5)."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "MICRO, F1",
+   "tech": "MICRO",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F1a, 10.1021/acs.nanolett.5b03976#F1b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F1a",
+    "10.1021/acs.nanolett.5b03976#F1b"
+   ],
+   "head": "The plan view shows the 8 um wire between tapered pads with curved DBR stacks; the side view resolves 200 nm Ge on a thin Al2O3 over ~850 nm SiO2",
+   "solves": "The fabricated device reproduces the design: an 8 um wire between tapered pads with curved DBR stacks in a 200 nm Ge layer",
+   "op": "match to design",
+   "verdict": "shown",
+   "source": "h1",
+   "tech_source": "modality",
+   "panel_conditions": [
+    {
+     "condition": "SEM of a fabricated device with DBR mirrors; side-view SEM of the initial Ge-on-insulator stack",
+     "source": "caption"
+    }
+   ],
+   "note": "5 um and 500 nm bars; the DBR detail view shows more than the ten periods quoted in the text because it zooms one mirror",
+   "necessity": "redundant",
+   "necessity_reason": "S1 keeps shown support from h2, h4 after removal."
+  },
+  {
+   "id": "M3",
+   "lane": 1,
+   "row": "S1",
+   "line": 1,
+   "title": "ATOM:FEM, F3",
+   "tech": "ATOM:FEM",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F3b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F3b"
+   ],
+   "head": "The FEM strain field is saturated above 2.4% along the whole central wire and falls to near zero in the pads",
+   "solves": "The wire carries about 2.4% uniform uniaxial tensile strain along its length, from 0.2% in the as-grown layer",
+   "op": "assess spatial distribution",
+   "verdict": "partial",
+   "source": "h3",
+   "tech_source": "label",
+   "panel_conditions": [
+    {
+     "condition": "Tensile strain distribution obtained with FEM simulation",
+     "source": "caption"
+    }
+   ],
+   "note": "the wire reads as pure white, i.e. clipped at the top of the 0-2.4% colour scale, so the panel cannot say how much above 2.4% it goes",
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and S1 keeps shown support from h1, h2, h4."
+  },
+  {
+   "id": "C4",
+   "lane": 2,
+   "row": "S1",
+   "line": 2,
+   "title": "EDS:linescan, F2",
+   "tech": "EDS:linescan",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F2b, 10.1021/acs.nanolett.5b03976#F2c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F2b",
+    "10.1021/acs.nanolett.5b03976#F2c"
+   ],
+   "head": "The interferometry line scan puts the undercut region 20-25 nm below the surrounding wafer surface, with deep notches at the trench edges",
+   "solves": "Capillary drying reattaches the wire to the SiO2 by van der Waals contact, restoring a heat path and optical confinement",
+   "op": "measure feature metric",
+   "verdict": "shown",
+   "source": "h2",
+   "tech_source": "label",
+   "panel_conditions": [
+    {
+     "condition": "detailed height-map of the wafer surface by white-light interferometry; line-scan of that region",
+     "source": "caption"
+    }
+   ],
+   "note": "step read off the F2c ordinate. The undercut region sits at ~0 nm while the wafer outside it runs +20 nm on the right and +30 to +38 nm on the left, so the 20-25 nm figure is the right-hand reference; it matches the 25 nm sacrificial Al2O3 thickness, i.e. the wire has come all the way down. The two notches at +/-10.5 um are the trench edges and fall below -50 nm.",
+   "detail": "h2: The interferometry line scan puts the undercut region 20-25 nm below the surrounding wafer surface, with deep notches at the trench edges",
+   "necessity": "redundant",
+   "necessity_reason": "S1 keeps shown support from h1, h4 after removal."
+  },
+  {
+   "id": "C5",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "ATOM:FEM, RAMAN, F3",
+   "tech": "ATOM:FEM, RAMAN",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F3c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F3c"
+   ],
+   "head": "The Raman strain map reads a uniform 2-2.4% along the length of the fabricated wire",
+   "solves": "The wire carries about 2.4% uniform uniaxial tensile strain along its length, from 0.2% in the as-grown layer",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "source": "h4",
+   "tech_source": "label",
+   "panel_conditions": [
+    {
+     "condition": "Strain map for a fabricated device, experimentally obtained using Raman spectroscopy",
+     "source": "caption"
+    }
+   ],
+   "note": "the map is pixelated at roughly the Raman spot size, so uniformity is asserted at a coarser scale than the FEM panel's",
+   "detail": "h4: The Raman strain map reads a uniform 2-2.4% along the length of the fabricated wire",
+   "necessity": "redundant",
+   "necessity_reason": "S1 keeps shown support from h1, h2 after removal."
+  },
+  {
+   "id": "C6",
+   "lane": 2,
+   "row": "S2",
+   "line": 0,
+   "title": "PL, F4",
+   "tech": "PL",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F4a",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F4a"
+   ],
+   "head": "The PL peak moves from ~1560 nm at 0% strain to ~1960 nm at 1.95% and ~1990 nm at 2.37%, the strained emission several times stronger",
+   "solves": "Direct-gap photoluminescence redshifts from ~1560 nm unstrained to ~1960-1990 nm at 1.95-2.37% strain, more than 400 nm of tuning",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "h6",
+   "tech_source": "label",
+   "panel_conditions": [
+    {
+     "condition": "PL spectra for devices with 0%, 1.95% and 2.37% tensile strain",
+     "source": "caption"
+    }
+   ],
+   "note": "peak intensities read off F4a are ~280 (0%), ~2700 at the comb maxima (1.95%) and ~1100 (2.37%), so emission does not keep rising with strain; the 2.37% peak sits inside the grey detector-limit band above 2000 nm and is cut off",
+   "detail": "h6: The PL peak moves from ~1560 nm at 0% strain to ~1960 nm at 1.95% and ~1990 nm at 2.37%, the strained emission several times stronger",
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and S2 keeps shown support from h9, h10, h12, a1."
+  },
+  {
+   "id": "C7",
+   "lane": 2,
+   "row": "S2",
+   "line": 1,
+   "title": "evidence, F4, F5",
+   "tech": "",
+   "figs": [
+    "F4",
+    "F5"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F4d, 10.1021/acs.nanolett.5b03976#F5a",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F4d",
+    "10.1021/acs.nanolett.5b03976#F5a"
+   ],
+   "head": "As pump power rises from 5 to about 48 mW every resonance shifts 10-15 nm to shorter wavelength and broadens, with no linewidth narrowing anywhere. Net gain runs -350 to -1250 cm-1 for the 2.37% device and -520 to -1970 for the 1.95% one between 5 and 22 mW, negative throughout",
+   "solves": "Net optical gain stays negative and falls with pump power, though the 2.37% device beats the 1.95% one at every power",
+   "op": "compare across conditions, read trend",
+   "verdict": "shown",
+   "source": "h9, h10",
+   "tech_source": "none",
+   "panel_conditions": [
+    {
+     "condition": "Spectral dependence of the emission on the pump power, each row normalized to its peak",
+     "source": "caption"
+    },
+    {
+     "condition": "net optical gain versus incident pump power (980 nm CW) for 2.37% and 1.95% strained nanowires",
+     "source": "caption"
+    }
+   ],
+   "note": "the matching F4c spectra also show a rising background pedestal at 45 mW rather than any threshold behaviour the 1.95% error bars reach about +/-400 cm-1 at 22 mW and the two series nearly touch at 5 mW; the caption puts the 1.95% device at 1961 nm while the text says 1923 nm. The plotted gain is the paper's own reduction of its pump-power measurements, with no OBS parent in this graph, so provenance is measured rather than derived.",
+   "detail": "h9: As pump power rises from 5 to about 48 mW every resonance shifts 10-15 nm to shorter wavelength and broadens, with no linewidth narrowing anywhere; h10: Net gain runs -350 to -1250 cm-1 for the 2.37% device and -520 to -1970 for the 1.95% one between 5 and 22 mW, negative throughout",
+   "necessity": "redundant",
+   "necessity_reason": "S2 keeps shown support from h12, a1, a3 after removal."
+  },
+  {
+   "id": "C8",
+   "lane": 2,
+   "row": "S2",
+   "line": 2,
+   "title": "evidence, F5",
+   "tech": "",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F5b, 10.1021/acs.nanolett.5b03976#F5c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F5b",
+    "10.1021/acs.nanolett.5b03976#F5c"
+   ],
+   "head": "The EPM curve tracks the measured gain-versus-carrier-density points closely above 5e19 cm-3 but runs above them near 2e19. The modelled loss terms cross near 6e18 cm-3: inter-valence-band absorption overtakes conduction-band free-carrier loss and reaches 2.5e3 cm-1 at 2e20, while the pads contribute a flat ~75 cm-1.",
+   "solves": "The dominant loss is inter-valence-band absorption, which overtakes conduction-band free-carrier loss above ~6e18 cm-3",
+   "op": "compare coplotted quantities, overlay model on data",
+   "verdict": "partial",
+   "source": "h11, h12, a3",
+   "tech_source": "none",
+   "panel_conditions": [
+    {
+     "condition": "net optical gain versus injected carrier density for the 2.37% device, experiment and EPM calculation",
+     "source": "caption"
+    },
+    {
+     "condition": "optical losses included in the curve presented in (b)",
+     "source": "caption"
+    }
+   ],
+   "note": "this panel is entirely model output; no measurement separates the two nanowire loss terms the caption states that carrier densities come from a calculation of absorbed power and a fit to theory, so the agreement between points and curve in F5b is partly circular. The abscissa this node reads is model output, which is what provenance=computed records.",
+   "detail": "h11: The EPM curve tracks the measured gain-versus-carrier-density points closely above 5e19 cm-3 but runs above them near 2e19; h12: The modelled loss terms cross near 6e18 cm-3: inter-valence-band absorption overtakes conduction-band free-carrier loss and reaches 2.5e3 cm-1 at 2e20, while the pads contribute a flat ~75 cm-1; a3: The carrier-density abscissa of the model comparison is itself obtained by fitting to the same theory",
+   "necessity": "redundant",
+   "necessity_reason": "S2 keeps shown support from h9, h10, a1 after removal."
+  },
+  {
+   "id": "C9",
+   "lane": 2,
+   "row": "S2",
+   "line": 3,
+   "title": "ATOM:FEM, RAMAN, F3",
+   "tech": "ATOM:FEM, RAMAN",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F3b, 10.1021/acs.nanolett.5b03976#F3c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F3b",
+    "10.1021/acs.nanolett.5b03976#F3c"
+   ],
+   "head": "The measured map shows 0.5-0.8% residual strain across the pads where the FEM map reads zero",
+   "solves": "Tensile strain narrows the gap and pulls the direct valley down, while the wire-to-pad strain gradient builds a pseudo-heterostructure that confines carriers in the wire",
+   "op": "overlay model on data",
+   "verdict": "shown",
+   "source": "a1",
+   "tech_source": "label",
+   "note": "the paper says the Raman result matches the FEM simulation; the wire agrees, the pads do not, and it is the wire-to-pad strain contrast that the pseudo-heterostructure argument rests on",
+   "audit": true,
+   "detail": "a1: The measured map shows 0.5-0.8% residual strain across the pads where the FEM map reads zero",
+   "inner_audit": "a1: the paper says the Raman result matches the FEM simulation; the wire agrees, the pads do not, and it is the wire-to-pad strain contrast that the pseudo-heterostructure argument rests on",
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: "
+  },
+  {
+   "id": "C10",
+   "lane": 2,
+   "row": "S3",
+   "line": 0,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1021/acs.nanolett.5b03976#F4b, 10.1021/acs.nanolett.5b03976#F4a, 10.1021/acs.nanolett.5b03976#F4c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F4b",
+    "10.1021/acs.nanolett.5b03976#F4a",
+    "10.1021/acs.nanolett.5b03976#F4c"
+   ],
+   "head": "A Lorentzian fit to the resonance near 1996 nm returns a quality factor of 2020. The resonance comb has a free spectral range of 24.6 nm.",
+   "solves": "The cavity delivers resonances with a 24.6 nm free spectral range and a fitted Q of 2020, and the reattached device survives more than ten times the pump power of the free-standing one",
+   "op": "compare across conditions, fit model, read characteristic point",
+   "verdict": "contradicts",
+   "source": "h7, h8, a2",
+   "tech_source": "none",
+   "panel_conditions": [
+    {
+     "condition": "Lorentzian fit to a single resonance peak with fitted quality factor of 2020",
+     "source": "caption"
+    }
+   ],
+   "note": "several points on the short-wavelength wing sit above the fitted curve, so the fitted linewidth depends on the window chosen. Q is the paper's own Lorentzian fit to the trace in this same panel, with no OBS parent in this graph, so provenance is measured rather than derived. successive comb maxima in F4a and F4c are about 25 nm apart across the whole 1870-2050 nm window the caption credits both strained wires with high-Q resonances; in the panel the 2.37% trace is a smooth envelope, so the Q and free-spectral-range claims rest on the 1.95% device",
+   "audit": true,
+   "detail": "h7: A Lorentzian fit to the resonance near 1996 nm returns a quality factor of 2020; h8: The resonance comb has a free spectral range of 24.6 nm; a2: The 2.37% spectrum carries no visible resonance comb at all, unlike the 1.95% one",
+   "inner_audit": "a2: the caption credits both strained wires with high-Q resonances; in the panel the 2.37% trace is a smooth envelope, so the Q and free-spectral-range claims rest on the 1.95% device",
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S3: h7 partial; a2 contradicts"
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S1",
+   "S3",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "causes"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {
+  "F1": {
+   "caption": "Figure 1: Strained Ge nanowire. (a) Scanning electron micrograph (SEM) of a fabricated device, showing the etched Ge nanowire and adjacent distributed Bragg-refector (DBR) mirrors (detail view). (b) Side-view SEM of the initial Ge-on-insulator material stack. "
+  },
+  "F2": {
+   "caption": "Figure 2: Substrate stiction. (a) Wide-area and (b) detailed height-maps of the wafer surface, gathered using white-light interferometry. The boxed area from (a) is shown in (b). The devices and nearby undercut regions are lower than the wafer surface. Height values below -100 nm are clamped for clarity. (c) Line-scan of the region in (b), showing a step height of ∼25 nm at the edge of the undercu"
+  },
+  "F3": {
+   "caption": "Figure 3: Optical mode and strain distribution. Insets on right show a magnified view of the right side of the wire and adjacent tapered region. (a) $E_{y}$ field distribution for the optical mode with a free-space wavelength of $2.0~\\ensuremath{\\upmu\\mathrm{m}}$ , obtained with FDTD simulation. (b) Tensile strain distribution in an identical structure, obtained with FEM simulation. A uniform stra"
+  },
+  "F4": {
+   "caption": "Figure 4: Photoluminescence (PL). (a) PL spectra for devices with $0\\%$ ， $1.95\\%$ , and $2.37\\%$ tensile strain. The direct-gap emission intensity increases greatly at higher strain and exhibits high-Q resonances with a free spectral range of $24.6~\\mathrm{nm}$ . The detection limit of the spectrometer is denoted with a gray background. (b) Lorentzian fit to a single resonance peak with fitted qu"
+  },
+  "F5": {
+   "caption": "Figure 5: Analysis of net optical gain. (a) Plot of net optical gain versus incident pump power (980 nm CW) for $2.37\\%$ (black, $\\lambda=2010\\mathrm{nm}$ ) and $1.95\\%$ (red, $\\lambda~=~1961$ nm) strained nanowires. A clear improvement in net gain is seen in the more strained device. (b) Net optical gain versus injected carrier density for the 2.37% strained device. Black dots indicate experiment"
+  }
+ },
+ "fm_critical": true,
+ "panels": {
+  "10.1021/acs.nanolett.5b03976#F3a": {
+   "figure": "F3",
+   "letter": "a",
+   "tier": "A",
+   "ocr_agrees": false,
+   "definition": "$E_{y}$ field distribution for the optical mode with a free-space wavelength of $2.0~\\ensuremath{\\upmu\\mathrm{m}}$ , obtained with FDTD simulation",
+   "use": [
+    "Using a combination of finite difference time domain (FDTD) optical simulations (figure 3a) and finite element method (FEM) mechanical modeling (figure 3b), we designed a device that supports optical modes with radiative quality factors of over $10^{4}$ while retaining very high ( $>$ 2%) mechanical strain along the nanowire."
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F1a": {
+   "figure": "F1",
+   "letter": "a",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "Scanning electron micrograph (SEM) of a fabricated device, showing the etched Ge nanowire and adjacent distributed Bragg-refector (DBR) mirrors (detail view)",
+   "use": [
+    "Figure 1a presents a scanning electron micrograph (SEM) of a fabricated device, consisting of an 8 µm long highly-strained Ge nanowire surrounded by two large pads containing distributed Bragg reflector (DBR) mirrors which form the optical cavity."
+   ],
+   "cues": [
+    "micrograph",
+    "scale bar 5um"
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F1b": {
+   "figure": "F1",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "Side-view SEM of the initial Ge-on-insulator material stack",
+   "use": [
+    "The device is fabricated in a material stack consisting of four layers: 200 nm Ge, 25 nm Al2O $^{3}$ , 850 nm SiO $^2$ , and Si wafer (figure 1b)."
+   ],
+   "cues": [
+    "micrograph",
+    "scale bar 500nm"
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F3b": {
+   "figure": "F3",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "Tensile strain distribution in an identical structure, obtained with FEM simulation. A uniform strain of ${\\sim}2.4\\%$ is present along the narrow central segment of the nanowire",
+   "use": [
+    "Using a combination of finite difference time domain (FDTD) optical simulations (figure 3a) and finite element method (FEM) mechanical modeling (figure 3b), we designed a device that supports optical modes with radiative quality factors of over $10^{4}$ while retaining very high ( $>$ 2%) mechanical strain along the nanowire."
+   ],
+   "cues": [
+    "mechanical"
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F2b": {
+   "figure": "F2",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "detailed height-maps of the wafer surface, gathered using white-light interferometry. The boxed area from The devices and nearby undercut regions are lower than the wafer surface. Height values below -100 nm are clamped for clarity showing a step height of ∼25 nm at the edge of the undercut region, corresponding to the thickness of the sacrificial Al2O3 layer",
+   "use": [
+    "Figures 2a,b present height-maps of several devices, gathered using white-light interferometry.",
+    "Figure 2c presents a line-scan across the single device indicated in figure 2b."
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F2c": {
+   "figure": "F2",
+   "letter": "c",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "Line-scan of the region in",
+   "use": [
+    "Figure 2c presents a line-scan across the single device indicated in figure 2b."
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F3c": {
+   "figure": "F3",
+   "letter": "c",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "Strain map for a fabricated device, experimentally obtained using Raman spectroscopy",
+   "use": [
+    "Figure 3c shows an experimentally measured strain distribution in a fabricated device, collected using Raman spectroscopy (details in SI)."
+   ],
+   "cues": [
+    "mechanical"
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F4a": {
+   "figure": "F4",
+   "letter": "a",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "PL spectra for devices with $0\\%$ ， $1.95\\%$ , and $2.37\\%$ tensile strain. The direct-gap emission intensity increases greatly at higher strain and exhibits high-Q resonances with a free spectral range of $24.6~\\mathrm{nm}$ . The detection limit of the spectrometer is denoted with a gray background",
+   "use": [
+    "Figure 4a shows photoluminescence spectra from unstrained, $1.95\\%$ , and 2.37% strained nanowires with identical optical cavities."
+   ],
+   "cues": [
+    "optical spectroscopy"
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F4d": {
+   "figure": "F4",
+   "letter": "d",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "Spectral dependence of the emission on the pump power. Each spectrum (row) is normalized to its peak value. A large free-carrier-induced blue shift and significant broadening are observed for all modes",
+   "use": [
+    "Figure 4d displays a series of spectra taken with varying pump powers, with the intensity in each row normalized to its maximum value."
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F5a": {
+   "figure": "F5",
+   "letter": "a",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "Plot of net optical gain versus incident pump power (980 nm CW) for $2.37\\%$ (black, $\\lambda=2010\\mathrm{nm}$ ) and $1.95\\%$ (red, $\\lambda~=~1961$ nm) strained nanowires. A clear improvement in net gain is seen in the more strained device",
+   "use": [
+    "We plot the net optical gain for 2.37% ( $\\lambda=2010\\mathrm{nm}$ ) and $1.95\\%$ ( $\\lambda=1923$ nm) strained nanowires in figure 5a."
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F5b": {
+   "figure": "F5",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": false,
+   "definition": "Net optical gain versus injected carrier density for the 2.37% strained device. Black dots indicate experimental data, and the dashed grey line indicates values from EPM calculations. Carrier densities are obtained through calculation of the absorbed laser power and a fit to theory; calculation details are presented in the SI Losses from valence-band transitions in the highly strained nanowire dominate. At high pump powers, the contribution from the pad regions is negligible due to strong carrier confnement in the pseudo-heterostructure",
+   "use": []
+  },
+  "10.1021/acs.nanolett.5b03976#F5c": {
+   "figure": "F5",
+   "letter": "c",
+   "tier": "A",
+   "ocr_agrees": null,
+   "definition": "Plot of optical losses included in the curve presented in",
+   "use": [
+    "To clarify the dominant loss mechanisms in our modeling, we present them individually in Figure 5c."
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F4b": {
+   "figure": "F4",
+   "letter": "b",
+   "tier": "A",
+   "ocr_agrees": false,
+   "definition": "Lorentzian fit to a single resonance peak with fitted quality factor of 2020",
+   "use": [
+    "Figure 4b presents a lorentzian fit to a single optical mode under identical pump conditions."
+   ],
+   "cues": [
+    "optical spectroscopy"
+   ]
+  },
+  "10.1021/acs.nanolett.5b03976#F4c": {
+   "figure": "F4",
+   "letter": "c",
+   "tier": "A",
+   "ocr_agrees": true,
+   "definition": "High resolution PL spectra for a $1.95\\%$ strained nanowire pumped with increasing average power from a pulsed laser source. Results at wavelengths below $\\sim$ 1950 nm include atmospheric absorption lines",
+   "use": [
+    "Figure 4c presents spectra from a 1.95% strained nanowire under pulsed excitation with various average powers."
+   ],
+   "cues": [
+    "optical spectroscopy"
+   ]
+  }
+ },
+ "assets_note": "images stripped for the repo, regenerate with taxonomy/embed_panels.py"
+}
