@@ -1,0 +1,98 @@
+{
+  "_method": "Each crop opened and judged by eye. precision = correct / (correct + wrong); unclear excluded from the denominator. precision_strict = correct / (correct + wrong + unclear) also given.",
+  "micrograph": {
+    "correct": 12,
+    "wrong": 1,
+    "unclear": 1,
+    "precision": 0.923,
+    "precision_strict": 0.857,
+    "wrong_examples": [
+      {
+        "file": "micrograph__10.1002_adfm.201901942__5a032c80950ab0.jpg",
+        "why": "Bar chart of cell viability vs power density (W/cm2); no image of a sample. Axis tick text like '0.5'/'1.25' plus a unit was read as a scale bar."
+      }
+    ],
+    "unclear_examples": [
+      {
+        "file": "micrograph__10.1002_adfm.201603378__0bd6b7676e80a2.jpg",
+        "why": "Composite crop: device schematic + energy-level diagram on the left, real SEM images with 1 um / 50 um scale bars on the right. Micrograph is true of part of the crop only."
+      }
+    ]
+  },
+  "DIS_micrograph": {
+    "correct": 18,
+    "wrong": 2,
+    "unclear": 0,
+    "precision": 0.9,
+    "precision_strict": 0.9,
+    "wrong_examples": [
+      {
+        "file": "DIS_micrograph__10.1016_s1359-6454(01)00189-6__dce9a0a784c064.jpg",
+        "why": "Acoustic-emission spectra, intensity vs frequency (kHz). The annotation 'Grain Size d=48um' / 'd=69um' inside the plot was read as a scale bar."
+      },
+      {
+        "file": "DIS_micrograph__j.jmst.2021.12.018__603fc5b206fc5a.jpg",
+        "why": "Bar chart of H2 evolution rate; the category labels are wavelengths ('>420 nm', '365 nm', '450 nm') and the 'nm' tokens fired the scale-bar rule."
+      }
+    ],
+    "notes": "DIS_micrograph__10.1016_s1359-6454(03)00293-3__c7e2997f0e5b83.jpg is a genuine micrograph but carries a full SEM banner (Acc.V 12.0 kV, SE, WD 7.0); scored correct, but it should have landed in SEM, so the two patterns overlap."
+  },
+  "micrograph_combined": {
+    "correct": 30,
+    "wrong": 3,
+    "unclear": 1,
+    "precision": 0.909,
+    "precision_strict": 0.882,
+    "wrong_examples": [
+      {"file": "micrograph__10.1002_adfm.201901942__5a032c80950ab0.jpg", "why": "bar chart, axis numbers+unit read as scale bar"},
+      {"file": "DIS_micrograph__10.1016_s1359-6454(01)00189-6__dce9a0a784c064.jpg", "why": "AE frequency spectrum, 'Grain Size d=48um' caption read as scale bar"},
+      {"file": "DIS_micrograph__j.jmst.2021.12.018__603fc5b206fc5a.jpg", "why": "bar chart with wavelength ('nm') category labels"}
+    ]
+  },
+  "SEM": {
+    "correct": 13,
+    "wrong": 0,
+    "unclear": 0,
+    "precision": 1.0,
+    "precision_strict": 1.0,
+    "wrong_examples": [],
+    "notes": "Every crop shows an explicit instrument banner (SEI/BSE/SE2, kV, WD, Mag, TESCAN/ZEISS/FEI footer) over a real electron image. No failure mode observed."
+  },
+  "EDS": {
+    "correct": 10,
+    "wrong": 1,
+    "unclear": 0,
+    "precision": 0.909,
+    "precision_strict": 0.909,
+    "wrong_examples": [
+      {
+        "file": "EDS__10.1002_adma.202005433__5215aedda078d3.jpg",
+        "why": "XAS/XANES Ru K-edge absorption spectrum, 22.10-22.20 keV. A keV x-axis is not sufficient: hard-X-ray absorption edges use the same unit."
+      }
+    ]
+  },
+  "EDS_line_scan": {
+    "correct": 1,
+    "wrong": 12,
+    "unclear": 0,
+    "precision": 0.077,
+    "precision_strict": 0.077,
+    "wrong_examples": [
+      {"file": "EDS_line_scan__10.1002_adfm.200800939__60da72d7015a83.jpg", "why": "AFM software screenshot: surface/horiz/vert distance measurement table over a height profile, not a composition profile."},
+      {"file": "EDS_line_scan__10.1002_adfm.200900782__e63f0211e24dd2.jpg", "why": "Bar chart, zone-of-inhibition Distance [mm] vs E. coli concentration; microbiology, not composition."},
+      {"file": "EDS_line_scan__10.1002_adfm.201702689__42f66dfe38b6bd.jpg", "why": "Filopodial length / total extension distance (um) vs time (min); cell-biology kinetics."},
+      {"file": "EDS_line_scan__10.1002_adfm.201705480__b44ee9f3379e01.jpg", "why": "Nanoscratch test: depth (um) and friction vs scratch distance (mm); mechanical, not composition."},
+      {"file": "EDS_line_scan__10.1002_adma.201503905__3f2798ec134d61.jpg", "why": "Confocal PL schematic plus a polar intensity plot; only a stray 'Distance (nm)' token from a neighbouring panel."},
+      {"file": "EDS_line_scan__10.1002_adma.201604464__1248d0ae422653.jpg", "why": "Conductivity vs gate voltage transfer curve; the annotation 'Channel Distance = 10.5 um' fired the rule."},
+      {"file": "EDS_line_scan__10.1002_adma.201800595__158a787efcccc4.jpg", "why": "Interparticle distance (nm) vs polymer Mw, with TEM insets; distance is the y value, not a scan axis."},
+      {"file": "EDS_line_scan__10.1016_j.actamat.2012.05.006__a36a9ad46af644.jpg", "why": "Grain-boundary migration distance (um) vs 1/G driving force, plus micrograph strips."},
+      {"file": "EDS_line_scan__10.1016_j.actamat.2013.01.006__369092cabecc98.jpg", "why": "EBSD misorientation profile (degrees) vs distance [microns]; a line profile but of orientation, not composition."},
+      {"file": "EDS_line_scan__10.1021_nl504330g__e4a2ce6d6bc372.jpg", "why": "CVD tube-furnace schematic with a 'Distance' dimension arrow; no plot at all."},
+      {"file": "EDS_line_scan__10.1038_nmat2231__d7157b49f1832a.jpg", "why": "Modulus E (GPa) and yield stress (MPa) vs Distance (um) through a graded tissue; mechanical profile."},
+      {"file": "EDS_line_scan__j.jmst.2019.10.027__ffac804b244a2b.jpg", "why": "Distance from centerline (mm) vs solidification parameter G^3/R; casting model, not a scan."}
+    ],
+    "correct_examples": [
+      {"file": "EDS_line_scan__10.1016_j.actamat.2021.116713__0393386c818c9b.jpg", "why": "STEM BF + STEM EDX maps with Al concentration [at%] vs distance [um] across the interface."}
+    ]
+  }
+}

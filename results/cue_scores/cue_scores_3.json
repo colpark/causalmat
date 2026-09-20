@@ -1,0 +1,67 @@
+{
+  "_method": "Each crop opened and judged by eye. precision = correct / (correct + wrong); unclear excluded from the denominator. 64 crops scored (DIS_* files skipped).",
+  "electrochemistry": {
+    "correct": 13,
+    "wrong": 0,
+    "unclear": 0,
+    "precision": 1.0,
+    "wrong_examples": [],
+    "notes": "Mix of charge-discharge curves, CV, LSV/polarisation, cycling capacity, Coulombic efficiency vs time, capacitance vs current density, photocurrent chronoamperometry. All are electrochemical measurements. Borderline-but-correct: electrochemistry__10.1002_adfm.201806662 (photocurrent density vs aging time, a PEC summary trend rather than a raw curve); electrochemistry__10.1021_acs.nanolett.8b02559 (photocurrent-vs-time stability with SEM insets, electrochemical axis dominates)."
+  },
+  "mechanical": {
+    "correct": 10,
+    "wrong": 2,
+    "unclear": 0,
+    "precision": 0.833,
+    "wrong_examples": [
+      {
+        "file": "mechanical__10.1002_adfm.202104686__811cc1e1efafbe.jpg",
+        "why": "Piezoresistive sensor response: dR/R0 (%) vs Strain (%). Electrical readout, not a stress-strain or hardness plot; cue fired on the bare 'Strain (%)' axis."
+      },
+      {
+        "file": "mechanical__10.1016_j.actamat.2016.09.006__b143aeac6d555c.jpg",
+        "why": "DIC/EBSD strain map image (colour overlay on grains, 'Strain (%)' colourbar). The panel is microscopy, not a mechanical test curve; cue fired on the colourbar label."
+      }
+    ],
+    "notes": "Borderline-but-correct: mechanical__10.1016_j.actamat.2020.116524 (Ashby-style stress-vs-strain literature scatter, not a measured curve, but the family is still mechanical testing)."
+  },
+  "thermal": {
+    "correct": 13,
+    "wrong": 0,
+    "unclear": 0,
+    "precision": 1.0,
+    "wrong_examples": [],
+    "notes": "All TGA (weight % vs T), DTG, DSC/heat-flow or combined TG-DTA traces. No false positives."
+  },
+  "optical_spectroscopy": {
+    "correct": 13,
+    "wrong": 0,
+    "unclear": 0,
+    "precision": 1.0,
+    "wrong_examples": [],
+    "notes": "All carry a wavelength (nm) axis: UV-vis absorbance, PL/excitation, reflectance, transmission. Borderline-but-correct: optical_spectroscopy__10.1021_acs.nanolett.1c00178 (extinction coefficient k vs wavelength, ellipsometry-derived optical constant) and optical_spectroscopy__10.1002_adfm.201808885 (dissymmetry factor g vs wavelength)."
+  },
+  "none": {
+    "correct": 10,
+    "wrong": 2,
+    "unclear": 1,
+    "precision": 0.833,
+    "wrong_examples": [
+      {
+        "file": "none__10.1016_j.actamat.2016.04.051__a84bf5778c0f96.jpg",
+        "why": "MISS of `mechanical`: a clean engineering stress-strain plot with 'Engineering Stress [MPa]' / 'Engineering Strain [%]' axes fully legible in the OCR boxes. Text-recoverable miss - the axis wording (bracketed units, 'Engineering') is not matched by the current pattern."
+      },
+      {
+        "file": "none__10.1016_j.actamat.2009.01.007__f819d89f95d33a.jpg",
+        "why": "MISS of `micrograph`: colour-coded phase/orientation map of a grain (a1/a2/a3 regions). Plainly microscopy, but NOT text-recoverable - the only tokens are the phase labels, no scale bar or instrument text."
+      }
+    ],
+    "unclear_examples": [
+      {
+        "file": "none__10.1021_acs.nanolett.6b03260__3c5c7cc2f2aa39.jpg",
+        "why": "Greyscale scanned map with x/y axes in micrometres; could be a confocal/scanning-probe micrograph or a photocurrent map. Technique not determinable from the panel."
+      }
+    ],
+    "notes": "Correct `none` cases are genuinely out-of-vocabulary or text-free: a process schematic, S21 transmission vs GHz (VNA), Jsc vs light intensity, EPR (intensity vs H in Gauss), EQE histogram, magnetoconductance vs B, thermal conductivity vs T, a Pisarenko/Seebeck plot, an optical-trap position plot, and a 1 cm-scale photograph of a coated disc. Thermal conductivity vs temperature (none__10.1021_nl400558u) was counted correct because the `thermal` class is defined as TGA/DSC/heat-flow only; if thermal-transport belongs in that class it becomes a third miss and precision drops to 0.75."
+  }
+}

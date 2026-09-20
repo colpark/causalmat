@@ -1,0 +1,330 @@
+{
+ "scored_by": "agent eye-check of the ocr_run review sample",
+ "threshold": 0.9,
+ "classes": {
+  "XRD": {
+   "correct": 12,
+   "wrong": 3,
+   "unclear": 0,
+   "wrong_examples": [
+    {
+     "file": "XRD__10.1002_adma.200500633__b02d494f2f0d57.jpg",
+     "why": "Circular dichroism spectrum (theta_M deg cm2/dmol vs wavelength 180-300 nm); the '200' tick plus '(deg' matched the 2-theta pattern"
+    },
+    {
+     "file": "XRD__10.1021_acs.nanolett.9b02417__9c14d635a52442.jpg",
+     "why": "Angle-resolved optical transmittance map (wavelength vs 'Incident angle (deg)'); '20' tick + '(deg)' matched 2-theta"
+    },
+    {
+     "file": "XRD__10.1021_nl202226r__f8363699593a49.jpg",
+     "why": "Angle-resolved external quantum efficiency map ('Angle (deg)' vs wavelength), no diffraction pattern"
+    }
+   ],
+   "n_judged": 15,
+   "precision": 0.8,
+   "enabled_for_modality_agrees": false
+  },
+  "XPS": {
+   "correct": 12,
+   "wrong": 2,
+   "unclear": 1,
+   "wrong_examples": [
+    {
+     "file": "XPS__10.1002_adfm.201910424__55468b952f95d5.jpg",
+     "why": "UPS: He I secondary-electron cutoff with '21.2 eV', E_vac/E_VB markers, binding energy 20 to -5 eV, not a core-level XPS scan"
+    },
+    {
+     "file": "XPS__10.1002_adma.201900699__9b5439cfeabc63.jpg",
+     "why": "EDX/EDS spectrum: axis is 0-4 keV (above any Al/Mg K-alpha source), C/N/Mo/W emission lines, mislabelled 'Binding Energy (keV)'"
+    }
+   ],
+   "n_judged": 14,
+   "precision": 0.857,
+   "enabled_for_modality_agrees": false
+  },
+  "XAS": {
+   "correct": 5,
+   "wrong": 9,
+   "unclear": 0,
+   "wrong_examples": [
+    {
+     "file": "XAS__10.1002_adma.200401263__d7dff6d1954460.jpg",
+     "why": "Optical/PL emission series vs 'Photon Energy (eV)' 2.2-3.4 eV (optical range, not an absorption edge)"
+    },
+    {
+     "file": "XAS__10.1002_adma.200401891__41079196b6c318.jpg",
+     "why": "Optical spectra 1.75-2.80 eV, no edge/XANES structure"
+    },
+    {
+     "file": "XAS__10.1002_adma.201506402__2647bf705002f2.jpg",
+     "why": "Fluorescence/emission intensity vs wavelength 580-700 nm with a photon-energy top axis"
+    },
+    {
+     "file": "XAS__10.1002_adma.201908242__514d6f3c0fc809.jpg",
+     "why": "UV-vis absorbance vs wavelength; only the Tauc inset carries 'Photon energy (eV)'"
+    },
+    {
+     "file": "XAS__10.1021_acs.nanolett.8b04259__b59a2827d4fc72.jpg",
+     "why": "Schematic cavity-mode emission comb vs unlabelled 'Photon energy'"
+    },
+    {
+     "file": "XAS__10.1021_acs.nanolett.8b04781__8e99a33bfc512e.jpg",
+     "why": "Electroluminescence spectra vs photon energy 1.5-3 eV"
+    },
+    {
+     "file": "XAS__10.1021_acs.nanolett.8b04781__966bc5cd850aeb.jpg",
+     "why": "Cathodoluminescence spectrum, 1.8-2.5 eV"
+    },
+    {
+     "file": "XAS__10.1021_nl400547z__8f5b7aa43f159d.jpg",
+     "why": "Photoluminescence intensity vs photon energy 3.1-3.5 eV"
+    },
+    {
+     "file": "XAS__10.1038_s41563-023-01601-5__38cfb74331e69c.jpg",
+     "why": "Transient absorption dT/T0 vs photon energy 1.6-2.4 eV (ultrafast optical, not X-ray)"
+    }
+   ],
+   "n_judged": 14,
+   "precision": 0.357,
+   "enabled_for_modality_agrees": false
+  },
+  "Raman": {
+   "correct": 13,
+   "wrong": 1,
+   "unclear": 0,
+   "wrong_examples": [
+    {
+     "file": "Raman__10.1002_adma.202004555__c445b7e62fd57a.jpg",
+     "why": "Panel is an electrical-conductivity bar chart; the 'Raman shift (cm-1)' token is clipped bleed from the neighbouring panel at the top crop edge"
+    }
+   ],
+   "n_judged": 14,
+   "precision": 0.929,
+   "enabled_for_modality_agrees": true
+  },
+  "FTIR": {
+   "correct": 10,
+   "wrong": 4,
+   "unclear": 0,
+   "wrong_examples": [
+    {
+     "file": "FTIR__10.1002_adfm.201604943__6ae59e0d6c0bd2.jpg",
+     "why": "Raman spectrum of MoS2 (E2g/A1g modes, 250-450 cm-1) with the x-axis written as 'Wavenumber (cm-1)'"
+    },
+    {
+     "file": "FTIR__10.1002_adfm.202102745__69dd9fab70c1fb.jpg",
+     "why": "Relative-intensity spectrum with narrow bands 400-1700 cm-1 (biomass Raman), not an IR transmittance/absorbance trace"
+    },
+    {
+     "file": "FTIR__10.1002_adma.200306317__34ea84210295c8.jpg",
+     "why": "Single sharp 236.8 cm-1 line, relative intensity, 150-500 cm-1 - low-frequency Raman, below normal FTIR range"
+    },
+    {
+     "file": "FTIR__j.porgcoat.2016.01.013__e03cbf7a1a8a21.jpg",
+     "why": "Graphene oxide D and G bands at ~1350/1580 cm-1, intensity axis - Raman"
+    }
+   ],
+   "n_judged": 14,
+   "precision": 0.714,
+   "enabled_for_modality_agrees": false
+  },
+  "micrograph": {
+   "correct": 12,
+   "wrong": 1,
+   "unclear": 1,
+   "wrong_examples": [
+    {
+     "file": "micrograph__10.1002_adfm.201901942__5a032c80950ab0.jpg",
+     "why": "Bar chart of cell viability vs power density (W/cm2); no image of a sample. Axis tick text like '0.5'/'1.25' plus a unit was read as a scale bar."
+    }
+   ],
+   "n_judged": 13,
+   "precision": 0.923,
+   "enabled_for_modality_agrees": true
+  },
+  "DIS_micrograph": {
+   "correct": 18,
+   "wrong": 2,
+   "unclear": 0,
+   "wrong_examples": [
+    {
+     "file": "DIS_micrograph__10.1016_s1359-6454(01)00189-6__dce9a0a784c064.jpg",
+     "why": "Acoustic-emission spectra, intensity vs frequency (kHz). The annotation 'Grain Size d=48um' / 'd=69um' inside the plot was read as a scale bar."
+    },
+    {
+     "file": "DIS_micrograph__j.jmst.2021.12.018__603fc5b206fc5a.jpg",
+     "why": "Bar chart of H2 evolution rate; the category labels are wavelengths ('>420 nm', '365 nm', '450 nm') and the 'nm' tokens fired the scale-bar rule."
+    }
+   ],
+   "n_judged": 20,
+   "precision": 0.9,
+   "enabled_for_modality_agrees": true
+  },
+  "micrograph_combined": {
+   "correct": 30,
+   "wrong": 3,
+   "unclear": 1,
+   "wrong_examples": [
+    {
+     "file": "micrograph__10.1002_adfm.201901942__5a032c80950ab0.jpg",
+     "why": "bar chart, axis numbers+unit read as scale bar"
+    },
+    {
+     "file": "DIS_micrograph__10.1016_s1359-6454(01)00189-6__dce9a0a784c064.jpg",
+     "why": "AE frequency spectrum, 'Grain Size d=48um' caption read as scale bar"
+    },
+    {
+     "file": "DIS_micrograph__j.jmst.2021.12.018__603fc5b206fc5a.jpg",
+     "why": "bar chart with wavelength ('nm') category labels"
+    }
+   ],
+   "n_judged": 33,
+   "precision": 0.909,
+   "enabled_for_modality_agrees": true
+  },
+  "SEM": {
+   "correct": 13,
+   "wrong": 0,
+   "unclear": 0,
+   "wrong_examples": [],
+   "n_judged": 13,
+   "precision": 1.0,
+   "enabled_for_modality_agrees": true
+  },
+  "EDS": {
+   "correct": 10,
+   "wrong": 1,
+   "unclear": 0,
+   "wrong_examples": [
+    {
+     "file": "EDS__10.1002_adma.202005433__5215aedda078d3.jpg",
+     "why": "XAS/XANES Ru K-edge absorption spectrum, 22.10-22.20 keV. A keV x-axis is not sufficient: hard-X-ray absorption edges use the same unit."
+    }
+   ],
+   "n_judged": 11,
+   "precision": 0.909,
+   "enabled_for_modality_agrees": true
+  },
+  "EDS_line_scan": {
+   "correct": 1,
+   "wrong": 12,
+   "unclear": 0,
+   "wrong_examples": [
+    {
+     "file": "EDS_line_scan__10.1002_adfm.200800939__60da72d7015a83.jpg",
+     "why": "AFM software screenshot: surface/horiz/vert distance measurement table over a height profile, not a composition profile."
+    },
+    {
+     "file": "EDS_line_scan__10.1002_adfm.200900782__e63f0211e24dd2.jpg",
+     "why": "Bar chart, zone-of-inhibition Distance [mm] vs E. coli concentration; microbiology, not composition."
+    },
+    {
+     "file": "EDS_line_scan__10.1002_adfm.201702689__42f66dfe38b6bd.jpg",
+     "why": "Filopodial length / total extension distance (um) vs time (min); cell-biology kinetics."
+    },
+    {
+     "file": "EDS_line_scan__10.1002_adfm.201705480__b44ee9f3379e01.jpg",
+     "why": "Nanoscratch test: depth (um) and friction vs scratch distance (mm); mechanical, not composition."
+    },
+    {
+     "file": "EDS_line_scan__10.1002_adma.201503905__3f2798ec134d61.jpg",
+     "why": "Confocal PL schematic plus a polar intensity plot; only a stray 'Distance (nm)' token from a neighbouring panel."
+    },
+    {
+     "file": "EDS_line_scan__10.1002_adma.201604464__1248d0ae422653.jpg",
+     "why": "Conductivity vs gate voltage transfer curve; the annotation 'Channel Distance = 10.5 um' fired the rule."
+    },
+    {
+     "file": "EDS_line_scan__10.1002_adma.201800595__158a787efcccc4.jpg",
+     "why": "Interparticle distance (nm) vs polymer Mw, with TEM insets; distance is the y value, not a scan axis."
+    },
+    {
+     "file": "EDS_line_scan__10.1016_j.actamat.2012.05.006__a36a9ad46af644.jpg",
+     "why": "Grain-boundary migration distance (um) vs 1/G driving force, plus micrograph strips."
+    },
+    {
+     "file": "EDS_line_scan__10.1016_j.actamat.2013.01.006__369092cabecc98.jpg",
+     "why": "EBSD misorientation profile (degrees) vs distance [microns]; a line profile but of orientation, not composition."
+    },
+    {
+     "file": "EDS_line_scan__10.1021_nl504330g__e4a2ce6d6bc372.jpg",
+     "why": "CVD tube-furnace schematic with a 'Distance' dimension arrow; no plot at all."
+    },
+    {
+     "file": "EDS_line_scan__10.1038_nmat2231__d7157b49f1832a.jpg",
+     "why": "Modulus E (GPa) and yield stress (MPa) vs Distance (um) through a graded tissue; mechanical profile."
+    },
+    {
+     "file": "EDS_line_scan__j.jmst.2019.10.027__ffac804b244a2b.jpg",
+     "why": "Distance from centerline (mm) vs solidification parameter G^3/R; casting model, not a scan."
+    }
+   ],
+   "n_judged": 13,
+   "precision": 0.077,
+   "enabled_for_modality_agrees": false
+  },
+  "electrochemistry": {
+   "correct": 13,
+   "wrong": 0,
+   "unclear": 0,
+   "wrong_examples": [],
+   "n_judged": 13,
+   "precision": 1.0,
+   "enabled_for_modality_agrees": true
+  },
+  "mechanical": {
+   "correct": 10,
+   "wrong": 2,
+   "unclear": 0,
+   "wrong_examples": [
+    {
+     "file": "mechanical__10.1002_adfm.202104686__811cc1e1efafbe.jpg",
+     "why": "Piezoresistive sensor response: dR/R0 (%) vs Strain (%). Electrical readout, not a stress-strain or hardness plot; cue fired on the bare 'Strain (%)' axis."
+    },
+    {
+     "file": "mechanical__10.1016_j.actamat.2016.09.006__b143aeac6d555c.jpg",
+     "why": "DIC/EBSD strain map image (colour overlay on grains, 'Strain (%)' colourbar). The panel is microscopy, not a mechanical test curve; cue fired on the colourbar label."
+    }
+   ],
+   "n_judged": 12,
+   "precision": 0.833,
+   "enabled_for_modality_agrees": false
+  },
+  "thermal": {
+   "correct": 13,
+   "wrong": 0,
+   "unclear": 0,
+   "wrong_examples": [],
+   "n_judged": 13,
+   "precision": 1.0,
+   "enabled_for_modality_agrees": true
+  },
+  "optical_spectroscopy": {
+   "correct": 13,
+   "wrong": 0,
+   "unclear": 0,
+   "wrong_examples": [],
+   "n_judged": 13,
+   "precision": 1.0,
+   "enabled_for_modality_agrees": true
+  },
+  "none": {
+   "correct": 10,
+   "wrong": 2,
+   "unclear": 1,
+   "wrong_examples": [
+    {
+     "file": "none__10.1016_j.actamat.2016.04.051__a84bf5778c0f96.jpg",
+     "why": "MISS of `mechanical`: a clean engineering stress-strain plot with 'Engineering Stress [MPa]' / 'Engineering Strain [%]' axes fully legible in the OCR boxes. Text-recoverable miss - the axis wording (bracketed units, 'Engineering') is not matched by the current pattern."
+    },
+    {
+     "file": "none__10.1016_j.actamat.2009.01.007__f819d89f95d33a.jpg",
+     "why": "MISS of `micrograph`: colour-coded phase/orientation map of a grain (a1/a2/a3 regions). Plainly microscopy, but NOT text-recoverable - the only tokens are the phase labels, no scale bar or instrument text."
+    }
+   ],
+   "n_judged": 12,
+   "precision": 0.833,
+   "enabled_for_modality_agrees": false
+  }
+ }
+}

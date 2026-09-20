@@ -21,6 +21,7 @@ The reasoning must be grounded on measurements. The analysis follows the `fm-adv
 | `site/argument_graphs.html` | Interactive page: vocabulary tree, saturation curve, the 3 case graphs with their figures |
 | [docs/bioreason_kegg.md](docs/bioreason_kegg.md) | How BioReason builds SFT/RL data on KEGG, with our leakage and lookup checks on its HF data |
 | [docs/PANELS.md](docs/PANELS.md) | **Panel extraction and matching.** 424,621 figures run through the MatMMExtract YOLO12 detector on 2 GPUs (1.09 M panel crops), then tiered validation matching every panel to the caption text that defines it and the body text that uses it, plus modality statistics |
+| [docs/CUE_PRECISION.md](docs/CUE_PRECISION.md) | **Which OCR cue classes may feed a modality decision.** 295 crops judged by eye; 7 of 14 classes fall under 90% and are disabled, with the tightening each needs |
 | [docs/MODALITY_PAGES.md](docs/MODALITY_PAGES.md) | **One page per paper**: argument states, measurement lanes, and every evidence node showing the crops it was read from with their caption spans and OCR facts |
 | [docs/DISAGREEMENTS.md](docs/DISAGREEMENTS.md) | **Where the checkpoint disagreements came from**: new collapse code, stale hand references, kit-vs-rule drift, and the graph-writing step |
 | [docs/V05_BATCH.md](docs/V05_BATCH.md) | **32 argument graphs with panel links.** Same v04 protocol, evidence nodes now cite canonical panel ids; 94% of observation nodes linked, 0 new types, 4.6% of checked citations overturned |
