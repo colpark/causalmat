@@ -21,6 +21,7 @@ The reasoning must be grounded on measurements. The analysis follows the `fm-adv
 | `site/argument_graphs.html` | Interactive page: vocabulary tree, saturation curve, the 3 case graphs with their figures |
 | [docs/bioreason_kegg.md](docs/bioreason_kegg.md) | How BioReason builds SFT/RL data on KEGG, with our leakage and lookup checks on its HF data |
 | [docs/PANELS.md](docs/PANELS.md) | **Panel extraction and matching.** 424,621 figures run through the MatMMExtract YOLO12 detector on 2 GPUs (1.09 M panel crops), then tiered validation matching every panel to the caption text that defines it and the body text that uses it, plus modality statistics |
+| [docs/OCR.md](docs/OCR.md) | **Which papers are worth the compute, and OCR over their crops.** 16,487 papers carry SEM plus 3+ modalities an available tool can act on; RapidOCR reads every crop in that subset on two GPUs |
 | `scripts/panels/` | Detector worker, merge, CRC verification, tiered matcher, modality stats, review-packet builder, run summaries |
 | `results/fm_supply.json` | Papers carrying SEM plus 3+ modalities that an available FM/encoder/generator can act on, with the tool-availability map |
 | `results/panel_modalities.json` | Form and technique breakdown of the 727,627 accepted panels |
