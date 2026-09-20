@@ -20,6 +20,9 @@ The reasoning must be grounded on measurements. The analysis follows the `fm-adv
 | `taxonomy/` | Protocol, vocabularies v00–v04, per-round graphs/proposals/judge rulings, `graphs_v04/` (60 migrated graphs), `cases/` (showcases), scripts |
 | `site/argument_graphs.html` | Interactive page: vocabulary tree, saturation curve, the 3 case graphs with their figures |
 | [docs/bioreason_kegg.md](docs/bioreason_kegg.md) | How BioReason builds SFT/RL data on KEGG, with our leakage and lookup checks on its HF data |
+| [docs/PANELS.md](docs/PANELS.md) | **Panel extraction and matching.** 424,621 figures run through the MatMMExtract YOLO12 detector on 2 GPUs (1.09 M panel crops), then tiered validation matching every panel to the caption text that defines it and the body text that uses it, plus modality statistics |
+| `scripts/panels/` | Detector worker, merge, CRC verification, tiered matcher, modality stats, review-packet builder, run summaries |
+| `results/panel_modalities.json` | Form and technique breakdown of the 727,627 accepted panels |
 | `results/corpus_stats.json` | Corpus counts over all 61,766 records |
 | `results/text_floor.json` | TF-IDF mechanical floor for the mechanism-selection and effect-prediction templates |
 | `scripts/fetch_data.sh` | Downloads the 16 GB zip, checks its MD5, extracts it to `./matmech` |
