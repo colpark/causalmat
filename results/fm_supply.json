@@ -1,0 +1,277 @@
+{
+ "fm_modality_map": {
+  "electron micrograph": {
+   "encoder": [
+    "SAM, DINOv2",
+    "immediate"
+   ],
+   "encoder_alt": [
+    "DINOv3",
+    "gated"
+   ],
+   "simulator": [
+    "abTEM / Prismatic multislice (TEM), CASINO (SEM)",
+    "immediate"
+   ],
+   "unclear": "EM-DINO, EMCF weights",
+   "tier": "immediate"
+  },
+  "scanned-probe micrograph": {
+   "encoder": [
+    "SAM, DINOv2",
+    "immediate"
+   ],
+   "tier": "immediate"
+  },
+  "optical/fluorescence micrograph": {
+   "encoder": [
+    "SAM, DINOv2",
+    "immediate"
+   ],
+   "tier": "immediate"
+  },
+  "diffraction pattern": {
+   "simulator": [
+    "pymatgen XRD calculator, GSAS-II refinement",
+    "immediate"
+   ],
+   "generator": [
+    "XtalNet, deCIFer, DiffractGPT",
+    "unclear"
+   ],
+   "refiner_alt": [
+    "TOPAS",
+    "procurement"
+   ],
+   "tier": "immediate"
+  },
+  "elemental map": {
+   "simulator": [
+    "DTSA-II, CASINO",
+    "immediate"
+   ],
+   "encoder": [
+    "SAM, DINOv2",
+    "immediate"
+   ],
+   "alt": [
+    "PENELOPE",
+    "gated"
+   ],
+   "tier": "immediate"
+  },
+  "orientation map": {
+   "simulator": [
+    "EMsoft pattern simulation/indexing",
+    "immediate"
+   ],
+   "encoder": [
+    "SAM, DINOv2",
+    "immediate"
+   ],
+   "tier": "immediate"
+  },
+  "core-level spectrum": {
+   "simulator": [
+    "SESSA (XPS, NIST)",
+    "immediate"
+   ],
+   "simulator_alt": [
+    "FEFF10 (XAS)",
+    "gated"
+   ],
+   "predictor": [
+    "OmniXAS",
+    "unclear"
+   ],
+   "tier": "immediate"
+  },
+  "vibrational/optical spectrum": {
+   "simulator": [
+    "Quantum ESPRESSO + Phonopy (IR/Raman modes)",
+    "immediate"
+   ],
+   "tier": "immediate"
+  },
+  "electrochemical response": {
+   "simulator": [
+    "PyBaMM",
+    "immediate"
+   ],
+   "tier": "immediate"
+  },
+  "composition/structure": {
+   "predictor": [
+    "MACE-MP-0/MPA-0, MatterSim, Orb-v3, SevenNet",
+    "immediate"
+   ],
+   "predictor_alt": [
+    "UMA",
+    "gated"
+   ],
+   "predictor_academic": [
+    "MACE-OMAT-0/MH-1/POLAR-1, GRACE",
+    "ASL academic"
+   ],
+   "generator": [
+    "MatterGen, DiffCSP, CDVAE",
+    "immediate"
+   ],
+   "simulator": [
+    "LAMMPS + MLIP, Quantum ESPRESSO",
+    "immediate"
+   ],
+   "simulator_alt": [
+    "VASP",
+    "procurement"
+   ],
+   "tier": "immediate"
+  },
+  "atomistic simulation": {
+   "simulator": [
+    "LAMMPS + MLIP surrogates, Quantum ESPRESSO",
+    "immediate"
+   ],
+   "tier": "immediate"
+  },
+  "thermal/phase response": {
+   "simulator": [
+    "Phonopy (thermal properties)",
+    "immediate"
+   ],
+   "simulator_alt": [
+    "Thermo-Calc",
+    "procurement"
+   ],
+   "tier": "immediate"
+  },
+  "mechanical response": {
+   "simulator": [
+    "LAMMPS + MLIP (atomistic)",
+    "immediate"
+   ],
+   "simulator_alt": [
+    "Abaqus (continuum)",
+    "procurement"
+   ],
+   "tier": "immediate"
+  }
+ },
+ "papers_total": 61766,
+ "papers_with_sem": 26700,
+ "papers_sem_and_3plus_fm_modalities": 16487,
+ "papers_sem_3plus_and_formula_joinable": 2646,
+ "modality_count_histogram_over_sem_papers": {
+  "0": 7,
+  "1": 3034,
+  "2": 7172,
+  "3": 7507,
+  "4": 5033,
+  "5": 2603,
+  "6": 1011,
+  "7": 274,
+  "8": 55,
+  "9": 4
+ },
+ "modality_presence_in_target": {
+  "electron micrograph": 16482,
+  "vibrational/optical spectrum": 7917,
+  "diffraction pattern": 7765,
+  "electrochemical response": 4861,
+  "elemental map": 4287,
+  "mechanical response": 3967,
+  "core-level spectrum": 3628,
+  "optical/fluorescence micrograph": 3459,
+  "atomistic simulation": 3291,
+  "scanned-probe micrograph": 2719,
+  "composition/structure": 2646,
+  "thermal/phase response": 1976,
+  "orientation map": 1130
+ },
+ "top_modality_combinations_in_target": {
+  "diffraction pattern + electron micrograph + vibrational/optical spectrum": 636,
+  "electron micrograph + optical/fluorescence micrograph + vibrational/optical spectrum": 519,
+  "diffraction pattern + electrochemical response + electron micrograph": 399,
+  "atomistic simulation + electron micrograph + vibrational/optical spectrum": 386,
+  "electron micrograph + scanned-probe micrograph + vibrational/optical spectrum": 332,
+  "electron micrograph + mechanical response + optical/fluorescence micrograph": 312,
+  "diffraction pattern + electron micrograph + mechanical response": 299,
+  "core-level spectrum + diffraction pattern + electrochemical response + electron micrograph + vibrational/optical spectrum": 268,
+  "electron micrograph + elemental map + vibrational/optical spectrum": 253,
+  "electrochemical response + electron micrograph + vibrational/optical spectrum": 234,
+  "core-level spectrum + electron micrograph + vibrational/optical spectrum": 228,
+  "diffraction pattern + electrochemical response + electron micrograph + vibrational/optical spectrum": 224,
+  "diffraction pattern + electron micrograph + elemental map": 211,
+  "atomistic simulation + electron micrograph + mechanical response": 186,
+  "electron micrograph + optical/fluorescence micrograph + scanned-probe micrograph": 186
+ },
+ "target_by_year": {
+  "1990": 2,
+  "1991": 4,
+  "1992": 9,
+  "1993": 10,
+  "1994": 8,
+  "1995": 14,
+  "1996": 71,
+  "1997": 57,
+  "1998": 79,
+  "1999": 60,
+  "2000": 66,
+  "2001": 73,
+  "2002": 111,
+  "2003": 233,
+  "2004": 244,
+  "2005": 326,
+  "2006": 338,
+  "2007": 445,
+  "2008": 509,
+  "2009": 475,
+  "2010": 536,
+  "2011": 613,
+  "2012": 807,
+  "2013": 809,
+  "2014": 942,
+  "2015": 1110,
+  "2016": 1231,
+  "2017": 1122,
+  "2018": 1405,
+  "2019": 1361,
+  "2020": 1841,
+  "2021": 1409,
+  "2022": 117,
+  "2023": 17,
+  "2024": 15,
+  "2025": 12
+ },
+ "target_by_journal": {
+  "Advanced_Functional_Materials": 4309,
+  "Advanced_Materials": 3718,
+  "Acta_Materialia": 2786,
+  "Nano_Letters": 2688,
+  "Advanced_Energy_Materials": 896,
+  "Journal_of_Magnesium_and_Alloys": 299,
+  "Journal_of_Advanced_Ceramics": 295,
+  "Journal_of_Materials_Science_&_Technology": 276,
+  "Materials_Characterization": 249,
+  "Nature_Materials": 210,
+  "Progress_in_Organic_Coatings": 201,
+  "Rare_Metals": 201,
+  "Advanced_Composites_and_Hybrid_Materials": 144,
+  "Bioactive_Materials": 143,
+  "Biomaterials": 72
+ },
+ "sem_evidence_sources": {
+  "caption+panels": 9611,
+  "caption+methods+panels": 7726,
+  "caption": 4702,
+  "caption+methods": 2938,
+  "methods": 1711,
+  "methods+panels": 6,
+  "panels": 6
+ },
+ "target_figure_totals": {
+  "figures": 124285,
+  "figures_tier_AB": 91589,
+  "panels_tier_AB": 252875
+ }
+}
