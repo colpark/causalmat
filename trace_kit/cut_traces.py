@@ -587,6 +587,12 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
             mark(t, "R5", f"{pid}: masked {[tok['text'] for tok, _ in hits]}")
     # v2 rule 8 (partial answers are keys too): the writer must declare answer_scope full | partial on the key
     t["answer_scope_required"] = True
+    # v2 rule 6, enforced: a trace whose evidence panel is a different kind of figure than the observation's technique
+    # cannot be served (the solver would be handed the wrong image); it closes rather than stay open with a block on it
+    if t.get("blocked") and t["status"] == "open":
+        b = t["blocked"]
+        t["status"] = "closed"; t["ruling"] = f"panel_modality: {b['node']} is {b['technique']} but {b['panel'].split('#')[1]} reads as {'/'.join(b['cues'])}"
+        mark(t, "R6", "open trace with a panel_modality block: closed")
 
 
 PEAK = re.compile(r"(?:peak\w*|maxim\w*|highest|optimum|best)\s+(?:at|for|near|is)\s+(\d+(?:\.\d+)?)\s*vol%", re.I)
