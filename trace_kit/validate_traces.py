@@ -53,11 +53,19 @@ def run(graph_path, traces_path, panels_dir=None):
         # target = what is graded: infer -> observation+claim; explain competing -> mechanisms; mechanism -> claim; rejection -> evidence; intervene -> decision
         redacted={r['node'] for r in t.get('redactions',[])}
         target=[t['evidence'][0], t['seed_claim']] if t['root']=='infer' else ([h for h in t.get('hidden',[]) if h not in redacted] if t['subtype']=='competing causes' else [t['seed_claim']] if t['subtype']=='mechanism' or t['root']=='intervene' else t['evidence'][:1])
+        v22='graded_targets' in t   # cutter v2.2 (v06c): the cutter names the graded targets; use them
+        if v22: target=list(t['graded_targets'])
         target=[x for x in target if x in N]
         # N1 leak: hidden targets vs given text (+question), bigrams and non-sweep numbers
         gtxt=' '.join(N[i]['label'] for i in given)+' '+t.get('question','')
         htxt=' '.join(N[i]['label'] for i in target)
         bg=bigrams(htxt)&bigrams(gtxt); nn=(nums(htxt)&nums(gtxt))-sweep_nums
+        if v22:
+            # v06c: a leak is what the question adds. Only bigrams and numbers shared by the graded targets and the question,
+            # and found in no given node and no condition label, block; content already in the context is context
+            ctx=' '.join(N[i]['label'] for i in given)+' '+' '.join(l.get('text') or '' for l in t.get('condition_labels') or [] if not l.get('withheld'))
+            q=t.get('question','')
+            bg=(bigrams(htxt)&bigrams(q))-bigrams(ctx); nn=((nums(htxt)&nums(q))-nums(ctx))-sweep_nums
         # for explain/rejection and mechanism the seed claim is given by design, so drop its own words
         if t['root']=='explain' and t['subtype'] in ('rejection',): bg=set()
         # content-word test (added after ceramic run 1, which missed a question naming the answer's classes):
@@ -125,7 +133,9 @@ def run(graph_path, traces_path, panels_dir=None):
         kw=stem(words(key)); cov=(len(kw&stem(words(src_txt)))/len(kw)) if kw else 1.0
         # word coverage is a warning, not a gate (run 5): a paraphrasing key has low overlap without inventing anything;
         # provenance fails only on a number no cited node carries
-        v['nets']['provenance']={'pass':not missing_nums,'missing_numbers':missing_nums,'word_coverage':round(cov,2),'numbers_checked':len(kn),'rule':'no missing numbers (coverage < 0.5 with fewer than three sourced numbers is a warning)','sources':sorted(src_ids)}
+        # v06c: the key covers only the graded targets; answer_key_nodes must be graded targets or given nodes
+        outside=sorted(set(t.get('answer_key_nodes') or [])-set(t.get('graded_targets') or [])-set(given)) if v22 else []
+        v['nets']['provenance']={'pass':not missing_nums and not outside,'key_nodes_outside_targets':outside,'missing_numbers':missing_nums,'word_coverage':round(cov,2),'numbers_checked':len(kn),'rule':'no missing numbers (coverage < 0.5 with fewer than three sourced numbers is a warning)','sources':sorted(src_ids)}
         if cov<0.5 and len(kn)<3: v['warnings'].append({'kind':'coverage','word_coverage':round(cov,2)})
         fails=[k for k,r in v['nets'].items() if not r['pass']]
         v['verdict']='survives' if not fails else 'flagged'; v['fails']=fails

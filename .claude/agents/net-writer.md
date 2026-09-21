@@ -24,6 +24,8 @@ Rules
 - The question asks one thing. If you find yourself asking two things, ask the one the trace's hidden target answers.
 - The question never hints at the shape of the answer: no "or does it turn around", no "which of these two", no
   "is it X or Y", unless the trace is a competing-causes trace.
+- The answer key states only what the graded target nodes say (the trace record's `graded_targets`). Do not extend it
+  to the claims they support. `answer_key_nodes` lists only graded targets and given nodes.
 - Reply with JSON only: {"question": "...", "answer_key": "...", "answer_scope": "full", "grading": "...", "answer_key_nodes": ["q11", "q15"]}
   answer_scope is "full" when the given panels support the whole answer and "partial" when they support only part of an
   order or a mechanism; a partial key states that part and says "cannot determine" for the rest.
