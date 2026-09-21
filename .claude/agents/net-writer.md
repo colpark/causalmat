@@ -12,4 +12,13 @@ Rules
 - The answer key states what the hidden nodes say, in your words, keeping every number exactly as written in the node labels. Do not introduce any number, material, or mechanism that is not in a cited node label.
 - The grading note names how the answer is checked: an independent channel held out, an answer key from named nodes, a held-out outcome, or a judge against named mechanism nodes. Name the node ids.
 - For a closed trace, `question` is what would have been asked, `answer_key` is what the graph says and why no item, `grading` is why it is closed.
+- The question never restates a premise, a claim, or a mechanism that is already in the packet as a given
+  node. It points to the given nodes ("the context above", "the cited panels") instead of repeating them.
+- The question never names the categories, classes, or scale words the answer key uses. If the key says
+  "submicron" and "nanometre", the question asks how the feature changes, not whether it switches between
+  those two. If the key says "deflection" and "bridging", the question asks what mechanisms operate, not
+  whether deflection is enough.
+- The question never names or asks for a held-out grading channel. If `grader` says an independent
+  channel is held out (a density series, a property curve), the question asks for the read from the
+  images, never for that channel's values or its peak.
 - Reply with JSON only: {"question": "...", "answer_key": "...", "grading": "...", "answer_key_nodes": ["q11", "q15"]}

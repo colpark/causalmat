@@ -1,0 +1,1691 @@
+{
+ "paper_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+ "title": "New insights into single-grain mechanical behavior from temperature-dependent 3-D coherent X-ray diffraction",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "a10",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "a10",
+    "a16",
+    "a17",
+    "a19",
+    "a20"
+   ],
+   "branch": "evidences edge o1 -> a10",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "bare infer: no rejection, no budget, no stopping rule",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "context"
+    },
+    {
+     "node": "a6",
+     "role": "context"
+    },
+    {
+     "node": "a7",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F1b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a10",
+     "role": "claim"
+    },
+    {
+     "node": "a16",
+     "role": "downstream"
+    },
+    {
+     "node": "a17",
+     "role": "downstream"
+    },
+    {
+     "node": "a19",
+     "role": "downstream"
+    },
+    {
+     "node": "a20",
+     "role": "downstream"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "a1",
+      "a2",
+      "a3",
+      "a6",
+      "a7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: How strain heterogeneities build up inside one emb -> 3-D coherent X-ray diffraction with phase retrieva -> Au polycrystalline film, 475 nm, on fused silica:  -> Physical vapour deposition of a 475 nm Au film on  -> Flame annealing at 800-900 C for 30 s to grow the "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1b [SEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Cross-section: one grain spans the whole film thickness everywhere in the field, but the boundaries are curved, not straight walls"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "a10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Grains are columnar: one grain spans the whole film thickness, boundaries running from the substrate to the surface"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "a16",
+      "a17",
+      "a19",
+      "a20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Intra-grain strain heterogeneity is strongly anisotropic and grows with temperature: it develops alo"
+    }
+   ],
+   "question": "The cross-section SEM panel (F1b) of the 475 nm Au film on fused silica. What does the panel show about how the grains sit through the film thickness, and what does that establish about the grains' shape?",
+   "answer_key": "The panel shows a cross-section where one grain spans the whole film thickness everywhere in the field, but the grain boundaries are curved rather than straight walls (o1). This establishes that the grains are columnar: one grain runs the full film thickness, with boundaries going from the substrate to the surface (a10). A correct answer exists, but no decision in the paper turns on it: it is a bare classification, not an inference under rejection, budget, or a stopping rule.",
+   "grading": "Closed: bare infer/classify with no rejection, no budget, and no stopping rule behind it (ruling field). Checked against the answer key given by the labels of the hidden evidence node o1 and hidden claim node a10, judge-confirmed, as stated in the trace's grader field.",
+   "answer_key_nodes": [
+    "o1",
+    "a10"
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "a15",
+   "evidence": [
+    "o7"
+   ],
+   "hidden": [
+    "o7",
+    "a15",
+    "a19",
+    "a20"
+   ],
+   "branch": "evidences edge o7 -> a15",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "MECH",
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "control",
+   "ruling": "depth one and not an image read: negative-control stratum",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "context"
+    },
+    {
+     "node": "a5",
+     "role": "context"
+    },
+    {
+     "node": "a9",
+     "role": "context"
+    },
+    {
+     "node": "o7",
+     "role": "evidence",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F4a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a15",
+     "role": "claim"
+    },
+    {
+     "node": "a19",
+     "role": "downstream"
+    },
+    {
+     "node": "a20",
+     "role": "downstream"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "a1",
+      "a2",
+      "a5",
+      "a9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: How strain heterogeneities build up inside one emb -> 3-D coherent X-ray diffraction with phase retrieva -> Thermal cycling room temperature to 270 C in 25 C  -> Thermal cycling to 270 C loads the grain in compre"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4a [XRD] and estimate (read trend)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Out-of-plane strain rises with temperature and returns on a lower branch: the grain starts at -0.05% near 35 C and comes back to about -0.17"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "a15"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The grain's out-of-plane lattice strain runs a hysteresis loop from -0.05% to about -0.17% over one cycle, far shallower than the thermo-ela"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "a19",
+      "a20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The method follows one buried grain through a full thermal cycle and returns both its average strain"
+    }
+   ],
+   "question": "Panel F4a (XRD, the in-situ diffraction trace for one buried grain across a room-temperature-to-270 C thermal cycle). Reading the out-of-plane lattice strain in this panel, what trend does it follow over the cycle, and what are the starting and return values?",
+   "answer_key": "The out-of-plane strain rises with temperature on the way up and returns on a distinctly lower branch, i.e. a hysteresis loop: it starts at -0.05% near 35 C and comes back to about -0.17% at 50 C (o7). This is the same loop described in the claim built from it -- a hysteresis running from -0.05% to about -0.17% over one cycle, far shallower than the thermo-elastic slope (a15).",
+   "grading": "Answer key: the numbers and labels on the evidence node o7 (starting -0.05% near 35 C, returning to about -0.17% at 50 C), judge-confirmed against panel F4a and cross-checked against the claim a15 built from it.",
+   "answer_key_nodes": [
+    "o7",
+    "a15"
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "a15",
+   "evidence": [
+    "o8"
+   ],
+   "hidden": [
+    "o8",
+    "a15",
+    "a19",
+    "a20"
+   ],
+   "branch": "evidences edge o8 -> a15",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "MECH",
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "control",
+   "ruling": "depth one and not an image read: negative-control stratum",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "context"
+    },
+    {
+     "node": "a5",
+     "role": "context"
+    },
+    {
+     "node": "a9",
+     "role": "context"
+    },
+    {
+     "node": "o8",
+     "role": "evidence",
+     "op": "overlay_model_on_data",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F4a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a15",
+     "role": "claim"
+    },
+    {
+     "node": "a19",
+     "role": "downstream"
+    },
+    {
+     "node": "a20",
+     "role": "downstream"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "a1",
+      "a2",
+      "a5",
+      "a9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: How strain heterogeneities build up inside one emb -> 3-D coherent X-ray diffraction with phase retrieva -> Thermal cycling room temperature to 270 C in 25 C  -> Thermal cycling to 270 C loads the grain in compre"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4a [XRD] and estimate (overlay model on data)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: None of the measured branches follows the ideal thermo-elastic line, which is about three times steeper than every measured cycle"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "a15"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The grain's out-of-plane lattice strain runs a hysteresis loop from -0.05% to about -0.17% over one cycle, far shallower than the thermo-ela"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "a19",
+      "a20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The method follows one buried grain through a full thermal cycle and returns both its average strain"
+    }
+   ],
+   "question": "Panel F4a shows the coherent X-ray diffraction model overlaid on the measured strain data for the single buried grain carried through room-temperature-to-270 C thermal cycling in 25 C steps. Reading only this panel, does the grain's strain response track the ideal thermo-elastic line, and what range does its out-of-plane lattice-strain hysteresis loop span over one cycle?",
+   "answer_key": "No: none of the measured heating/cooling branches follows the ideal thermo-elastic line, which is about three times steeper than every measured cycle (o8). Instead, the grain's out-of-plane lattice strain traces a hysteresis loop running from -0.05% to about -0.17% over one cycle, far shallower than the thermo-elastic slope (a15).",
+   "grading": "Answer key: the numbers and labels on evidence node o8 (the reference-line mismatch) and claim node a15 (the hysteresis-loop range), judge-confirmed against panel F4a; ruled negative-control because it is depth one and not an image-only read.",
+   "answer_key_nodes": [
+    "o8",
+    "a15"
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "a16",
+   "evidence": [
+    "o10"
+   ],
+   "hidden": [
+    "o10",
+    "a16",
+    "a17",
+    "a19",
+    "a20"
+   ],
+   "branch": "evidences edge o10 -> a16",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": true,
+    "support": [
+     "o12"
+    ]
+   },
+   "depth": 1,
+   "depth_families": [],
+   "channels_involved": [
+    "DERIVED",
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "bare infer: no rejection, no budget, no stopping rule",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "context"
+    },
+    {
+     "node": "a6",
+     "role": "context"
+    },
+    {
+     "node": "a7",
+     "role": "context"
+    },
+    {
+     "node": "a10",
+     "role": "context"
+    },
+    {
+     "node": "o10",
+     "role": "evidence",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a16",
+     "role": "claim"
+    },
+    {
+     "node": "a17",
+     "role": "downstream"
+    },
+    {
+     "node": "a19",
+     "role": "downstream"
+    },
+    {
+     "node": "a20",
+     "role": "downstream"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "a1",
+      "a2",
+      "a3",
+      "a6",
+      "a7",
+      "a10"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: How strain heterogeneities build up inside one emb -> 3-D coherent X-ray diffraction with phase retrieva -> Au polycrystalline film, 475 nm, on fused silica:  -> Physical vapour deposition of a 475 nm Au film on  -> Flame annealing at 800-900 C for 30 s to grow the  -> Grains are columnar: one grain spans the whole fil"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o10"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4b [XRD] and estimate (read trend)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o10"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The qx peak width grows monotonically from 1.35e-3 to 4.9e-3 A^-1 between 35 and 265 C"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "a16"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Intra-grain strain heterogeneity is strongly anisotropic and grows with temperature: it develops along x in the film plane, stays weak throu"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "a17",
+      "a19",
+      "a20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The heterogeneity evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent p"
+    }
+   ],
+   "question": "Panel F4b (XRD, coherent diffraction on the single Au grain during thermal cycling) is provided along with the setup context. How does the qx peak width behave as the grain is heated?",
+   "answer_key": "The qx peak width grows monotonically from 1.35e-3 to 4.9e-3 A^-1 between 35 and 265 C (o10). A correct answer exists, but no decision in the paper turns on the number.",
+   "grading": "Closed: a bare measurement with no rejection, budget or stopping rule behind it. A fact in the graph, not a question for a model.",
+   "answer_key_nodes": null
+  },
+  {
+   "id": "T5",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "infer",
+   "subtype": "rank",
+   "seed_claim": "a16",
+   "evidence": [
+    "o13"
+   ],
+   "hidden": [
+    "o13",
+    "a16",
+    "a17",
+    "a19",
+    "a20"
+   ],
+   "branch": "evidences edge o13 -> a16",
+   "fm_family": "XRD",
+   "lift": "budget spanning panels",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [],
+   "channels_involved": [
+    "DERIVED",
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "independent channel o12 (DERIVED), held out from the model",
+   "status": "control",
+   "ruling": "depth one and not an image read: negative-control stratum",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "context"
+    },
+    {
+     "node": "a6",
+     "role": "context"
+    },
+    {
+     "node": "a7",
+     "role": "context"
+    },
+    {
+     "node": "a10",
+     "role": "context"
+    },
+    {
+     "node": "o13",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F6a",
+      "10.1016/j.actamat.2014.06.008#F6b",
+      "10.1016/j.actamat.2014.06.008#F6c",
+      "10.1016/j.actamat.2014.06.008#F6d",
+      "10.1016/j.actamat.2014.06.008#F6e"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a16",
+     "role": "claim"
+    },
+    {
+     "node": "a17",
+     "role": "downstream"
+    },
+    {
+     "node": "a19",
+     "role": "downstream"
+    },
+    {
+     "node": "a20",
+     "role": "downstream"
+    }
+   ],
+   "siblings": [
+    "T7",
+    "T8"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "a1",
+      "a2",
+      "a3",
+      "a6",
+      "a7",
+      "a10"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: How strain heterogeneities build up inside one emb -> 3-D coherent X-ray diffraction with phase retrieva -> Au polycrystalline film, 475 nm, on fused silica:  -> Physical vapour deposition of a 475 nm Au film on  -> Flame annealing at 800-900 C for 30 s to grow the  -> Grains are columnar: one grain spans the whole fil"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o13"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6a, F6b, F6c, F6d, F6e [XRD] and rank (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o13"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Retrieved phase maps: uniform along z at every temperature; in plane the variation is y-dominated at 50 C, breaks into x jumps by 240 C and "
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "a16"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Intra-grain strain heterogeneity is strongly anisotropic and grows with temperature: it develops along x in the film plane, stays weak throu"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "a17",
+      "a19",
+      "a20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The heterogeneity evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent p"
+    }
+   ],
+   "question": "The panels F6a, F6b, F6c, F6d, F6e are the retrieved phase maps of the same embedded Au grain, one per step of the thermal cycle (starting at 50 C, rising through roughly 240 C, then cooling back down). Reading only these five maps and the setup context (no accompanying text), how does the strain heterogeneity rank across the five conditions and along which axes, and is the resulting diffraction-peak broadening actually strain rather than just a crystallite-size effect?",
+   "answer_key": "The phase maps are uniform along z (through the film thickness) at every temperature, so there is no ranking difference through the thickness. In the film plane the heterogeneity is y-dominated at 50 C, then breaks into jumps along x by 240 C, and largely returns to the low-temperature pattern on cooling (o13) -- so the ranking runs low anisotropy at low temperature to strongly x-concentrated anisotropy at high temperature, reversing on cooling. This is genuine strain, not a crystallite-size artifact: the size-only broadening computed for the grain is 6.61e-4 A^-1, two to seven times smaller than the measured qx widths (o12), confirming the qx broadening tracks real strain heterogeneity rather than grain-size resolution.",
+   "grading": "Independent channel o12 (DERIVED size-only broadening estimate, 6.61e-4 A^-1, two to seven times smaller than measured qx widths), held out from the model; used to confirm that the ranking read off o13 reflects genuine strain rather than a crystallite-size artifact.",
+   "answer_key_nodes": [
+    "o13",
+    "o12"
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "a17",
+   "evidence": [
+    "o11"
+   ],
+   "hidden": [
+    "o11",
+    "a19",
+    "a20",
+    "a2"
+   ],
+   "branch": "qualifies edge o11 -> a17",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "depth one and not an image read: negative-control stratum",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "redacted"
+    },
+    {
+     "node": "a3",
+     "role": "context"
+    },
+    {
+     "node": "a6",
+     "role": "context"
+    },
+    {
+     "node": "a7",
+     "role": "context"
+    },
+    {
+     "node": "a10",
+     "role": "context"
+    },
+    {
+     "node": "a16",
+     "role": "context"
+    },
+    {
+     "node": "o11",
+     "role": "audit",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a17",
+     "role": "claim"
+    },
+    {
+     "node": "a19",
+     "role": "redacted"
+    },
+    {
+     "node": "a20",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "a19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a20",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "a17"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: The heterogeneity evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent plastic change"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o11"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4b [XRD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o11"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: On cooling the qx width stays above the heating branch at every temperature and returns only to 1.95e-3 A^-1, 45% above the 1.35e-3 starting"
+    }
+   ],
+   "question": "The claim under test is that the intra-grain strain heterogeneity is quasi-reversible on cooling (anelastic rather than a permanent plastic change), and the evidence offered is a read of panel F4b (an XRD peak-width trace through a heating-cooling cycle). Given only the claim and the panel, what does the panel actually show about the peak width on cooling versus heating, and does it support full reversibility?",
+   "answer_key": "No, the panel does not support full reversibility. The audit ruling on F4b shows that on cooling the qx width stays above the heating branch at every temperature, and it returns only to 1.95e-3 A^-1, which is 45% above the 1.35e-3 A^-1 starting value -- so the heterogeneity does not fully reverse to its initial state.",
+   "grading": "Answer key: the audit ruling on the panel, node o11.",
+   "answer_key_nodes": [
+    "o11"
+   ]
+  },
+  {
+   "id": "T7",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "infer",
+   "subtype": "rank",
+   "seed_claim": "a17",
+   "evidence": [
+    "o13"
+   ],
+   "hidden": [
+    "o13",
+    "a17",
+    "a19",
+    "a20"
+   ],
+   "branch": "evidences edge o13 -> a17",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "control",
+   "ruling": "depth one and not an image read: negative-control stratum",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "context"
+    },
+    {
+     "node": "a6",
+     "role": "context"
+    },
+    {
+     "node": "a7",
+     "role": "context"
+    },
+    {
+     "node": "a10",
+     "role": "context"
+    },
+    {
+     "node": "a16",
+     "role": "context"
+    },
+    {
+     "node": "o13",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F6a",
+      "10.1016/j.actamat.2014.06.008#F6b",
+      "10.1016/j.actamat.2014.06.008#F6c",
+      "10.1016/j.actamat.2014.06.008#F6d",
+      "10.1016/j.actamat.2014.06.008#F6e"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a17",
+     "role": "claim"
+    },
+    {
+     "node": "a19",
+     "role": "downstream"
+    },
+    {
+     "node": "a20",
+     "role": "downstream"
+    }
+   ],
+   "siblings": [
+    "T5",
+    "T8"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "a1",
+      "a2",
+      "a3",
+      "a6",
+      "a7",
+      "a10",
+      "a16"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: How strain heterogeneities build up inside one emb -> 3-D coherent X-ray diffraction with phase retrieva -> Au polycrystalline film, 475 nm, on fused silica:  -> Physical vapour deposition of a 475 nm Au film on  -> Flame annealing at 800-900 C for 30 s to grow the  -> Grains are columnar: one grain spans the whole fil -> Intra-grain strain heterogeneity is strongly aniso"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o13"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6a, F6b, F6c, F6d, F6e [XRD] and rank (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o13"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Retrieved phase maps: uniform along z at every temperature; in plane the variation is y-dominated at 50 C, breaks into x jumps by 240 C and "
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "a17"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The heterogeneity evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent plastic change"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "a19",
+      "a20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The method follows one buried grain through a full thermal cycle and returns both its average strain"
+    }
+   ],
+   "question": "The study follows one buried Au grain through a full thermal cycle using 3-D coherent X-ray diffraction with phase retrieval. Panels F6a, F6b, F6c, F6d and F6e give the retrieved phase maps at successive points in that cycle. Comparing across these five panels, how does the intra-grain strain-heterogeneity pattern (along the film-plane axes versus through the thickness) change with temperature, and what happens to it once the sample is cooled back down?",
+   "answer_key": "Along the film thickness (z) the retrieved phase maps stay uniform at every temperature step. In the film plane the heterogeneity is dominated by the y-direction at 50 C, then breaks up into jumps along x by 240 C, and on cooling it largely returns to its original pattern (o13). Because the pattern comes back on cooling rather than staying changed, the evolution is quasi-reversible, i.e. anelastic rather than a permanent plastic change (a17).",
+   "grading": "Answer key: the numbers and labels on the evidence node o13 (the panel-by-panel phase-map description across F6a-F6e) together with the claim it directly supports, a17 (quasi-reversible/anelastic evolution), judge-confirmed against those two node labels.",
+   "answer_key_nodes": [
+    "o13",
+    "a17"
+   ]
+  },
+  {
+   "id": "T8",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "infer",
+   "subtype": "rank",
+   "seed_claim": "a19",
+   "evidence": [
+    "o13"
+   ],
+   "hidden": [
+    "o13",
+    "a19",
+    "a20"
+   ],
+   "branch": "evidences edge o13 -> a19",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "control",
+   "ruling": "depth one and not an image read: negative-control stratum",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "context"
+    },
+    {
+     "node": "a6",
+     "role": "context"
+    },
+    {
+     "node": "a7",
+     "role": "context"
+    },
+    {
+     "node": "a10",
+     "role": "context"
+    },
+    {
+     "node": "a16",
+     "role": "context"
+    },
+    {
+     "node": "a17",
+     "role": "context"
+    },
+    {
+     "node": "o13",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F6a",
+      "10.1016/j.actamat.2014.06.008#F6b",
+      "10.1016/j.actamat.2014.06.008#F6c",
+      "10.1016/j.actamat.2014.06.008#F6d",
+      "10.1016/j.actamat.2014.06.008#F6e"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a19",
+     "role": "claim"
+    },
+    {
+     "node": "a20",
+     "role": "downstream"
+    }
+   ],
+   "siblings": [
+    "T5",
+    "T7"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "a1",
+      "a2",
+      "a3",
+      "a6",
+      "a7",
+      "a10",
+      "a16",
+      "a17"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: How strain heterogeneities build up inside one emb -> 3-D coherent X-ray diffraction with phase retrieva -> Au polycrystalline film, 475 nm, on fused silica:  -> Physical vapour deposition of a 475 nm Au film on  -> Flame annealing at 800-900 C for 30 s to grow the  -> Grains are columnar: one grain spans the whole fil -> Intra-grain strain heterogeneity is strongly aniso -> The heterogeneity evolution is quasi-reversible on"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o13"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6a, F6b, F6c, F6d, F6e [XRD] and rank (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o13"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Retrieved phase maps: uniform along z at every temperature; in plane the variation is y-dominated at 50 C, breaks into x jumps by 240 C and "
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "a19"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The method follows one buried grain through a full thermal cycle and returns both its average strain and its 3-D displacement field"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "a20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: A single grain carries large, anisotropic and quasi-reversible intra-granular strain heterogeneities"
+    }
+   ],
+   "question": "The paper follows one buried Au grain through a full thermal cycle using 3-D coherent X-ray diffraction with phase retrieval (grains are columnar, spanning the whole film thickness). Given panels F6a-F6e, the retrieved phase maps at successive points in the cycle, how does the intra-grain strain heterogeneity behave along the film's z-direction versus within the film plane (x and y) as the temperature rises and then falls back?",
+   "answer_key": "The phase maps are uniform along z at every temperature, so no heterogeneity develops through the film thickness. In the plane, the variation is dominated by y at 50 C, then breaks into jumps along x by 240 C, and largely returns to its original pattern on cooling (o13).",
+   "grading": "Answer key: match to the numbers and labels on evidence node o13 (the retrieved phase-map observation from panels F6a-F6e), judge-confirmed.",
+   "answer_key_nodes": [
+    "o13"
+   ]
+  },
+  {
+   "id": "T9",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "a15",
+   "evidence": [
+    "o18"
+   ],
+   "hidden": [
+    "o18",
+    "a19",
+    "a20",
+    "a2"
+   ],
+   "branch": "qualifies edge o18 -> a15",
+   "fm_family": "MECH",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "MECH"
+   ],
+   "channels_involved": [
+    "MECH"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "redacted"
+    },
+    {
+     "node": "a5",
+     "role": "context"
+    },
+    {
+     "node": "a9",
+     "role": "context"
+    },
+    {
+     "node": "o18",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F4a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a15",
+     "role": "claim"
+    },
+    {
+     "node": "a19",
+     "role": "redacted"
+    },
+    {
+     "node": "a20",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "a19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a20",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "a15"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: The grain's out-of-plane lattice strain runs a hysteresis loop from -0.05% to about -0.17% over one cycle, far shallower"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o18"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4a [MECH]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o18"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Converted to stress, the strains read from the figure give about 113 MPa at the start and about 380 MPa at the end of the cycle, against the"
+    }
+   ],
+   "question": "The claim under test is that the grain's out-of-plane lattice strain runs a hysteresis loop from -0.05% to about -0.17% over one thermal cycle, far shallower than the thermo-elastic slope, and the model is shown panel F4a as the supporting evidence. Does the panel actually confirm the stress levels the text reports for this loop?",
+   "answer_key": "No. Converting the strains actually read off panel F4a to stress gives about 113 MPa at the start of the cycle and about 380 MPa at the end, well above the 95 MPa and 250 MPa the text quotes for the same two points. So the panel does not bear out the text's numbers for the claimed loop (o18).",
+   "grading": "Answer key: the audit ruling on the panel, held in node o18 (the same node supplies both the shown panel reference and the hidden numeric ruling).",
+   "answer_key_nodes": [
+    "o18"
+   ]
+  },
+  {
+   "id": "T10",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+   "root": "explain",
+   "subtype": "competing causes",
+   "seed_claim": "a16",
+   "evidence": [
+    "o1",
+    "o10",
+    "o12",
+    "o13"
+   ],
+   "hidden": [
+    "a18",
+    "a17",
+    "a19",
+    "a20",
+    "a2"
+   ],
+   "branch": "two `causes` edges into a16: ['a10', 'a14']",
+   "rival": [
+    "a14"
+   ],
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": [
+     "o12"
+    ],
+    "note": "floor holds the non-FM causes only, so it picks the rival"
+   },
+   "depth": 3,
+   "depth_families": [
+    "DERIVED",
+    "SEM",
+    "XRD"
+   ],
+   "mask": "hide the mechanism node(s) explaining the claim; show the competing causes and their evidence",
+   "grader": "judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "redacted"
+    },
+    {
+     "node": "a3",
+     "role": "context"
+    },
+    {
+     "node": "a6",
+     "role": "context"
+    },
+    {
+     "node": "a7",
+     "role": "context"
+    },
+    {
+     "node": "a10",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F1b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o10",
+     "role": "evidence",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o12",
+     "role": "evidence",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o13",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.actamat.2014.06.008#F6a",
+      "10.1016/j.actamat.2014.06.008#F6b",
+      "10.1016/j.actamat.2014.06.008#F6c",
+      "10.1016/j.actamat.2014.06.008#F6d",
+      "10.1016/j.actamat.2014.06.008#F6e"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a10",
+     "role": "cause"
+    },
+    {
+     "node": "a14",
+     "role": "cause"
+    },
+    {
+     "node": "a18",
+     "role": "mechanism"
+    },
+    {
+     "node": "a16",
+     "role": "claim"
+    },
+    {
+     "node": "a17",
+     "role": "redacted"
+    },
+    {
+     "node": "a19",
+     "role": "redacted"
+    },
+    {
+     "node": "a20",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "a17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a20",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "a16",
+      "o5",
+      "o10",
+      "o12",
+      "o13"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation to explain: Intra-grain strain heterogeneity is strongly anisotropic and grows with temperature: it develops along x in the film plane, stays weak through the thickness. Its optimum: None vol%."
+    },
+    {
+     "step": 2,
+     "role": "candidates",
+     "nodes": [
+      "a10",
+      "a14"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Candidate causes: a10: Grains are columnar: one grain spans the whole film thickness, boundar | a14: Thermal loading stores defects (dislocations) in the grain, preferenti"
+    },
+    {
+     "step": 3,
+     "role": "test",
+     "nodes": [
+      "a10",
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "Test a10 (Grains are columnar: one grain spans the whole film thicknes) against o1 [SEM]: KEEP, its evidence (o1) is most developed at the claim's optimum"
+    },
+    {
+     "step": 4,
+     "role": "test",
+     "nodes": [
+      "a14"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "Test a14 (Thermal loading stores defects (dislocations) in the grain, ) against  []: UNTESTED, no evidence states an optimum"
+    },
+    {
+     "step": 5,
+     "role": "mechanism",
+     "nodes": [
+      "a18",
+      "o17"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: Misoriented neighbours g3 and g6, lying along x, accommodate stress at their grooved boundaries and trap defects there,   [premise: none; evidence: o17]"
+    },
+    {
+     "step": 6,
+     "role": "mechanism",
+     "nodes": [
+      "a17",
+      "o13"
+     ],
+     "depends_on": [
+      5
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: The heterogeneity evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent plastic change  [premise: none; evidence: o13]"
+    },
+    {
+     "step": 7,
+     "role": "mechanism",
+     "nodes": [
+      "a19",
+      "o13"
+     ],
+     "depends_on": [
+      6
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: The method follows one buried grain through a full thermal cycle and returns both its average strain and its 3-D displac  [premise: none; evidence: o13]"
+    },
+    {
+     "step": 8,
+     "role": "mechanism",
+     "nodes": [
+      "a20"
+     ],
+     "depends_on": [
+      7
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: A single grain carries large, anisotropic and quasi-reversible intra-granular strain heterogeneities set by its immediat  [premise: none; evidence: none]"
+    },
+    {
+     "step": 9,
+     "role": "mechanism",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      8
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: 3-D coherent X-ray diffraction with phase retrieval on a single grain during thermal cycling should resolve the intra-gr  [premise: none; evidence: none]"
+    },
+    {
+     "step": 10,
+     "role": "adjudication",
+     "nodes": [
+      "a10",
+      "a14"
+     ],
+     "depends_on": [
+      9
+     ],
+     "hidden": false,
+     "text": "The optimum is set by a10, a14; no rival is necessary but not sufficient."
+    },
+    {
+     "step": 11,
+     "role": "prediction",
+     "nodes": [
+      "a17"
+     ],
+     "depends_on": [
+      10
+     ],
+     "hidden": true,
+     "text": "What follows: The heterogeneity evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent plastic change"
+    }
+   ],
+   "question": "Intra-grain strain heterogeneity in the Au film is strongly anisotropic and grows with temperature: it develops along x in the film plane but stays weak through the thickness. The supporting evidence is: a cross-section SEM showing grains spanning the full film thickness with curved (not straight) boundaries; the qx peak width growing monotonically with temperature; the size-only broadening being two to seven times smaller than the measured qx widths; and retrieved phase maps that are uniform along z at every temperature but break into x-direction jumps by 240 C and largely return on cooling. Two candidate causes are on the table: the columnar grain shape (one grain spanning the whole film thickness), and thermal-loading defect storage that preferentially builds up along x where misoriented boundaries block transmission. What mechanism actually produces the observed x-direction growth, and why can the defect-storage cause not explain it on its own?",
+   "answer_key": "The x-direction growth is produced by a specific pathway: misoriented neighbouring grains g3 and g6, lying along x, accommodate stress at their grooved boundaries and trap defects there, building the x-direction heterogeneity (a18) -- this links the columnar grain-boundary geometry to defect trapping at specific x-oriented misoriented boundaries. The rival cause, thermal-loading defect storage alone (a14), cannot account for the optimum on its own: unlike the columnar-grain cause, no evidence establishes where a14's effect peaks, so by itself it cannot explain why the heterogeneity is strongest along x while staying weak through the thickness. Consistent with this, the heterogeneity's evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent plastic change (a17), a behavior recoverable because the method follows one buried grain through a full thermal cycle and returns both its average strain and its 3-D displacement field (a19). This supports the conclusion that a single grain carries large, anisotropic and quasi-reversible intra-granular strain heterogeneities set by its immediate neighbourhood, invisible to averaged diffraction (a20), and motivates the further hypothesis that 3-D coherent X-ray diffraction with phase retrieval on a single grain during thermal cycling should resolve the intra-grain displacement field and its reversibility (a2).",
+   "grading": "Judge against the graph's explaining mechanism (a18) as the key answer, with the cross-check that the rival cause a14 has no established optimum matching the claim a16's x-direction/through-thickness pattern; a17, a19, a20, a2 checked as the consistent downstream elaboration that must not itself be volunteered as the answer.",
+   "answer_key_nodes": [
+    "a18",
+    "a17",
+    "a19",
+    "a20",
+    "a2"
+   ]
+  }
+ ]
+}

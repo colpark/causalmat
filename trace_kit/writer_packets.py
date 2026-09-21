@@ -9,6 +9,7 @@
 import json, re, sys, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 EXEMPLARS = os.path.join(HERE, 'fixtures', 'writer_exemplars.json')
+NEGATIVE = os.path.join(HERE, 'fixtures', 'writer_exemplars_negative.json')   # questions not to write, one-line reason each
 FIELDS = ('question', 'answer_key', 'grading', 'answer_key_nodes')
 DROP = FIELDS + ('validation',)
 EX_DROP = ('linear', 'walk')   # exemplars are for form and length of the written fields; their step lists only add bulk
@@ -20,11 +21,14 @@ def referenced(t):
     ids |= set(re.findall(r'\b([a-z]\d+)\b', t.get('grader', '') + ' ' + t.get('ruling', '')))
     return ids
 
-def build(graph_path, traces_path, out_dir, loo=False):
+def build(graph_path, traces_path, out_dir, loo=False, only=None, feedback=None):
+    """only: trace ids to build (default all); feedback: {trace id: text shown as the failure of the previous attempt}"""
     g = json.load(open(graph_path)); N = {n['id']: n for n in g['nodes']}
     T = json.load(open(traces_path)); ex = json.load(open(EXEMPLARS))
+    neg = json.load(open(NEGATIVE)) if os.path.exists(NEGATIVE) else []
     os.makedirs(out_dir, exist_ok=True)
     for t in T['traces']:
+        if only and t['id'] not in only: continue
         rec = {k: v for k, v in t.items() if k not in DROP}
         labels = {i: {'type': N[i]['type'], 'label': N[i]['label']} for i in sorted(referenced(t)) if i in N}
         exs = [{k: v for k, v in e.items() if k not in EX_DROP} for e in ex if not (loo and e['id'] == t['id'])]
@@ -32,9 +36,11 @@ def build(graph_path, traces_path, out_dir, loo=False):
                "TRACE RECORD\n" + json.dumps(rec, indent=1) +
                "\n\nNODE LABELS (every node the trace references)\n" + json.dumps(labels, indent=1) +
                "\n\nWORKED EXAMPLES (follow their form and length)\n" + json.dumps(exs, separators=(',', ':')) +
+               (("\n\nNEGATIVE EXAMPLES (questions NOT to write, with the reason)\n" + json.dumps(neg, separators=(',', ':'))) if neg else '') +
+               (("\n\nYOUR PREVIOUS ATTEMPT FAILED A CHECK\n" + feedback[t['id']]) if feedback and t['id'] in feedback else '') +
                '\n\nReply with JSON only: {"question": "...", "answer_key": "...", "grading": "...", "answer_key_nodes": [...]}')
         open(os.path.join(out_dir, f"{t['id']}.writer.txt"), 'w').write(txt)
-    print(len(T['traces']), 'packets ->', out_dir)
+    print('packets ->', out_dir)
 
 def parse(txt):
     m = re.search(r'\{.*\}', txt, re.S)
@@ -53,5 +59,9 @@ def merge(traces_path, out_dir, written_path, suffix='writer.out.txt'):
     return bad
 
 if __name__ == '__main__':
-    if sys.argv[1] == 'build': build(sys.argv[2], sys.argv[3], sys.argv[4], '--loo' in sys.argv)
+    if sys.argv[1] == 'build':
+        a = sys.argv
+        only = a[a.index('--only') + 1].split(',') if '--only' in a else None
+        fb = json.load(open(a[a.index('--feedback') + 1])) if '--feedback' in a else None
+        build(a[2], a[3], a[4], '--loo' in a, only, fb)
     else: merge(sys.argv[2], sys.argv[3], sys.argv[4], *(sys.argv[5:6]))
