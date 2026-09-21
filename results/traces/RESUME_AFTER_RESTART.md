@@ -34,3 +34,8 @@ entries and grader-named nodes (fix 1 and fix 2; see the run-3 section of `write
 0 flags. Written copy: T4 and T7 as required, plus **T1** (explain/rejection; intensity, threshold, trend), so the pass
 condition failed after two fixes. Stopped per the stop rule. Steps 1 onward not started. The open decision: whether the
 content-word test exempts explain/rejection traces the way the bigram test does.
+
+## Session 2: where it stopped (user limit)
+Step 0 passed (run 4, rejection exempt). Step 1 passed (run 3, seven rules). Step 2 (C.2) done for the ceramic paper only.
+The user said to process only up to that paper. Acta Materialia 2014 (10 traces in rewrite_list.json) and the 30 remaining
+papers were NOT processed; Acta's run-1 files are untouched. Steps 3-5 not started.

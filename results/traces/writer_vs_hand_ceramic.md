@@ -128,3 +128,25 @@ Decision (user): explain/rejection traces are exempt from the content-word test,
 | 4 (rejection exempt) | 0 of 9 | 2 of 9 (T4: nanometre, particl, submicron; T7: expansion, mismatch, thermal) |
 
 **Pass condition holds.** Trace-level `leak` on the written copy: T4 (content words), T5 (bigram `relative density`), T7 (bigrams and content words). Per-trace nets: `results/traces/writer/ceramic_run1/{written,fixture}_validation_run4_nets.json`.
+
+## Writer run 2: ceramic twelve rewritten under the new rules (part C.2, ceramic only)
+
+Every verdict here is model against model; no human checked any item.
+
+12 `net-writer` dispatches, one per trace. Packets rebuilt with `--loo` and both exemplar files, in `results/traces/writer/Journal_of_Advanced_Ceramics__s40145-019-0334-4/`. The relay was byte-exact 12 of 12 (`harvest.py`). Merged into `results/traces/Journal_of_Advanced_Ceramics__s40145-019-0334-4.traces.json` and validated with the run-4 nets. The run-1 replies are kept as `writer/ceramic_run1/<T>.writer.out.run1.txt`. Acta Materialia 2014 and the other 30 papers were not processed (user: "only process up to this paper").
+
+| T | run 1 fails | run 2 fails | run 2 leak detail |
+|---|---|---|---|
+| T1 (control) | - | - | - |
+| T4 | leak | leak | bigram `particles grains`; content word `particl` (submicron/nanometre gone) |
+| T5 | leak | - | bigram `relative density` gone: now asks for a porosity trend from the panels |
+| T6 | - | provenance | word coverage 0.43 (< 0.5), no missing numbers |
+| T7 | leak | leak | still names the thermal-mismatch rival (bigrams `thermal expansion`, `expansion mismatch`) |
+| T8 (control) | provenance | provenance | coverage 0.23 |
+| T9, T10, T11 | - | - | - |
+
+Leak flags on non-closed traces: 3 of 9 (run 1) to 2 of 9 (run 2). Provenance flags: 1 to 2. Three ceramic traces (T4 and T7 on leak, T6 and T8 on provenance, so four in all) are candidates for the one-pass rewrite in part C.4, which was not run.
+
+Observations: T7's mask is "hide the mechanism; show the rival", so naming thermal mismatch in the question follows the mask, and the leak net counts it as a leak anyway. That conflict is in the trace design, not only the writer. T3's run-2 key describes platelet size (T2's content) rather than SiC size. T3 is closed, so nothing is graded on it.
+
+Net fix made on the way: `validate_traces.py` crashed on `answer_key_nodes: null` (writer T2, T3, T9). It now treats null as empty.

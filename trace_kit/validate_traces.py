@@ -110,7 +110,7 @@ def run(graph_path, traces_path, panels_dir=None):
         # N7 provenance of the written answer key: every number in it appears in some cited/hidden node label;
         # most content words do too (writer may paraphrase, so a ratio, not equality)
         grader_nodes={x for x in re.findall(r'\b([a-z]\d+)\b', t.get('grader','')+' '+t.get('grading','')) if x in N}
-        src_ids=set(t.get('hidden',[]))|set(t.get('evidence',[]))|{t['seed_claim']}|set(t.get('answer_key_nodes',[]))|{n for s_ in t.get('linear',[]) for n in s_['nodes']}|grader_nodes
+        src_ids=set(t.get('hidden',[]))|set(t.get('evidence',[]))|{t['seed_claim']}|set(t.get('answer_key_nodes') or [])|{n for s_ in t.get('linear',[]) for n in s_['nodes']}|grader_nodes
         src_txt=' '.join(N[i]['label'] for i in src_ids if i in N)
         key=re.sub(r'\b([a-z]\d+)\b',lambda m:'' if m.group(1) in N else m.group(1),t.get('answer_key',''))   # node ids of this graph are citations, not numbers
         key=re.sub(FIGREF,'',key)   # so are figure references: 'On F7' is not an unsourced 7
