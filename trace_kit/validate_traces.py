@@ -43,7 +43,7 @@ def run(graph_path, traces_path, panels_dir=None):
     sweep_nums=set().union(*[nums(n['label']) for n in g['nodes'] if n['type'].startswith('DES/variable_sweep')]) if any(n['type'].startswith('DES/variable_sweep') for n in g['nodes']) else set()
     report=[]
     for t in T['traces']:
-        v={'id':t['id'],'status_in':t['status'],'nets':{}, 'notes':[]}
+        v={'id':t['id'],'status_in':t['status'],'nets':{}, 'notes':[], 'warnings':[]}
         if not t.get('walk') or t['status']=='closed': v['verdict']='closed'; report.append(v); continue
         hid=set(t.get('hidden',[])); given=[s['node'] for s in t['walk'] if s['node'] not in hid]
         # target = what is graded: infer -> observation+claim; explain competing -> mechanisms; mechanism -> claim; rejection -> evidence; intervene -> decision
@@ -74,7 +74,10 @@ def run(graph_path, traces_path, panels_dir=None):
         if t['root']=='explain' and t['subtype']=='rejection': leak_words=[]
         v['nets']['leak']={'bigrams':sorted(' '.join(b) for b in bg),'numbers':sorted(nn),'content_words':leak_words,
                            'shared_vocab':'given nodes + panel spans + OCR cues + modality/technique' if store is not None else 'panel store not mounted: given nodes + modality/technique only',
-                           'pass':len(bg)==0 and len(nn)==0 and not leak_words}
+                           'pass':len(bg)==0 and len(nn)==0}
+        # content words are a warning, not a gate (run 5): no word-overlap test can separate task vocabulary from answer
+        # vocabulary; the floor arm in the model nets measures leakage directly. Bigrams and numbers stay as gates.
+        if leak_words: v['warnings'].append({'kind':'content_words','words':leak_words})
         if store is None: v['notes'].append('panel store not mounted; content-word exclusion falls back to given nodes plus modality and technique')
         # N2 disjoint + grader channel withheld
         v['nets']['disjoint']={'pass':not (hid & set(given))}
@@ -116,7 +119,10 @@ def run(graph_path, traces_path, panels_dir=None):
         key=re.sub(FIGREF,'',key)   # so are figure references: 'On F7' is not an unsourced 7
         kn=nums(key)-sweep_nums; missing_nums=sorted(x for x in kn if x not in nums(src_txt))
         kw=stem(words(key)); cov=(len(kw&stem(words(src_txt)))/len(kw)) if kw else 1.0
-        v['nets']['provenance']={'pass':not missing_nums and (cov>=0.5 or len(kn)>=3),'missing_numbers':missing_nums,'word_coverage':round(cov,2),'numbers_checked':len(kn),'rule':'no missing numbers, and word coverage >= 0.5 or at least three sourced numbers','sources':sorted(src_ids)}
+        # word coverage is a warning, not a gate (run 5): a paraphrasing key has low overlap without inventing anything;
+        # provenance fails only on a number no cited node carries
+        v['nets']['provenance']={'pass':not missing_nums,'missing_numbers':missing_nums,'word_coverage':round(cov,2),'numbers_checked':len(kn),'rule':'no missing numbers (coverage < 0.5 with fewer than three sourced numbers is a warning)','sources':sorted(src_ids)}
+        if cov<0.5 and len(kn)<3: v['warnings'].append({'kind':'coverage','word_coverage':round(cov,2)})
         fails=[k for k,r in v['nets'].items() if not r['pass']]
         v['verdict']='survives' if not fails else 'flagged'; v['fails']=fails
         if t['status']=='control': v['verdict']+=' (control)'
@@ -127,4 +133,5 @@ if __name__=='__main__':
     for v in rep:
         f=v.get('fails',[]); lk=v.get('nets',{}).get('leak',{})
         extra=(' leak='+', '.join(lk.get('bigrams',[])[:3]+lk.get('numbers',[])[:3])) if lk and not lk['pass'] else ''
-        print(f"{v['id']:4s} {v['status_in']:8s} -> {v['verdict']:18s} {('FAIL: '+', '.join(f)) if f else ''}{extra}")
+        wn=' warn: '+'; '.join(w['kind']+'='+str(w.get('words',w.get('word_coverage'))) for w in v.get('warnings',[])) if v.get('warnings') else ''
+        print(f"{v['id']:4s} {v['status_in']:8s} -> {v['verdict']:18s} {('FAIL: '+', '.join(f)) if f else ''}{extra}{wn}")

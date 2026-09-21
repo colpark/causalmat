@@ -150,3 +150,17 @@ Leak flags on non-closed traces: 3 of 9 (run 1) to 2 of 9 (run 2). Provenance fl
 Observations: T7's mask is "hide the mechanism; show the rival", so naming thermal mismatch in the question follows the mask, and the leak net counts it as a leak anyway. That conflict is in the trace design, not only the writer. T3's run-2 key describes platelet size (T2's content) rather than SiC size. T3 is closed, so nothing is graded on it.
 
 Net fix made on the way: `validate_traces.py` crashed on `answer_key_nodes: null` (writer T2, T3, T9). It now treats null as empty.
+
+## Run 5 of the nets: content words and provenance coverage become warnings
+
+Every verdict here is model against model; no human checked any item.
+
+- **Content-word test** is still computed and reported, but it goes in the verdict's `warnings` list, not `fails`. No word-overlap test can separate task vocabulary from answer vocabulary. The floor arm in the model nets measures leakage directly. The bigram and number tests stay as gates.
+- **Provenance** fails only on a missing number. Word coverage below 0.5, with fewer than three sourced numbers, is a warning.
+
+| run | hand fixture: fails / warnings | rewritten copy (writer run 2): fails | rewritten copy: warnings |
+|---|---|---|---|
+| 4 | none | leak T4, T7; provenance T6, T8 | none (every net was a gate) |
+| 5 | none / none | leak T4 (bigram `particles grains`), T7 (bigrams `thermal expansion`, `expansion mismatch`) | T4 content words `particl`; T7 `expansion, mismatch, thermal`; T6 coverage 0.43; T8 coverage 0.23 |
+
+Provenance now fails on nothing in the ceramic paper. Per-trace nets: `results/traces/writer/ceramic_run1/{fixture,rewritten}_validation_run5_nets.json`.
