@@ -1,15 +1,43 @@
 """validate_traces.py: automatic safety nets over cut traces. Writes a verdict per trace."""
-import json, re, sys
+import json, os, re, sys
 from collections import defaultdict
 STOP=set("with from that this than then their there these those which while where about into onto over under after before between across along vol excess zrsi2 zrb2 sic composite composites content sample samples without through".split())
 def words(s): return {w for w in re.findall(r'[a-z]{5,}', s.lower()) if w not in STOP}
 def bigrams(s):
     w=[x for x in re.findall(r'[a-z]{4,}', s.lower()) if x not in STOP]; return {(a,b) for a,b in zip(w,w[1:])}
 def nums(s): return set(re.findall(r'\d+(?:\.\d+)?', s))
-def stem(ws): return {re.sub(r'(ing|ed|es|s)$','',w) for w in ws}
+def stem(ws): return {re.sub(r'(ing|ed|es|s)$','',re.sub(r'ies$','y',w)) for w in ws}   # densities -> density, not densiti
 FIGREF=r'\bF\d+[a-z]?(?:-F?\d*[a-z]?)?\b'   # figure/panel references (F7, F8a, F8a-e, F6a-F6e) are citations, not quantities
-def run(graph_path, traces_path):
+def panel_store(graph_path, panels_dir=None):
+    """panel id -> caption definition spans + OCR cue classes and tokens, from the paper's match.json / ocr.json.
+    The store sits at matmech/<journal>/<paper>/panels; None when it is not mounted."""
+    if panels_dir is None:
+        j,_,d=os.path.basename(graph_path)[:-5].partition('__')
+        panels_dir=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','matmech',j,d,'panels')
+    mp=os.path.join(panels_dir,'match.json'); op=os.path.join(panels_dir,'ocr.json')
+    if not os.path.exists(mp): return None
+    ocr={c['crop']:c for c in json.load(open(op))['crops']} if os.path.exists(op) else {}
+    store={}   # (figure_number, letter or 'single' or '*' for the figure as a whole) -> text
+    for f in json.load(open(mp))['figures']:
+        h=os.path.basename(f['file']).rsplit('.',1)[0]   # crops are named <figure image hash>_<detector label>.jpg
+        cs=[c for k,c in ocr.items() if os.path.basename(k).startswith(h+'_')]
+        store[(f['figure_number'],'*')]=' '.join([f.get('caption_preamble') or '']+[x for c in cs for x in (c.get('cues') or [])+[k['text'] for k in c.get('tokens',[])]])
+        for p in f.get('panels',[]):
+            c=ocr.get(p.get('crop') or '',{})
+            txt=[f.get('caption_preamble') or '', p.get('definition') or '']+list(c.get('cues') or [])+[k['text'] for k in c.get('tokens',[])]
+            store[(f['figure_number'],p['label'].lower())]=' '.join(txt)
+    return store
+def panel_vocab(store, pids):
+    out=[]
+    for pid in pids:
+        m=re.match(r'.*#F(\d+)([a-z]?)',pid)
+        if not m: continue
+        fig,let=int(m.group(1)),m.group(2)
+        out+=[v for (f,l),v in store.items() if f==fig and (l==let or l=='*' or not let or l=='single')]
+    return ' '.join(out)
+def run(graph_path, traces_path, panels_dir=None):
     g=json.load(open(graph_path)); T=json.load(open(traces_path)); N={n['id']:n for n in g['nodes']}
+    store=panel_store(graph_path, panels_dir)
     inn=defaultdict(list); out=defaultdict(list)
     for e in g['edges']: inn[e['dst']].append(e); out[e['src']].append(e)
     sweep_nums=set().union(*[nums(n['label']) for n in g['nodes'] if n['type'].startswith('DES/variable_sweep')]) if any(n['type'].startswith('DES/variable_sweep') for n in g['nodes']) else set()
@@ -30,10 +58,21 @@ def run(graph_path, traces_path):
         if t['root']=='explain' and t['subtype'] in ('rejection',): bg=set()
         # content-word test (added after ceramic run 1, which missed a question naming the answer's classes):
         # words of the graded targets that no given node uses, and that the question uses anyway
-        cw_given=stem(words(' '.join(N[i]['label'] for i in given)))
-        cw_hidden=stem(words(htxt))-cw_given
+        # shared vocabulary (run 3): a question must name what the panels are, so words from the cited panels' caption
+        # spans and OCR cues/tokens, and the evidence nodes' modality and technique, are not leaks either
+        # cited = walk + evidence + nodes the grading note names (a held-out channel is still a panel the trace cites);
+        # a node with figs but no panel ids (audits, rejected-count figures) cites the whole figure
+        cnodes=[s_['node'] for s_ in t['walk']]+list(t['evidence'])+[x for x in re.findall(r'\b([a-z]\d+)\b', t.get('grader','')) if x in N]
+        cited={p for i in cnodes if i in N for p in (N[i].get('panel_ids') or [])}|{f'#{f}' for i in cnodes if i in N and not N[i].get('panel_ids') for f in (N[i].get('figs') or [])}
+        ev_meta=' '.join(str(N[i].get(k) or '').replace('_',' ') for i in t['evidence'] for k in ('modality','technique_norm'))
+        pv=panel_vocab(store, cited) if store is not None else ''
+        shared=stem(words(' '.join(N[i]['label'] for i in given)+' '+pv+' '+ev_meta))
+        cw_hidden=stem(words(htxt))-shared
         leak_words=sorted(cw_hidden & stem(words(t.get('question',''))))
-        v['nets']['leak']={'bigrams':sorted(' '.join(b) for b in bg),'numbers':sorted(nn),'content_words':leak_words,'pass':len(bg)==0 and len(nn)==0 and not leak_words}
+        v['nets']['leak']={'bigrams':sorted(' '.join(b) for b in bg),'numbers':sorted(nn),'content_words':leak_words,
+                           'shared_vocab':'given nodes + panel spans + OCR cues + modality/technique' if store is not None else 'panel store not mounted: given nodes + modality/technique only',
+                           'pass':len(bg)==0 and len(nn)==0 and not leak_words}
+        if store is None: v['notes'].append('panel store not mounted; content-word exclusion falls back to given nodes plus modality and technique')
         # N2 disjoint + grader channel withheld
         v['nets']['disjoint']={'pass':not (hid & set(given))}
         gr=t.get('grader',''); held=re.findall(r'channel (\w+)', gr)
@@ -81,7 +120,7 @@ def run(graph_path, traces_path):
         report.append(v)
     return report
 if __name__=='__main__':
-    rep=run(sys.argv[1], sys.argv[2]); json.dump(rep, open(sys.argv[3],'w'), indent=1)
+    rep=run(sys.argv[1], sys.argv[2], sys.argv[4] if len(sys.argv)>4 else None); json.dump(rep, open(sys.argv[3],'w'), indent=1)
     for v in rep:
         f=v.get('fails',[]); lk=v.get('nets',{}).get('leak',{})
         extra=(' leak='+', '.join(lk.get('bigrams',[])[:3]+lk.get('numbers',[])[:3])) if lk and not lk['pass'] else ''

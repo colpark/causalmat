@@ -27,3 +27,10 @@ given node.
    byte for byte), merge into `results/traces/<paper>.traces.json`, validate. The ceramic packets use `--loo`.
 3. Continue step 2 on the remaining 30 papers with the new rules. Commit and push after each paper.
 4. C.4/C.5 once the content-word decision is made; then step 3 onward, unchanged.
+
+## Session 2 (after restart): step 0 stopped
+Content-word exclusion widened to panel caption spans, OCR cues and tokens, modality and technique, plus figure-level
+entries and grader-named nodes (fix 1 and fix 2; see the run-3 section of `writer_vs_hand_ceramic.md`). Hand fixture:
+0 flags. Written copy: T4 and T7 as required, plus **T1** (explain/rejection; intensity, threshold, trend), so the pass
+condition failed after two fixes. Stopped per the stop rule. Steps 1 onward not started. The open decision: whether the
+content-word test exempts explain/rejection traces the way the bigram test does.

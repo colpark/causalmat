@@ -76,3 +76,41 @@ The questions and keys are the run-1 outputs, unchanged; only the nets changed.
 Some flags are real, and the run-1 writer did restate hidden content: Acta T3 names the hysteresis loop and the ideal thermo-elastic line, Acta T5 gives the 50 and 240 C breakpoints (also caught by the number test), ceramic T7 names the thermal mismatch. So the test finds things the bigram test misses, but as it stands it cannot tell those from the paper's own vocabulary.
 
 Every verdict here is model against model; no human checked any item.
+
+## Run 3 of the nets: content-word exclusion widened (same writer outputs, changed `validate_traces.py`)
+
+Every verdict here is model against model; no human checked any item.
+
+**Result: pass condition NOT met after two fixes. Stopped per the stop rule; no blocking has been run.** The hand fixture flags nothing, as required. On the written copy the test flags T4 and T7 as required, but also **T1** (control, explain/rejection) on `intensity`, `threshold`, `trend`.
+
+**Fix 1: exclusion widened as specified.** `shared_vocab` = given node labels + caption spans of every cited panel (the figure's `caption_preamble` plus the panel's `definition`, from `match.json`) + OCR `cues` and token texts of those panels' crops (`ocr.json`) + `modality`/`technique_norm` of the evidence nodes. The store is found at `matmech/<journal>/<paper>/panels/` from the graph filename; where it is missing, the verdict says the fallback (given nodes + modality/technique) was used. Result: `fracture` cleared on both sides. `density` still flagged on writer T5.
+
+**Fix 2: citations reaching the store.** Three gaps, all fixed:
+- T5's density panel (r3, F4) is cited only in the grader field ("independent channel r3"). Nodes the grading note names now count as cited.
+- r2 (T1's audit node) has `figs: [F2]` but no `panel_ids`, and `match.json` accepted no panels for F2 (`C1_count_mismatch`). A node with figs but no panel ids now cites the whole figure. Each figure now has a figure-level entry: its caption preamble plus the OCR of every crop named after the figure image hash.
+- Two bugs in the first pass of fix 2: the figure-level id `#F2` failed a `.+#F` regex, and the stemmer mapped `densities` to `densiti` but `density` to `density`. Now `.*#F`, and `ies` becomes `y` before the suffix strip.
+
+| run | hand fixture flagged | written copy flagged |
+|---|---|---|
+| 2 (given nodes only) | 2 of 9 (T5, T6) | 5 of 9 (T1, T4, T5, T6, T7) |
+| 3 (widened) | 0 of 9 | 3 of 9 (T1, T4, T7) |
+
+| T | hand, run 2 | hand, run 3 | writer, run 2 | writer, run 3 | writer leak overall, run 3 |
+|---|---|---|---|---|---|
+| T1 | - | - | composition, intensity, threshold, trend | intensity, threshold, trend | fail (content words) |
+| T4 | - | - | fracture, nanometre, particl, submicron | nanometre, particl, submicron | fail (content words) |
+| T5 | fracture | - | density, fracture, relative | - | fail (bigrams: relative density) |
+| T6 | fracture | - | fracture | - | pass |
+| T7 | - | - | expansion, mismatch, thermal | expansion, mismatch, thermal | fail (bigrams: crack path, expansion mismatch, thermal expansion; content words) |
+| T8 | - | - | - | - | pass |
+| T9 | - | - | - | - | pass |
+| T10 | - | - | - | - | pass |
+| T11 | - | - | - | - | pass |
+
+**Why T1 still fires.** The question: "can the patterns actually confirm a WSi2 intensity trend or pin down the ZrC threshold at 20 vol%?" The hidden audit r2 says "no WSi2 intensity trend or ZrC threshold is readable". The Fig. 2 caption ("XRD spectra of the final composites with different compositions") and the OCR of its one crop carry none of the three words. `intensity` does occur in the paper body text about Fig. 2 ("the intensity of WSi2 peak increased", `data.json`), which is the claim the rejection trace tests. `threshold` and `trend` occur only in r2 and in q18, a node outside the trace. So T1 is not panel vocabulary under the spec's definition, and the widened exclusion is correct not to clear it. Whether it is a real leak depends on a decision the spec does not make: the bigram test already exempts explain/rejection traces, because their question has to state the claim under test. The content-word test has no such exemption.
+
+**Other observations.**
+- T4 also flags `particl` ("SiC particles"), which is in q9 and in no caption. The trace is flagged as required. The extra word is recorded, not tuned away.
+- T5: including the grader channel's panels as cited clears `density` from the content-word test, but T5 is exactly the case where the question asks for the held-out channel. It still fails `leak` on the bigram `relative density`, so the trace-level verdict is unchanged. The cost: a question that names a held-out channel only in single words would now get past the content-word test. The writer's no-held-out-channel rule is the guard for that case.
+
+Per-trace nets: `results/traces/writer/ceramic_run1/{written,fixture}_validation_run3_nets.json`.
