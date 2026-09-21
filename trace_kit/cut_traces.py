@@ -184,7 +184,19 @@ def cut(graph_path, spec_path, group_id):
                 hidden = [c]
             else:
                 hidden = [ev]
-            new(root=root, subtype=sub, seed_claim=c, evidence=[ev], hidden=hidden, branch=f"{rel} edge {ev} -> {c}",
+            extra = {}
+            if sub == "mechanism":
+                # a hidden mechanism's premises are hidden too (KNW nodes with premise_for into it): showing the premise
+                # hands over part of the mechanism (ceramic T7, s5). A rival exists only as a second explains edge into
+                # a claim this mechanism explains, or a rules_out edge; otherwise the trace has none and says so.
+                explained = {e["dst"] for e in out[c] if e["rel"] == "explains"}
+                rivals = sorted({e["src"] for d in explained for e in inn[d] if e["rel"] == "explains" and e["src"] != c}
+                                | {e["src"] for d in explained | {c} for e in inn[d] if e["rel"] == "rules_out"})
+                mask = "hide the mechanism and its premises; show the observation"
+                grader = ("certified judge against the graph's mechanism, with the rival named" if rivals
+                          else "certified judge against the graph's mechanism; no rival in the graph")
+                extra = {"rival": rivals or None, "rival_note": None if rivals else "no second explains edge and no rules_out edge: no rival"}
+            new(**extra, root=root, subtype=sub, seed_claim=c, evidence=[ev], hidden=hidden, branch=f"{rel} edge {ev} -> {c}",
                 fm_family=fam, lift=lift, floor={"reaches": floor_reaches, "support": floor_support},
                 depth=depth, depth_families=depth_fams, channels_involved=involved, mask=mask, grader=grader,
                 status=status, ruling=why, walk=w)
@@ -278,6 +290,11 @@ def cut(graph_path, spec_path, group_id):
                 if st["role"] == "context" and N[st["node"]]["type"].startswith("HYP/hypothesis"):
                     st["role"] = "redacted"; t.setdefault("hidden", []).append(st["node"])
                     t.setdefault("redactions", []).append({"node": st["node"], "why": "hypothesis states the mechanism the model must produce"})
+        if t["root"] == "explain" and t["subtype"] == "mechanism":
+            for e in inn[t["seed_claim"]]:
+                if e["rel"] == "premise_for" and N[e["src"]]["type"].startswith("KNW") and e["src"] not in t["hidden"]:
+                    t["hidden"].append(e["src"])
+                    t.setdefault("redactions", []).append({"node": e["src"], "why": "premise of the hidden mechanism"})
         t["linear"] = linearize(N, inn, out, t)
     return g, traces
 
