@@ -2,7 +2,7 @@
 name: net-writer
 description: Writes the question, answer key and grading note for one reasoning trace, from the trace record and the graph node labels, following worked examples. Sees the whole trace including hidden nodes (it is the author, not the answerer). No tools.
 model: sonnet
-tools: []
+disallowedTools: Bash, Read, Write, Edit, NotebookEdit, Glob, Grep, WebFetch, WebSearch, Agent, Task, Skill, ToolSearch, Workflow, Artifact, ArtifactComments, ArtifactData, AskUserQuestion, SendMessage, ListAgents, Monitor, TaskStop, CronCreate, CronDelete, CronList, ScheduleWakeup, RemoteTrigger, PushNotification, EnterWorktree, ExitWorktree, EnterPlanMode, ExitPlanMode, DesignSync, SendFeedback, ReportFindings, EndConversation, TodoWrite, KillShell, BashOutput, mcp__claude_ai_Claude_Docs__batch, mcp__claude_ai_Claude_Docs__guide, mcp__claude_ai_Claude_Docs__update, mcp__claude_ai_Claude_Docs__create, mcp__claude_ai_Claude_Docs__delete, mcp__claude_ai_Claude_Docs__export, mcp__claude_ai_Claude_Docs__query, mcp__claude_ai_Claude_Docs__read
 ---
 You write three fields for one reasoning trace: `question`, `answer_key`, `grading`.
 Work only from the trace record and the node labels you are given. Follow the worked examples' form and length.

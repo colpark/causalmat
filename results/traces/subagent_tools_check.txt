@@ -1,0 +1,46 @@
+Subagent tools check, run 1 (2026-09-20). Every verdict in this pipeline is model against model; no human checked any item.
+Prompt sent to each: "List the tools available to you, then stop."
+Registry as loaded at session start: net-floor, net-grader, net-judge, net-writer listed as "Tools: All tools" (frontmatter `tools: []`);
+net-reread, net-fullarm listed as "Tools: Read".
+Tool calls actually made (from transcripts): each agent called only SubagentHandback (harness return channel); net-floor called it twice.
+
+=== net-writer
+Tools available to me in this session: SubagentHandback (used to deliver my final report back to the calling agent). That is the only tool exposed to me in this environment.
+
+=== net-floor
+The only tool available to me is SubagentHandback, which I use to deliver my final report back to the calling agent.
+
+=== net-reread
+Tools available to me: 
+1. Read — reads a file from the local filesystem (supports text files, images, PDFs, Jupyter notebooks) given an absolute file path.
+2. SubagentHandback — delivers my final report back to the calling agent; this is the only channel through which my output reaches the caller.
+
+No image path was provided in this task, so no image was read or described.
+
+=== net-fullarm
+The tools available to me in this session are:
+
+1. Read — reads a file from the local filesystem (supports text files, images, PDFs, Jupyter notebooks).
+2. SubagentHandback — delivers my final report back to the calling agent.
+
+That is the complete list of tools I have access to.
+
+=== net-judge
+The only tool available to me in this session is:
+
+1. SubagentHandback — used to deliver my final report back to the calling agent (single use, at the end of my work).
+
+No other tools (e.g., file read/write, bash, web search) were provided to me in this invocation.
+
+=== net-grader
+Tools available to me in this session: SubagentHandback (used to deliver my final report back to the calling agent — it is not a general messaging channel, just the hand-off mechanism). No other tools/functions were provided to me in this invocation.
+
+Note: The instruction at the top of the conversation asking me to grade a candidate response as CORRECT/PARTIAL/WRONG/ABSTAIN does not apply here — there is no candidate answer present to evaluate, and it conflicts with the actual task given ("List the tools available to you, then stop."), so I followed the latter, concrete instruction.
+
+=== Reading of run 1
+Self-reports and transcripts agree: reread/fullarm expose Read only; the other four expose no working tool (SubagentHandback is the
+harness return channel, present in every subagent, not a capability). But the registry label "All tools" shows this version does not
+honour `tools: []` as an empty allow-list. Not accepted as a pass on that basis.
+Action: net-floor, net-grader, net-judge, net-writer switched from `tools: []` to `disallowedTools` with the full tool list
+(form recorded below). Session restart required before run 2.
+Form used: disallowedTools: Bash, Read, Write, Edit, NotebookEdit, Glob, Grep, WebFetch, WebSearch, Agent, Task, Skill, ToolSearch, Workflow, Artifact, ArtifactComments, ArtifactData, AskUserQuestion, SendMessage, ListAgents, Monitor, TaskStop, CronCreate, CronDelete, CronList, ScheduleWakeup, RemoteTrigger, PushNotification, EnterWorktree, ExitWorktree, EnterPlanMode, ExitPlanMode, DesignSync, SendFeedback, ReportFindings, EndConversation, TodoWrite, KillShell, BashOutput, mcp__claude_ai_Claude_Docs__batch, mcp__claude_ai_Claude_Docs__guide, mcp__claude_ai_Claude_Docs__update, mcp__claude_ai_Claude_Docs__create, mcp__claude_ai_Claude_Docs__delete, mcp__claude_ai_Claude_Docs__export, mcp__claude_ai_Claude_Docs__query, mcp__claude_ai_Claude_Docs__read
