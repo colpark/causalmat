@@ -29,9 +29,9 @@ ORACLES = {"XRD": "pymatgen/GSAS-II pattern simulation", "ATOM": "universal MLIP
 
 
 def family(n):
-    # FIX (orchestrator, 2026-09-20): technique_norm may be a LIST when a node's panel comes from two
-    # instruments ("SEM-EDS", "AC HAADF-STEM with line profiles"); the back-fill writes those as lists.
-    # Take the first element, which is the instrument the lane rule also keys on.
+    # FIX (orchestrator, 2026-09-20, cut_traces.py:31): technique_norm may be a LIST when a node's panel
+    # comes from two instruments ("SEM-EDS", "AC HAADF-STEM with line profiles"); the v05 back-fill writes
+    # those as lists. Take the first element, which is what the lane rule keys on too.
     t = (n.get("attrs") or {}).get("technique_norm") or (n.get("attrs") or {}).get("technique") or ""
     if isinstance(t, list):
         t = t[0] if t else ""
@@ -294,7 +294,7 @@ def optimum(N, i, claim=False):
 
 def linearize(N, inn, out, t):
     """one legal single-direction walk through the DAG, with explicit dependencies."""
-    # FIX (orchestrator, 2026-09-20): same list-valued technique_norm as in family() above
+    # FIX (orchestrator, 2026-09-20, cut_traces.py:297): same list-valued technique_norm as family()
     fam = lambda i: family(N[i])
     ev_of = lambda i: [e["src"] for e in inn[i] if e["rel"] == "evidences" and N[e["src"]]["type"].startswith("OBS")]
     pre_of = lambda i: [e["src"] for e in inn[i] if e["rel"] == "premise_for"]

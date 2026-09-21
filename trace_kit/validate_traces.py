@@ -58,6 +58,16 @@ def run(graph_path, traces_path):
             npan=len(N[t['evidence'][0]].get('panel_ids') or [])
             ok=len([x for x in series if '.' in x])>=npan and npan>=3 and len(conds)>0
             v['nets']['key_consistency']={'pass':ok,'why':f'{npan} panels, {len([x for x in series if "." in x])} values in the channel, conditions {"named" if conds else "missing"}'}
+        # N7 provenance of the written answer key: every number in it appears in some cited/hidden node label;
+        # most content words do too (writer may paraphrase, so a ratio, not equality)
+        grader_nodes=set(re.findall(r'\b([qrs]\d+)\b', t.get('grader','')+' '+t.get('grading','')))
+        src_ids=set(t.get('hidden',[]))|set(t.get('evidence',[]))|{t['seed_claim']}|set(t.get('answer_key_nodes',[]))|{n for s_ in t.get('linear',[]) for n in s_['nodes']}|grader_nodes
+        src_txt=' '.join(N[i]['label'] for i in src_ids if i in N)
+        key=re.sub(r'\b[qrs]\d+\b','',t.get('answer_key',''))   # node ids are citations, not numbers
+        stem=lambda ws:{re.sub(r'(ing|ed|es|s)$','',w) for w in ws}
+        kn=nums(key)-sweep_nums; missing_nums=sorted(x for x in kn if x not in nums(src_txt))
+        kw=stem(words(key)); cov=(len(kw&stem(words(src_txt)))/len(kw)) if kw else 1.0
+        v['nets']['provenance']={'pass':not missing_nums and (cov>=0.5 or len(kn)>=3),'missing_numbers':missing_nums,'word_coverage':round(cov,2),'numbers_checked':len(kn),'rule':'no missing numbers, and word coverage >= 0.5 or at least three sourced numbers','sources':sorted(src_ids)}
         fails=[k for k,r in v['nets'].items() if not r['pass']]
         v['verdict']='survives' if not fails else 'flagged'; v['fails']=fails
         if t['status']=='control': v['verdict']+=' (control)'

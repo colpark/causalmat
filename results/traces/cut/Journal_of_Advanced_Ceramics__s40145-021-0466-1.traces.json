@@ -5,6 +5,167 @@
   {
    "id": "T1",
    "group_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
+   "root": "infer",
+   "subtype": "rank",
+   "seed_claim": "n10",
+   "evidence": [
+    "o3"
+   ],
+   "hidden": [
+    "o3",
+    "n10",
+    "n18",
+    "n16",
+    "n13",
+    "n20",
+    "n21"
+   ],
+   "branch": "evidences edge o3 -> n10",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "bare infer: no rejection, no budget, no stopping rule",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o3",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F2a",
+      "10.1007/s40145-021-0466-1#F2b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n20",
+     "role": "downstream"
+    },
+    {
+     "node": "n21",
+     "role": "downstream"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5",
+      "n8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Fuel cells need a cheap metal-free oxygen-reductio -> Activity of N-doped carbons is credited to graphit -> A hierarchical nanopore structure should itself pu -> Urea as the nitrogen source and zinc chloride as t -> Carbonise the sphere/urea/ZnCl2 mixture in N2 for "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2a, F2b [SEM] and rank (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: SEM and TEM both show 200-300 nm spheres with progressively more thin flakes draped between and over them at higher temperature"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: 200-300 nm spheres carrying thin microflakes, more numerous the hotter the carbonisation"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n18",
+      "n16",
+      "n13",
+      "n20",
+      "n21"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Nanopores hold the peroxide intermediate long enough for it to keep striking the wall and be reduced"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
    "root": "explain",
    "subtype": "mechanism",
    "seed_claim": "n18",
@@ -154,13 +315,14 @@
    ]
   },
   {
-   "id": "T2",
+   "id": "T3",
    "group_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
    "root": "intervene",
    "subtype": "next condition",
    "seed_claim": "n22",
    "evidence": [
     "o1",
+    "o3",
     "o4",
     "o6"
    ],
@@ -179,9 +341,10 @@
     "reaches": false,
     "note": "trend extrapolation of the classical series picks the earlier optimum"
    },
-   "depth": 3,
+   "depth": 4,
    "depth_families": [
     "PHYS",
+    "SEM",
     "TEM",
     "XRD"
    ],
@@ -228,6 +391,16 @@
      "verdict": "shown"
     },
     {
+     "node": "o3",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F2a",
+      "10.1007/s40145-021-0466-1#F2b"
+     ],
+     "verdict": "shown"
+    },
+    {
      "node": "o4",
      "role": "evidence",
      "op": null,
@@ -268,13 +441,14 @@
      "role": "read",
      "nodes": [
       "o1",
+      "o3",
       "o4"
      ],
      "depends_on": [
       1
      ],
      "hidden": false,
-     "text": "Results so far, as panels only: F1b [TEM, XRD]"
+     "text": "Results so far, as panels only: F1b, F2a, F2b [SEM, TEM, XRD]"
     },
     {
      "step": 3,
