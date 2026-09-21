@@ -579,6 +579,15 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
             t["status"] = "closed"; t["ruling"] = f"decision {decision} is not the condition directly after the last given ({nxt})"
             mark(t, "R4", t["ruling"]); return
     given_panels = t.get("given_panels") or [p for ev in t["evidence"] for p in (N[ev].get("panel_ids") or []) if p not in set(t.get("hidden_panels", []))]
+    if not given_panels and t["root"] != "intervene":
+        # v2.2: an evidence node cited by figure only (figs, no panel ids) hands over the whole figure; with neither,
+        # hard rule 2 closes the trace: nothing would be given to read the answer from
+        doi = next((p.split("#")[0] for n in N.values() for p in (n.get("panel_ids") or [])), None)
+        given_panels = [f"{doi}#{f}" for ev in t["evidence"] for f in (N[ev].get("figs") or []) if doi and re.fullmatch(r"F\d+", f)]
+        if given_panels: mark(t, "R3", f"evidence cited by figure only: whole figure(s) {given_panels} handed over")
+        elif t["root"] == "infer":
+            t["status"] = "closed"; t["ruling"] = "not derivable from given panels: the evidence cites no panel or figure"
+            mark(t, "R3", t["ruling"]); return
     t["given_panels"] = given_panels
     # v2.2 part 2: condition labels travel with the given panels
     t["condition_labels"] = condition_labels(t, N, store, decision if t["root"] == "intervene" else None)
@@ -667,10 +676,10 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
         hits = [(tok, w) for tok, w in hits if w]
         # author-written values (0.227 nm, 14 nm, 0.69 eV) are classed as scale/tick tokens by the packet builder; mask
         # one when its number appears in a hidden target label (staff C, v06 build: these carried audit answers)
-        hid_nums = set(re.findall(r"(?<![A-Za-z\d.])\d+(?:\.\d+)?", " ".join(hid_labels)))
+        hid_nums = set(re.findall(r"(?<![A-Za-z\d.])\d+(?:\.\d+)?", " ".join(hid_labels))) - set(re.findall(r"(?<![A-Za-z\d.])\d+(?:\.\d+)?", " ".join(N[st["node"]]["label"] for st in t["walk"] if st["node"] not in hidden and st["role"] != "redacted")))   # v2.2: numbers the context already gives are not masked
         for tok in (rec.get("ocr") or {}).get("tokens", []):
             v = re.findall(r"(?<![A-Za-z\d.])\d+(?:\.\d+)?", tok["text"])
-            if v and any(x in hid_nums and (("." in x) or len(x) >= 2) for x in v) and re.search(r"[A-Za-zµμÅ%°]", tok["text"]):
+            if v and any(x in hid_nums and (("." in x) or len(x) >= 2) for x in v) and re.search(r"[A-Za-zµμÅ%°]", tok["text"]) and not re.fullmatch(r"\s*(1|2|3|5|10|20|30|50|100|200|300|500|1000)\s*(nm|µm|μm|um|mm|Å)\s*", tok["text"]) and not re.fullmatch(r"\s*(T\s*=\s*-?\d+(\.\d+)?\s*°?\s*[CK]?|-?\d+(\.\d+)?\s*(°\s*[CK]?|[CK]))\s*", tok["text"]):   # v2.2: a scale bar is a ruler and a temperature label is a condition; neither is masked
                 if all(tok is not h for h, _ in hits): hits.append((tok, [x for x in v if x in hid_nums]))
         if hits:
             dst = os.path.join(masked_dir, paper, t["id"], pid.split("#")[1] + ".jpg")

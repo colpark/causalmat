@@ -25,6 +25,7 @@ def panel_store(graph_path, panels_dir=None):
     for f in json.load(open(mp))['figures']:
         h=os.path.basename(f['file']).rsplit('.',1)[0]   # crops are named <figure image hash>_<detector label>.jpg
         cs=[c for k,c in ocr.items() if os.path.basename(k).startswith(h+'_')]
+        store[(f['figure_number'],'pre')]=f.get('caption_preamble') or ''
         store[(f['figure_number'],'*')]=' '.join([f.get('caption_preamble') or '']+[x for c in cs for x in (c.get('cues') or [])+[k['text'] for k in c.get('tokens',[])]])
         for p in f.get('panels',[]):
             c=ocr.get(p.get('crop') or '',{})
@@ -64,8 +65,18 @@ def run(graph_path, traces_path, panels_dir=None):
             # v06c: a leak is what the question adds. Only bigrams and numbers shared by the graded targets and the question,
             # and found in no given node and no condition label, block; content already in the context is context
             ctx=' '.join(N[i]['label'] for i in given)+' '+' '.join(l.get('text') or '' for l in t.get('condition_labels') or [] if not l.get('withheld'))
+            # the given panels' own captions and in-image text are context too (the solver sees them), less what was masked
+            if store is not None:
+                masked=[x for m in t.get('masked_panels') or [] for x in m.get('strings',[])]
+                pv=' '.join(v2 for gp in t.get('given_panels') or [] for (f,l),v2 in store.items() for mm in [re.match(r'.*#F(\d+)([a-z]?)$',gp)] if mm and f==int(mm.group(1)) and (l in (mm.group(2),'pre') if mm.group(2) else l=='*'))
+                for x in masked: pv=pv.replace(x,' ')
+                ctx+=' '+pv
             q=t.get('question','')
-            bg=(bigrams(htxt)&bigrams(q))-bigrams(ctx); nn=((nums(htxt)&nums(q))-nums(ctx))-sweep_nums
+            # compare stemmed word pairs (mixture/mixtures) and ignore a pair of one repeated token (RZSZ-0 ... RZSZ-10 -> "rzsz rzsz")
+            s1=lambda w: re.sub(r'(ies|es|s|e|ing|ed)$','',w)
+            sb=lambda x:{(s1(a2),s1(b2)) for a2,b2 in bigrams(x) if s1(a2)!=s1(b2)}
+            bg={b for b in bigrams(htxt)&bigrams(q) if (s1(b[0]),s1(b[1])) in sb(htxt)-sb(ctx)}
+            nn=((nums(htxt)&nums(q))-nums(ctx))-sweep_nums
         # for explain/rejection and mechanism the seed claim is given by design, so drop its own words
         if t['root']=='explain' and t['subtype'] in ('rejection',): bg=set()
         # content-word test (added after ceramic run 1, which missed a question naming the answer's classes):
@@ -97,7 +108,7 @@ def run(graph_path, traces_path, panels_dir=None):
         v['nets']['grader_withheld']={'pass':all(h not in given for h in held),'held':held}
         # N3 derivability of the graded target
         if t['root']=='infer':
-            ok=bool(N[t['evidence'][0]].get('panel_ids')) and any(e['src']==t['evidence'][0] for e in inn[t['seed_claim']])
+            ok=bool(N[t['evidence'][0]].get('panel_ids') or t.get('given_panels')) and any(e['src']==t['evidence'][0] for e in inn[t['seed_claim']])   # v2.2: a figure handed over whole counts
             why='observation has panels and evidences the claim'
         elif t['subtype']=='competing causes':
             causes=[e['src'] for e in inn[t['seed_claim']] if e['rel']=='causes']
@@ -110,7 +121,7 @@ def run(graph_path, traces_path, panels_dir=None):
             ok=bool(N[t['evidence'][0]].get('panel_ids') or N[t['evidence'][0]].get('figs')); why='audit node has a figure'
         v['nets']['derivable']={'pass':ok,'why':why}
         # N4 necessity condition + panels exist (well-formed ids)
-        pids=[p for i in t['evidence'] for p in (N[i].get('panel_ids') or [])]
+        pids=[p for i in t['evidence'] for p in (N[i].get('panel_ids') or [])] or list(t.get('given_panels') or [])
         v['nets']['panels']={'pass':all(re.match(r'.+#F\d+[a-z]?\d?$',p) for p in pids) and (bool(pids) or t['root']!='infer'),'n':len(pids)}
         # N5 linear structure
         lin=t.get('linear',[]); steps={s['step'] for s in lin}
