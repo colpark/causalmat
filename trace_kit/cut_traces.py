@@ -459,6 +459,76 @@ def targets_of(t):
     if t["subtype"] == "rejection": return t["evidence"][:1]
     return [t["seed_claim"]]
 
+def unmath(txt):
+    # OCR captions wrap formulas in LaTeX ($\\mathsf { N i } _ { x }$): drop commands, braces and inner spaces
+    txt = (txt or "").replace("\\gamma", "y").replace("γ", "y").replace("\\cdot", "-")
+    return re.sub(r"\$([^$]*)\$", lambda m: re.sub(r"\\[A-Za-z]+|[{}_^~\s]", "", m.group(1)), txt)
+
+def sweep_info(N):
+    """the graph's variable sweep: levels (its first number list), unit, the variable phrase before the numbers, and a
+    sample stem when the label ties the first and last level to sample names (RZSZ-0 to RZSZ-25)"""
+    sweep = next((n for n in N.values() if n["type"].startswith("DES/variable_sweep")), None)
+    mlev = re.search(r"((?:\d+(?:\.\d+)?\s*(?:,|and|or|to)\s*)+\d+(?:\.\d+)?)\s*([A-Za-z%°][\w%/°]*)", sweep["label"]) if sweep else None
+    if not mlev: return {"levels": [], "unit": None, "var": None, "stem": None}
+    levels = sorted({float(x) for x in re.findall(r"\d+(?:\.\d+)?", mlev.group(1))})
+    lo, hi = (f"{x:g}" for x in (levels[0], levels[-1]))
+    ms = re.search(r"([A-Za-z][\w]*)-" + re.escape(lo) + r"\b.*\b\1-" + re.escape(hi) + r"\b", sweep["label"])
+    return {"levels": levels, "unit": mlev.group(2), "var": sweep["label"][:mlev.start()].strip(" :,(") or None, "stem": ms.group(1) if ms else None}
+
+_DATA = {}
+def linked_text(store, pid):
+    """the figure's image_description (the paper's own sentences, linked by the PDF parser), from data.json"""
+    base, mj = store[0], store[1]
+    if base not in _DATA:
+        dp = os.path.join(base, "data.json"); _DATA[base] = json.load(open(dp)) if os.path.exists(dp) else {}
+    m = re.match(r".*#F(\d+)", pid); fig = next((f for f in mj["figures"] if m and f["figure_number"] == int(m.group(1))), None)
+    im = next((i for i in (_DATA[base].get("image_info") or []) if fig and i.get("image_path") == fig["file"]), None)
+    return " ".join(im.get("image_description") or []) if im else ""
+
+def condition_labels(t, N, store, decision=None):
+    """v2.2 part 2: the condition label handed with each given panel. The sample name comes from the caption span; the
+    level from the caption span (number+sweep unit, or the sweep's sample stem), else from the linked-text sentence that
+    cites this panel, and only as one of the sweep's levels (the sentence itself is never handed over: it often states
+    the observation). A label whose level is at or beyond an intervene decision is withheld."""
+    sw = sweep_info(N); out = []
+    def level_in(txt):
+        if not txt or not sw["unit"]: return None
+        m = re.search(r"(\d+(?:\.\d+)?)\s*" + re.escape(sw["unit"]), txt)
+        if not m and sw["stem"]: m = re.search(re.escape(sw["stem"]) + r"-(\d+(?:\.\d+)?)\b", txt)
+        return float(m.group(1)) if m and float(m.group(1)) in sw["levels"] else None
+    for pid in t.get("given_panels") or []:
+        rec = panel_record(store, pid) or {}; span = " ".join(unmath(rec.get("span")).split())
+        span = re.sub(r"^Fig(?:ure|\.)?\s*\d+\.?\s*", "", span)
+        sample = re.split(r",|;|\. | composites| prepared| at different| red cycles|\(arrow", span)[0].strip() if span else None
+        # a sample name is short and carries a capital or a digit; caption fragments ("and cooling down") are not names
+        if sample and (len(sample) > 40 or not re.search(r"[A-Z0-9]", sample) or sample[:1].islower()): sample = None
+        lab = {"panel": pid, "sample": sample or None, "sample_source": "caption" if sample else None, "level": None, "unit": sw["unit"], "level_source": None, "alias": None}
+        lv = level_in(span)
+        if lv is not None: lab["level"], lab["level_source"] = lv, "caption"
+        m = re.match(r".*#F(\d+)([a-z]?)$", pid)
+        if m and m.group(2) and sw["levels"]:
+            n, L = m.group(1), m.group(2)
+            for sent in re.split(r"(?<=[.;])\s+", unmath(linked_text(store, pid))):
+                if not re.search(rf"Fig(?:ure|\.)\s*{n}\s*\(?\s*{L}\b", sent): continue
+                al = re.search(r"defi\s?ned as ([A-Za-z0-9-]+)", sent)
+                if al and not lab["alias"]: lab["alias"] = al.group(1)
+                if sw["unit"]:
+                    lab.setdefault("levels_seen", set()).update(float(x) for x in re.findall(r"(\d+(?:\.\d+)?)\s*" + re.escape(sw["unit"]), sent) if float(x) in sw["levels"])
+                if lab["level"] is None:
+                    lv = level_in(sent)
+                    if lv is None and 0.0 in sw["levels"] and re.search(r"\bwithout\b", sent): lv = 0.0
+                    if lv is not None: lab["level"], lab["level_source"] = lv, "linked_text"
+        if not lab["sample"] and lab["alias"]: lab["sample"], lab["sample_source"] = lab["alias"], "linked_text"
+        if t["root"] == "intervene" and decision is not None and lab["level"] is not None and lab["level"] >= decision:
+            lab["withheld"] = "level at or beyond the decision"
+        parts = [x for x in (lab["sample"], (f"also written {lab['alias']}" if lab["alias"] and lab["alias"] != lab["sample"] else None),
+                             (f"{sw['var'] + ' ' if sw['var'] else ''}{lab['level']:g} {sw['unit']}" if lab["level"] is not None else None)) if x]
+        lab["text"] = "; ".join(parts) if parts else None
+        seen = lab.pop("levels_seen", set())
+        if len(seen) > 1: lab["series"] = sorted(seen)   # the panel's own sentences name several levels: a series panel
+        out.append(lab)
+    return out
+
 def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
     if t["status"] == "closed" or not t.get("walk"): return
     hidden = set(t.get("hidden", []))
@@ -491,11 +561,14 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
         decision = level_of(N[t["seed_claim"]]["label"])
         if decision is None: decision = num_of(N[t["seed_claim"]]["label"])
         given, withheld = [], []
+        all_pids = [p for ev in t["evidence"] for p in (N[ev].get("panel_ids") or [])]
+        labs = {l["panel"]: l for l in condition_labels({"root": "probe", "given_panels": all_pids}, N, store)}
         for ev in t["evidence"]:
             conds = (N[ev].get("attrs") or {}).get("panel_conditions") or []
             for i, pid in enumerate(N[ev].get("panel_ids") or []):
                 rec = panel_record(store, pid) or {}
                 v = level_of(conds[i]["condition"]) if i < len(conds) and conds[i].get("condition") else level_of(rec.get("span"))
+                if v is None and pid in labs and not labs[pid].get("series"): v = labs[pid]["level"]   # v2.2: condition label
                 if family(N[ev]) not in FM_FAMILIES or v is None or decision is None or v >= decision: withheld.append(pid)
                 else: given.append((v, pid))
         t["hidden_panels"] = sorted(set(withheld))
@@ -507,6 +580,10 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
             mark(t, "R4", t["ruling"]); return
     given_panels = t.get("given_panels") or [p for ev in t["evidence"] for p in (N[ev].get("panel_ids") or []) if p not in set(t.get("hidden_panels", []))]
     t["given_panels"] = given_panels
+    # v2.2 part 2: condition labels travel with the given panels
+    t["condition_labels"] = condition_labels(t, N, store, decision if t["root"] == "intervene" else None)
+    labels_text = " ".join(l["text"] for l in t["condition_labels"] if l.get("text") and not l.get("withheld"))
+    if t["condition_labels"]: mark(t, "P2", f"condition labels: {[l['text'] for l in t['condition_labels'] if not l.get('withheld')]}")
     # v2 rule 6 (panel check): an evidence panel whose OCR cue class contradicts the node's technique blocks the trace
     for ev in t["evidence"]:
         tech = family(N[ev])
@@ -522,11 +599,7 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
     # or ruling; intervene -> the decision and its outcome. A target passes when source is figure; or source is text and
     # every requires_unseen fact is stated in the caption span of a given panel; or (explain only) source is inferred and
     # every node it is inferred from is given or is itself a passing target.
-    def unmath(txt):
-        # OCR captions wrap formulas in LaTeX ($\\mathsf { N i } _ { x }$): drop commands, braces and inner spaces
-        txt = txt.replace("\\gamma", "y").replace("γ", "y").replace("\\cdot", "-")
-        return re.sub(r"\$([^$]*)\$", lambda m: re.sub(r"\\[A-Za-z]+|[{}_^\s]", "", m.group(1)), txt)
-    spans = unmath(" ".join(((panel_record(store, p) or {}).get("span") or "") + " " + (fig_preamble(store, p) or "") for p in given_panels)).lower()
+    spans = (unmath(" ".join(((panel_record(store, p) or {}).get("span") or "") + " " + (fig_preamble(store, p) or "") for p in given_panels)) + " " + labels_text).lower()
     span_words = set(re.findall(r"[a-z0-9]+", spans))
     given_nodes = {st["node"] for st in t["walk"] if st["role"] not in ("redacted",) and st["node"] not in set(t.get("hidden", []))}
     tg = graded_targets(t, N)
