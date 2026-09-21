@@ -155,13 +155,12 @@
      "text": "Feeds: Intra-grain strain heterogeneity is strongly anisotropic and grows with temperature: it develops alo"
     }
    ],
-   "question": "The cross-section SEM panel (F1b) of the 475 nm Au film on fused silica. What does the panel show about how the grains sit through the film thickness, and what does that establish about the grains' shape?",
-   "answer_key": "The panel shows a cross-section where one grain spans the whole film thickness everywhere in the field, but the grain boundaries are curved rather than straight walls (o1). This establishes that the grains are columnar: one grain runs the full film thickness, with boundaries going from the substrate to the surface (a10). A correct answer exists, but no decision in the paper turns on it: it is a bare classification, not an inference under rejection, budget, or a stopping rule.",
-   "grading": "Closed: bare infer/classify with no rejection, no budget, and no stopping rule behind it (ruling field). Checked against the answer key given by the labels of the hidden evidence node o1 and hidden claim node a10, judge-confirmed, as stated in the trace's grader field.",
-   "answer_key_nodes": [
-    "o1",
-    "a10"
-   ]
+   "question": "Given the setup for the Au film sample, look at the cross-section SEM panel from Figure 1 (F1b) of the annealed film. What does the image show about how a single grain relates to the film thickness across the field of view, and what does this establish about the overall shape of the grains?",
+   "answer_key": "The cross-section shows one grain spans the whole film thickness everywhere in the field, though the grain boundaries are curved rather than straight walls (o1). This establishes that the grains are columnar: a single grain runs from the substrate to the surface (a10). A correct read exists, but nothing in the paper turns on it beyond registering the shape - it is a bare observation and classification, not a question with a rejection test, a budget, or a stopping rule attached.",
+   "grading": "Closed: bare infer with no rejection, no budget, no stopping rule (per the trace ruling). It is a fact recorded in the graph from a single panel, not a question posed for a model to evaluate.",
+   "answer_key_nodes": null,
+   "blocked": null,
+   "writer_passes": 1
   },
   {
    "id": "T2",
@@ -300,13 +299,17 @@
      "text": "Feeds: The method follows one buried grain through a full thermal cycle and returns both its average strain"
     }
    ],
-   "question": "Panel F4a (XRD, the in-situ diffraction trace for one buried grain across a room-temperature-to-270 C thermal cycle). Reading the out-of-plane lattice strain in this panel, what trend does it follow over the cycle, and what are the starting and return values?",
-   "answer_key": "The out-of-plane strain rises with temperature on the way up and returns on a distinctly lower branch, i.e. a hysteresis loop: it starts at -0.05% near 35 C and comes back to about -0.17% at 50 C (o7). This is the same loop described in the claim built from it -- a hysteresis running from -0.05% to about -0.17% over one cycle, far shallower than the thermo-elastic slope (a15).",
-   "grading": "Answer key: the numbers and labels on the evidence node o7 (starting -0.05% near 35 C, returning to about -0.17% at 50 C), judge-confirmed against panel F4a and cross-checked against the claim a15 built from it.",
+   "question": "Panel F4a tracks the buried grain's diffraction response through one heating-cooling cycle described in the setup. What values does the trace start and return to, and how does the return path compare to the outward path?",
+   "answer_key": "The trace starts at -0.05% near 35 C and comes back to about -0.17% at 50 C, tracing a hysteresis loop that is far shallower than the expected thermo-elastic slope (o7, a15). This feeds two downstream results: the method follows the one buried grain through a full thermal cycle and returns both its average strain and its 3-D displacement field (a19), supporting the conclusion that a single grain carries large, anisotropic and quasi-reversible intra-granular strain heterogeneities set by its immediate neighbourhood, invisible to averaged diffraction (a20).",
+   "grading": "Answer key: the numbers and hysteresis description on the evidence node o7, judge-confirmed against the claim a15 and the downstream nodes a19 and a20.",
    "answer_key_nodes": [
     "o7",
-    "a15"
-   ]
+    "a15",
+    "a19",
+    "a20"
+   ],
+   "blocked": null,
+   "writer_passes": 2
   },
   {
    "id": "T3",
@@ -445,13 +448,25 @@
      "text": "Feeds: The method follows one buried grain through a full thermal cycle and returns both its average strain"
     }
    ],
-   "question": "Panel F4a shows the coherent X-ray diffraction model overlaid on the measured strain data for the single buried grain carried through room-temperature-to-270 C thermal cycling in 25 C steps. Reading only this panel, does the grain's strain response track the ideal thermo-elastic line, and what range does its out-of-plane lattice-strain hysteresis loop span over one cycle?",
-   "answer_key": "No: none of the measured heating/cooling branches follows the ideal thermo-elastic line, which is about three times steeper than every measured cycle (o8). Instead, the grain's out-of-plane lattice strain traces a hysteresis loop running from -0.05% to about -0.17% over one cycle, far shallower than the thermo-elastic slope (a15).",
-   "grading": "Answer key: the numbers and labels on evidence node o8 (the reference-line mismatch) and claim node a15 (the hysteresis-loop range), judge-confirmed against panel F4a; ruled negative-control because it is depth one and not an image-only read.",
+   "question": "Given the context above, look at panel F4a, which overlays the grain's measured heating/cooling branches against the response predicted from simple elastic behavior under the applied thermal loading. How do the measured branches compare to that predicted response - do they track it, exceed it, or fall well short - and roughly by what factor? What does this comparison suggest about how much internal strain variation the coherent-diffraction method can reveal within a single grain over a full cycle?",
+   "answer_key": "None of the measured branches matches the straight-line response predicted by simple elastic behavior under the applied thermal loading; that predicted reference is about three times steeper than any of the measured cycles (o8). Instead, the grain's measured strain traces a loop running from about -0.05% to about -0.17% over one cycle, far shallower than the reference (a15). This shows the method can follow a single buried grain through a full thermal cycle and recover both its average strain and its 3-D displacement field (a19), supporting the conclusion that the grain carries large, anisotropic, quasi-reversible internal strain heterogeneities set by its immediate neighbourhood - heterogeneities invisible to averaged diffraction (a20).",
+   "grading": "Answer key: the numbers and labels on the evidence node o8 (the roughly three-times-steeper reference slope and the mismatch of all branches), plus the claim a15 (the -0.05% to -0.17% loop) and the downstream nodes a19 and a20, judge-confirmed against the panel F4a reading.",
    "answer_key_nodes": [
     "o8",
-    "a15"
-   ]
+    "a15",
+    "a19",
+    "a20"
+   ],
+   "blocked": {
+    "reason": "leak",
+    "leak_source": "question",
+    "bigrams": [
+     "measured branches"
+    ],
+    "numbers": [],
+    "missing_numbers": []
+   },
+   "writer_passes": 2
   },
   {
    "id": "T4",
@@ -606,10 +621,12 @@
      "text": "Feeds: The heterogeneity evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent p"
     }
    ],
-   "question": "Panel F4b (XRD, coherent diffraction on the single Au grain during thermal cycling) is provided along with the setup context. How does the qx peak width behave as the grain is heated?",
+   "question": "Panel F4b tracks the qx peak width for the buried Au grain over a thermal cycle from 35 to 265 C. Based on that panel, how does the peak width behave as temperature rises?",
    "answer_key": "The qx peak width grows monotonically from 1.35e-3 to 4.9e-3 A^-1 between 35 and 265 C (o10). A correct answer exists, but no decision in the paper turns on the number.",
    "grading": "Closed: a bare measurement with no rejection, budget or stopping rule behind it. A fact in the graph, not a question for a model.",
-   "answer_key_nodes": null
+   "answer_key_nodes": null,
+   "blocked": null,
+   "writer_passes": 1
   },
   {
    "id": "T5",
@@ -770,13 +787,26 @@
      "text": "Feeds: The heterogeneity evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent p"
     }
    ],
-   "question": "The panels F6a, F6b, F6c, F6d, F6e are the retrieved phase maps of the same embedded Au grain, one per step of the thermal cycle (starting at 50 C, rising through roughly 240 C, then cooling back down). Reading only these five maps and the setup context (no accompanying text), how does the strain heterogeneity rank across the five conditions and along which axes, and is the resulting diffraction-peak broadening actually strain rather than just a crystallite-size effect?",
-   "answer_key": "The phase maps are uniform along z (through the film thickness) at every temperature, so there is no ranking difference through the thickness. In the film plane the heterogeneity is y-dominated at 50 C, then breaks into jumps along x by 240 C, and largely returns to the low-temperature pattern on cooling (o13) -- so the ranking runs low anisotropy at low temperature to strongly x-concentrated anisotropy at high temperature, reversing on cooling. This is genuine strain, not a crystallite-size artifact: the size-only broadening computed for the grain is 6.61e-4 A^-1, two to seven times smaller than the measured qx widths (o12), confirming the qx broadening tracks real strain heterogeneity rather than grain-size resolution.",
-   "grading": "Independent channel o12 (DERIVED size-only broadening estimate, 6.61e-4 A^-1, two to seven times smaller than measured qx widths), held out from the model; used to confirm that the ranking read off o13 reflects genuine strain rather than a crystallite-size artifact.",
+   "question": "Panels F6a-F6e give the five diffraction-derived strain images of the single grain across the thermal cycle, alongside the context on how the grain was grown and imaged. From those panels alone, how does the spatial pattern of internal strain within the grain change as the temperature is raised, along which directions does it develop, and what happens to it once the sample cools back down?",
+   "answer_key": "The strain distribution stays even through the film thickness (z) at all stages shown. In the plane of the film it is dominated by variation along y at 50 C, then reorganizes into jumps along x by 240 C, and on cooling most of that x-direction pattern reverts (o13). This underlies the claim that the intra-grain heterogeneity is strongly anisotropic and grows with temperature, developing along x in-plane while staying weak through the thickness (a16), a change that is quasi-reversible rather than a permanent plastic shift (a17), reflecting the method's ability to track one buried grain's average strain and 3-D displacement field through a full thermal cycle (a19), and supporting the conclusion that a single grain carries large, anisotropic, quasi-reversible intra-granular strain set by its immediate neighbourhood that averaged diffraction cannot see (a20).",
+   "grading": "Independent channel o12 (DERIVED), held out from the model: the size-only broadening value (6.61e-4 A^-1, two to seven times smaller than the measured qx widths) is checked against the anisotropy the model reads from the panels, without ever being shown to it.",
    "answer_key_nodes": [
     "o13",
-    "o12"
-   ]
+    "a16",
+    "a17",
+    "a19",
+    "a20"
+   ],
+   "blocked": {
+    "reason": "leak",
+    "leak_source": "given context only",
+    "bigrams": [
+     "intra grain"
+    ],
+    "numbers": [],
+    "missing_numbers": []
+   },
+   "writer_passes": 2
   },
   {
    "id": "T6",
@@ -912,12 +942,14 @@
      "text": "Ruling: On cooling the qx width stays above the heating branch at every temperature and returns only to 1.95e-3 A^-1, 45% above the 1.35e-3 starting"
     }
    ],
-   "question": "The claim under test is that the intra-grain strain heterogeneity is quasi-reversible on cooling (anelastic rather than a permanent plastic change), and the evidence offered is a read of panel F4b (an XRD peak-width trace through a heating-cooling cycle). Given only the claim and the panel, what does the panel actually show about the peak width on cooling versus heating, and does it support full reversibility?",
-   "answer_key": "No, the panel does not support full reversibility. The audit ruling on F4b shows that on cooling the qx width stays above the heating branch at every temperature, and it returns only to 1.95e-3 A^-1, which is 45% above the 1.35e-3 A^-1 starting value -- so the heterogeneity does not fully reverse to its initial state.",
-   "grading": "Answer key: the audit ruling on the panel, node o11.",
+   "question": "The claim under test is that the intra-grain strain heterogeneity is quasi-reversible on cooling, i.e. anelastic rather than a permanent plastic change. Does the qx-width behavior in panel F4b bear this out?",
+   "answer_key": "No. On cooling the qx width stays above the heating branch at every temperature and returns only to 1.95e-3 A^-1, 45% above the 1.35e-3 A^-1 starting value (o11) \u2014 a residual broadening that is inconsistent with a fully reversible, anelastic process.",
+   "grading": "Answer key: the audit ruling on the panel (o11).",
    "answer_key_nodes": [
     "o11"
-   ]
+   ],
+   "blocked": null,
+   "writer_passes": 1
   },
   {
    "id": "T7",
@@ -1078,13 +1110,17 @@
      "text": "Feeds: The method follows one buried grain through a full thermal cycle and returns both its average strain"
     }
    ],
-   "question": "The study follows one buried Au grain through a full thermal cycle using 3-D coherent X-ray diffraction with phase retrieval. Panels F6a, F6b, F6c, F6d and F6e give the retrieved phase maps at successive points in that cycle. Comparing across these five panels, how does the intra-grain strain-heterogeneity pattern (along the film-plane axes versus through the thickness) change with temperature, and what happens to it once the sample is cooled back down?",
-   "answer_key": "Along the film thickness (z) the retrieved phase maps stay uniform at every temperature step. In the film plane the heterogeneity is dominated by the y-direction at 50 C, then breaks up into jumps along x by 240 C, and on cooling it largely returns to its original pattern (o13). Because the pattern comes back on cooling rather than staying changed, the evolution is quasi-reversible, i.e. anelastic rather than a permanent plastic change (a17).",
-   "grading": "Answer key: the numbers and labels on the evidence node o13 (the panel-by-panel phase-map description across F6a-F6e) together with the claim it directly supports, a17 (quasi-reversible/anelastic evolution), judge-confirmed against those two node labels.",
+   "question": "Using the setup above (buried grain, thermal cycling, and the diffraction method meant to resolve the grain's internal displacement field), look at panels F6a through F6e, which follow that grain across the temperature series. How does the pattern of intra-grain variation change along the film's in-plane directions versus through its thickness as temperature rises, and what happens to that pattern once the sample is cooled back down? What does this imply about whether the underlying deformation is permanent or not, and what capability and broader conclusion about single-grain behavior does this support?",
+   "answer_key": "Through the film thickness (z) the maps stay uniform at every temperature. In the plane, the variation is dominated by one direction at 50 C, then breaks into jumps along the other in-plane direction by 240 C, and largely returns to its original pattern on cooling (o13). Because the heterogeneity mostly reverses on cooling rather than staying permanently changed, the behavior is judged quasi-reversible, i.e. anelastic rather than truly plastic (a17). This supports that the method can follow one buried grain through a full thermal cycle and report both its average strain and its 3-D displacement field (a19), and it leads to the broader conclusion that a single grain carries large, anisotropic, quasi-reversible intra-granular strain heterogeneities set by its immediate neighbourhood, heterogeneities invisible to diffraction that only averages over many grains (a20).",
+   "grading": "Answer key: the numbers and labels on the evidence and downstream nodes o13, a17, a19, a20, judge-confirmed against the trace's stated grader.",
    "answer_key_nodes": [
     "o13",
-    "a17"
-   ]
+    "a17",
+    "a19",
+    "a20"
+   ],
+   "blocked": null,
+   "writer_passes": 2
   },
   {
    "id": "T8",
@@ -1244,12 +1280,24 @@
      "text": "Feeds: A single grain carries large, anisotropic and quasi-reversible intra-granular strain heterogeneities"
     }
    ],
-   "question": "The paper follows one buried Au grain through a full thermal cycle using 3-D coherent X-ray diffraction with phase retrieval (grains are columnar, spanning the whole film thickness). Given panels F6a-F6e, the retrieved phase maps at successive points in the cycle, how does the intra-grain strain heterogeneity behave along the film's z-direction versus within the film plane (x and y) as the temperature rises and then falls back?",
-   "answer_key": "The phase maps are uniform along z at every temperature, so no heterogeneity develops through the film thickness. In the plane, the variation is dominated by y at 50 C, then breaks into jumps along x by 240 C, and largely returns to its original pattern on cooling (o13).",
-   "grading": "Answer key: match to the numbers and labels on evidence node o13 (the retrieved phase-map observation from panels F6a-F6e), judge-confirmed.",
+   "question": "Panels F6a-F6e are the coherent X-ray diffraction images described in the context above, taken on the single Au grain from a10 across the temperature series set up in a1/a2, probing the anisotropic intra-grain heterogeneity of a16 and its reversibility described in a17. Reading the five panels in order from the lowest to the highest temperature and back down again, how does the spatial pattern of the variation within the grain change with temperature, and what happens to it once the sample cools?",
+   "answer_key": "The images stay uniform through the film thickness (along z) at every temperature. In-plane, the variation is dominated by one direction (y) at 50 C, then breaks into jumps along the other in-plane direction (x) by 240 C, and largely returns to its earlier pattern on cooling (o13). This is what lets the method track one specific embedded grain across the whole temperature run and report both its average strain and its complete 3-D displacement field (a19). Together this shows that a single grain carries large, direction-dependent, and largely-recoverable internal strain variation set by its immediate surroundings, a level of detail that diffraction methods averaging over many grains cannot see (a20).",
+   "grading": "Answer key: the numbers and labels on the evidence node o13 (50 C, 240 C, the z-uniform / y-dominated / x-jump / return-on-cooling pattern) and the claims built on it in a19 and a20, judge-confirmed.",
    "answer_key_nodes": [
-    "o13"
-   ]
+    "o13",
+    "a19",
+    "a20"
+   ],
+   "blocked": {
+    "reason": "leak",
+    "leak_source": "given context only",
+    "bigrams": [
+     "displacement field"
+    ],
+    "numbers": [],
+    "missing_numbers": []
+   },
+   "writer_passes": 2
   },
   {
    "id": "T9",
@@ -1373,12 +1421,14 @@
      "text": "Ruling: Converted to stress, the strains read from the figure give about 113 MPa at the start and about 380 MPa at the end of the cycle, against the"
     }
    ],
-   "question": "The claim under test is that the grain's out-of-plane lattice strain runs a hysteresis loop from -0.05% to about -0.17% over one thermal cycle, far shallower than the thermo-elastic slope, and the model is shown panel F4a as the supporting evidence. Does the panel actually confirm the stress levels the text reports for this loop?",
-   "answer_key": "No. Converting the strains actually read off panel F4a to stress gives about 113 MPa at the start of the cycle and about 380 MPa at the end, well above the 95 MPa and 250 MPa the text quotes for the same two points. So the panel does not bear out the text's numbers for the claimed loop (o18).",
-   "grading": "Answer key: the audit ruling on the panel, held in node o18 (the same node supplies both the shown panel reference and the hidden numeric ruling).",
+   "question": "The claim under test says the grain's out-of-plane lattice strain traces a hysteresis loop running from about -0.05% to about -0.17% over one thermal cycle, said to run far shallower than the thermo-elastic slope. Using panel F4a, and converting the plotted strains to stress at the start and end of the cycle, does the figure back up the stress values used elsewhere in the paper's discussion for those two points?",
+   "answer_key": "No. Converting the strains read off Figure 4a to stress gives about 113 MPa at the start of the cycle and about 380 MPa at the end, whereas the text elsewhere quotes about 95 MPa and about 250 MPa for these same points. The panel's implied stress departs from the text-quoted values, so the figure does not confirm the numbers used to support the claim.",
+   "grading": "Answer key: the audit ruling on the panel (o18), which is the cross-check between the stress converted from the plotted strains in F4a and the stress values quoted in the text.",
    "answer_key_nodes": [
     "o18"
-   ]
+   ],
+   "blocked": null,
+   "writer_passes": 1
   },
   {
    "id": "T10",
@@ -1676,16 +1726,17 @@
      "text": "What follows: The heterogeneity evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent plastic change"
     }
    ],
-   "question": "Intra-grain strain heterogeneity in the Au film is strongly anisotropic and grows with temperature: it develops along x in the film plane but stays weak through the thickness. The supporting evidence is: a cross-section SEM showing grains spanning the full film thickness with curved (not straight) boundaries; the qx peak width growing monotonically with temperature; the size-only broadening being two to seven times smaller than the measured qx widths; and retrieved phase maps that are uniform along z at every temperature but break into x-direction jumps by 240 C and largely return on cooling. Two candidate causes are on the table: the columnar grain shape (one grain spanning the whole film thickness), and thermal-loading defect storage that preferentially builds up along x where misoriented boundaries block transmission. What mechanism actually produces the observed x-direction growth, and why can the defect-storage cause not explain it on its own?",
-   "answer_key": "The x-direction growth is produced by a specific pathway: misoriented neighbouring grains g3 and g6, lying along x, accommodate stress at their grooved boundaries and trap defects there, building the x-direction heterogeneity (a18) -- this links the columnar grain-boundary geometry to defect trapping at specific x-oriented misoriented boundaries. The rival cause, thermal-loading defect storage alone (a14), cannot account for the optimum on its own: unlike the columnar-grain cause, no evidence establishes where a14's effect peaks, so by itself it cannot explain why the heterogeneity is strongest along x while staying weak through the thickness. Consistent with this, the heterogeneity's evolution is quasi-reversible on cooling, i.e. anelastic rather than a permanent plastic change (a17), a behavior recoverable because the method follows one buried grain through a full thermal cycle and returns both its average strain and its 3-D displacement field (a19). This supports the conclusion that a single grain carries large, anisotropic and quasi-reversible intra-granular strain heterogeneities set by its immediate neighbourhood, invisible to averaged diffraction (a20), and motivates the further hypothesis that 3-D coherent X-ray diffraction with phase retrieval on a single grain during thermal cycling should resolve the intra-grain displacement field and its reversibility (a2).",
-   "grading": "Judge against the graph's explaining mechanism (a18) as the key answer, with the cross-check that the rival cause a14 has no established optimum matching the claim a16's x-direction/through-thickness pattern; a17, a19, a20, a2 checked as the consistent downstream elaboration that must not itself be volunteered as the answer.",
+   "question": "The context above shows intra-grain strain heterogeneity building up strongly along x in the film plane while staying weak through the thickness, and growing with temperature. Two competing causes are given along with their evidence: the columnar grain structure (cross-section SEM) and defect storage from thermal loading, preferentially along x. Which cause accounts for this x-specific, temperature-growing pattern, and by what mechanism does it produce it?",
+   "answer_key": "The columnar-grain cause is the one that explains it. Its neighbouring grains g3 and g6, which are misoriented and lie along x, meet at grooved boundaries; those boundaries accommodate stress and trap defects there, and that is what builds up the x-direction heterogeneity while the through-thickness direction, lacking such boundaries, stays weak (a18). The rival cause, thermal-loading defect storage, has no evidence tied to any stated optimum, unlike the columnar-grain cause whose cross-section evidence (o1) is most developed exactly at the claim's optimum -- so the rival cannot on its own be shown to set the x-specific pattern.",
+   "grading": "Judge against the graph's explaining mechanism a18 as the key, cross-checked by the fact that the rival cause a14 has no evidence establishing an optimum while the accepted cause a10's evidence (o1) matches the claim's optimum.",
    "answer_key_nodes": [
     "a18",
-    "a17",
-    "a19",
-    "a20",
-    "a2"
-   ]
+    "a10",
+    "a14",
+    "o1"
+   ],
+   "blocked": null,
+   "writer_passes": 1
   }
  ]
 }

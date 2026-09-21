@@ -5,9 +5,12 @@ STOP=set("with from that this than then their there these those which while wher
 def words(s): return {w for w in re.findall(r'[a-z]{5,}', s.lower()) if w not in STOP}
 def bigrams(s):
     w=[x for x in re.findall(r'[a-z]{4,}', s.lower()) if x not in STOP]; return {(a,b) for a,b in zip(w,w[1:])}
-def nums(s): return set(re.findall(r'\d+(?:\.\d+)?', s))
+def nums(s):
+    # dimension tokens (3-D, 2D) are not quantities, and a scientific-notation value (1.35e-3) is one number, not 1.35 and 3
+    s=re.sub(r'\b\d\s?-?D\b','',s)
+    return set(re.findall(r'\d+(?:\.\d+)?(?:[eE]-?\d+)?', s))
 def stem(ws): return {re.sub(r'(ing|ed|es|s)$','',re.sub(r'ies$','y',w)) for w in ws}   # densities -> density, not densiti
-FIGREF=r'\bF\d+[a-z]?(?:-F?\d*[a-z]?)?\b'   # figure/panel references (F7, F8a, F8a-e, F6a-F6e) are citations, not quantities
+FIGREF=r'\b(?:F|Figs?\.?\s?|Figures?\s)\d+\s?\(?[a-z]?\)?(?:\s?[-\u2013]\s?(?:F|Fig\.?\s?)?\d*\(?[a-z]?\)?)?\b'   # figure/panel references (F7, F8a, F8a-e, F6a-F6e) are citations, not quantities
 def panel_store(graph_path, panels_dir=None):
     """panel id -> caption definition spans + OCR cue classes and tokens, from the paper's match.json / ocr.json.
     The store sits at matmech/<journal>/<paper>/panels; None when it is not mounted."""

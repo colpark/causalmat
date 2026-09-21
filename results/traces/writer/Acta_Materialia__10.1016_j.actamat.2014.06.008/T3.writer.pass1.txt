@@ -2,38 +2,39 @@ Write the question, answer key, grading note and answer_key_nodes for this trace
 
 TRACE RECORD
 {
- "id": "T9",
+ "id": "T3",
  "group_id": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
- "root": "explain",
- "subtype": "rejection",
+ "root": "infer",
+ "subtype": "estimate",
  "seed_claim": "a15",
  "evidence": [
-  "o18"
+  "o8"
  ],
  "hidden": [
-  "o18",
+  "o8",
+  "a15",
   "a19",
-  "a20",
-  "a2"
+  "a20"
  ],
- "branch": "qualifies edge o18 -> a15",
- "fm_family": "MECH",
+ "branch": "evidences edge o8 -> a15",
+ "fm_family": "XRD",
  "lift": "required rejection with written reason",
  "floor": {
   "reaches": false,
-  "note": "the text asserts the claim; the ruling needs the plot"
+  "support": []
  },
  "depth": 1,
  "depth_families": [
-  "MECH"
+  "XRD"
  ],
  "channels_involved": [
-  "MECH"
+  "MECH",
+  "XRD"
  ],
- "mask": "hide the ruling; show the claim and the panel",
- "grader": "answer key: the audit ruling on the panel",
+ "mask": "hide the observation; hand over the panel(s)",
+ "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
  "status": "control",
- "ruling": "plot read, no domain model: depth-one negative control",
+ "ruling": "depth one and not an image read: negative-control stratum",
  "walk": [
   {
    "node": "a1",
@@ -41,7 +42,7 @@ TRACE RECORD
   },
   {
    "node": "a2",
-   "role": "redacted"
+   "role": "context"
   },
   {
    "node": "a5",
@@ -52,9 +53,9 @@ TRACE RECORD
    "role": "context"
   },
   {
-   "node": "o18",
-   "role": "audit",
-   "op": "cross_check_consistency",
+   "node": "o8",
+   "role": "evidence",
+   "op": "overlay_model_on_data",
    "panel_ids": [
     "10.1016/j.actamat.2014.06.008#F4a"
    ],
@@ -66,61 +67,75 @@ TRACE RECORD
   },
   {
    "node": "a19",
-   "role": "redacted"
+   "role": "downstream"
   },
   {
    "node": "a20",
-   "role": "redacted"
-  }
- ],
- "redactions": [
-  {
-   "node": "a19",
-   "why": "downstream conclusion restates the answer"
-  },
-  {
-   "node": "a20",
-   "why": "downstream conclusion restates the answer"
-  },
-  {
-   "node": "a2",
-   "why": "hypothesis states the mechanism the model must produce"
+   "role": "downstream"
   }
  ],
  "linear": [
   {
    "step": 1,
-   "role": "claim",
+   "role": "context",
    "nodes": [
-    "a15"
+    "a1",
+    "a2",
+    "a5",
+    "a9"
    ],
    "depends_on": [],
    "hidden": false,
-   "text": "Claim under test: The grain's out-of-plane lattice strain runs a hysteresis loop from -0.05% to about -0.17% over one cycle, far shallower"
+   "text": "What was made and why: How strain heterogeneities build up inside one emb -> 3-D coherent X-ray diffraction with phase retrieva -> Thermal cycling room temperature to 270 C in 25 C  -> Thermal cycling to 270 C loads the grain in compre"
   },
   {
    "step": 2,
    "role": "read",
    "nodes": [
-    "o18"
+    "o8"
    ],
    "depends_on": [
     1
    ],
    "hidden": false,
-   "text": "Read the panel: F4a [MECH]"
+   "text": "Open the panels F4a [XRD] and estimate (overlay model on data)"
   },
   {
    "step": 3,
-   "role": "ruling",
+   "role": "observation",
    "nodes": [
-    "o18"
+    "o8"
    ],
    "depends_on": [
     2
    ],
    "hidden": true,
-   "text": "Ruling: Converted to stress, the strains read from the figure give about 113 MPa at the start and about 380 MPa at the end of the cycle, against the"
+   "text": "Observation: None of the measured branches follows the ideal thermo-elastic line, which is about three times steeper than every measured cycle"
+  },
+  {
+   "step": 4,
+   "role": "claim",
+   "nodes": [
+    "a15"
+   ],
+   "depends_on": [
+    3
+   ],
+   "hidden": true,
+   "text": "Claim it establishes: The grain's out-of-plane lattice strain runs a hysteresis loop from -0.05% to about -0.17% over one cycle, far shallower than the thermo-ela"
+  },
+  {
+   "step": 5,
+   "role": "downstream",
+   "nodes": [
+    "a19",
+    "a20"
+   ],
+   "depends_on": [
+    4
+   ],
+   "hidden": true,
+   "text": "Feeds: The method follows one buried grain through a full thermal cycle and returns both its average strain"
   }
  ]
 }
@@ -155,9 +170,9 @@ NODE LABELS (every node the trace references)
   "type": "PRC/stimulus",
   "label": "Thermal cycling to 270 C loads the grain in compression on heating and tension on cooling through the Au/silica expansion mismatch"
  },
- "o18": {
-  "type": "OBS/response/characteristic_value",
-  "label": "Converted to stress, the strains read from the figure give about 113 MPa at the start and about 380 MPa at the end of the cycle, against the 95 and 250 MPa quoted in the text"
+ "o8": {
+  "type": "OBS/signal/reference_match",
+  "label": "None of the measured branches follows the ideal thermo-elastic line, which is about three times steeper than every measured cycle"
  }
 }
 
