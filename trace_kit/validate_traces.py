@@ -6,6 +6,8 @@ def words(s): return {w for w in re.findall(r'[a-z]{5,}', s.lower()) if w not in
 def bigrams(s):
     w=[x for x in re.findall(r'[a-z]{4,}', s.lower()) if x not in STOP]; return {(a,b) for a,b in zip(w,w[1:])}
 def nums(s): return set(re.findall(r'\d+(?:\.\d+)?', s))
+def stem(ws): return {re.sub(r'(ing|ed|es|s)$','',w) for w in ws}
+FIGREF=r'\bF\d+[a-z]?(?:-F?\d*[a-z]?)?\b'   # figure/panel references (F7, F8a, F8a-e, F6a-F6e) are citations, not quantities
 def run(graph_path, traces_path):
     g=json.load(open(graph_path)); T=json.load(open(traces_path)); N={n['id']:n for n in g['nodes']}
     inn=defaultdict(list); out=defaultdict(list)
@@ -26,7 +28,12 @@ def run(graph_path, traces_path):
         bg=bigrams(htxt)&bigrams(gtxt); nn=(nums(htxt)&nums(gtxt))-sweep_nums
         # for explain/rejection and mechanism the seed claim is given by design, so drop its own words
         if t['root']=='explain' and t['subtype'] in ('rejection',): bg=set()
-        v['nets']['leak']={'bigrams':sorted(' '.join(b) for b in bg),'numbers':sorted(nn),'pass':len(bg)==0 and len(nn)==0}
+        # content-word test (added after ceramic run 1, which missed a question naming the answer's classes):
+        # words of the graded targets that no given node uses, and that the question uses anyway
+        cw_given=stem(words(' '.join(N[i]['label'] for i in given)))
+        cw_hidden=stem(words(htxt))-cw_given
+        leak_words=sorted(cw_hidden & stem(words(t.get('question',''))))
+        v['nets']['leak']={'bigrams':sorted(' '.join(b) for b in bg),'numbers':sorted(nn),'content_words':leak_words,'pass':len(bg)==0 and len(nn)==0 and not leak_words}
         # N2 disjoint + grader channel withheld
         v['nets']['disjoint']={'pass':not (hid & set(given))}
         gr=t.get('grader',''); held=re.findall(r'channel (\w+)', gr)
@@ -60,11 +67,11 @@ def run(graph_path, traces_path):
             v['nets']['key_consistency']={'pass':ok,'why':f'{npan} panels, {len([x for x in series if "." in x])} values in the channel, conditions {"named" if conds else "missing"}'}
         # N7 provenance of the written answer key: every number in it appears in some cited/hidden node label;
         # most content words do too (writer may paraphrase, so a ratio, not equality)
-        grader_nodes=set(re.findall(r'\b([qrs]\d+)\b', t.get('grader','')+' '+t.get('grading','')))
+        grader_nodes={x for x in re.findall(r'\b([a-z]\d+)\b', t.get('grader','')+' '+t.get('grading','')) if x in N}
         src_ids=set(t.get('hidden',[]))|set(t.get('evidence',[]))|{t['seed_claim']}|set(t.get('answer_key_nodes',[]))|{n for s_ in t.get('linear',[]) for n in s_['nodes']}|grader_nodes
         src_txt=' '.join(N[i]['label'] for i in src_ids if i in N)
-        key=re.sub(r'\b[qrs]\d+\b','',t.get('answer_key',''))   # node ids are citations, not numbers
-        stem=lambda ws:{re.sub(r'(ing|ed|es|s)$','',w) for w in ws}
+        key=re.sub(r'\b([a-z]\d+)\b',lambda m:'' if m.group(1) in N else m.group(1),t.get('answer_key',''))   # node ids of this graph are citations, not numbers
+        key=re.sub(FIGREF,'',key)   # so are figure references: 'On F7' is not an unsourced 7
         kn=nums(key)-sweep_nums; missing_nums=sorted(x for x in kn if x not in nums(src_txt))
         kw=stem(words(key)); cov=(len(kw&stem(words(src_txt)))/len(kw)) if kw else 1.0
         v['nets']['provenance']={'pass':not missing_nums and (cov>=0.5 or len(kn)>=3),'missing_numbers':missing_nums,'word_coverage':round(cov,2),'numbers_checked':len(kn),'rule':'no missing numbers, and word coverage >= 0.5 or at least three sourced numbers','sources':sorted(src_ids)}

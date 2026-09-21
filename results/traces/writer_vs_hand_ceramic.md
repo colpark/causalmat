@@ -45,4 +45,34 @@ Columns. *Hidden target named*: of the nodes the validator treats as the graded 
 
 **Carried into step 2.** The writer is used unchanged. Provenance failures get the one rewrite the plan specifies. Leak flags are counted in `stage1_summary.json` but, per the plan, are not rewritten, so they will show up as structural flags. The T4-type leak (the answer's categories given away in the question) gets past the leak net and will reach the nets in step 4 unflagged.
 
+## Run 2 of the nets (same writer outputs, changed `validate_traces.py`)
+
+The questions and keys are the run-1 outputs, unchanged; only the nets changed.
+- **Content-word leak test** (`validate_traces.py:31-36`): the stemmed 5+ letter words of the graded targets that appear in no given node label, intersected with the stemmed words of the question. Fails if the intersection is non-empty.
+- **Number extraction** (`validate_traces.py:9-10, 73-74`): figure refs (`F7`, `F8a-e`, `F6a-F6e`) are stripped before numbers are extracted. The node-id strip used to cover only `q/r/s` ids and now covers every id in the graph, so `o7` or `a15` in another paper's key is no longer an unsourced 7 or 15. `grader_nodes` (`:70`) is widened the same way.
+
+| T | content words, hand | content words, writer run 1 | writer provenance | writer verdict |
+|---|---|---|---|---|
+| T1 | - | composition, intensity, threshold, trend | pass (missing -, coverage 0.79) | flagged (control) [leak] |
+| T4 | - | fracture, nanometre, particl, submicron | pass (missing -, coverage 0.69) | flagged [leak] |
+| T5 | fracture | density, fracture, relative | pass (missing -, coverage 0.57) | flagged [leak] |
+| T6 | fracture | fracture | pass (missing -, coverage 0.77) | flagged [leak] |
+| T7 | - | expansion, mismatch, thermal | pass (missing -, coverage 0.57) | flagged [leak] |
+| T8 | - | - | fail (missing -, coverage 0.41) | flagged (control) [provenance] |
+| T9 | - | - | pass (missing -, coverage 0.74) | survives |
+| T10 | - | - | pass (missing -, coverage 0.54) | survives |
+| T11 | - | - | pass (missing -, coverage 0.41) | survives |
+
+**As expected:** T4's writer question now fails `leak` on `submicron` and `nanometre` (plus `particl` and `fracture`). The bigram test missed it.
+
+**Not as expected:** T8's provenance still fails. The figure ref is gone (`missing_numbers` is empty), but the net also requires word coverage ≥ 0.5 or at least three sourced numbers, and the key's coverage is 0.41 with two sourced numbers. The rule is left as it is. T8 is a control, and the step-2 rewrite gives it one more pass.
+
+**The content-word test also fires on the hand fixture:** hand T5 and T6 on `fracture`. The hand questions say "fracture-surface SEM panels", which describes the panels, and no given node carries the word, so it counts as hidden-only. That is a false positive of the rule as specified.
+
+**Stop rule check, content-word test on all writer traces so far** (ceramic run 1 plus Acta_Materialia 2014 run 1, both written before the new rules): 13 of 17 non-closed traces are flagged by the content-word test alone. The hand twelve: 2 of 9. That is more than half, so the stop rule applies: nothing is blocked on this test until the given-node exclusion is checked. Two causes are visible in the flagged words:
+1. The stemmer (`(ing|ed|es|s)$`) splits word families: `cycle`/`cycling`, `retrieved`/`retrieval`, `measure`/`measured` get different stems, so a word the given nodes use still counts as hidden-only.
+2. Panel vocabulary is not in any given node. The packet's `read` step names the panels, but their content words (`fracture`, `phase maps`, `lattice strain`) live only in the hidden observation, so any question that names what the panel shows gets flagged.
+
+Some flags are real, and the run-1 writer did restate hidden content: Acta T3 names the hysteresis loop and the ideal thermo-elastic line, Acta T5 gives the 50 and 240 C breakpoints (also caught by the number test), ceramic T7 names the thermal mismatch. So the test finds things the bigram test misses, but as it stands it cannot tell those from the paper's own vocabulary.
+
 Every verdict here is model against model; no human checked any item.
