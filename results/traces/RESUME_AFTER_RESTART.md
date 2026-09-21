@@ -39,3 +39,17 @@ content-word test exempts explain/rejection traces the way the bigram test does.
 Step 0 passed (run 4, rejection exempt). Step 1 passed (run 3, seven rules). Step 2 (C.2) done for the ceramic paper only.
 The user said to process only up to that paper. Acta Materialia 2014 (10 traces in rewrite_list.json) and the 30 remaining
 papers were NOT processed; Acta's run-1 files are untouched. Steps 3-5 not started.
+
+## Session 3 (2026-09-20): parts 1-3 done, part 4 stopped after 8 of 31 papers (stop-rule check)
+Every verdict here is model against model; no human checked any item.
+- Part 1 (cutter premise rule): ceramic re-cut differs from the fixture only in T7; 31-paper re-cut changes 2 of 139 hidden sets.
+- Part 2 (content words and coverage as warnings); part 3 (ceramic closed: 0 of 12 fail a gate).
+- Part 4: 8 papers written and validated (Acta 2014 through AFM 202005093), pushed per paper. Net fixes on the way,
+  all "not a quantity" extraction bugs: 3-D and 1.35e-3 (one number), 'Figure 4a' / 'Fig. 5(c)', and digits glued to
+  letters (ZrB2, m2/g). None changed a ceramic verdict.
+- Stop-rule check after 8 papers: blocked 6 of 22 non-closed (27%); 1 of 7 status-open (14%); blocks whose leak comes
+  from the question the writer wrote: 1 of 22 (5%). The other 5 blocks are given-context overlaps: the leak gate
+  compares the hidden labels with the given labels as well as the question, and in 2 rejection traces the hidden
+  ruling repeats the given claim's own numbers (the bigram and content-word tests already exempt rejection traces).
+  No rewrite can remove those. Stopped for a decision (see the report in chat).
+- Remaining: 23 papers, then stage1_summary.json, then step 3 onward.
