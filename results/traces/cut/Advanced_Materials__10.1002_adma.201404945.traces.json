@@ -1,0 +1,168 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.201404945",
+ "title": "A Stretchable Nanowire UV-Vis-NIR Photodetector with High Performance",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.201404945",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "a12",
+   "evidence": [
+    "c13"
+   ],
+   "hidden": [
+    "c13",
+    "a16",
+    "a18",
+    "a2"
+   ],
+   "branch": "qualifies edge c13 -> a12",
+   "fm_family": "TRANSPORT",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "TRANSPORT"
+   ],
+   "channels_involved": [
+    "TRANSPORT"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "redacted"
+    },
+    {
+     "node": "a5",
+     "role": "context"
+    },
+    {
+     "node": "a9",
+     "role": "context"
+    },
+    {
+     "node": "a10",
+     "role": "context"
+    },
+    {
+     "node": "c13",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1002/adma.201404945#F2b",
+      "10.1002/adma.201404945#F4e",
+      "10.1002/adma.201404945#F4f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a12",
+     "role": "claim"
+    },
+    {
+     "node": "a16",
+     "role": "redacted"
+    },
+    {
+     "node": "a18",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "a16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "a12"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: The ON/OFF ratio rises with QD loading and falls with QD size, peaking at 60 wt% of 4.4 nm QDs"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "c13"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2b, F4e, F4f [TRANSPORT]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "c13"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: At 625 nm the array reads ~50 against the single wire's ~600, and its rise time ~0.4 s against the single wire's 0.16 s"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Materials/10.1002_adma.201404945",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "a6",
+   "evidence": [],
+   "branch": "DES/route a6",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "a6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ]
+}
