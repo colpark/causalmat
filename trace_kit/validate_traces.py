@@ -8,7 +8,8 @@ def bigrams(s):
 def nums(s):
     # dimension tokens (3-D, 2D) are not quantities, and a scientific-notation value (1.35e-3) is one number, not 1.35 and 3
     s=re.sub(r'\b\d\s?-?D\b','',s)
-    return set(re.findall(r'\d+(?:\.\d+)?(?:[eE]-?\d+)?', s))
+    # a digit glued to a letter is a formula subscript or unit exponent (ZrB2, m2/g, N2), not a quantity
+    return set(re.findall(r'(?<![A-Za-z\d.])\d+(?:\.\d+)?(?:[eE]-?\d+)?', s))
 def stem(ws): return {re.sub(r'(ing|ed|es|s)$','',re.sub(r'ies$','y',w)) for w in ws}   # densities -> density, not densiti
 FIGREF=r'\b(?:F|Figs?\.?\s?|Figures?\s)\d+\s?\(?[a-z]?\)?(?:\s?[-\u2013]\s?(?:F|Fig\.?\s?)?\d*\(?[a-z]?\)?)?\b'   # figure/panel references (F7, F8a, F8a-e, F6a-F6e) are citations, not quantities
 def panel_store(graph_path, panels_dir=None):
