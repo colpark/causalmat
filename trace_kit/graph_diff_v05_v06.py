@@ -1,5 +1,5 @@
 """graph_diff_v05_v06.py: per paper, what changed between the v05 graph (built with the MatMech block in the packet) and
-the v06 graph (no MatMech, captions only). Spine nodes are matched by label content (Jaccard >= 0.25), then remaining
+the v06 graph (no MatMech, captions only). Optional args: <old_dir> <new_dir> <title> for any other pair. Spine nodes are matched by label content (Jaccard >= 0.25), then remaining
 nodes whose full type is unique on both sides are paired as the same slot reworded; a matched pair whose top-level type
 differs is 'retyped'. Evidence (OBS) nodes are matched by shared panel ids, else by label content. Audits are OBS nodes
 with a qualifies / contrasts / rules_out edge.   python trace_kit/graph_diff_v05_v06.py <papers.txt> <out.md> <out.json>"""
@@ -32,9 +32,13 @@ def audits(g):
 res = {}; L = ["# v06 graphs against v05: what the MatMech block (and the linked text) shaped", "",
                "Every verdict here is model against model; no human checked any item.", "",
                "v05 packets carried MatMech's mechanisms, tetrahedron summary and per-figure linked text; v06 packets carry captions and the panel section only (text_source: captions_only). Differences below mix two causes: the MatMech block removed, and the paper's body text removed with it.", ""]
+OLD = sys.argv[4] if len(sys.argv) > 4 else "taxonomy/graphs_v05/first100"
+NEW = sys.argv[5] if len(sys.argv) > 5 else "taxonomy/graphs_v06"
+TITLE = sys.argv[6] if len(sys.argv) > 6 else None
+if TITLE: L[0] = f"# {TITLE}"; L[4] = f"Old graphs: {OLD}. New graphs: {NEW}."
 for pid in [l.strip() for l in open(sys.argv[1]) if l.strip()]:
     P = pid.replace("/", "__")
-    a = json.load(open(f"taxonomy/graphs_v05/first100/{P}.json")); b = json.load(open(f"taxonomy/graphs_v06/{P}.json"))
+    a = json.load(open(f"{OLD}/{P}.json")); b = json.load(open(f"{NEW}/{P}.json"))
     sa = [n for n in a["nodes"] if n.get("spine")]; sb = [n for n in b["nodes"] if n.get("spine")]
     m, dr, ad = match(sa, sb, lambda x, y: sim(x["label"], y["label"]))
     A = {n["id"]: n for n in a["nodes"]}; B = {n["id"]: n for n in b["nodes"]}
