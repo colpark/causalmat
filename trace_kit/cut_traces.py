@@ -126,7 +126,7 @@ def walk(N, inn, out, claim, evidence_ids, extra=()):
 def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
     global V2
     g, s, N, inn, out, nec = load(graph_path, spec_path)
-    V2 = g.get("batch") == "v06_pilot"
+    V2 = str(g.get("batch", "")).startswith("v06")   # v06_pilot and v06b_pilot
     store = store_for(graph_path) if V2 else None
     traces = []
     tid = 0
@@ -139,6 +139,13 @@ def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
     for c in claims:
         ev_in = [e for e in inn[c] if is_obs(N[e["src"]])]
         fm_ev = [e for e in ev_in if family(N[e["src"]]) in FM_FAMILIES and nec.get(e["src"]) in ("necessary", "corrective")]
+        if V2:
+            # v2.1 seeding (lane level): seed where an FM lane is necessary for the claim, i.e. removing every evidence node
+            # of that family leaves the claim with no shown support; node-level necessity is kept as a recorded field only
+            shown_c = [e["src"] for e in ev_in if shown(N[e["src"]])]
+            lanes = [f for f in (leave_one_family_out(N, inn, c, shown_c) if shown_c else []) if f in FM_FAMILIES]
+            fm_ev = [e for e in ev_in if family(N[e["src"]]) in lanes and e["rel"] == "evidences"] + \
+                    [e for e in ev_in if e["rel"] in AUDIT_RELS and family(N[e["src"]]) in FM_FAMILIES and nec.get(e["src"]) == "corrective"]
         if not fm_ev: continue
         ctype = N[c]["type"].split("/")[0]
         all_ev = [e["src"] for e in ev_in]
@@ -216,6 +223,9 @@ def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
                 fm_family=fam, lift=lift, floor={"reaches": floor_reaches, "support": floor_support},
                 depth=depth, depth_families=depth_fams, channels_involved=involved, mask=mask, grader=grader,
                 status=status, ruling=why, walk=w)
+            if V2:
+                _t["node_necessity"] = nec.get(ev)
+                mark(_t, "seed", f"lane {fam} necessary for {c} (node-level necessity of {ev}: {nec.get(ev)})")
             if V2 and sub == "compare":
                 _t["answer_format"] = "state the difference between the two conditions; do not rank"
                 mark(_t, "R7", f"{len(N[ev].get('panel_ids') or [])} panels: rank became infer/compare")
@@ -248,6 +258,12 @@ def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
                     mechs1 = sorted({e["src"] for e in inn[c] if e["rel"] == "explains"})
                     if mechs1 and any(t0["subtype"] == "mechanism" and t0["seed_claim"] == mechs1[0] for t0 in traces):
                         continue   # the mechanism already has its own explain/mechanism trace
+                    if mechs1 and not (support_of(N, inn, mechs1[0]) or support_of(N, inn, c)):
+                        t = new(root="explain", subtype="mechanism", seed_claim=mechs1[0], evidence=[], hidden=[mechs1[0]], branch=f"joint causes {causes} of {c}",
+                                fm_family="SEM", lift=None, floor={"reaches": None}, depth=0, depth_families=[], mask="", grader="",
+                                status="closed", ruling="joint causes: the explaining mechanism has no shown evidence", walk=[])
+                        mark(t, "R1", f"causes {causes} into {c} are joint; mechanism {mechs1[0]} has no shown evidence: closed")
+                        continue
                     if mechs1:
                         m0 = mechs1[0]; ev1 = support_of(N, inn, m0) or support_of(N, inn, c)
                         t = new(root="explain", subtype="mechanism", seed_claim=m0, evidence=ev1, hidden=[m0], branch=f"joint causes {causes} of {c}, explained by {m0}",
@@ -343,6 +359,9 @@ def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
         if V2:
             t["has_sweep"] = any(n["type"].startswith("DES/variable_sweep") for n in g["nodes"])
             v2_prelinear(t, N, inn, out, store, masked_dir, os.path.basename(graph_path)[:-5])
+        if V2 and t["root"] == "explain" and t["subtype"] == "mechanism" and not t["evidence"]:
+            t["status"] = "closed"; t["ruling"] = "mechanism trace with no shown evidence: nothing to observe"
+            mark(t, "R3", "explain/mechanism with empty evidence: closed before linearising"); t["linear"] = []; continue
         t["linear"] = linearize(N, inn, out, t)
     return g, traces
 
@@ -399,6 +418,23 @@ def mask_crop(src, boxes, dst):
 def num_of(s):
     m = re.search(r"(\d+(?:\.\d+)?)", s or ""); return float(m.group(1)) if m else None
 
+SPAN_GENERIC = set("panel panels caption captions figure fig only the and of in on for with shows show shown is are a an to at as by from sample samples label labelled labeled named name given text linked (caption caption; condition conditions".split())
+
+def fig_preamble(store, pid):
+    m = re.match(r".*#F(\d+)", pid)
+    fig = next((f for f in store[1]["figures"] if m and f["figure_number"] == int(m.group(1))), None)
+    return fig.get("caption_preamble") if fig else None
+
+def graded_targets(t, N):
+    red = {r["node"] for r in t.get("redactions", [])}
+    if t["root"] == "infer": return [e for e in t["evidence"] if e in N and N[e]["type"].startswith("OBS")]
+    if t["root"] == "intervene":
+        outc = [e for e in t["evidence"] if family(N[e]) not in FM_FAMILIES]
+        return [t["seed_claim"]] + outc
+    if t["subtype"] == "competing causes": return [h for h in t.get("hidden", []) if h not in red and N.get(h, {}).get("type", "").startswith("MEC")] or [h for h in t.get("hidden", []) if h not in red]
+    if t["subtype"] == "rejection": return t["evidence"][:1]
+    return [t["seed_claim"]]
+
 def targets_of(t):
     red = {r["node"] for r in t.get("redactions", [])}
     if t["root"] == "infer": return [t["evidence"][0], t["seed_claim"]]
@@ -419,20 +455,36 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
     # the key must name the condition directly after the last one given
     if t["root"] == "intervene":
         sweep = next((n for n in N.values() if n["type"].startswith("DES/variable_sweep")), None)
-        levels = sorted({float(x) for x in re.findall(r"(\d+(?:\.\d+)?)", sweep["label"])}) if sweep else []
-        decision = num_of(N[t["seed_claim"]]["label"])
+        # levels: the sweep label's first number list and its unit ("0, 5, 10, 20 mL"); a panel's level is read only as
+        # number+that unit, so sample suffixes (RGO-Cu2S-3) and other quantities (26.8 wt%) are never taken for levels
+        mlev = re.search(r"((?:\d+(?:\.\d+)?\s*(?:,|and|or|to)\s*)+\d+(?:\.\d+)?)\s*([A-Za-z%°][\w%/°]*)", sweep["label"]) if sweep else None
+        levels = sorted({float(x) for x in re.findall(r"\d+(?:\.\d+)?", mlev.group(1))}) if mlev else []
+        unit = mlev.group(2) if mlev else None
+        # sample names count as levels only when the sweep label ties the first and last level to them (RZSZ-0 to RZSZ-25)
+        stem = None
+        if levels:
+            lo, hi = (f"{x:g}" for x in (levels[0], levels[-1]))
+            ms = re.search(r"([A-Za-z][\w]*)-" + re.escape(lo) + r"\b.*\b\1-" + re.escape(hi) + r"\b", sweep["label"])
+            stem = ms.group(1) if ms else None
+        def level_of(txt):
+            if not txt or not unit: return None
+            m = re.search(r"(\d+(?:\.\d+)?)\s*" + re.escape(unit), txt)
+            if not m and stem: m = re.search(re.escape(stem) + r"-(\d+(?:\.\d+)?)\b", txt)
+            return float(m.group(1)) if m and float(m.group(1)) in levels else None
+        decision = level_of(N[t["seed_claim"]]["label"])
+        if decision is None: decision = num_of(N[t["seed_claim"]]["label"])
         given, withheld = [], []
         for ev in t["evidence"]:
             conds = (N[ev].get("attrs") or {}).get("panel_conditions") or []
             for i, pid in enumerate(N[ev].get("panel_ids") or []):
                 rec = panel_record(store, pid) or {}
-                v = num_of(conds[i]["condition"]) if i < len(conds) and conds[i].get("condition") else num_of(rec.get("span"))
+                v = level_of(conds[i]["condition"]) if i < len(conds) and conds[i].get("condition") else level_of(rec.get("span"))
                 if family(N[ev]) not in FM_FAMILIES or v is None or decision is None or v >= decision: withheld.append(pid)
                 else: given.append((v, pid))
         t["hidden_panels"] = sorted(set(withheld))
-        t["given_panels"] = [p for _, p in sorted(given)]
+        t["given_panels"] = list(dict.fromkeys(p for _, p in sorted(given)))
         nxt = next((l for l in levels if given and l > max(v for v, _ in given)), None)
-        mark(t, "R4", f"given {t['given_panels']}, withheld {t['hidden_panels']} (decision {decision}, levels {levels})")
+        mark(t, "R4", f"given {t['given_panels']}, withheld {t['hidden_panels']} (decision {decision}, levels {levels} {unit})")
         if not given or decision is None or nxt != decision:
             t["status"] = "closed"; t["ruling"] = f"decision {decision} is not the condition directly after the last given ({nxt})"
             mark(t, "R4", t["ruling"]); return
@@ -446,21 +498,74 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
             if cues and tech and not any(tech in CUE_TECH.get(c, []) for c in cues):
                 t["blocked"] = {"reason": "panel_modality", "node": ev, "panel": pid, "technique": tech, "cues": cues}
                 mark(t, "R6", f"{ev} technique {tech} vs {pid} cues {cues}: blocked panel_modality")
-    # v2 rule 3 (the answer must be readable from the given panels)
-    why = []
-    for x in targets_of(t):
-        a = N[x].get("attrs") or {}
-        if a.get("source") != "figure": why.append(f"{x} source {a.get('source')}")
-        if a.get("requires_unseen"): why.append(f"{x} requires unseen {a['requires_unseen']}")
-    readable = [ev for ev in t["evidence"] if ((N[ev].get("attrs") or {}).get("read_from") != "annotation")
-                and ([p for p in (N[ev].get("panel_ids") or []) if p in given_panels] or (not N[ev].get("panel_ids") and N[ev].get("figs")))]
-    if t["evidence"] and not readable: why.append("no given evidence panel read from pixels or axes (all annotation or withheld)")
+    # v2.1 rule 3 (the answer must be readable from what the solver is given). Graded target: infer -> the observation(s)
+    # read from the given panels (the claim drawn from them is downstream and not graded); explain -> the hidden mechanism
+    # or ruling; intervene -> the decision and its outcome. A target passes when source is figure; or source is text and
+    # every requires_unseen fact is stated in the caption span of a given panel; or (explain only) source is inferred and
+    # every node it is inferred from is given or is itself a passing target.
+    def unmath(txt):
+        # OCR captions wrap formulas in LaTeX ($\\mathsf { N i } _ { x }$): drop commands, braces and inner spaces
+        txt = txt.replace("\\gamma", "y").replace("γ", "y").replace("\\cdot", "-")
+        return re.sub(r"\$([^$]*)\$", lambda m: re.sub(r"\\[A-Za-z]+|[{}_^\s]", "", m.group(1)), txt)
+    spans = unmath(" ".join(((panel_record(store, p) or {}).get("span") or "") + " " + (fig_preamble(store, p) or "") for p in given_panels)).lower()
+    span_words = set(re.findall(r"[a-z0-9]+", spans))
+    given_nodes = {st["node"] for st in t["walk"] if st["role"] not in ("redacted",) and st["node"] not in set(t.get("hidden", []))}
+    tg = graded_targets(t, N)
+    t["graded_targets"] = tg
+    verdicts, why = {}, []
+    def idents(txt):
+        # sample names and formulas: hyphen chains with a capital or digit (Al-Cu-Mn, RZSZ-10, Ni-MOF), formulas (Cu2S,
+        # NixPyOz), numbers with units (20 vol%); bare panel letters, figure numbers and lower-case words are not identifiers
+        out = []
+        for w in re.findall(r"[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+|[A-Z][a-z]?(?:\d+|[A-Z][a-z]?|[xyz]|\d*\.\d+)+|\d+(?:\.\d+)?\s?(?:vol%|wt%|at%|mL|°C|K|h|min|nm|um|μm|%)", txt):
+            if "-" in w and not re.search(r"[A-Z0-9]", w): continue
+            if re.fullmatch(r"F\d+[a-z]?|\d{1,2}", w): continue
+            out.append(w.lower())
+        return out
+    def ident_seen(w):
+        if w.replace(" ", "") in spans.replace(" ", ""): return True
+        comps = [c for c in w.split("-") if len(c) >= 3 and not c.isdigit()]
+        return "-" in w and bool(comps) and all(c in span_words for c in comps)
+    def in_spans(fact, label=""):
+        # every identifier of the fact must be in the given caption spans; when the target's own label uses some of them,
+        # only those count (a caption mapping that also lists panels not given is not needed for them); a fact with no
+        # identifier falls back to 60% of its content words
+        ids = idents(fact); own = [w for w in ids if w in set(idents(label))]
+        if own: ids = own
+        if ids: return all(ident_seen(w) for w in ids)
+        toks = [w for w in re.findall(r"[a-z]{3,}", fact.lower()) if w not in SPAN_GENERIC]
+        return bool(toks) and sum(w in span_words for w in toks) / len(toks) >= 0.6
+    for x in tg:
+        a = N[x].get("attrs") or {}; src = a.get("source"); ru = a.get("requires_unseen") or []
+        if src == "figure":
+            verdicts[x] = (True, "figure")
+        elif src == "text":
+            left = [f for f in ru if not in_spans(f, N[x]["label"])]
+            ok = not left and (bool(ru) or in_spans(N[x]["label"]))
+            verdicts[x] = (ok, "text, facts in given caption spans" if ok else f"text, not in given captions: {left or [N[x]['label'][:80]]}")
+        else:
+            verdicts[x] = (None, src)
+    for x in tg:
+        if verdicts[x][0] is None:
+            src = verdicts[x][1]
+            if src == "inferred" and t["root"] == "explain":
+                prem = [e["src"] for e in inn[x] if e["rel"] in ("evidences", "premise_for", "supports", "causes", "explains", "derives")]
+                bad = [p for p in prem if p not in given_nodes and not (verdicts.get(p, (False,))[0])]
+                verdicts[x] = (not bad, "inferred from given nodes" if not bad else f"inferred from nodes not given: {bad}")
+            else:
+                verdicts[x] = (False, f"source {src}")
+    t["target_verdicts"] = {x: {"pass": v[0], "why": v[1]} for x, v in verdicts.items()}
+    why = [f"{x}: {v[1]}" for x, v in verdicts.items() if not v[0]]
+    ann_only = [ev for ev in t["evidence"] if (N[ev].get("attrs") or {}).get("read_from") == "annotation"]
+    if ann_only: t["annotation_read_evidence"] = ann_only   # recorded, not gating (rule 5 masks shared annotations)
     if why:
         t["status"] = "closed"; t["ruling"] = "not derivable from given panels: " + "; ".join(why)
         mark(t, "R3", t["ruling"])
-        KNOWLEDGE_PILE.append({"paper": paper, "trace": t["id"], "root": t["root"], "subtype": t["subtype"], "targets": targets_of(t),
-                               "why": why, "labels": {x: N[x]["label"] for x in targets_of(t)}})
+        KNOWLEDGE_PILE.append({"paper": paper, "trace": t["id"], "root": t["root"], "subtype": t["subtype"], "targets": tg,
+                               "why": why, "requires_unseen": {x: (N[x].get("attrs") or {}).get("requires_unseen") for x in tg},
+                               "labels": {x: N[x]["label"] for x in tg}})
         return
+    mark(t, "R3", "graded targets readable: " + "; ".join(f"{x} ({v[1]})" for x, v in verdicts.items()))
     # v2 rule 5 (annotation masking): mask annotation strings that share content with a hidden target
     hid_labels = [N[h]["label"] for h in set(t.get("hidden", [])) | set(targets_of(t)) if h in N]
     for pid in given_panels:
