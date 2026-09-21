@@ -4,7 +4,8 @@
 
 Changes from v05 (build_packets.py + add_panel_sections.py):
   - no MatMech content in the packet: the "Extracted mechanisms (MatMech)" block, the tetrahedron summary, the MST chain,
-    the material summary fields and every figure's image_description ("linked text") move to judge_only/<paper>.matmech.md
+    the material summary fields and (v06 only) every figure's image_description move to judge_only/<paper>.matmech.md;
+    with --linked-text (v06b) the image_description passages, the paper's own sentences as linked by the PDF parser, stay in
   - full text where the host can fetch publisher XML (MatMMExtract Elsevier/Springer fetchers, which need
     ELSEVIER_API_KEY/ELSEVIER_INST_TOKEN or SPRINGER_API_KEY); otherwise the header says text_source: captions_only
   - the panel section lists per crop its OCR cue classes, every OCR token with its box, and annotated: true when a token
@@ -13,6 +14,7 @@ Changes from v05 (build_packets.py + add_panel_sections.py):
 """
 import json, os, re, sys
 ROOT = "matmech"
+LINKED = "--linked-text" in sys.argv   # v06b: restore image_description (the paper's own linked sentences)
 
 UNIT = r"(?:nm|µm|μm|um|mm|cm|m|Å|A|s|min|h|°C|℃|C|K|eV|keV|kV|V|mV|mA|A|Hz|kHz|MHz|%|wt%|at%|a\.u\.|au|deg|°)"
 LETTER = re.compile(r"^[\(\[]?[A-Za-z][\)\]]?[.,]?$")
@@ -47,13 +49,17 @@ def main():
         ocr = {c["crop"]: c for c in json.load(open(f"{base}/panels/ocr.json"))["crops"]} if os.path.exists(f"{base}/panels/ocr.json") else {}
         order = {im.get("image_path"): i for i, im in enumerate(d.get("image_info") or [], 1)}
         doi = (d.get("doi") or "").replace("https://doi.org/", "")
-        text_source = "captions_only"   # no ELSEVIER_API_KEY / SPRINGER_API_KEY on this host; Wiley titles have no fetcher
+        text_source = "captions_plus_linked_text" if LINKED else "captions_only"
         L = [f"# {d.get('title')}", f"- paper_id: `{pid}`", f"- doi: {doi}  year: {d.get('year')}",
              f"- text_source: {text_source}",
+             "- full text: unavailable (no ELSEVIER_API_KEY / SPRINGER_API_KEY on this host; Wiley titles have no fetcher)",
              "## Figures (in paper order). Open an image with the Read tool on its absolute path."]
         for i, im in enumerate(d.get("image_info") or [], 1):
             L += [f"### F{i}", f"- path: {os.path.abspath(base)}/{im.get('image_path')}",
                   f"- caption: {clip(' '.join(im.get('image_caption') or []), 900)}"]
+            if LINKED and im.get("image_description"):
+                # v06b: the MinerU-linked body-text passages are the paper's own sentences, kept verbatim
+                L.append("- Linked text (the paper's own sentences, as linked by the PDF parser): " + " ".join(im.get("image_description") or []))
         L += ["", "## Panels (match/v4" + (", ocr/v1" if ocr else ", no OCR") + ")",
               "Canonical id = <doi>#F<figure><panel>. Cite these ids in `panel_ids`; never invent one.",
               "Per crop: OCR cue classes, OCR tokens with boxes [x0,y0,x1,y1] in crop pixels, and annotated: true when a",
@@ -86,8 +92,8 @@ def main():
         # everything MatMech removed from the packet goes to the judge-only file
         J = [f"# MatMech content for {pid} (judge only; not shown to staff)", f"- material: {d.get('material_object')}  elements: {d.get('material_element')}  category: {d.get('material_category')}",
              f"- MST chain: {d.get('casual_chain')}", "## Tetrahedron elements"] + [f"- **{k}**: {v}" for k, v in (d.get("tetrahedron_element") or {}).items()]
-        J.append("## Figure image_description (MatMech linked text)")
-        for i, im in enumerate(d.get("image_info") or [], 1):
+        if not LINKED: J.append("## Figure image_description (MatMech linked text)")
+        for i, im in enumerate([] if LINKED else (d.get("image_info") or []), 1):
             J.append(f"### F{i} [{im.get('image_function')}; microscopic={im.get('microscopic_image')}]\n{' '.join(im.get('image_description') or [])}")
         J.append("## Extracted mechanisms (MatMech)")
         for i, m in enumerate(d.get("mechanism") or [], 1):
