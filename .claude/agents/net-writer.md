@@ -21,4 +21,9 @@ Rules
 - The question never names or asks for a held-out grading channel. If `grader` says an independent
   channel is held out (a density series, a property curve), the question asks for the read from the
   images, never for that channel's values or its peak.
-- Reply with JSON only: {"question": "...", "answer_key": "...", "grading": "...", "answer_key_nodes": ["q11", "q15"]}
+- The question asks one thing. If you find yourself asking two things, ask the one the trace's hidden target answers.
+- The question never hints at the shape of the answer: no "or does it turn around", no "which of these two", no
+  "is it X or Y", unless the trace is a competing-causes trace.
+- Reply with JSON only: {"question": "...", "answer_key": "...", "answer_scope": "full", "grading": "...", "answer_key_nodes": ["q11", "q15"]}
+  answer_scope is "full" when the given panels support the whole answer and "partial" when they support only part of an
+  order or a mechanism; a partial key states that part and says "cannot determine" for the rest.

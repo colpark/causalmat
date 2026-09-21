@@ -3,7 +3,7 @@
 Every verdict here is model against model; no human checked any item.
 
 **Stop rule 2 fired:** 14 of 26 hidden targets (54%) have `source` other than `figure` (text 10, inferred 4). Cutter v2
-on the eight judged v06 graphs gives 21 traces: 0 open, 7 control, 14 closed (7 by rule 3 "not derivable from given
+on the eight judged v06 graphs gives 21 traces: 0 open, 6 control, 15 closed (8 by rule 3 "not derivable from given
 panels", 5 by the v1 bare-infer rule, 2 generate with no oracle). Parts 4-6 were not run.
 
 What drives it (from results/v06/cut/*.traces.json and the graphs):
