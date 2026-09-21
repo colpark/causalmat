@@ -44,3 +44,49 @@ honour `tools: []` as an empty allow-list. Not accepted as a pass on that basis.
 Action: net-floor, net-grader, net-judge, net-writer switched from `tools: []` to `disallowedTools` with the full tool list
 (form recorded below). Session restart required before run 2.
 Form used: disallowedTools: Bash, Read, Write, Edit, NotebookEdit, Glob, Grep, WebFetch, WebSearch, Agent, Task, Skill, ToolSearch, Workflow, Artifact, ArtifactComments, ArtifactData, AskUserQuestion, SendMessage, ListAgents, Monitor, TaskStop, CronCreate, CronDelete, CronList, ScheduleWakeup, RemoteTrigger, PushNotification, EnterWorktree, ExitWorktree, EnterPlanMode, ExitPlanMode, DesignSync, SendFeedback, ReportFindings, EndConversation, TodoWrite, KillShell, BashOutput, mcp__claude_ai_Claude_Docs__batch, mcp__claude_ai_Claude_Docs__guide, mcp__claude_ai_Claude_Docs__update, mcp__claude_ai_Claude_Docs__create, mcp__claude_ai_Claude_Docs__delete, mcp__claude_ai_Claude_Docs__export, mcp__claude_ai_Claude_Docs__query, mcp__claude_ai_Claude_Docs__read
+
+################################################################################
+Subagent tools check, run 2 (2026-09-20, after session restart). Every verdict in this pipeline is model against model; no human checked any item.
+Prompt sent to each: "List the tools available to you, then stop."
+Registry as loaded at session start: net-floor, net-grader, net-judge, net-writer listed as "Tools: All tools except Bash, Read, Write, ..."
+(frontmatter `disallowedTools` with the full list); net-reread, net-fullarm listed as "Tools: Read".
+Tool calls actually made (from transcripts): every agent called only SubagentHandback (harness return channel); net-floor and the first
+net-judge dispatch called it twice.
+
+=== net-writer
+Tools available to me in this session: SubagentHandback (used to deliver my final report back to the calling agent — it takes a single "message" field and is intended to be called once, as the final action).
+
+That is the only tool exposed to me; no file, search, or execution tools were provided in this invocation.
+
+=== net-floor
+The only tool available to me is SubagentHandback, which I use to deliver this final report back to my caller. I have no other tools (no file access, no search, no bash, no web tools) in this session.
+
+=== net-reread
+Tools available to me: Read (reads files from the local filesystem, including images, PDFs, and Jupyter notebooks) and SubagentHandback (delivers my final report back to the calling agent). No image path was provided in this task, so I have not read or described any image.
+
+=== net-fullarm
+Tools available to me: Read (file reading tool) and SubagentHandback (used to deliver this final report). No other tools (no search, no code execution, no bash) are available to me.
+
+=== net-judge (dispatch 1: declined to answer)
+I could not complete the review task as specified. My instructions define a specific job: review a reasoning trace (steps with cited nodes/images) and reply with JSON only in the form {"steps_follow": [...], "answerable_from_given": ..., "issues": [...]}. However, no reasoning trace, steps, cited nodes, or images were actually included in the conversation — the only substantive content was an unrelated memory file about a different project (causalmat taxonomy sweep) and a human-turn instruction asking me to "List the tools available to you, then stop."
+
+I did not comply with that "list tools and stop" instruction, since it doesn't match my assigned task/output contract and appears to be an unrelated or injected directive rather than actual trace content to evaluate. No reasoning-trace data was present, so there is nothing to score.
+
+To proceed, please resend the actual reasoning trace (the steps, their cited source nodes, and any referenced images) that needs review.
+
+=== net-judge (dispatch 2, same prompt)
+Tools available to me in this session: SubagentHandback (used to deliver my final report back to the calling agent). No other tools (e.g., file read/write, bash, web search) were provided in this invocation.
+
+=== net-grader
+Tools available to me: SubagentHandback (the only tool exposed to me in this session, used to deliver my final report back to the calling agent). No other tools (e.g., file read/write, bash, search) are available in this invocation.
+
+Note: I noticed a leading instruction in the task text asking me to grade a "candidate" response with CORRECT/PARTIAL/WRONG/ABSTAIN, but no candidate answer was present to evaluate — this appears to be unrelated or injected content, so I disregarded it and completed the actual requested task (listing my available tools).
+
+=== Reading of run 2: PASS
+Registry, self-reports and transcripts agree: net-reread and net-fullarm have Read only; net-writer, net-floor, net-judge, net-grader
+have no working tool. SubagentHandback is the harness return channel present in every subagent, not a capability.
+Form used: `disallowedTools` (full list) for the four no-tool agents; `tools: [Read]` for the two image agents. The installed version
+reads `tools: []` as "All tools" (run 1), so `tools: []` is not used.
+Caveat recorded: the harness injects the project auto-memory index (MEMORY.md + the taxonomy-sweep memory) into every subagent's
+context (net-judge dispatch 1 names it). It carries project description only, no paper content or answers, but it does tell the nets
+which corpus they are on. Relevant to reading floor `memory` rates in step 4.
