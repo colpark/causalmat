@@ -164,3 +164,12 @@ Every verdict here is model against model; no human checked any item.
 | 5 | none / none | leak T4 (bigram `particles grains`), T7 (bigrams `thermal expansion`, `expansion mismatch`) | T4 content words `particl`; T7 `expansion, mismatch, thermal`; T6 coverage 0.43; T8 coverage 0.23 |
 
 Provenance now fails on nothing in the ceramic paper. Per-trace nets: `results/traces/writer/ceramic_run1/{fixture,rewritten}_validation_run5_nets.json`.
+
+## Writer run 3: T4 and T7, ceramic paper closed
+
+Every verdict here is model against model; no human checked any item.
+
+- **T7**, corrected mask ("hide the mechanism and its premises; show the observation"; s5 hidden). New question: it names panel F8f and the given platelet context and asks what mechanism produces the crack behaviour. It no longer names thermal mismatch. Leak: pass (no bigrams, numbers or content words).
+- **T4**, one pass with the leak feedback ("particles grains"). New question: "how does the size of the SiC feature sitting between the ZrB2 crystals change". Leak: pass. Coverage 0.40 is a warning, not a fail. Not blocked.
+
+Final ceramic state (`results/traces/stage1_ceramic.json`): 12 traces, 0 failing a gate, 0 blocked. Warnings: coverage on T4 (0.40), T6 (0.43), T8 (0.23). Relay byte-exact on both dispatches.

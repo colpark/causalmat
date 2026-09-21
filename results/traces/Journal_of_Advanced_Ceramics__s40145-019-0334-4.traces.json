@@ -580,8 +580,8 @@
      "text": "Feeds: Vickers hardness and flexural strength rise then fall with ZrSi2 content, peaking at 17.1 GPa and 65"
     }
    ],
-   "question": "The five fracture-surface SEM panels F8a to F8e, labelled RZSZ-0, 10, 15, 20 and 25 vol% excess ZrSi2. How does the size of the SiC particles between the ZrB2 grains change once excess ZrSi2 is added, compared with the panel that has none?",
-   "answer_key": "Without excess ZrSi2 the SiC that forms between the ZrB2 grains is only submicron-sized; once excess ZrSi2 is present the SiC forms as much finer, nanometre-sized particles between the ZrB2 grains (r10, q9).",
+   "question": "The five SEM fracture-surface panels (F8a-F8e) span the ZrSi2-excess series from 0 to 25 vol%. Based on those panels, how does the size of the SiC feature sitting between the ZrB2 crystals change as ZrSi2 content increases, and what does it look like when no ZrSi2 is added?",
+   "answer_key": "Without added ZrSi2, SiC shows up only as coarser, submicron-scale features alongside open porosity; once ZrSi2 is present, SiC forms as much finer, nanometre-scale features between the ZrB2 crystals (q9). The panel progression backs this: open pores with submicron SiC at 0 vol%, tiny pores with nano-scale SiC and mixed fracture at intermediate levels, an interlocked structure at 20 vol%, and coarser features with a secondary crack at 25 vol% (r10).",
    "grading": "Answer key: the numbers and labels on the evidence node, judge-confirmed against r10 and q9.",
    "answer_key_nodes": [
     "r10",
@@ -905,6 +905,8 @@
   {
    "id": "T7",
    "group_id": "Journal_of_Advanced_Ceramics/s40145-019-0334-4",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
    "root": "explain",
    "subtype": "mechanism",
    "seed_claim": "q15",
@@ -915,7 +917,8 @@
     "q15",
     "q13",
     "q16",
-    "q2"
+    "q2",
+    "s5"
    ],
    "branch": "evidences edge r11 -> q15",
    "fm_family": "SEM",
@@ -931,8 +934,8 @@
    "channels_involved": [
     "SEM"
    ],
-   "mask": "hide the mechanism; show the rival",
-   "grader": "certified judge against the graph's mechanism, with the rival named",
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
    "status": "open",
    "ruling": "",
    "walk": [
@@ -990,6 +993,10 @@
     {
      "node": "q2",
      "why": "hypothesis states the mechanism the model must produce"
+    },
+    {
+     "node": "s5",
+     "why": "premise of the hidden mechanism"
     }
    ],
    "linear": [
@@ -1030,9 +1037,9 @@
      "text": "What it explains: Fracture toughness climbs to 6.08 MPa m^1/2 at 20 vol% and stays close to that at 25 vol%"
     }
    ],
-   "question": "The indentation crack in the fracture-surface panel steps, forks, leaves bridging ligaments and pulled-out grains, with the fork sitting at a bright SiC-rich region. Thermal-expansion mismatch between ZrB2 and SiC is known to leave tangential tensile residual stress around SiC grains on cooling. Does that residual stress by itself account for the crack's stepped, forked, bridging path, or is another mechanism doing the work \u2014 and if so, what is it?",
-   "answer_key": "Residual stress from thermal-expansion mismatch does not by itself produce the stepped, bridging, pulled-out crack path; at most it branches the crack at SiC-rich regions, lengthening its path. The real driver is the interlocked ZrB2 platelets, which arrest and deflect the crack, then let it pull out and bridge across ligaments; the thermal-mismatch branching only adds to that path once the crack meets an SiC-rich region.",
-   "grading": "Certified judge against the graph's mechanism node q15, with the rival explanation (thermal-expansion-mismatch residual stress alone, node s5) named and checked as insufficient on its own.",
+   "question": "Given panel F8f \u2014 the indentation crack that steps, forks, and leaves bridging ligaments and pulled-out grains, with the fork sitting at a bright SiC-rich region \u2014 and the interlocking platelet microstructure described above, what mechanism is responsible for this crack behavior?",
+   "answer_key": "Interlocked platelets arrest and deflect the crack, then pull out and bridge it (q15). At the same time, thermal-expansion mismatch between ZrB2 and SiC leaves tangential tensile residual stress around SiC grains on cooling (s5, the premise), and this stress at the SiC-rich regions branches the crack, lengthening its path (q15).",
+   "grading": "Certified judge against the graph's mechanism nodes q15 (with its premise s5); the graph has no rival explanation to check against.",
    "answer_key_nodes": [
     "q15",
     "s5"
