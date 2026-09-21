@@ -1,0 +1,353 @@
+{
+ "paper_id": "Advanced_Energy_Materials/aenm.201501833",
+ "title": "Metal Organic Framework-Derived Metal Phosphates as Electrode Materials for Supercapacitors",
+ "cutter": "v2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Energy_Materials/aenm.201501833",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "a7",
+   "evidence": [
+    "o6"
+   ],
+   "hidden": [
+    "o6",
+    "a7",
+    "a13",
+    "a8",
+    "a11",
+    "a14"
+   ],
+   "branch": "evidences edge o6 -> a7",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "bare infer: no rejection, no budget, no stopping rule",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "context"
+    },
+    {
+     "node": "a4",
+     "role": "context"
+    },
+    {
+     "node": "o6",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.201501833#F4a",
+      "10.1002/aenm.201501833#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a7",
+     "role": "claim"
+    },
+    {
+     "node": "a13",
+     "role": "downstream"
+    },
+    {
+     "node": "a8",
+     "role": "downstream"
+    },
+    {
+     "node": "a11",
+     "role": "downstream"
+    },
+    {
+     "node": "a14",
+     "role": "downstream"
+    }
+   ],
+   "answer_format": "state the difference between the two conditions; do not rank",
+   "v2_rules": [
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:221",
+     "effect": "2 panels: rank became infer/compare"
+    }
+   ],
+   "has_sweep": false,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "a1",
+      "a2",
+      "a4"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Converting a Ni-MOF into a MOF-derived nickel phos -> Ni-MOF built from Ni octahedra linked by benzene-t -> Hydrothermal phosphatisation of Ni-MOF with sodium"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4a, F4b [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Smooth-faced micrometre rods of the MOF become rods with granular, nanoparticle-covered surfaces plus loose agglomerates"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "a7"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The MOF rod shape is retained as a template while rod surfaces become rough and nanoparticulate"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "a13",
+      "a8",
+      "a11",
+      "a14"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Phosphate-coordinated Ni sites on a nanoparticulate surface give accessible faradaic Ni redox storag"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Energy_Materials/aenm.201501833",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "a8",
+   "evidence": [
+    "o15"
+   ],
+   "hidden": [
+    "o15",
+    "a11",
+    "a14",
+    "a1"
+   ],
+   "branch": "qualifies edge o15 -> a8",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "not derivable from given panels: o15 source text; o15 requires unseen ['panel a = pristine MOF, panel b = NixPyOz (caption only)']",
+   "walk": [
+    {
+     "node": "a1",
+     "role": "redacted"
+    },
+    {
+     "node": "a2",
+     "role": "context"
+    },
+    {
+     "node": "a4",
+     "role": "context"
+    },
+    {
+     "node": "a5",
+     "role": "context"
+    },
+    {
+     "node": "a13",
+     "role": "context"
+    },
+    {
+     "node": "o15",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1002/aenm.201501833#F5a",
+      "10.1002/aenm.201501833#F5b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "a8",
+     "role": "claim"
+    },
+    {
+     "node": "a11",
+     "role": "redacted"
+    },
+    {
+     "node": "a14",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "a11",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "a1",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/aenm.201501833#F5a",
+    "10.1002/aenm.201501833#F5b"
+   ],
+   "v2_rules": [
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:460",
+     "effect": "not derivable from given panels: o15 source text; o15 requires unseen ['panel a = pristine MOF, panel b = NixPyOz (caption only)']"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "a8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: The phosphate electrode stores far more charge per mass than the MOF (larger CV currents, longer discharge)"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F5a, F5b [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: CV loops of the two electrodes differ by well under 2x in enclosed area, not the ~4x of the GCD discharge times"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Energy_Materials/aenm.201501833",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "a3",
+   "evidence": [],
+   "branch": "DES/route a3",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": false,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Advanced_Energy_Materials__aenm.201501833",
+   "trace": "T2",
+   "root": "explain",
+   "subtype": "rejection",
+   "targets": [
+    "o15"
+   ],
+   "why": [
+    "o15 source text",
+    "o15 requires unseen ['panel a = pristine MOF, panel b = NixPyOz (caption only)']"
+   ],
+   "labels": {
+    "o15": "CV loops of the two electrodes differ by well under 2x in enclosed area, not the ~4x of the GCD discharge times"
+   }
+  }
+ ]
+}

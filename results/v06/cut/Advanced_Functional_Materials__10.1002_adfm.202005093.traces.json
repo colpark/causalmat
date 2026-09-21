@@ -1,0 +1,345 @@
+{
+ "paper_id": "Advanced_Functional_Materials/10.1002_adfm.202005093",
+ "title": "Engineering 2D Multifunctional Ultrathin Bismuthene for Multiple Photonic Nanomedicine",
+ "cutter": "v2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202005093",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "s2",
+   "evidence": [
+    "o7"
+   ],
+   "hidden": [
+    "o7",
+    "s2",
+    "p1",
+    "p2",
+    "p3",
+    "f1",
+    "dsc"
+   ],
+   "branch": "evidences edge o7 -> s2",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "AFM",
+    "TEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "bare infer: no rejection, no budget, no stopping rule",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "context"
+    },
+    {
+     "node": "d1",
+     "role": "context"
+    },
+    {
+     "node": "c1",
+     "role": "context"
+    },
+    {
+     "node": "o7",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1002/adfm.202005093#F2c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s2",
+     "role": "claim"
+    },
+    {
+     "node": "p1",
+     "role": "downstream"
+    },
+    {
+     "node": "p2",
+     "role": "downstream"
+    },
+    {
+     "node": "p3",
+     "role": "downstream"
+    },
+    {
+     "node": "f1",
+     "role": "downstream"
+    },
+    {
+     "node": "dsc",
+     "role": "downstream"
+    }
+   ],
+   "has_sweep": false,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "h1",
+      "h2",
+      "d1",
+      "c1"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Cancer phototherapy needs one agent that combines  -> Ultrathin 2D bismuthene can serve as a single agen -> Bulk elemental Bi is chosen as the starting feedst -> Water intercalation and exfoliation turn bulk Bi i"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2c [TEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: TEM shows irregular flat plates ~250-350 nm across, overlapping in a ~0.5 um cluster, speckled with dark nanodots"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "s2"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Bismuthene forms thin 2D plates about 250-350 nm across and ~14 nm thick"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "p1",
+      "p2",
+      "p3",
+      "f1",
+      "dsc"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Bismuthene has a narrow optical band gap of about 0.69 eV"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202005093",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "s1",
+   "evidence": [
+    "o5"
+   ],
+   "hidden": [
+    "o5",
+    "p1",
+    "p2",
+    "p3",
+    "f1",
+    "dsc",
+    "h2"
+   ],
+   "branch": "qualifies edge o5 -> s1",
+   "fm_family": "XPS",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "XPS"
+   ],
+   "channels_involved": [
+    "XPS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "redacted"
+    },
+    {
+     "node": "d1",
+     "role": "context"
+    },
+    {
+     "node": "c1",
+     "role": "context"
+    },
+    {
+     "node": "c2",
+     "role": "context"
+    },
+    {
+     "node": "o5",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adfm.202005093#F2m"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s1",
+     "role": "claim"
+    },
+    {
+     "node": "p1",
+     "role": "redacted"
+    },
+    {
+     "node": "p2",
+     "role": "redacted"
+    },
+    {
+     "node": "p3",
+     "role": "redacted"
+    },
+    {
+     "node": "f1",
+     "role": "redacted"
+    },
+    {
+     "node": "dsc",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "p1",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "p2",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "p3",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "f1",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "dsc",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "h2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adfm.202005093#F2m"
+   ],
+   "masked_panels": [
+    {
+     "panel": "10.1002/adfm.202005093#F2m",
+     "masked_crop": "results/v06/masked/Advanced_Functional_Materials__10.1002_adfm.202005093/T2/F2m.jpg",
+     "strings": [
+      "Bismuthene",
+      "Bismutheneoxide"
+     ],
+     "shared_words": [
+      "bismuthene",
+      "bismutheneoxide"
+     ]
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R5",
+     "where": "cut_traces.py:482",
+     "effect": "10.1002/adfm.202005093#F2m: masked ['Bismuthene', 'Bismutheneoxide']"
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "s1"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Bismuthene nanosheets are rhombohedral metallic Bi"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o5"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2m [XPS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o5"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Bismuthene Bi 4f is still dominated by the Bi2O3 doublet; the Bi0 doublet grows vs the oxide but stays minor"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}

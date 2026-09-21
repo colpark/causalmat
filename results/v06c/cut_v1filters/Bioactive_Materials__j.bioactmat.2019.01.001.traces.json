@@ -1,0 +1,168 @@
+{
+ "paper_id": "Bioactive_Materials/j.bioactmat.2019.01.001",
+ "title": "In vitro degradation and biocompatibility evaluation of typical biodegradable metals (Mg/Zn/Fe) for the application of tracheobronchial stenosis",
+ "cutter": "v2.2+v1-filters",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Bioactive_Materials/j.bioactmat.2019.01.001",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "s11",
+   "evidence": [
+    "b8"
+   ],
+   "hidden": [
+    "b8",
+    "s14",
+    "s15"
+   ],
+   "branch": "qualifies edge b8 -> s11",
+   "fm_family": "PHYS",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "PHYS"
+   ],
+   "channels_involved": [
+    "PHYS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "context"
+    },
+    {
+     "node": "s5",
+     "role": "context"
+    },
+    {
+     "node": "s8",
+     "role": "context"
+    },
+    {
+     "node": "s9",
+     "role": "context"
+    },
+    {
+     "node": "b8",
+     "role": "audit",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1016/j.bioactmat.2019.01.001#F3c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s11",
+     "role": "claim"
+    },
+    {
+     "node": "s14",
+     "role": "redacted"
+    },
+    {
+     "node": "s15",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "s14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s15",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.bioactmat.2019.01.001#F3c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.bioactmat.2019.01.001#F3c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:595",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:669",
+     "effect": "graded targets readable: b8 (figure)"
+    }
+   ],
+   "graded_targets": [
+    "b8"
+   ],
+   "target_verdicts": {
+    "b8": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "s11"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Degradation is slower in GS than in SBF, most strongly for HP-Mg (28 d: 0.78 vs 2.0 mm/y)"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "b8"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3c [PHYS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "b8"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: HP-Mg rate in GS rises steadily from 0.13 to 0.78 mm/y over 7-28 d while in SBF it falls from 3.4 to 2.0, so the gap narrows from ~25x to ~2"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}

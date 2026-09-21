@@ -1,0 +1,301 @@
+{
+ "paper_id": "Rare_Metals/s12598-012-0515-6",
+ "title": "Microstructures and mechanical properties of Al-Cu-Mn alloy with La and Sm addition",
+ "cutter": "v2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Rare_Metals/s12598-012-0515-6",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "r10",
+   "evidence": [
+    "q7"
+   ],
+   "hidden": [
+    "q7",
+    "r10",
+    "r11",
+    "r12",
+    "r13"
+   ],
+   "branch": "evidences edge q7 -> r10",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "bare infer: no rejection, no budget, no stopping rule",
+   "walk": [
+    {
+     "node": "r1",
+     "role": "context"
+    },
+    {
+     "node": "r3",
+     "role": "context"
+    },
+    {
+     "node": "r4",
+     "role": "context"
+    },
+    {
+     "node": "r5",
+     "role": "context"
+    },
+    {
+     "node": "r6",
+     "role": "context"
+    },
+    {
+     "node": "q7",
+     "role": "evidence",
+     "op": "measure_feature_metric",
+     "panel_ids": [
+      "10.1007/s12598-012-0515-6#F4a",
+      "10.1007/s12598-012-0515-6#F4b",
+      "10.1007/s12598-012-0515-6#F4c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "r10",
+     "role": "claim"
+    },
+    {
+     "node": "r11",
+     "role": "downstream"
+    },
+    {
+     "node": "r12",
+     "role": "downstream"
+    },
+    {
+     "node": "r13",
+     "role": "downstream"
+    }
+   ],
+   "has_sweep": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "r1",
+      "r3",
+      "r4",
+      "r5",
+      "r6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Adding La or Sm to an Al-Cu-Mn alloy should modify -> Add a rare-earth element, La or Sm, to the Al-Cu-M -> Three alloys compared: Al-Cu-Mn, Al-Cu-Mn-Sm and A -> Cast the three alloys (as-cast state) -> Age the cast alloys"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "q7"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4a, F4b, F4c [TEM] and estimate (measure feature metric)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "q7"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Plate precipitate lengths ~20-50 nm in (a), ~8-20 nm in (b), ~5-15 nm in (c)"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "r10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Ageing precipitates are refined by RE addition: plates ~20-50 nm long in the base, ~8-20 nm with Sm, ~5-15 nm with La"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "r11",
+      "r12",
+      "r13"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Finer, denser plate precipitates obstruct dislocation glide more effectively (precipitation strength"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Rare_Metals/s12598-012-0515-6",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "r8",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "r13",
+    "r1"
+   ],
+   "branch": "qualifies edge a1 -> r8",
+   "fm_family": "THERMAL",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "THERMAL"
+   ],
+   "channels_involved": [
+    "THERMAL"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "not derivable from given panels: a1 source text; a1 requires unseen ['F1b = Al-Cu-Mn-Sm (caption only)']",
+   "walk": [
+    {
+     "node": "r1",
+     "role": "redacted"
+    },
+    {
+     "node": "r3",
+     "role": "context"
+    },
+    {
+     "node": "r4",
+     "role": "context"
+    },
+    {
+     "node": "r5",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1007/s12598-012-0515-6#F3"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "r8",
+     "role": "claim"
+    },
+    {
+     "node": "r13",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "r13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "r1",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1007/s12598-012-0515-6#F3"
+   ],
+   "v2_rules": [
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:460",
+     "effect": "not derivable from given panels: a1 source text; a1 requires unseen ['F1b = Al-Cu-Mn-Sm (caption only)']"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "r8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: RE addition breaks the continuous interdendritic Al2Cu eutectic network into isolated (Sm) or fine fragmented (La) parti"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3 [THERMAL]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: The Sm alloy eutectic endotherm at ~548 C is as large as the base alloy one, although F1b shows far less second phase"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Rare_Metals__s12598-012-0515-6",
+   "trace": "T2",
+   "root": "explain",
+   "subtype": "rejection",
+   "targets": [
+    "a1"
+   ],
+   "why": [
+    "a1 source text",
+    "a1 requires unseen ['F1b = Al-Cu-Mn-Sm (caption only)']"
+   ],
+   "labels": {
+    "a1": "The Sm alloy eutectic endotherm at ~548 C is as large as the base alloy one, although F1b shows far less second phase"
+   }
+  }
+ ]
+}

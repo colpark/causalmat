@@ -1,0 +1,30 @@
+{
+ "papers": 32,
+ "traces": 147,
+ "by_root": {
+  "infer": 51,
+  "explain": 70,
+  "intervene": 14,
+  "generate": 12
+ },
+ "by_status": {
+  "closed": 49,
+  "control": 50,
+  "open": 48
+ },
+ "by_subtype": {
+  "classify": 10,
+  "estimate": 17,
+  "rank": 24,
+  "rejection": 50,
+  "competing causes": 15,
+  "next condition": 14,
+  "design under constraint": 12,
+  "mechanism": 5
+ },
+ "regression": "clean vs trace_kit/fixtures/ceramic_traces.json on root, subtype, status, hidden, redactions, evidence, depth, linear step roles",
+ "kit_fixes": [
+  "cut_traces.py family(): technique_norm may be a list (multi-instrument node); take the first element",
+  "cut_traces.py linearize() fam lambda: same assumption, now delegates to family()"
+ ]
+}

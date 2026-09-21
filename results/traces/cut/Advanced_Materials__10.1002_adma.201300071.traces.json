@@ -1,0 +1,593 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.201300071",
+ "title": "Binding SnO2 Nanocrystals in Nitrogen-Doped Graphene Sheets as Anode Materials for Lithium-Ion Batteries",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.201300071",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n11",
+   "evidence": [
+    "o3"
+   ],
+   "hidden": [
+    "o3",
+    "n11",
+    "n16",
+    "n17",
+    "n20",
+    "n21"
+   ],
+   "branch": "evidences edge o3 -> n11",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "bare infer: no rejection, no budget, no stopping rule",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o3",
+     "role": "evidence",
+     "op": "measure_feature_metric",
+     "panel_ids": [
+      "10.1002/adma.201300071#F1d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n11",
+     "role": "claim"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    },
+    {
+     "node": "n20",
+     "role": "downstream"
+    },
+    {
+     "node": "n21",
+     "role": "downstream"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Lithium-ion anodes need far more capacity than gra -> Binding small SnO2 nanocrystals inside nitrogen-do -> SnO2 nanocrystals as the active phase for their hi -> Hydrothermal synthesis of SnO2 nanocrystals"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1d [TEM] and estimate (measure feature metric)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: HRTEM: lattice-fringed crystallites about 4-5 nm across, one marked SnO2 (110), lying against the graphene"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n11"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: SnO2 nanocrystals are 4-5 nm and the vapour reduction does not coarsen them"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n16",
+      "n17",
+      "n20",
+      "n21"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Graphene carries electrons in and micropores carry Li+ in, while the sheets buffer the volume change"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Materials/10.1002_adma.201300071",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n14",
+   "evidence": [
+    "o7"
+   ],
+   "hidden": [
+    "o7",
+    "n16",
+    "n17",
+    "n20",
+    "n21",
+    "n2"
+   ],
+   "branch": "qualifies edge o7 -> n14",
+   "fm_family": "XAS",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XAS"
+   ],
+   "channels_involved": [
+    "XAS",
+    "XPS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "depth one and not an image read: negative-control stratum",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o7",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.201300071#F2f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n14",
+     "role": "claim"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    },
+    {
+     "node": "n20",
+     "role": "redacted"
+    },
+    {
+     "node": "n21",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n20",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n21",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n14"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Interfacial Sn-N and Sn-O-C bonds tie the nanocrystals to the doped graphene"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2f [XAS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: C K-edge traces coincide exactly at the 285.4 eV peak; the hybrid is higher only above ~288 eV, clearly so at 292 eV"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Materials/10.1002_adma.201300071",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n17",
+   "evidence": [
+    "o10"
+   ],
+   "hidden": [
+    "o10",
+    "n20",
+    "n21",
+    "n2"
+   ],
+   "branch": "qualifies edge o10 -> n17",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "n16",
+     "role": "context"
+    },
+    {
+     "node": "o10",
+     "role": "audit",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1002/adma.201300071#F3b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n17",
+     "role": "claim"
+    },
+    {
+     "node": "n20",
+     "role": "redacted"
+    },
+    {
+     "node": "n21",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n20",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n21",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n17"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Reversible capacity is 1346 mA h/g after 500 cycles at near-100% Coulombic efficiency"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o10"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3b [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o10"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: First discharge reaches ~1865 mA h/g but first charge returns only ~1200, a first-cycle efficiency near 64%"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Advanced_Materials/10.1002_adma.201300071",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n19",
+   "evidence": [
+    "o15"
+   ],
+   "hidden": [
+    "o15",
+    "n20",
+    "n21",
+    "n2"
+   ],
+   "branch": "qualifies edge o15 -> n19",
+   "fm_family": "EDS",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "EDS"
+   ],
+   "channels_involved": [
+    "EDS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "n16",
+     "role": "context"
+    },
+    {
+     "node": "o15",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.201300071#F4b",
+      "10.1002/adma.201300071#F4g"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n19",
+     "role": "claim"
+    },
+    {
+     "node": "n20",
+     "role": "redacted"
+    },
+    {
+     "node": "n21",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n20",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n21",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n19"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: After 500 cycles Sn is still spread through the carbon with no Sn-rich clusters"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4b, F4g [EDS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: EDX oxygen-to-tin intensity ratio rises from 0.87 to 1.31 after 500 cycles"
+    }
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Advanced_Materials/10.1002_adma.201300071",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "n5",
+   "evidence": [],
+   "branch": "DES/route n5",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ]
+}

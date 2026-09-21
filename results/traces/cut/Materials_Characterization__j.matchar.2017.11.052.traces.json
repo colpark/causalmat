@@ -1,0 +1,513 @@
+{
+ "paper_id": "Materials_Characterization/j.matchar.2017.11.052",
+ "title": "Size dependence of microstructure of AlSi10Mg alloy fabricated by selective laser melting",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Materials_Characterization/j.matchar.2017.11.052",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "h14",
+   "evidence": [
+    "i11"
+   ],
+   "hidden": [
+    "i11",
+    "h16",
+    "h3"
+   ],
+   "branch": "qualifies edge i11 -> h14",
+   "fm_family": "MECH",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "MECH"
+   ],
+   "channels_involved": [
+    "MECH"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "context"
+    },
+    {
+     "node": "h3",
+     "role": "redacted"
+    },
+    {
+     "node": "h4",
+     "role": "context"
+    },
+    {
+     "node": "h7",
+     "role": "context"
+    },
+    {
+     "node": "h11",
+     "role": "context"
+    },
+    {
+     "node": "i11",
+     "role": "audit",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1016/j.matchar.2017.11.052#F3"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "h14",
+     "role": "claim"
+    },
+    {
+     "node": "h16",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "h16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "h3",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "h14"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Hardness falls slightly with plate width, from about 112 Hv at 10 mm to about 107 Hv at 0.28 mm"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "i11"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3 [MECH]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "i11"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: The error bars of the widest and narrowest samples overlap, and the trend is not monotonic: the 0.35 and 0.42 mm plates read about 109.3 Hv,"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Materials_Characterization/j.matchar.2017.11.052",
+   "root": "explain",
+   "subtype": "competing causes",
+   "seed_claim": "h14",
+   "evidence": [
+    "i5",
+    "i6",
+    "i7"
+   ],
+   "hidden": [
+    "h15",
+    "h16",
+    "h3"
+   ],
+   "branch": "two `causes` edges into h14: ['h11', 'h12', 'h13']",
+   "rival": [
+    "h11",
+    "h13"
+   ],
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": [
+     "i5"
+    ],
+    "note": "floor holds the non-FM causes only, so it picks the rival"
+   },
+   "depth": 2,
+   "depth_families": [
+    "EBSD",
+    "SEM"
+   ],
+   "mask": "hide the mechanism node(s) explaining the claim; show the competing causes and their evidence",
+   "grader": "judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "context"
+    },
+    {
+     "node": "h3",
+     "role": "redacted"
+    },
+    {
+     "node": "h4",
+     "role": "context"
+    },
+    {
+     "node": "h7",
+     "role": "context"
+    },
+    {
+     "node": "h11",
+     "role": "context"
+    },
+    {
+     "node": "i5",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "i6",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.matchar.2017.11.052#F7a",
+      "10.1016/j.matchar.2017.11.052#F7d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "i7",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.matchar.2017.11.052#F8a",
+      "10.1016/j.matchar.2017.11.052#F8b",
+      "10.1016/j.matchar.2017.11.052#F8c",
+      "10.1016/j.matchar.2017.11.052#F8d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "h11",
+     "role": "cause"
+    },
+    {
+     "node": "h12",
+     "role": "cause"
+    },
+    {
+     "node": "h13",
+     "role": "cause"
+    },
+    {
+     "node": "h15",
+     "role": "mechanism"
+    },
+    {
+     "node": "h14",
+     "role": "claim"
+    },
+    {
+     "node": "h16",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "h16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "h3",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "h14",
+      "i10"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation to explain: Hardness falls slightly with plate width, from about 112 Hv at 10 mm to about 107 Hv at 0.28 mm. Its optimum: None vol%."
+    },
+    {
+     "step": 2,
+     "role": "candidates",
+     "nodes": [
+      "h11",
+      "h12",
+      "h13"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Candidate causes: h11: The density of low-angle boundaries falls from 0.149 to 0.125 um-1 as  | h12: In wide plates the Si particles line the cell boundaries; below about  | h13: The measured Si fraction stays below the CALPHAD equilibrium value in "
+    },
+    {
+     "step": 3,
+     "role": "test",
+     "nodes": [
+      "h11",
+      "i5"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "Test h11 (The density of low-angle boundaries falls from 0.149 to 0.12) against i5 [EBSD]: UNTESTED, no evidence states an optimum"
+    },
+    {
+     "step": 4,
+     "role": "test",
+     "nodes": [
+      "h12",
+      "i6",
+      "i7"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "Test h12 (In wide plates the Si particles line the cell boundaries; be) against i6, i7 [SEM]: KEEP, its evidence (i6, i7) is most developed at the claim's optimum"
+    },
+    {
+     "step": 5,
+     "role": "test",
+     "nodes": [
+      "h13",
+      "i8"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "Test h13 (The measured Si fraction stays below the CALPHAD equilibrium) against i8 [SEM]: KEEP, its evidence (i8) is most developed at the claim's optimum"
+    },
+    {
+     "step": 6,
+     "role": "mechanism",
+     "nodes": [
+      "h15",
+      "kl3"
+     ],
+     "depends_on": [
+      5
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: A thin plate is reheated more by the neighbouring tracks and cools more slowly overall, so Si precipitates out of the su  [premise: kl3; evidence: none]"
+    },
+    {
+     "step": 7,
+     "role": "mechanism",
+     "nodes": [
+      "h16"
+     ],
+     "depends_on": [
+      6
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: Texture and grain size are set by the melt pool and are size-independent, but the Si precipitation state and the low-ang  [premise: none; evidence: none]"
+    },
+    {
+     "step": 8,
+     "role": "mechanism",
+     "nodes": [
+      "h3"
+     ],
+     "depends_on": [
+      7
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: A thinner plate sees a different thermal history during the build, so its solidification and solid-state structure, and   [premise: none; evidence: none]"
+    },
+    {
+     "step": 9,
+     "role": "adjudication",
+     "nodes": [
+      "h11",
+      "h12",
+      "h13"
+     ],
+     "depends_on": [
+      8
+     ],
+     "hidden": false,
+     "text": "The optimum is set by h11, h12, h13; no rival is necessary but not sufficient."
+    },
+    {
+     "step": 10,
+     "role": "prediction",
+     "nodes": [
+      "h16"
+     ],
+     "depends_on": [
+      9
+     ],
+     "hidden": true,
+     "text": "What follows: Texture and grain size are set by the melt pool and are size-independent, but the Si precipitation state and the low-ang"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Materials_Characterization/j.matchar.2017.11.052",
+   "root": "intervene",
+   "subtype": "next condition",
+   "seed_claim": "h17",
+   "evidence": [
+    "i10"
+   ],
+   "hidden": [
+    "h17",
+    "i10",
+    "h10",
+    "h16",
+    "h17"
+   ],
+   "hidden_panels": [],
+   "branch": "sweep h5 with optimum h17",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "note": "trend extrapolation of the classical series picks the earlier optimum"
+   },
+   "depth": 1,
+   "depth_families": [
+    "MECH"
+   ],
+   "mask": "show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next",
+   "grader": "the measured outcome at the chosen condition from i10, held out",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "context"
+    },
+    {
+     "node": "h3",
+     "role": "context"
+    },
+    {
+     "node": "h4",
+     "role": "context"
+    },
+    {
+     "node": "h7",
+     "role": "context"
+    },
+    {
+     "node": "h10",
+     "role": "context"
+    },
+    {
+     "node": "h16",
+     "role": "context"
+    },
+    {
+     "node": "i10",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.matchar.2017.11.052#F3"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "h17",
+     "role": "claim"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Hypothesis, design, processing: SLM is used for thin walls and lattice struts, so  -> How the microstructure and hardness of SLM AlSi10M -> A thinner plate sees a different thermal history d -> AlSi10Mg powder, measured composition Al-10.8Si-0. -> Selective laser melting at 380 W with 30 um layers"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Results so far, as panels only:  []"
+    },
+    {
+     "step": 3,
+     "role": "decision",
+     "nodes": [
+      "h17"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Decide the next condition: Below about 0.4 mm the SLM route reaches its dimensional limit, and a sub-millimetre feature should not be assumed to ca"
+    },
+    {
+     "step": 4,
+     "role": "outcome",
+     "nodes": [
+      "i10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Outcome at that condition (grader): Hardness runs from 111.8 Hv at 10.4 mm down to 106.6 Hv at 0.27 mm under a 0.98 N load"
+    }
+   ]
+  }
+ ]
+}

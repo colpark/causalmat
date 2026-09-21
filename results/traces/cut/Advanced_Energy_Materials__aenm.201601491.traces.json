@@ -1,0 +1,316 @@
+{
+ "paper_id": "Advanced_Energy_Materials/aenm.201601491",
+ "title": "Metal-Organic Framework Cathodes Based on a Vanadium Hexacyanoferrate Prussian Blue Analogue for High-Performance Aqueous Rechargeable Batteries",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Energy_Materials/aenm.201601491",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n10",
+   "evidence": [
+    "o2"
+   ],
+   "hidden": [
+    "o2",
+    "n10",
+    "n17",
+    "n15",
+    "n22",
+    "n23"
+   ],
+   "branch": "evidences edge o2 -> n10",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "bare infer: no rejection, no budget, no stopping rule",
+   "walk": [
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o2",
+     "role": "evidence",
+     "op": "match_to_reference",
+     "panel_ids": [
+      "10.1002/aenm.201601491#F1d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    },
+    {
+     "node": "n15",
+     "role": "downstream"
+    },
+    {
+     "node": "n22",
+     "role": "downstream"
+    },
+    {
+     "node": "n23",
+     "role": "downstream"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n2",
+      "n3",
+      "n4",
+      "n8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Aqueous Prussian blue analogue cathodes have been  -> A framework in which both metal sites are redox ac -> Vanadium hexacyanoferrate as the cathode framework -> Co-precipitate the two solutions, hold at 60 C for"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1d [XRD] and estimate (match to reference)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: All three traces fall on the V3[Fe(CN)6]2 stick pattern with no extra reflections"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: All three powders are the cubic V3[Fe(CN)6]2 phase (PDF 00-042-1440)"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n17",
+      "n15",
+      "n22",
+      "n23"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Two redox centres in one framework transfer more than one electron per formula unit, which is where "
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Energy_Materials/aenm.201601491",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n18",
+   "evidence": [
+    "o10"
+   ],
+   "hidden": [
+    "o10",
+    "n22",
+    "n23",
+    "n3"
+   ],
+   "branch": "qualifies edge o10 -> n18",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "redacted"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n12",
+     "role": "context"
+    },
+    {
+     "node": "o10",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.201601491#F4a",
+      "10.1002/aenm.201601491#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n18",
+     "role": "claim"
+    },
+    {
+     "node": "n22",
+     "role": "redacted"
+    },
+    {
+     "node": "n23",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n22",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n23",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n3",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n18"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Rate capability: average discharge falls only from 94 to 54 mA h/g as the current rises 64-fold"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o10"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4a, F4b [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o10"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Average discharge steps down 94, 80, 73, 68, 60, 58, 54 mA h/g from 55 to 3520 mA/g, with the profiles polarising"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Energy_Materials/aenm.201601491",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "n5",
+   "evidence": [],
+   "branch": "DES/route n5",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ]
+}

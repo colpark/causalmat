@@ -1,0 +1,116 @@
+Subagent tools check, run 1 (2026-09-20). Every verdict in this pipeline is model against model; no human checked any item.
+Prompt sent to each: "List the tools available to you, then stop."
+Registry as loaded at session start: net-floor, net-grader, net-judge, net-writer listed as "Tools: All tools" (frontmatter `tools: []`);
+net-reread, net-fullarm listed as "Tools: Read".
+Tool calls actually made (from transcripts): each agent called only SubagentHandback (harness return channel); net-floor called it twice.
+
+=== net-writer
+Tools available to me in this session: SubagentHandback (used to deliver my final report back to the calling agent). That is the only tool exposed to me in this environment.
+
+=== net-floor
+The only tool available to me is SubagentHandback, which I use to deliver my final report back to the calling agent.
+
+=== net-reread
+Tools available to me: 
+1. Read — reads a file from the local filesystem (supports text files, images, PDFs, Jupyter notebooks) given an absolute file path.
+2. SubagentHandback — delivers my final report back to the calling agent; this is the only channel through which my output reaches the caller.
+
+No image path was provided in this task, so no image was read or described.
+
+=== net-fullarm
+The tools available to me in this session are:
+
+1. Read — reads a file from the local filesystem (supports text files, images, PDFs, Jupyter notebooks).
+2. SubagentHandback — delivers my final report back to the calling agent.
+
+That is the complete list of tools I have access to.
+
+=== net-judge
+The only tool available to me in this session is:
+
+1. SubagentHandback — used to deliver my final report back to the calling agent (single use, at the end of my work).
+
+No other tools (e.g., file read/write, bash, web search) were provided to me in this invocation.
+
+=== net-grader
+Tools available to me in this session: SubagentHandback (used to deliver my final report back to the calling agent — it is not a general messaging channel, just the hand-off mechanism). No other tools/functions were provided to me in this invocation.
+
+Note: The instruction at the top of the conversation asking me to grade a candidate response as CORRECT/PARTIAL/WRONG/ABSTAIN does not apply here — there is no candidate answer present to evaluate, and it conflicts with the actual task given ("List the tools available to you, then stop."), so I followed the latter, concrete instruction.
+
+=== Reading of run 1
+Self-reports and transcripts agree: reread/fullarm expose Read only; the other four expose no working tool (SubagentHandback is the
+harness return channel, present in every subagent, not a capability). But the registry label "All tools" shows this version does not
+honour `tools: []` as an empty allow-list. Not accepted as a pass on that basis.
+Action: net-floor, net-grader, net-judge, net-writer switched from `tools: []` to `disallowedTools` with the full tool list
+(form recorded below). Session restart required before run 2.
+Form used: disallowedTools: Bash, Read, Write, Edit, NotebookEdit, Glob, Grep, WebFetch, WebSearch, Agent, Task, Skill, ToolSearch, Workflow, Artifact, ArtifactComments, ArtifactData, AskUserQuestion, SendMessage, ListAgents, Monitor, TaskStop, CronCreate, CronDelete, CronList, ScheduleWakeup, RemoteTrigger, PushNotification, EnterWorktree, ExitWorktree, EnterPlanMode, ExitPlanMode, DesignSync, SendFeedback, ReportFindings, EndConversation, TodoWrite, KillShell, BashOutput, mcp__claude_ai_Claude_Docs__batch, mcp__claude_ai_Claude_Docs__guide, mcp__claude_ai_Claude_Docs__update, mcp__claude_ai_Claude_Docs__create, mcp__claude_ai_Claude_Docs__delete, mcp__claude_ai_Claude_Docs__export, mcp__claude_ai_Claude_Docs__query, mcp__claude_ai_Claude_Docs__read
+
+################################################################################
+Subagent tools check, run 2 (2026-09-20, after session restart). Every verdict in this pipeline is model against model; no human checked any item.
+Prompt sent to each: "List the tools available to you, then stop."
+Registry as loaded at session start: net-floor, net-grader, net-judge, net-writer listed as "Tools: All tools except Bash, Read, Write, ..."
+(frontmatter `disallowedTools` with the full list); net-reread, net-fullarm listed as "Tools: Read".
+Tool calls actually made (from transcripts): every agent called only SubagentHandback (harness return channel); net-floor and the first
+net-judge dispatch called it twice.
+
+=== net-writer
+Tools available to me in this session: SubagentHandback (used to deliver my final report back to the calling agent — it takes a single "message" field and is intended to be called once, as the final action).
+
+That is the only tool exposed to me; no file, search, or execution tools were provided in this invocation.
+
+=== net-floor
+The only tool available to me is SubagentHandback, which I use to deliver this final report back to my caller. I have no other tools (no file access, no search, no bash, no web tools) in this session.
+
+=== net-reread
+Tools available to me: Read (reads files from the local filesystem, including images, PDFs, and Jupyter notebooks) and SubagentHandback (delivers my final report back to the calling agent). No image path was provided in this task, so I have not read or described any image.
+
+=== net-fullarm
+Tools available to me: Read (file reading tool) and SubagentHandback (used to deliver this final report). No other tools (no search, no code execution, no bash) are available to me.
+
+=== net-judge (dispatch 1: declined to answer)
+I could not complete the review task as specified. My instructions define a specific job: review a reasoning trace (steps with cited nodes/images) and reply with JSON only in the form {"steps_follow": [...], "answerable_from_given": ..., "issues": [...]}. However, no reasoning trace, steps, cited nodes, or images were actually included in the conversation — the only substantive content was an unrelated memory file about a different project (causalmat taxonomy sweep) and a human-turn instruction asking me to "List the tools available to you, then stop."
+
+I did not comply with that "list tools and stop" instruction, since it doesn't match my assigned task/output contract and appears to be an unrelated or injected directive rather than actual trace content to evaluate. No reasoning-trace data was present, so there is nothing to score.
+
+To proceed, please resend the actual reasoning trace (the steps, their cited source nodes, and any referenced images) that needs review.
+
+=== net-judge (dispatch 2, same prompt)
+Tools available to me in this session: SubagentHandback (used to deliver my final report back to the calling agent). No other tools (e.g., file read/write, bash, web search) were provided in this invocation.
+
+=== net-grader
+Tools available to me: SubagentHandback (the only tool exposed to me in this session, used to deliver my final report back to the calling agent). No other tools (e.g., file read/write, bash, search) are available in this invocation.
+
+Note: I noticed a leading instruction in the task text asking me to grade a "candidate" response with CORRECT/PARTIAL/WRONG/ABSTAIN, but no candidate answer was present to evaluate — this appears to be unrelated or injected content, so I disregarded it and completed the actual requested task (listing my available tools).
+
+=== Reading of run 2: PASS
+Registry, self-reports and transcripts agree: net-reread and net-fullarm have Read only; net-writer, net-floor, net-judge, net-grader
+have no working tool. SubagentHandback is the harness return channel present in every subagent, not a capability.
+Form used: `disallowedTools` (full list) for the four no-tool agents; `tools: [Read]` for the two image agents. The installed version
+reads `tools: []` as "All tools" (run 1), so `tools: []` is not used.
+Caveat recorded: the harness injects the project auto-memory index (MEMORY.md + the taxonomy-sweep memory) into every subagent's
+context (net-judge dispatch 1 names it). It carries project description only, no paper content or answers, but it does tell the nets
+which corpus they are on. Relevant to reading floor `memory` rates in step 4.
+
+=== Run 3 (2026-09-20, after restart): net-writer rules check
+Prompt: "Quote the Rules section of your instructions verbatim, then stop."
+Reply:
+Rules
+- The question describes what the model will be given (context and panels) and asks for what is hidden. It never states, paraphrases or hints at a hidden node's content.
+- The answer key states what the hidden nodes say, in your words, keeping every number exactly as written in the node labels. Do not introduce any number, material, or mechanism that is not in a cited node label.
+- The grading note names how the answer is checked: an independent channel held out, an answer key from named nodes, a held-out outcome, or a judge against named mechanism nodes. Name the node ids.
+- For a closed trace, `question` is what would have been asked, `answer_key` is what the graph says and why no item, `grading` is why it is closed.
+- The question never restates a premise, a claim, or a mechanism that is already in the packet as a given
+  node. It points to the given nodes ("the context above", "the cited panels") instead of repeating them.
+- The question never names the categories, classes, or scale words the answer key uses. If the key says
+  "submicron" and "nanometre", the question asks how the feature changes, not whether it switches between
+  those two. If the key says "deflection" and "bridging", the question asks what mechanisms operate, not
+  whether deflection is enough.
+- The question never names or asks for a held-out grading channel. If `grader` says an independent
+  channel is held out (a density series, a property curve), the question asks for the read from the
+  images, never for that channel's values or its peak.
+- Reply with JSON only: {"question": "...", "answer_key": "...", "grading": "...", "answer_key_nodes": ["q11", "q15"]}
+
+=== Reading of run 3: PASS
+Seven rules, the last three being no-restating, no-category-words and no-held-out-channel, plus the reply-format line; matches
+.claude/agents/net-writer.md lines 10-24 (identical to trace_kit/agents/net-writer.md). The restart loaded the new rules.
+Every verdict here is model against model; no human checked any item.

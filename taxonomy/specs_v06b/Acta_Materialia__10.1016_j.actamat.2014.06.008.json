@@ -1,0 +1,430 @@
+{
+ "file": "Acta_Materialia__10.1016_j.actamat.2014.06.008.html",
+ "short": "New insights into single-grain mechanical behavior from temp",
+ "journal": "Acta_Materialia",
+ "year": null,
+ "title": "New insights into single-grain mechanical behavior from temperature-dependent 3-D coherent X-ray diffraction",
+ "doi": "Acta_Materialia/10.1016_j.actamat.2014.06.008",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: DIFF, XRD",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "How strain heterogeneity inside one grain of a polycrystal evolves under load, and how its neighbours set it, has not been imaged in 3-D in situ. Coherent X-ray diffraction with a 2x2 um beam on one isolated grain during in-situ thermal cycling, with phase retrieval of its 3-D displacement field.",
+   "detail": "Absorbed: a1 (HYP/gap), a3 (DES/method), a4 (DES/base_system), a6 (DES/variable_sweep), a7 (PRC/deposition), a8 (PRC/treatment), a12 (PRC/stimulus). Premises: Au elastic anisotropy factor is about 2.9; Thermal mismatch strain in a film on a substrate scales with the TEC difference times the temperature excursion",
+   "figs": [],
+   "source": "a1, a3, a4, a6, a7, a8, a12"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Film has a strong {111} fibre texture: nearly all grains <111> out-of-plane, a few <100> grains. Before loading the grain already carries strong strain heterogeneity, in-plane and mainly along y, with uniform strain through the thickness.",
+   "detail": "Absorbed: a10 (STR/microstructure/orientation), a11 (STR/phase/lattice), a13 (STR/phase/lattice), a14 (STR/microstructure/orientation). Premises: Scherrer size broadening: delta q_size = 2 pi / L sets the width expected from grain shape alone",
+   "figs": [],
+   "source": "a10, a11, a13, a14"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Single-grain out-of-plane strain vs temperature departs from the thermoelastic slope with hysteresis, and after the first heating it follows the film average. Dislocations cannot cross the boundaries to the misoriented neighbours along x, so they pile up and raise x-heterogeneity; their reversible motion gives quasi-reversibility",
+   "detail": "Absorbed: a15 (PRP/value), a16 (MEC/pathway)",
+   "figs": [],
+   "source": "a15, a16"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "In-situ CXD tracks the 3-D strain field of one sub-micron grain through a full thermal cycle",
+   "detail": "Absorbed: a17 (PRF/service_capability). Premises: Oversampled coherent diffraction allows phase retrieval, and the inverse Fourier transform gives the displacement field",
+   "figs": [],
+   "source": "a17"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Temperature-dependent 3-D CXD shows that single-grain strain heterogeneity evolves anisotropically and reversibly and is set by the in-plane misorientation of neighbours",
+   "detail": "Absorbed: a18 (DSC/conclusion)",
+   "figs": [],
+   "source": "a18"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S0",
+   "line": 0,
+   "title": "SEM, F1",
+   "tech": "SEM",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F1b",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F1b"
+   ],
+   "head": "Cross-section SEM: grain boundaries run from the film top to the substrate",
+   "solves": "",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "label",
+   "note": "F1b cross-section label reads 0.372 um thickness; text gives 475 nm for the film (F1b is a sample prepared under similar conditions)",
+   "claims": [
+    "a3"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for a3 (o1)."
+  },
+  {
+   "id": "M2",
+   "lane": 1,
+   "row": "S1",
+   "line": 0,
+   "title": "DIFF, F3",
+   "tech": "DIFF",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F3e, 10.1016/j.actamat.2014.06.008#F3f",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F3e",
+    "10.1016/j.actamat.2014.06.008#F3f"
+   ],
+   "head": "Measured peak is widest along q_y (about 10e-3 A-1), narrower along q_x, and compact along q_z",
+   "solves": "Before loading the grain already carries strong strain heterogeneity, in-plane and mainly along y, with uniform strain through the thickness",
+   "op": "compare coplotted quantities",
+   "verdict": "partial",
+   "source": "o5",
+   "tech_source": "modality",
+   "note": "text (Table 1, not in packet): heterogeneity small along z, moderate along x, large along y; judge: F3e shows a long streak along q_z (as in the strain-free calculation F3b), so \"compact along q_z\" holds only for the intense core; the z-width comparison needs Table 1",
+   "claims": [
+    "a11"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and a11 keeps shown support from o4, o6b."
+  },
+  {
+   "id": "M3",
+   "lane": 1,
+   "row": "S1",
+   "line": 1,
+   "title": "DIFF, F5",
+   "tech": "DIFF",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F5a, 10.1016/j.actamat.2014.06.008#F5c, 10.1016/j.actamat.2014.06.008#F5e",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F5a",
+    "10.1016/j.actamat.2014.06.008#F5c",
+    "10.1016/j.actamat.2014.06.008#F5e"
+   ],
+   "head": "q_x-q_y slices: the intense peak spreads further along q_x at 240 C than at 50 C and narrows again after cooling",
+   "solves": "On heating, strain heterogeneity in the grain grows mainly along x and falls back quasi-reversibly on cooling; it stays uniform along z",
+   "op": "compare across conditions, convert to quantity, replot derived series",
+   "verdict": "partial",
+   "source": "o8",
+   "tech_source": "modality",
+   "note": "broadening is visible in the colour extent, but the black guide-line spacing barely changes between panels",
+   "claims": [
+    "a13"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and a13 keeps shown support from o6, o11."
+  },
+  {
+   "id": "C4",
+   "lane": 2,
+   "row": "S1",
+   "line": 2,
+   "title": "EBSD, F1",
+   "tech": "EBSD",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F1d",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F1d"
+   ],
+   "head": "EBSD map: almost all grains blue across the island, a few red or orange grains scattered",
+   "solves": "Film has a strong {111} fibre texture: nearly all grains <111> out-of-plane, a few <100> grains",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "source": "o2",
+   "tech_source": "label",
+   "detail": "o2: EBSD map: almost all grains blue across the island, a few red or orange grains scattered",
+   "claims": [
+    "a10"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for a10 (o2)."
+  },
+  {
+   "id": "C5",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "DERIVED, F3, F6",
+   "tech": "DERIVED",
+   "figs": [
+    "F3",
+    "F6"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F3b, 10.1016/j.actamat.2014.06.008#F3c, 10.1016/j.actamat.2014.06.008#F3e, 10.1016/j.actamat.2014.06.008#F3f, 10.1016/j.actamat.2014.06.008#F6a",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F3b",
+    "10.1016/j.actamat.2014.06.008#F3c",
+    "10.1016/j.actamat.2014.06.008#F3e",
+    "10.1016/j.actamat.2014.06.008#F3f",
+    "10.1016/j.actamat.2014.06.008#F6a"
+   ],
+   "head": "Measured 3-D pattern and slices are much broader than the strain-free pattern computed from the grain shape and lose its fringes. At 50 C before heating, the xy phase map has many phase jumps varying along y",
+   "solves": "Before loading the grain already carries strong strain heterogeneity, in-plane and mainly along y, with uniform strain through the thickness",
+   "op": "assess spatial distribution, overlay model on data",
+   "verdict": "shown",
+   "source": "o4, o6b",
+   "tech_source": "label+none",
+   "detail": "o4: Measured 3-D pattern and slices are much broader than the strain-free pattern computed from the grain shape and lose its fringes; o6b: At 50 C before heating, the xy phase map has many phase jumps varying along y",
+   "claims": [
+    "a11"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for a11 (o4, o6b)."
+  },
+  {
+   "id": "C6",
+   "lane": 2,
+   "row": "S1",
+   "line": 4,
+   "title": "evidence, F4, F6",
+   "tech": "",
+   "figs": [
+    "F4",
+    "F6"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F6a, 10.1016/j.actamat.2014.06.008#F6b, 10.1016/j.actamat.2014.06.008#F6c, 10.1016/j.actamat.2014.06.008#F6d, 10.1016/j.actamat.2014.06.008#F6e, 10.1016/j.actamat.2014.06.008#F4b",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F6a",
+    "10.1016/j.actamat.2014.06.008#F6b",
+    "10.1016/j.actamat.2014.06.008#F6c",
+    "10.1016/j.actamat.2014.06.008#F6d",
+    "10.1016/j.actamat.2014.06.008#F6e",
+    "10.1016/j.actamat.2014.06.008#F4b"
+   ],
+   "head": "Reconstructed xz phase maps show only vertical bands: phase is uniform along z at every temperature. delta q_x rises from about 1.3e-3 A-1 at 35 C to 4.9e-3 at 262 C on heating and falls to about 1.95e-3 at 20 C on cooling.",
+   "solves": "On heating, strain heterogeneity in the grain grows mainly along x and falls back quasi-reversibly on cooling; it stays uniform along z",
+   "op": "compare across conditions, read trend",
+   "verdict": "partial",
+   "source": "o6, o10, o11",
+   "tech_source": "none",
+   "note": "vertical bands in every xz map, incl. 240 C (F6c, restored by judge) cooling branch lies above heating branch and ends about 50% above the start: quasi-reversible only; all widths are 2-7x the size width 6.61e-4 A-1 printed on the panel F6c (240 C) restored by judge: it is plainly the 240 C phase-map panel; its micrograph cue is the scale-bar detector firing on the colour bar",
+   "detail": "o6: Reconstructed xz phase maps show only vertical bands: phase is uniform along z at every temperature; o10: delta q_x rises from about 1.3e-3 A-1 at 35 C to 4.9e-3 at 262 C on heating and falls to about 1.95e-3 at 20 C on cooling; o11: xz phase maps: phase jumps along x increase from 50 C through 140 C to 240 C on heating and are fewer again at 50 C after cooling",
+   "claims": [
+    "a13"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for a13 (o6, o11)."
+  },
+  {
+   "id": "C7",
+   "lane": 2,
+   "row": "S1",
+   "line": 5,
+   "title": "EBSD, SEM, F7",
+   "tech": "EBSD, SEM",
+   "figs": [
+    "F7"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F7c, 10.1016/j.actamat.2014.06.008#F7b",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F7c",
+    "10.1016/j.actamat.2014.06.008#F7b"
+   ],
+   "head": "Projected <110> arrows: g1 and g5 coincide, g2 and g4 deviate slightly, g6 about 15 deg one way and g3 about 30 deg the other. EBSD map: g4 and g2 above and g5 below g1 along Y; g6 and g3 flank g1 on either side along X",
+   "solves": "Among g1's neighbours, g3 and g6 are strongly misoriented in-plane from g1, while g2, g4 and g5 are nearly aligned with it",
+   "op": "assess spatial distribution, compare coplotted quantities, replot derived series",
+   "verdict": "shown",
+   "source": "o15, o16",
+   "tech_source": "label+none",
+   "note": "F7a SEM is a mirrored and rotated view of the same neighbourhood",
+   "detail": "o15: Projected <110> arrows: g1 and g5 coincide, g2 and g4 deviate slightly, g6 about 15 deg one way and g3 about 30 deg the other; o16: EBSD map: g4 and g2 above and g5 below g1 along Y; g6 and g3 flank g1 on either side along X",
+   "claims": [
+    "a14"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for a14 (o15, o16)."
+  },
+  {
+   "id": "M8",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "SEM, F7",
+   "tech": "SEM",
+   "figs": [
+    "F7"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F7a",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F7a"
+   ],
+   "head": "SEM: dark grooves along the boundaries of the central grain with g6 and g3",
+   "solves": "",
+   "op": "inspect local feature",
+   "verdict": "partial",
+   "source": "o17",
+   "tech_source": "label",
+   "note": "g1-g2 and g1-g5 boundaries also show dark lines, so grooving is not clearly selective",
+   "claims": [
+    "a16"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and a16 has no other figure-backed support."
+  },
+  {
+   "id": "M9",
+   "lane": 1,
+   "row": "S2",
+   "line": 1,
+   "title": "DIFF, F5",
+   "tech": "DIFF",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F5a, 10.1016/j.actamat.2014.06.008#F5c, 10.1016/j.actamat.2014.06.008#F5e",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F5a",
+    "10.1016/j.actamat.2014.06.008#F5c",
+    "10.1016/j.actamat.2014.06.008#F5e"
+   ],
+   "head": "Peak centre moves from q_z about 0 at 50 C to about -10e-3 A-1 at 240 C and returns to about +2e-3 A-1 after cooling",
+   "solves": "In-situ CXD tracks the 3-D strain field of one sub-micron grain through a full thermal cycle",
+   "op": "compare across conditions, convert to quantity",
+   "verdict": "shown",
+   "source": "o7",
+   "tech_source": "modality",
+   "claims": [
+    "a17"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "a17 keeps shown support from o3 after removal."
+  },
+  {
+   "id": "C10",
+   "lane": 2,
+   "row": "S2",
+   "line": 2,
+   "title": "XRD:synchrotron, F4",
+   "tech": "XRD:synchrotron",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F4a",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F4a"
+   ],
+   "head": "Single-grain strain loops leave the thermoelastic line: slopes are much lower and heating and cooling branches do not coincide. Lab (film average) loop and synchrotron cycle 2 nearly coincide; synchrotron cycle 1 heating branch lies well above both",
+   "solves": "Single-grain out-of-plane strain vs temperature departs from the thermoelastic slope with hysteresis, and after the first heating it follows the film average",
+   "op": "compare across conditions, overlay model on data",
+   "verdict": "shown",
+   "source": "o13, o14",
+   "tech_source": "label+none",
+   "note": "Syn cycle 1 starts at -0.057% and ends at -0.167% after cooling (more compressive out-of-plane); text quotes 95 MPa -> 250 MPa in-plane stress; text also quotes M111 = 188.6 MPa, which must be GPa lab cycle runs to 350 C while text says cycles went to 270 C",
+   "detail": "o13: Single-grain strain loops leave the thermoelastic line: slopes are much lower and heating and cooling branches do not coincide; o14: Lab (film average) loop and synchrotron cycle 2 nearly coincide; synchrotron cycle 1 heating branch lies well above both",
+   "claims": [
+    "a15"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for a15 (o13, o14)."
+  },
+  {
+   "id": "C11",
+   "lane": 2,
+   "row": "S3",
+   "line": 0,
+   "title": "EBSD, XRD:CXD, F1",
+   "tech": "EBSD, XRD:CXD",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.actamat.2014.06.008#F1c",
+   "panel_ids": [
+    "10.1016/j.actamat.2014.06.008#F1c"
+   ],
+   "head": "{111} pole figure resolves tens of separate grain peaks; an isolated one is circled for CXD",
+   "solves": "In-situ CXD tracks the 3-D strain field of one sub-micron grain through a full thermal cycle",
+   "op": "register colocated views",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "label",
+   "note": "assignment of the circled peak to grain #g1 via EBSD comparison is text-only",
+   "detail": "o3: {111} pole figure resolves tens of separate grain peaks; an isolated one is circled for CXD",
+   "claims": [
+    "a17"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "a17 keeps shown support from o7 after removal."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "supports"
+  ],
+  [
+   "S0",
+   "S2",
+   "causes"
+  ],
+  [
+   "S1",
+   "S3",
+   "supports"
+  ],
+  [
+   "S2",
+   "S3",
+   "supports"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S1",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}

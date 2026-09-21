@@ -1,0 +1,185 @@
+{
+ "paper_id": "Bioactive_Materials/j.bioactmat.2019.01.001",
+ "title": "In vitro degradation and biocompatibility evaluation of typical biodegradable metals (Mg/Zn/Fe) for the application of tracheobronchial stenosis",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Bioactive_Materials/j.bioactmat.2019.01.001",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "s11",
+   "evidence": [
+    "b8"
+   ],
+   "hidden": [
+    "b8",
+    "s14",
+    "s15"
+   ],
+   "branch": "qualifies edge b8 -> s11",
+   "fm_family": "PHYS",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "PHYS"
+   ],
+   "channels_involved": [
+    "PHYS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "context"
+    },
+    {
+     "node": "s5",
+     "role": "context"
+    },
+    {
+     "node": "s8",
+     "role": "context"
+    },
+    {
+     "node": "s9",
+     "role": "context"
+    },
+    {
+     "node": "b8",
+     "role": "audit",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1016/j.bioactmat.2019.01.001#F3c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s11",
+     "role": "claim"
+    },
+    {
+     "node": "s14",
+     "role": "redacted"
+    },
+    {
+     "node": "s15",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:259",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:595",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:669",
+     "effect": "graded targets readable: b8 (figure)"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "s14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s15",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.bioactmat.2019.01.001#F3c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.bioactmat.2019.01.001#F3c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "b8"
+   ],
+   "target_verdicts": {
+    "b8": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "s11"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Degradation is slower in GS than in SBF, most strongly for HP-Mg (28 d: 0.78 vs 2.0 mm/y)"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "b8"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3c [PHYS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "b8"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: HP-Mg rate in GS rises steadily from 0.13 to 0.78 mm/y over 7-28 d while in SBF it falls from 3.4 to 2.0, so the gap narrows from ~25x to ~2"
+    }
+   ],
+   "question": "The claim under test says degradation is slower in GS than in SBF, most strongly for HP-Mg (28 d: 0.78 vs 2.0 mm/y). Does the trend in panel F3c support this reading, and how does the relationship between the HP-Mg degradation rates in the two media change over the 7-28 day immersion period?",
+   "answer_key": "Panel F3c shows the HP-Mg rate in GS rising steadily from 0.13 to 0.78 mm/y over 7-28 d, while in SBF it falls from 3.4 to 2.0 mm/y over the same period. So GS is indeed slower than SBF by day 28, but the two media start far apart (about a 25x gap at day 7) and converge to only about a 2.6x gap by day 28 - the claim's single day-28 snapshot holds but does not capture how much the separation between the media shrinks over the immersion period.",
+   "answer_scope": "full",
+   "grading": "Checked against the audit ruling on the panel: the trend numbers in b8 (0.13->0.78 mm/y in GS, 3.4->2.0 mm/y in SBF, gap narrowing from ~25x to ~2.6x), read off the given F3c panel and the given claim s11.",
+   "answer_key_nodes": [
+    "b8",
+    "s11"
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
