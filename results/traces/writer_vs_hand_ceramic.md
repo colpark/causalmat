@@ -145,7 +145,7 @@ Every verdict here is model against model; no human checked any item.
 | T8 (control) | provenance | provenance | coverage 0.23 |
 | T9, T10, T11 | - | - | - |
 
-Leak flags on non-closed traces: 3 of 9 (run 1) to 2 of 9 (run 2). Provenance flags: 1 to 2. Three ceramic traces (T4 and T7 on leak, T6 and T8 on provenance, so four in all) are candidates for the one-pass rewrite in part C.4, which was not run.
+Leak flags on non-closed traces: 3 of 9 (run 1) to 2 of 9 (run 2). Provenance flags: 1 to 2. Four ceramic traces (T4 and T7 on leak, T6 and T8 on provenance) are candidates for the one-pass rewrite in part C.4, which was not run.
 
 Observations: T7's mask is "hide the mechanism; show the rival", so naming thermal mismatch in the question follows the mask, and the leak net counts it as a leak anyway. That conflict is in the trace design, not only the writer. T3's run-2 key describes platelet size (T2's content) rather than SiC size. T3 is closed, so nothing is graded on it.
 
