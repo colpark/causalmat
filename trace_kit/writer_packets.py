@@ -10,7 +10,7 @@ import json, re, sys, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 EXEMPLARS = os.path.join(HERE, 'fixtures', 'writer_exemplars.json')
 NEGATIVE = os.path.join(HERE, 'fixtures', 'writer_exemplars_negative.json')   # questions not to write, one-line reason each
-FIELDS = ('question', 'answer_key', 'grading', 'answer_key_nodes')
+FIELDS = ('question', 'answer_key', 'answer_scope', 'grading', 'answer_key_nodes')
 DROP = FIELDS + ('validation',)
 EX_DROP = ('linear', 'walk')   # exemplars are for form and length of the written fields; their step lists only add bulk
 
@@ -38,7 +38,7 @@ def build(graph_path, traces_path, out_dir, loo=False, only=None, feedback=None)
                "\n\nWORKED EXAMPLES (follow their form and length)\n" + json.dumps(exs, separators=(',', ':')) +
                (("\n\nNEGATIVE EXAMPLES (questions NOT to write, with the reason)\n" + json.dumps(neg, separators=(',', ':'))) if neg else '') +
                (("\n\nYOUR PREVIOUS ATTEMPT FAILED A CHECK\n" + feedback[t['id']]) if feedback and t['id'] in feedback else '') +
-               '\n\nReply with JSON only: {"question": "...", "answer_key": "...", "grading": "...", "answer_key_nodes": [...]}')
+               '\n\nReply with JSON only: {"question": "...", "answer_key": "...", "answer_scope": "full|partial", "grading": "...", "answer_key_nodes": [...]}')
         open(os.path.join(out_dir, f"{t['id']}.writer.txt"), 'w').write(txt)
     print('packets ->', out_dir)
 

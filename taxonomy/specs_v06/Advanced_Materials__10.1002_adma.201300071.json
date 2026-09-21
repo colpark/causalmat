@@ -1,0 +1,455 @@
+{
+ "file": "Advanced_Materials__10.1002_adma.201300071.html",
+ "short": "Binding SnO2 Nanocrystals in Nitrogen-Doped Graphene Sheets ",
+ "journal": "Advanced_Materials",
+ "year": null,
+ "title": "Binding SnO2 Nanocrystals in Nitrogen-Doped Graphene Sheets as Anode Materials for Lithium-Ion Batteries",
+ "doi": "Advanced_Materials/10.1002_adma.201300071",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO, SEM, TEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: XRD",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "spec",
+   "label": "Spectroscopy: XAS",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "SnO2 anodes offer high Li capacity but lose it through volume change and particle aggregation on cycling. Binding SnO2 nanocrystals inside N-doped graphene sheets should give a high-capacity, long-life, high-rate anode.",
+   "detail": "Absorbed: h1 (HYP/need), h2 (HYP/hypothesis), d1 (DES/architecture), c1 (PRC/synthesis)",
+   "figs": [],
+   "source": "h1, h2, d1, c1"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "The nanocrystals are rutile SnO2, unchanged by the N-RGO. SnO2 crystallites are about 4-6 nm.",
+   "detail": "Absorbed: s1 (STR/phase/identity), s2 (STR/microstructure/feature_size), s4 (STR/microstructure/distribution), s6 (STR/interface)",
+   "figs": [],
+   "source": "s1, s2, s4, s6"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "SnO2NC@N-RGO delivers ~1100 mAh g-1 reversible capacity from the second cycle. Graphene encapsulation and binding buffer SnO2 volume change and stop nanocrystal aggregation, keeping electrical contact.",
+   "detail": "Absorbed: p1 (PRP/value), m1 (MEC/pathway), m2 (MEC/pathway). Premises: Solid-state diffusion time scales as L^2/D, so smaller crystals lithiate faster",
+   "figs": [],
+   "source": "p1, m1, m2"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "The anode keeps ~1350 mAh g-1 after 500 cycles at ~99% Coulombic efficiency. The anode retains ~420 mAh g-1 at 20 A g-1 and recovers ~1000 mAh g-1 back at 0.5 A g-1",
+   "detail": "Absorbed: f1 (PRF/service_capability), f2 (PRF/service_capability)",
+   "figs": [],
+   "source": "f1, f2"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Binding SnO2 nanocrystals in N-doped graphene yields a high-capacity, long-life, high-rate Li-ion anode",
+   "detail": "Absorbed: dsc (DSC/conclusion)",
+   "figs": [],
+   "source": "dsc"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "TEM:HRTEM, F1",
+   "tech": "TEM:HRTEM",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/adma.201300071#F1d",
+   "panel_ids": [
+    "10.1002/adma.201300071#F1d"
+   ],
+   "head": "HRTEM shows densely packed lattice-fringed crystallites about 4-6 nm across",
+   "solves": "SnO2 crystallites are about 4-6 nm",
+   "op": "measure feature metric",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "label",
+   "note": "sized against the 5 nm bar; SnO2 (110) fringes labelled; wavy N-RGO layers at the edge",
+   "claims": [
+    "s2"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s2 (o3)."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 1,
+   "title": "SEM, F1",
+   "tech": "SEM",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/adma.201300071#F1b",
+   "panel_ids": [
+    "10.1002/adma.201300071#F1b"
+   ],
+   "head": "High-magnification SEM shows smooth wrinkled sheet surfaces with no exposed particles",
+   "solves": "SnO2 nanocrystals are encapsulated beneath a carbon (graphene) skin",
+   "op": "inspect local feature",
+   "verdict": "partial",
+   "source": "o6",
+   "tech_source": "label",
+   "note": "4-6 nm crystallites would be near the SEM resolution limit, so absence is weak evidence",
+   "claims": [
+    "s4"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and s4 keeps shown support from o5."
+  },
+  {
+   "id": "M3",
+   "lane": 1,
+   "row": "S1",
+   "line": 2,
+   "title": "XRD, F2",
+   "tech": "XRD",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adma.201300071#F2b",
+   "panel_ids": [
+    "10.1002/adma.201300071#F2b"
+   ],
+   "head": "Composite and bare SnO2NC XRD patterns coincide and match the standard SnO2 lines; no extra phase",
+   "solves": "The nanocrystals are rutile SnO2, unchanged by the N-RGO",
+   "op": "match to reference",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "label",
+   "note": "reflections broad (nanocrystalline); no graphite (002) peak near 26 deg separate from SnO2 (110)",
+   "claims": [
+    "s1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s1 keeps shown support from o2 after removal."
+  },
+  {
+   "id": "M4",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "XAS:XANES, F2",
+   "tech": "XAS:XANES",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adma.201300071#F2f",
+   "panel_ids": [
+    "10.1002/adma.201300071#F2f"
+   ],
+   "head": "C K-edge XANES of the composite nearly overlays N-RGO, with slightly higher pi* and sigma* intensity",
+   "solves": "SnO2 nanocrystals are chemically bound to the N-RGO sheets",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o8",
+   "tech_source": "label",
+   "note": "no new peak appears; differences are small and could reflect normalisation, so binding is only weakly shown",
+   "claims": [
+    "s6"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and s6 has no other figure-backed support."
+  },
+  {
+   "id": "C5",
+   "lane": 4,
+   "row": "S1",
+   "line": 4,
+   "title": "TEM:SAED, F1",
+   "tech": "TEM:SAED",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/adma.201300071#F1c",
+   "panel_ids": [
+    "10.1002/adma.201300071#F1c"
+   ],
+   "head": "SAED rings index to SnO2 (110), (101), (200), (211), (301)",
+   "solves": "The nanocrystals are rutile SnO2, unchanged by the N-RGO",
+   "op": "assign features",
+   "verdict": "shown",
+   "source": "o2",
+   "tech_source": "label",
+   "detail": "o2: SAED rings index to SnO2 (110), (101), (200), (211), (301)",
+   "claims": [
+    "s1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s1 keeps shown support from o1 after removal."
+  },
+  {
+   "id": "C6",
+   "lane": 4,
+   "row": "S1",
+   "line": 5,
+   "title": "EDS:AES, F2",
+   "tech": "EDS:AES",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adma.201300071#F2d",
+   "panel_ids": [
+    "10.1002/adma.201300071#F2d"
+   ],
+   "head": "AES depth profile: Sn rises from ~5 at% at the surface to ~21 at% after 0.2 min sputtering, then ~24 at%",
+   "solves": "SnO2 nanocrystals are encapsulated beneath a carbon (graphene) skin",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o5",
+   "tech_source": "label",
+   "note": "F2c surface AES survey dominated by C with weak Sn and O",
+   "detail": "o5: AES depth profile: Sn rises from ~5 at% at the surface to ~21 at% after 0.2 min sputtering, then ~24 at%",
+   "claims": [
+    "s4"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s4 (o5)."
+  },
+  {
+   "id": "M7",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "MICRO, F4",
+   "tech": "MICRO",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/adma.201300071#F4a, 10.1002/adma.201300071#F4f",
+   "panel_ids": [
+    "10.1002/adma.201300071#F4a",
+    "10.1002/adma.201300071#F4f"
+   ],
+   "head": "After cycling the active material is a compact ~2-3 um agglomerate",
+   "solves": "Graphene encapsulation and binding buffer SnO2 volume change and stop nanocrystal aggregation, keeping electrical contact",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o16",
+   "tech_source": "modality",
+   "note": "F4f (300 nm bar) shows a dense ~2.5 um particle; F4a (100 nm bar) shows only a boxed field of packed nanocrystals, so a pre-cycling particle outline is not available for comparison; the cycled electrode also contains binder and additive",
+   "claims": [
+    "m1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and m1 keeps shown support from o4, o13."
+  },
+  {
+   "id": "C8",
+   "lane": 4,
+   "row": "S2",
+   "line": 1,
+   "title": "ATOM:DFT, ECHEM:CV, EDS:spectrum, PHYS:surfacearea, XPS:region, F2, F3, F4",
+   "tech": "ATOM:DFT, ECHEM:CV, EDS:spectrum, PHYS:surfacearea, XPS:region",
+   "figs": [
+    "F2",
+    "F3",
+    "F4"
+   ],
+   "panel": "10.1002/adma.201300071#F4c, 10.1002/adma.201300071#F4d, 10.1002/adma.201300071#F4e, 10.1002/adma.201300071#F2a, 10.1002/adma.201300071#F2e, 10.1002/adma.201300071#F3a",
+   "panel_ids": [
+    "10.1002/adma.201300071#F4c",
+    "10.1002/adma.201300071#F4d",
+    "10.1002/adma.201300071#F4e",
+    "10.1002/adma.201300071#F2a",
+    "10.1002/adma.201300071#F2e",
+    "10.1002/adma.201300071#F3a"
+   ],
+   "head": "EDS maps: C, O and Sn signals co-extensive and even across the mapped area. XPS survey shows a weak N 1s peak near 400 eV beside Sn, O and C.",
+   "solves": "",
+   "op": "assign features, read characteristic point, register colocated views",
+   "verdict": "shown",
+   "source": "o4, o7, o9, o11",
+   "tech_source": "label",
+   "note": "dark patches coincide in all three channels (thickness), not Sn-free regions; region boxed in F4a inset N 1s fitted with two components near 401 and 399.5 eV; N content not quantified in the figure DFT-derived distribution; isotherm rises almost linearly to ~230 cm3 g-1 with no clear hysteresis loop",
+   "detail": "o4: EDS maps: C, O and Sn signals co-extensive and even across the mapped area; o7: XPS survey shows a weak N 1s peak near 400 eV beside Sn, O and C; o9: Pore-size distribution (inset) peaks near 2-3 nm; o11: CV: a cathodic peak at ~0.95 V appears only in cycle 1; peaks at ~0.15 V (cathodic) and ~0.5 and ~1.25 V (anodic) persist",
+   "claims": [
+    "m1",
+    "m2",
+    "p1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "m1, m2, p1 keeps shown support from o13, o10 after removal."
+  },
+  {
+   "id": "C9",
+   "lane": 4,
+   "row": "S2",
+   "line": 2,
+   "title": "evidence, F3",
+   "tech": "",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adma.201300071#F3b",
+   "panel_ids": [
+    "10.1002/adma.201300071#F3b"
+   ],
+   "head": "First discharge ~1850 mAh g-1, first and later charges ~1050-1150 mAh g-1",
+   "solves": "SnO2NC@N-RGO delivers ~1100 mAh g-1 reversible capacity from the second cycle",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o10",
+   "tech_source": "none",
+   "note": "first-cycle Coulombic efficiency ~60%; 2nd and 3rd curves nearly overlap",
+   "detail": "o10: First discharge ~1850 mAh g-1, first and later charges ~1050-1150 mAh g-1",
+   "claims": [
+    "p1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "p1 keeps shown support from o11 after removal."
+  },
+  {
+   "id": "C10",
+   "lane": 4,
+   "row": "S2",
+   "line": 3,
+   "title": "EDS:spectrum, F3, F4",
+   "tech": "EDS:spectrum",
+   "figs": [
+    "F3",
+    "F4"
+   ],
+   "panel": "10.1002/adma.201300071#F3c, 10.1002/adma.201300071#F4h, 10.1002/adma.201300071#F4i, 10.1002/adma.201300071#F4j",
+   "panel_ids": [
+    "10.1002/adma.201300071#F3c",
+    "10.1002/adma.201300071#F4h",
+    "10.1002/adma.201300071#F4i",
+    "10.1002/adma.201300071#F4j"
+   ],
+   "head": "The late capacity rise ends ~20% above the early reversible capacity, which buffering alone does not predict. After 500 cycles, C, O and Sn maps still overlap across the particle, but Sn shows bright Sn-rich streaks",
+   "solves": "Graphene encapsulation and binding buffer SnO2 volume change and stop nanocrystal aggregation, keeping electrical contact",
+   "op": "compare across conditions, cross check consistency",
+   "verdict": "partial",
+   "source": "o13, o15",
+   "tech_source": "label+none",
+   "note": "rise from ~1000 to ~1350 mAh g-1 between cycles 20 and 500; contributions from electrolyte-derived films or carbon activation are not separated EDX I_O:I_Sn rises from 0.87 (F4b) to 1.31 (F4g) and C dominates the cycled spectrum (SEI, binder, conductive additive)",
+   "detail": "o13: The late capacity rise ends ~20% above the early reversible capacity, which buffering alone does not predict; o15: After 500 cycles, C, O and Sn maps still overlap across the particle, but Sn shows bright Sn-rich streaks",
+   "claims": [
+    "m1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "m1 keeps shown support from o4 after removal."
+  },
+  {
+   "id": "C11",
+   "lane": 4,
+   "row": "S3",
+   "line": 0,
+   "title": "evidence, F3",
+   "tech": "",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adma.201300071#F3c",
+   "panel_ids": [
+    "10.1002/adma.201300071#F3c"
+   ],
+   "head": "Capacity dips to ~1000 mAh g-1 by cycle ~20, then climbs to ~1350 mAh g-1 at cycle 500; CE ~99%",
+   "solves": "The anode keeps ~1350 mAh g-1 after 500 cycles at ~99% Coulombic efficiency",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o12",
+   "tech_source": "none",
+   "detail": "o12: Capacity dips to ~1000 mAh g-1 by cycle ~20, then climbs to ~1350 mAh g-1 at cycle 500; CE ~99%",
+   "claims": [
+    "f1"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for f1 (o12)."
+  },
+  {
+   "id": "C12",
+   "lane": 4,
+   "row": "S3",
+   "line": 1,
+   "title": "evidence, F3",
+   "tech": "",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adma.201300071#F3d",
+   "panel_ids": [
+    "10.1002/adma.201300071#F3d"
+   ],
+   "head": "Capacity steps down ~1100, 1000, 950, 800, 650, 420 mAh g-1 from 0.5 to 20 A g-1 and returns to ~1000 at 0.5 A g-1",
+   "solves": "The anode retains ~420 mAh g-1 at 20 A g-1 and recovers ~1000 mAh g-1 back at 0.5 A g-1",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o14",
+   "tech_source": "none",
+   "detail": "o14: Capacity steps down ~1100, 1000, 950, 800, 650, 420 mAh g-1 from 0.5 to 20 A g-1 and returns to ~1000 at 0.5 A g-1",
+   "claims": [
+    "f2"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for f2 (o14)."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S1",
+   "S3",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "explains"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}

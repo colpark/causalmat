@@ -1,0 +1,321 @@
+{
+ "paper_id": "Advanced_Energy_Materials/aenm.201301564",
+ "title": "Quantum-Dot Sensitized Solar Cells Employing Hierarchical Cu2S Microspheres Wrapped by Reduced Graphene Oxide Nanosheets as Effective Counter Electrodes",
+ "cutter": "v2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Energy_Materials/aenm.201301564",
+   "root": "infer",
+   "subtype": "rank",
+   "seed_claim": "b8",
+   "evidence": [
+    "q6"
+   ],
+   "hidden": [
+    "q6",
+    "b8",
+    "b12",
+    "b11",
+    "b13",
+    "b14"
+   ],
+   "branch": "evidences edge q6 -> b8",
+   "fm_family": "SEM",
+   "lift": "budget spanning panels",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM",
+    "TEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "not derivable from given panels: q6 source text; q6 requires unseen [\"panels b-d = RGO-Cu2S-1/-2/-3 (caption; caption prints 'RCO-Cu2S-7' for -1)\", 'red circles mark RGO (caption)']; b8 source text; b8 requires unseen ['sample identity of SEM panels b-d and meaning of red circles (caption only)']",
+   "walk": [
+    {
+     "node": "b1",
+     "role": "context"
+    },
+    {
+     "node": "b2",
+     "role": "context"
+    },
+    {
+     "node": "b5",
+     "role": "context"
+    },
+    {
+     "node": "q6",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.201301564#F1b",
+      "10.1002/aenm.201301564#F1c",
+      "10.1002/aenm.201301564#F1d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "b8",
+     "role": "claim"
+    },
+    {
+     "node": "b12",
+     "role": "downstream"
+    },
+    {
+     "node": "b11",
+     "role": "downstream"
+    },
+    {
+     "node": "b13",
+     "role": "downstream"
+    },
+    {
+     "node": "b14",
+     "role": "downstream"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.201301564#F1b",
+    "10.1002/aenm.201301564#F1c",
+    "10.1002/aenm.201301564#F1d"
+   ],
+   "v2_rules": [
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:460",
+     "effect": "not derivable from given panels: q6 source text; q6 requires unseen [\"panels b-d = RGO-Cu2S-1/-2/-3 (caption; caption prints 'RCO-Cu2S-7' for -1)\", 'red circles mark RGO (caption)']; b8 source text; b8 requires unseen ['sample identity of SEM panels b-d and meaning of red circles (caption only)']"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "b1",
+      "b2",
+      "b5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Wrapping hierarchical Cu2S microspheres in reduced -> Hierarchical Cu2S microspheres as the catalytic co -> Solvothermal growth of Cu2S microspheres in the pr"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "q6"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1b, F1c, F1d [SEM] and rank (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "q6"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Crumpled sheets drape over and between spheres; few in b (circled), more in c, nearly covering spheres in d"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "b8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: RGO sheets wrap and bridge the microspheres, coverage rising with loading until -3 buries them"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "b12",
+      "b11",
+      "b13",
+      "b14"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Conductive RGO sheets link the Cu2S microspheres and add accessible surface, speeding electron trans"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Energy_Materials/aenm.201301564",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "b11",
+   "evidence": [
+    "q16"
+   ],
+   "hidden": [
+    "q16",
+    "b13",
+    "b14",
+    "b1"
+   ],
+   "branch": "qualifies edge q16 -> b11",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "b1",
+     "role": "redacted"
+    },
+    {
+     "node": "b2",
+     "role": "context"
+    },
+    {
+     "node": "b5",
+     "role": "context"
+    },
+    {
+     "node": "b6",
+     "role": "context"
+    },
+    {
+     "node": "b12",
+     "role": "context"
+    },
+    {
+     "node": "q16",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.201301564#F6a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "b11",
+     "role": "claim"
+    },
+    {
+     "node": "b13",
+     "role": "redacted"
+    },
+    {
+     "node": "b14",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "b13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "b14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "b1",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.201301564#F6a"
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "b11"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Electrocatalytic activity for polysulfide reduction ranks RGO-Cu2S-2 > Cu2S >> Pt"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "q16"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F6a [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "q16"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: RGO-Cu2S and Cu2S CVs nearly overlap: cathodic peaks differ by <5% and Cu2S reaches the higher anodic current"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Advanced_Energy_Materials__aenm.201301564",
+   "trace": "T1",
+   "root": "infer",
+   "subtype": "rank",
+   "targets": [
+    "q6",
+    "b8"
+   ],
+   "why": [
+    "q6 source text",
+    "q6 requires unseen [\"panels b-d = RGO-Cu2S-1/-2/-3 (caption; caption prints 'RCO-Cu2S-7' for -1)\", 'red circles mark RGO (caption)']",
+    "b8 source text",
+    "b8 requires unseen ['sample identity of SEM panels b-d and meaning of red circles (caption only)']"
+   ],
+   "labels": {
+    "q6": "Crumpled sheets drape over and between spheres; few in b (circled), more in c, nearly covering spheres in d",
+    "b8": "RGO sheets wrap and bridge the microspheres, coverage rising with loading until -3 buries them"
+   }
+  }
+ ]
+}

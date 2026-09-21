@@ -1,0 +1,329 @@
+{
+ "paper_id": "Journal_of_Advanced_Ceramics/s40145-019-0334-4",
+ "title": "Fabrication and mechanical properties of self-toughening ZrB2-SiC composites from in-situ reaction",
+ "cutter": "v2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-019-0334-4",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "j12",
+   "evidence": [
+    "o18"
+   ],
+   "hidden": [
+    "j12",
+    "j10",
+    "j14",
+    "j2",
+    "k1"
+   ],
+   "branch": "evidences edge o18 -> j12",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
+   "status": "closed",
+   "ruling": "not derivable from given panels: no given evidence panel read from pixels or axes (all annotation or withheld)",
+   "walk": [
+    {
+     "node": "j1",
+     "role": "context"
+    },
+    {
+     "node": "j2",
+     "role": "redacted"
+    },
+    {
+     "node": "j3",
+     "role": "context"
+    },
+    {
+     "node": "j5",
+     "role": "context"
+    },
+    {
+     "node": "j8",
+     "role": "context"
+    },
+    {
+     "node": "o18",
+     "role": "evidence",
+     "op": "recognize_signature",
+     "panel_ids": [
+      "10.1007/s40145-019-0334-4#F8f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "j12",
+     "role": "claim"
+    },
+    {
+     "node": "j10",
+     "role": "redacted"
+    },
+    {
+     "node": "j14",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "j10",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "j14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "j2",
+     "why": "hypothesis states the mechanism the model must produce"
+    },
+    {
+     "node": "k1",
+     "why": "premise of the hidden mechanism"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1007/s40145-019-0334-4#F8f"
+   ],
+   "v2_rules": [
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:460",
+     "effect": "not derivable from given panels: no given evidence panel read from pixels or axes (all annotation or withheld)"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o18"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: Indentation crack path shows deflection, bridging, grain pull-out and branching into a SiC-rich region  [panels F8f]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "j12",
+      "k1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: ZrB2 platelets deflect, bridge and pull out of the crack path and SiC-rich regions branch it, raising toughness  [premise: k1]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "j10"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: Fracture toughness rises from ~4.3 (RZSZ-0) to ~6.1 MPa m^1/2 at RZSZ-20 and stays ~6.0 at RZSZ-25"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-019-0334-4",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "j11",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "j14",
+    "j2"
+   ],
+   "branch": "qualifies edge a2 -> j11",
+   "fm_family": "PHYS",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "PHYS"
+   ],
+   "channels_involved": [
+    "PHYS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "control",
+   "ruling": "plot read, no domain model: depth-one negative control",
+   "walk": [
+    {
+     "node": "j1",
+     "role": "context"
+    },
+    {
+     "node": "j2",
+     "role": "redacted"
+    },
+    {
+     "node": "j3",
+     "role": "context"
+    },
+    {
+     "node": "j5",
+     "role": "context"
+    },
+    {
+     "node": "j7",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "correlate_across_series",
+     "panel_ids": [
+      "10.1007/s40145-019-0334-4#F4",
+      "10.1007/s40145-019-0334-4#F7"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "j11",
+     "role": "claim"
+    },
+    {
+     "node": "j14",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "j14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "j2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1007/s40145-019-0334-4#F4",
+    "10.1007/s40145-019-0334-4#F7"
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "j11"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Flexural strength rises from ~505 MPa (RZSZ-0) to a maximum ~655 MPa at RZSZ-20, then drops to ~570 MPa"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4, F7 [PHYS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Density peaks at RZSZ-15 while hardness, strength and toughness peak at RZSZ-20"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-019-0334-4",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "j3",
+   "evidence": [],
+   "branch": "DES/route j3",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "j3"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Journal_of_Advanced_Ceramics__s40145-019-0334-4",
+   "trace": "T1",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "j12"
+   ],
+   "why": [
+    "no given evidence panel read from pixels or axes (all annotation or withheld)"
+   ],
+   "labels": {
+    "j12": "ZrB2 platelets deflect, bridge and pull out of the crack path and SiC-rich regions branch it, raising toughness"
+   }
+  }
+ ]
+}

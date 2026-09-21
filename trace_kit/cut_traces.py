@@ -15,8 +15,11 @@ Rules (see the design note):
   R7 mask by root
   R9 one group id per graph
 """
-import json, sys, re
+import json, sys, re, os, inspect
 from collections import defaultdict
+V2 = False   # cutter v2 (v06 pilot): switched on by cut() when the graph is a v06 graph (batch v06_pilot)
+def here(): return f"cut_traces.py:{inspect.stack()[1].lineno}"
+def mark(t, rule, effect): t.setdefault("v2_rules", []).append({"rule": rule, "where": f"cut_traces.py:{inspect.stack()[1].lineno}", "effect": effect})
 
 FM_FAMILIES = {"SEM", "TEM", "XRD", "XAS", "ATOM"}
 SUBTYPE = {"measure_feature_metric": "estimate", "read_trend": "estimate", "read_characteristic_point": "estimate",
@@ -49,6 +52,14 @@ def load(graph_path, spec_path):
         for m in str(ln.get("source", "")).replace(",", " ").split():
             nec[m] = ln.get("necessity")
     return g, s, N, inn, out, nec
+
+
+STOPW = set("with from that this than then their there these those which while where about into onto over under after before between across along each only both also have has were been being show shows shown".split())
+def cwords(s): return {re.sub(r"(ing|ed|es|s)$", "", re.sub(r"ies$", "y", w)) for w in re.findall(r"[a-z]{4,}", (s or "").lower()) if w not in STOPW}
+def claim_key(label): return " ".join(sorted(cwords(label)))
+def same_claim(a, b):
+    A, B = cwords(a), cwords(b)
+    return bool(A and B) and len(A & B) / len(A | B) >= 0.6
 
 
 def is_obs(n): return n["type"].startswith("OBS")
@@ -112,8 +123,11 @@ def walk(N, inn, out, claim, evidence_ids, extra=()):
     return steps
 
 
-def cut(graph_path, spec_path, group_id):
+def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
+    global V2
     g, s, N, inn, out, nec = load(graph_path, spec_path)
+    V2 = g.get("batch") == "v06_pilot"
+    store = store_for(graph_path) if V2 else None
     traces = []
     tid = 0
 
@@ -138,6 +152,8 @@ def cut(graph_path, spec_path, group_id):
                 root, sub = "explain", "mechanism"
             else:
                 root, sub = "infer", SUBTYPE.get(op, "estimate")
+                if V2 and sub == "rank" and len(N[ev].get("panel_ids") or []) < 3:
+                    sub = "compare"   # v2 rule 7 (rank needs three or more conditions): two conditions -> infer/compare
             # --- lift (infer only)
             lift = None
             if root == "infer":
@@ -196,10 +212,13 @@ def cut(graph_path, spec_path, group_id):
                 grader = ("certified judge against the graph's mechanism, with the rival named" if rivals
                           else "certified judge against the graph's mechanism; no rival in the graph")
                 extra = {"rival": rivals or None, "rival_note": None if rivals else "no second explains edge and no rules_out edge: no rival"}
-            new(**extra, root=root, subtype=sub, seed_claim=c, evidence=[ev], hidden=hidden, branch=f"{rel} edge {ev} -> {c}",
+            _t = new(**extra, root=root, subtype=sub, seed_claim=c, evidence=[ev], hidden=hidden, branch=f"{rel} edge {ev} -> {c}",
                 fm_family=fam, lift=lift, floor={"reaches": floor_reaches, "support": floor_support},
                 depth=depth, depth_families=depth_fams, channels_involved=involved, mask=mask, grader=grader,
                 status=status, ruling=why, walk=w)
+            if V2 and sub == "compare":
+                _t["answer_format"] = "state the difference between the two conditions; do not rank"
+                mark(_t, "R7", f"{len(N[ev].get('panel_ids') or [])} panels: rank became infer/compare")
 
     # --- non-FM audits: negative-control stratum (same shape, no domain model needed)
     for c in claims:
@@ -220,6 +239,25 @@ def cut(graph_path, spec_path, group_id):
         if len(causes) >= 2 and N[c]["type"].startswith("PRP"):
             fm_support = [i for cc in causes for i in support_of(N, inn, cc) if family(N[i]) in FM_FAMILIES]
             if not fm_support: continue
+            if V2:
+                # v2 rule 1 (rivals only when the graph says so): a competing-causes trace needs mode: alternative on the
+                # causes edges, or a rules_out / contrasts edge touching the claim or a cause; joint causes become a mechanism trace
+                modes = {e.get("mode") for e in inn[c] if e["rel"] == "causes"}
+                contrast = any(e["rel"] in ("rules_out", "contrasts") for x in [c] + causes for e in inn[x])
+                if "alternative" not in modes and not contrast:
+                    mechs1 = sorted({e["src"] for e in inn[c] if e["rel"] == "explains"})
+                    if mechs1 and any(t0["subtype"] == "mechanism" and t0["seed_claim"] == mechs1[0] for t0 in traces):
+                        continue   # the mechanism already has its own explain/mechanism trace
+                    if mechs1:
+                        m0 = mechs1[0]; ev1 = support_of(N, inn, m0) or support_of(N, inn, c)
+                        t = new(root="explain", subtype="mechanism", seed_claim=m0, evidence=ev1, hidden=[m0], branch=f"joint causes {causes} of {c}, explained by {m0}",
+                                fm_family="SEM", lift=None, floor={"reaches": False, "support": []}, depth=len({family(N[i]) for i in ev1}),
+                                depth_families=sorted({family(N[i]) for i in ev1}), channels_involved=sorted({family(N[i]) for i in ev1}),
+                                mask="hide the mechanism and its premises; show the observation and the joint causes",
+                                grader="certified judge against the graph's mechanism; causes act jointly, no rival",
+                                status="open", ruling="", walk=walk(N, inn, out, m0, ev1, extra=[{"node": cc, "role": "context"} for cc in causes]))
+                        mark(t, "R1", f"causes {causes} into {c} are joint (modes {sorted(x for x in modes if x)}): mechanism trace, not competing causes")
+                    continue
             all_sup = [i for cc in causes for i in support_of(N, inn, cc)] + support_of(N, inn, c)
             fams = leave_one_family_out(N, inn, c, support_of(N, inn, c))
             depth = len({family(N[i]) for i in all_sup})
@@ -276,8 +314,15 @@ def cut(graph_path, spec_path, group_id):
     for t in traces:
         # dedupe the walk (a node may enter as context and again as cause)
         seen, w = set(), []
+        seen_claims = {}
         for st in t.get("walk", []):
             if st["node"] in seen and st["role"] in ("context", "downstream"): continue
+            if V2 and st["role"] in ("context", "downstream"):
+                # v2 rule 9 (deduplicate the walk by claim, not only by node id)
+                k = claim_key(N[st["node"]]["label"])
+                if k in seen_claims:
+                    mark(t, "R9", f"{st['node']} restates {seen_claims[k]}: dropped from the walk"); continue
+                seen_claims[k] = st["node"]
             seen.add(st["node"]); w.append(st)
         t["walk"] = w
         if t["root"] == "explain":
@@ -295,8 +340,148 @@ def cut(graph_path, spec_path, group_id):
                 if e["rel"] == "premise_for" and N[e["src"]]["type"].startswith("KNW") and e["src"] not in t["hidden"]:
                     t["hidden"].append(e["src"])
                     t.setdefault("redactions", []).append({"node": e["src"], "why": "premise of the hidden mechanism"})
+        if V2:
+            t["has_sweep"] = any(n["type"].startswith("DES/variable_sweep") for n in g["nodes"])
+            v2_prelinear(t, N, inn, out, store, masked_dir, os.path.basename(graph_path)[:-5])
         t["linear"] = linearize(N, inn, out, t)
     return g, traces
+
+
+# ======================= cutter v2 (v06 pilot): rules 3-6 and 8, applied before linearize =======================
+CUE_TECH = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "cue_technique.json")))
+KNOWLEDGE_PILE = []
+
+def store_for(graph_path):
+    name = os.path.basename(graph_path)[:-5]; j, _, d = name.partition("__")
+    base = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "matmech", j, d)
+    mj = json.load(open(f"{base}/panels/match.json")); pj = json.load(open(f"{base}/panels/panels.json"))
+    ocr = {c["crop"]: c for c in json.load(open(f"{base}/panels/ocr.json"))["crops"]} if os.path.exists(f"{base}/panels/ocr.json") else {}
+    return base, mj, pj, ocr
+
+def panel_record(store, pid):
+    """crop path (absolute), caption span, OCR record for a canonical panel id; the figure number maps to the image via match.json."""
+    base, mj, pj, ocr = store
+    m = re.match(r".*#F(\d+)([a-z]?)$", pid)
+    if not m: return None
+    n, let = int(m.group(1)), m.group(2).upper()
+    fig = next((f for f in mj["figures"] if f["figure_number"] == n), None)
+    if not fig: return None
+    pf = next((f for f in pj["figures"] if f["file"] == fig["file"]), {})
+    if let:
+        det = next((d for d in pf.get("detections", []) if d.get("label", "").upper() == let and d.get("crop")), None)
+        span = next((p.get("definition") for p in fig["panels"] if p.get("label", "").upper() == let), None)
+        if not det: return {"crop": None, "span": span, "ocr": {}, "figure": os.path.join(base, fig["file"])}
+        return {"crop": os.path.join(base, det["crop"]), "span": span, "ocr": ocr.get(det["crop"], {}), "figure": os.path.join(base, fig["file"])}
+    return {"crop": os.path.join(base, fig["file"]), "span": fig.get("caption_preamble"), "ocr": {}, "figure": os.path.join(base, fig["file"])}
+
+def annotations(rec):
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "taxonomy"))
+    from build_packets_v06 import classify
+    return [t for t in (rec.get("ocr") or {}).get("tokens", []) if classify(t["text"]) == "annotation"]
+
+def shares_content(a, labels):
+    A = cwords(a); H = set().union(*[cwords(l) for l in labels]) if labels else set()
+    return sorted({x for x in A for h in H if len(x) >= 5 and len(h) >= 5 and x[:5] == h[:5]})
+
+def mask_crop(src, boxes, dst):
+    from PIL import Image
+    import statistics
+    im = Image.open(src).convert("RGB"); px = im.load(); W, H = im.size
+    for x0, y0, x1, y1 in boxes:
+        x0, y0, x1, y1 = max(0, x0 - 2), max(0, y0 - 2), min(W - 1, x1 + 2), min(H - 1, y1 + 2)
+        ring = [px[x, y] for x in range(max(0, x0 - 3), min(W, x1 + 4)) for y in (max(0, y0 - 3), min(H - 1, y1 + 3))] + \
+               [px[x, y] for y in range(max(0, y0 - 3), min(H, y1 + 4)) for x in (max(0, x0 - 3), min(W - 1, x1 + 3))]
+        fill = tuple(int(statistics.median(c[i] for c in ring)) for i in range(3))
+        for x in range(x0, x1 + 1):
+            for y in range(y0, y1 + 1): px[x, y] = fill
+    os.makedirs(os.path.dirname(dst), exist_ok=True); im.save(dst, quality=95)
+
+def num_of(s):
+    m = re.search(r"(\d+(?:\.\d+)?)", s or ""); return float(m.group(1)) if m else None
+
+def targets_of(t):
+    red = {r["node"] for r in t.get("redactions", [])}
+    if t["root"] == "infer": return [t["evidence"][0], t["seed_claim"]]
+    if t["subtype"] == "competing causes": return [h for h in t.get("hidden", []) if h not in red]
+    if t["subtype"] == "rejection": return t["evidence"][:1]
+    return [t["seed_claim"]]
+
+def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
+    if t["status"] == "closed" or not t.get("walk"): return
+    hidden = set(t.get("hidden", []))
+    # v2 rule 4 part 2 (nothing from after the answer, all roots): no context node may share a claim with a hidden node
+    for st in t["walk"]:
+        if st["role"] == "context" and any(same_claim(N[st["node"]]["label"], N[h]["label"]) for h in hidden if h in N):
+            st["role"] = "redacted"; t.setdefault("hidden", []).append(st["node"])
+            t.setdefault("redactions", []).append({"node": st["node"], "why": "shares a claim with a hidden node"})
+            mark(t, "R4", f"context {st['node']} shares a claim with a hidden node: redacted")
+    # v2 rule 4 part 1 (intervene): withhold every panel at or beyond the decision condition and every series panel;
+    # the key must name the condition directly after the last one given
+    if t["root"] == "intervene":
+        sweep = next((n for n in N.values() if n["type"].startswith("DES/variable_sweep")), None)
+        levels = sorted({float(x) for x in re.findall(r"(\d+(?:\.\d+)?)", sweep["label"])}) if sweep else []
+        decision = num_of(N[t["seed_claim"]]["label"])
+        given, withheld = [], []
+        for ev in t["evidence"]:
+            conds = (N[ev].get("attrs") or {}).get("panel_conditions") or []
+            for i, pid in enumerate(N[ev].get("panel_ids") or []):
+                rec = panel_record(store, pid) or {}
+                v = num_of(conds[i]["condition"]) if i < len(conds) and conds[i].get("condition") else num_of(rec.get("span"))
+                if family(N[ev]) not in FM_FAMILIES or v is None or decision is None or v >= decision: withheld.append(pid)
+                else: given.append((v, pid))
+        t["hidden_panels"] = sorted(set(withheld))
+        t["given_panels"] = [p for _, p in sorted(given)]
+        nxt = next((l for l in levels if given and l > max(v for v, _ in given)), None)
+        mark(t, "R4", f"given {t['given_panels']}, withheld {t['hidden_panels']} (decision {decision}, levels {levels})")
+        if not given or decision is None or nxt != decision:
+            t["status"] = "closed"; t["ruling"] = f"decision {decision} is not the condition directly after the last given ({nxt})"
+            mark(t, "R4", t["ruling"]); return
+    given_panels = t.get("given_panels") or [p for ev in t["evidence"] for p in (N[ev].get("panel_ids") or []) if p not in set(t.get("hidden_panels", []))]
+    t["given_panels"] = given_panels
+    # v2 rule 6 (panel check): an evidence panel whose OCR cue class contradicts the node's technique blocks the trace
+    for ev in t["evidence"]:
+        tech = family(N[ev])
+        for pid in N[ev].get("panel_ids") or []:
+            cues = ((panel_record(store, pid) or {}).get("ocr") or {}).get("cues") or []
+            if cues and tech and not any(tech in CUE_TECH.get(c, []) for c in cues):
+                t["blocked"] = {"reason": "panel_modality", "node": ev, "panel": pid, "technique": tech, "cues": cues}
+                mark(t, "R6", f"{ev} technique {tech} vs {pid} cues {cues}: blocked panel_modality")
+    # v2 rule 3 (the answer must be readable from the given panels)
+    why = []
+    for x in targets_of(t):
+        a = N[x].get("attrs") or {}
+        if a.get("source") != "figure": why.append(f"{x} source {a.get('source')}")
+        if a.get("requires_unseen"): why.append(f"{x} requires unseen {a['requires_unseen']}")
+    readable = [ev for ev in t["evidence"] if ((N[ev].get("attrs") or {}).get("read_from") != "annotation")
+                and ([p for p in (N[ev].get("panel_ids") or []) if p in given_panels] or (not N[ev].get("panel_ids") and N[ev].get("figs")))]
+    if t["evidence"] and not readable: why.append("no given evidence panel read from pixels or axes (all annotation or withheld)")
+    if why:
+        t["status"] = "closed"; t["ruling"] = "not derivable from given panels: " + "; ".join(why)
+        mark(t, "R3", t["ruling"])
+        KNOWLEDGE_PILE.append({"paper": paper, "trace": t["id"], "root": t["root"], "subtype": t["subtype"], "targets": targets_of(t),
+                               "why": why, "labels": {x: N[x]["label"] for x in targets_of(t)}})
+        return
+    # v2 rule 5 (annotation masking): mask annotation strings that share content with a hidden target
+    hid_labels = [N[h]["label"] for h in set(t.get("hidden", [])) | set(targets_of(t)) if h in N]
+    for pid in given_panels:
+        rec = panel_record(store, pid)
+        if not rec or not rec.get("crop"): continue
+        hits = [(tok, shares_content(tok["text"], hid_labels)) for tok in annotations(rec)]
+        hits = [(tok, w) for tok, w in hits if w]
+        # author-written values (0.227 nm, 14 nm, 0.69 eV) are classed as scale/tick tokens by the packet builder; mask
+        # one when its number appears in a hidden target label (staff C, v06 build: these carried audit answers)
+        hid_nums = set(re.findall(r"(?<![A-Za-z\d.])\d+(?:\.\d+)?", " ".join(hid_labels)))
+        for tok in (rec.get("ocr") or {}).get("tokens", []):
+            v = re.findall(r"(?<![A-Za-z\d.])\d+(?:\.\d+)?", tok["text"])
+            if v and any(x in hid_nums and (("." in x) or len(x) >= 2) for x in v) and re.search(r"[A-Za-zµμÅ%°]", tok["text"]):
+                if all(tok is not h for h, _ in hits): hits.append((tok, [x for x in v if x in hid_nums]))
+        if hits:
+            dst = os.path.join(masked_dir, paper, t["id"], pid.split("#")[1] + ".jpg")
+            mask_crop(rec["crop"], [tok["box"] for tok, _ in hits], dst)
+            t.setdefault("masked_panels", []).append({"panel": pid, "masked_crop": os.path.relpath(dst), "strings": [tok["text"] for tok, _ in hits], "shared_words": sorted({x for _, w in hits for x in w})})
+            mark(t, "R5", f"{pid}: masked {[tok['text'] for tok, _ in hits]}")
+    # v2 rule 8 (partial answers are keys too): the writer must declare answer_scope full | partial on the key
+    t["answer_scope_required"] = True
 
 
 PEAK = re.compile(r"(?:peak\w*|maxim\w*|highest|optimum|best)\s+(?:at|for|near|is)\s+(\d+(?:\.\d+)?)\s*vol%", re.I)
@@ -324,11 +509,18 @@ def linearize(N, inn, out, t):
     if t["root"] == "explain" and t["subtype"] == "competing causes":
         causes = [e["src"] for e in inn[c] if e["rel"] == "causes"]
         target = optimum(N, c, claim=True) or next((optimum(N, i) for i in ev_of(c) if optimum(N, i)), None)
+        if V2 and not (t.get("has_sweep") and target):
+            # v2 rule 2 (optimum test only with a sweep): no DES/variable_sweep or no stated optimum -> causes are kept or
+            # rejected on their own evidence, never on optima
+            target = None; mark(t, "R2", "no sweep with a stated optimum: causes judged on their evidence")
         p = add("puzzle", [c] + ev_of(c), f"Observation to explain: {N[c]['label']}. Its optimum: {target} vol%.")
         k = add("candidates", causes, "Candidate causes: " + " | ".join(f"{x}: {N[x]['label'][:70]}" for x in causes), [p])
         # test the rivals first so the rejection comes early
         def ruling(x):
             ev = ev_of(x); o = optimum(N, x) or next((optimum(N, i) for i in ev if optimum(N, i)), None)
+            if V2 and target is None:
+                sup = [i for i in ev if shown(N[i])]
+                return ("keep", f"its evidence ({', '.join(sup)}) shows it") if sup else ("untested", "no shown evidence for it")
             if o and target and o != target: return "reject", f"its own optimum is at {o} vol%, not {target}: necessary at most, not the differentiator"
             if o and target: return "keep", f"its optimum coincides with the claim's ({o} vol%)"
             fm = [i for i in ev if fam(i) in {'SEM','TEM','XRD','XAS','ATOM'}]
@@ -382,7 +574,8 @@ def linearize(N, inn, out, t):
 if __name__ == "__main__":
     gp, sp, out_path = sys.argv[1], sys.argv[2], sys.argv[3]
     g, traces = cut(gp, sp, group_id=g_id if (g_id := None) else json.load(open(gp))["paper_id"])
-    json.dump({"paper_id": g["paper_id"], "title": g["title"], "traces": traces}, open(out_path, "w"), indent=1)
+    json.dump({"paper_id": g["paper_id"], "title": g["title"], "cutter": "v2" if V2 else "v1", "traces": traces,
+               "knowledge_pile": KNOWLEDGE_PILE}, open(out_path, "w"), indent=1)
     from collections import Counter
     print(f"{len(traces)} traces:", dict(Counter((t['root'], t['status']) for t in traces)))
     for t in traces:
