@@ -1,0 +1,384 @@
+{
+ "paper_id": "Advanced_Energy_Materials/aenm.201301564",
+ "title": "Quantum-Dot Sensitized Solar Cells Employing Hierarchical Cu2S Microspheres Wrapped by Reduced Graphene Oxide Nanosheets as Effective Counter Electrodes",
+ "cutter": "v2.2+v1-filters",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Energy_Materials/aenm.201301564",
+   "root": "infer",
+   "subtype": "rank",
+   "seed_claim": "m7",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "m7",
+    "m12",
+    "m15",
+    "m17"
+   ],
+   "branch": "evidences edge o1 -> m7",
+   "fm_family": "SEM",
+   "lift": "budget spanning panels",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "not derivable from given panels: o1: text, not in given captions: ['GO volumes 5/10/20 mL (F1 linked text)']",
+   "walk": [
+    {
+     "node": "m1",
+     "role": "context"
+    },
+    {
+     "node": "m2",
+     "role": "context"
+    },
+    {
+     "node": "m3",
+     "role": "context"
+    },
+    {
+     "node": "m6",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.201301564#F1a",
+      "10.1002/aenm.201301564#F1b",
+      "10.1002/aenm.201301564#F1c",
+      "10.1002/aenm.201301564#F1d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "m7",
+     "role": "claim"
+    },
+    {
+     "node": "m12",
+     "role": "downstream"
+    },
+    {
+     "node": "m15",
+     "role": "downstream"
+    },
+    {
+     "node": "m17",
+     "role": "downstream"
+    }
+   ],
+   "node_necessity": "necessary",
+   "v2_rules": [
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:239",
+     "effect": "lane SEM necessary for m7 (node-level necessity of o1: necessary)"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:582",
+     "effect": "not derivable from given panels: o1: text, not in given captions: ['GO volumes 5/10/20 mL (F1 linked text)']"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.201301564#F1a",
+    "10.1002/aenm.201301564#F1b",
+    "10.1002/aenm.201301564#F1c",
+    "10.1002/aenm.201301564#F1d"
+   ],
+   "graded_targets": [
+    "o1"
+   ],
+   "target_verdicts": {
+    "o1": {
+     "pass": false,
+     "why": "text, not in given captions: ['GO volumes 5/10/20 mL (F1 linked text)']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "m1",
+      "m2",
+      "m3",
+      "m6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Pt counter electrodes perform poorly in polysulfid -> Wrapping hierarchical Cu2S microspheres with RGO s -> Cu2S microspheres from solvothermal CuCl, thiourea -> One-pot solvothermal reaction at 150 C for 12 h gr"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1a, F1b, F1c, F1d [SEM] and rank (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Insets: bare spheres show few large flakes; GO-containing spheres consist of many smaller, thinner flakes, finest in c-d"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "m7"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: GO addition turns Cu2S into flower-like hierarchical microspheres built from more, smaller, thinner nanoflakes"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "m12",
+      "m15",
+      "m17"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: RGO-Cu2S-2 adsorbs more N2 than bare Cu2S: more accessible surface and more mesopore volume at 3-15 "
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Energy_Materials/aenm.201301564",
+   "root": "intervene",
+   "subtype": "next condition",
+   "seed_claim": "m16",
+   "evidence": [
+    "o1",
+    "o5",
+    "o15"
+   ],
+   "hidden": [
+    "m16",
+    "o15",
+    "m8",
+    "m16",
+    "m8"
+   ],
+   "hidden_panels": [
+    "10.1002/aenm.201301564#F1a",
+    "10.1002/aenm.201301564#F1b",
+    "10.1002/aenm.201301564#F1c",
+    "10.1002/aenm.201301564#F1d",
+    "10.1002/aenm.201301564#F3a",
+    "10.1002/aenm.201301564#F6a",
+    "10.1002/aenm.201301564#F6b"
+   ],
+   "branch": "sweep m5 with optimum m16",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "note": "trend extrapolation of the classical series picks the earlier optimum"
+   },
+   "depth": 3,
+   "depth_families": [
+    "ECHEM",
+    "SEM",
+    "XRD"
+   ],
+   "mask": "show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next",
+   "grader": "the measured outcome at the chosen condition from o15, held out",
+   "status": "closed",
+   "ruling": "decision 10.0 is not the condition directly after the last given (None)",
+   "walk": [
+    {
+     "node": "m1",
+     "role": "context"
+    },
+    {
+     "node": "m2",
+     "role": "context"
+    },
+    {
+     "node": "m3",
+     "role": "context"
+    },
+    {
+     "node": "m6",
+     "role": "context"
+    },
+    {
+     "node": "m8",
+     "role": "redacted"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.201301564#F1a",
+      "10.1002/aenm.201301564#F1b",
+      "10.1002/aenm.201301564#F1c",
+      "10.1002/aenm.201301564#F1d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o5",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.201301564#F3a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o15",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.201301564#F6a",
+      "10.1002/aenm.201301564#F6b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "m16",
+     "role": "claim"
+    }
+   ],
+   "has_sweep": true,
+   "redactions": [
+    {
+     "node": "m8",
+     "why": "shares a claim with a hidden node"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:470",
+     "effect": "context m8 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:504",
+     "effect": "given [], withheld ['10.1002/aenm.201301564#F1a', '10.1002/aenm.201301564#F1b', '10.1002/aenm.201301564#F1c', '10.1002/aenm.201301564#F1d', '10.1002/aenm.201301564#F3a', '10.1002/aenm.201301564#F6a', '10.1002/aenm.201301564#F6b'] (decision 10.0, levels [0.0, 5.0, 10.0, 20.0] mL)"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:507",
+     "effect": "decision 10.0 is not the condition directly after the last given (None)"
+    }
+   ],
+   "given_panels": [],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "m1",
+      "m2",
+      "m3",
+      "m6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Hypothesis, design, processing: Pt counter electrodes perform poorly in polysulfid -> Wrapping hierarchical Cu2S microspheres with RGO s -> Cu2S microspheres from solvothermal CuCl, thiourea -> One-pot solvothermal reaction at 150 C for 12 h gr"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1",
+      "o5"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Results so far, as panels only:  [SEM, XRD]"
+    },
+    {
+     "step": 3,
+     "role": "decision",
+     "nodes": [
+      "m16"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Decide the next condition: Intermediate RGO loading (10 mL GO) is optimal; excess RGO in RGO-Cu2S-3 lowers PCE to 2.99%"
+    },
+    {
+     "step": 4,
+     "role": "outcome",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Outcome at that condition (grader): CV reduction peak near -1.25 V: ~-43 (RGO-Cu2S), ~-41 (Cu2S) mA/cm2; Pt reaches only ~-0.45 mA/cm2"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Advanced_Energy_Materials__aenm.201301564",
+   "trace": "T1",
+   "root": "infer",
+   "subtype": "rank",
+   "targets": [
+    "o1"
+   ],
+   "why": [
+    "o1: text, not in given captions: ['GO volumes 5/10/20 mL (F1 linked text)']"
+   ],
+   "requires_unseen": {
+    "o1": [
+     "panel-to-sample mapping a = Cu2S, b-d = RGO-Cu2S-1/-2/-3 (caption)",
+     "GO volumes 5/10/20 mL (F1 linked text)"
+    ]
+   },
+   "labels": {
+    "o1": "Insets: bare spheres show few large flakes; GO-containing spheres consist of many smaller, thinner flakes, finest in c-d"
+   }
+  }
+ ]
+}

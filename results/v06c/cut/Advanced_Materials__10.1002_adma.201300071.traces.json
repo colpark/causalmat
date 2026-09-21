@@ -1,0 +1,232 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.201300071",
+ "title": "Binding SnO2 Nanocrystals in Nitrogen-Doped Graphene Sheets as Anode Materials for Lithium-Ion Batteries",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.201300071",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "b10",
+   "evidence": [
+    "q13"
+   ],
+   "hidden": [
+    "b10",
+    "b11",
+    "b12",
+    "b14",
+    "b2"
+   ],
+   "branch": "joint causes ['b8', 'b9'] of b11, explained by b10",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation and the joint causes",
+   "grader": "certified judge against the graph's mechanism; causes act jointly, no rival",
+   "status": "closed",
+   "ruling": "not derivable from given panels: b10: text, not in given captions: ['Electrons reach the NCs through the conducting graphene, Li+ through micropores;']",
+   "walk": [
+    {
+     "node": "b1",
+     "role": "context"
+    },
+    {
+     "node": "b2",
+     "role": "redacted"
+    },
+    {
+     "node": "b3",
+     "role": "context"
+    },
+    {
+     "node": "b6",
+     "role": "context"
+    },
+    {
+     "node": "b7",
+     "role": "context"
+    },
+    {
+     "node": "b8",
+     "role": "context"
+    },
+    {
+     "node": "q13",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/adma.201300071#F3b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "b9",
+     "role": "context"
+    },
+    {
+     "node": "b10",
+     "role": "claim"
+    },
+    {
+     "node": "b11",
+     "role": "redacted"
+    },
+    {
+     "node": "b12",
+     "role": "redacted"
+    },
+    {
+     "node": "b14",
+     "role": "redacted"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R1",
+     "where": "cut_traces.py:290",
+     "effect": "causes ['b8', 'b9'] into b11 are joint (modes ['joint']): mechanism trace, not competing causes"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:582",
+     "effect": "not derivable from given panels: b10: text, not in given captions: ['Electrons reach the NCs through the conducting graphene, Li+ through micropores;']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "b11",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "b12",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "b14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "b2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.201300071#F3b"
+   ],
+   "graded_targets": [
+    "b10"
+   ],
+   "target_verdicts": {
+    "b10": {
+     "pass": false,
+     "why": "text, not in given captions: ['Electrons reach the NCs through the conducting graphene, Li+ through micropores;']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "q13"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: First discharge ~1860 mA h g-1, first charge ~1130; second and third cycles ~1050-1200  [panels F3b]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "b10"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: Electrons reach the NCs through the conducting graphene, Li+ through micropores; graphene buffers volume change and limi  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "b11",
+      "b12",
+      "b13"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: High reversible Li storage capacity, ~1100-1200 mA h g-1 in the first cycles"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Materials/10.1002_adma.201300071",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "b5",
+   "evidence": [],
+   "branch": "DES/route b5",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": false,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "b5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Advanced_Materials__10.1002_adma.201300071",
+   "trace": "T1",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "b10"
+   ],
+   "why": [
+    "b10: text, not in given captions: ['Electrons reach the NCs through the conducting graphene, Li+ through micropores;']"
+   ],
+   "requires_unseen": {
+    "b10": []
+   },
+   "labels": {
+    "b10": "Electrons reach the NCs through the conducting graphene, Li+ through micropores; graphene buffers volume change and limits SEI; bonds stop Sn aggregation"
+   }
+  }
+ ]
+}

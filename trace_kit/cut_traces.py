@@ -18,6 +18,11 @@ Rules (see the design note):
 import json, sys, re, os, inspect
 from collections import defaultdict
 V2 = False   # cutter v2 (v06 pilot): switched on by cut() when the graph is a v06 graph (batch v06_pilot)
+# v2.2 (v06c): before the solving gate only three hard rules apply (panel matches node, answer findable from what is
+# given, nothing reveals the answer). The v1 filters (bare-infer closure, floor-reaches closure, plot-read and depth-one
+# control strata) are off on v06 graphs unless --v1-filters is passed; when off, what they would have ruled is kept in
+# t["v1_filter"] so the gate verdict can be compared against it.
+V1F = "--v1-filters" in sys.argv
 def here(): return f"cut_traces.py:{inspect.stack()[1].lineno}"
 def mark(t, rule, effect): t.setdefault("v2_rules", []).append({"rule": rule, "where": f"cut_traces.py:{inspect.stack()[1].lineno}", "effect": effect})
 
@@ -198,6 +203,9 @@ def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
                 status, why = "open", ""
             if status == "open" and depth == 1 and N[ev].get("modality") != "micrograph":
                 status, why = "control", "depth one and not an image read: negative-control stratum"
+            v1_filter = None
+            if V2 and not V1F and status != "open":
+                v1_filter = {"status": status, "ruling": why}; status, why = "open", ""
             mask = {"infer": "hide the observation; hand over the panel(s)",
                     "explain": "hide the mechanism; show the rival" if sub == "mechanism" else "hide the ruling; show the claim and the panel"}[root]
             w = walk(N, inn, out, c, [ev])
@@ -223,6 +231,9 @@ def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
                 fm_family=fam, lift=lift, floor={"reaches": floor_reaches, "support": floor_support},
                 depth=depth, depth_families=depth_fams, channels_involved=involved, mask=mask, grader=grader,
                 status=status, ruling=why, walk=w)
+            if v1_filter:
+                _t["v1_filter"] = v1_filter
+                mark(_t, "v1-off", f"v1 filter would have ruled {v1_filter['status']}: {v1_filter['ruling']}")
             if V2:
                 _t["node_necessity"] = nec.get(ev)
                 mark(_t, "seed", f"lane {fam} necessary for {c} (node-level necessity of {ev}: {nec.get(ev)})")
@@ -242,6 +253,10 @@ def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
                 mask="hide the ruling; show the claim and the panel", grader="answer key: the audit ruling on the panel",
                 status="control", ruling="plot read, no domain model: depth-one negative control",
                 walk=walk(N, inn, out, c, [e["src"]]))
+            if V2 and not V1F:
+                _a = traces[-1]; _a["v1_filter"] = {"status": _a["status"], "ruling": _a["ruling"]}
+                _a["status"], _a["ruling"] = "open", ""
+                mark(_a, "v1-off", "v1 filter would have ruled control: plot read, no domain model: depth-one negative control")
 
     # --- explain at a claim with two competing causes (branch: which cause accounts for the optimum)
     for c in claims:
@@ -358,7 +373,9 @@ def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
                     t.setdefault("redactions", []).append({"node": e["src"], "why": "premise of the hidden mechanism"})
         if V2:
             t["has_sweep"] = any(n["type"].startswith("DES/variable_sweep") for n in g["nodes"])
+            t["_overrides"] = {(o["node"], o["panel"]) for o in (g.get("cue_overrides") or []) + ((g.get("review") or {}).get("cue_overrides") or [])}
             v2_prelinear(t, N, inn, out, store, masked_dir, os.path.basename(graph_path)[:-5])
+            t.pop("_overrides", None)
         if V2 and t["root"] == "explain" and t["subtype"] == "mechanism" and not t["evidence"]:
             t["status"] = "closed"; t["ruling"] = "mechanism trace with no shown evidence: nothing to observe"
             mark(t, "R3", "explain/mechanism with empty evidence: closed before linearising"); t["linear"] = []; continue
@@ -495,7 +512,9 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
         tech = family(N[ev])
         for pid in N[ev].get("panel_ids") or []:
             cues = ((panel_record(store, pid) or {}).get("ocr") or {}).get("cues") or []
-            if cues and tech and not any(tech in CUE_TECH.get(c, []) for c in cues):
+            if cues and tech and not any(tech in CUE_TECH.get(c, []) for c in cues) and (ev, pid) in t.get("_overrides", ()):
+                mark(t, "R6", f"{ev} technique {tech} vs {pid} cues {cues}: judge cue_override honoured, not blocked")
+            elif cues and tech and not any(tech in CUE_TECH.get(c, []) for c in cues):
                 t["blocked"] = {"reason": "panel_modality", "node": ev, "panel": pid, "technique": tech, "cues": cues}
                 mark(t, "R6", f"{ev} technique {tech} vs {pid} cues {cues}: blocked panel_modality")
     # v2.1 rule 3 (the answer must be readable from what the solver is given). Graded target: infer -> the observation(s)
@@ -685,7 +704,7 @@ def linearize(N, inn, out, t):
 if __name__ == "__main__":
     gp, sp, out_path = sys.argv[1], sys.argv[2], sys.argv[3]
     g, traces = cut(gp, sp, group_id=g_id if (g_id := None) else json.load(open(gp))["paper_id"])
-    json.dump({"paper_id": g["paper_id"], "title": g["title"], "cutter": "v2" if V2 else "v1", "traces": traces,
+    json.dump({"paper_id": g["paper_id"], "title": g["title"], "cutter": ("v2.2" + ("+v1-filters" if V1F else "")) if V2 else "v1", "traces": traces,
                "knowledge_pile": KNOWLEDGE_PILE}, open(out_path, "w"), indent=1)
     from collections import Counter
     print(f"{len(traces)} traces:", dict(Counter((t['root'], t['status']) for t in traces)))
