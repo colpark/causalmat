@@ -114,3 +114,17 @@ Every verdict here is model against model; no human checked any item.
 - T5: including the grader channel's panels as cited clears `density` from the content-word test, but T5 is exactly the case where the question asks for the held-out channel. It still fails `leak` on the bigram `relative density`, so the trace-level verdict is unchanged. The cost: a question that names a held-out channel only in single words would now get past the content-word test. The writer's no-held-out-channel rule is the guard for that case.
 
 Per-trace nets: `results/traces/writer/ceramic_run1/{written,fixture}_validation_run3_nets.json`.
+
+## Run 4 of the nets: rejection traces exempt from the content-word test
+
+Every verdict here is model against model; no human checked any item.
+
+Decision (user): explain/rejection traces are exempt from the content-word test, the same way they are from the bigram test. The ruling node restates the claim under test, so claim words are structural, not leaks (`validate_traces.py`, beside the exemption).
+
+| run | hand fixture flagged (content words) | written copy flagged (content words) |
+|---|---|---|
+| 2 (given nodes only) | 2 of 9 (T5, T6) | 5 of 9 (T1, T4, T5, T6, T7) |
+| 3 (widened to panel spans, OCR) | 0 of 9 | 3 of 9 (T1, T4, T7) |
+| 4 (rejection exempt) | 0 of 9 | 2 of 9 (T4: nanometre, particl, submicron; T7: expansion, mismatch, thermal) |
+
+**Pass condition holds.** Trace-level `leak` on the written copy: T4 (content words), T5 (bigram `relative density`), T7 (bigrams and content words). Per-trace nets: `results/traces/writer/ceramic_run1/{written,fixture}_validation_run4_nets.json`.

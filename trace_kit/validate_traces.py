@@ -69,6 +69,9 @@ def run(graph_path, traces_path, panels_dir=None):
         shared=stem(words(' '.join(N[i]['label'] for i in given)+' '+pv+' '+ev_meta))
         cw_hidden=stem(words(htxt))-shared
         leak_words=sorted(cw_hidden & stem(words(t.get('question',''))))
+        # rejection traces are exempt, as from the bigram test: the ruling node restates the claim under test,
+        # so claim words are structural, not leaks (run 4; ceramic T1 flagged intensity/threshold/trend this way)
+        if t['root']=='explain' and t['subtype']=='rejection': leak_words=[]
         v['nets']['leak']={'bigrams':sorted(' '.join(b) for b in bg),'numbers':sorted(nn),'content_words':leak_words,
                            'shared_vocab':'given nodes + panel spans + OCR cues + modality/technique' if store is not None else 'panel store not mounted: given nodes + modality/technique only',
                            'pass':len(bg)==0 and len(nn)==0 and not leak_words}
