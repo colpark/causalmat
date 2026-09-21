@@ -25,13 +25,15 @@ Rare Metals T1: the fullarm is PARTIAL and the floor ABSTAINs, so the item is cl
 
 The defect is the answer key. It goes past the graded target o1 into the claim s1 ("La more than Sm") and its downstream p3/c1. The fullarm read the panels and put Sm ahead of La in refinement. It was marked down only for that, and o1's own panel descriptions do not settle La against Sm. The floor could not answer, so the item is not text-sufficient.
 
+The 25 closures break down as: bare infer 10, rule 3 6, no oracle for generate 3, R6 wrong panel 3, mechanism with no shown evidence 2, intervene decision not next level 1.
+
 ## Stop
 
 The rule reads: more than half of open items marked inspect on the first four papers. Read literally, it does not fire, because the first four papers yield no open item after the cut. In substance it does fire: the pilot yields one servable item across eight papers, and that item is inspect. There is no valid item to build a sheet for, so part 6 (sheets, docs/V06_PILOT.md, PR) is not run.
 
 ## Dominant defects, in order of how many items they remove
 
-1. **Bare-infer and depth-one rules (v1, unchanged).** 14 closed and 9 control. Most infer traces never reach rule 3.
+1. **Bare-infer and depth-one rules (v1, unchanged).** 10 closed and 9 control. Most infer traces never reach rule 3.
 2. **Rule 3 (v2.1).** 6 closed. The drivers are caption-only sample identity and GO volumes that appear only in linked text.
 3. **The leak gate after one rewrite.** 3 blocked. Two of these are bigrams shared with a given node, which no rewrite can remove.
 4. **The writer includes downstream claim nodes in the key of an infer trace.** This sends the only survivor to inspect.
