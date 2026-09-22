@@ -174,7 +174,8 @@ def pjapply(P):
         rep = open(f).read(); m = re.search(r'\{.*\}', rep, re.S)
         try: j = json.loads(m.group(0)) if m else {}
         except ValueError: j = {}
-        u['judge'] = j.get('ruling') or ('real' if re.search(r'\breal\b', rep[:200], re.I) else 'UNPARSED')
+        m2 = re.search(r'\bruling\b\W{0,4}(real|ok)\b', rep, re.I) or re.match(r'\W*(real|ok)\b', rep.strip(), re.I)
+        u['judge'] = (j.get('ruling') or (m2.group(1).lower() if m2 else None) or 'UNPARSED')
         u['judge_why'] = j.get('why', rep.strip()[:400])
         if u['judge'] == 'real': real.append((key, u))
     dump(rr, path)
@@ -187,8 +188,11 @@ def pjapply(P):
 def graph_flags(P, C):
     """per-trace flags from the graph-time second read: an open trace whose evidence node still has a WRONG unit the staff did not keep"""
     rr = J(os.path.join(RG(P), 'reread.json'))
-    bad = {u['node']: u for _, u in open_wrong(RG(P), rr, P) if u.get('judge') in (None, 'real', 'UNPARSED')} \
-        if any(u.get('judge') for u in rr.get('units', {}).values()) else {u['node']: u for _, u in open_wrong(RG(P), rr, P)}
+    judged = any(u.get('judge') for u in rr.get('units', {}).values())
+    if judged:   # v07 fix 2: the panel judge decides, not the blind read and not the staff round
+        bad = {u['node']: u for u in rr.get('units', {}).values() if u.get('judge') == 'real'}
+    else:
+        bad = {u['node']: u for _, u in open_wrong(RG(P), rr, P)}
     fl = {}
     for t in C['traces']:
         if t['status'] != 'open': continue

@@ -1,0 +1,29 @@
+# Second-read flags: Rare_Metals__s12598-018-1045-7
+
+Graph: /home/aid1/Documents/causalmat/taxonomy/graphs_v07/Rare_Metals__s12598-018-1045-7.json
+
+Packet (captions, linked text, panel section with every crop path): /home/aid1/Documents/causalmat/taxonomy/v07/partC/packets/Rare_Metals__s12598-018-1045-7.md
+
+A blind reader described each crop below without the paper; a grader ruled the description contradicts the node. For each: open the whole figure and the crop, decide whether the node cites the wrong panel. If another panel of the same paper shows the observation, set panel_ids (and figs) to it. If no panel shows it, set attrs.source to "text", drop panel_ids, and list the fact in attrs.requires_unseen. If the node and panel are right and the reader or grader erred, leave the node and say so. Edit only the flagged nodes in the graph JSON (keep ids), and write /home/aid1/Documents/causalmat/results/v07/papers/Rare_Metals__s12598-018-1045-7/rrgraph/fix.json: {"<node>": {"action": "repointed|text|kept", "panel_ids": [...], "why": "one sentence"}}. Do not run git.
+
+
+## n19 cites F11
+Node label: Extrusion strongly slows the cathodic reaction while the anodic kinetics rise only slightly
+Crop F11: /home/aid1/Documents/causalmat/matmech/Rare_Metals/s12598-018-1045-7/images/260e1e8935cff42c20ba3b35d9ce6afc51c5926564820d115321e9504a30bffa.jpg
+Reader on F11:
+Panel description (bb88f68c026a5617.jpg):
+
+This is a potentiodynamic polarization plot (Tafel-type electrochemical corrosion curve), plotting Potential (V vs. SCE) on the y-axis (range roughly -2.0 to -1.4 V) against Current density (A·cm⁻²) on the x-axis on a logarithmic scale (1×10⁻⁸ to 1×10⁻²). No scale bar is present since this is a line/graph plot, not a micrograph. Two curves are shown: a black curve labeled "As-cast" and a dark red curve labeled "As-extruded (350 °C)", both sharing a common corrosion potential (Ecorr) near -1.63 V where the curves converge in the cathodic branch. In the anodic branch, the as-cast curve shows a more gradual/passive-like rise in potential with increasing current density and a small dip/fluctuation near -1.6 V, while the as-extruded curve rises more steeply and continues to higher current densities (up to ~1×10⁻² A·cm⁻²) before both curves show a steep drop at the highest current densities (~-2.05 V), consistent with breakdown/pitting behavior. Overall the trend suggests the as-extruded (350 °C) sample has somewhat different anodic polarization behavior (steeper anodic branch, extending to higher current density) compared to the as-cast condition, implying a difference in corrosion resistance/passivation behavior between the two processing conditions.
+
+No other course corrections needed. File read: /home/aid1/Documents/causalmat/.v07work/rr/bb88f68c026a5617.jpg
+Grader: WRONG
+
+The answer key states the panel shows extrusion strongly slowing the cathodic reaction while the anodic kinetics rise only slightly. The candidate's independent description of the polarization plot instead says the two curves share a common corrosion potential/converge in the cathodic branch (i.e., no strong cathodic shift), and attributes the main difference between as-cast and as-extruded to the anodic branch (steeper rise, extending to higher current density for as-extruded). This reverses which branch shows the dominant kinetic change relative to the key, so it contradicts the key's central claim rather than merely omitting it.
+
+
+## o17 cites F10
+Node label: Corroded SEM: as-cast surface covered with deep cavities; extruded surface shows finer, banded attack
+Crop F10: /home/aid1/Documents/causalmat/matmech/Rare_Metals/s12598-018-1045-7/images/aa06fb7b115846e616d95dcd3bbb991dba7d0a85693145c2443b817b6fa1e7bd.jpg
+Reader on F10:
+The image (/home/aid1/Documents/causalmat/.v07work/rr/d71a1ad29e4165f6.jpg) is a two-panel SEM (scanning electron microscopy) figure labeled (a) and (b), each showing a fracture surface at the same magnification with a 200 µm scale bar in the bottom right corner. Each panel has a small inset photograph in the bottom-left corner showing a cylindrical bulk specimen with a fracture/machined region visible at its top, presumably indicating the macroscopic sample from which the SEM fracture surface was imaged. Panel (a) shows a highly porous, cellular/dimpled fracture morphology with numerous rounded voids and pores of varying size distributed fairly uniformly across the field of view, suggestive of a ductile or foam-like fracture texture. Panel (b) shows a rougher, more directional fracture surface with elongated ridge-like features running roughly horizontally/diagonally across the image, interspersed with finer dimpled texture, and appears less porous/void-rich than panel (a). The side-by-side comparison at identical scale and magnification implies the two panels represent different samples or processing/testing conditions being compared for fracture surface morphology (e.g., porosity, dimple size, or fracture mode differences). No other text, axis labels, or quantitative data are present in the image beyond the panel letters and scale bars.
+Grader: WRONG: The answer key states the panel shows corroded SEM images—an as-cast surface covered with deep cavities and an extruded surface showing finer, banded corrosion attack. The candidate instead describes the images as fracture surfaces (porous/dimpled cellular morphology vs. a rougher surface with elongated ridge-like features), interpreting them as fracture-mode/porosity comparisons rather than corrosion cavities/banded attack. This is a different phenomenon (fracture morphology vs. corrosion attack) and does not match the key's described features, so it contradicts rather than merely omits the key's claim.
