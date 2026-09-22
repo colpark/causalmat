@@ -1,0 +1,1840 @@
+{
+ "paper_id": "Journal_of_Advanced_Ceramics/s40145-021-0537-3",
+ "title": "Porous, multi-layered piezoelectric composites based on highly oriented PZT/PVDF electrospinning fibers for high-performance piezoelectric nanogenerators",
+ "vocab_version": "v04",
+ "batch": "v07",
+ "text_source": "captions_plus_linked_text",
+ "notes": "Spine: need -> hypothesis -> PZT modification + sweeps + porous multilayer architecture -> electrospinning -> lamination; branch A: PZT-raised beta fraction (n9; electrospinning-to-beta side claim n9b) -> PZT-content voltage (n13); branch B: dense-skin/porous-core film (n10; interlayer bonding side claim n10b) -> surface charge (n11), thickness voltage (n14); control branch: cast-film PENG (n18, contrasts n14); both voltage sweeps jointly -> 136.9 uW power (n15) -> human-motion harvesting (n16) -> conclusion. MEC n12 (dipole rotation, F6 schematic, basis argued). Audits: o18 (surface = internal fibers in KPFM, so lamination densification is not what raises surface charge), o24 (load-voltage plateau 83 V > 62 V open-circuit peak), o30 (beta peaks at 4 wt% but voltage monotonic to 10 wt%). Packet issues: F2 crops A/B are rows (A = a, a1, a2; B = b, a3, a4); F7a/F7c carry spurious 'micrograph' cue from legend tokens '40um'/'100um'; F1 draws a hot press but text says 30 C lamination; F8 caption says output under human motion is from the f-P 0.00 PENG, text implies f-P 0.10; linked text cites 'Fig. 1(b)' for the diameter histogram (it is Fig. 2(b)); Eq. (1), (2) and the sensitivity equation bodies are missing; ESM (S1-S7) not in packet. Judge: the Pb/Ti EDS-map discrepancy is recorded in o2 image_note, not as a node.",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/need",
+   "label": "Electrospun PVDF fiber membranes give weak, unstable piezoelectric output because of their loose structure; wearable PENGs need higher output",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "loose-membrane weakness stated only in F3 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n2",
+   "type": "HYP/hypothesis",
+   "label": "Laminating oriented PZT/PVDF fiber membranes into a porous multi-layer film with PZT-promoted polar beta phase should raise PENG output",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "strategy stated in linked text (F3, F4, F7)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n3",
+   "type": "DES/modification",
+   "label": "Add irregular-block PZT particles to the PVDF electrospinning solution as piezoelectric filler and beta-phase promoter",
+   "attrs": {
+    "source": "text",
+    "constituent": "PZT",
+    "base": "PVDF (Solef 6010)",
+    "intended_role": "strong piezoelectricity; nucleate polar beta phase",
+    "requires_unseen": [
+     "PZT particle shape (ESM Fig. S1) and roles stated only in text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n4",
+   "type": "DES/variable_sweep",
+   "label": "Comparison axes: PZT 0-10 wt% (2 wt% steps) at ~220 um, and film thickness ~40-220 um (2-12 layers) at 10 wt%",
+   "attrs": {
+    "source": "text",
+    "variables": [
+     "PZT content",
+     "film thickness / layer count"
+    ],
+    "levels": [
+     "0,2,4,6,8,10 wt%",
+     "~40,100,160,190,220 um"
+    ],
+    "requires_unseen": [
+     "layer counts and thickness-layer mapping stated only in text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n5",
+   "type": "DES/architecture",
+   "label": "Target a multi-layered porous fiber film: densified surface fiber layers enclosing separated internal fibers, sandwiched by Ni electrodes and PET",
+   "attrs": {
+    "source": "figure",
+    "geometry_source": "F3b schematic",
+    "image_note": "F3b shows PET / Ni electrode / surface fibers / internal fibers stack",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F3b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n6",
+   "type": "PRC/forming",
+   "label": "Electrospin PZT/PVDF (DMF/acetone) solution onto a rotating collector under high voltage to deposit oriented fiber membranes on Al foil",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "image_note": "F1 (a)-(c): solution, syringe pump + HV supply, rotating collector labelled 'Oriented fibers on Al foil'; solvent ratio 2:3 and 50 C/5 h stirring are text only"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n7",
+   "type": "PRC/forming",
+   "label": "Stack 2-12 fiber membranes and laminate under 15 MPa for 60 min at ~30 C into ~40-220 um fiber films",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "15 MPa, 60 min, 30 C and layer counts stated only in text"
+    ],
+    "image_note": "F1 (d)-(f) draw lay-up then a 'Hot press' with a red heat arrow, whereas the text says lamination is done at room temperature (30 C) to avoid melting fibers"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n9",
+   "type": "STR/phase/fraction",
+   "label": "Adding PZT raises the PVDF beta-phase content of the fibers from ~76% to a maximum ~83% at 4 wt%, easing to ~81% at 6-10 wt%",
+   "attrs": {
+    "source": "figure",
+    "proxy": "FTIR absorbance ratio 840/764 cm-1 (Eq. 1)",
+    "direction": "increase to 4 wt%, then slight decrease",
+    "image_note": "F4f: cast 76.1%, f-P0.00 76.3%, f-P0.02 81.8%, f-P0.04 83.2%, then ~81% for 0.06-0.10; text: 'not as much as we expected' for PZT-free fibers",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F4f"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n9b",
+   "type": "STR/phase/identity",
+   "label": "Electrospun PVDF fibers are beta-phase dominated where the cast film shows alpha and gamma phase",
+   "attrs": {
+    "source": "inferred",
+    "requires_unseen": [
+     "XRD peak assignments 18.8/20.2 deg alpha, 20.6 deg beta(110) (k1, F4 linked text)",
+     "IR band assignments (k2, refs 33-38)"
+    ],
+    "image_note": "FTIR beta fraction of F4f barely moves with electrospinning alone (cast 76.1%, f-P0.00 76.3%); the text concedes 'not as much as we expected'. Split from n9 by the judge."
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F4b",
+    "10.1007/s40145-021-0537-3#F4d"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n10",
+   "type": "STR/microstructure/porosity",
+   "label": "Lamination leaves a porous interior of separated fibers under densified, flattened surface fiber layers",
+   "attrs": {
+    "source": "figure",
+    "aspect": "graded density (dense skin / porous core)",
+    "image_note": "void fraction not measured; density contrast judged from SEM and AFM images",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F3",
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F3d",
+    "10.1007/s40145-021-0537-3#F3e"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n10b",
+   "type": "STR/interface",
+   "label": "Laminated fiber membranes merge into one film with no visible interface between layers",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "aspect": "interlayer bonding",
+    "image_note": "Split from n10 by the judge; evidence o6 (F3c cross-section)."
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F3c"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n11",
+   "type": "PRP/value",
+   "label": "Fiber films carry a stronger surface potential (more bound surface charge) than the 10 wt% PZT/PVDF cast film",
+   "attrs": {
+    "source": "text",
+    "property_family": "electrical",
+    "object": "film surface",
+    "quantity": "KPFM surface potential",
+    "requires_unseen": [
+     "surface potential taken as proportional to surface charge density (text premise)"
+    ],
+    "image_note": "KPFM colour range of fibers spans about -0.25..+0.25 V vs near-uniform ~0..+0.1 V for cast film; surface and internal fibers look alike"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n12",
+   "type": "MEC/pathway",
+   "label": "Aligned PVDF chain dipoles and poled PZT domain dipoles rotate under compression, changing net polarization and pumping electrons through the load",
+   "attrs": {
+    "source": "figure",
+    "mechanism_class": "piezoelectric dipole rotation",
+    "basis": "argued",
+    "image_note": "F6a states i-iv with Delta-x, Delta-x_max and the positive/negative voltage pulse; F6b PVDF monomer and PZT domains drawn as dipoles",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F6a",
+    "10.1007/s40145-021-0537-3#F6b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n13",
+   "type": "PRP/value",
+   "label": "Open-circuit output voltage of ~220 um fiber PENGs rises monotonically with PZT content, 7.5 V at 0 wt% to 62 V at 10 wt%",
+   "attrs": {
+    "source": "figure",
+    "property_family": "electrical",
+    "object": "assembly",
+    "quantity": "peak output voltage",
+    "direction": "increase",
+    "condition": "5 N periodic pressure at 3 Hz (text)",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F7b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n14",
+   "type": "PRP/value",
+   "label": "Output voltage of f-P0.10 fiber PENGs rises with film thickness, 6.75 V at 40 um to 62 V at 220 um",
+   "attrs": {
+    "source": "figure",
+    "property_family": "electrical",
+    "object": "assembly",
+    "quantity": "peak output voltage",
+    "direction": "increase",
+    "author_explanation": "lamination raises dipolar momentum, overall polarization and stress transfer (text)",
+    "image_note": "text: 500 um film reaches 92 V (ESM Fig. S7, not in packet)",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n18",
+   "type": "PRP/value",
+   "label": "At equal thickness the fiber-film PENG gives 3.7x (100 um) and 3.4x (220 um) the voltage of the cast-film PENG",
+   "attrs": {
+    "source": "figure",
+    "property_family": "electrical",
+    "object": "assembly",
+    "aspect": "control comparison",
+    "quantity": "peak output voltage",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n15",
+   "type": "PRF/service_capability",
+   "label": "220 um f-P0.10 fiber PENG delivers a maximum 136.9 uW at 10 MOhm load, 6.5x the cast-film PENG",
+   "attrs": {
+    "source": "figure",
+    "condition": "load 1-800 MOhm",
+    "requires_unseen": [],
+    "image_note": "rectified ~40-60 V pulses light ~20 green LEDs and charge 1 uF to ~6.3 V in 65 s (F8b-d, not a node)"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F7e",
+    "10.1007/s40145-021-0537-3#F7d"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n16",
+   "type": "PRF/service_capability",
+   "label": "The fiber PENG harvests human motion: finger pressing, fist beating, one-side bending and arm pressing all give voltage trains",
+   "attrs": {
+    "source": "text",
+    "condition": "hand/arm actions",
+    "requires_unseen": [
+     "which device was used: F8 caption says f-P 0.00, linked text implies the f-P 0.10 PENG"
+    ],
+    "image_note": "peaks ~20, ~30, ~17 and ~4 V (F8e-h)"
+   },
+   "figs": [
+    "F8"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F8e",
+    "10.1007/s40145-021-0537-3#F8f",
+    "10.1007/s40145-021-0537-3#F8g",
+    "10.1007/s40145-021-0537-3#F8h"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n17",
+   "type": "DSC/conclusion",
+   "label": "Porous multi-layered, highly oriented PZT/PVDF fiber films make flexible, stable PENGs with several-fold higher output than cast films, suited to human-motion harvesting",
+   "attrs": {
+    "source": "inferred",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n8",
+   "type": "STR/microstructure/orientation",
+   "label": "Electrospun PZT/PVDF fibers are highly aligned along one direction",
+   "attrs": {
+    "source": "figure",
+    "object": "fiber axes",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F2a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n23",
+   "type": "PRP/value",
+   "label": "Fiber films are far more compliant and extensible than the cast film, most so perpendicular to the fibers",
+   "attrs": {
+    "source": "figure",
+    "property_family": "mechanical",
+    "object": "film",
+    "quantity": "E_mod, F_max, elongation at break",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F3f",
+    "10.1007/s40145-021-0537-3#F3g"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n24",
+   "type": "PRF/service_capability",
+   "label": "Output of the f-P0.10 PENG is unchanged after 3000 compression and 3000 bending cycles",
+   "attrs": {
+    "source": "figure",
+    "condition": "~1.0 N at 10 Hz compression; bending at 3 Hz",
+    "requires_unseen": [
+     "force and frequency stated only in caption"
+    ]
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F7g",
+    "10.1007/s40145-021-0537-3#F7h"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o2",
+   "type": "OBS/morphology/distribution",
+   "label": "SEM: fibers run nearly parallel across the field, few crossings",
+   "attrs": {
+    "technique": "SEM",
+    "read_from": "pixels",
+    "source": "figure",
+    "requires_unseen": [],
+    "image_note": "F2a crop also contains maps a1 (Zr) and a2 (Ti): packet crop A is the top row, crop B the bottom row; F2b histogram: diameters 0.5-3.0 um, mode ~1.25-1.5 um; EDS maps (a1-a4): Zr and O follow fibers, Pb and Ti only sparse spots, against the text's 'each element is evenly distributed' (side claim, not a node)"
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F2a"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o6",
+   "type": "OBS/morphology/appearance",
+   "label": "Cross-section: continuous mat of intertwined fibers between the dashed film boundaries, no discrete layer interfaces",
+   "attrs": {
+    "technique": "SEM",
+    "read_from": "pixels",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F3c"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o7",
+   "type": "OBS/morphology/appearance",
+   "label": "Surface fibers flattened and packed with almost no gaps, whereas internal fibers stay round and separated by gaps",
+   "attrs": {
+    "technique": "SEM",
+    "read_from": "pixels",
+    "source": "figure",
+    "requires_unseen": [],
+    "image_note": "F3e inset: single internal fiber with wrinkled pillar-like surface"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F3d",
+    "10.1007/s40145-021-0537-3#F3e"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o9",
+   "type": "OBS/response/trend",
+   "label": "Cast film E_mod ~1600 MPa, F_max ~37 MPa, elongation ~15%; F// fibers ~500 MPa, ~22 MPa, ~130%; F-perp ~220 MPa, ~8 MPa, ~265%",
+   "attrs": {
+    "technique": "MECH:tensile",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "aspect": "ranking",
+    "annotation_match": "Emod(MPa)"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F3f",
+    "10.1007/s40145-021-0537-3#F3g"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o10",
+   "type": "OBS/signal/feature_shift",
+   "label": "Cast film main peak at 20.2 deg with 18.8 deg shoulder; f-P0.00 peak moves to ~20.6 deg and the shoulder fades",
+   "attrs": {
+    "technique": "XRD",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "aspect": "shift",
+    "annotation_match": "f-P0.00",
+    "image_note": "F4a: starred PZT reflections (~31, 38, 45, 50, 55 deg) absent in cast/f-P0.00 and growing with PZT content"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F4b"
+   ],
+   "modality": "diffraction_pattern",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o12",
+   "type": "OBS/signal/feature_quantification",
+   "label": "gamma 1234 cm-1 band strong in cast film and weaker in fiber films; beta 1275 and 840 cm-1 bands prominent in fiber films",
+   "attrs": {
+    "technique": "FTIR",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "annotation_match": "Castfilm",
+    "image_note": "764 cm-1 alpha band barely resolved in any trace, so the Eq. 1 ratio rests on a weak feature"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F4d"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o13",
+   "type": "OBS/response/trend",
+   "label": "beta content: cast 76.1%, f-P0.00 76.3%, jumps to 81.8% (2 wt%) and 83.2% (4 wt%), then ~81% at 6-10 wt%",
+   "attrs": {
+    "technique": "FTIR",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "annotation_match": "\u03b2phase content(%)",
+    "image_note": "right axis of F4f: chi_c from DSC (F4e, Eq. 2) 50.35% cast, ~50.2% f-P0.00, rising to ~53.2% at 10 wt%"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F4f"
+   ],
+   "modality": "xy_curve",
+   "provenance": "derived",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o16",
+   "type": "OBS/morphology/appearance",
+   "label": "AFM height: cast film uniformly flat; internal fibers rough with full +-500 nm colour range; surface fibers smoother bands",
+   "attrs": {
+    "technique": "AFM",
+    "read_from": "pixels",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o17",
+   "type": "OBS/morphology/appearance",
+   "label": "KPFM: cast film near-uniform ~0 to +0.1 V; internal and surface fibers show strong red/blue potentials up to +-0.25 V",
+   "attrs": {
+    "technique": "AFM:KPFM",
+    "read_from": "pixels",
+    "source": "figure",
+    "requires_unseen": [],
+    "image_note": "sign differs between internal (blue-rich) and surface (red-rich) scans; text attributes sign to test surface"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o18",
+   "type": "OBS/morphology/appearance",
+   "label": "KPFM and phase images of surface fibers look like those of internal fibers: same potential range and phase texture",
+   "attrs": {
+    "technique": "AFM:KPFM",
+    "read_from": "pixels",
+    "source": "figure",
+    "requires_unseen": [],
+    "image_note": "text concedes 'almost no difference ... between surface and internal fibers'"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o19",
+   "type": "OBS/response/trend",
+   "label": "Peak voltage rises 6.75, 19.5, 26.0, 46.0, 62.0 V for 40, 100, 160, 190, 220 um films",
+   "attrs": {
+    "technique": "TRANSPORT:piezo_output",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "image_note": "values are the labels written above each trace; peaks checked against the axis; panel F7a cited as whole figure (cue conflict)",
+    "annotation_match": "62.0.V"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o20",
+   "type": "OBS/response/trend",
+   "label": "Peak voltage rises 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt% PZT",
+   "attrs": {
+    "technique": "TRANSPORT:piezo_output",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "annotation_match": "62.0.V"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F7b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o21",
+   "type": "OBS/response/trend",
+   "label": "Cast vs fiber film: 5.25 vs 19.5 V at 100 um; 18.0 vs 62.0 V at 220 um",
+   "attrs": {
+    "technique": "TRANSPORT:piezo_output",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "aspect": "ranking",
+    "image_note": "220 um cast film (18.0 V) is below the 100 um fiber film (19.5 V); panel F7c cited as whole figure (cue conflict)",
+    "annotation_match": "100\u03bcm,fiber film"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o23",
+   "type": "OBS/response/trend",
+   "label": "Load voltage rises from ~8 V to a ~83 V plateau and load current falls from ~7.6 to ~0.1 uA over 1-800 MOhm",
+   "attrs": {
+    "technique": "TRANSPORT:piezo_output",
+    "read_from": "axis",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F7d"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o22",
+   "type": "OBS/response/characteristic_value",
+   "label": "Power peaks at 136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film",
+   "attrs": {
+    "technique": "TRANSPORT:piezo_output",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "annotation_match": "-Fiberfilm"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F7e"
+   ],
+   "modality": "xy_curve",
+   "provenance": "derived",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o24",
+   "type": "OBS/response/characteristic_value",
+   "label": "Load-voltage plateau (~83 V, F7d) exceeds the 62 V open-circuit peak of the same 220 um f-P0.10 device (F7b)",
+   "attrs": {
+    "technique": "TRANSPORT:piezo_output",
+    "read_from": "axis",
+    "source": "figure",
+    "requires_unseen": [],
+    "text_silent": true,
+    "image_note": "V^2/R at 10 MOhm (~37 V) reproduces 136.9 uW, so power is internally consistent with F7d but F7d itself sits above the open-circuit series; drive conditions of F7d not given"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F7d",
+    "10.1007/s40145-021-0537-3#F7b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o25",
+   "type": "OBS/response/trend",
+   "label": "Voltage pulse train inverts sign when the electrode connection is reversed",
+   "attrs": {
+    "technique": "TRANSPORT:piezo_output",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "annotation_match": "Reverse connection"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F7f"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o26",
+   "type": "OBS/response/trend",
+   "label": "Compression peaks ~20 V and bending peaks ~1.2 V keep the same amplitude after 1000 and 3000 cycles",
+   "attrs": {
+    "technique": "TRANSPORT:piezo_output",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "annotation_match": "Compressing mode"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F7g",
+    "10.1007/s40145-021-0537-3#F7h"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o29",
+   "type": "OBS/response/characteristic_value",
+   "label": "Finger pressing ~20 V, fist beating ~30 V, one-side bending ~17 V, arm pressing ~4 V peaks",
+   "attrs": {
+    "technique": "TRANSPORT:piezo_output",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "annotation_match": "Fingerpressing"
+   },
+   "figs": [
+    "F8"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F8e",
+    "10.1007/s40145-021-0537-3#F8f",
+    "10.1007/s40145-021-0537-3#F8g",
+    "10.1007/s40145-021-0537-3#F8h"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o30",
+   "type": "OBS/response/trend",
+   "label": "beta content peaks at 4 wt% and drops at 6-10 wt% (F4f) while voltage keeps rising to 10 wt% (F7b)",
+   "attrs": {
+    "technique": [
+     "FTIR",
+     "TRANSPORT:piezo_output"
+    ],
+    "read_from": "axis",
+    "source": "figure",
+    "requires_unseen": [],
+    "text_silent": true
+   },
+   "figs": [
+    "F4",
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s40145-021-0537-3#F4f",
+    "10.1007/s40145-021-0537-3#F7b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k1",
+   "type": "KNW/lookup",
+   "label": "PVDF XRD: 18.8 deg alpha(020), 20.2 deg alpha(110), 20.6 deg beta(110)",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "assignments from text / refs"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k2",
+   "type": "KNW/lookup",
+   "label": "PVDF IR bands: 764 cm-1 alpha; 812, 834, 1234 cm-1 gamma; 840, 1074, 1275, 1430 cm-1 beta",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "assignments from refs [33-38]"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k3",
+   "type": "KNW/model",
+   "label": "F_beta = I_beta / ((K_beta/K_alpha) I_alpha + I_beta) from 764 and 840 cm-1 absorbances (Eq. 1)",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "Eq. 1 body missing from packet; described in text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k5",
+   "type": "KNW/precedent",
+   "label": "Aligned fiber membranes outperform disordered ones owing to uniformly oriented beta phase [28]",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k6",
+   "type": "KNW/fact",
+   "label": "PZT is ferroelectric with a large piezoelectric constant and remnant polarization",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "PZT ferroelectricity, large piezoelectric constant and remnant polarization stated in F4/F7 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  }
+ ],
+ "edges": [
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n5",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n7",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n7",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n7",
+   "rel": "feeds_into",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n9",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n10",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n11",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n12",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n11",
+   "dst": "n12",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n13",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n14",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n18",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n13",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n14",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n18",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n14",
+   "rel": "contrasts",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n15",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint",
+   "mode_basis": "F7e device is f-P0.10 at 220 um: the top level of both the PZT sweep (F7b) and the thickness sweep (F7a); both act together"
+  },
+  {
+   "src": "n14",
+   "dst": "n15",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint",
+   "mode_basis": "F7e device is f-P0.10 at 220 um: the top level of both the PZT sweep (F7b) and the thickness sweep (F7a); both act together"
+  },
+  {
+   "src": "n15",
+   "dst": "n16",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n17",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n16",
+   "dst": "n17",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n17",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n8",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n12",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n23",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n23",
+   "dst": "n12",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n24",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n24",
+   "dst": "n17",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "o2",
+   "dst": "n8",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "o7",
+   "dst": "n10",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o16",
+   "dst": "n10",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o9",
+   "dst": "n23",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o12",
+   "dst": "o13",
+   "rel": "derives",
+   "mm_op": "convert_to_quantity",
+   "via": "intensity"
+  },
+  {
+   "src": "o13",
+   "dst": "n9",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o17",
+   "dst": "n11",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o18",
+   "dst": "n11",
+   "rel": "qualifies",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o19",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o20",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o21",
+   "dst": "n18",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o23",
+   "dst": "o22",
+   "rel": "derives",
+   "mm_op": "convert_to_quantity",
+   "via": "known_relation"
+  },
+  {
+   "src": "o22",
+   "dst": "n15",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o22",
+   "dst": "n18",
+   "rel": "contrasts",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o24",
+   "dst": "n15",
+   "rel": "qualifies",
+   "mm_op": "cross_check_consistency"
+  },
+  {
+   "src": "o25",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o26",
+   "dst": "n24",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o29",
+   "dst": "n16",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o30",
+   "dst": "n12",
+   "rel": "qualifies",
+   "mm_op": "correlate_across_series"
+  },
+  {
+   "src": "k2",
+   "dst": "n9",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k3",
+   "dst": "o13",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k5",
+   "dst": "n12",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k6",
+   "dst": "n12",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n9b",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n9b",
+   "dst": "n12",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "o10",
+   "dst": "n9b",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o12",
+   "dst": "n9b",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "k1",
+   "dst": "n9b",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k2",
+   "dst": "n9b",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n10b",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "o6",
+   "dst": "n10b",
+   "rel": "evidences",
+   "mm_op": "inspect_local_feature"
+  },
+  {
+   "src": "n10b",
+   "dst": "n14",
+   "rel": "supports",
+   "mm_op": null
+  }
+ ],
+ "review": {
+  "judge": "senior investigator",
+  "verdict": "accept with fixes",
+  "changes": [
+   "n9 split: label stated two claims (electrospinning -> beta; PZT raises beta to a 4 wt% maximum). n9 keeps the PZT claim (spine, evidence o13, premise k2); new n9b STR/phase/identity (side) takes the electrospinning claim: n6 produces n9b, o10 and o12 evidence n9b (moved from n9), k1 premise_for n9b (moved from n9), k2 premise_for n9b, n9b supports n12",
+   "n10 split: 'no visible interlayer interface' is an interface claim distinct from dense-skin/porous-core. n10 keeps porosity (o7, o16); new n10b STR/interface (side): n7 produces n10b, o6 evidences n10b (moved from n10), n10b supports n14 (text: lamination raises stress transfer)",
+   "read_from: o21 pixels/axis -> annotation (restates listed F7c annotation '100um,cast film'/'100\u03bcm,fiber film'); o19, o20 axis -> annotation (voltages are in-image value labels, OCR tokens of F7a/F7b)",
+   "k6 source prior_knowledge -> text (stated in F4/F7 linked text)",
+   "notes: removed reference to nonexistent audit o5 (the EDS discrepancy is in o2 image_note); noted n9b, n10b",
+   "spine 17 nodes, one connected path; 47 nodes, 65 edges; audits o18, o24, o30 (3, fair); n15 mode joint confirmed"
+  ],
+  "split_nodes": [
+   {
+    "node": "n9",
+    "into": [
+     "n9",
+     "n9b"
+    ]
+   },
+   {
+    "node": "n10",
+    "into": [
+     "n10",
+     "n10b"
+    ]
+   }
+  ],
+  "merged_nodes": [],
+  "read_from_changes": [
+   {
+    "node": "o21",
+    "from": "axis",
+    "to": "annotation",
+    "why": "label restates listed F7c annotations '100um,cast film' / '100\u03bcm,fiber film'"
+   },
+   {
+    "node": "o19",
+    "from": "axis",
+    "to": "annotation",
+    "why": "the voltages are the value labels written above each trace in F7a (tokens 6.75V ... 62.0.V), not axis readings"
+   },
+   {
+    "node": "o20",
+    "from": "axis",
+    "to": "annotation",
+    "why": "the voltages are the in-image value labels of F7b (tokens 7.5V ... 62.0.V)"
+   }
+  ],
+  "mode_changes": [],
+  "mode_checked": [
+   {
+    "node": "n15",
+    "causes_from": [
+     "n13",
+     "n14"
+    ],
+    "mode": "joint",
+    "why": "no caption presents PZT content and thickness as alternatives; the F7e device is the top level of both sweeps"
+   }
+  ],
+  "source_changes": [
+   {
+    "node": "k6",
+    "from": "prior_knowledge",
+    "to": "text",
+    "requires_unseen": [
+     "PZT ferroelectricity, large piezoelectric constant and remnant polarization stated in F4/F7 linked text"
+    ]
+   },
+   {
+    "node": "n9b",
+    "from": "(new)",
+    "to": "inferred",
+    "requires_unseen": [
+     "XRD peak assignments (k1)",
+     "IR band assignments (k2)"
+    ]
+   },
+   {
+    "node": "n10b",
+    "from": "(new)",
+    "to": "figure",
+    "requires_unseen": []
+   }
+  ],
+  "matmech": {
+   "supports": 4,
+   "contradicts": 0,
+   "not_covered": 2,
+   "pairs": [
+    {
+     "m": "M1",
+     "cause": "electrospinning on rotating collector + lamination at 15 MPa, 30 C",
+     "effect": "porous multi-layered film of oriented fibers, dense surface, separated internal fibers",
+     "verdict": "supports",
+     "nodes": [
+      "n6",
+      "n7",
+      "n8",
+      "n10",
+      "n10b"
+     ]
+    },
+    {
+     "m": "M2",
+     "cause": "electrospinning of PZT/PVDF under high field",
+     "effect": "enhanced PVDF beta-phase content",
+     "verdict": "supports",
+     "nodes": [
+      "n6",
+      "n9",
+      "n9b"
+     ]
+    },
+    {
+     "m": "M3",
+     "cause": "porous multi-layered oriented-fiber structure with enhanced beta",
+     "effect": "62.0 V, 136.9 uW, high sensitivity",
+     "verdict": "supports",
+     "nodes": [
+      "n9",
+      "n10",
+      "n13",
+      "n14",
+      "n15",
+      "n12"
+     ]
+    },
+    {
+     "m": "M4",
+     "cause": "porous multi-layered structure with separated internal fibers",
+     "effect": "high flexibility (low modulus, high elongation)",
+     "verdict": "not_covered",
+     "nodes": [
+      "n23",
+      "n8"
+     ]
+    },
+    {
+     "m": "M5",
+     "cause": "high output voltage, power, sensitivity",
+     "effect": "lights 21 LEDs and charges 1 uF capacitor to 6.4 V in 65 s",
+     "verdict": "not_covered",
+     "nodes": [
+      "n15",
+      "n16"
+     ]
+    },
+    {
+     "m": "M6",
+     "cause": "lamination under 15 MPa at 30 C",
+     "effect": "higher sensitivity and power than cast film",
+     "verdict": "supports",
+     "nodes": [
+      "n7",
+      "n10",
+      "n18",
+      "n14",
+      "n15"
+     ]
+    }
+   ]
+  }
+ },
+ "cue_overrides": [
+  {
+   "node": "n9",
+   "panel": "10.1007/s40145-021-0537-3#F4f",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o13",
+   "panel": "10.1007/s40145-021-0537-3#F4f",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o30",
+   "panel": "10.1007/s40145-021-0537-3#F4f",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o30",
+   "panel": "10.1007/s40145-021-0537-3#F7b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o20",
+   "panel": "10.1007/s40145-021-0537-3#F7b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n15",
+   "panel": "10.1007/s40145-021-0537-3#F7d",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n15",
+   "panel": "10.1007/s40145-021-0537-3#F7e",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o22",
+   "panel": "10.1007/s40145-021-0537-3#F7e",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n16",
+   "panel": "10.1007/s40145-021-0537-3#F8e",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n16",
+   "panel": "10.1007/s40145-021-0537-3#F8f",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n16",
+   "panel": "10.1007/s40145-021-0537-3#F8g",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n16",
+   "panel": "10.1007/s40145-021-0537-3#F8h",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o29",
+   "panel": "10.1007/s40145-021-0537-3#F8e",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o29",
+   "panel": "10.1007/s40145-021-0537-3#F8f",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o29",
+   "panel": "10.1007/s40145-021-0537-3#F8g",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o29",
+   "panel": "10.1007/s40145-021-0537-3#F8h",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n24",
+   "panel": "10.1007/s40145-021-0537-3#F7g",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n24",
+   "panel": "10.1007/s40145-021-0537-3#F7h",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o26",
+   "panel": "10.1007/s40145-021-0537-3#F7g",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o26",
+   "panel": "10.1007/s40145-021-0537-3#F7h",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o25",
+   "panel": "10.1007/s40145-021-0537-3#F7f",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  }
+ ],
+ "second_read": {
+  "units": 27,
+  "verdicts": {
+   "CORRECT": 11,
+   "PARTIAL": 11,
+   "WRONG": 5,
+   "ABSTAIN": 0,
+   "UNPARSED": 0
+  },
+  "wrong": [
+   {
+    "node": "n13",
+    "panels": [
+     "F7b"
+    ]
+   },
+   {
+    "node": "o24",
+    "panels": [
+     "F7b",
+     "F7d"
+    ]
+   },
+   {
+    "node": "o23",
+    "panels": [
+     "F7d"
+    ]
+   },
+   {
+    "node": "n8",
+    "panels": [
+     "F2a"
+    ]
+   },
+   {
+    "node": "o9",
+    "panels": [
+     "F3f",
+     "F3g"
+    ]
+   }
+  ]
+ }
+}
