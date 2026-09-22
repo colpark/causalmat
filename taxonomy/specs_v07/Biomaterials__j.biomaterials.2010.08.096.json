@@ -1,0 +1,290 @@
+{
+ "file": "Biomaterials__j.biomaterials.2010.08.096.html",
+ "short": "Optimization of surface chemistry on single-walled carbon na",
+ "journal": "Biomaterials",
+ "year": null,
+ "title": "Optimization of surface chemistry on single-walled carbon nanotubes for in vivo photothermal ablation of tumors",
+ "doi": "Biomaterials/j.biomaterials.2010.08.096",
+ "lanes": [
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Photothermal SWNT agents need a surface coating giving high tumor uptake with low RES and skin retention. Raising PEG density and chain length on the PMHC18 coating should prolong SWNT blood circulation and so shift biodistribution.",
+   "detail": "Absorbed: n1 (HYP/need), n2 (HYP/hypothesis), n3 (DES/base_system), n4 (DES/variable_sweep), n5 (PRC/synthesis), n6 (PRC/synthesis), n13 (DES/down_select), n14 (PRC/stimulus)",
+   "figs": [],
+   "source": "n1, n2, n3, n4, n5, n6, n13, n14"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "The PEG-PMHC18 coatings differ in PEG grafting density, which tracks the PEG:MHC18 feed ratio",
+   "detail": "Absorbed: n18 (STR/chemistry/composition)",
+   "figs": [],
+   "source": "n18"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Denser and longer PEG shells prolong SWNT blood circulation (half-life from a few h up to ~20 h). Longer circulation raises tumor uptake of SWNTs.",
+   "detail": "Absorbed: n9 (MEC/pathway), n10b (MEC/pathway), n11 (MEC/pathway), n15 (PRP/value). Premises: Long-circulating nanoparticles accumulate in tumors by the enhanced permeability and retention effect; SWNTs absorb strongly in the NIR (808 nm) and convert the light to heat",
+   "figs": [],
+   "source": "n9, n10b, n11, n15"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "SWNT plus laser ablates irradiated tumors and suppresses regrowth over 14 days, unlike untreated, laser-only and SWNT-only groups",
+   "detail": "Absorbed: n16 (PRF/service_capability)",
+   "figs": [],
+   "source": "n16"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Optimising PEG density and length on PMHC18-coated SWNTs balances tumor uptake against RES and skin retention and enables effective in vivo photothermal tumor ablation",
+   "detail": "Absorbed: n17 (DSC/conclusion)",
+   "figs": [],
+   "source": "n17"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "C1",
+   "lane": 0,
+   "row": "S0",
+   "line": 0,
+   "title": "ASSAY:tumour, F3",
+   "tech": "ASSAY:tumour",
+   "figs": [
+    "F3"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "At 2 days, skin and tumor uptake rise and spleen uptake falls with PEG density in both the 2 kDa and 5 kDa series. Against half-life, liver and spleen uptake fall and tumor uptake rises; skin stays <5 %ID/g to ~13 h, then jumps to 10-30 %ID/g above ~16 h",
+   "solves": "Ultra-long circulation (>~16 h) makes SWNTs accumulate strongly in the skin dermis",
+   "op": "compare across conditions, read trend, replot derived series",
+   "verdict": "shown",
+   "source": "o6, o7",
+   "tech_source": "label",
+   "note": "F3a: tumor ~4 -> ~18, skin ~1 -> ~21 %ID/g from 10% to 100%-2k; F3b: skin ~2 (5%) -> ~30 (100%-5k); liver trend not monotonic in F3a (25%-2k highest) dashed trend lines drawn by authors; large scatter among the 18-19 h points (skin 10-27 %ID/g)",
+   "detail": "o6: At 2 days, skin and tumor uptake rise and spleen uptake falls with PEG density in both the 2 kDa and 5 kDa series; o7: Against half-life, liver and spleen uptake fall and tumor uptake rises; skin stays <5 %ID/g to ~13 h, then jumps to 10-30 %ID/g above ~16 h",
+   "claims": [
+    "n11"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n11 keeps shown support from o9, o10 after removal."
+  },
+  {
+   "id": "C2",
+   "lane": 0,
+   "row": "S0",
+   "line": 1,
+   "title": "ASSAY:tumour, F3",
+   "tech": "ASSAY:tumour",
+   "figs": [
+    "F3"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "10%-5k: tumor ~14, skin ~3, liver ~15, spleen ~19 %ID/g; 100%-5k: tumor ~23, skin ~30, liver ~16, spleen ~13 %ID/g",
+   "solves": "Select 10%-5kPEG-PMHC18 (half-life ~12-13 h) as the coating with balanced tumor, RES and skin uptake",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o8",
+   "tech_source": "label",
+   "note": "read from F3b bars; text: 10%-5k tumor ~15, skin ~3; 100%-5k tumor ~23, skin ~29",
+   "detail": "o8: 10%-5k: tumor ~14, skin ~3, liver ~15, spleen ~19 %ID/g; 100%-5k: tumor ~23, skin ~30, liver ~16, spleen ~13 %ID/g",
+   "claims": [
+    "n13"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n13 (o8)."
+  },
+  {
+   "id": "C3",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "NMR",
+   "tech": "NMR",
+   "figs": [],
+   "panel": "",
+   "panel_ids": [],
+   "head": "NMR PEGylation ratio rises with feed density: 10.5, 22, 42.2, 67% (2 kDa); 4.3, 10.8, 20.5, 44.9, 87.6% (5 kDa)",
+   "solves": "The PEG-PMHC18 coatings differ in PEG grafting density, which tracks the PEG:MHC18 feed ratio",
+   "op": "",
+   "verdict": null,
+   "source": "o13",
+   "tech_source": "label",
+   "detail": "o13: NMR PEGylation ratio rises with feed density: 10.5, 22, 42.2, 67% (2 kDa); 4.3, 10.8, 20.5, 44.9, 87.6% (5 kDa)",
+   "claims": [
+    "n18"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and n18 has no other figure-backed support."
+  },
+  {
+   "id": "C4",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "RAMAN, F1",
+   "tech": "RAMAN",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.08.096#F1c",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.08.096#F1c"
+   ],
+   "head": "Raman spectrum of coated SWNTs: dominant sharp G-band at ~1590 cm-1, RBM peaks ~200-270 cm-1, weak D-band ~1300 cm-1",
+   "solves": "",
+   "op": "assign features",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "label",
+   "note": "G/D ratio high (~2000 vs ~150 a.u.); band names assigned by the annotator, caption names only the G-band",
+   "detail": "o3: Raman spectrum of coated SWNTs: dominant sharp G-band at ~1590 cm-1, RBM peaks ~200-270 cm-1, weak D-band ~1300 cm-1",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n9 keeps shown support from o4 after removal."
+  },
+  {
+   "id": "C5",
+   "lane": 0,
+   "row": "S2",
+   "line": 1,
+   "title": "evidence, F2",
+   "tech": "",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.08.096#F2a, 10.1016/j.biomaterials.2010.08.096#F2b",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.08.096#F2a",
+    "10.1016/j.biomaterials.2010.08.096#F2b"
+   ],
+   "head": "Blood SWNT levels decay more slowly with higher PEG density and with 5 kDa over 2 kDa PEG; 10%-2k is cleared by 12 h, 5%-5k by 24 h. First-order decay fits give half-lives of roughly 12 h for 10%-5k and ~20 h for 100%-5k",
+   "solves": "Denser and longer PEG shells prolong SWNT blood circulation (half-life from a few h up to ~20 h)",
+   "op": "compare across conditions, fit model, read characteristic point, replot derived series",
+   "verdict": "partial",
+   "source": "o4, o5",
+   "tech_source": "none",
+   "note": "gain saturates: 50%-2k and 100%-2k curves overlap; 50%-5k lies above 100%-5k until ~35 h, and the longer 100%-5k half-life rests on the fitted tail half-lives estimated from the fitted curves (level halving); Table 1 values 12.8 h and 20.8 h are text only",
+   "detail": "o4: Blood SWNT levels decay more slowly with higher PEG density and with 5 kDa over 2 kDa PEG; 10%-2k is cleared by 12 h, 5%-5k by 24 h; o5: First-order decay fits give half-lives of roughly 12 h for 10%-5k and ~20 h for 100%-5k",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n9 keeps shown support from o3 after removal."
+  },
+  {
+   "id": "C6",
+   "lane": 0,
+   "row": "S2",
+   "line": 2,
+   "title": "RAMAN, F4",
+   "tech": "RAMAN",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.08.096#F4a, 10.1016/j.biomaterials.2010.08.096#F4c, 10.1016/j.biomaterials.2010.08.096#F4b, 10.1016/j.biomaterials.2010.08.096#F4d",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.08.096#F4a",
+    "10.1016/j.biomaterials.2010.08.096#F4c",
+    "10.1016/j.biomaterials.2010.08.096#F4b",
+    "10.1016/j.biomaterials.2010.08.096#F4d"
+   ],
+   "head": "Raman maps of skin: dense, extended SWNT signal for 100%-5k versus a few sparse spots for 10%-5k. Overlay on H&E sections places the SWNT signal throughout the dermis below the epidermis",
+   "solves": "Ultra-long circulation (>~16 h) makes SWNTs accumulate strongly in the skin dermis",
+   "op": "compare across conditions, register colocated views",
+   "verdict": "shown",
+   "source": "o9, o10",
+   "tech_source": "label+none",
+   "note": "sample identity from panel titles SWNT-100%-5kPEG- / SWNT-10%-5kPEG- (annotations); same 0-60 count scale shown only beside c Dermis bracket only on d; in b green patches fill the connective tissue beneath the epidermal edge",
+   "detail": "o9: Raman maps of skin: dense, extended SWNT signal for 100%-5k versus a few sparse spots for 10%-5k; o10: Overlay on H&E sections places the SWNT signal throughout the dermis below the epidermis",
+   "claims": [
+    "n11"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n11 keeps shown support from o6, o7 after removal."
+  },
+  {
+   "id": "C7",
+   "lane": 0,
+   "row": "S3",
+   "line": 0,
+   "title": "ASSAY:tumour, F5",
+   "tech": "ASSAY:tumour",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.08.096#F5a, 10.1016/j.biomaterials.2010.08.096#F5b",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.08.096#F5a",
+    "10.1016/j.biomaterials.2010.08.096#F5b"
+   ],
+   "head": "Relative tumor volume of SWNT+Laser drops to ~0.2 and stays <1 for 14 days while the three control groups grow to ~5-8x (p<0.0001). Irradiated tumor site on the SWNT-injected mouse appears as a flat dark mark; tumors in the other three groups look raised",
+   "solves": "SWNT plus laser ablates irradiated tumors and suppresses regrowth over 14 days, unlike untreated, laser-only and SWNT-only groups",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o11, o12",
+   "tech_source": "label",
+   "note": "text_silent-level detail: laser-only (~8.4) and SWNT-only (~6.8) end above untreated (~5.4) at day 14, while the text calls growth similar; does not change the ablation claim group labels No Laser / Laser Irradiated / No SWNT / SWNT Injected are annotations; photos too small to confirm complete destruction",
+   "detail": "o11: Relative tumor volume of SWNT+Laser drops to ~0.2 and stays <1 for 14 days while the three control groups grow to ~5-8x (p<0.0001); o12: Irradiated tumor site on the SWNT-injected mouse appears as a flat dark mark; tumors in the other three groups look raised",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n16 (o11)."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "causes"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S0",
+   "S4",
+   "supports"
+  ],
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": false
+}

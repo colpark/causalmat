@@ -1,0 +1,189 @@
+{
+ "paper_id": "Biomaterials/j.biomaterials.2010.08.096",
+ "title": "Optimization of surface chemistry on single-walled carbon nanotubes for in vivo photothermal ablation of tumors",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Biomaterials/j.biomaterials.2010.08.096",
+   "root": "intervene",
+   "subtype": "next condition",
+   "seed_claim": "g1",
+   "evidence": [
+    "o4"
+   ],
+   "hidden": [
+    "g1",
+    "o4",
+    "n18",
+    "n9",
+    "n11",
+    "g1",
+    "n18",
+    "n9",
+    "n11"
+   ],
+   "hidden_panels": [
+    "10.1016/j.biomaterials.2010.08.096#F2a",
+    "10.1016/j.biomaterials.2010.08.096#F2b"
+   ],
+   "branch": "sweep n4 with optimum g1",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "note": "trend extrapolation of the classical series picks the earlier optimum"
+   },
+   "depth": 1,
+   "depth_families": [
+    "RAMAN"
+   ],
+   "mask": "show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next",
+   "grader": "the measured outcome at the chosen condition from o4, held out",
+   "status": "closed",
+   "ruling": "decision 12.0 is not the condition directly after the last given (None)",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    },
+    {
+     "node": "n9",
+     "role": "redacted"
+    },
+    {
+     "node": "n11",
+     "role": "redacted"
+    },
+    {
+     "node": "o4",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.biomaterials.2010.08.096#F2a",
+      "10.1016/j.biomaterials.2010.08.096#F2b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "g1",
+     "role": "claim"
+    }
+   ],
+   "has_sweep": true,
+   "redactions": [
+    {
+     "node": "n18",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "n9",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "n11",
+     "why": "shares a claim with a hidden node"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:552",
+     "effect": "context n18 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:552",
+     "effect": "context n9 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:552",
+     "effect": "context n11 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:589",
+     "effect": "given [], withheld ['10.1016/j.biomaterials.2010.08.096#F2a', '10.1016/j.biomaterials.2010.08.096#F2b'] (decision 12.0, levels [5.0, 10.0, 25.0, 50.0, 100.0] %)"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:592",
+     "effect": "decision 12.0 is not the condition directly after the last given (None)"
+    }
+   ],
+   "given_panels": [],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Hypothesis, design, processing: Photothermal SWNT agents need a surface coating gi -> Raising PEG density and chain length on the PMHC18 -> Coat Hipco SWNTs with amphiphilic PEG-grafted poly -> Synthesise PEGylated PMHC18 polymers at varied PEG -> Sonicate SWNTs with each polymer, centrifuge at 21"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Results so far, as panels only:  []"
+    },
+    {
+     "step": 3,
+     "role": "decision",
+     "nodes": [
+      "g1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Decide the next condition: A blood half-life around 12-13 h is optimal; heavier PEGylation (16-21 h) adds skin accumulation without enough tumor ga"
+    },
+    {
+     "step": 4,
+     "role": "outcome",
+     "nodes": [
+      "o4"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Outcome at that condition (grader): Blood SWNT levels decay more slowly with higher PEG density and with 5 kDa over 2 kDa PEG; 10%-2k is cleared by 12 h, 5%"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
