@@ -1,0 +1,1808 @@
+{
+ "paper_id": "Advanced_Composites_and_Hybrid_Materials/s42114-021-00406-x",
+ "title": "Improved mechanical and EMI shielding properties of PLA/PCL composites by controlling distribution of PIL-modified CNTs",
+ "vocab_version": "v04",
+ "batch": "v07",
+ "text_source": "captions_plus_linked_text",
+ "notes": "Spine: need -> hypothesis -> PLA/PCL/8CNT base + PIL modification + blending-time sweep -> melt blending -> PIL-widened interface -> CNT migration/interfacial localization -> (mechanical branch: phase-size refinement + interface -> elongation/yield) and (electrical branch: interfacial CNT network -> conductivity -> EMI SE, explained by conduction-loss absorption) -> conclusion. Audits o14, o19: at 2 min the PIL composite is worse than the PIL-free one in conductivity and SE, so the paper's blanket 'PIL composites significantly higher' holds for 4-8 min only. Figure-vs-text conflicts in image_note: F6b percolation location (text 4-6 wt%, plot steepest 0-4 wt%) and 0.046 S/m vs ~0.7 S/m; F4 high-frequency G' lower with PIL-2m/4m; F3 Tcc not lower with PIL; F8 legend '4IL'. F9 TEM phase mapping (PLA white, PCL grey) only in text. Lost: Table S1-S3 values, Figs S4-S6, crystallinity. Judge: n10 split into n10 (network present in all blends, G' plateau) and n20 (network most complete with interfacial CNTs, spine, argued, premise k6); n12 split off n21 (yield/ultimate stress); k5 added as premise for n9; o22 audit (PIL-8m coarser) split from o2.",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/need",
+   "label": "EMI shielding composites need high shielding with good mechanics from low filler loading",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "title: improved mechanical and EMI shielding properties",
+     "linked text F6: conductive loss of CNT networks governs EMI shielding"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n2",
+   "type": "HYP/hypothesis",
+   "label": "Steering PIL-modified CNTs to the PLA/PCL interface should raise both mechanics and EMI shielding",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "title: controlling distribution of PIL-modified CNTs",
+     "linked text F6/F8: PIL expands the interface so more CNTs reach it"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n3",
+   "type": "DES/base_system",
+   "label": "Immiscible PLA/PCL co-continuous blend with 8 wt% CNTs premixed in the PLA phase",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "CNTs premixed with PLA (linked text F2)",
+     "'8' = 8 wt% CNT (sample naming, unit only in text)"
+    ],
+    "reason": "immiscible blend with double-percolation potential"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n4",
+   "type": "DES/modification",
+   "label": "Add 4 parts PIL (MEPGMA-bearing polymeric ionic liquid) as compatibilizer and CNT modifier",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "PIL chemistry MEPGMA and compatibilizer role (linked text F1)",
+     "amount '4' from sample names; unit not stated in packet"
+    ],
+    "site": "PLA/PCL interface and CNT surface",
+    "role": "compatibilizer, CNT dispersant"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n5",
+   "type": "DES/variable_sweep",
+   "label": "Melt-blending time 2, 4, 6 and 8 min, with and without PIL",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "suffix m = minutes of blending (linked text F1/F2)"
+    ],
+    "variable": "blending time",
+    "levels": [
+     "2",
+     "4",
+     "6",
+     "8 min"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n6",
+   "type": "PRC/forming",
+   "label": "Melt blending of CNT-filled PLA with PCL (and PIL) for the set blending time",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "melt-mixing sequence with CNT/PLA masterbatch (linked text F2)"
+    ],
+    "route": "melt blending"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n7",
+   "type": "STR/microstructure/distribution",
+   "label": "CNTs migrate from PLA to the interface and on into PCL with time; PIL holds them at the interface up to 6 min",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "phase identity of domains (caption: PCL etched; linked text F9: PLA white, PCL grey in TEM)",
+     "migration sequence stated in linked text F2"
+    ],
+    "basis": "evidenced",
+    "aspect": "localization",
+    "image_note": "F2 shows CNT-like strands on 8CNTs-2m and PIL-2m..6m fracture surfaces, few elsewhere; phase boundaries are not identifiable on the SEM images. F9 TEM of the two 6m samples only."
+   },
+   "figs": [
+    "F2",
+    "F9"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F2",
+    "10.1007/s42114-021-00406-x#F9"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n9",
+   "type": "STR/interface",
+   "label": "PIL compatibilizes and widens the PLA/PCL interfacial layer",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "fuzzier interface shown in Fig. S4 (not in packet)",
+     "MEPGMA affinity for both phases (linked text F1)"
+    ],
+    "basis": "argued",
+    "fig_ref": "F1"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n8",
+   "type": "STR/microstructure/feature_size",
+   "label": "Co-continuous phase size refines with blending time, and is finer with PIL",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "PCL phase etched before imaging, so voids are PCL domains (caption F1)"
+    ],
+    "basis": "evidenced",
+    "direction": "refine",
+    "image_note": "8CNTs series refines 2->6 min; PIL-8m looks coarser than PIL-6m, so refinement is not monotonic with PIL"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F1"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n10",
+   "type": "STR/microstructure/distribution",
+   "label": "A percolated CNT network (low-frequency G' plateau) is present in all eight 8 wt% blends",
+   "attrs": {
+    "source": "inferred",
+    "requires_unseen": [
+     "G' plateau -> filler network mapping (k1, prior knowledge)"
+    ],
+    "basis": "evidenced",
+    "aspect": "connectivity",
+    "proxy": "low-frequency G' plateau",
+    "image_note": "the plateau shows a network in every sample; which sample has the most complete network is not readable from F4. image_support set to shown from this note (claim narrowed at judge split), not from a new look at the image"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F4a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n20",
+   "type": "STR/microstructure/distribution",
+   "label": "The CNT network is most complete when CNTs line the PLA/PCL interface (PIL-6m); migration into PCL breaks it",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "'most perfect conductive network at 6 min' and network destruction by migration into PCL (linked text F6/F7)"
+    ],
+    "basis": "argued",
+    "aspect": "connectivity",
+    "origin": "split from n10 at judge review"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n11",
+   "type": "PRP/value",
+   "label": "Conductivity: PIL-free falls with blending time; PIL composites peak at 6 min (28.8 S/m) and exceed PIL-free ones",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "property_family": "electrical",
+    "quantity": "electrical conductivity",
+    "image_note": "PIL composite is lower than PIL-free at 2 min (14.9 vs 23.0 S/m); text says PIL composites are 'significantly higher'"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F6a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n12",
+   "type": "PRP/value",
+   "label": "Elongation at break peaks at 6 min in both series (126% PIL-free, 135% PIL)",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "property_family": "mechanical",
+    "quantity": "elongation at break",
+    "image_note": "text: 125.3/103.5% and 135.4/117.6% match the curves; PIL-2m breaks earlier (~60%) than 8CNTs-2m (~64%), so the PIL gain holds for 4-8 min only"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F5a",
+    "10.1007/s42114-021-00406-x#F5b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n21",
+   "type": "PRP/value",
+   "label": "PIL lowers the yield stress but raises the ultimate stress",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "property_family": "mechanical",
+    "quantity": "yield and ultimate stress",
+    "origin": "split from n12 at judge review",
+    "image_note": "image_support inherited from n12 at the split, not re-judged"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F5a",
+    "10.1007/s42114-021-00406-x#F5b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n13",
+   "type": "PRF/service_capability",
+   "label": "X-band EMI SE: PIL composites shield better, with PIL-6m highest at ~39-42 dB",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "condition": "8-12.4 GHz, 8 wt% CNT",
+    "image_note": "at 2 min PIL composite (~31-33 dB) is below PIL-free (~35-40 dB)"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F7a",
+    "10.1007/s42114-021-00406-x#F7b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n15",
+   "type": "MEC/pathway",
+   "label": "Interfacial CNT network gives conduction loss: waves enter by impedance matching, are absorbed and dissipated as Joule heat",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "impedance matching and Joule-heat dissipation (linked text F9)"
+    ],
+    "mechanism_class": "conduction loss / absorption",
+    "basis": "evidenced",
+    "image_note": "F9 lower half is a schematic of the claimed mechanism, not evidence"
+   },
+   "figs": [
+    "F9"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F9"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n16",
+   "type": "DSC/conclusion",
+   "label": "PIL-modified CNTs localized at the PLA/PCL interface at 6 min blending give the best elongation, conductivity and absorption-dominated EMI SE",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "conclusion wording (linked text F5-F9)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n14",
+   "type": "PRP/value",
+   "label": "Shielding is absorption-dominated: SE_R stays ~2-2.5 dB while SE_A carries 25-39 dB",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "property_family": "electrical",
+    "aspect": "partition",
+    "quantity": "SE_A vs SE_R at 9 GHz"
+   },
+   "figs": [
+    "F8"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F8"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n17",
+   "type": "PRP/value",
+   "label": "Melt G' and G'' rise with blending time in both series; PIL-8m is stiffest",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "property_family": "mechanical",
+    "object": "melt at 180 C",
+    "image_note": "at high frequency PIL-2m and PIL-4m have the lowest G' (~0.15, ~0.27 vs ~0.33 MPa for 8CNTs-2m at ~400 rad/s), against the text claim that PIL raises high-frequency G'"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F4a",
+    "10.1007/s42114-021-00406-x#F4b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n18",
+   "type": "PRP/value",
+   "label": "PLA cold-crystallization temperature (~96-99 C) does not change with blending time",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "exotherm near 96 C is PLA cold crystallization (linked text F3)"
+    ],
+    "property_family": "thermal",
+    "quantity": "Tcc"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F3a",
+    "10.1007/s42114-021-00406-x#F3b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n19",
+   "type": "PRP/value",
+   "label": "PIL raises conductivity at low CNT content, lowering the percolation threshold",
+   "attrs": {
+    "source": "inferred",
+    "requires_unseen": [
+     "steepest conductivity rise locates the percolation threshold (prior knowledge)"
+    ],
+    "property_family": "electrical",
+    "image_note": "text puts the sharp rise between 4 and 6 wt% and calls 2->4 wt% marginal; F6b shows ~7 decades 0->2 wt%, ~4 decades 2->4, ~2 decades 4->6; text 0.046 S/m for PIL-free 6 wt% vs ~0.7 on the plot (PIL 2.48 matches ~2.5)"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F6b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k1",
+   "type": "KNW/lookup",
+   "label": "A low-frequency G' plateau in a filled melt indicates a percolated filler network",
+   "attrs": {
+    "source": "prior_knowledge",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k2",
+   "type": "KNW/model",
+   "label": "Wetting coefficient 0.58 predicts thermodynamic CNT localization in PCL",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "wetting coefficient value and Table S1 (linked text F2)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k3",
+   "type": "KNW/precedent",
+   "label": "PLA melt viscosity is ~16x that of PCL (Newtonian region)",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "viscosity ratio 16 from ref. [41] (linked text F2)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k4",
+   "type": "KNW/precedent",
+   "label": "In carbon-filled composites conduction loss dominates EMI shielding",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "refs [60-62] (linked text F6)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k5",
+   "type": "KNW/precedent",
+   "label": "MEPGMA groups of PILs have high affinity for both PLA and PCL, raising compatibility [56]",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "MEPGMA affinity and ref. [56] (linked text F1)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k6",
+   "type": "KNW/precedent",
+   "label": "Selective CNT localization at the interphase builds a more effective conductive network [63]",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "ref. [63] (linked text F6)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o1",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Fracture-surface voids ~5-15 um wide at 8CNTs-2m, ~2-5 um at 8CNTs-6m and -8m (10 um bar)",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "SEM",
+    "read_from": "pixels",
+    "image_note": "4m shows aligned elongated fibrous domains; sizes estimated against the 10 um scale bar"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F1"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o2",
+   "type": "OBS/morphology/appearance",
+   "label": "PIL samples show a finer, denser fracture texture than PIL-free ones at 2-6 min",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "SEM",
+    "read_from": "pixels"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F1"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o3",
+   "type": "OBS/morphology/distribution",
+   "label": "Fibrous CNT-like strands cover 8CNTs-2m and PIL-2m..6m surfaces near voids; few on 8CNTs-4m..8m and PIL-8m",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "SEM:FEG",
+    "read_from": "pixels",
+    "image_note": "x10k/x20k; boxed regions magnified; which phase or boundary a strand sits on cannot be told from the image"
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F2"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o4",
+   "type": "OBS/morphology/distribution",
+   "label": "TEM: in 8CNTs-6m CNTs lie in the grey matrix; in PIL-6m dark strands line the edge of the white domain",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "white = PLA, grey = PCL (linked text F9)"
+    ],
+    "technique": "TEM:brightfield",
+    "read_from": "pixels",
+    "image_note": "one field per sample; scale bars unreadable"
+   },
+   "figs": [
+    "F9"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F9"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o5",
+   "type": "OBS/response/trend",
+   "label": "G' flattens into a plateau below ~1 rad/s in all eight composites",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "MECH",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F4a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o6",
+   "type": "OBS/response/trend",
+   "label": "Low-frequency G' rises with blending time: ~0.024->0.035 MPa PIL-free, ~0.027->0.055 MPa with PIL",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "MECH",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F4a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o7",
+   "type": "OBS/response/trend",
+   "label": "Low-frequency G'' rises with blending time in the PIL series, PIL-8m highest (~0.02 MPa)",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "MECH",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F4b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o8",
+   "type": "OBS/signal/feature_shift",
+   "label": "Exotherm near 96-99 C stays put across 2-8 min in both series",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "THERMAL:DSC",
+    "read_from": "axis",
+    "aspect": "shift",
+    "image_note": "melting peaks near 55 and 166 C also stay put (moved from label at judge review). PIL series exotherm sits ~98 C vs ~96 C without PIL: not lower, although the text says PIL lowers Tcc; crystallinity (Table S2) not readable"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F3a",
+    "10.1007/s42114-021-00406-x#F3b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o9",
+   "type": "OBS/response/trend",
+   "label": "PIL-free elongation at break ~64, 105, 126, 103% for 2, 4, 6, 8 min",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "MECH:tensile",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F5a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o10",
+   "type": "OBS/response/trend",
+   "label": "PIL elongation at break ~60, 116, 135, 118% for 2, 4, 6, 8 min",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "MECH:tensile",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F5b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o11",
+   "type": "OBS/response/characteristic_value",
+   "label": "Yield peak ~23.5-25.5 MPa with PIL vs ~26-28.5 MPa without",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "MECH:tensile",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F5a",
+    "10.1007/s42114-021-00406-x#F5b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o21",
+   "type": "OBS/response/characteristic_value",
+   "label": "PIL ultimate stress reaches ~34 MPa at 6 min",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "MECH:tensile",
+    "read_from": "axis",
+    "origin": "split from o10 at judge review"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F5b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o12",
+   "type": "OBS/response/trend",
+   "label": "PIL-free conductivity falls 23.0, 18.1, 16.3, 12.6 S/m over 2-8 min",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "TRANSPORT",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F6a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o13",
+   "type": "OBS/response/trend",
+   "label": "PIL conductivity 14.9, 23.6, 28.8, 22.4 S/m over 2-8 min, maximum at 6 min",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "TRANSPORT",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F6a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o14",
+   "type": "OBS/response/characteristic_value",
+   "label": "At 2 min the PIL composite conducts less than the PIL-free one (14.9 vs 23.0 S/m)",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "TRANSPORT",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F6a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o15",
+   "type": "OBS/response/trend",
+   "label": "PIL curve lies 1-3 decades above PIL-free at 1-4 wt% CNT, converging at 8-10 wt%",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "TRANSPORT",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F6b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o16",
+   "type": "OBS/response/trend",
+   "label": "PIL-free EMI SE falls with blending time: ~35-40 (2m) > 31-37 (4m) > 28-31 (6m) > 26-30 dB (8m)",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "TRANSPORT",
+    "read_from": "axis"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F7a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o17",
+   "type": "OBS/response/trend",
+   "label": "PIL EMI SE ranks 6m (~39-42) > 4m (~35-38) > 8m (~33-35) > 2m (~31-33 dB)",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "TRANSPORT",
+    "read_from": "axis",
+    "aspect": "ranking"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F7b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o18",
+   "type": "OBS/response/trend",
+   "label": "EMI SE rankings follow the conductivity rankings in both series across blending time",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": [
+     "TRANSPORT"
+    ],
+    "read_from": "axis"
+   },
+   "figs": [
+    "F6",
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F6a",
+    "10.1007/s42114-021-00406-x#F7a",
+    "10.1007/s42114-021-00406-x#F7b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o19",
+   "type": "OBS/response/characteristic_value",
+   "label": "At 2 min PIL composite SE (~31-33 dB) is below the PIL-free one (~35-40 dB)",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "TRANSPORT",
+    "read_from": "axis",
+    "image_note": "F8 at 9 GHz agrees: 31.8 vs 36.8 dB"
+   },
+   "figs": [
+    "F7"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F7a",
+    "10.1007/s42114-021-00406-x#F7b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o20",
+   "type": "OBS/response/component_partition",
+   "label": "At 9 GHz SE_R is ~2-2.5 dB for all eight samples while SE_A is ~25-39 dB",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "TRANSPORT",
+    "read_from": "axis",
+    "image_note": "SE_T totals: PIL-free 36.8, 32.3, 30.0, 27.2; PIL 31.8, 37.1, 41.3, 34.0 dB; legend reads '4IL' not '4PIL'"
+   },
+   "figs": [
+    "F8"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F8"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o22",
+   "type": "OBS/morphology/appearance",
+   "label": "PIL-8m fracture texture is coarser than PIL-6m",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "technique": "SEM",
+    "read_from": "pixels",
+    "origin": "split from o2 at judge review"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1007/s42114-021-00406-x#F1"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  }
+ ],
+ "edges": [
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n5",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n9",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n7",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n8",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n10",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n12",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint",
+   "mode_basis": "linked text F5 credits both finer co-continuous structure and PIL compatibilization/interfacial adhesion"
+  },
+  {
+   "src": "n9",
+   "dst": "n12",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint",
+   "mode_basis": "linked text F5 credits both finer co-continuous structure and PIL compatibilization/interfacial adhesion"
+  },
+  {
+   "src": "n11",
+   "dst": "n13",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n11",
+   "dst": "n15",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n13",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n16",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n16",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n14",
+   "dst": "n15",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n10",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n7",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n11",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "k1",
+   "dst": "n10",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k2",
+   "dst": "n7",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k3",
+   "dst": "n7",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k4",
+   "dst": "n15",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "o1",
+   "dst": "n8",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o2",
+   "dst": "n8",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o3",
+   "dst": "n7",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "o4",
+   "dst": "n7",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "o5",
+   "dst": "n10",
+   "rel": "evidences",
+   "mm_op": "recognize_signature"
+  },
+  {
+   "src": "o6",
+   "dst": "n17",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o7",
+   "dst": "n17",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o8",
+   "dst": "n18",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o9",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o10",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o12",
+   "dst": "n11",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o13",
+   "dst": "n11",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o14",
+   "dst": "n11",
+   "rel": "qualifies",
+   "mm_op": "compare_across_conditions",
+   "note": "audit: PIL does not raise conductivity at 2 min"
+  },
+  {
+   "src": "o15",
+   "dst": "n19",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o16",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o17",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o18",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "correlate_across_series"
+  },
+  {
+   "src": "o19",
+   "dst": "n13",
+   "rel": "qualifies",
+   "mm_op": "compare_across_conditions",
+   "note": "audit: PIL composite shields less than PIL-free at 2 min"
+  },
+  {
+   "src": "o20",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "compare_coplotted_quantities"
+  },
+  {
+   "src": "n7",
+   "dst": "n20",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n20",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n20",
+   "dst": "n11",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "k5",
+   "dst": "n9",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k6",
+   "dst": "n20",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "o11",
+   "dst": "n21",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "n9",
+   "dst": "n21",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "o21",
+   "dst": "n21",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o22",
+   "dst": "n8",
+   "rel": "qualifies",
+   "mm_op": "compare_across_conditions",
+   "note": "audit: refinement with PIL is not monotonic in blending time (PIL-8m coarser than PIL-6m)"
+  }
+ ],
+ "review": {
+  "judge": "senior investigator",
+  "verdict": "accept with fixes",
+  "changes": [
+   "n10 split: n10 keeps the network-present claim (G' plateau, o5 + k1), n20 (spine STR/microstructure/distribution, basis argued) carries 'most complete network when CNTs line the interface'; n7 causes n20, n10 supports n20, n20 causes n11 (replaces n10 causes n11)",
+   "n12 split: n12 keeps elongation at break (spine); n21 (off-spine PRP/value) carries 'PIL lowers yield stress, raises ultimate stress'; o11 evidences edge moved to n21; n9 causes n21 (linked text F5: plasticizing and compatibilization)",
+   "o10 split: o10 keeps PIL elongation readings; o21 carries the ~34 MPa ultimate stress, evidences n21 (read_characteristic_point)",
+   "o2 split: o2 keeps 'PIL finer than PIL-free at 2-6 min'; o22 (PIL-8m coarser than PIL-6m) qualifies n8 as an audit",
+   "o8 label trimmed to the exotherm reading that n18 uses; melting peaks moved to image_note",
+   "k5 added (KNW/precedent: MEPGMA affinity for both phases [56]) premise_for n9: spine STR n9 was argued with neither OBS evidence nor a KNW premise",
+   "k6 added (KNW/precedent: interfacial localization builds a more effective network [63]) premise_for n20",
+   "n10 image_support partial -> shown after narrowing, following its own image_note (not re-judged from the image)"
+  ],
+  "split_nodes": [
+   {
+    "node": "n10",
+    "into": [
+     "n10",
+     "n20"
+    ],
+    "why": "label stated network existence in all blends and network completeness at the interface (PIL-6m): two claims with different support (plateau vs text)"
+   },
+   {
+    "node": "n12",
+    "into": [
+     "n12",
+     "n21"
+    ],
+    "why": "label stated elongation-at-break optimum and a PIL effect on yield/ultimate stress: different quantities and causes"
+   },
+   {
+    "node": "o10",
+    "into": [
+     "o10",
+     "o21"
+    ],
+    "why": "two readings (elongation series, ultimate stress value) feeding two claims after the n12 split"
+   },
+   {
+    "node": "o2",
+    "into": [
+     "o2",
+     "o22"
+    ],
+    "why": "a supporting comparison and a qualifying one (PIL-8m coarser) in one node"
+   }
+  ],
+  "merged_nodes": [],
+  "read_from_changes": [],
+  "mode_changes": [],
+  "source_changes": [
+   {
+    "node": "n19",
+    "from": "figure",
+    "to": "inferred",
+    "requires_unseen_added": [
+     "steepest conductivity rise locates the percolation threshold (prior knowledge)"
+    ],
+    "why": "'lowering the percolation threshold' is an interpretation no panel shows"
+   },
+   {
+    "node": "n10",
+    "from": "text",
+    "to": "inferred",
+    "requires_unseen_added": [
+     "G' plateau -> filler network mapping (k1, prior knowledge)"
+    ],
+    "why": "after the split the text-only 'most perfect network' fact moved to n20; the remaining claim rests on k1"
+   }
+  ],
+  "matmech": {
+   "supports": 4,
+   "contradicts": 0,
+   "not_covered": 0,
+   "pairs": [
+    {
+     "m": "M1",
+     "cause": "melt blending with controlled time (2-8 min)",
+     "effect": "CNT localization at interface/PCL, refined co-continuous phase",
+     "verdict": "supports",
+     "nodes": [
+      "n5",
+      "n6",
+      "n9",
+      "n7",
+      "n8",
+      "k2",
+      "k3",
+      "k5"
+     ]
+    },
+    {
+     "m": "M2",
+     "cause": "interfacial localization of PIL-modified CNTs forming a network",
+     "effect": "higher conductivity and better tensile strength / elongation",
+     "verdict": "supports",
+     "nodes": [
+      "n7",
+      "n20",
+      "n11",
+      "n8",
+      "n9",
+      "n12",
+      "n21"
+     ]
+    },
+    {
+     "m": "M3",
+     "cause": "high conductivity from interfacial CNT network, conduction loss",
+     "effect": "EMI SE up to ~41 dB, absorption dominated",
+     "verdict": "supports",
+     "nodes": [
+      "n11",
+      "n13",
+      "n15",
+      "n14",
+      "k4",
+      "o20"
+     ]
+    },
+    {
+     "m": "M4",
+     "cause": "6 min blending with PIL",
+     "effect": "optimal conductivity and elongation at break",
+     "verdict": "supports",
+     "nodes": [
+      "n5",
+      "n6",
+      "n7",
+      "n20",
+      "n11",
+      "n12",
+      "o13",
+      "o10"
+     ]
+    }
+   ]
+  }
+ },
+ "cue_overrides": [
+  {
+   "node": "n8",
+   "panel": "10.1007/s42114-021-00406-x#F1",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o1",
+   "panel": "10.1007/s42114-021-00406-x#F1",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n10",
+   "panel": "10.1007/s42114-021-00406-x#F4a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n17",
+   "panel": "10.1007/s42114-021-00406-x#F4a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n17",
+   "panel": "10.1007/s42114-021-00406-x#F4b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o5",
+   "panel": "10.1007/s42114-021-00406-x#F4a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o6",
+   "panel": "10.1007/s42114-021-00406-x#F4a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n11",
+   "panel": "10.1007/s42114-021-00406-x#F6a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o12",
+   "panel": "10.1007/s42114-021-00406-x#F6a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o13",
+   "panel": "10.1007/s42114-021-00406-x#F6a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o14",
+   "panel": "10.1007/s42114-021-00406-x#F6a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n12",
+   "panel": "10.1007/s42114-021-00406-x#F5a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n12",
+   "panel": "10.1007/s42114-021-00406-x#F5b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o9",
+   "panel": "10.1007/s42114-021-00406-x#F5a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o11",
+   "panel": "10.1007/s42114-021-00406-x#F5a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o11",
+   "panel": "10.1007/s42114-021-00406-x#F5b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o10",
+   "panel": "10.1007/s42114-021-00406-x#F5b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o21",
+   "panel": "10.1007/s42114-021-00406-x#F5b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o16",
+   "panel": "10.1007/s42114-021-00406-x#F7a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n14",
+   "panel": "10.1007/s42114-021-00406-x#F8",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o20",
+   "panel": "10.1007/s42114-021-00406-x#F8",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o7",
+   "panel": "10.1007/s42114-021-00406-x#F4b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o8",
+   "panel": "10.1007/s42114-021-00406-x#F3a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o8",
+   "panel": "10.1007/s42114-021-00406-x#F3b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n19",
+   "panel": "10.1007/s42114-021-00406-x#F6b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o15",
+   "panel": "10.1007/s42114-021-00406-x#F6b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  }
+ ],
+ "second_read": {
+  "units": 34,
+  "verdicts": {
+   "CORRECT": 22,
+   "PARTIAL": 9,
+   "WRONG": 3,
+   "ABSTAIN": 0,
+   "UNPARSED": 0
+  },
+  "wrong": [
+   {
+    "node": "o2",
+    "panels": [
+     "F1"
+    ]
+   },
+   {
+    "node": "o22",
+    "panels": [
+     "F1"
+    ]
+   },
+   {
+    "node": "o19",
+    "panels": [
+     "F7a",
+     "F7b"
+    ]
+   }
+  ]
+ }
+}
