@@ -1,0 +1,516 @@
+{
+ "file": "Advanced_Functional_Materials__10.1002_adfm.201604687.html",
+ "short": "Biomass Organs Control the Porosity of Their Pyrolyzed Carbo",
+ "journal": "Advanced_Functional_Materials",
+ "year": null,
+ "title": "Biomass Organs Control the Porosity of Their Pyrolyzed Carbon",
+ "doi": "Advanced_Functional_Materials/10.1002_adfm.201604687",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM, TEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: XRD",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Organs of one plant differ in embedded alkali content; the alkali-richer organ should pyrolyze to more porous carbon without added activator. Use lotus stems and leaves as feedstock: stems carry water and salts, leaves make organics.",
+   "detail": "Absorbed: s1 (HYP/hypothesis), s2 (DES/base_system), s3 (DES/variable_sweep), s4 (PRC/treatment), s6 (PRC/synthesis), c1 (DES/route), c2 (PRC/treatment). Premises: Naturally contained alkalis activate biomass during carbonization and create porosity [33,36-41]",
+   "figs": [],
+   "source": "s1, s2, s3, s4, s6, c1, c2"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Stems hold more total metal than leaves, K dominant and about 3x higher (~2.5 vs ~0.9 g/100 g). S-carbon has ~50% higher BET area than L-carbon (1610 vs 1039 m2/g) with more micro- and mesopores.",
+   "detail": "Absorbed: s5 (STR/chemistry/composition), st1 (STR/microstructure/porosity), c3 (STR/microstructure/porosity), st2 (STR/microstructure/porosity)",
+   "figs": [],
+   "source": "s5, st1, c3, st2"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Molecularly embedded K salts decompose at 200-500 C and etch carbon at 500-800 C during densification, creating micro- and mesopores. The S- vs L-carbon area difference is set by the organs' embedded alkali content, not by organ morphology or carbon chemistry.",
+   "detail": "Absorbed: m1 (MEC/pathway), m2 (MEC/identification), p1 (PRP/value)",
+   "figs": [],
+   "source": "m1, m2, p1"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "S-carbon symmetric supercapacitor keeps ~100% capacitance over 10 000 charge-discharge cycles at 1 A/g",
+   "detail": "Absorbed: f1 (PRF/service_capability)",
+   "figs": [],
+   "source": "f1"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "The organ's embedded alkali (K) content controls porosity and capacitance of pyrolyzed biomass carbon; stems beat leaves in three plants",
+   "detail": "Absorbed: d1 (DSC/conclusion)",
+   "figs": [],
+   "source": "d1"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "C1",
+   "lane": 3,
+   "row": "S1",
+   "line": 0,
+   "title": "TEM:STEM, F1",
+   "tech": "TEM:STEM",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/adfm.201604687#F1e",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F1e"
+   ],
+   "head": "ICP bars: stem exceeds leaf in total metal and K (K ~2.5 vs ~0.9 g/100 g)",
+   "solves": "Stems hold more total metal than leaves, K dominant and about 3x higher (~2.5 vs ~0.9 g/100 g)",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "label",
+   "detail": "o1: ICP bars: stem exceeds leaf in total metal and K (K ~2.5 vs ~0.9 g/100 g)",
+   "claims": [
+    "s5"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s5 (o1)."
+  },
+  {
+   "id": "C2",
+   "lane": 3,
+   "row": "S1",
+   "line": 1,
+   "title": "TEM:STEM, F5, F6",
+   "tech": "TEM:STEM",
+   "figs": [
+    "F5",
+    "F6"
+   ],
+   "panel": "10.1002/adfm.201604687#F5d, 10.1002/adfm.201604687#F6d",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F5d",
+    "10.1002/adfm.201604687#F6d"
+   ],
+   "head": "ICP bars for two more plants: stem exceeds leaf in total metal and K; most minor metals higher in leaf",
+   "solves": "",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o2",
+   "tech_source": "label",
+   "note": "celery leaf is higher in Na, Mg, Al, Ca, Fe, Cu, Zn; asparagus leaf higher in Mg, Al, Ca, Fe",
+   "detail": "o2: ICP bars for two more plants: stem exceeds leaf in total metal and K; most minor metals higher in leaf",
+   "claims": [
+    "st2"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "st2 keeps shown support from o18, o19 after removal."
+  },
+  {
+   "id": "C3",
+   "lane": 3,
+   "row": "S1",
+   "line": 2,
+   "title": "ATOM:DFT, PHYS:surfacearea, F3",
+   "tech": "ATOM:DFT, PHYS:surfacearea",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adfm.201604687#F3a, 10.1002/adfm.201604687#F3b",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F3a",
+    "10.1002/adfm.201604687#F3b"
+   ],
+   "head": "BET areas written on isotherms: 1610 (S), 1039 (L), 909 and 803 m2/g (washed carbons). DFT pore size: S- and L-carbon bimodal (~0.9 nm micro, ~3.4 nm meso), S-carbon higher at both",
+   "solves": "S-carbon has ~50% higher BET area than L-carbon (1610 vs 1039 m2/g) with more micro- and mesopores",
+   "op": "compare across conditions, read distribution statistics",
+   "verdict": "shown",
+   "source": "o8, o9",
+   "tech_source": "label",
+   "note": "S- and L-carbon isotherms show small H-type hysteresis near P/P0 0.45-0.55; washed carbons flat type I S-carbon also shows a ~1.6 nm shoulder not mentioned in the text",
+   "detail": "o8: BET areas written on isotherms: 1610 (S), 1039 (L), 909 and 803 m2/g (washed carbons); o9: DFT pore size: S- and L-carbon bimodal (~0.9 nm micro, ~3.4 nm meso), S-carbon higher at both",
+   "claims": [
+    "st1"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for st1 (o8, o9)."
+  },
+  {
+   "id": "C4",
+   "lane": 3,
+   "row": "S1",
+   "line": 3,
+   "title": "ATOM:DFT, F3",
+   "tech": "ATOM:DFT",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adfm.201604687#F3b",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F3b"
+   ],
+   "head": "DFT pore size: WS- and WL-carbon keep only the ~0.8 nm micropore peak, mesopores gone",
+   "solves": "WS- and WL-carbon have near-identical, lower areas (803 and 909 m2/g) and no mesopore peak",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o10",
+   "tech_source": "label",
+   "detail": "o10: DFT pore size: WS- and WL-carbon keep only the ~0.8 nm micropore peak, mesopores gone",
+   "claims": [
+    "c3"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for c3 (o10)."
+  },
+  {
+   "id": "C5",
+   "lane": 3,
+   "row": "S1",
+   "line": 4,
+   "title": "PHYS:surfacearea, F5, F6",
+   "tech": "PHYS:surfacearea",
+   "figs": [
+    "F5",
+    "F6"
+   ],
+   "panel": "10.1002/adfm.201604687#F5e, 10.1002/adfm.201604687#F6e",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F5e",
+    "10.1002/adfm.201604687#F6e"
+   ],
+   "head": "CS-carbon area 1230-2120 m2/g, rising above 900 C; CL-carbon 330-570 m2/g at all T. BET areas written on isotherms: AS-carbon 1075, AL-carbon 735 m2/g",
+   "solves": "Stem-derived carbons of celery and asparagus lettuce also exceed leaf carbons in area (CS 1230-2120 vs CL 330-570; AS 1075 vs AL 735 m2/g)",
+   "op": "compare across conditions, correlate across series",
+   "verdict": "shown",
+   "source": "o18, o19",
+   "tech_source": "label+none",
+   "note": "CL-carbon at 1100 C is ~570 m2/g, above the text's 'less than 500'; CS peak ~2120 vs text 'around 2200'",
+   "detail": "o18: CS-carbon area 1230-2120 m2/g, rising above 900 C; CL-carbon 330-570 m2/g at all T; o19: BET areas written on isotherms: AS-carbon 1075, AL-carbon 735 m2/g",
+   "claims": [
+    "st2"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "st2 keeps shown support from o2 after removal."
+  },
+  {
+   "id": "M6",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "SEM, TEM:STEM, F1, F2",
+   "tech": "SEM, TEM:STEM",
+   "figs": [
+    "F1",
+    "F2"
+   ],
+   "panel": "10.1002/adfm.201604687#F1a, 10.1002/adfm.201604687#F1c, 10.1002/adfm.201604687#F2a, 10.1002/adfm.201604687#F2c",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F1a",
+    "10.1002/adfm.201604687#F1c",
+    "10.1002/adfm.201604687#F2a",
+    "10.1002/adfm.201604687#F2c"
+   ],
+   "head": "SEM before/after pyrolysis: stem honeycomb cells (F1a) and layered leaf mesophyll (F1c) persist in S- and L-carbon (F2a, F2c)",
+   "solves": "",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "label",
+   "claims": [
+    "m2"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "m2 keeps shown support from o5, o6 after removal."
+  },
+  {
+   "id": "M7",
+   "lane": 0,
+   "row": "S2",
+   "line": 1,
+   "title": "TEM, F2",
+   "tech": "TEM",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adfm.201604687#F2b, 10.1002/adfm.201604687#F2d",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F2b",
+    "10.1002/adfm.201604687#F2d"
+   ],
+   "head": "TEM: both carbons show uniform worm-like disordered contrast, no lattice fringes",
+   "solves": "",
+   "op": "inspect local feature",
+   "verdict": "partial",
+   "source": "o4",
+   "tech_source": "label",
+   "note": "individual micropores are not resolved at this magnification; disorder is shown",
+   "claims": [
+    "m2"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and m2 keeps shown support from o3, o5, o6."
+  },
+  {
+   "id": "M8",
+   "lane": 1,
+   "row": "S2",
+   "line": 2,
+   "title": "XRD, F2",
+   "tech": "XRD",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adfm.201604687#F2e",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F2e"
+   ],
+   "head": "XRD: two broad humps near 24 and 44 deg indexed (002)/(101), same for S- and L-carbon",
+   "solves": "",
+   "op": "assign features",
+   "verdict": "shown",
+   "source": "o5",
+   "tech_source": "label",
+   "claims": [
+    "m2"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "m2 keeps shown support from o3, o6 after removal."
+  },
+  {
+   "id": "C9",
+   "lane": 3,
+   "row": "S2",
+   "line": 3,
+   "title": "ECHEM:CV, RAMAN, XPS:region, F2, F4, F5",
+   "tech": "ECHEM:CV, RAMAN, XPS:region",
+   "figs": [
+    "F2",
+    "F4",
+    "F5"
+   ],
+   "panel": "10.1002/adfm.201604687#F2f, 10.1002/adfm.201604687#F2g, 10.1002/adfm.201604687#F4a, 10.1002/adfm.201604687#F5g",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F2f",
+    "10.1002/adfm.201604687#F2g",
+    "10.1002/adfm.201604687#F4a",
+    "10.1002/adfm.201604687#F5g"
+   ],
+   "head": "Raman D and G bands with ID/IG 1.193 (S-carbon) and 1.174 (L-carbon). XPS survey shows only C 1s and O 1s peaks, near-identical for both carbons.",
+   "solves": "",
+   "op": "assign features, compare across conditions, correlate across series, recognize signature",
+   "verdict": "shown",
+   "source": "o6, o7, o14, o20",
+   "tech_source": "label+none",
+   "detail": "o6: Raman D and G bands with ID/IG 1.193 (S-carbon) and 1.174 (L-carbon); o7: XPS survey shows only C 1s and O 1s peaks, near-identical for both carbons; o14: CV loops near-rectangular with no redox peaks from 5 to 500 mV/s; o20: Capacitance at 5 mV/s: CS-carbon ~156, CL-carbon ~132 F/g (85%) despite ~4x lower CL area",
+   "claims": [
+    "m2",
+    "p1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "m2, p1 keeps shown support from o3, o5, o15 after removal."
+  },
+  {
+   "id": "C10",
+   "lane": 3,
+   "row": "S2",
+   "line": 4,
+   "title": "TEM:STEM, THERMAL:TGA, F3",
+   "tech": "TEM:STEM, THERMAL:TGA",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adfm.201604687#F3c, 10.1002/adfm.201604687#F3d",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F3c",
+    "10.1002/adfm.201604687#F3d"
+   ],
+   "head": "TGA: stem residue 37.8% at 500 C and 30.8% at 800 C vs 24.8% and 20.0% for washed stem. DTG: stem shows extra peaks at ~190 and ~245 C that vanish after acid wash; washed stem has one sharp ~325 C peak.",
+   "solves": "Molecularly embedded K salts decompose at 200-500 C and etch carbon at 500-800 C during densification, creating micro- and mesopores",
+   "op": "compare across conditions, read trend",
+   "verdict": "partial",
+   "source": "o11, o12, o13",
+   "tech_source": "label+none",
+   "note": "500-800 C loss 7.0% (stem) vs 4.8% (washed): the 2.2% difference in the text closes arithmetically the text's vanished reaction around 600 C is at most a faint bump near noise at 900 C the gap narrows (S ~1575, L ~1290); not discussed in the text",
+   "detail": "o11: TGA: stem residue 37.8% at 500 C and 30.8% at 800 C vs 24.8% and 20.0% for washed stem; o12: DTG: stem shows extra peaks at ~190 and ~245 C that vanish after acid wash; washed stem has one sharp ~325 C peak; o13: Area rises with pyrolysis T 500-800 C for both; S-carbon > L-carbon at every T (S ~225 at 500 to 1610 at 800)",
+   "claims": [
+    "m1"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for m1 (o11, o13)."
+  },
+  {
+   "id": "C11",
+   "lane": 3,
+   "row": "S2",
+   "line": 5,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/adfm.201604687#F4c",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F4c"
+   ],
+   "head": "Capacitance at 5 mV/s: S-carbon ~174, L-carbon ~152 F/g; S above L across all rates",
+   "solves": "S-carbon delivers higher specific capacitance than L-carbon at every scan rate (~174 vs ~152 F/g at 5 mV/s)",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o15",
+   "tech_source": "none",
+   "detail": "o15: Capacitance at 5 mV/s: S-carbon ~174, L-carbon ~152 F/g; S above L across all rates",
+   "claims": [
+    "p1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "p1 keeps shown support from o7, o14, o20 after removal."
+  },
+  {
+   "id": "C12",
+   "lane": 3,
+   "row": "S3",
+   "line": 0,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/adfm.201604687#F4d",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F4d"
+   ],
+   "head": "Capacitance retention stays at ~99-102% over 10 000 cycles",
+   "solves": "S-carbon symmetric supercapacitor keeps ~100% capacitance over 10 000 charge-discharge cycles at 1 A/g",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o17",
+   "tech_source": "none",
+   "detail": "o17: Capacitance retention stays at ~99-102% over 10 000 cycles",
+   "claims": [
+    "f1"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for f1 (o17)."
+  },
+  {
+   "id": "C13",
+   "lane": 3,
+   "row": "S4",
+   "line": 0,
+   "title": "evidence, F6",
+   "tech": "",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1002/adfm.201604687#F6g",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F6g"
+   ],
+   "head": "Capacitance at 5 mV/s: AS-carbon ~155, AL-carbon ~102 F/g",
+   "solves": "",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o21",
+   "tech_source": "none",
+   "detail": "o21: Capacitance at 5 mV/s: AS-carbon ~155, AL-carbon ~102 F/g",
+   "claims": [
+    "d1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "d1 keeps shown support from o22 after removal."
+  },
+  {
+   "id": "C14",
+   "lane": 3,
+   "row": "S4",
+   "line": 1,
+   "title": "TEM:STEM, F1, F3, F5",
+   "tech": "TEM:STEM",
+   "figs": [
+    "F1",
+    "F3",
+    "F5"
+   ],
+   "panel": "10.1002/adfm.201604687#F1e, 10.1002/adfm.201604687#F3d, 10.1002/adfm.201604687#F5d, 10.1002/adfm.201604687#F5e",
+   "panel_ids": [
+    "10.1002/adfm.201604687#F1e",
+    "10.1002/adfm.201604687#F3d",
+    "10.1002/adfm.201604687#F5d",
+    "10.1002/adfm.201604687#F5e"
+   ],
+   "head": "Across plants K does not rank area: celery leaf K ~2 g/100g exceeds lotus leaf ~0.9, yet CL-carbon ~330 vs L-carbon ~1040 m2/g at 800 C",
+   "solves": "The organ's embedded alkali (K) content controls porosity and capacitance of pyrolyzed biomass carbon; stems beat leaves in three plants",
+   "op": "cross check consistency",
+   "verdict": "shown",
+   "source": "o22",
+   "tech_source": "label",
+   "note": "within each plant stem > leaf in both K and area; the cross-plant ranking breaks (lotus stem K ~2.5 is below celery stem ~6, and S-carbon 1610 > CS-carbon ~1235 at 800 C). Text concedes CL metal content is 'not low' and attributes it to low micropore ratio (Figure S9, unseen)",
+   "detail": "o22: Across plants K does not rank area: celery leaf K ~2 g/100g exceeds lotus leaf ~0.9, yet CL-carbon ~330 vs L-carbon ~1040 m2/g at 800 C",
+   "claims": [
+    "d1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "d1 keeps shown support from o21 after removal."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "causes"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S1",
+   "S4",
+   "supports"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": false
+}
