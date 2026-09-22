@@ -1,0 +1,547 @@
+{
+ "file": "Advanced_Energy_Materials__aenm.202103301.html",
+ "short": "Optimizing Hydrogen Adsorption by d-d Orbital Modulation for",
+ "journal": "Advanced_Energy_Materials",
+ "year": null,
+ "title": "Optimizing Hydrogen Adsorption by d-d Orbital Modulation for Efficient Hydrogen Evolution Catalysis",
+ "doi": "Advanced_Energy_Materials/aenm.202103301",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM, TEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: DIFF",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "spec",
+   "label": "Spectroscopy: XAS",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Scalable alkaline water splitting needs efficient, non-noble HER catalysts rivalling Pt. Tuning W 5d-M 3d orbital coupling in WO2 with 3d heteroatoms should moderate H adsorption and raise HER activity.",
+   "detail": "Absorbed: n1 (HYP/need), n2 (HYP/hypothesis), n3 (DES/base_system), n4 (DES/variable_sweep), n7 (DES/down_select), n8 (PRC/synthesis), n9 (PRC/synthesis). Premises: HER activity peaks where dG_H* is near zero (Sabatier principle)",
+   "figs": [],
+   "source": "n1, n2, n3, n4, n7, n8, n9"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Rising M 3d filling weakens W-M coupling: bond order falls, W 5d-M 3d decouple, antibonding states fill. Ni-doped WO2 is single-phase monoclinic WO2 (no Ni or Ni-oxide phase).",
+   "detail": "Absorbed: n5 (STR/chemistry/bonding), n10 (STR/phase/identity), n13 (STR/chemistry/composition), n14 (STR/chemistry/bonding). Premises: Higher d-band filling of a coordinating metal fills metal-metal antibonding orbitals and weakens the bond; Higher L3 white-line intensity and upshift mean more 5d holes, i.e. more oxidised W",
+   "figs": [],
+   "source": "n5, n10, n13, n14"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Computed dG_H* on W-M sites is volcano-shaped, W-Ni (-0.43 eV) closest to zero. W 5d-Ni 3d decoupling lowers W-Ni bond charge and weakens H binding to a moderate level.",
+   "detail": "Absorbed: n6 (PRP/descriptor), n15 (MEC/pathway), n20 (MEC/pathway), n16 (PRP/value). Premises: HER activity peaks where dG_H* is near zero (Sabatier principle)",
+   "figs": [],
+   "source": "n6, n15, n20, n16"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "Ni-WO2/NF has the lowest overpotential at 10 mA/cm2 (~41 mV) among compared W-based catalysts. Ni-WO2/NF holds -100 mA/cm2 for 100 h with near-constant potential",
+   "detail": "Absorbed: n17 (PRF/qualification), n18 (PRF/service_capability)",
+   "figs": [],
+   "source": "n17, n18"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "d-d orbital modulation of WO2 by Ni gives moderate H adsorption and top alkaline HER among W oxides",
+   "detail": "Absorbed: n19 (DSC/conclusion)",
+   "figs": [],
+   "source": "n19"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "EDS:linescan, TEM:HRTEM, F2",
+   "tech": "EDS:linescan, TEM:HRTEM",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/aenm.202103301#F2d",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F2d"
+   ],
+   "head": "HRTEM fringes: 10 spacings span 3.43 nm, d = 0.343 nm assigned to WO2 (011)",
+   "solves": "Ni-doped WO2 is single-phase monoclinic WO2 (no Ni or Ni-oxide phase)",
+   "op": "measure feature metric",
+   "verdict": "shown",
+   "source": "o8",
+   "tech_source": "label",
+   "note": "counted ~10 periods between A and B on the line profile",
+   "claims": [
+    "n10"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n10 keeps shown support from o5, o9 after removal."
+  },
+  {
+   "id": "M2",
+   "lane": 1,
+   "row": "S1",
+   "line": 1,
+   "title": "DIFF, F2",
+   "tech": "DIFF",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/aenm.202103301#F2a",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F2a"
+   ],
+   "head": "Ni-WO2/CP and WO2/CP patterns match WO2 card 32-1393 plus carbon paper; no extra peaks",
+   "solves": "Ni-doped WO2 is single-phase monoclinic WO2 (no Ni or Ni-oxide phase)",
+   "op": "match to reference",
+   "verdict": "shown",
+   "source": "o5",
+   "tech_source": "modality",
+   "note": "no NiO/Ni reflections visible; peak shift not resolvable at this scale. Figure labels (002) near 37 deg where text says (200); a carbon-paper symbol is labelled (031)",
+   "claims": [
+    "n10"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n10 keeps shown support from o8, o9 after removal."
+  },
+  {
+   "id": "M3",
+   "lane": 2,
+   "row": "S1",
+   "line": 2,
+   "title": "XAS:EXAFS, F3",
+   "tech": "XAS:EXAFS",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/aenm.202103301#F3b",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F3b"
+   ],
+   "head": "FT-EXAFS: W-O shell ~1.6 A and weak W-W/Ni shell 2.4-2.8 A; W foil W-W ~2.75 A",
+   "solves": "Ni substitution lengthens and weakens the W-W/Ni metal-metal bond, depleting bond charge",
+   "op": "assign features",
+   "verdict": "partial",
+   "source": "o13",
+   "tech_source": "label",
+   "note": "no second-shell shift between WO2 and Ni-WO2 is resolvable by eye; lengthening rests on the Table S1 fit",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n14 keeps shown support from o16."
+  },
+  {
+   "id": "M4",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "XAS:EXAFS, F3",
+   "tech": "XAS:EXAFS",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/aenm.202103301#F3c, 10.1002/aenm.202103301#F3d",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F3c",
+    "10.1002/aenm.202103301#F3d"
+   ],
+   "head": "WT-EXAFS: W-W/Ni lobe (k~12 A-1) slightly higher in R for Ni-WO2; W-O lobe unchanged",
+   "solves": "Ni substitution lengthens and weakens the W-W/Ni metal-metal bond, depleting bond charge",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o15",
+   "tech_source": "label",
+   "note": "authors' dashed guide lines differ by ~0.03 A; lobe maximum in d is not sharply defined",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n14 keeps shown support from o16."
+  },
+  {
+   "id": "M5",
+   "lane": 3,
+   "row": "S1",
+   "line": 4,
+   "title": "ATOM, F3",
+   "tech": "ATOM",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/aenm.202103301#F3e, 10.1002/aenm.202103301#F3f",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F3e",
+    "10.1002/aenm.202103301#F3f"
+   ],
+   "head": "Charge-difference slices: accumulation between W1-W2 absent between Ni-W",
+   "solves": "Ni substitution lengthens and weakens the W-W/Ni metal-metal bond, depleting bond charge",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o16",
+   "tech_source": "modality",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n14 (o16)."
+  },
+  {
+   "id": "C6",
+   "lane": 4,
+   "row": "S1",
+   "line": 5,
+   "title": "evidence, F1",
+   "tech": "",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/aenm.202103301#F1b, 10.1002/aenm.202103301#F1c, 10.1002/aenm.202103301#F1d",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F1b",
+    "10.1002/aenm.202103301#F1c",
+    "10.1002/aenm.202103301#F1d"
+   ],
+   "head": "COHP: antibonding area just below EF grows from none (W-W) to largest (W-Cu). pDOS: W1/W2 5d overlap over the whole range in WO2; M 3d peaks sit apart from W 5d.",
+   "solves": "Rising M 3d filling weakens W-M coupling: bond order falls, W 5d-M 3d decouple, antibonding states fill",
+   "op": "compare across conditions, compare coplotted quantities, read trend, replot derived series",
+   "verdict": "shown",
+   "source": "o1, o2, o3",
+   "tech_source": "none",
+   "note": "W-Fe and W-Co antibonding areas are similar and small; W-Ni and W-Cu clearly larger. Authors shade -1 to 0 eV and label 'Anti-bonding state' WO2 trace is labelled 'W1 3d' on the figure, text says W1 5d (figure label typo) axis inverted; Fe to Co nearly flat",
+   "detail": "o1: COHP: antibonding area just below EF grows from none (W-W) to largest (W-Cu); o2: pDOS: W1/W2 5d overlap over the whole range in WO2; M 3d peaks sit apart from W 5d; o3: Mulliken bond order falls W-W ~0.61 > W-Fe ~0.35 ~ W-Co ~0.33 > W-Ni ~0.25 > W-Cu ~0.01",
+   "claims": [
+    "n5"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n5 (o1, o2, o3)."
+  },
+  {
+   "id": "C7",
+   "lane": 4,
+   "row": "S1",
+   "line": 6,
+   "title": "EDS:spectrum, TEM:HAADF, F2",
+   "tech": "EDS:spectrum, TEM:HAADF",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/aenm.202103301#F2e",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F2e"
+   ],
+   "head": "HAADF-EDS maps: W, O and Ni signals fill the whole nanowire uniformly",
+   "solves": "",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "source": "o9",
+   "tech_source": "label",
+   "detail": "o9: HAADF-EDS maps: W, O and Ni signals fill the whole nanowire uniformly",
+   "claims": [
+    "n10"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n10 keeps shown support from o5, o8 after removal."
+  },
+  {
+   "id": "C8",
+   "lane": 4,
+   "row": "S1",
+   "line": 7,
+   "title": "evidence, F3",
+   "tech": "",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/aenm.202103301#F3a",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F3a"
+   ],
+   "head": "W L3 white line: Ni-WO2 higher than WO2, both above W foil",
+   "solves": "W in Ni-WO2 is more oxidised, with fewer occupied 5d states than in WO2",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o10",
+   "tech_source": "none",
+   "note": "inset: Ni-WO2 peak at most marginally upshifted vs WO2 (text: slight shift to higher energy) - partial for the shift",
+   "detail": "o10: W L3 white line: Ni-WO2 higher than WO2, both above W foil",
+   "claims": [
+    "n13"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n13 (o10)."
+  },
+  {
+   "id": "M9",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "SEM, F2",
+   "tech": "SEM",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/aenm.202103301#F2b",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F2b"
+   ],
+   "head": "SEM: densely packed nanowire bundles with rough, pitted porous surfaces",
+   "solves": "",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "source": "o6",
+   "tech_source": "label",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n16 keeps shown support from o18 after removal."
+  },
+  {
+   "id": "M10",
+   "lane": 0,
+   "row": "S2",
+   "line": 1,
+   "title": "PHYS:porosity, TEM, F2",
+   "tech": "PHYS:porosity, TEM",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/aenm.202103301#F2c",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F2c"
+   ],
+   "head": "TEM: single tapered nanowire (~60-100 nm wide) with mottled, porous-looking contrast",
+   "solves": "",
+   "op": "inspect local feature",
+   "verdict": "partial",
+   "source": "o7",
+   "tech_source": "label",
+   "note": "porosity only suggested by contrast variation",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n16 keeps shown support from o6, o18."
+  },
+  {
+   "id": "C11",
+   "lane": 4,
+   "row": "S2",
+   "line": 2,
+   "title": "evidence, F1",
+   "tech": "",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/aenm.202103301#F1e, 10.1002/aenm.202103301#F1d",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F1e",
+    "10.1002/aenm.202103301#F1d"
+   ],
+   "head": "dG_H* rises -1.21 (W-W), -0.76, -0.64 to -0.43 eV (W-Ni), then -0.65 eV (W-Cu). Volcano's descending leg is one W-Cu point from a configuration whose W-Cu bond breaks",
+   "solves": "Computed dG_H* on W-M sites is volcano-shaped, W-Ni (-0.43 eV) closest to zero",
+   "op": "read characteristic point, read trend, replot derived series",
+   "verdict": "shown",
+   "source": "o4, a1",
+   "tech_source": "none",
+   "note": "F1d marks W-Cu (bond order ~0.01) with a red cross; the right leg is not a W-Cu site property",
+   "detail": "o4: dG_H* rises -1.21 (W-W), -0.76, -0.64 to -0.43 eV (W-Ni), then -0.65 eV (W-Cu); a1: Volcano's descending leg is one W-Cu point from a configuration whose W-Cu bond breaks",
+   "claims": [
+    "n6"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n6 (o4, a1)."
+  },
+  {
+   "id": "C12",
+   "lane": 4,
+   "row": "S2",
+   "line": 3,
+   "title": "ECHEM:LSV, F4",
+   "tech": "ECHEM:LSV",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "LSV at -100 mA/cm2: Ni -0.18 < Pt -0.27 < Co -0.31 < Fe ~ Cu -0.39 < WO2 -0.61 V",
+   "solves": "Ni-WO2/CP is the most HER-active M-WO2, above Pt plate",
+   "op": "compare across conditions, replot derived series",
+   "verdict": "shown",
+   "source": "o18",
+   "tech_source": "label",
+   "note": "bare CP reaches only -20 mA/cm2 at -0.68 V; Ni curve lies right of Pt at all currents",
+   "detail": "o18: LSV at -100 mA/cm2: Ni -0.18 < Pt -0.27 < Co -0.31 < Fe ~ Cu -0.39 < WO2 -0.61 V",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n16 keeps shown support from o6 after removal."
+  },
+  {
+   "id": "C13",
+   "lane": 4,
+   "row": "S2",
+   "line": 4,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "3-D plot: overpotential lowest for Ni-WO2 at intermediate bond order and least negative dG_H*. Co- and Cu-WO2 share dG_H* (-0.64/-0.65 eV) yet Co needs ~80 mV less at -100 mA/cm2",
+   "solves": "W 5d-Ni 3d decoupling lowers W-Ni bond charge and weakens H binding to a moderate level",
+   "op": "correlate across series, cross check consistency",
+   "verdict": "partial",
+   "source": "o19, a2",
+   "tech_source": "none",
+   "note": "3-D bars; heights readable only as ranking WO2 > Fe ~ Cu > Co > Ni; text lists WO2, Fe, Ni, Cu but figure also shows Co also Fe (-0.76 eV) performs like Cu (-0.65 eV); activity is not a single function of dG_H*",
+   "audit": true,
+   "detail": "o19: 3-D plot: overpotential lowest for Ni-WO2 at intermediate bond order and least negative dG_H*; a2: Co- and Cu-WO2 share dG_H* (-0.64/-0.65 eV) yet Co needs ~80 mV less at -100 mA/cm2",
+   "inner_audit": "a2: also Fe (-0.76 eV) performs like Cu (-0.65 eV); activity is not a single function of dG_H*",
+   "claims": [
+    "n15"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: o19 partial"
+  },
+  {
+   "id": "C14",
+   "lane": 4,
+   "row": "S2",
+   "line": 5,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Reaction path: RC1-TS1 barrier 0.18 eV on Ni-WO2 vs 0.52 eV on WO2. H* state (IM1') at -0.44 eV on Ni-WO2 vs -1.21 eV on WO2; WO2 wells to -3.88/-5.04 eV",
+   "solves": "On Ni-WO2 water dissociation has a lower barrier and HO*/H* bind less, speeding alkaline HER",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o25, o26",
+   "tech_source": "none",
+   "detail": "o25: Reaction path: RC1-TS1 barrier 0.18 eV on Ni-WO2 vs 0.52 eV on WO2; o26: H* state (IM1') at -0.44 eV on Ni-WO2 vs -1.21 eV on WO2; WO2 wells to -3.88/-5.04 eV",
+   "claims": [
+    "n20"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n20 (o25, o26)."
+  },
+  {
+   "id": "C15",
+   "lane": 4,
+   "row": "S3",
+   "line": 0,
+   "title": "ECHEM:LSV, F4",
+   "tech": "ECHEM:LSV",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Chronopotentiometry at -100 mA/cm2 stays flat near -0.09 V over 100 h. Inset: LSV after 2000 cycles overlaps the initial LSV of Ni-WO2/NF",
+   "solves": "Ni-WO2/NF holds -100 mA/cm2 for 100 h with near-constant potential",
+   "op": "compare across conditions, read trend",
+   "verdict": "shown",
+   "source": "o22, o27",
+   "tech_source": "label+none",
+   "note": "caption OCR gives -700 mA/cm2; figure shows J = -100 mA/cm2 caption OCR gives '1000th'; figure inset shows 2000th",
+   "detail": "o22: Chronopotentiometry at -100 mA/cm2 stays flat near -0.09 V over 100 h; o27: Inset: LSV after 2000 cycles overlaps the initial LSV of Ni-WO2/NF",
+   "claims": [
+    "n18"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n18 (o22, o27)."
+  },
+  {
+   "id": "C16",
+   "lane": 4,
+   "row": "S3",
+   "line": 1,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "eta10 bars: Ni-WO2/NF lowest (~41 mV) of nine W-based catalysts; WO3 ~640 mV",
+   "solves": "Ni-WO2/NF has the lowest overpotential at 10 mA/cm2 (~41 mV) among compared W-based catalysts",
+   "op": "compare with reference value",
+   "verdict": "shown",
+   "source": "o24",
+   "tech_source": "none",
+   "note": "WO2.92 powder (~65 mV) below Ni-WO2/CP (~83 mV)",
+   "detail": "o24: eta10 bars: Ni-WO2/NF lowest (~41 mV) of nine W-based catalysts; WO3 ~640 mV",
+   "claims": [
+    "n17"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n17 (o24)."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "realizes"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "causes"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}

@@ -1,0 +1,363 @@
+Write the question, answer key, grading note and answer_key_nodes for this trace.
+
+TRACE RECORD
+{
+ "id": "T6",
+ "group_id": "Advanced_Energy_Materials/aenm.202103301",
+ "root": "infer",
+ "subtype": "compare",
+ "seed_claim": "n14",
+ "evidence": [
+  "o16"
+ ],
+ "hidden": [
+  "o16",
+  "n14",
+  "n15",
+  "n20",
+  "n16",
+  "n17",
+  "n19"
+ ],
+ "branch": "evidences edge o16 -> n14",
+ "fm_family": "ATOM",
+ "lift": null,
+ "floor": {
+  "reaches": false,
+  "support": []
+ },
+ "depth": 1,
+ "depth_families": [
+  "ATOM"
+ ],
+ "channels_involved": [
+  "ATOM",
+  "XAS"
+ ],
+ "mask": "hide the observation; hand over the panel(s)",
+ "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+ "status": "open",
+ "ruling": "",
+ "walk": [
+  {
+   "node": "n1",
+   "role": "context"
+  },
+  {
+   "node": "n2",
+   "role": "context"
+  },
+  {
+   "node": "n4",
+   "role": "context"
+  },
+  {
+   "node": "n5",
+   "role": "context"
+  },
+  {
+   "node": "n6",
+   "role": "context"
+  },
+  {
+   "node": "n7",
+   "role": "context"
+  },
+  {
+   "node": "n8",
+   "role": "context"
+  },
+  {
+   "node": "n9",
+   "role": "context"
+  },
+  {
+   "node": "n10",
+   "role": "context"
+  },
+  {
+   "node": "n13",
+   "role": "context"
+  },
+  {
+   "node": "o16",
+   "role": "evidence",
+   "op": "compare_across_conditions",
+   "panel_ids": [
+    "10.1002/aenm.202103301#F3e",
+    "10.1002/aenm.202103301#F3f"
+   ],
+   "verdict": "shown"
+  },
+  {
+   "node": "n14",
+   "role": "claim"
+  },
+  {
+   "node": "n15",
+   "role": "downstream"
+  },
+  {
+   "node": "n20",
+   "role": "downstream"
+  },
+  {
+   "node": "n16",
+   "role": "downstream"
+  },
+  {
+   "node": "n17",
+   "role": "downstream"
+  },
+  {
+   "node": "n19",
+   "role": "downstream"
+  }
+ ],
+ "v1_filter": {
+  "status": "closed",
+  "ruling": "bare infer: no rejection, no budget, no stopping rule"
+ },
+ "v2_rules": [
+  {
+   "rule": "v1-off",
+   "where": "cut_traces.py:238",
+   "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+  },
+  {
+   "rule": "seed",
+   "where": "cut_traces.py:241",
+   "effect": "lane ATOM necessary for n14 (node-level necessity of o16: necessary)"
+  },
+  {
+   "rule": "R7",
+   "where": "cut_traces.py:244",
+   "effect": "2 panels: rank became infer/compare"
+  },
+  {
+   "rule": "P2",
+   "where": "cut_traces.py:610",
+   "effect": "condition labels: ['WO2 (011)', 'Ni-WO2 (011)']"
+  },
+  {
+   "rule": "R3",
+   "where": "cut_traces.py:684",
+   "effect": "graded targets readable: o16 (figure)"
+  },
+  {
+   "rule": "skip",
+   "where": "cut_traces.py:717",
+   "effect": "given panels carry no answer text: ['F3e', 'F3f']"
+  }
+ ],
+ "node_necessity": "necessary",
+ "answer_format": "state the difference between the two conditions; do not rank",
+ "has_sweep": true,
+ "given_panels": [
+  "10.1002/aenm.202103301#F3e",
+  "10.1002/aenm.202103301#F3f"
+ ],
+ "condition_labels": [
+  {
+   "panel": "10.1002/aenm.202103301#F3e",
+   "sample": "WO2 (011)",
+   "sample_source": "caption",
+   "level": null,
+   "unit": "d10",
+   "level_source": null,
+   "alias": null,
+   "text": "WO2 (011)"
+  },
+  {
+   "panel": "10.1002/aenm.202103301#F3f",
+   "sample": "Ni-WO2 (011)",
+   "sample_source": "caption",
+   "level": null,
+   "unit": "d10",
+   "level_source": null,
+   "alias": null,
+   "text": "Ni-WO2 (011)"
+  }
+ ],
+ "graded_targets": [
+  "o16"
+ ],
+ "target_verdicts": {
+  "o16": {
+   "pass": true,
+   "why": "figure"
+  }
+ },
+ "annotated_panels": [
+  {
+   "panel": "10.1002/aenm.202103301#F3e",
+   "annotations": [],
+   "hits": []
+  },
+  {
+   "panel": "10.1002/aenm.202103301#F3f",
+   "annotations": [
+    "Ni"
+   ],
+   "hits": []
+  }
+ ],
+ "answer_scope_required": true,
+ "linear": [
+  {
+   "step": 1,
+   "role": "context",
+   "nodes": [
+    "n1",
+    "n2",
+    "n4",
+    "n5",
+    "n6",
+    "n7",
+    "n8",
+    "n9",
+    "n10",
+    "n13"
+   ],
+   "depends_on": [],
+   "hidden": false,
+   "text": "What was made and why: Scalable alkaline water splitting needs efficient, -> Tuning W 5d-M 3d orbital coupling in WO2 with 3d h -> Heteroatom M = Fe, Co, Ni, Cu (3d6 to 3d10) replac -> Rising M 3d filling weakens W-M coupling: bond ord -> Computed dG_H* on W-M sites is volcano-shaped, W-N -> Ni-WO2 selected as model catalyst on the DFT resul -> Hydrothermal growth of Ni-W-O nanowires (~50 nm x  -> Annealing Ni-W-O nanowires in reductive atmosphere -> Ni-doped WO2 is single-phase monoclinic WO2 (no Ni -> W in Ni-WO2 is more oxidised, with fewer occupied "
+  },
+  {
+   "step": 2,
+   "role": "read",
+   "nodes": [
+    "o16"
+   ],
+   "depends_on": [
+    1
+   ],
+   "hidden": false,
+   "text": "Open the panels F3e, F3f [ATOM] and compare (compare across conditions)"
+  },
+  {
+   "step": 3,
+   "role": "observation",
+   "nodes": [
+    "o16"
+   ],
+   "depends_on": [
+    2
+   ],
+   "hidden": true,
+   "text": "Observation: Charge-difference slices: accumulation between W1-W2 absent between Ni-W"
+  },
+  {
+   "step": 4,
+   "role": "claim",
+   "nodes": [
+    "n14"
+   ],
+   "depends_on": [
+    3
+   ],
+   "hidden": true,
+   "text": "Claim it establishes: Ni substitution lengthens and weakens the W-W/Ni metal-metal bond, depleting bond charge"
+  },
+  {
+   "step": 5,
+   "role": "downstream",
+   "nodes": [
+    "n15",
+    "n20",
+    "n16",
+    "n17",
+    "n19"
+   ],
+   "depends_on": [
+    4
+   ],
+   "hidden": true,
+   "text": "Feeds: W 5d-Ni 3d decoupling lowers W-Ni bond charge and weakens H binding to a moderate level"
+  }
+ ]
+}
+
+NODE LABELS (every node the trace references)
+{
+ "n1": {
+  "type": "HYP/need",
+  "label": "Scalable alkaline water splitting needs efficient, non-noble HER catalysts rivalling Pt"
+ },
+ "n10": {
+  "type": "STR/phase/identity",
+  "label": "Ni-doped WO2 is single-phase monoclinic WO2 (no Ni or Ni-oxide phase)"
+ },
+ "n13": {
+  "type": "STR/chemistry/composition",
+  "label": "W in Ni-WO2 is more oxidised, with fewer occupied 5d states than in WO2"
+ },
+ "n14": {
+  "type": "STR/chemistry/bonding",
+  "label": "Ni substitution lengthens and weakens the W-W/Ni metal-metal bond, depleting bond charge"
+ },
+ "n15": {
+  "type": "MEC/pathway",
+  "label": "W 5d-Ni 3d decoupling lowers W-Ni bond charge and weakens H binding to a moderate level"
+ },
+ "n16": {
+  "type": "PRP/value",
+  "label": "Ni-WO2/CP is the most HER-active M-WO2, above Pt plate"
+ },
+ "n17": {
+  "type": "PRF/qualification",
+  "label": "Ni-WO2/NF has the lowest overpotential at 10 mA/cm2 (~41 mV) among compared W-based catalysts"
+ },
+ "n19": {
+  "type": "DSC/conclusion",
+  "label": "d-d orbital modulation of WO2 by Ni gives moderate H adsorption and top alkaline HER among W oxides"
+ },
+ "n2": {
+  "type": "HYP/hypothesis",
+  "label": "Tuning W 5d-M 3d orbital coupling in WO2 with 3d heteroatoms should moderate H adsorption and raise HER activity"
+ },
+ "n20": {
+  "type": "MEC/pathway",
+  "label": "On Ni-WO2 water dissociation has a lower barrier and HO*/H* bind less, speeding alkaline HER"
+ },
+ "n4": {
+  "type": "DES/variable_sweep",
+  "label": "Heteroatom M = Fe, Co, Ni, Cu (3d6 to 3d10) replacing one W of a W-W pair"
+ },
+ "n5": {
+  "type": "STR/chemistry/bonding",
+  "label": "Rising M 3d filling weakens W-M coupling: bond order falls, W 5d-M 3d decouple, antibonding states fill"
+ },
+ "n6": {
+  "type": "PRP/descriptor",
+  "label": "Computed dG_H* on W-M sites is volcano-shaped, W-Ni (-0.43 eV) closest to zero"
+ },
+ "n7": {
+  "type": "DES/down_select",
+  "label": "Ni-WO2 selected as model catalyst on the DFT result"
+ },
+ "n8": {
+  "type": "PRC/synthesis",
+  "label": "Hydrothermal growth of Ni-W-O nanowires (~50 nm x ~1 um) on carbon paper"
+ },
+ "n9": {
+  "type": "PRC/synthesis",
+  "label": "Annealing Ni-W-O nanowires in reductive atmosphere converts them to porous Ni-WO2"
+ },
+ "o16": {
+  "type": "OBS/morphology/appearance",
+  "label": "Charge-difference slices: accumulation between W1-W2 absent between Ni-W"
+ }
+}
+
+WORKED EXAMPLES (follow their form and length)
+[{"id":"T1","root":"explain","subtype":"rejection","status":"control","seed_claim":"q7","evidence":["r2"],"hidden":["r2","q11","q8","q12","q16","q2"],"redactions":[{"node":"q11","why":"downstream conclusion restates the answer"},{"node":"q8","why":"downstream conclusion restates the answer"},{"node":"q12","why":"downstream conclusion restates the answer"},{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the ruling; show the claim and the panel","grader":"answer key: the audit ruling on the panel","question":"The caption says the WSi2 peak rises with excess ZrSi2 and ZrC appears at 20 vol% and above. Does Figure 2 support this?","answer_key":"No. The four traces are indistinguishable at the plotted scale and only the top one is indexed, so neither claim can be read from the figure (r2, q18).","grading":"Answer key: the audit ruling on the panel.","answer_key_nodes":["r2","q18"]},{"id":"T2","root":"infer","subtype":"estimate","status":"closed","seed_claim":"q8","evidence":["r7"],"hidden":["r7","q8","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"How thick and how long are the ZrB2 platelets on the F6 fracture surface?","answer_key":"A few hundred nm thick, up to about 1 um long (r7). A correct answer exists, but no decision in the paper turns on the number.","grading":"Closed: a bare measurement with no rejection, budget or stopping rule behind it. A fact in the graph, not a question for a model.","answer_key_nodes":null},{"id":"T3","root":"infer","subtype":"estimate","status":"closed","seed_claim":"q9","evidence":["r7"],"hidden":["r7","q9","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"How large are the SiC particles on the F6 fracture surface?","answer_key":"Nanometre-sized between the ZrB2 grains (r7, q9). Same situation as T2.","grading":"Closed: bare measurement, no decision attached.","answer_key_nodes":null},{"id":"T4","root":"infer","subtype":"rank","status":"open","seed_claim":"q9","evidence":["r10"],"hidden":["r10","q9","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"The same five panels. How do SiC particle size and distribution change with excess ZrSi2?","answer_key":"Submicron SiC with open pores at 0 vol%; nanometre-sized SiC between the ZrB2 grains once excess ZrSi2 is present.","grading":"Match to the labels of r10 and q9, judge-confirmed.","answer_key_nodes":null},{"id":"T5","root":"infer","subtype":"rank","status":"open","seed_claim":"q10","evidence":["r10"],"hidden":["r10","q10","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"independent channel r3 (PHYS), held out from the model","question":"The five fracture-surface SEM panels F8a to F8e, labelled RZSZ-0, 10, 15, 20 and 25 vol% excess ZrSi2. Rank the five compositions by porosity.","answer_key":"Porosity ranks 0 > 10 > 25 > 20 > 15. The density series the model never sees runs 91.7, 94.9, 98.5, 97.6, 96.4%.","grading":"Rank correlation against the Archimedes density (r3), an independent instrument held out from the model.","answer_key_nodes":["r3","r10"]},{"id":"T6","root":"infer","subtype":"rank","status":"open","seed_claim":"q14","evidence":["r10"],"hidden":["r10","q14","q15","q13","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"The same five panels. What fracture mode do the ZrB2 platelets show, and does it depend on platelet size?","answer_key":"Mixed mode: larger platelets break transgranularly, smaller ones along their boundaries.","grading":"Match to q14.","answer_key_nodes":null},{"id":"T7","root":"explain","subtype":"mechanism","status":"open","seed_claim":"q15","evidence":["r11"],"hidden":["q15","q13","q16","q2","s5"],"redactions":[{"node":"q13","why":"downstream conclusion restates the answer"},{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"},{"node":"s5","why":"premise of the hidden mechanism"}],"mask":"hide the mechanism and its premises; show the observation","grader":"certified judge against the graph's mechanism; no rival in the graph","question":"The indentation crack on polished RZSZ-20, panel F8f. What toughening mechanisms are operating?","answer_key":"Interlocked platelets arrest and deflect the crack, then pull out and bridge it; the fork sits at a SiC-rich region; thermal-expansion mismatch adds residual stress around SiC.","grading":"Judge, with the crack features in r11 and the mechanism in q15 as the key.","answer_key_nodes":null},{"id":"T8","root":"explain","subtype":"rejection","status":"control","seed_claim":"q13","evidence":["r9"],"hidden":["r9","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the ruling; show the claim and the panel","grader":"answer key: the audit ruling on the panel","question":"Is fracture toughness at 25 vol% lower than at 20 vol%?","answer_key":"Not resolvable. The error bars at 20 and 25 overlap, unlike the hardness and strength bars (r9, q19).","grading":"Answer key: the audit ruling on the panel.","answer_key_nodes":["r9","q19"]},{"id":"T9","root":"explain","subtype":"competing causes","status":"open","seed_claim":"q12","evidence":["r10","r3","r7","r8"],"hidden":["q11","q15","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism node(s) explaining the claim; show the competing causes and their evidence","grader":"judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's","question":"Hardness and strength peak at 20 vol%. Three candidate causes with their evidence: platelet interlocking (SEM), nano-SiC (SEM), and densification (density peaking at 15 vol%). Which cause accounts for the optimum at 20, and why not densification alone?","answer_key":"Interlocking platelets grown through the ZrSi2 liquid (q11), which deflect and bridge cracks (q15). Densification alone cannot explain it: density peaks at 15 vol% while the properties peak at 20.","grading":"Judge, with q11 and q15 as the key and the 15-versus-20 mismatch as the required reason.","answer_key_nodes":["q11","q15","r3","r8"]},{"id":"T10","root":"explain","subtype":"competing causes","status":"open","seed_claim":"q13","evidence":["r10","r7","r8"],"hidden":["q11","q15","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism node(s) explaining the claim; show the competing causes and their evidence","grader":"judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's","question":"Fracture toughness reaches 6.08 MPa m^1/2 at 20 vol%. Candidates: platelet interlocking, nano-SiC. Which accounts for it, and by what mechanism?","answer_key":"Interlocked platelets: crack deflection, bridging and pull-out (q15).","grading":"Judge against q15.","answer_key_nodes":null},{"id":"T11","root":"intervene","subtype":"next condition","status":"open","seed_claim":"q17","evidence":["r10","r8"],"hidden":["q17","r8","q10","q17"],"redactions":null,"mask":"show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next","grader":"the measured outcome at the chosen condition from r8, held out","question":"The hypothesis, the design (an excess-ZrSi2 sweep), the processing, and the SEM fracture surfaces for 0, 10 and 15 vol% only. Nothing about density or properties. Which composition should be made next, and what do you expect from it?","answer_key":"20 vol% (q17). The outcome at that composition is the peak of the series: hardness 17.1 GPa, flexural strength 655 MPa, toughness 6.05 MPa m^1/2 (r8). Stopping at 15 is wrong.","grading":"The measured outcome at the chosen composition from F7, held out.","answer_key_nodes":["q17","r8"]},{"id":"T12","root":"generate","subtype":"design under constraint","status":"closed","seed_claim":"q5","evidence":[],"hidden":null,"redactions":null,"mask":"hide the route; show the constraint and the target structure","grader":"none in the tool inventory","question":"Design a one-step processing route that yields interlocking ZrB2 platelets with nano-SiC in a dense body.","answer_key":"The paper's route is reactive hot pressing at 1550 C, 30 min, 40 MPa (q5). But a proposed route cannot be scored: no simulator for reactive sintering exists in the tool inventory.","grading":"Closed: no oracle. The second gate closes the root until one exists.","answer_key_nodes":null}]
+
+NEGATIVE EXAMPLES (questions NOT to write, with the reason)
+[{"id":"T7","root":"explain","subtype":"mechanism","mask":"hide the mechanism and its premises; show the observation","grader":"certified judge against the graph's mechanism; no rival in the graph","bad_question":"The context given: ZrB2-SiC ultra-high-temperature ceramics need toughening without added reinforcements; the ZrSi2/B4C/carbon powder system; reactive hot pressing that forms ZrB2/SiC while densifying; and a microstructure where ZrB2 grows into platelets that meet edge to edge and interlock. You're also told that thermal-expansion mismatch between ZrB2 and SiC leaves tangential tensile residual stress around SiC grains on cooling. Panel F8f shows the indentation crack stepping, forking and leaving bridging ligaments and pulled-out grains, with the fork sitting right at a bright SiC-rich region. What mechanism actually produces this crack path, and why isn't the thermal-expansion-mismatch stress by itself enough to explain what's seen?","why_bad":"DO NOT: restates the given context and hands over the thermal-mismatch premise, then frames it as a rival ('why isn't ... enough'), so part of the hidden mechanism is in the question.","source":"net-writer ceramic run 1, results/traces/writer/ceramic_run1/T7.writer.out.txt"},{"id":"T5","root":"infer","subtype":"rank","mask":"hide the observation; hand over the panel(s)","grader":"independent channel r3 (PHYS), held out from the model","bad_question":"You're given the motivation for toughening ZrB2-SiC without added reinforcements, the ZrSi2/B4C/carbon-black reactive powder system, and the reactive-hot-pressing route that densifies while forming ZrB2 and SiC in one step. You're then handed the fracture-surface SEM panels F8a-F8e spanning the ZrSi2-excess series. Based only on what those panels show, how does relative density change across the series, and at which composition does it peak?","why_bad":"DO NOT: asks for the held-out grading channel itself (how relative density changes and where it peaks) instead of a rank read from the images; the density series is what grades the answer.","source":"net-writer ceramic run 1, results/traces/writer/ceramic_run1/T5.writer.out.txt"}]
+
+YOUR PREVIOUS ATTEMPT FAILED A CHECK
+The leak net flagged your question: it shares the word pair "difference slices" with the hidden nodes. Write the question again so it does not use them or any other wording from the hidden nodes; refer to the panels and the given nodes instead.
+The provenance net flagged your answer key: it contains 011, which no cited node label carries. Use only numbers written in the node labels.
+
+Reply with JSON only: {"question": "...", "answer_key": "...", "answer_scope": "full|partial", "grading": "...", "answer_key_nodes": [...]}
