@@ -1,0 +1,267 @@
+{
+ "file": "Nano_Letters__10.1021_acs.nanolett.0c03980.html",
+ "short": "Hybrid Integration of Silicon Photonic Devices on Lithium Ni",
+ "journal": "Nano_Letters",
+ "year": null,
+ "title": "Hybrid Integration of Silicon Photonic Devices on Lithium Niobate for Optomechanical Wavelength Conversion",
+ "doi": "Nano_Letters/10.1021_acs.nanolett.0c03980",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Homogeneous thin-film LiNbO3 microwave-to-optical transducers lack the optomechanical coupling needed for efficient quantum transduction. Placing a high-index Si photonic crystal cavity on a piezoelectric LiNbO3 resonator should raise optomechanical coupling while keeping piezoelectric coupling.",
+   "detail": "Absorbed: n1 (HYP/need), n2 (HYP/hypothesis), n3 (DES/route), n4 (DES/architecture), n5 (DES/base_system), n6 (PRC/forming), n24 (PRC/forming), n7 (PRC/joining). Premises: LiNbO3 has large piezoelectric coefficients but a low refractive index (~2.2 at 1550 nm); Tapered optical fibres couple light into nanophotonic devices with high efficiency; Tapered fibres have ripped loosely tethered photonic crystal cavities off the chip they were made on",
+   "figs": [],
+   "source": "n1, n2, n3, n4, n5, n6, n24, n7"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Si nanobeam rests on the released LN membrane beside and parallel to the IDT fingers, its tapered waveguide running past the membrane edge",
+   "detail": "Absorbed: n9 (STR/microstructure/distribution)",
+   "figs": [],
+   "source": "n9"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "High-index Si confines the optical mode in the nanobeam above the LN, where the membrane strain modulates it, raising optomechanical coupling over LN alone. The slapped hybrid cavity resonates at 1588.5 nm with optical Q 2.86x10^4 (linewidth 6.6 GHz), plus a second resonance near 1617 nm.",
+   "detail": "Absorbed: n12 (MEC/pathway), n13 (PRP/value), n14 (PRP/value), n15 (PRP/value). Premises: g0 extraction from S21 in the sideband-resolved regime (ref 19) with R_load = 50 Ohm and photodiode responsivity 1300 V/W",
+   "figs": [],
+   "source": "n12, n13, n14, n15"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "The slapped Si-on-LiNbO3 device transduces microwave to optical signals at room temperature, with S21 maximal at the ~1.7 GHz mechanical mode. Photon-number conversion efficiency eta ~1x10^-7 at 25 uW optical power in the fibre",
+   "detail": "Absorbed: n16 (PRF/service_capability), n17 (PRF/figure_of_merit). Premises: eta = C0 * n_cav * eta_ext,mu * eta_ext,o",
+   "figs": [],
+   "source": "n16, n17"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Fibre-based slapping gives a simple, material-independent route to nanoscale-aligned hybrid photonic devices, shown by a working Si-on-LiNbO3 microwave-to-optical transducer",
+   "detail": "Absorbed: n19 (DSC/conclusion)",
+   "figs": [],
+   "source": "n19"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "SEM, F3",
+   "tech": "SEM",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1021/acs.nanolett.0c03980#F3a",
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c03980#F3a"
+   ],
+   "head": "False-colour SEM: blue nanobeam lies straight across the grey membrane beside the yellow IDT fingers, tapered end extending off the membrane; purple marker below",
+   "solves": "Si nanobeam rests on the released LN membrane beside and parallel to the IDT fingers, its tapered waveguide running past the membrane edge",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "label",
+   "note": "scale bar 10 um; nanobeam overlaps the membrane over most of its length",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n9 (o1)."
+  },
+  {
+   "id": "M2",
+   "lane": 1,
+   "row": "S2",
+   "line": 0,
+   "title": "ATOM, F3",
+   "tech": "ATOM",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1021/acs.nanolett.0c03980#F3b, 10.1021/acs.nanolett.0c03980#F3c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c03980#F3b",
+    "10.1021/acs.nanolett.0c03980#F3c"
+   ],
+   "head": "Simulated mode amplitude lobes spread over the whole membrane including the nanobeam region; cross-section shows a flexural wave with the beam riding on it. Simulated optical mode localised at the nanobeam centre; in cross-section the field sits in the Si block above the LN slab",
+   "solves": "High-index Si confines the optical mode in the nanobeam above the LN, where the membrane strain modulates it, raising optomechanical coupling over LN alone",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "source": "o2, o3",
+   "tech_source": "modality",
+   "note": "colour bar labelled 'Amplitude' (OCR 'euwy') OCR 'IS' is the 'Si' label",
+   "claims": [
+    "n12"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n12 keeps shown support from o8 after removal."
+  },
+  {
+   "id": "C3",
+   "lane": 2,
+   "row": "S2",
+   "line": 1,
+   "title": "evidence, F5",
+   "tech": "",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1021/acs.nanolett.0c03980#F5a",
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c03980#F5a"
+   ],
+   "head": "Optical reflection dip at 1588.5 nm with optical Q = 2.86x10^4; second sharp dip near 1617.5 nm",
+   "solves": "The slapped hybrid cavity resonates at 1588.5 nm with optical Q 2.86x10^4 (linewidth 6.6 GHz), plus a second resonance near 1617 nm",
+   "op": "cross check consistency, read characteristic point",
+   "verdict": "shown",
+   "source": "o4",
+   "tech_source": "none",
+   "note": "Q 2.86e4 at 1588.5 nm = 188.7 THz / 6.6 GHz, consistent with the text linewidth; second dip unlabelled (text: 1617 nm, 11.3 GHz)",
+   "detail": "o4: Optical reflection dip at 1588.5 nm with optical Q = 2.86x10^4; second sharp dip near 1617.5 nm",
+   "claims": [
+    "n13"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n13 (o4)."
+  },
+  {
+   "id": "C4",
+   "lane": 2,
+   "row": "S2",
+   "line": 2,
+   "title": "evidence, F4, F5",
+   "tech": "",
+   "figs": [
+    "F4",
+    "F5"
+   ],
+   "panel": "10.1021/acs.nanolett.0c03980#F4, 10.1021/acs.nanolett.0c03980#F5b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c03980#F4",
+    "10.1021/acs.nanolett.0c03980#F5b"
+   ],
+   "head": "Microwave S11 dips at 1.400 GHz (Q 383), 1.734 GHz (Q 260), 1.854 GHz (Q 632) and 2.056 GHz (Q 340); deepest ~-3.5 dB. S11 (red) main dips now at ~1.42 and ~2.01 GHz (~-3 dB), with shallow dips between 1.7 and 1.85 GHz",
+   "solves": "The LN membrane's GHz mechanical modes survive slapping, with slightly shifted frequencies",
+   "op": "compare across conditions, read characteristic point, replot derived series",
+   "verdict": "partial",
+   "source": "o5, o6",
+   "tech_source": "none",
+   "note": "values written on the plot by the authors; whole-figure crop has no OCR vs F4: ~1.400 -> ~1.42 GHz and 2.056 -> ~2.01 GHz (tens of MHz); dip widths not resolvable at this scale, so the Q decrease rests on text",
+   "detail": "o5: Microwave S11 dips at 1.400 GHz (Q 383), 1.734 GHz (Q 260), 1.854 GHz (Q 632) and 2.056 GHz (Q 340); deepest ~-3.5 dB; o6: S11 (red) main dips now at ~1.42 and ~2.01 GHz (~-3 dB), with shallow dips between 1.7 and 1.85 GHz",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n14 (o5)."
+  },
+  {
+   "id": "C5",
+   "lane": 2,
+   "row": "S2",
+   "line": 3,
+   "title": "evidence, F5",
+   "tech": "",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1021/acs.nanolett.0c03980#F5b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c03980#F5b"
+   ],
+   "head": "S21 (blue) peaks rise out of a ~-60 dB floor at ~1.18, 1.42, 1.70, 1.75, 1.82, 2.01 and 2.40 GHz; the maximum ~-38 dB is near 1.70 GHz",
+   "solves": "Single-photon optomechanical coupling g0/2pi ~10 kHz at the 1.7 GHz mode",
+   "op": "convert to quantity, read characteristic point",
+   "verdict": "shown",
+   "source": "o7",
+   "tech_source": "none",
+   "note": "the deepest S11 dips (1.42, 2.01 GHz) give only small S21 peaks; the strongest S21 cluster (1.70-1.82 GHz) sits where S11 dips are shallow",
+   "detail": "o7: S21 (blue) peaks rise out of a ~-60 dB floor at ~1.18, 1.42, 1.70, 1.75, 1.82, 2.01 and 2.40 GHz; the maximum ~-38 dB is near 1.70 GHz",
+   "claims": [
+    "n15"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n15 (o7)."
+  },
+  {
+   "id": "C6",
+   "lane": 2,
+   "row": "S2",
+   "line": 4,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1021/acs.nanolett.0c03980#F4",
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c03980#F4"
+   ],
+   "head": "Adjacent mode spacings 0.334 GHz (1.400->1.734) and 0.322 GHz (1.734->2.056)",
+   "solves": "",
+   "op": "cross check consistency",
+   "verdict": "shown",
+   "source": "o8",
+   "tech_source": "none",
+   "note": "text: groups spaced ~330 MHz match simulated A0 free spectral range",
+   "detail": "o8: Adjacent mode spacings 0.334 GHz (1.400->1.734) and 0.322 GHz (1.734->2.056)",
+   "claims": [
+    "n12"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n12 keeps shown support from o2, o3 after removal."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "causes"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}

@@ -1,0 +1,281 @@
+{
+ "paper_id": "Nano_Letters/10.1021_acs.nanolett.0c03980",
+ "title": "Hybrid Integration of Silicon Photonic Devices on Lithium Niobate for Optomechanical Wavelength Conversion",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c03980",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n9",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "n9",
+    "n13",
+    "n12",
+    "n15",
+    "n16",
+    "n17",
+    "n19"
+   ],
+   "branch": "evidences edge o1 -> n9",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "not derivable from given panels: o1: text, not in given captions: ['false-colour key: blue = Si nanocavity, light grey = released LiNbO3, yellow = Au electrodes, purple = LN marker (caption F3a)']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1021/acs.nanolett.0c03980#F3a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n12",
+     "role": "downstream"
+    },
+    {
+     "node": "n15",
+     "role": "downstream"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n9 (node-level necessity of o1: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:679",
+     "effect": "not derivable from given panels: o1: text, not in given captions: ['false-colour key: blue = Si nanocavity, light grey = released LiNbO3, yellow = Au electrodes, purple = LN marker (caption F3a)']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.0c03980#F3a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03980#F3a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o1"
+   ],
+   "target_verdicts": {
+    "o1": {
+     "pass": false,
+     "why": "text, not in given captions: ['false-colour key: blue = Si nanocavity, light grey = released LiNbO3, yellow = Au electrodes, purple = LN marker (caption F3a)']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6",
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Homogeneous thin-film LiNbO3 microwave-to-optical  -> Placing a high-index Si photonic crystal cavity on -> Suspended X-cut LN membrane 0.34x5.4x15 um with a  -> Two e-beam lithography steps pattern Au electrodes -> Slapping: fibre adheres to the nanobeam, breaks th"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F3a [SEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: False-colour SEM: blue nanobeam lies straight across the grey membrane beside the yellow IDT fingers, tapered end extending off the membrane"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Si nanobeam rests on the released LN membrane beside and parallel to the IDT fingers, its tapered waveguide running past the membrane edge"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n13",
+      "n12",
+      "n15",
+      "n16",
+      "n17",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The slapped hybrid cavity resonates at 1588.5 nm with optical Q 2.86x10^4 (linewidth 6.6 GHz), plus "
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c03980",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "n3",
+   "evidence": [],
+   "branch": "DES/route n3",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": false,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "n3"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Nano_Letters__10.1021_acs.nanolett.0c03980",
+   "trace": "T1",
+   "root": "infer",
+   "subtype": "classify",
+   "targets": [
+    "o1"
+   ],
+   "why": [
+    "o1: text, not in given captions: ['false-colour key: blue = Si nanocavity, light grey = released LiNbO3, yellow = Au electrodes, purple = LN marker (caption F3a)']"
+   ],
+   "requires_unseen": {
+    "o1": [
+     "false-colour key: blue = Si nanocavity, light grey = released LiNbO3, yellow = Au electrodes, purple = LN marker (caption F3a)"
+    ]
+   },
+   "labels": {
+    "o1": "False-colour SEM: blue nanobeam lies straight across the grey membrane beside the yellow IDT fingers, tapered end extending off the membrane; purple marker below"
+   }
+  }
+ ]
+}
