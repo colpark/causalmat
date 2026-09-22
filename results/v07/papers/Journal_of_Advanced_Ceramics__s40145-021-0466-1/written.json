@@ -1,0 +1,1219 @@
+{
+ "paper_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
+ "title": "Efficient oxygen reduction reaction by a highly porous, nitrogen-doped carbon sphere electrocatalyst through space confinement effect in nanopores",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "m12",
+   "evidence": [
+    "o16"
+   ],
+   "hidden": [
+    "m12",
+    "r13",
+    "r14",
+    "f15",
+    "c16",
+    "h2"
+   ],
+   "branch": "evidences edge o16 -> m12",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM",
+    "ECHEM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
+   "status": "closed",
+   "ruling": "not derivable from given panels: m12: text, not in given captions: ['further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text']",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "redacted"
+    },
+    {
+     "node": "d3",
+     "role": "context"
+    },
+    {
+     "node": "p7",
+     "role": "context"
+    },
+    {
+     "node": "p8",
+     "role": "context"
+    },
+    {
+     "node": "m9",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "o16",
+     "role": "evidence",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F6a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "m12",
+     "role": "claim"
+    },
+    {
+     "node": "r13",
+     "role": "redacted"
+    },
+    {
+     "node": "r14",
+     "role": "redacted"
+    },
+    {
+     "node": "f15",
+     "role": "redacted"
+    },
+    {
+     "node": "c16",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model needed: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: plot read, no domain model needed: depth-one negative control"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for m12 (node-level necessity of o16: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: ['Collision frequency vs']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:669",
+     "effect": "not derivable from given panels: m12: text, not in given captions: ['further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "r13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "r14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "f15",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "c16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "h2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1007/s40145-021-0466-1#F6a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1007/s40145-021-0466-1#F6a",
+     "sample": "Collision frequency vs",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Collision frequency vs"
+    }
+   ],
+   "graded_targets": [
+    "m12"
+   ],
+   "target_verdicts": {
+    "m12": {
+     "pass": false,
+     "why": "text, not in given captions: ['further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o16"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: MD collision frequency rises linearly with peroxide-ion density (~4.3 to 12 over 0.36-1.0 nm^-3)  [panels F6a]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "m12"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: Fine/medium pores confine peroxide ions, raising wall collisions so HO2- is reduced further (2e+2e) instead of dispropor  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "r13",
+      "c16"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: NPC-1000 reduces O2 by a ~4-electron path; NPC-800/900 largely by the 2-electron path"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "m12",
+   "evidence": [
+    "o17"
+   ],
+   "hidden": [
+    "m12",
+    "r13",
+    "r14",
+    "f15",
+    "c16",
+    "h2"
+   ],
+   "branch": "evidences edge o17 -> m12",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM",
+    "ECHEM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
+   "status": "closed",
+   "ruling": "not derivable from given panels: m12: text, not in given captions: ['further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text']",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "redacted"
+    },
+    {
+     "node": "d3",
+     "role": "context"
+    },
+    {
+     "node": "p7",
+     "role": "context"
+    },
+    {
+     "node": "p8",
+     "role": "context"
+    },
+    {
+     "node": "m9",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "o17",
+     "role": "evidence",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F6b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "m12",
+     "role": "claim"
+    },
+    {
+     "node": "r13",
+     "role": "redacted"
+    },
+    {
+     "node": "r14",
+     "role": "redacted"
+    },
+    {
+     "node": "f15",
+     "role": "redacted"
+    },
+    {
+     "node": "c16",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model needed: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: plot read, no domain model needed: depth-one negative control"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for m12 (node-level necessity of o17: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R6",
+     "where": "cut_traces.py:607",
+     "effect": "o17 technique ATOM vs 10.1007/s40145-021-0466-1#F6b cues ['micrograph']: judge cue_override honoured, not blocked"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:669",
+     "effect": "not derivable from given panels: m12: text, not in given captions: ['further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "r13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "r14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "f15",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "c16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "h2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1007/s40145-021-0466-1#F6b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1007/s40145-021-0466-1#F6b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "m12"
+   ],
+   "target_verdicts": {
+    "m12": {
+     "pass": false,
+     "why": "text, not in given captions: ['further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o17"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: MD collision frequency is linear in 1/D from 10 to 3 nm pores but rises only 11.1 -> 12 from 3 to 1 nm  [panels F6b]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "m12"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: Fine/medium pores confine peroxide ions, raising wall collisions so HO2- is reduced further (2e+2e) instead of dispropor  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "r13",
+      "c16"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: NPC-1000 reduces O2 by a ~4-electron path; NPC-800/900 largely by the 2-electron path"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "m12",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "r13",
+    "r14",
+    "f15",
+    "c16",
+    "h2"
+   ],
+   "branch": "qualifies edge a1 -> m12",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "redacted"
+    },
+    {
+     "node": "d3",
+     "role": "context"
+    },
+    {
+     "node": "p7",
+     "role": "context"
+    },
+    {
+     "node": "p8",
+     "role": "context"
+    },
+    {
+     "node": "m9",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "m12",
+     "role": "claim"
+    },
+    {
+     "node": "r13",
+     "role": "redacted"
+    },
+    {
+     "node": "r14",
+     "role": "redacted"
+    },
+    {
+     "node": "f15",
+     "role": "redacted"
+    },
+    {
+     "node": "c16",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: a1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:707",
+     "effect": "given panels carry no answer text: ['F4b']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "r13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "r14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "f15",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "c16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "h2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1007/s40145-021-0466-1#F4b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1007/s40145-021-0466-1#F4b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1007/s40145-021-0466-1#F4b",
+     "annotations": [
+      "NC-1000",
+      "NPC-800",
+      "NPC-900",
+      "NPC-1000",
+      "PUC",
+      "(mA.",
+      "DLE"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "m12"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Fine/medium pores confine peroxide ions, raising wall collisions so HO2- is reduced further (2e+2e) instead of dispropor"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4b [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: NC-1000 reaches the same ~-5 mA/cm2 limiting current as NPC-1000, though its half-wave potential is ~90 mV lower"
+    }
+   ],
+   "question": "The claim above holds that fine and medium carbon pores confine peroxide intermediates, raising wall collisions so HO2- is pushed through a two-step (2e+2e) reduction instead of disproportionating. Reading the LSV panel (Fig. 4b) that plots the ORR polarization curves for NC-1000, NPC-800, NPC-900, NPC-1000 and PUC, does the comparison between NC-1000 and NPC-1000 in that panel back up this pore-confinement story, and what do their curves actually show?",
+   "answer_key": "No, the panel does not confirm the pore-confinement mechanism on its own. It shows that NC-1000 reaches the same ~-5 mA/cm2 limiting current as NPC-1000, even though NC-1000's half-wave potential is about 90 mV lower (a1). Matching limiting currents between the two samples means the plateau reading alone does not separate a pore-confinement effect from the rest of the series -- the panel only shows a potential offset, not a distinguishing current signature tied to pore size.",
+   "answer_scope": "full",
+   "grading": "Checked against the audit ruling recorded on node a1, the sole graded target for this trace.",
+   "answer_key_nodes": [
+    "a1"
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "f15",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "c16",
+    "h2"
+   ],
+   "branch": "qualifies edge a2 -> f15",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "redacted"
+    },
+    {
+     "node": "d3",
+     "role": "context"
+    },
+    {
+     "node": "p7",
+     "role": "context"
+    },
+    {
+     "node": "p8",
+     "role": "context"
+    },
+    {
+     "node": "m9",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "m12",
+     "role": "context"
+    },
+    {
+     "node": "r13",
+     "role": "context"
+    },
+    {
+     "node": "r14",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F4c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "f15",
+     "role": "claim"
+    },
+    {
+     "node": "c16",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: a2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:707",
+     "effect": "given panels carry no answer text: ['F4c']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "c16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "h2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1007/s40145-021-0466-1#F4c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1007/s40145-021-0466-1#F4c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a2"
+   ],
+   "target_verdicts": {
+    "a2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1007/s40145-021-0466-1#F4c",
+     "annotations": [
+      "NPC-1000",
+      "PtC"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "f15"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: NPC-1000 keeps more ORR current than Pt/C over 8 h and is unaffected by methanol, where Pt/C drops ~35-40%"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4c [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: NPC-1000 current keeps falling ~2%/h up to 8 h while Pt/C levels off near 70%; the gap narrows from ~13 to ~6 points"
+    }
+   ],
+   "question": "The claim above is credited to panel F4c, the chronoamperometry comparison of NPC-1000 and Pt/C. Reading that panel, how do the two catalysts' ORR currents actually trend over the 8-hour test, and does the panel support the claim as stated?",
+   "answer_key": "No, not as stated. Over the 8 h test NPC-1000's current keeps declining, falling at roughly 2% per hour, while Pt/C's current instead levels off near 70%. The two start about 13 percentage points apart and the gap narrows to about 6 points by the end, so Pt/C is catching up rather than NPC-1000 holding a steady lead (a2).",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel (a2), the graded target for this trace.",
+   "answer_key_nodes": [
+    "a2"
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
+   "root": "intervene",
+   "subtype": "next condition",
+   "seed_claim": "dg",
+   "evidence": [
+    "o1",
+    "o3",
+    "o4",
+    "o11a"
+   ],
+   "hidden": [
+    "dg",
+    "o11a",
+    "m9",
+    "s10",
+    "m12",
+    "r13",
+    "r14",
+    "f15",
+    "c16",
+    "dg",
+    "m9",
+    "s10",
+    "m12",
+    "r13",
+    "r14",
+    "f15",
+    "c16"
+   ],
+   "hidden_panels": [
+    "10.1007/s40145-021-0466-1#F1b",
+    "10.1007/s40145-021-0466-1#F2a",
+    "10.1007/s40145-021-0466-1#F2b",
+    "10.1007/s40145-021-0466-1#F4b"
+   ],
+   "branch": "sweep d6 with optimum dg",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "note": "trend extrapolation of the classical series picks the earlier optimum"
+   },
+   "depth": 4,
+   "depth_families": [
+    "ECHEM",
+    "SEM",
+    "TEM",
+    "XRD"
+   ],
+   "mask": "show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next",
+   "grader": "the measured outcome at the chosen condition from o11a, held out",
+   "status": "closed",
+   "ruling": "decision None is not the condition directly after the last given (None)",
+   "walk": [
+    {
+     "node": "h1",
+     "role": "context"
+    },
+    {
+     "node": "h2",
+     "role": "context"
+    },
+    {
+     "node": "d3",
+     "role": "context"
+    },
+    {
+     "node": "p7",
+     "role": "context"
+    },
+    {
+     "node": "p8",
+     "role": "context"
+    },
+    {
+     "node": "m9",
+     "role": "redacted"
+    },
+    {
+     "node": "s10",
+     "role": "redacted"
+    },
+    {
+     "node": "m12",
+     "role": "redacted"
+    },
+    {
+     "node": "r13",
+     "role": "redacted"
+    },
+    {
+     "node": "r14",
+     "role": "redacted"
+    },
+    {
+     "node": "f15",
+     "role": "redacted"
+    },
+    {
+     "node": "c16",
+     "role": "redacted"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F1b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o3",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F2a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o4",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F2b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o11a",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1007/s40145-021-0466-1#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "dg",
+     "role": "claim"
+    }
+   ],
+   "has_sweep": true,
+   "redactions": [
+    {
+     "node": "m9",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "s10",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "m12",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "r13",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "r14",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "f15",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "c16",
+     "why": "shares a claim with a hidden node"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:542",
+     "effect": "context m9 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:542",
+     "effect": "context s10 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:542",
+     "effect": "context m12 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:542",
+     "effect": "context r13 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:542",
+     "effect": "context r14 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:542",
+     "effect": "context f15 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:542",
+     "effect": "context c16 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:579",
+     "effect": "given [], withheld ['10.1007/s40145-021-0466-1#F1b', '10.1007/s40145-021-0466-1#F2a', '10.1007/s40145-021-0466-1#F2b', '10.1007/s40145-021-0466-1#F4b'] (decision None, levels [] None)"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:582",
+     "effect": "decision None is not the condition directly after the last given (None)"
+    }
+   ],
+   "given_panels": [],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "h1",
+      "h2",
+      "d3",
+      "p7",
+      "p8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Hypothesis, design, processing: Metal-free carbon ORR catalysts are needed that ri -> Confining peroxide intermediates in nanopores of p -> Hydrothermal carbon spheres from glucose solution  -> Glucose solution polymerized hydrothermally into c -> Spheres mixed with urea and ZnCl2 and carbonized i"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1",
+      "o3",
+      "o4"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Results so far, as panels only:  [SEM, TEM, XRD]"
+    },
+    {
+     "step": 3,
+     "role": "decision",
+     "nodes": [
+      "dg"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Decide the next condition: Tuning pore microstructure to a few-nm confinement range is an alternative to adding active sites for ORR catalysts"
+    },
+    {
+     "step": 4,
+     "role": "outcome",
+     "nodes": [
+      "o11a"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Outcome at that condition (grader): LSV half-wave order NPC-1000 (~0.86 V) >= Pt/C (~0.85) > NPC-900 (~0.82) > NC-1000 (~0.77) ~ NPC-800"
+    }
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Journal_of_Advanced_Ceramics/s40145-021-0466-1",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "d5",
+   "evidence": [],
+   "branch": "DES/route d5",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "d5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Journal_of_Advanced_Ceramics__s40145-021-0466-1",
+   "trace": "T1",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "m12"
+   ],
+   "why": [
+    "m12: text, not in given captions: ['further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text']"
+   ],
+   "requires_unseen": {
+    "m12": [
+     "further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text"
+    ]
+   },
+   "labels": {
+    "m12": "Fine/medium pores confine peroxide ions, raising wall collisions so HO2- is reduced further (2e+2e) instead of disproportionating"
+   }
+  },
+  {
+   "paper": "Journal_of_Advanced_Ceramics__s40145-021-0466-1",
+   "trace": "T2",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "m12"
+   ],
+   "why": [
+    "m12: text, not in given captions: ['further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text']"
+   ],
+   "requires_unseen": {
+    "m12": [
+     "further reduction vs disproportionation (Reactions 3,4) stated in F6 linked text"
+    ]
+   },
+   "labels": {
+    "m12": "Fine/medium pores confine peroxide ions, raising wall collisions so HO2- is reduced further (2e+2e) instead of disproportionating"
+   }
+  }
+ ]
+}
