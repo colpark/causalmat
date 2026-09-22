@@ -1,0 +1,901 @@
+{
+ "paper_id": "Advanced_Energy_Materials/aenm.202102982",
+ "title": "A Self-Regulated Interface toward Highly Reversible Aqueous Zinc Batteries",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Energy_Materials/aenm.202102982",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n10",
+   "evidence": [
+    "o11"
+   ],
+   "hidden": [
+    "o11",
+    "n10",
+    "n12",
+    "n13",
+    "n16"
+   ],
+   "branch": "evidences edge o11 -> n10",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o11",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.202102982#F3f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n12",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n10 (node-level necessity of o11: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:244",
+     "effect": "1 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o11 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1002/aenm.202102982#F3f carries ['Blank'] shared with graded targets ['o11']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state the difference between the two conditions; do not rank",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202102982#F3f"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202102982#F3f",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o11"
+   ],
+   "target_verdicts": {
+    "o11": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotation_read_evidence": [
+    "o11"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202102982#F3f",
+     "annotations": [
+      "ZnSO\uff08OH\uff094HO#Zn",
+      "NHOAcadditive",
+      "Blank",
+      "BareZn"
+     ],
+     "hits": [
+      {
+       "text": "Blank",
+       "shared": [
+        "blank"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "n5",
+      "n8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Zn metal anodes in aqueous Zn batteries suffer den -> One additive supplying a competing cation and a pH -> Add ammonium acetate (NH4OAc) to 2 M ZnSO4 electro -> Electrolyte set: blank, NH4+ only ((NH4)2SO4), OAc -> Galvanostatic Zn plating/stripping of Zn anodes in -> OAc-/HOAc pair neutralises locally generated OH-, "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o11"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F3f [XRD] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o11"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: ZHSH reflections (~8.5 and 15-35 deg) mark the blank-cycled Zn pattern; NH4OAc pattern is dominated by Zn reflections like bare Zn"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Insoluble ZHSH (Zn4SO4(OH)6\u00b74H2O) by-product is absent from Zn anodes cycled with NH4OAc, unlike blank"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n12",
+      "n13",
+      "n16"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Zn plating/stripping becomes highly reversible with NH4OAc: CE ~99.7% over 1800 cycles vs ~98.1% for"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Energy_Materials/aenm.202102982",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n10",
+   "evidence": [
+    "o12"
+   ],
+   "hidden": [
+    "o12",
+    "n12",
+    "n13",
+    "n16",
+    "n2"
+   ],
+   "branch": "qualifies edge o12 -> n10",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o12",
+     "role": "audit",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1002/aenm.202102982#F3f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n12",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n10 (node-level necessity of o12: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o12 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F3f']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "n12",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202102982#F3f"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202102982#F3f",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o12"
+   ],
+   "target_verdicts": {
+    "o12": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "o12"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202102982#F3f",
+     "annotations": [
+      "ZnSO\uff08OH\uff094HO#Zn",
+      "NHOAcadditive",
+      "Blank",
+      "BareZn"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Insoluble ZHSH (Zn4SO4(OH)6\u00b74H2O) by-product is absent from Zn anodes cycled with NH4OAc, unlike blank"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o12"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3f [XRD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o12"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: NH4OAc-cycled Zn pattern still carries a ZHSH marker on a weak ~8.5 deg peak"
+    }
+   ],
+   "question": "The claim under test says the insoluble ZHSH by-product (Zn4SO4(OH)6\u00b74H2O) is absent from Zn anodes cycled with NH4OAc, unlike the blank electrolyte. Does the XRD pattern in panel F3f support this?",
+   "answer_key": "No. The NH4OAc-cycled Zn pattern still carries a ZHSH marker: a weak peak at about 8.5 degrees remains, so the by-product is not fully absent (o12).",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel, node o12.",
+   "answer_key_nodes": [
+    "o12"
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Energy_Materials/aenm.202102982",
+   "root": "explain",
+   "subtype": "competing causes",
+   "seed_claim": "n12",
+   "evidence": [
+    "o11",
+    "o13",
+    "o14",
+    "o15"
+   ],
+   "hidden": [
+    "n6",
+    "n8",
+    "n13",
+    "n16",
+    "n2",
+    "n6"
+   ],
+   "branch": "two `causes` edges into n12: ['n7', 'n10']",
+   "rival": [],
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": [
+     "o14",
+     "o15"
+    ],
+    "note": "floor holds the non-FM causes only, so it picks the rival"
+   },
+   "depth": 4,
+   "depth_families": [
+    "ECHEM",
+    "OPTICAL",
+    "SEM",
+    "XRD"
+   ],
+   "mask": "hide the mechanism node(s) explaining the claim; show the competing causes and their evidence",
+   "grader": "judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's",
+   "status": "closed",
+   "ruling": "not derivable from given panels: n8: text, not in given captions: ['interfacial pH 7.5 in blank from simulation (linked text F2)', 'NH4OAc electrolyte pH 5.14, steady (Figs S13, S14, linked text)', 'HOAc neutralises local OH- (linked text F2)']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "redacted"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o11",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.202102982#F3f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o13",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.202102982#F3b",
+      "10.1002/aenm.202102982#F3c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o14",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.202102982#F3d",
+      "10.1002/aenm.202102982#F3e"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o15",
+     "role": "evidence",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1002/aenm.202102982#F3g"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n7",
+     "role": "cause"
+    },
+    {
+     "node": "n10",
+     "role": "cause"
+    },
+    {
+     "node": "n6",
+     "role": "mechanism"
+    },
+    {
+     "node": "n8",
+     "role": "mechanism"
+    },
+    {
+     "node": "n12",
+     "role": "claim"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    },
+    {
+     "node": "n6",
+     "why": "shares a claim with a hidden node"
+    }
+   ],
+   "has_sweep": true,
+   "v2_rules": [
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:552",
+     "effect": "context n6 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None, None, None, None, 'NH4OAc -added electrolytes', None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:679",
+     "effect": "not derivable from given panels: n8: text, not in given captions: ['interfacial pH 7.5 in blank from simulation (linked text F2)', 'NH4OAc electrolyte pH 5.14, steady (Figs S13, S14, linked text)', 'HOAc neutralises local OH- (linked text F2)']"
+    },
+    {
+     "rule": "R2",
+     "where": "cut_traces.py:775",
+     "effect": "no sweep with a stated optimum: causes judged on their evidence"
+    }
+   ],
+   "given_panels": [
+    "10.1002/aenm.202102982#F3f",
+    "10.1002/aenm.202102982#F3b",
+    "10.1002/aenm.202102982#F3c",
+    "10.1002/aenm.202102982#F3d",
+    "10.1002/aenm.202102982#F3e",
+    "10.1002/aenm.202102982#F3g"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202102982#F3f",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/aenm.202102982#F3b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/aenm.202102982#F3c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/aenm.202102982#F3d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/aenm.202102982#F3e",
+     "sample": "NH4OAc -added electrolytes",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "NH4OAc -added electrolytes"
+    },
+    {
+     "panel": "10.1002/aenm.202102982#F3g",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "n8"
+   ],
+   "target_verdicts": {
+    "n8": {
+     "pass": false,
+     "why": "text, not in given captions: ['interfacial pH 7.5 in blank from simulation (linked text F2)', 'NH4OAc electrolyte pH 5.14, steady (Figs S13, S14, linked text)', 'HOAc neutralises local OH- (linked text F2)']"
+    }
+   },
+   "annotation_read_evidence": [
+    "o11",
+    "o15"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "n12",
+      "o15"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation to explain: Zn plating/stripping becomes highly reversible with NH4OAc: CE ~99.7% over 1800 cycles vs ~98.1% for ~30 cycles in blank. Its optimum: None vol%."
+    },
+    {
+     "step": 2,
+     "role": "candidates",
+     "nodes": [
+      "n7",
+      "n10"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Candidate causes: n7: Zn deposits compact and free of protruding dendrite flakes in NH4OAc e | n10: Insoluble ZHSH (Zn4SO4(OH)6\u00b74H2O) by-product is absent from Zn anodes "
+    },
+    {
+     "step": 3,
+     "role": "test",
+     "nodes": [
+      "n10",
+      "o11"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "Test n10 (Insoluble ZHSH (Zn4SO4(OH)6\u00b74H2O) by-product is absent from ) against o11 [XRD]: KEEP, its evidence (o11) shows it"
+    },
+    {
+     "step": 4,
+     "role": "test",
+     "nodes": [
+      "n7",
+      "o13",
+      "o14"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "Test n7 (Zn deposits compact and free of protruding dendrite flakes i) against o13, o14 [OPTICAL, SEM]: KEEP, its evidence (o13, o14) shows it"
+    },
+    {
+     "step": 5,
+     "role": "mechanism",
+     "nodes": [
+      "n6",
+      "k2",
+      "o1",
+      "o2"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: NH4+ adsorbs on Zn preferentially over Zn2+, forming an electrostatic shield that prevents agglomerated Zn deposition  [premise: k2; evidence: o1, o2]"
+    },
+    {
+     "step": 6,
+     "role": "mechanism",
+     "nodes": [
+      "n8",
+      "k1",
+      "o8"
+     ],
+     "depends_on": [
+      5
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: OAc-/HOAc pair neutralises locally generated OH-, holding interfacial pH steady near ~5.3 instead of climbing to ~7.5  [premise: k1; evidence: o8]"
+    },
+    {
+     "step": 7,
+     "role": "mechanism",
+     "nodes": [
+      "n13",
+      "o16"
+     ],
+     "depends_on": [
+      6
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: Zn//Zn symmetric cell with NH4OAc cycles 3500 h at 1 mA cm-2, 1 mAh cm-2, about ten times the blank  [premise: none; evidence: o16]"
+    },
+    {
+     "step": 8,
+     "role": "mechanism",
+     "nodes": [
+      "n16"
+     ],
+     "depends_on": [
+      7
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: NH4OAc builds a self-regulated Zn/electrolyte interface (NH4+ shielding plus OAc- pH buffer) giving dendrite- and by-pro  [premise: none; evidence: none]"
+    },
+    {
+     "step": 9,
+     "role": "mechanism",
+     "nodes": [
+      "n2"
+     ],
+     "depends_on": [
+      8
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: One additive supplying a competing cation and a pH-buffering anion should suppress dendrites and corrosion at once  [premise: none; evidence: none]"
+    },
+    {
+     "step": 10,
+     "role": "mechanism",
+     "nodes": [
+      "n6",
+      "k2",
+      "o1",
+      "o2"
+     ],
+     "depends_on": [
+      9
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: NH4+ adsorbs on Zn preferentially over Zn2+, forming an electrostatic shield that prevents agglomerated Zn deposition  [premise: k2; evidence: o1, o2]"
+    },
+    {
+     "step": 11,
+     "role": "adjudication",
+     "nodes": [
+      "n10",
+      "n7"
+     ],
+     "depends_on": [
+      10
+     ],
+     "hidden": false,
+     "text": "The optimum is set by n10, n7; no rival is necessary but not sufficient."
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Advanced_Energy_Materials__aenm.202102982",
+   "trace": "T3",
+   "root": "explain",
+   "subtype": "competing causes",
+   "targets": [
+    "n8"
+   ],
+   "why": [
+    "n8: text, not in given captions: ['interfacial pH 7.5 in blank from simulation (linked text F2)', 'NH4OAc electrolyte pH 5.14, steady (Figs S13, S14, linked text)', 'HOAc neutralises local OH- (linked text F2)']"
+   ],
+   "requires_unseen": {
+    "n8": [
+     "interfacial pH 7.5 in blank from simulation (linked text F2)",
+     "NH4OAc electrolyte pH 5.14, steady (Figs S13, S14, linked text)",
+     "HOAc neutralises local OH- (linked text F2)"
+    ]
+   },
+   "labels": {
+    "n8": "OAc-/HOAc pair neutralises locally generated OH-, holding interfacial pH steady near ~5.3 instead of climbing to ~7.5"
+   }
+  }
+ ]
+}
