@@ -1,0 +1,271 @@
+Write the question, answer key, grading note and answer_key_nodes for this trace.
+
+TRACE RECORD
+{
+ "id": "T13",
+ "group_id": "Journal_of_Materials_Science_&_Technology/j.jmst.2020.05.053",
+ "root": "infer",
+ "subtype": "classify",
+ "seed_claim": "n17",
+ "evidence": [
+  "o10"
+ ],
+ "hidden": [
+  "o10",
+  "n17",
+  "n18"
+ ],
+ "branch": "evidences edge o10 -> n17",
+ "fm_family": "SEM",
+ "lift": null,
+ "floor": {
+  "reaches": false,
+  "support": []
+ },
+ "depth": 1,
+ "depth_families": [
+  "SEM"
+ ],
+ "channels_involved": [
+  "SEM"
+ ],
+ "mask": "hide the observation; hand over the panel(s)",
+ "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+ "status": "open",
+ "ruling": "",
+ "walk": [
+  {
+   "node": "n1",
+   "role": "context"
+  },
+  {
+   "node": "n3",
+   "role": "context"
+  },
+  {
+   "node": "n7",
+   "role": "context"
+  },
+  {
+   "node": "n8",
+   "role": "context"
+  },
+  {
+   "node": "n9",
+   "role": "context"
+  },
+  {
+   "node": "n10",
+   "role": "context"
+  },
+  {
+   "node": "n16",
+   "role": "context"
+  },
+  {
+   "node": "o10",
+   "role": "evidence",
+   "op": "recognize_signature",
+   "panel_ids": [
+    "10.1016/j.jmst.2020.05.053#F2c"
+   ],
+   "verdict": "shown"
+  },
+  {
+   "node": "n17",
+   "role": "claim"
+  },
+  {
+   "node": "n18",
+   "role": "downstream"
+  }
+ ],
+ "v1_filter": {
+  "status": "closed",
+  "ruling": "bare infer: no rejection, no budget, no stopping rule"
+ },
+ "v2_rules": [
+  {
+   "rule": "v1-off",
+   "where": "cut_traces.py:238",
+   "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+  },
+  {
+   "rule": "seed",
+   "where": "cut_traces.py:241",
+   "effect": "lane SEM necessary for n17 (node-level necessity of o10: necessary)"
+  },
+  {
+   "rule": "P2",
+   "where": "cut_traces.py:600",
+   "effect": "condition labels: [None]"
+  },
+  {
+   "rule": "R3",
+   "where": "cut_traces.py:674",
+   "effect": "graded targets readable: o10 (figure)"
+  },
+  {
+   "rule": "skip",
+   "where": "cut_traces.py:707",
+   "effect": "given panels carry no answer text: ['F2c']"
+  }
+ ],
+ "node_necessity": "necessary",
+ "has_sweep": true,
+ "given_panels": [
+  "10.1016/j.jmst.2020.05.053#F2c"
+ ],
+ "condition_labels": [
+  {
+   "panel": "10.1016/j.jmst.2020.05.053#F2c",
+   "sample": null,
+   "sample_source": null,
+   "level": null,
+   "unit": null,
+   "level_source": null,
+   "alias": null,
+   "text": null
+  }
+ ],
+ "graded_targets": [
+  "o10"
+ ],
+ "target_verdicts": {
+  "o10": {
+   "pass": true,
+   "why": "figure"
+  }
+ },
+ "annotated_panels": [
+  {
+   "panel": "10.1016/j.jmst.2020.05.053#F2c",
+   "annotations": [
+    "100um"
+   ],
+   "hits": []
+  }
+ ],
+ "answer_scope_required": true,
+ "linear": [
+  {
+   "step": 1,
+   "role": "context",
+   "nodes": [
+    "n1",
+    "n3",
+    "n7",
+    "n8",
+    "n9",
+    "n10",
+    "n16"
+   ],
+   "depends_on": [],
+   "hidden": false,
+   "text": "What was made and why: Deformation substructure evolution of the FCC(L12) -> Tensile strain level as comparison axis: TEM at 0. -> Room-temperature uniaxial tension, interrupted at  -> At 0.6% strain dislocations and planar slip appear -> At 1.5% strain FCC dislocation density rises with  -> After fracture FCC holds dense dislocation walls a -> Voids and microcracks nucleate at FCC/B2 boundarie"
+  },
+  {
+   "step": 2,
+   "role": "read",
+   "nodes": [
+    "o10"
+   ],
+   "depends_on": [
+    1
+   ],
+   "hidden": false,
+   "text": "Open the panels F2c [SEM] and classify (recognize signature)"
+  },
+  {
+   "step": 3,
+   "role": "observation",
+   "nodes": [
+    "o10"
+   ],
+   "depends_on": [
+    2
+   ],
+   "hidden": true,
+   "text": "Observation: Low-magnification fracture surface: tear ridges and elongated grooves following lamellar colonies, scattered holes"
+  },
+  {
+   "step": 4,
+   "role": "claim",
+   "nodes": [
+    "n17"
+   ],
+   "depends_on": [
+    3
+   ],
+   "hidden": true,
+   "text": "Claim it establishes: Mixed fracture: ductile tearing of FCC lamellae, brittle cleavage of B2, final separation along phase boundaries"
+  },
+  {
+   "step": 5,
+   "role": "downstream",
+   "nodes": [
+    "n18"
+   ],
+   "depends_on": [
+    4
+   ],
+   "hidden": true,
+   "text": "Feeds: Coupled soft FCC(L12) and hard B2 lamellae with sequential slip activation give the EHEA its strengt"
+  }
+ ]
+}
+
+NODE LABELS (every node the trace references)
+{
+ "n1": {
+  "type": "HYP/gap",
+  "label": "Deformation substructure evolution of the FCC(L12) and B2 phases during tension of this EHEA is undeciphered"
+ },
+ "n10": {
+  "type": "STR/defect/extended",
+  "label": "After fracture FCC holds dense dislocation walls and Taylor lattices; B2 holds straight parallel dislocations"
+ },
+ "n16": {
+  "type": "STR/microstructure/damage",
+  "label": "Voids and microcracks nucleate at FCC/B2 boundaries and B2 lamella ends; B2 lamellae break"
+ },
+ "n17": {
+  "type": "PRP/behavior_class",
+  "label": "Mixed fracture: ductile tearing of FCC lamellae, brittle cleavage of B2, final separation along phase boundaries"
+ },
+ "n18": {
+  "type": "DSC/conclusion",
+  "label": "Coupled soft FCC(L12) and hard B2 lamellae with sequential slip activation give the EHEA its strength-ductility combination"
+ },
+ "n3": {
+  "type": "DES/variable_sweep",
+  "label": "Tensile strain level as comparison axis: TEM at 0.6%, 1.5% strain and after fracture"
+ },
+ "n7": {
+  "type": "PRC/stimulus",
+  "label": "Room-temperature uniaxial tension, interrupted at 0.6% and 1.5% and taken to fracture"
+ },
+ "n8": {
+  "type": "STR/defect/extended",
+  "label": "At 0.6% strain dislocations and planar slip appear in FCC lamellae; B2 lamellae stay dislocation-free"
+ },
+ "n9": {
+  "type": "STR/defect/extended",
+  "label": "At 1.5% strain FCC dislocation density rises with slip bands, pile-ups, intersections and networks; B2 still dislocation-free"
+ },
+ "o10": {
+  "type": "OBS/morphology/appearance",
+  "label": "Low-magnification fracture surface: tear ridges and elongated grooves following lamellar colonies, scattered holes"
+ }
+}
+
+WORKED EXAMPLES (follow their form and length)
+[{"id":"T1","root":"explain","subtype":"rejection","status":"control","seed_claim":"q7","evidence":["r2"],"hidden":["r2","q11","q8","q12","q16","q2"],"redactions":[{"node":"q11","why":"downstream conclusion restates the answer"},{"node":"q8","why":"downstream conclusion restates the answer"},{"node":"q12","why":"downstream conclusion restates the answer"},{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the ruling; show the claim and the panel","grader":"answer key: the audit ruling on the panel","question":"The caption says the WSi2 peak rises with excess ZrSi2 and ZrC appears at 20 vol% and above. Does Figure 2 support this?","answer_key":"No. The four traces are indistinguishable at the plotted scale and only the top one is indexed, so neither claim can be read from the figure (r2, q18).","grading":"Answer key: the audit ruling on the panel.","answer_key_nodes":["r2","q18"]},{"id":"T2","root":"infer","subtype":"estimate","status":"closed","seed_claim":"q8","evidence":["r7"],"hidden":["r7","q8","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"How thick and how long are the ZrB2 platelets on the F6 fracture surface?","answer_key":"A few hundred nm thick, up to about 1 um long (r7). A correct answer exists, but no decision in the paper turns on the number.","grading":"Closed: a bare measurement with no rejection, budget or stopping rule behind it. A fact in the graph, not a question for a model.","answer_key_nodes":null},{"id":"T3","root":"infer","subtype":"estimate","status":"closed","seed_claim":"q9","evidence":["r7"],"hidden":["r7","q9","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"How large are the SiC particles on the F6 fracture surface?","answer_key":"Nanometre-sized between the ZrB2 grains (r7, q9). Same situation as T2.","grading":"Closed: bare measurement, no decision attached.","answer_key_nodes":null},{"id":"T4","root":"infer","subtype":"rank","status":"open","seed_claim":"q9","evidence":["r10"],"hidden":["r10","q9","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"The same five panels. How do SiC particle size and distribution change with excess ZrSi2?","answer_key":"Submicron SiC with open pores at 0 vol%; nanometre-sized SiC between the ZrB2 grains once excess ZrSi2 is present.","grading":"Match to the labels of r10 and q9, judge-confirmed.","answer_key_nodes":null},{"id":"T5","root":"infer","subtype":"rank","status":"open","seed_claim":"q10","evidence":["r10"],"hidden":["r10","q10","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"independent channel r3 (PHYS), held out from the model","question":"The five fracture-surface SEM panels F8a to F8e, labelled RZSZ-0, 10, 15, 20 and 25 vol% excess ZrSi2. Rank the five compositions by porosity.","answer_key":"Porosity ranks 0 > 10 > 25 > 20 > 15. The density series the model never sees runs 91.7, 94.9, 98.5, 97.6, 96.4%.","grading":"Rank correlation against the Archimedes density (r3), an independent instrument held out from the model.","answer_key_nodes":["r3","r10"]},{"id":"T6","root":"infer","subtype":"rank","status":"open","seed_claim":"q14","evidence":["r10"],"hidden":["r10","q14","q15","q13","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"The same five panels. What fracture mode do the ZrB2 platelets show, and does it depend on platelet size?","answer_key":"Mixed mode: larger platelets break transgranularly, smaller ones along their boundaries.","grading":"Match to q14.","answer_key_nodes":null},{"id":"T7","root":"explain","subtype":"mechanism","status":"open","seed_claim":"q15","evidence":["r11"],"hidden":["q15","q13","q16","q2","s5"],"redactions":[{"node":"q13","why":"downstream conclusion restates the answer"},{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"},{"node":"s5","why":"premise of the hidden mechanism"}],"mask":"hide the mechanism and its premises; show the observation","grader":"certified judge against the graph's mechanism; no rival in the graph","question":"The indentation crack on polished RZSZ-20, panel F8f. What toughening mechanisms are operating?","answer_key":"Interlocked platelets arrest and deflect the crack, then pull out and bridge it; the fork sits at a SiC-rich region; thermal-expansion mismatch adds residual stress around SiC.","grading":"Judge, with the crack features in r11 and the mechanism in q15 as the key.","answer_key_nodes":null},{"id":"T8","root":"explain","subtype":"rejection","status":"control","seed_claim":"q13","evidence":["r9"],"hidden":["r9","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the ruling; show the claim and the panel","grader":"answer key: the audit ruling on the panel","question":"Is fracture toughness at 25 vol% lower than at 20 vol%?","answer_key":"Not resolvable. The error bars at 20 and 25 overlap, unlike the hardness and strength bars (r9, q19).","grading":"Answer key: the audit ruling on the panel.","answer_key_nodes":["r9","q19"]},{"id":"T9","root":"explain","subtype":"competing causes","status":"open","seed_claim":"q12","evidence":["r10","r3","r7","r8"],"hidden":["q11","q15","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism node(s) explaining the claim; show the competing causes and their evidence","grader":"judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's","question":"Hardness and strength peak at 20 vol%. Three candidate causes with their evidence: platelet interlocking (SEM), nano-SiC (SEM), and densification (density peaking at 15 vol%). Which cause accounts for the optimum at 20, and why not densification alone?","answer_key":"Interlocking platelets grown through the ZrSi2 liquid (q11), which deflect and bridge cracks (q15). Densification alone cannot explain it: density peaks at 15 vol% while the properties peak at 20.","grading":"Judge, with q11 and q15 as the key and the 15-versus-20 mismatch as the required reason.","answer_key_nodes":["q11","q15","r3","r8"]},{"id":"T10","root":"explain","subtype":"competing causes","status":"open","seed_claim":"q13","evidence":["r10","r7","r8"],"hidden":["q11","q15","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism node(s) explaining the claim; show the competing causes and their evidence","grader":"judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's","question":"Fracture toughness reaches 6.08 MPa m^1/2 at 20 vol%. Candidates: platelet interlocking, nano-SiC. Which accounts for it, and by what mechanism?","answer_key":"Interlocked platelets: crack deflection, bridging and pull-out (q15).","grading":"Judge against q15.","answer_key_nodes":null},{"id":"T11","root":"intervene","subtype":"next condition","status":"open","seed_claim":"q17","evidence":["r10","r8"],"hidden":["q17","r8","q10","q17"],"redactions":null,"mask":"show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next","grader":"the measured outcome at the chosen condition from r8, held out","question":"The hypothesis, the design (an excess-ZrSi2 sweep), the processing, and the SEM fracture surfaces for 0, 10 and 15 vol% only. Nothing about density or properties. Which composition should be made next, and what do you expect from it?","answer_key":"20 vol% (q17). The outcome at that composition is the peak of the series: hardness 17.1 GPa, flexural strength 655 MPa, toughness 6.05 MPa m^1/2 (r8). Stopping at 15 is wrong.","grading":"The measured outcome at the chosen composition from F7, held out.","answer_key_nodes":["q17","r8"]},{"id":"T12","root":"generate","subtype":"design under constraint","status":"closed","seed_claim":"q5","evidence":[],"hidden":null,"redactions":null,"mask":"hide the route; show the constraint and the target structure","grader":"none in the tool inventory","question":"Design a one-step processing route that yields interlocking ZrB2 platelets with nano-SiC in a dense body.","answer_key":"The paper's route is reactive hot pressing at 1550 C, 30 min, 40 MPa (q5). But a proposed route cannot be scored: no simulator for reactive sintering exists in the tool inventory.","grading":"Closed: no oracle. The second gate closes the root until one exists.","answer_key_nodes":null}]
+
+NEGATIVE EXAMPLES (questions NOT to write, with the reason)
+[{"id":"T7","root":"explain","subtype":"mechanism","mask":"hide the mechanism and its premises; show the observation","grader":"certified judge against the graph's mechanism; no rival in the graph","bad_question":"The context given: ZrB2-SiC ultra-high-temperature ceramics need toughening without added reinforcements; the ZrSi2/B4C/carbon powder system; reactive hot pressing that forms ZrB2/SiC while densifying; and a microstructure where ZrB2 grows into platelets that meet edge to edge and interlock. You're also told that thermal-expansion mismatch between ZrB2 and SiC leaves tangential tensile residual stress around SiC grains on cooling. Panel F8f shows the indentation crack stepping, forking and leaving bridging ligaments and pulled-out grains, with the fork sitting right at a bright SiC-rich region. What mechanism actually produces this crack path, and why isn't the thermal-expansion-mismatch stress by itself enough to explain what's seen?","why_bad":"DO NOT: restates the given context and hands over the thermal-mismatch premise, then frames it as a rival ('why isn't ... enough'), so part of the hidden mechanism is in the question.","source":"net-writer ceramic run 1, results/traces/writer/ceramic_run1/T7.writer.out.txt"},{"id":"T5","root":"infer","subtype":"rank","mask":"hide the observation; hand over the panel(s)","grader":"independent channel r3 (PHYS), held out from the model","bad_question":"You're given the motivation for toughening ZrB2-SiC without added reinforcements, the ZrSi2/B4C/carbon-black reactive powder system, and the reactive-hot-pressing route that densifies while forming ZrB2 and SiC in one step. You're then handed the fracture-surface SEM panels F8a-F8e spanning the ZrSi2-excess series. Based only on what those panels show, how does relative density change across the series, and at which composition does it peak?","why_bad":"DO NOT: asks for the held-out grading channel itself (how relative density changes and where it peaks) instead of a rank read from the images; the density series is what grades the answer.","source":"net-writer ceramic run 1, results/traces/writer/ceramic_run1/T5.writer.out.txt"}]
+
+YOUR PREVIOUS ATTEMPT FAILED A CHECK
+The leak net flagged your question: it shares the word pair "fracture surface" with the hidden nodes. Write the question again so it does not use them or any other wording from the hidden nodes; refer to the panels and the given nodes instead.
+
+Reply with JSON only: {"question": "...", "answer_key": "...", "answer_scope": "full|partial", "grading": "...", "answer_key_nodes": [...]}
