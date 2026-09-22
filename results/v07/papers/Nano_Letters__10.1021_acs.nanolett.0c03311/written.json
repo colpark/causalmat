@@ -1,0 +1,642 @@
+{
+ "paper_id": "Nano_Letters/10.1021_acs.nanolett.0c03311",
+ "title": "Light-Assisted Rechargeable Lithium Batteries: Organic Molecules for Simultaneous Energy Harvesting and Storage",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c03311",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n12b",
+   "evidence": [
+    "o6"
+   ],
+   "hidden": [
+    "o6",
+    "n13",
+    "n14",
+    "n18",
+    "n2"
+   ],
+   "branch": "qualifies edge o6 -> n12b",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "o6",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1021/acs.nanolett.0c03311#F4d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n12b",
+     "role": "claim"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o6 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F4d']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.0c03311#F4d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03311#F4d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o6"
+   ],
+   "target_verdicts": {
+    "o6": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "o6"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03311#F4d",
+     "annotations": [
+      "Anode",
+      "Photo-cathode",
+      "-3.7eV",
+      "Charge",
+      "Dlscharge",
+      "-5.9eV",
+      "-6.5eV",
+      "TKL",
+      "TKLUI",
+      "-8JColleclor",
+      "Charged Species",
+      "Discharged species",
+      "4.3eV"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n12b"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Lithiated-TKL HOMO (-5.9 eV) lies above TKL HOMO (-6.5 eV), so TKL holes can oxidize LiTKL"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4d [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: F4d draws TKL HOMO at -6.5 eV, but LUMO minus Tauc gap gives -3.7 - 2.67 = -6.37 eV (text -6.4)"
+    }
+   ],
+   "question": "Given the claim above about the TKL HOMO position and panel F4d's energy-level diagram, does the plotted TKL HOMO value in F4d cross-check consistently against the TKL LUMO position and the TKL optical (Tauc) gap value from the context above?",
+   "answer_key": "No, not exactly. Panel F4d plots the TKL HOMO at -6.5 eV, but computing it from the LUMO minus the Tauc gap gives -3.7 - 2.67 = -6.37 eV, which matches the text's stated -6.4 eV rather than the panel's plotted -6.5 eV value (o6).",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel (o6).",
+   "answer_key_nodes": [
+    "o6"
+   ],
+   "writer_passes": 2
+  },
+  {
+   "id": "T2",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c03311",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n13",
+   "evidence": [
+    "o15"
+   ],
+   "hidden": [
+    "o15",
+    "n14",
+    "n18",
+    "n2"
+   ],
+   "branch": "qualifies edge o15 -> n13",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o15",
+     "role": "audit",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1021/acs.nanolett.0c03311#F6a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n13",
+     "role": "claim"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o15 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F6a']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.0c03311#F6a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03311#F6a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o15"
+   ],
+   "target_verdicts": {
+    "o15": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03311#F6a",
+     "annotations": [
+      "NO",
+      "OFF"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n13"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Light makes electron-hole pairs in TKL; electrons flow via the carbon-coated mesh to the anode while holes oxidize LiTKL"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F6a [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Within each light window the current ramps up over ~50-60 s and relaxes over tens of seconds after switch-off, not a prompt step"
+    }
+   ],
+   "question": "The claim under test is that light generates electron-hole pairs in TKL, with electrons flowing through the carbon-coated mesh to the anode while holes oxidize LiTKL to TKL. Does the current trace in Figure 6a support this pathway turning on as an immediate, prompt response each time the light is switched on?",
+   "answer_key": "No, not as a prompt step. Within each light window the current instead ramps up over roughly 50-60 s, and after the light is switched off it relaxes back down over tens of seconds, rather than jumping instantly (o15).",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel (o15), which is the graded target for this trace.",
+   "answer_key_nodes": [
+    "o15"
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c03311",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n15",
+   "evidence": [
+    "o17"
+   ],
+   "hidden": [
+    "o17",
+    "n18",
+    "n2"
+   ],
+   "branch": "qualifies edge o17 -> n15",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "n16",
+     "role": "context"
+    },
+    {
+     "node": "o17",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1021/acs.nanolett.0c03311#F6b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n15",
+     "role": "claim"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o17 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1021/acs.nanolett.0c03311#F6b carries ['1st:dark', '4th:dark', '5th:light'] shared with graded targets ['o17']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.0c03311#F6b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03311#F6b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o17"
+   ],
+   "target_verdicts": {
+    "o17": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03311#F6b",
+     "annotations": [
+      "1st:dark",
+      "2nd:dark",
+      "3rd:dark",
+      "4th:dark",
+      "5th:light"
+     ],
+     "hits": [
+      {
+       "text": "1st:dark",
+       "shared": [
+        "1"
+       ]
+      },
+      {
+       "text": "4th:dark",
+       "shared": [
+        "4"
+       ]
+      },
+      {
+       "text": "5th:light",
+       "shared": [
+        "light"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n15"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Discharging under light gives extra capacity: ~332 mAh/g vs ~296 in the preceding dark cycle"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o17"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F6b [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o17"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: The light discharge (~332 mAh/g) only equals the 1st dark discharge (~333); the gain is measured against the faded 4th cycle, with no dark c"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
