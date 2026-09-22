@@ -1,0 +1,1687 @@
+{
+ "paper_id": "Nano_Letters/10.1021_acs.nanolett.5b03976",
+ "title": "Direct Bandgap Light Emission from Strained Germanium Nanowires Coupled with High-Q Nanophotonic Cavities",
+ "vocab_version": "v04",
+ "batch": "v07",
+ "text_source": "captions_plus_linked_text",
+ "notes": "Spine: need -> hypothesis -> GOI stack / nanowire+DBR architecture / strain sweep -> litho+etch -> KOH undercut -> ~2.4% strain (FEM+Raman) -> gap narrowing (red-shift) -> strain-Gamma pathway -> brighter direct-gap PL -> net gain improves with strain; free-carrier tradeoff -> net gain negative, falls with pump -> no lasing -> conclusion. Second branch: fabricated cavity shape -> Q~2000. Side: capillary reattachment -> SiO2 contact -> >10x pump tolerance (argued; SI thermal sims not in packet); valence-band loss partition (computed F5c) counteracts; design guidance; comparison with Ge lasing reports. Audits: o8 Raman pad strain above FEM (text_silent), o11 2.37% emission truncated by detector limit, L1 circular carrier-density axis. Not in graph: ALD Al2O3 passivation step (text only), FSR discrepancy (image_note o13), F1b stack and F2d schematic (opened, not used as evidence). No multi-cause claims.",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/need",
+   "label": "Silicon photonics needs an efficient CMOS-compatible on-chip light source; indirect-gap Ge emits weakly",
+   "attrs": {
+    "note": "no introduction in packet; framed from title and linked text",
+    "source": "inferred",
+    "requires_unseen": [
+     "need for a CMOS-compatible on-chip light source and weak indirect-gap Ge emission (introduction not in packet)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n2",
+   "type": "HYP/hypothesis",
+   "label": "High tensile strain in a Ge nanowire inside a high-Q cavity should narrow the direct gap and give strong direct-gap emission and gain",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "strain reduces the Ge bandgap (linked text, F3)",
+     "title: direct bandgap emission from strained Ge nanowires in high-Q cavities"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n3",
+   "type": "DES/base_system",
+   "label": "n-type Ge (1e19 cm-3 P, in-situ doped) on a Ge/Al2O3/SiO2/Si stack: 200 nm Ge, 25 nm Al2O3, 850 nm SiO2",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "doping level and layer thicknesses (linked text F1)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n4",
+   "type": "DES/architecture",
+   "label": "8 um x 700 nm nanowire between tapered 20 um pads, with 10-period curved DBR mirrors (380 nm period) matched to the optical mode, designed by FDTD/FEM for Q>1e4 and >2% strain",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "dimensions, mirror period and design targets (linked text F3)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n5",
+   "type": "DES/variable_sweep",
+   "label": "Nanowire tensile strain as comparison axis: 0%, 1.95% and 2.37% in otherwise identical cavities",
+   "attrs": {
+    "variable": "uniaxial tensile strain",
+    "levels": [
+     "0%",
+     "1.95%",
+     "2.37%"
+    ],
+    "source": "text",
+    "requires_unseen": [
+     "identical optical cavities for the three strain levels (linked text F4)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n6",
+   "type": "PRC/forming",
+   "label": "Single e-beam lithography step and HBr/Cl2 dry etch pattern the nanowire, pads and DBR mirrors into the Ge layer",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "process steps (linked text F1)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n7",
+   "type": "PRC/treatment",
+   "label": "KOH wet etch removes the Al2O3 sacrificial layer, releasing the 0.2%-prestrained Ge so the pads contract and amplify strain in the nanowire",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "KOH undercut and 0.2% residual strain (linked text F1)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n10",
+   "type": "STR/phase/lattice",
+   "label": "Uniform ~2.4% uniaxial tensile strain along the narrow central nanowire, falling off through the tapers, as the FEM design predicts",
+   "attrs": {
+    "aspect": "lattice strain",
+    "basis": "evidenced",
+    "proxy": "Raman shift (map in F3c)",
+    "source": "text",
+    "requires_unseen": [
+     "panel b is FEM, panel c is a Raman-derived map of a fabricated device (caption F3)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n16",
+   "type": "STR/microstructure/shape",
+   "label": "Fabricated device reproduces the designed geometry: narrow nanowire joining two rounded pads, flanked by curved multi-line DBR mirrors",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "these lines are the DBR mirrors of the fabricated device (caption F1)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n12",
+   "type": "PRP/value",
+   "label": "Direct-gap emission red-shifts from ~1560 nm to beyond ~1980 nm with strain, i.e. the direct gap narrows",
+   "attrs": {
+    "property_family": "optical",
+    "direction": "decrease (bandgap)",
+    "object": "nanowire",
+    "source": "text",
+    "requires_unseen": [
+     "emission is direct-gap (caption/linked text F4)",
+     "~1560 and >2000 nm values (linked text)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n13",
+   "type": "MEC/pathway",
+   "label": "Tensile strain lowers the direct (Gamma) conduction valley, narrowing the direct gap and raising direct-gap radiative recombination",
+   "attrs": {
+    "mechanism_class": "band-structure engineering",
+    "basis": "argued",
+    "source": "inferred",
+    "requires_unseen": [
+     "tensile strain lowers the Gamma conduction valley relative to L (band-structure knowledge; text only says strain reduces the Ge bandgap)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n14",
+   "type": "PRP/value",
+   "label": "Direct-gap PL intensity rises strongly in strained nanowires compared with the unstrained wire",
+   "attrs": {
+    "property_family": "optical",
+    "direction": "increase",
+    "object": "nanowire in cavity",
+    "source": "text",
+    "requires_unseen": [
+     "'direct-gap' assignment (caption F4)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n15",
+   "type": "PRP/value",
+   "label": "Cavity resonances have quality factor ~2000, limited by sidewall roughness and material absorption",
+   "attrs": {
+    "property_family": "optical",
+    "object": "cavity",
+    "quantity": "Q",
+    "value": "2020",
+    "source": "text",
+    "requires_unseen": [
+     "Q limited by sidewall roughness and absorption (linked text F4)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n17",
+   "type": "PRP/value",
+   "label": "Net optical gain is higher (less negative) in the 2.37% than in the 1.95% strained nanowire at every pump power",
+   "attrs": {
+    "property_family": "optical",
+    "direction": "increase with strain",
+    "object": "nanowire in cavity",
+    "basis": "evidenced",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n18",
+   "type": "PRP/value",
+   "label": "Net optical gain stays negative and falls further as pump power (carrier density) increases",
+   "attrs": {
+    "property_family": "optical",
+    "direction": "decrease with pump",
+    "object": "nanowire in cavity",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n19",
+   "type": "MEC/tradeoff",
+   "label": "Free-carrier absorption grows faster with injection than the strain-enhanced direct-gap gain, so net gain drops with pumping",
+   "attrs": {
+    "mechanism_class": "free-carrier absorption vs direct-gap gain",
+    "basis": "evidenced",
+    "source": "text",
+    "requires_unseen": [
+     "attribution of the net-gain decrease to free-carrier losses (linked text F5)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n21",
+   "type": "PRF/service_capability",
+   "label": "No lasing: resonances broaden rather than narrow up to 45 mW pulsed pumping, despite high strain and ~1e19 doping",
+   "attrs": {
+    "condition": "1550 nm pulsed pump, 200 ns / 2 us, 1-45 mW average",
+    "source": "text",
+    "requires_unseen": [
+     "'did not observe signs of lasing' (linked text F4)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n22",
+   "type": "DSC/conclusion",
+   "label": "Strained Ge nanowires in high-Q DBR cavities give strongly enhanced, red-shifted direct-gap emission with Q~2000 modes, but valence-band free-carrier absorption keeps net gain negative, so no lasing",
+   "attrs": {
+    "source": "inferred",
+    "requires_unseen": [
+     "direct-gap assignment of the emission and 'no signs of lasing' (caption/linked text F4)",
+     "valence-band loss attribution (linked text F5)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n8",
+   "type": "PRC/treatment",
+   "label": "On drying after undercut, capillary forces pull the released Ge down onto the SiO2 layer, where van der Waals forces hold it",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "capillary reattachment step (linked text F2)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n11",
+   "type": "STR/interface",
+   "label": "Released nanowire and pads are reattached to the SiO2 layer, giving a heat-conduction contact instead of an air gap",
+   "attrs": {
+    "basis": "evidenced",
+    "source": "text",
+    "requires_unseen": [
+     "contact state not resolvable in height maps; stated in linked text F2"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n27",
+   "type": "PRF/service_capability",
+   "label": "Reattached devices survive >10x higher pump power than suspended ones, which were destroyed at ~5 mW",
+   "attrs": {
+    "basis": "argued",
+    "condition": "optical pumping",
+    "source": "text",
+    "requires_unseen": [
+     "~5 mW destruction of suspended devices and >10x figure (linked text F2)",
+     "thermal simulations in SI (not in packet)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n20",
+   "type": "PRP/value",
+   "label": "Modelled optical loss is dominated by valence-band (intervalence) transitions in the nanowire; pad losses become negligible at high injection",
+   "attrs": {
+    "property_family": "optical",
+    "aspect": "partition",
+    "object": "nanowire",
+    "basis": "evidenced",
+    "note": "pseudo-heterostructure carrier confinement (F3 text) folded here as attrs; not a separate node",
+    "source": "text",
+    "requires_unseen": [
+     "attribution in linked text F5; pad losses negligible due to carrier confinement in the pseudo-heterostructure (caption F5)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n23",
+   "type": "DSC/design_guidance",
+   "label": "Radiative loss is already 2x (5 mW) to 10x (20 mW) below net material loss, so raising cavity Q further would hurt slope efficiency",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "loss estimates (linked text F4)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n24",
+   "type": "DSC/comparison",
+   "label": "Absence of lasing and valence-band loss contradict earlier Ge-on-Si lasing reports but agree with reported pump-induced absorption",
+   "attrs": {
+    "against": "prior_work",
+    "verdict": "contradicts lasing reports; consistent with pump-induced absorption",
+    "source": "text",
+    "requires_unseen": [
+     "refs 8, 9 and Carroll et al. (linked text F4, F5)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "L1",
+   "type": "DSC/limitation",
+   "label": "Carrier densities in the gain-vs-density plot come from absorbed-power calculation and a fit to theory, so model-data agreement is partly circular",
+   "attrs": {
+    "kind": "method",
+    "source": "text",
+    "requires_unseen": [
+     "carrier densities from fit to theory (caption F5b)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k1",
+   "type": "KNW/fact",
+   "label": "Tensile strain reduces the Ge bandgap",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "linked text F3/F4, ref 16"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k2",
+   "type": "KNW/precedent",
+   "label": "Carroll et al. reported pump-induced absorption in Ge",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "ref 13 (linked text F5)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k3",
+   "type": "KNW/precedent",
+   "label": "Optically pumped Ge-on-Si lasing was reported at similar strain/doping with linewidth narrowing",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "refs 8, 9 (linked text F4)"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k5",
+   "type": "KNW/lookup",
+   "label": "Free carriers lower the refractive index and add absorption: cavity modes blue-shift and broaden with carrier density",
+   "attrs": {
+    "source": "prior_knowledge",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o1",
+   "type": "OBS/morphology/appearance",
+   "label": "Narrow nanowire bridges two rounded pads; each side has a curved grating of ~10 lines",
+   "attrs": {
+    "technique": "SEM",
+    "read_from": "annotation",
+    "annotation_match": [
+     "Nanowire",
+     "Pads"
+    ],
+    "object": "fabricated device",
+    "image_note": "5 um scale bar; nanowire ~8 um long between pad tips; inset in F1b crop shows the grating lines (labelled DBR)",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F1a"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o3",
+   "type": "OBS/morphology/appearance",
+   "label": "Height map: device and a band around it sit lower (blue-green) than the surrounding wafer surface",
+   "attrs": {
+    "technique": "OPTICAL:interferometry",
+    "read_from": "pixels",
+    "object": "undercut region",
+    "image_note": "pads appear darkest (below -100 nm, clamped per caption); height colour bar sits in the F2a crop area",
+    "source": "text",
+    "requires_unseen": [
+     "colour scale is height and devices/undercut regions sit lower (caption F2; colour bar lies in the F2a crop, not F2b)"
+    ]
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F2b"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o4",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Line scan: ~20 nm step down at about +/-17 um, device region near 0 nm, deep trenches at +/-10 um",
+   "attrs": {
+    "technique": "OPTICAL:interferometry",
+    "read_from": "axis",
+    "image_note": "outer plateau ~+20 to +25 nm; caption and text give ~25 nm = sacrificial Al2O3 thickness",
+    "source": "text",
+    "requires_unseen": [
+     "ordinate is height in nm (caption F2c; no unit label in crop)"
+    ]
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F2c"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o5",
+   "type": "OBS/morphology/distribution",
+   "label": "Simulated mode field is concentrated along the nanowire and fans out through the tapers to the curved mirrors, single transverse lobe",
+   "attrs": {
+    "technique": "SIM:FDTD",
+    "read_from": "pixels",
+    "image_note": "shows confinement and mirror matching, not the Q value (>1e4 design Q is text only); packet OCR reads panel letter as (e)",
+    "source": "text",
+    "requires_unseen": [
+     "FDTD Ey field at 2.0 um (caption F3a)"
+    ]
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F3a"
+   ],
+   "modality": "simulation_render",
+   "provenance": "computed",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o6",
+   "type": "OBS/morphology/distribution",
+   "label": "Simulated strain ~2.4% (top of colour bar) uniform along the central wire, dropping through the taper to <0.3% in the pads",
+   "attrs": {
+    "technique": "MECH:FEM",
+    "read_from": "axis",
+    "source": "text",
+    "requires_unseen": [
+     "FEM simulation (caption F3b)"
+    ]
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F3b"
+   ],
+   "modality": "simulation_render",
+   "provenance": "computed",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o7",
+   "type": "OBS/morphology/distribution",
+   "label": "Measured strain map: ~2-2.4% (yellow-white) along the whole wire length, dropping in the tapers",
+   "attrs": {
+    "technique": "RAMAN",
+    "read_from": "axis",
+    "fig_ref": "F3c",
+    "image_note": "panel F3c cited at figure level: its OCR cue class 'mechanical' (from the 'Strain (%)' colour-bar label) does not include RAMAN; coarse ~0.5 um pixels",
+    "source": "text",
+    "requires_unseen": [
+     "Raman-derived map of a fabricated device (caption F3c)"
+    ]
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o8",
+   "type": "OBS/morphology/distribution",
+   "label": "Measured pads read ~0.7-1.0% strain, well above the near-zero pad strain of the FEM map",
+   "attrs": {
+    "technique": "RAMAN",
+    "read_from": "axis",
+    "fig_ref": "F3c",
+    "text_silent": true,
+    "image_note": "text says the Raman result 'matches our FEM simulations'; wire-to-pad strain contrast is smaller in the measurement, which also weakens the pseudo-heterostructure confinement argument",
+    "source": "text",
+    "requires_unseen": [
+     "panel identities FEM vs Raman (caption F3)"
+    ]
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o9",
+   "type": "OBS/signal/feature_shift",
+   "label": "Emission maximum moves from ~1570 nm (0%) to ~1950-2000 nm (1.95% and 2.37%)",
+   "attrs": {
+    "technique": "PL",
+    "read_from": "axis",
+    "aspect": "shift",
+    "image_note": "2.37% maximum not resolved separately from 1.95%; text gives ~1560 -> >=1980 nm",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F4a"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o10",
+   "type": "OBS/signal/feature_quantification",
+   "label": "Peak PL intensity ~250 (0%) vs ~1100 envelope with resonances up to ~2700 (1.95%) and ~1100 (2.37%)",
+   "attrs": {
+    "technique": "PL",
+    "read_from": "axis",
+    "image_note": "strong rise from 0% to strained; resonance fringes visible on 1.95% trace, weaker on 2.37%; ~12 nm spacing of adjacent resonances",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F4a"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o11",
+   "type": "OBS/signal/feature_quantification",
+   "label": "2.37% envelope is no brighter than 1.95% and rolls off inside the grey detection-limit band above 2000 nm",
+   "attrs": {
+    "technique": "PL",
+    "read_from": "axis",
+    "image_note": "text attributes the apparent short-wavelength peak of the 2.37% wire to the InGaAs detector cutoff",
+    "source": "text",
+    "requires_unseen": [
+     "grey band = spectrometer detection limit (caption F4a)"
+    ]
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F4a"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o12",
+   "type": "OBS/response/fitted_parameter",
+   "label": "Single resonance at ~1996 nm has FWHM ~1 nm, giving Q ~2000",
+   "attrs": {
+    "technique": "PL",
+    "read_from": "axis",
+    "form": "nonlinear",
+    "image_note": "dashed Lorentzian follows the points; caption Q = 2020; OCR reads panel letter as (q)",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F4b"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o13",
+   "type": "OBS/response/trend",
+   "label": "Resonance intensity rises from 1 to 10 to 45 mW average pump with no linewidth narrowing",
+   "attrs": {
+    "technique": "PL",
+    "read_from": "annotation",
+    "annotation_match": [
+     "45mW",
+     "10mW",
+     "1mW"
+    ],
+    "image_note": "adjacent resonances ~12 nm apart (e.g. ~1936, 1948, 1960, 1972 nm), half the 24.6 nm free spectral range quoted in caption F4a; peaks at 45 mW visibly broader",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F4c"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o14",
+   "type": "OBS/signal/feature_shift",
+   "label": "All resonances shift ~4-6 nm to shorter wavelength and broaden as pump power rises from ~5 to 45 mW",
+   "attrs": {
+    "technique": "PL",
+    "read_from": "axis",
+    "aspect": "shift",
+    "image_note": "each row normalised; OCR annotations 'orm','ntensit' are fragments of the colour-bar label",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F4d"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o15",
+   "type": "OBS/response/trend",
+   "label": "Net gain negative at all powers, falling from ~-350/-500 cm-1 at 5 mW to ~-1250/-2000 cm-1 at 22.5 mW",
+   "attrs": {
+    "technique": "PL",
+    "read_from": "axis",
+    "image_note": "CW 980 nm pump per caption; gain-extraction method in SI (not in packet)",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F5a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o16",
+   "type": "OBS/response/trend",
+   "label": "2.37% points lie above 1.95% points at every pump power, gap widening from ~150 to ~700 cm-1",
+   "attrs": {
+    "technique": "PL",
+    "read_from": "axis",
+    "aspect": "ranking",
+    "image_note": "error bars overlap at 5-7.5 mW",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F5a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o17",
+   "type": "OBS/signal/reference_match",
+   "label": "Measured net gain vs carrier density follows the model above ~5e19 cm-3 but lies ~150-250 cm-1 below it at 2-4e19 cm-3",
+   "attrs": {
+    "technique": [
+     "PL",
+     "SIM:EPM"
+    ],
+    "read_from": "annotation",
+    "annotation_match": [
+     "Model",
+     "Experiment"
+    ],
+    "image_note": "model is EPM per caption; OCR reads panel letter as (q)",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F5b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o19",
+   "type": "OBS/response/component_partition",
+   "label": "Modelled nanowire valence-band loss overtakes conduction-band loss near 7e18 cm-3 and reaches ~2.5e3 cm-1 at 2e20 cm-3; pad loss flat at ~70 cm-1",
+   "attrs": {
+    "technique": "SIM:EPM",
+    "read_from": "annotation",
+    "annotation_match": [
+     "Nanowire,Valencebands",
+     "Nanowire,Conductionbands",
+     "Pads,(Combined)"
+    ],
+    "source": "text",
+    "requires_unseen": [
+     "curves are the modelled loss terms included in the F5b model curve (caption F5c)"
+    ]
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.5b03976#F5c"
+   ],
+   "modality": "xy_curve",
+   "provenance": "computed",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  }
+ ],
+ "edges": [
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n5",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n7",
+   "rel": "feeds_into",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n10",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n16",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n12",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n13",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n14",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n14",
+   "dst": "n17",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n14",
+   "dst": "n19",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n18",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n16",
+   "dst": "n15",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n21",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n21",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n22",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n21",
+   "dst": "n22",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n22",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n8",
+   "rel": "feeds_into",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n11",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n11",
+   "dst": "n27",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n27",
+   "dst": "n22",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n20",
+   "dst": "n19",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n23",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n23",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n21",
+   "dst": "n24",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n20",
+   "dst": "n24",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "L1",
+   "dst": "n19",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "k1",
+   "dst": "n13",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k2",
+   "dst": "n20",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k2",
+   "dst": "n24",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k3",
+   "dst": "n24",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k5",
+   "dst": "n19",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "o1",
+   "dst": "n16",
+   "rel": "evidences",
+   "mm_op": "match_to_design"
+  },
+  {
+   "src": "o3",
+   "dst": "n11",
+   "rel": "evidences",
+   "mm_op": "inspect_local_feature"
+  },
+  {
+   "src": "o4",
+   "dst": "n11",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o5",
+   "dst": "n15",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "o6",
+   "dst": "n10",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "o7",
+   "dst": "n10",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "o8",
+   "dst": "o6",
+   "rel": "contrasts",
+   "mm_op": "overlay_model_on_data"
+  },
+  {
+   "src": "o8",
+   "dst": "n10",
+   "rel": "qualifies",
+   "mm_op": "overlay_model_on_data"
+  },
+  {
+   "src": "o9",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o10",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o11",
+   "dst": "n14",
+   "rel": "qualifies",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o12",
+   "dst": "n15",
+   "rel": "evidences",
+   "mm_op": "fit_model",
+   "form": "nonlinear"
+  },
+  {
+   "src": "o13",
+   "dst": "n21",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o13",
+   "dst": "n27",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o14",
+   "dst": "n19",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o15",
+   "dst": "n18",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o15",
+   "dst": "n27",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o16",
+   "dst": "n17",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o17",
+   "dst": "n19",
+   "rel": "evidences",
+   "mm_op": "overlay_model_on_data"
+  },
+  {
+   "src": "o19",
+   "dst": "n20",
+   "rel": "evidences",
+   "mm_op": "compare_coplotted_quantities"
+  }
+ ],
+ "review": {
+  "judge": "senior investigator",
+  "verdict": "accept with minor fixes",
+  "changes": [
+   "o4 modality spatial_map -> xy_curve (a line-scan profile is an xy trace)",
+   "o19 label: valence-band loss reaches ~2.5e3 cm-1 at 2e20 cm-3 (was ~2e3)",
+   "edge n20 -> n19 rel counteracts -> supports: the valence-band loss partition is the loss term that wins the trade-off, a premise for n19, not an effect opposing it",
+   "source/requires_unseen corrections on n1, n13, n17, n18, n22, o3, o4, o19 (see source_changes)"
+  ],
+  "panel_checks": [
+   {
+    "node": "o1",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F1a"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "SEM of device; nanowire, pads, curved ~10-line gratings; 'Nanowire','Pads' annotations restated -> read_from annotation correct"
+   },
+   {
+    "node": "o3",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F2b"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "interferometric height map; device and surrounding band darker/lower; colour bar not in this crop (source -> text)"
+   },
+   {
+    "node": "o4",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F2c"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "line scan: ~20-25 nm step at about +/-17 um, trenches at +/-10 um; profile is an xy trace (modality -> xy_curve); no unit label (source -> text)"
+   },
+   {
+    "node": "o5",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F3a"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "FDTD Ey field confined along wire, fanning to curved mirrors; shows mode confinement, not Q, so partial support of n15 is correct"
+   },
+   {
+    "node": "o6",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F3b"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "FEM strain ~2.4% (colour-bar top) uniform along wire, ~0 in pads; cue 'mechanical' compatible with MECH:FEM"
+   },
+   {
+    "node": "o7",
+    "panel_ids": [],
+    "ruling": "confirmed",
+    "correct_id": "10.1021/acs.nanolett.5b03976#F3c",
+    "note": "F3c crop opened (fig_ref F3c): Raman-derived map ~2-2.4% along wire; correct panel is F3c but citation stays withheld: cue 'mechanical' incompatible with RAMAN and the misfire exemption covers only 'micrograph'"
+   },
+   {
+    "node": "o8",
+    "panel_ids": [],
+    "ruling": "confirmed",
+    "correct_id": "10.1021/acs.nanolett.5b03976#F3c",
+    "note": "F3c crop opened: pads read ~0.7-1.0% (red) vs ~0 in FEM F3b; text_silent audit is fair; citation withheld as for o7"
+   },
+   {
+    "node": "o9",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F4a"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "0% max ~1570 nm; strained maxima ~1950-1980 nm; 2.37% not resolved from 1.95%"
+   },
+   {
+    "node": "o10",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F4a"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "0% ~270 counts vs strained envelopes ~1000-1100, 1.95% resonance spikes to ~2700"
+   },
+   {
+    "node": "o11",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F4a"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "2.37% envelope ~1100, no brighter than 1.95%, rolls off in grey band >2000 nm"
+   },
+   {
+    "node": "o12",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F4b"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "Lorentzian peak ~1996 nm, FWHM ~1 nm -> Q ~2000; OCR '(q)' is the (b) label"
+   },
+   {
+    "node": "o13",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F4c"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "1/10/45 mW legend restated -> annotation correct; peaks grow, broaden slightly, ~12 nm spacing"
+   },
+   {
+    "node": "o14",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F4d"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "row-normalised map: every resonance blue-shifts ~5 nm from 5 to 45 mW and broadens"
+   },
+   {
+    "node": "o15",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F5a"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "net gain -350/-500 at 5 mW to -1250/-1975 at 22.5 mW, all negative"
+   },
+   {
+    "node": "o16",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F5a"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "2.37% above 1.95% at every power; gap ~150 -> ~700 cm-1; error bars touch at 5-7.5 mW"
+   },
+   {
+    "node": "o17",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F5b"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "data below model by ~120-210 cm-1 at 1.7-4.7e19, on model above ~5.5e19; OCR '(q)' is (b)"
+   },
+   {
+    "node": "o19",
+    "panel_ids": [
+     "10.1021/acs.nanolett.5b03976#F5c"
+    ],
+    "ruling": "confirmed",
+    "correct_id": null,
+    "note": "VB crosses CB near 6.5e18, reaches ~2.5e3 at 2e20 (label corrected from ~2e3); pads flat ~70 cm-1"
+   }
+  ],
+  "technique_mismatches": [
+   {
+    "node": "o7",
+    "panel": "10.1021/acs.nanolett.5b03976#F3c",
+    "technique": "RAMAN",
+    "cue": "mechanical",
+    "resolution": "citation kept dropped (figs F3, panel_ids [], fig_ref F3c); crop is plainly the right panel; the cue comes from the 'Strain (%)' colour-bar label. Not overridden because the misfire exemption is limited to 'micrograph'; recommend the orchestrator extend it to 'mechanical' on strain maps"
+   },
+   {
+    "node": "o8",
+    "panel": "10.1021/acs.nanolett.5b03976#F3c",
+    "technique": "RAMAN",
+    "cue": "mechanical",
+    "resolution": "same as o7"
+   }
+  ],
+  "cue_overrides": [],
+  "mode_changes": [],
+  "source_changes": [
+   {
+    "node": "n17",
+    "from": "text",
+    "to": "figure",
+    "why": "F5a shows 2.37% above 1.95% at every power with legend strain labels"
+   },
+   {
+    "node": "n18",
+    "from": "text",
+    "to": "figure",
+    "why": "F5a shows net gain negative and falling with pump"
+   },
+   {
+    "node": "o3",
+    "from": "figure",
+    "to": "text",
+    "why": "colour-to-height mapping is not in the F2b crop; caption states devices sit lower"
+   },
+   {
+    "node": "o4",
+    "from": "figure",
+    "to": "text",
+    "why": "ordinate unit (nm, height) comes from the caption only"
+   },
+   {
+    "node": "o19",
+    "from": "figure",
+    "to": "text",
+    "why": "that the curves are the modelled loss terms of F5b is caption-only"
+   },
+   {
+    "node": "n1",
+    "from": "inferred []",
+    "to": "inferred + fact listed",
+    "why": "introduction not in packet"
+   },
+   {
+    "node": "n13",
+    "from": "inferred []",
+    "to": "inferred + fact listed",
+    "why": "Gamma-valley lowering is band-structure knowledge no panel shows"
+   },
+   {
+    "node": "n22",
+    "from": "inferred []",
+    "to": "inferred + facts listed",
+    "why": "direct-gap assignment, no-lasing statement and VB attribution are text"
+   }
+  ],
+  "checklist": {
+   "spine_nodes": 18,
+   "spine_connected": true,
+   "spine_evidence": "all STR/PRP/PRF spine claims have evidences edges; n13 basis argued",
+   "audits": [
+    "o8",
+    "o11",
+    "L1"
+   ],
+   "audits_fair": true,
+   "total_nodes": 46,
+   "note": "46 nodes exceeds the 25-40 aim but no node is redundant enough to cut; no claim has two or more causes edges, so no mode fields needed"
+  },
+  "matmech": {
+   "supports": 3,
+   "contradicts": 0,
+   "not_covered": 0,
+   "pairs": [
+    {
+     "m": "M1",
+     "cause": "e-beam lithography, HBr/Cl2 dry etch, KOH wet etch, ALD",
+     "effect": "highly strained Ge nanowire with pseudo-heterostructure and high-Q cavity",
+     "verdict": "supports",
+     "nodes": [
+      "n6",
+      "n7",
+      "n10",
+      "n16",
+      "n15",
+      "n20"
+     ],
+     "note": "ALD step and pseudo-heterostructure only in text/attrs; o8 audit weakens the confinement contrast"
+    },
+    {
+     "m": "M2",
+     "cause": "strained Ge nanowire in high-Q cavity",
+     "effect": "direct-bandgap light emission (red-shift, bandgap narrowing)",
+     "verdict": "supports",
+     "nodes": [
+      "n10",
+      "n12",
+      "n13",
+      "n14",
+      "n17"
+     ],
+     "note": "VB-splitting-raises-gain step of MatMech not modelled as a node"
+    },
+    {
+     "m": "M3",
+     "cause": "direct-gap emission, high strain",
+     "effect": "enhanced PL with Q up to ~2000 and >400 nm tunability",
+     "verdict": "supports",
+     "nodes": [
+      "n12",
+      "n14",
+      "n15",
+      "n17",
+      "n22"
+     ],
+     "note": "MatMech's 'further strain could enable RT lasing' outlook absent; graph records no lasing (n21)"
+    }
+   ]
+  }
+ }
+}
