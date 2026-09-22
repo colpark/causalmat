@@ -133,7 +133,7 @@ def walk(N, inn, out, claim, evidence_ids, extra=()):
 def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
     global V2
     g, s, N, inn, out, nec = load(graph_path, spec_path)
-    V2 = str(g.get("batch", "")).startswith("v06")   # v06_pilot and v06b_pilot
+    V2 = str(g.get("batch", "")).startswith(("v06", "v07"))   # v06_pilot, v06b_pilot and the v07 scale run
     store = store_for(graph_path) if V2 else None
     traces = []
     tid = 0
@@ -802,7 +802,7 @@ def linearize(N, inn, out, t):
         ctx = [x["node"] for x in t["walk"] if x["role"] == "context"]
         p = add("context", ctx, "What was made and why: " + " -> ".join(N[x]["label"][:50] for x in ctx))
         ev = t["evidence"][0]
-        add("read", [ev], f"Open the panels {', '.join(x.split('#')[1] for x in N[ev].get('panel_ids') or [])} [{fam(ev)}] and {t['subtype']} ({t['walk'][len(ctx)].get('op','').replace('_',' ') if len(t['walk'])>len(ctx) else ''})", [p])
+        add("read", [ev], f"Open the panels {', '.join(x.split('#')[1] for x in N[ev].get('panel_ids') or [])} [{fam(ev)}] and {t['subtype']} ({(t['walk'][len(ctx)].get('op') or '').replace('_',' ') if len(t['walk'])>len(ctx) else ''})", [p])
         add("observation", [ev], f"Observation: {N[ev]['label'][:140]}", [2])
         add("claim", [c], f"Claim it establishes: {N[c]['label'][:140]}", [3])
         down = [x["node"] for x in t["walk"] if x["role"] == "downstream"]

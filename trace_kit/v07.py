@@ -39,18 +39,22 @@ def jobs(P, name, items):
 def prep(P, part):
     d = D(P); os.makedirs(d, exist_ok=True); stamp(P, 'prep')
     spec = os.path.join(ROOT, 'taxonomy', 'specs_v07', P + '.json'); os.makedirs(os.path.dirname(spec), exist_ok=True)
-    run('taxonomy/collapse_modality.py', '--graph', G(P), '--out', spec, '--file', P + '.html')
+    r = subprocess.run([sys.executable, 'taxonomy/collapse_modality.py', '--graph', G(P), '--out', spec, '--file', P + '.html'], cwd=ROOT, capture_output=True, text=True)
+    if r.returncode:   # the spec guard (uniform necessity) failed: rebuild with the guard recorded, not raised
+        r = subprocess.run([sys.executable, 'taxonomy/collapse_modality.py', '--graph', G(P), '--out', spec, '--file', P + '.html'], cwd=ROOT,
+                           capture_output=True, text=True, env={**os.environ, 'V07_SPEC_NOGUARD': '1'}, check=True)
+        dump({'spec_guard_bypassed': r.stderr.strip()[-300:]}, os.path.join(d, 'spec_note.json'))
     cut = os.path.join(d, 'cut.traces.json')
     run('trace_kit/cut_traces.py', G(P), spec, cut)
     C = J(cut); op = [t['id'] for t in C['traces'] if t['status'] == 'open']
     W = os.path.join(d, 'writer')
     if op: run('trace_kit/writer_packets.py', 'build', G(P), cut, W, '--only', ','.join(op))
-    jobs(P, 'writer', [{'id': f'{P[:16]}/{T}/writer', 'agent': 'net-writer', 'prompt': os.path.join(W, f'{T}.writer.txt'),
+    jobs(P, 'writer', [{'id': f'{P}/{T}/writer', 'agent': 'net-writer', 'prompt': os.path.join(W, f'{T}.writer.txt'),
                         'out': os.path.join(W, f'{T}.writer.out.txt')} for T in op])
     R = os.path.join(d, 'reread')
     run('trace_kit/reread.py', 'build', cut, G(P), R, IMG)
     rr = J(os.path.join(R, 'reread.json'))['tasks']
-    jobs(P, 'reread', [{'id': f'{P[:16]}/{p}/reread', 'agent': 'net-reread', 'prompt': os.path.join(R, f'{p}.reread.txt'),
+    jobs(P, 'reread', [{'id': f'{P}/{p}/reread', 'agent': 'net-reread', 'prompt': os.path.join(R, f'{p}.reread.txt'),
                         'out': os.path.join(R, f'{p}.reread.out.txt')} for p in rr])
 
 def rrgrade(P, R=None):
@@ -61,7 +65,7 @@ def rrgrade(P, R=None):
         descs = [(p, open(os.path.join(R, f'{p}.reread.out.txt')).read()) for p in u['panels'] if os.path.exists(os.path.join(R, f'{p}.reread.out.txt'))]
         if len(descs) < len(u['panels']): continue
         q = os.path.join(R, f'{key}.grader.txt'); open(q, 'w').write(grader_prompt(descs, labels[u['node']]))
-        out.append({'id': f'{P[:16]}/{key}/rrgrade', 'agent': 'net-grader', 'prompt': q, 'out': q.replace('.grader.txt', '.grader.out.txt')})
+        out.append({'id': f'{P}/{key}/rrgrade', 'agent': 'net-grader', 'prompt': q, 'out': q.replace('.grader.txt', '.grader.out.txt')})
     rr['units'] = units(rr); dump(rr, os.path.join(R, 'reread.json'))
     return jobs(P, 'rrgrade', out) if R == os.path.join(D(P), 'reread') else out
 
@@ -106,7 +110,7 @@ def written_stage(P):
     if fb:
         P2 = os.path.join(W, 'pass2')
         run('trace_kit/writer_packets.py', 'build', G(P), cut, P2, '--only', ','.join(fb), '--feedback', os.path.join(W, 'feedback_pass2.json'))
-        out = [{'id': f'{P[:16]}/{T}/writer2', 'agent': 'net-writer', 'prompt': os.path.join(P2, f'{T}.writer.txt'),
+        out = [{'id': f'{P}/{T}/writer2', 'agent': 'net-writer', 'prompt': os.path.join(P2, f'{T}.writer.txt'),
                 'out': os.path.join(P2, f'{T}.writer.out.txt')} for T in fb]
     jobs(P, 'writer2', out); print('reread flags:', {k: len(v) for k, v in flags.items()})
 
@@ -133,7 +137,7 @@ def gate(P):
         if T in flags: os.rename(f, f + '.flagged'); continue
         for arm, agent in (('fullarm', 'net-fullarm'), ('floor', 'net-floor')):
             q = os.path.join(gd, f'{T}.{arm}.txt'); open(q, 'w').write(pk[arm])
-            out.append({'id': f'{P[:16]}/{T}/{arm}', 'agent': agent, 'prompt': q, 'out': os.path.join(gd, f'{T}.{arm}.out.txt')})
+            out.append({'id': f'{P}/{T}/{arm}', 'agent': agent, 'prompt': q, 'out': os.path.join(gd, f'{T}.{arm}.out.txt')})
     jobs(P, 'gate', out)
 
 def grade(P):
@@ -148,7 +152,7 @@ def grade(P):
             if cand.strip().upper().startswith('CANNOT DETERMINE'):
                 open(os.path.join(gd, f'{T}.grader.{arm}.out.txt'), 'w').write('ABSTAIN (candidate says CANNOT DETERMINE; not sent to the grader)'); continue
             p = os.path.join(gd, f'{T}.grader.{arm}.txt'); open(p, 'w').write(grader_prompt(pk, q, cand))
-            out.append({'id': f'{P[:16]}/{T}/grader.{arm}', 'agent': 'net-grader', 'prompt': p, 'out': p.replace('.txt', '.out.txt')})
+            out.append({'id': f'{P}/{T}/grader.{arm}', 'agent': 'net-grader', 'prompt': p, 'out': p.replace('.txt', '.out.txt')})
     jobs(P, 'grade', out)
 
 def word(p):

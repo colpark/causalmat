@@ -33,10 +33,10 @@ def build(graph_path, traces_path, out_dir, loo=False, only=None, feedback=None)
         labels = {i: {'type': N[i]['type'], 'label': N[i]['label']} for i in sorted(referenced(t)) if i in N}
         exs = [{k: v for k, v in e.items() if k not in EX_DROP} for e in ex if not (loo and e['id'] == t['id'])]
         txt = ("Write the question, answer key, grading note and answer_key_nodes for this trace.\n\n"
-               "TRACE RECORD\n" + json.dumps(rec, indent=1) +
-               "\n\nNODE LABELS (every node the trace references)\n" + json.dumps(labels, indent=1) +
-               "\n\nWORKED EXAMPLES (follow their form and length)\n" + json.dumps(exs, separators=(',', ':')) +
-               (("\n\nNEGATIVE EXAMPLES (questions NOT to write, with the reason)\n" + json.dumps(neg, separators=(',', ':'))) if neg else '') +
+               "TRACE RECORD\n" + json.dumps(rec, indent=1, ensure_ascii=False) +
+               "\n\nNODE LABELS (every node the trace references)\n" + json.dumps(labels, indent=1, ensure_ascii=False) +
+               "\n\nWORKED EXAMPLES (follow their form and length)\n" + json.dumps(exs, separators=(',', ':'), ensure_ascii=False) +
+               (("\n\nNEGATIVE EXAMPLES (questions NOT to write, with the reason)\n" + json.dumps(neg, separators=(',', ':'), ensure_ascii=False)) if neg else '') +
                (("\n\nYOUR PREVIOUS ATTEMPT FAILED A CHECK\n" + feedback[t['id']]) if feedback and t['id'] in feedback else '') +
                '\n\nReply with JSON only: {"question": "...", "answer_key": "...", "answer_scope": "full|partial", "grading": "...", "answer_key_nodes": [...]}')
         open(os.path.join(out_dir, f"{t['id']}.writer.txt"), 'w').write(txt)
