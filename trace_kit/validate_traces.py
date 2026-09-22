@@ -152,10 +152,11 @@ def run(graph_path, traces_path, panels_dir=None):
         v['nets']['provenance']={'pass':not missing_nums and not outside,'key_nodes_outside_targets':outside,'missing_numbers':missing_nums,'word_coverage':round(cov,2),'numbers_checked':len(kn),'rule':'no missing numbers (coverage < 0.5 with fewer than three sourced numbers is a warning)','sources':sorted(src_ids)}
         if cov<0.5 and len(kn)<3: v['warnings'].append({'kind':'coverage','word_coverage':round(cov,2)})
         # v07 fix 3: the question must ask for exactly the graded target
-        if v22:
+        if v22 and 'asks_for' in t:   # items written before the rule have no field: warned, not failed
             af=set(t.get('asks_for') or []); tg=set(t.get('graded_targets') or [])
             v['nets']['scope']={'pass':bool(af) and af==tg,'asks_for':sorted(af),'graded_targets':sorted(tg),
                                 'rule':'asks_for is non-empty and equals graded_targets'}
+        elif v22: v['warnings'].append({'kind':'no_asks_for'})
         fails=[k for k,r in v['nets'].items() if not r['pass']]
         v['verdict']='survives' if not fails else 'flagged'; v['fails']=fails
         if t['status']=='control': v['verdict']+=' (control)'
