@@ -68,8 +68,25 @@ def prep(P, part):
 
 def RG(P): return os.path.join(D(P), 'rrgraph')
 
+def candidates(P):
+    """panels the staff dropped only because the OCR cue disagreed with the technique (build.json
+    technique_cue_conflicts_resolved): the judge used to restore these; now the blind second read decides"""
+    b = G(P)[:-5] + '.build.json'
+    if not os.path.exists(b): return []
+    g = J(G(P)); N = {n['id']: n for n in g['nodes']}; out = []
+    for c in J(b).get('technique_cue_conflicts_resolved') or []:
+        if not isinstance(c, dict) or 'drop' not in json.dumps(c).lower(): continue
+        for n in c.get('nodes') or ([c['node']] if c.get('node') else []):
+            for pid in c.get('panels') or ([c['panel']] if c.get('panel') else []):
+                if n in N and pid not in (N[n].get('panel_ids') or []): out.append((n, pid))
+    return out
+
 def rrgraph(P):
     import reread; os.makedirs(D(P), exist_ok=True); stamp(P, 'rrgraph'); R = RG(P)
+    g = J(G(P)); N = {n['id']: n for n in g['nodes']}; cand = [c for c in candidates(P) if not (N[c[0]].get('attrs') or {}).get('candidate_resolved')]
+    for n, pid in cand:   # put the dropped panel back as a candidate citation; rrgapply keeps it only if the read agrees
+        N[n].setdefault('panel_ids', []).append(pid); N[n].setdefault('attrs', {}).setdefault('candidate_panels', []).append(pid)
+    if cand: dump(g, G(P)); print(P, 'candidate panels:', cand)
     todo = reread.graph(G(P), R, IMG)
     jobs(P, 'rrgraph', [{'id': f'{P}/{p}/rrgraph', 'agent': 'net-reread', 'prompt': os.path.join(R, f'{p}.reread.txt'),
                          'out': os.path.join(R, f'{p}.reread.out.txt')} for p in todo])
@@ -78,14 +95,25 @@ def rrggrade(P):
     out = rrgrade(P, RG(P), only_new=True); return jobs(P, 'rrggrade', out)
 
 def rrgapply(P):
-    R = RG(P); flags = apply_reread(P, R); rr = J(os.path.join(R, 'reread.json')); g = J(G(P))
+    R = RG(P); apply_reread(P, R); rr = J(os.path.join(R, 'reread.json')); g = J(G(P))
+    # candidate panels (dropped by staff on a cue conflict): kept on CORRECT, removed otherwise, never sent to staff
+    V = {u['node']: u.get('verdict') for u in rr['units'].values()}
+    for n in g['nodes']:
+        cp = (n.get('attrs') or {}).pop('candidate_panels', None)
+        if not cp: continue
+        n['attrs']['candidate_resolved'] = {'panels': cp, 'verdict': V.get(n['id']), 'kept': V.get(n['id']) == 'CORRECT'}
+        if V.get(n['id']) != 'CORRECT': n['panel_ids'] = [p for p in n['panel_ids'] if p not in cp]
+    # a candidate the read did not confirm is withdrawn: its unit is dropped, not flagged (the node had no citation before)
+    gone = {n['id'] for n in g['nodes'] if not ((n.get('attrs') or {}).get('candidate_resolved') or {}).get('kept', True)}
+    rr['units'] = {k: u for k, u in rr['units'].items() if u['node'] not in gone}
+    dump(rr, os.path.join(R, 'reread.json')); dump(g, G(P)); flags = apply_reread(P, R); rr = J(os.path.join(R, 'reread.json'))
     ok = [(u['node'], p) for u in rr['units'].values() if u.get('verdict') == 'CORRECT' for p in u['panels']]
     full = {pname: rr['tasks'][pname]['panel'] for pname in rr['tasks']}
     g['cue_overrides'] = [{'node': n, 'panel': full[p], 'cue': 'any', 'why': 'graph-time second read CORRECT'} for n, p in ok]
     g['second_read'] = {'units': len(rr['units']), 'verdicts': {v: sum(u.get('verdict') == v for u in rr['units'].values()) for v in ('CORRECT', 'PARTIAL', 'WRONG', 'ABSTAIN', 'UNPARSED')},
                         'wrong': [{'node': u['node'], 'panels': u['panels']} for u in rr['units'].values() if u.get('verdict') == 'WRONG']}
     dump(g, G(P))
-    wrong = open_wrong(R, rr)
+    wrong = open_wrong(R, rr, P)
     fix_packet(P, R, rr, wrong)
     print(P, g['second_read']['verdicts'], 'fix packet' if wrong else 'no flags')
 
@@ -113,13 +141,18 @@ def kept(R):
     f = os.path.join(R, 'fix.json'); F = J(f) if os.path.exists(f) else {}
     return {n: x for n, x in F.items() if x.get('action') == 'kept'}
 
-def open_wrong(R, rr):
-    k = kept(R)
-    return [(key, u) for key, u in rr.get('units', {}).items() if u.get('verdict') == 'WRONG' and u['node'] not in k]
+def open_wrong(R, rr, P=None):
+    """WRONG units still open: not kept by staff, and the node still cites exactly those panels (a repointed or text node
+    is graded again on its new citation, or has none)"""
+    k = kept(R); cur = None
+    if P:
+        g = J(G(P)); cur = {n['id']: sorted(p.split('#')[1] for p in (n.get('panel_ids') or [])) for n in g['nodes']}
+    return [(key, u) for key, u in rr.get('units', {}).items() if u.get('verdict') == 'WRONG' and u['node'] not in k
+            and (cur is None or cur.get(u['node']) == sorted(u['panels']))]
 
 def graph_flags(P, C):
     """per-trace flags from the graph-time second read: an open trace whose evidence node still has a WRONG unit the staff did not keep"""
-    rr = J(os.path.join(RG(P), 'reread.json')); bad = {u['node']: u for _, u in open_wrong(RG(P), rr)}
+    rr = J(os.path.join(RG(P), 'reread.json')); bad = {u['node']: u for _, u in open_wrong(RG(P), rr, P)}
     fl = {}
     for t in C['traces']:
         if t['status'] != 'open': continue
@@ -302,8 +335,20 @@ def agent_span(aid):
         if t: ts.append(datetime.fromisoformat(t.replace('Z', '+00:00')).timestamp())
     return (min(ts), max(ts)) if ts else None
 
+def reread_counts(P, flags):
+    """graph-time second read (v07 G): checks = grading units, flags = WRONG units, real = flags the staff changed
+    (repointed or set to text); before G the per-trace read: checks = units, flags = flagged traces, real unknown"""
+    R = RG(P); rp = os.path.join(R, 'reread.json')
+    if os.path.exists(rp):
+        rr = J(rp); fx = os.path.join(R, 'fix.json'); F = J(fx) if os.path.exists(fx) else {}
+        wrong = {u['node'] for u in rr.get('units', {}).values() if u.get('verdict') == 'WRONG'} | set(F)
+        return {'reread_checks': len(rr.get('units', {})), 'reread_flags': len(wrong),
+                'reread_real': sum(1 for x in F.values() if x.get('action') in ('repointed', 'text'))}
+    rr = J(os.path.join(D(P), 'reread', 'reread.json')) if os.path.exists(os.path.join(D(P), 'reread', 'reread.json')) else {}
+    return {'reread_checks': len(rr.get('units', {})), 'reread_flags': len(flags), 'reread_real': None}
+
 COLS = ['paper', 'journal', 'year', 'n_figures', 'annotated_share', 'graph_nodes', 'graph_spine', 'judge_checks', 'judge_overturns',
-        'traces_cut', 'open', 'closed_by_rule', 'written', 'passed_nets', 'reread_flags', 'valid', 'valid_partial', 'text_sufficient',
+        'traces_cut', 'open', 'closed_by_rule', 'written', 'passed_nets', 'reread_checks', 'reread_flags', 'reread_real', 'valid', 'valid_partial', 'text_sufficient',
         'inspect', 'inspect_cause', 'subagent_dispatches', 'wall_minutes']
 
 def row(P, meta_path=None):
@@ -341,7 +386,7 @@ def row(P, meta_path=None):
          'traces_cut': len(C['traces']), 'open': sum(t['status'] == 'open' for t in C['traces']),
          'closed_by_rule': '/'.join(f"{k}:{closed.get(k, 0)}" for k in ('R3', 'R4', 'R6', 'skip', 'no_crop')) + (f"/other:{closed['other']}" if closed.get('other') else ''),
          'written': sum(1 for f in glob.glob(os.path.join(d, 'writer', 'T*.writer.out.txt'))),
-         'passed_nets': sum(1 for v in val if not v.get('fails')), 'reread_flags': len(flags),
+         'passed_nets': sum(1 for v in val if not v.get('fails')), **reread_counts(P, flags),
          'valid': sum(x['verdict'] == 'valid' for x in rows), 'valid_partial': sum(x['verdict'] == 'valid' and x.get('partial') for x in rows),
          'text_sufficient': sum(x['verdict'] == 'text-sufficient' for x in rows), 'inspect': sum(x['verdict'] == 'inspect' for x in rows),
          'inspect_cause': '/'.join(f"{k}:{v}" for k, v in sorted(Counter(x['cause'] for x in rows if x['verdict'] == 'inspect').items(), key=lambda kv: str(kv[0]))),

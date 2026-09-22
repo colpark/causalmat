@@ -28,8 +28,13 @@ def harvest(name, relay_id):
         for st in meta['stage'].split(','):
             mine = [h for h in H['jobs'] if byid[h['id']]['out'].startswith(D(P) + os.sep)
                     and (len(meta['stage'].split(',')) == 1 or byid[h['id']]['id'].endswith('/' + st) or (st == 'gate' and byid[h['id']]['id'].rsplit('/', 1)[1] in ('fullarm', 'floor')) or (st == 'grade' and '/grader.' in byid[h['id']]['id']))]
-            if mine: json.dump({'relay': relay_id, 'batch': name, 'jobs': mine},
-                               open(os.path.join(D(P), f"jobs_{st}.json.harvest.json"), 'w'), indent=1)
+            hp = os.path.join(D(P), f"jobs_{st}.json.harvest.json")
+            if mine and os.path.exists(hp):   # a paper split across relays keeps every relay's jobs
+                old = json.load(open(hp)); ids = {x['id'] for x in mine}
+                mine = [x for x in old.get('jobs', []) if x['id'] not in ids] + mine
+                relay_id_s = ','.join(dict.fromkeys(str(old.get('relay', '')).split(',') + [relay_id]))
+            else: relay_id_s = relay_id
+            if mine: json.dump({'relay': relay_id_s, 'batch': name, 'jobs': mine}, open(hp, 'w'), indent=1)
         lp = os.path.join(D(P), 'dispatch_log.json'); L = json.load(open(lp)) if os.path.exists(lp) else []
         if not any(x['agent_id'] == relay_id for x in L):
             L.append({'kind': 'relay', 'agent_id': relay_id, 'share': round(1 / len(meta['papers']), 3), 't': time.time()})
