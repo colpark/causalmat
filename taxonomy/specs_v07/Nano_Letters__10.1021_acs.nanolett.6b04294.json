@@ -1,0 +1,500 @@
+{
+ "file": "Nano_Letters__10.1021_acs.nanolett.6b04294.html",
+ "short": "Insights into the Distinct Lithiation/Sodiation of Porous Co",
+ "journal": "Nano_Letters",
+ "year": null,
+ "title": "Insights into the Distinct Lithiation/Sodiation of Porous Cobalt Oxide by in Operando Synchrotron X-ray Techniques and Ab Initio Molecular Dynamics Simulations",
+ "doi": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM, TEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: DIFF, XRD",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "spec",
+   "label": "Spectroscopy: XAS",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Bulk cobalt oxide anodes fade fast: low electronic conductivity and large volume change on cycling. Make a porous cobalt oxide (PCO) to shorten ion diffusion paths and buffer volume change.",
+   "detail": "Absorbed: n1a (HYP/need), n2 (DES/architecture), n3 (PRC/synthesis), n1 (HYP/gap), n9 (DES/method), n10 (PRC/stimulus), n11 (PRC/stimulus)",
+   "figs": [],
+   "source": "n1a, n2, n3, n1, n9, n10, n11"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "As-prepared PCO is a two-phase Co3O4 + CoO mixture. PCO is mesoporous: hysteretic type IV isotherm, pores mostly 5-7 nm.",
+   "detail": "Absorbed: n4 (STR/phase/identity), n5 (STR/microstructure/porosity), n12 (STR/phase/identity), n13 (STR/microstructure/porosity), n15 (STR/phase/fraction), n16 (STR/microstructure/porosity). Premises: Co K-edge: CoO white line ~7725 eV, Co3O4 pre-edge 7710 and white line 7730 eV; Co foil shoulder ~7713 eV",
+   "figs": [],
+   "source": "n4, n5, n12, n13, n15, n16"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Co3O4 is far less Na-active than Li-active (degree of oxidation ~36% vs ~91% at 2 ps). Na capacity fading stems from poor sodiation activity (minor conversion), not from volume change.",
+   "detail": "Absorbed: n17 (PRP/value), n18 (MEC/identification), n22 (MEC/pathway). Premises: Nanoporous electrodes shorten diffusion lengths and buffer conversion volume change",
+   "figs": [],
+   "source": "n17, n18, n22"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C (initial reversible ~870). Na/PCO fades from ~870 (1st discharge) to ~70 mAh/g after 40 cycles at 0.1 C",
+   "detail": "Absorbed: n7 (PRF/service_capability), n8 (PRF/service_capability)",
+   "figs": [],
+   "source": "n7, n8"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "PCO is highly Li-active but poorly Na-active; its Na fading reflects low sodiation activity, not volume change",
+   "detail": "Absorbed: n20 (DSC/conclusion)",
+   "figs": [],
+   "source": "n20"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "SEM, TEM, F1",
+   "tech": "SEM, TEM",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F1d",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F1d"
+   ],
+   "head": "SEM: agglomerated faceted particles (~250-500 nm) with open gaps; internal mesopores not resolved",
+   "solves": "PCO is mesoporous: hysteretic type IV isotherm, pores mostly 5-7 nm",
+   "op": "inspect local feature",
+   "verdict": "partial",
+   "source": "o5",
+   "tech_source": "label",
+   "note": "text: 10-20 nm nanoparticles seen only by TEM (Fig. S1, not in packet); sizes re-measured against the 500 nm bar (~148 px)",
+   "claims": [
+    "n5"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n5 keeps shown support from o3, o4."
+  },
+  {
+   "id": "M2",
+   "lane": 1,
+   "row": "S1",
+   "line": 1,
+   "title": "XRD:synchrotron, F1",
+   "tech": "XRD:synchrotron",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F1a",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F1a"
+   ],
+   "head": "Rietveld calculation with Co3O4 and CoO phases overlays the HEXRD pattern; difference curve nearly flat",
+   "solves": "As-prepared PCO is a two-phase Co3O4 + CoO mixture",
+   "op": "overlay model on data",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "label",
+   "claims": [
+    "n4"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n4 keeps shown support from o6 after removal."
+  },
+  {
+   "id": "M3",
+   "lane": 1,
+   "row": "S1",
+   "line": 2,
+   "title": "XRD:SAXS, XRD:synchrotron, F3, F4",
+   "tech": "XRD:SAXS, XRD:synchrotron",
+   "figs": [
+    "F3",
+    "F4"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F3a, 10.1021/acs.nanolett.6b04294#F3b, 10.1021/acs.nanolett.6b04294#F3c, 10.1021/acs.nanolett.6b04294#F3d, 10.1021/acs.nanolett.6b04294#F4a, 10.1021/acs.nanolett.6b04294#F4b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F3a",
+    "10.1021/acs.nanolett.6b04294#F3b",
+    "10.1021/acs.nanolett.6b04294#F3c",
+    "10.1021/acs.nanolett.6b04294#F3d",
+    "10.1021/acs.nanolett.6b04294#F4a",
+    "10.1021/acs.nanolett.6b04294#F4b"
+   ],
+   "head": "Li SAXS contours at low q bend to lower q during discharge (~6-11 h) and do not return on charge. Li SAXS: 0.02 V and 3 V curves drop below OCV at 0.01-0.1 A-1; hump grows at ~0.2-0.3 A-1.",
+   "solves": "Li/PCO pore structure changes strongly on discharge and does not recover on charge",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o11, o12, o13, o15, o16, o17",
+   "tech_source": "label",
+   "note": "1.07 V curve overlaps OCV, consistent with text (SEI before 1.07 V) small residual change is visible in F3d, consistent with the paper's 'much smaller' (not zero) change 19.2 deg peak also broadens and moves to ~19.0 deg while fading (not stated in text)",
+   "claims": [
+    "n13",
+    "n16",
+    "n12",
+    "n15"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n13, n16, n12, n15 keeps shown support from o18, o20, o21, a2 after removal."
+  },
+  {
+   "id": "M4",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "XAS:EXAFS, XAS:XANES, F5",
+   "tech": "XAS:EXAFS, XAS:XANES",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F5b, 10.1021/acs.nanolett.6b04294#F5d, 10.1021/acs.nanolett.6b04294#F5e, 10.1021/acs.nanolett.6b04294#F5f",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F5b",
+    "10.1021/acs.nanolett.6b04294#F5d",
+    "10.1021/acs.nanolett.6b04294#F5e",
+    "10.1021/acs.nanolett.6b04294#F5f"
+   ],
+   "head": "Li XANES: discharged spectra lose the white line (~0.97) and match the Co foil shape; charged spectra differ from OCV. Na XANES: discharged spectra keep a strong white line (~1.25 at ~7728 eV), unlike Co foil; charged lie between CoO and Co3O4.",
+   "solves": "Lithiation to 0.01 V fully converts PCO to amorphous/metallic Co; oxide reflections vanish",
+   "op": "match to reference",
+   "verdict": "shown",
+   "source": "o18, o19, o21, o22",
+   "tech_source": "label",
+   "claims": [
+    "n12",
+    "n15"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n12, n15 keeps shown support from o15, o20, a2, o16 after removal."
+  },
+  {
+   "id": "M5",
+   "lane": 2,
+   "row": "S1",
+   "line": 4,
+   "title": "XAS:XANES, F5",
+   "tech": "XAS:XANES",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F5a, 10.1021/acs.nanolett.6b04294#F5c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F5a",
+    "10.1021/acs.nanolett.6b04294#F5c"
+   ],
+   "head": "XANES contours: Li white-line maximum vanishes at each discharge and returns on charge; Na maximum persists all cycles",
+   "solves": "Lithiation to 0.01 V fully converts PCO to amorphous/metallic Co; oxide reflections vanish",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o20",
+   "tech_source": "label",
+   "note": "F5a is at 0.2 C, F5c at 0.1 C (panel labels); caption says 0.2 C for c",
+   "claims": [
+    "n12"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n12 keeps shown support from o15, o18, o21 after removal."
+  },
+  {
+   "id": "C6",
+   "lane": 4,
+   "row": "S1",
+   "line": 5,
+   "title": "PHYS:porosity, PHYS:surfacearea, F1",
+   "tech": "PHYS:porosity, PHYS:surfacearea",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F1c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F1c"
+   ],
+   "head": "N2 isotherm: adsorption/desorption hysteresis from P/P0 ~0.5 to 1.0, uptake ~110 cm3/g. Pore size distribution (inset) peaks at ~5.5 and ~6.9 nm, tail below 4 nm",
+   "solves": "PCO is mesoporous: hysteretic type IV isotherm, pores mostly 5-7 nm",
+   "op": "read distribution statistics, recognize signature",
+   "verdict": "shown",
+   "source": "o3, o4",
+   "tech_source": "label",
+   "detail": "o3: N2 isotherm: adsorption/desorption hysteresis from P/P0 ~0.5 to 1.0, uptake ~110 cm3/g; o4: Pore size distribution (inset) peaks at ~5.5 and ~6.9 nm, tail below 4 nm",
+   "claims": [
+    "n5"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n5 (o3, o4)."
+  },
+  {
+   "id": "C7",
+   "lane": 4,
+   "row": "S1",
+   "line": 6,
+   "title": "THERMAL:TGA, F1",
+   "tech": "THERMAL:TGA",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F1b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F1b"
+   ],
+   "head": "TGA weight falls to 95.8 wt% between ~250 and 400 C",
+   "solves": "As-prepared PCO is a two-phase Co3O4 + CoO mixture",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o6",
+   "tech_source": "label",
+   "note": "text attributes 4.2 wt% loss to residual Co-MOF",
+   "detail": "o6: TGA weight falls to 95.8 wt% between ~250 and 400 C",
+   "claims": [
+    "n4"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n4 keeps shown support from o1 after removal."
+  },
+  {
+   "id": "C8",
+   "lane": 4,
+   "row": "S1",
+   "line": 7,
+   "title": "evidence, F2",
+   "tech": "",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F2c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F2c"
+   ],
+   "head": "Na 1st discharge passes ~865 mAh/g, near the Li value, although structural probes show only minor reaction",
+   "solves": "Sodiation reduces PCO only slightly: crystalline oxide largely retained, no metallic Co",
+   "op": "cross check consistency",
+   "verdict": "shown",
+   "source": "a2",
+   "tech_source": "none",
+   "note": "charge must go to side reactions (e.g. SEI) if Na conversion is minor; packet text does not reconcile this",
+   "audit": true,
+   "detail": "a2: Na 1st discharge passes ~865 mAh/g, near the Li value, although structural probes show only minor reaction",
+   "inner_audit": "a2: charge must go to side reactions (e.g. SEI) if Na conversion is minor; packet text does not reconcile this",
+   "claims": [
+    "n15"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S1: "
+  },
+  {
+   "id": "M9",
+   "lane": 3,
+   "row": "S2",
+   "line": 0,
+   "title": "ATOM, F6",
+   "tech": "ATOM",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F6a, 10.1021/acs.nanolett.6b04294#F6b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F6a",
+    "10.1021/acs.nanolett.6b04294#F6b"
+   ],
+   "head": "AIMD snapshots: Li mixes into the Co3O4 surface layers by 2 ps; Na stays mostly above with less surface disorder",
+   "solves": "Co3O4 is far less Na-active than Li-active (degree of oxidation ~36% vs ~91% at 2 ps)",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o23",
+   "tech_source": "modality",
+   "note": "difference in distortion is modest by eye",
+   "claims": [
+    "n17"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n17 keeps shown support from o24."
+  },
+  {
+   "id": "C10",
+   "lane": 4,
+   "row": "S2",
+   "line": 1,
+   "title": "evidence, F6",
+   "tech": "",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F6d",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F6d"
+   ],
+   "head": "Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps",
+   "solves": "Co3O4 is far less Na-active than Li-active (degree of oxidation ~36% vs ~91% at 2 ps)",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o24",
+   "tech_source": "none",
+   "detail": "o24: Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps",
+   "claims": [
+    "n17"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n17 (o24)."
+  },
+  {
+   "id": "C11",
+   "lane": 4,
+   "row": "S3",
+   "line": 0,
+   "title": "evidence, F2",
+   "tech": "",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F2a, 10.1021/acs.nanolett.6b04294#F2b",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F2a",
+    "10.1021/acs.nanolett.6b04294#F2b"
+   ],
+   "head": "Li 1st discharge: long plateau ~1.05 V to ~1330 mAh/g; 1st charge ~870 mAh/g with plateau ~2.0 V. Li cycling: charge capacity ~870 (cycle 1) rising to ~1050 (cycle ~17) and back to ~840 at cycle 40; CE ~96%.",
+   "solves": "Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C (initial reversible ~870)",
+   "op": "compare coplotted quantities, read characteristic point, read trend",
+   "verdict": "shown",
+   "source": "o7, o8, a1",
+   "tech_source": "none",
+   "audit": true,
+   "detail": "o7: Li 1st discharge: long plateau ~1.05 V to ~1330 mAh/g; 1st charge ~870 mAh/g with plateau ~2.0 V; o8: Li cycling: charge capacity ~870 (cycle 1) rising to ~1050 (cycle ~17) and back to ~840 at cycle 40; CE ~96%; a1: Li capacity declines steadily from cycle ~17 to 40 (~1100 -> ~870 mAh/g discharge); 96.4% retention hides this",
+   "inner_audit": "a1: Li capacity declines steadily from cycle ~17 to 40 (~1100 -> ~870 mAh/g discharge); 96.4% retention hides this",
+   "claims": [
+    "n7"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S3: "
+  },
+  {
+   "id": "C12",
+   "lane": 4,
+   "row": "S3",
+   "line": 1,
+   "title": "evidence, F2",
+   "tech": "",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F2d, 10.1021/acs.nanolett.6b04294#F2c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F2d",
+    "10.1021/acs.nanolett.6b04294#F2c"
+   ],
+   "head": "Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40. Na 1st discharge reaches ~865 mAh/g (plateau ~0.15 V); 1st charge ~470; 40th cycle ~60 mAh/g",
+   "solves": "Na/PCO fades from ~870 (1st discharge) to ~70 mAh/g after 40 cycles at 0.1 C",
+   "op": "read characteristic point, read trend",
+   "verdict": "shown",
+   "source": "o9, o10",
+   "tech_source": "none",
+   "detail": "o9: Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40; o10: Na 1st discharge reaches ~865 mAh/g (plateau ~0.15 V); 1st charge ~470; 40th cycle ~60 mAh/g",
+   "claims": [
+    "n8"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n8 (o9, o10)."
+  },
+  {
+   "id": "M13",
+   "lane": 3,
+   "row": "S4",
+   "line": 0,
+   "title": "ATOM, F6",
+   "tech": "ATOM",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1021/acs.nanolett.6b04294#F6b, 10.1021/acs.nanolett.6b04294#F6c",
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F6b",
+    "10.1021/acs.nanolett.6b04294#F6c"
+   ],
+   "head": "AIMD: Na penetrates and disorders the Co3S4 slab surface more than the Co3O4 slab",
+   "solves": "",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o25",
+   "tech_source": "modality",
+   "claims": [
+    "n20"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and n20 has no other figure-backed support."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "supports"
+  ],
+  [
+   "S2",
+   "S3",
+   "explains"
+  ],
+  [
+   "S1",
+   "S3",
+   "causes"
+  ],
+  [
+   "S0",
+   "S2",
+   "realizes"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S1",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": false
+}

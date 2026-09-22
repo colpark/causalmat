@@ -1,0 +1,1472 @@
+{
+ "paper_id": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+ "title": "Insights into the Distinct Lithiation/Sodiation of Porous Cobalt Oxide by in Operando Synchrotron X-ray Techniques and Ab Initio Molecular Dynamics Simulations",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n4",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "n4",
+    "n7",
+    "n20"
+   ],
+   "branch": "evidences edge o1 -> n4",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "TGA",
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1a",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "overlay_model_on_data",
+     "panel_ids": [
+      "10.1021/acs.nanolett.6b04294#F1a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n4",
+     "role": "claim"
+    },
+    {
+     "node": "n7",
+     "role": "downstream"
+    },
+    {
+     "node": "n20",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n4 (node-level necessity of o1: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: ['Rietveld refinement of HEXRD']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: o1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:707",
+     "effect": "given panels carry no answer text: ['F1a']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.6b04294#F1a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F1a",
+     "sample": "Rietveld refinement of HEXRD",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Rietveld refinement of HEXRD"
+    }
+   ],
+   "graded_targets": [
+    "o1"
+   ],
+   "target_verdicts": {
+    "o1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F1a",
+     "annotations": [
+      "Obs",
+      "Cacl",
+      "Wt(Co,O)=78.6%",
+      "Backgr",
+      "Wt(Co0)=21.4%",
+      "Diff",
+      "Co304",
+      "CoO",
+      "n'B"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1a",
+      "n2",
+      "n3"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Bulk cobalt oxide anodes fade fast: low electronic -> Make a porous cobalt oxide (PCO) to shorten ion di -> Thermal decomposition of a Co-based MOF in air (30"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1a [XRD] and estimate (overlay model on data)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Rietveld calculation with Co3O4 and CoO phases overlays the HEXRD pattern; difference curve nearly flat"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n4"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: As-prepared PCO is a two-phase Co3O4 + CoO mixture"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n7",
+      "n20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C (initial reversible ~870)"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n17",
+   "evidence": [
+    "o23"
+   ],
+   "hidden": [
+    "o23",
+    "n17",
+    "n18",
+    "n20"
+   ],
+   "branch": "evidences edge o23 -> n17",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "not derivable from given panels: o23: text, not in given captions: ['atom colour key (grey Li, purple Na) in caption']",
+   "walk": [
+    {
+     "node": "n1a",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "o23",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1021/acs.nanolett.6b04294#F6a",
+      "10.1021/acs.nanolett.6b04294#F6b"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "n17",
+     "role": "claim"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    },
+    {
+     "node": "n20",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for n17 (node-level necessity of o23: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:244",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:669",
+     "effect": "not derivable from given panels: o23: text, not in given captions: ['atom colour key (grey Li, purple Na) in caption']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state the difference between the two conditions; do not rank",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.6b04294#F6a",
+    "10.1021/acs.nanolett.6b04294#F6b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F6a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F6b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o23"
+   ],
+   "target_verdicts": {
+    "o23": {
+     "pass": false,
+     "why": "text, not in given captions: ['atom colour key (grey Li, purple Na) in caption']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1a",
+      "n2",
+      "n3",
+      "n4",
+      "n8",
+      "n1",
+      "n9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Bulk cobalt oxide anodes fade fast: low electronic -> Make a porous cobalt oxide (PCO) to shorten ion di -> Thermal decomposition of a Co-based MOF in air (30 -> As-prepared PCO is a two-phase Co3O4 + CoO mixture -> Na/PCO fades from ~870 (1st discharge) to ~70 mAh/ -> Why cobalt oxide sodiates so poorly vs lithiates i -> Compare lithiation and sodiation by in operando SA"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o23"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6a, F6b [ATOM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o23"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: AIMD snapshots: Li mixes into the Co3O4 surface layers by 2 ps; Na stays mostly above with less surface disorder"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n17"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Co3O4 is far less Na-active than Li-active (degree of oxidation ~36% vs ~91% at 2 ps)"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n18",
+      "n20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Na capacity fading stems from poor sodiation activity (minor conversion), not from volume change"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n17",
+   "evidence": [
+    "o24"
+   ],
+   "hidden": [
+    "o24",
+    "n17",
+    "n18",
+    "n20"
+   ],
+   "branch": "evidences edge o24 -> n17",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1a",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "o24",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1021/acs.nanolett.6b04294#F6d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n17",
+     "role": "claim"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    },
+    {
+     "node": "n20",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for n17 (node-level necessity of o24: necessary)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:244",
+     "effect": "1 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: o24 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:707",
+     "effect": "given panels carry no answer text: ['F6d']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "answer_format": "state the difference between the two conditions; do not rank",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.6b04294#F6d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F6d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o24"
+   ],
+   "target_verdicts": {
+    "o24": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F6d",
+     "annotations": [
+      "Li-Co3O",
+      "Na-C03S4",
+      "Na-CoO",
+      "100%",
+      "80%",
+      "60%",
+      "40%",
+      "20%"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1a",
+      "n2",
+      "n3",
+      "n4",
+      "n8",
+      "n1",
+      "n9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Bulk cobalt oxide anodes fade fast: low electronic -> Make a porous cobalt oxide (PCO) to shorten ion di -> Thermal decomposition of a Co-based MOF in air (30 -> As-prepared PCO is a two-phase Co3O4 + CoO mixture -> Na/PCO fades from ~870 (1st discharge) to ~70 mAh/ -> Why cobalt oxide sodiates so poorly vs lithiates i -> Compare lithiation and sodiation by in operando SA"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o24"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6d [ATOM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o24"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n17"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Co3O4 is far less Na-active than Li-active (degree of oxidation ~36% vs ~91% at 2 ps)"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n18",
+      "n20"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Na capacity fading stems from poor sodiation activity (minor conversion), not from volume change"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n4",
+   "evidence": [
+    "o6"
+   ],
+   "hidden": [
+    "o6",
+    "n7",
+    "n20"
+   ],
+   "branch": "qualifies edge o6 -> n4",
+   "fm_family": "TGA",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "TGA"
+   ],
+   "channels_involved": [
+    "TGA"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1a",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "o6",
+     "role": "audit",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1021/acs.nanolett.6b04294#F1b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n4",
+     "role": "claim"
+    },
+    {
+     "node": "n7",
+     "role": "redacted"
+    },
+    {
+     "node": "n20",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: ['TGA curve at air atmosphere']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: o6 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:706",
+     "effect": "10.1021/acs.nanolett.6b04294#F1b carries ['95.8wt.%'] shared with graded targets ['o6']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n7",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n20",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.6b04294#F1b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F1b",
+     "sample": "TGA curve at air atmosphere",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "TGA curve at air atmosphere"
+    }
+   ],
+   "graded_targets": [
+    "o6"
+   ],
+   "target_verdicts": {
+    "o6": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "o6"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F1b",
+     "annotations": [
+      "95.8wt.%"
+     ],
+     "hits": [
+      {
+       "text": "95.8wt.%",
+       "shared": [
+        "95.8"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n4"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: As-prepared PCO is a two-phase Co3O4 + CoO mixture"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F1b [TGA]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: TGA weight falls to 95.8 wt% between ~250 and 400 C"
+    }
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n7",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n20"
+   ],
+   "branch": "qualifies edge a1 -> n7",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1a",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n22",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1021/acs.nanolett.6b04294#F2b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n7",
+     "role": "claim"
+    },
+    {
+     "node": "n20",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: a1 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:706",
+     "effect": "10.1021/acs.nanolett.6b04294#F2b carries ['Discharge'] shared with graded targets ['a1']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n20",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.6b04294#F2b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F2b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F2b",
+     "annotations": [
+      "ou",
+      "om",
+      "mAh",
+      "nbic",
+      "efficiency",
+      "Charge",
+      "Discharge",
+      "Coulombicefficiency",
+      "Der",
+      "0.1C"
+     ],
+     "hits": [
+      {
+       "text": "Discharge",
+       "shared": [
+        "discharge"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C (initial reversible ~870)"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2b [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Li capacity declines steadily from cycle ~17 to 40 (~1100 -> ~870 mAh/g discharge); 96.4% retention hides this"
+    }
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n15",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "n16",
+    "n18",
+    "n20"
+   ],
+   "branch": "qualifies edge a2 -> n15",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1a",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1021/acs.nanolett.6b04294#F2c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n15",
+     "role": "claim"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    },
+    {
+     "node": "n20",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: ['Discharge/charge curves and']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: a2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:707",
+     "effect": "given panels carry no answer text: ['F2c']"
+    }
+   ],
+   "siblings": [
+    "T7"
+   ],
+   "redactions": [
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n20",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.6b04294#F2c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F2c",
+     "sample": "Discharge/charge curves and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Discharge/charge curves and"
+    }
+   ],
+   "graded_targets": [
+    "a2"
+   ],
+   "target_verdicts": {
+    "a2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F2c",
+     "annotations": [
+      "1st",
+      "2nd",
+      "40th",
+      "SA)"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n15"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Sodiation reduces PCO only slightly: crystalline oxide largely retained, no metallic Co"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2c [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Na 1st discharge passes ~865 mAh/g, near the Li value, although structural probes show only minor reaction"
+    }
+   ]
+  },
+  {
+   "id": "T7",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.6b04294",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n18",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "n20"
+   ],
+   "branch": "qualifies edge a2 -> n18",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1a",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "n15",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1021/acs.nanolett.6b04294#F2c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n18",
+     "role": "claim"
+    },
+    {
+     "node": "n20",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: ['Discharge/charge curves and']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: a2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:707",
+     "effect": "given panels carry no answer text: ['F2c']"
+    }
+   ],
+   "siblings": [
+    "T6"
+   ],
+   "redactions": [
+    {
+     "node": "n20",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1021/acs.nanolett.6b04294#F2c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F2c",
+     "sample": "Discharge/charge curves and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Discharge/charge curves and"
+    }
+   ],
+   "graded_targets": [
+    "a2"
+   ],
+   "target_verdicts": {
+    "a2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.6b04294#F2c",
+     "annotations": [
+      "1st",
+      "2nd",
+      "40th",
+      "SA)"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n18"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Na capacity fading stems from poor sodiation activity (minor conversion), not from volume change"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2c [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Na 1st discharge passes ~865 mAh/g, near the Li value, although structural probes show only minor reaction"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Nano_Letters__10.1021_acs.nanolett.6b04294",
+   "trace": "T2",
+   "root": "infer",
+   "subtype": "compare",
+   "targets": [
+    "o23"
+   ],
+   "why": [
+    "o23: text, not in given captions: ['atom colour key (grey Li, purple Na) in caption']"
+   ],
+   "requires_unseen": {
+    "o23": [
+     "atom colour key (grey Li, purple Na) in caption"
+    ]
+   },
+   "labels": {
+    "o23": "AIMD snapshots: Li mixes into the Co3O4 surface layers by 2 ps; Na stays mostly above with less surface disorder"
+   }
+  }
+ ]
+}
