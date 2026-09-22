@@ -1,0 +1,895 @@
+{
+ "paper_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.09.027",
+ "title": "Hydrogen storage behavior of Mg-based alloy catalyzed by carbon-cobalt composites",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.09.027",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n9",
+   "evidence": [
+    "o15"
+   ],
+   "hidden": [
+    "o15",
+    "n9",
+    "n19",
+    "n21"
+   ],
+   "branch": "evidences edge o15 -> n9",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM",
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "not derivable from given panels: o15: text, not in given captions: ['sample is ball-milled C10 (F5 caption)']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o15",
+     "role": "evidence",
+     "op": "assign_features",
+     "panel_ids": [
+      "10.1016/j.jma.2020.09.027#F5a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    },
+    {
+     "node": "n21",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane TEM necessary for n9 (node-level necessity of o15: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:679",
+     "effect": "not derivable from given panels: o15: text, not in given captions: ['sample is ball-milled C10 (F5 caption)']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.jma.2020.09.027#F5a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2020.09.027#F5a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o15"
+   ],
+   "target_verdicts": {
+    "o15": {
+     "pass": false,
+     "why": "text, not in given captions: ['sample is ball-milled C10 (F5 caption)']"
+    }
+   },
+   "annotation_read_evidence": [
+    "o15"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n3",
+      "n8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Mg-based hydrogen storage alloys absorb and desorb -> Use the Mg90Ce5Y5 alloy (C0) as the hydrogen stora -> Ball-mill Mg90Ce5Y5 with and without 10 wt% C@Co"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F5a [TEM] and classify (assign features)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: SAED of milled C10: rings indexed Ce2Mg17 (306), Co (111), Y5Mg24 (330), CeMg12 (202)"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: C@Co does not react with the alloy: milled C10 shows only C0's phases plus Co, and Co persists after de/hydrogenation"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n19",
+      "n21"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: C@Co leaves the thermodynamics nearly unchanged: plateau pressures and desorption enthalpy (83.3 vs "
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.09.027",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n9",
+   "evidence": [
+    "o17"
+   ],
+   "hidden": [
+    "o17",
+    "n9",
+    "n19",
+    "n21"
+   ],
+   "branch": "evidences edge o17 -> n9",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM",
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "not derivable from given panels: o17: text, not in given captions: ['sample is dehydrogenated C10 (F5 caption)']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o17",
+     "role": "evidence",
+     "op": "assign_features",
+     "panel_ids": [
+      "10.1016/j.jma.2020.09.027#F5c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    },
+    {
+     "node": "n21",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane TEM necessary for n9 (node-level necessity of o17: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['Mg90Ce5Y5+10 wt']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:679",
+     "effect": "not derivable from given panels: o17: text, not in given captions: ['sample is dehydrogenated C10 (F5 caption)']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.jma.2020.09.027#F5c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2020.09.027#F5c",
+     "sample": "Mg90Ce5Y5+10 wt",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Mg90Ce5Y5+10 wt"
+    }
+   ],
+   "graded_targets": [
+    "o17"
+   ],
+   "target_verdicts": {
+    "o17": {
+     "pass": false,
+     "why": "text, not in given captions: ['sample is dehydrogenated C10 (F5 caption)']"
+    }
+   },
+   "annotation_read_evidence": [
+    "o17"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n3",
+      "n8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Mg-based hydrogen storage alloys absorb and desorb -> Use the Mg90Ce5Y5 alloy (C0) as the hydrogen stora -> Ball-mill Mg90Ce5Y5 with and without 10 wt% C@Co"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o17"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F5c [TEM] and classify (assign features)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o17"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: SAED of dehydrogenated C10: rings indexed Co (111), Mg (101), CeH2.73 (111), CeO2 (111)"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: C@Co does not react with the alloy: milled C10 shows only C0's phases plus Co, and Co persists after de/hydrogenation"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n19",
+      "n21"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: C@Co leaves the thermodynamics nearly unchanged: plateau pressures and desorption enthalpy (83.3 vs "
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.09.027",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n10",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n12",
+    "n14",
+    "n21"
+   ],
+   "branch": "qualifies edge a1 -> n10",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [],
+   "channels_involved": [
+    "SEM",
+    "TEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "assess_spatial_distribution",
+     "panel_ids": [
+      "10.1016/j.jma.2020.09.027#F4c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n12",
+     "role": "redacted"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n21",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n10 (node-level necessity of a1: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: a1 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1016/j.jma.2020.09.027#F4c carries ['Mg(green)'] shared with graded targets ['a1']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "n12",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n21",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.jma.2020.09.027#F4c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2020.09.027#F4c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.jma.2020.09.027#F4c",
+     "annotations": [
+      "Mg(green)",
+      "C(blue)",
+      "Co(red)"
+     ],
+     "hits": [
+      {
+       "text": "Mg(green)",
+       "shared": [
+        "green"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: In milled C10, carbon sits on the alloy particle surfaces with Co grains dispersed in that carbon"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4c [SEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: EDS map: Mg (green) covers most particle faces; C (blue) coverage is patchy, mainly at edges, not a continuous layer"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.09.027",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "n11",
+   "evidence": [
+    "o20",
+    "o21",
+    "o23"
+   ],
+   "hidden": [
+    "n11",
+    "n14",
+    "n21",
+    "n2",
+    "k8"
+   ],
+   "branch": "joint causes ['n6', 'n10'] of n14, explained by n11",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "PHYS"
+   ],
+   "channels_involved": [
+    "PHYS"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation and the joint causes",
+   "grader": "certified judge against the graph's mechanism; causes act jointly, no rival",
+   "status": "closed",
+   "ruling": "not derivable from given panels: n11: text, not in given captions: ['defects as Mg/MgH2 nucleation sites: F1 and F9 linked text']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o20",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.jma.2020.09.027#F6a",
+      "10.1016/j.jma.2020.09.027#F6b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o21",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.jma.2020.09.027#F7a",
+      "10.1016/j.jma.2020.09.027#F7b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o23",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.jma.2020.09.027#F7c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "claim"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n21",
+     "role": "redacted"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R1",
+     "where": "cut_traces.py:292",
+     "effect": "causes ['n6', 'n10'] into n14 are joint (modes ['joint']): mechanism trace, not competing causes"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None, None, None, None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:679",
+     "effect": "not derivable from given panels: n11: text, not in given captions: ['defects as Mg/MgH2 nucleation sites: F1 and F9 linked text']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n21",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    },
+    {
+     "node": "k8",
+     "why": "premise of the hidden mechanism"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.jma.2020.09.027#F6a",
+    "10.1016/j.jma.2020.09.027#F6b",
+    "10.1016/j.jma.2020.09.027#F7a",
+    "10.1016/j.jma.2020.09.027#F7b",
+    "10.1016/j.jma.2020.09.027#F7c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2020.09.027#F6a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2020.09.027#F6b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2020.09.027#F7a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2020.09.027#F7b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2020.09.027#F7c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "n11"
+   ],
+   "target_verdicts": {
+    "n11": {
+     "pass": false,
+     "why": "text, not in given captions: ['defects as Mg/MgH2 nucleation sites: F1 and F9 linked text']"
+    }
+   },
+   "annotation_read_evidence": [
+    "o20",
+    "o23"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o20",
+      "o21",
+      "o23"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: Second (diffusion-controlled) absorption stage lasts 66 min for C0 and 11 min for C10 at 360 C  [panels F6a, F6b]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "n11",
+      "k8"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: Defects in the carbon nanosheets act as nucleation sites for Mg/MgH2  [premise: k8]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "n14",
+      "n18"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: C@Co speeds hydrogen absorption: R10min of C10 exceeds C0 at 250-100 C"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Journal_of_Magnesium_and_Alloys__j.jma.2020.09.027",
+   "trace": "T1",
+   "root": "infer",
+   "subtype": "classify",
+   "targets": [
+    "o15"
+   ],
+   "why": [
+    "o15: text, not in given captions: ['sample is ball-milled C10 (F5 caption)']"
+   ],
+   "requires_unseen": {
+    "o15": [
+     "sample is ball-milled C10 (F5 caption)"
+    ]
+   },
+   "labels": {
+    "o15": "SAED of milled C10: rings indexed Ce2Mg17 (306), Co (111), Y5Mg24 (330), CeMg12 (202)"
+   }
+  },
+  {
+   "paper": "Journal_of_Magnesium_and_Alloys__j.jma.2020.09.027",
+   "trace": "T2",
+   "root": "infer",
+   "subtype": "classify",
+   "targets": [
+    "o17"
+   ],
+   "why": [
+    "o17: text, not in given captions: ['sample is dehydrogenated C10 (F5 caption)']"
+   ],
+   "requires_unseen": {
+    "o17": [
+     "sample is dehydrogenated C10 (F5 caption)"
+    ]
+   },
+   "labels": {
+    "o17": "SAED of dehydrogenated C10: rings indexed Co (111), Mg (101), CeH2.73 (111), CeO2 (111)"
+   }
+  },
+  {
+   "paper": "Journal_of_Magnesium_and_Alloys__j.jma.2020.09.027",
+   "trace": "T4",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "n11"
+   ],
+   "why": [
+    "n11: text, not in given captions: ['defects as Mg/MgH2 nucleation sites: F1 and F9 linked text']"
+   ],
+   "requires_unseen": {
+    "n11": [
+     "defects as Mg/MgH2 nucleation sites: F1 and F9 linked text"
+    ]
+   },
+   "labels": {
+    "n11": "Defects in the carbon nanosheets act as nucleation sites for Mg/MgH2"
+   }
+  }
+ ]
+}
