@@ -1,0 +1,473 @@
+{
+ "file": "Advanced_Energy_Materials__aenm.202003416.html",
+ "short": "How Does External Pressure Shape Li Dendrites in Li Metal Ba",
+ "journal": "Advanced_Energy_Materials",
+ "year": null,
+ "title": "How Does External Pressure Shape Li Dendrites in Li Metal Batteries?",
+ "doi": "Advanced_Energy_Materials/aenm.202003416",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "How the stress state from external pressure shapes Li dendrites is unclear; coin and pouch cells differ in stress accumulation. Applying external pressure should shape plated Li smoother and denser and improve Li anode performance.",
+   "detail": "Absorbed: n1 (HYP/gap), n2 (HYP/hypothesis), n3 (DES/method), n4 (DES/variable_sweep), n5 (PRC/stimulus). Premises: Cycled Li|Li cells thicken by ~1.2 um per mAh (He and co-workers), building stress in rigid coin cells; Plating induces eigen strain, and mechanical energy enters the Gibbs free energy that sets the reaction rate",
+   "figs": [],
+   "source": "n1, n2, n3, n4, n5"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Dendrites become shorter, less branched and stockier as external pressure rises. External pressure yields denser, less porous plated Li (higher space utilization)",
+   "detail": "Absorbed: n7 (STR/microstructure/shape), n8 (STR/microstructure/porosity)",
+   "figs": [],
+   "source": "n7, n8"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Pressure turns dendrite stress from tensile to compressive, maximal at the tip, inhibiting tip growth and promoting lateral growth. The mechanical driving force enters the interfacial driving force and slows the plating reaction: none below ~4 MPa, then linear, then saturating.",
+   "detail": "Absorbed: n6 (MEC/pathway), n9 (MEC/pathway), n10 (PRP/value), n11 (PRP/value), n21 (MEC/tradeoff). Premises: Plating induces eigen strain, and mechanical energy enters the Gibbs free energy that sets the reaction rate; von Mises yield criterion: yielding once von Mises stress exceeds the yield strength; HY-6100 PP separator yield strength is ~20 MPa",
+   "figs": [],
+   "source": "n6, n9, n10, n11, n21"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "External pressure raises and stabilises Coulombic efficiency of Li|Cu pouch cells. Pressure shaping works only above a critical pressure that rises from ~1.2 to ~10 MPa as electrolyte modulus goes 0.2 to 2.0 GPa",
+   "detail": "Absorbed: n12 (PRF/service_capability), n14 (PRF/service_capability). Premises: Porous, high-surface Li deposits expose more fresh Li to electrolyte, consuming Li and lowering Coulombic efficiency",
+   "figs": [],
+   "source": "n12, n14"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "For electrolyte-wetted PP separators apply more than 1.0 MPa, with the optimum no more than 5.0 MPa. External pressure inhibits Li electroplating and shapes dendrites smooth and dense but enlarges mechanical instability; a pressure-modulus diagram guides pressure design",
+   "detail": "Absorbed: n15 (DSC/design_guidance), n17 (DSC/conclusion). Premises: PP separator elastic modulus is ~0.5 GPa, lowered by electrolyte immersion and porosity",
+   "figs": [],
+   "source": "n15, n17"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 1,
+   "row": "S0",
+   "line": 0,
+   "title": "ATOM, F2",
+   "tech": "ATOM",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/aenm.202003416#F2d",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F2d"
+   ],
+   "head": "Without pressure von Mises stress in the dendrite is ~3-5 MPa, below the 6.0 MPa colour-bar top",
+   "solves": "",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o14",
+   "tech_source": "modality",
+   "note": "text says stress concentrates at bifurcations; the map is near-uniform orange with slightly higher values on lower side branches",
+   "claims": [
+    "n3"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n3 (o14)."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "MICRO, F1",
+   "tech": "MICRO",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/aenm.202003416#F1c, 10.1002/aenm.202003416#F1d",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F1c",
+    "10.1002/aenm.202003416#F1d"
+   ],
+   "head": "Deposit without pressure is loose and porous with deep crevices; with pressure it is smooth and compact",
+   "solves": "External pressure yields denser, less porous plated Li (higher space utilization)",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "modality",
+   "note": "same 100 um scale bar in both; 'Without pressure'/'With pressure' printed on panels (condition labels only)",
+   "claims": [
+    "n8"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n8 keeps shown support from o9 after removal."
+  },
+  {
+   "id": "M3",
+   "lane": 1,
+   "row": "S1",
+   "line": 1,
+   "title": "ATOM, F2, F3",
+   "tech": "ATOM",
+   "figs": [
+    "F2",
+    "F3"
+   ],
+   "panel": "10.1002/aenm.202003416#F3a, 10.1002/aenm.202003416#F2b",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F3a",
+    "10.1002/aenm.202003416#F2b"
+   ],
+   "head": "As pressure rises 2 to 14 MPa the dendrite gets shorter (below the dashed 2-MPa height), less branched and broader. Without pressure the nucleus grows from 0.10 to 0.40 mAh cm-2 into a branched dendrite with forked tips",
+   "solves": "Dendrites become shorter, less branched and stockier as external pressure rises",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o7, o15",
+   "tech_source": "modality",
+   "claims": [
+    "n7"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n7 keeps shown support from o8 after removal."
+  },
+  {
+   "id": "C4",
+   "lane": 2,
+   "row": "S1",
+   "line": 2,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/aenm.202003416#F4d",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F4d"
+   ],
+   "head": "Aspect ratio a/b rises from ~1.55 (0-2 MPa) to ~2.75 at 10 MPa, then plateaus near 2.7-2.8",
+   "solves": "Dendrites become shorter, less branched and stockier as external pressure rises",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o8",
+   "tech_source": "none",
+   "note": "text: 1.6 to 2.8 for 2 to 10 MPa; plot gives ~1.53 at 2 MPa and ~2.75 at 10 MPa, 2.8 only at 14 MPa",
+   "detail": "o8: Aspect ratio a/b rises from ~1.55 (0-2 MPa) to ~2.75 at 10 MPa, then plateaus near 2.7-2.8",
+   "claims": [
+    "n7"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n7 keeps shown support from o7, o15 after removal."
+  },
+  {
+   "id": "C5",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/aenm.202003416#F4c",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F4c"
+   ],
+   "head": "Space utilization stays ~29% up to 4 MPa, rises to ~38% at 10 MPa and plateaus (~37.5%)",
+   "solves": "External pressure yields denser, less porous plated Li (higher space utilization)",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o9",
+   "tech_source": "none",
+   "note": "text says 29.4% to 37.3% for 2 to 10 MPa; plotted points are 29.4% at 0 MPa, 28.5% at 2 MPa, 38.1% at 10 MPa, 37.3% at 12 MPa",
+   "detail": "o9: Space utilization stays ~29% up to 4 MPa, rises to ~38% at 10 MPa and plateaus (~37.5%)",
+   "claims": [
+    "n8"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n8 keeps shown support from o1 after removal."
+  },
+  {
+   "id": "M6",
+   "lane": 1,
+   "row": "S2",
+   "line": 0,
+   "title": "ATOM, F2, F3",
+   "tech": "ATOM",
+   "figs": [
+    "F2",
+    "F3"
+   ],
+   "panel": "10.1002/aenm.202003416#F2c, 10.1002/aenm.202003416#F3b, 10.1002/aenm.202003416#F3c",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F2c",
+    "10.1002/aenm.202003416#F3b",
+    "10.1002/aenm.202003416#F3c"
+   ],
+   "head": "Without pressure p_m inside the dendrite is negative (to about -5 MPa) and near zero in the electrolyte. As pressure rises 2 to 14 MPa, p_m in the dendrite turns positive and peaks at the tip (red, ~15-20 MPa at 14 MPa).",
+   "solves": "Pressure turns dendrite stress from tensile to compressive, maximal at the tip, inhibiting tip growth and promoting lateral growth",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o5, o6, o13",
+   "tech_source": "modality",
+   "note": "pressure levels read from column headers on F3a; at 2 MPa the dendrite interior is near zero/slightly negative (white-light blue) colour at the 14 MPa root reads ~12-15 MPa on the 0-20 scale; no region reaches the text's 19.5 MPa red",
+   "claims": [
+    "n6",
+    "n11"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n6, n11 (o5, o6)."
+  },
+  {
+   "id": "C7",
+   "lane": 2,
+   "row": "S2",
+   "line": 1,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/aenm.202003416#F4a, 10.1002/aenm.202003416#F4b",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F4a",
+    "10.1002/aenm.202003416#F4b"
+   ],
+   "head": "Current density vs capacity curves sit lower for higher pressure; 12 and 14 MPa curves are lowest and end near 0.42-0.48 mAh cm-2. At 100 s, capacity falls from ~0.52 (2-4 MPa) to ~0.43 (12 MPa) and ~0.41 (14 MPa); current falls from ~21.2 to ~17.1-17.5 mA cm-2",
+   "solves": "Electroplating rate falls with external pressure: at 100 s capacity 0.51 to ~0.41 mAh cm-2 and current ~20.5 to ~17.5 mA cm-2",
+   "op": "compare across conditions, read trend",
+   "verdict": "shown",
+   "source": "o10, o11",
+   "tech_source": "none",
+   "note": "text 0.51 to 0.41 mAh cm-2 and 20.49 to 17.44 mA cm-2; current minimum is at 12 MPa (~17.1), not 14; 14 MPa bar drawn in blue, off the colour gradient",
+   "detail": "o10: Current density vs capacity curves sit lower for higher pressure; 12 and 14 MPa curves are lowest and end near 0.42-0.48 mAh cm-2; o11: At 100 s, capacity falls from ~0.52 (2-4 MPa) to ~0.43 (12 MPa) and ~0.41 (14 MPa); current falls from ~21.2 to ~17.1-17.5 mA cm-2",
+   "claims": [
+    "n10"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n10 (o10, o11)."
+  },
+  {
+   "id": "C8",
+   "lane": 2,
+   "row": "S2",
+   "line": 2,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/aenm.202003416#F4b",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F4b"
+   ],
+   "head": "No decrease of capacity or current up to 4 MPa (slight rise); decline starts above 4 MPa",
+   "solves": "The mechanical driving force enters the interfacial driving force and slows the plating reaction: none below ~4 MPa, then linear, then saturating",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o12",
+   "tech_source": "none",
+   "detail": "o12: No decrease of capacity or current up to 4 MPa (slight rise); decline starts above 4 MPa",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n9 (o12)."
+  },
+  {
+   "id": "M9",
+   "lane": 1,
+   "row": "S3",
+   "line": 0,
+   "title": "ATOM, F5",
+   "tech": "ATOM",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1002/aenm.202003416#F5a",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F5a"
+   ],
+   "head": "At fixed pressure the 0.5 GPa deposit is flat and broad; 1.5 and 2.0 GPa deposits are taller and branched",
+   "solves": "",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o16",
+   "tech_source": "modality",
+   "note": "F5a shows 0.5, 1.5 and 2.0 GPa only; 1.0 GPa is not shown",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n14 keeps shown support from o17, o19 after removal."
+  },
+  {
+   "id": "C10",
+   "lane": 2,
+   "row": "S3",
+   "line": 1,
+   "title": "evidence, F1",
+   "tech": "",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/aenm.202003416#F1e",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F1e"
+   ],
+   "head": "With pressure CE stays ~94-95% over cycles 3-14; without pressure it scatters (~81-110%) from cycle 14. With pressure CE also falls from ~95% to ~84% over cycles 15-21, and only 21 cycles are shown",
+   "solves": "External pressure raises and stabilises Coulombic efficiency of Li|Cu pouch cells",
+   "op": "compare across conditions, read trend",
+   "verdict": "shown",
+   "source": "o2, o4",
+   "tech_source": "none",
+   "note": "text claims improved cycle life; the plot ends at cycle 21 with the pressurised cell declining",
+   "audit": true,
+   "detail": "o2: With pressure CE stays ~94-95% over cycles 3-14; without pressure it scatters (~81-110%) from cycle 14; o4: With pressure CE also falls from ~95% to ~84% over cycles 15-21, and only 21 cycles are shown",
+   "inner_audit": "o4: text claims improved cycle life; the plot ends at cycle 21 with the pressurised cell declining",
+   "claims": [
+    "n12"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S3: "
+  },
+  {
+   "id": "C11",
+   "lane": 2,
+   "row": "S3",
+   "line": 2,
+   "title": "evidence, F5",
+   "tech": "",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1002/aenm.202003416#F5c",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F5c"
+   ],
+   "head": "Space utilization falls from ~38.8% (0.5 GPa) to 32.3%, 28.8% and 28.5% (2.0 GPa)",
+   "solves": "",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o17",
+   "tech_source": "none",
+   "detail": "o17: Space utilization falls from ~38.8% (0.5 GPa) to 32.3%, 28.8% and 28.5% (2.0 GPa)",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n14 keeps shown support from o16, o19 after removal."
+  },
+  {
+   "id": "C12",
+   "lane": 2,
+   "row": "S3",
+   "line": 3,
+   "title": "evidence, F5",
+   "tech": "",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1002/aenm.202003416#F5d",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F5d"
+   ],
+   "head": "Boundary of the grey no-effect region rises from ~1.2-1.5 MPa at 0.2 GPa to ~10-11 MPa at 2.0 GPa",
+   "solves": "Pressure shaping works only above a critical pressure that rises from ~1.2 to ~10 MPa as electrolyte modulus goes 0.2 to 2.0 GPa",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o19",
+   "tech_source": "none",
+   "note": "white region labelled 'Pressure shaping domain' on the panel; points coloured by U_s 27-39%",
+   "detail": "o19: Boundary of the grey no-effect region rises from ~1.2-1.5 MPa at 0.2 GPa to ~10-11 MPa at 2.0 GPa",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n14 keeps shown support from o16, o17 after removal."
+  },
+  {
+   "id": "C13",
+   "lane": 2,
+   "row": "S4",
+   "line": 0,
+   "title": "evidence, F1",
+   "tech": "",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/aenm.202003416#F1f",
+   "panel_ids": [
+    "10.1002/aenm.202003416#F1f"
+   ],
+   "head": "At cycle 20 the cell without pressure shows larger overpotential and noisy voltage spikes; with pressure it stays near cycle 1",
+   "solves": "",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "none",
+   "detail": "o3: At cycle 20 the cell without pressure shows larger overpotential and noisy voltage spikes; with pressure it stays near cycle 1",
+   "claims": [
+    "n17"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n17 (o3)."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S2",
+   "causes"
+  ],
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S3",
+   "causes"
+  ],
+  [
+   "S1",
+   "S2",
+   "supports"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}
