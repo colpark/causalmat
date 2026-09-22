@@ -1,0 +1,1089 @@
+{
+ "paper_id": "Journal_of_Magnesium_and_Alloys/j.jma.2013.12.002",
+ "title": "Effect of Ca addition on grain refinement of Mg-9Li-1Al alloy",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2013.12.002",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "s7",
+   "evidence": [
+    "n4"
+   ],
+   "hidden": [
+    "n4",
+    "s7",
+    "s8",
+    "s9",
+    "s14"
+   ],
+   "branch": "evidences edge n4 -> s7",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "context"
+    },
+    {
+     "node": "s5",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "evidence",
+     "op": "assign_features",
+     "panel_ids": [
+      "10.1016/j.jma.2013.12.002#F1c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s7",
+     "role": "claim"
+    },
+    {
+     "node": "s8",
+     "role": "downstream"
+    },
+    {
+     "node": "s9",
+     "role": "downstream"
+    },
+    {
+     "node": "s14",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for s7 (node-level necessity of n4: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: n4 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F1c']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.jma.2013.12.002#F1c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F1c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "n4"
+   ],
+   "target_verdicts": {
+    "n4": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "n4"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F1c",
+     "annotations": [
+      "Va-Mg"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "s1",
+      "s2",
+      "s5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Adding Ca to Mg-9Li-1Al should form Al2Ca particle -> Base alloy: duplex alpha-Mg + beta-Li Mg-9Li-1Al ( -> Cast LA91 and LA91-0.2Ca ingots"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "n4"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1c [XRD] and classify (assign features)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "n4"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: F1c pattern: all reflections indexed to alpha-Mg (filled triangles) and beta-Li (open triangles)"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "s7"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Al2Ca is the only new phase in LA91-0.2Ca; LA91 contains only alpha-Mg and beta-Li"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "s8",
+      "s9",
+      "s14"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Sub-micron Al2Ca particles lie along alpha/beta phase boundaries and inside the alpha-Mg matrix of a"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2013.12.002",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "s7",
+   "evidence": [
+    "n5"
+   ],
+   "hidden": [
+    "n5",
+    "s7",
+    "s8",
+    "s9",
+    "s14"
+   ],
+   "branch": "evidences edge n5 -> s7",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "context"
+    },
+    {
+     "node": "s5",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.jma.2013.12.002#F1c",
+      "10.1016/j.jma.2013.12.002#F1d"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "s7",
+     "role": "claim"
+    },
+    {
+     "node": "s8",
+     "role": "downstream"
+    },
+    {
+     "node": "s9",
+     "role": "downstream"
+    },
+    {
+     "node": "s14",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for s7 (node-level necessity of n5: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: n5 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F1c', 'F1d']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.jma.2013.12.002#F1c",
+    "10.1016/j.jma.2013.12.002#F1d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F1c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F1d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "n5"
+   ],
+   "target_verdicts": {
+    "n5": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotation_read_evidence": [
+    "n5"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F1c",
+     "annotations": [
+      "Va-Mg"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F1d",
+     "annotations": [
+      "Vu-Mg",
+      "V\u03b2-Li",
+      "AlCa"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "s1",
+      "s2",
+      "s5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Adding Ca to Mg-9Li-1Al should form Al2Ca particle -> Base alloy: duplex alpha-Mg + beta-Li Mg-9Li-1Al ( -> Cast LA91 and LA91-0.2Ca ingots"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "n5"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1c, F1d [XRD] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "n5"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Al2Ca markers appear in the Ca-alloy pattern (near 29.5, 37 and 80.5 deg) and are absent from the LA91 pattern"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "s7"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Al2Ca is the only new phase in LA91-0.2Ca; LA91 contains only alpha-Mg and beta-Li"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "s8",
+      "s9",
+      "s14"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Sub-micron Al2Ca particles lie along alpha/beta phase boundaries and inside the alpha-Mg matrix of a"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2013.12.002",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "s8",
+   "evidence": [
+    "n6"
+   ],
+   "hidden": [
+    "n6",
+    "s8",
+    "s9",
+    "s14"
+   ],
+   "branch": "evidences edge n6 -> s8",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "context"
+    },
+    {
+     "node": "s5",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "evidence",
+     "op": "assess_spatial_distribution",
+     "panel_ids": [
+      "10.1016/j.jma.2013.12.002#F2a",
+      "10.1016/j.jma.2013.12.002#F2b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s8",
+     "role": "claim"
+    },
+    {
+     "node": "s9",
+     "role": "downstream"
+    },
+    {
+     "node": "s14",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for s8 (node-level necessity of n6: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: n6 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F2a', 'F2b']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.jma.2013.12.002#F2a",
+    "10.1016/j.jma.2013.12.002#F2b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F2a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F2b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "n6"
+   ],
+   "target_verdicts": {
+    "n6": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F2a",
+     "annotations": [
+      "20\u03bcm"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F2b",
+     "annotations": [],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "s1",
+      "s2",
+      "s5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Adding Ca to Mg-9Li-1Al should form Al2Ca particle -> Base alloy: duplex alpha-Mg + beta-Li Mg-9Li-1Al ( -> Cast LA91 and LA91-0.2Ca ingots"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2a, F2b [SEM] and estimate (assess spatial distribution)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: BSE: bright sub-micron particles decorate boundary lines and occur isolated inside grain interiors"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "s8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Sub-micron Al2Ca particles lie along alpha/beta phase boundaries and inside the alpha-Mg matrix of as-cast LA91-0.2Ca"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "s9",
+      "s14"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: With Ca, as-cast alpha-Mg changes from long lath/rod-like plates to granular blocks"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2013.12.002",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "s11",
+   "evidence": [
+    "n10"
+   ],
+   "hidden": [
+    "n10",
+    "s11",
+    "s10",
+    "s14"
+   ],
+   "branch": "evidences edge n10 -> s11",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "EDS",
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s4",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "evidence",
+     "op": "assess_spatial_distribution",
+     "panel_ids": [
+      "10.1016/j.jma.2013.12.002#F4a",
+      "10.1016/j.jma.2013.12.002#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s11",
+     "role": "claim"
+    },
+    {
+     "node": "s10",
+     "role": "downstream"
+    },
+    {
+     "node": "s14",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for s11 (node-level necessity of n10: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: n10 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F4a', 'F4b']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.jma.2013.12.002#F4a",
+    "10.1016/j.jma.2013.12.002#F4b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F4a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F4b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "n10"
+   ],
+   "target_verdicts": {
+    "n10": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F4a",
+     "annotations": [
+      "20\u03bcm"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F4b",
+     "annotations": [],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "s1",
+      "s4",
+      "s6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Adding Ca to Mg-9Li-1Al should form Al2Ca particle -> Extrude both as-cast alloys under the same conditi -> Extrude the cast LA91 and LA91-0.2Ca billets (same"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4a, F4b [SEM] and estimate (assess spatial distribution)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: BSE of extruded alloy: bright particles scattered uniformly at low magnification and present in both light-grey bands and dark regions at hi"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "s11"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: After extrusion Al2Ca particles are dispersed inside both the alpha and the beta phase of LA91-0.2Ca"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "s10",
+      "s14"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: As-extruded beta-Li grains are refined by Ca: about 4.6 um in LA91-0.2Ca vs about 10.3 um in LA91"
+    }
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2013.12.002",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "s9",
+   "evidence": [
+    "n2"
+   ],
+   "hidden": [
+    "n2",
+    "s14",
+    "s1"
+   ],
+   "branch": "qualifies edge n2 -> s9",
+   "fm_family": "OPTICAL",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "OPTICAL"
+   ],
+   "channels_involved": [
+    "OPTICAL"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "redacted"
+    },
+    {
+     "node": "s2",
+     "role": "context"
+    },
+    {
+     "node": "s5",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "audit",
+     "op": "measure_feature_metric",
+     "panel_ids": [
+      "10.1016/j.jma.2013.12.002#F1a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s9",
+     "role": "claim"
+    },
+    {
+     "node": "s14",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: n2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F1a']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "s14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s1",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.jma.2013.12.002#F1a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F1a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "n2"
+   ],
+   "target_verdicts": {
+    "n2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.jma.2013.12.002#F1a",
+     "annotations": [
+      "100\u03bcm"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "s9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: With Ca, as-cast alpha-Mg changes from long lath/rod-like plates to granular blocks"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "n2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F1a [OPTICAL]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "n2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: F1a laths are ~15-40 um wide and at most ~400 um long within the ~675 um field, not 1371.56 x 322.61 um as stated"
+    }
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2013.12.002",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "s4",
+   "evidence": [],
+   "branch": "DES/route s4",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": false,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "s4"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
