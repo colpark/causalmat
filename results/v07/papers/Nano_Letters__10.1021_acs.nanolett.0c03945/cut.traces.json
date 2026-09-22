@@ -1,0 +1,431 @@
+{
+ "paper_id": "Nano_Letters/10.1021_acs.nanolett.0c03945",
+ "title": "Light Emission in Metal-Semiconductor Tunnel Junctions: Direct Evidence for Electron Heating by Plasmon Decay",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c03945",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n8",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "n8",
+    "n10",
+    "n13",
+    "n14",
+    "n12",
+    "n16"
+   ],
+   "branch": "evidences edge o1 -> n8",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "match_to_design",
+     "panel_ids": [
+      "10.1021/acs.nanolett.0c03945#F2b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n12",
+     "role": "downstream"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n8 (node-level necessity of o1: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['A top-view SEM image of the bar pattern']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F2b']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1021/acs.nanolett.0c03945#F2b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03945#F2b",
+     "sample": "A top-view SEM image of the bar pattern",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "A top-view SEM image of the bar pattern"
+    }
+   ],
+   "graded_targets": [
+    "o1"
+   ],
+   "target_verdicts": {
+    "o1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03945#F2b",
+     "annotations": [
+      "I!I"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n6",
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Mechanism of above-threshold light emission (photo -> Plasmon decay heats the metal electron bath to a h -> Au / 3 nm Al2O3 / p-Si tunnel junction, chosen so  -> ALD of 3 nm Al2O3 on p-Si (Na ~1e15 cm-3), ~1 nm T -> Electron-beam lithography of 30 nm thick Au bar ar"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2b [SEM] and estimate (match to design)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Top-view SEM: ten separated rod-shaped bars in two rows, regular pitch, about 5:1 aspect, rough edges"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Patterned Au bars are isolated rods (about 5:1 aspect) in a regular periodic array, with rough grainy edges"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n10",
+      "n13",
+      "n14",
+      "n12",
+      "n16"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The bar-array device carries a localized plasmon resonance peaked near 2.0 eV that forms the high-vo"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c03945",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n14",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n12",
+    "n16",
+    "n2"
+   ],
+   "branch": "qualifies edge a1 -> n14",
+   "fm_family": "DERIVED",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "DERIVED"
+   ],
+   "channels_involved": [
+    "DERIVED"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1021/acs.nanolett.0c03945#F5b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n14",
+     "role": "claim"
+    },
+    {
+     "node": "n12",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: a1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F5b']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n12",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1021/acs.nanolett.0c03945#F5b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03945#F5b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c03945#F5b",
+     "annotations": [
+      "(eV)"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n14"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Metal electron temperature T_e rises steeply (~600 to ~1400 K) up to 2.0 V, then slowly to ~1750 K at 2.9 V"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F5b [DERIVED]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Error bars at 2.6-2.9 V span roughly +/-250-450 K, larger than the ~350 K rise across the whole high-voltage range"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
