@@ -1,0 +1,665 @@
+{
+ "paper_id": "Materials_Characterization/j.matchar.2020.110138",
+ "title": "Electron Backscatter Diffraction (EBSD) analysis of laser-cladded AISI 420 martensitic stainless steel",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Materials_Characterization/j.matchar.2020.110138",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n14",
+   "evidence": [
+    "o13"
+   ],
+   "hidden": [
+    "o13",
+    "n14",
+    "n16",
+    "n17"
+   ],
+   "branch": "evidences edge o13 -> n14",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "o13",
+     "role": "evidence",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1016/j.matchar.2020.110138#F11"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n14",
+     "role": "claim"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n14 (node-level necessity of o13: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o13 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:705",
+     "effect": "10.1016/j.matchar.2020.110138#F11 has no OCR record: counted as annotated, cannot be checked"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.matchar.2020.110138#F11"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.matchar.2020.110138#F11",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o13"
+   ],
+   "target_verdicts": {
+    "o13": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n3",
+      "n5",
+      "n8",
+      "n11"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Crystallographic (EBSD) basis of microstructure ev -> Clad AISI 420 martensitic stainless steel powder o -> Single-bead laser cladding: 2.5 kW laser melt pool -> Extremely high, zone-dependent cooling during clad -> Martensite substructure grains are coarser in both"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o13"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F11 [XRD] and estimate (read trend)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o13"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Centreline residual stress: ~+380-555 at top, falls through the bead zone to negative values, reaches -810 to -1005 near 1200 um, positive a"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n14"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Residual stress is tensile at the bead top, turns compressive at the bead-zone end, peaks compressive in the dilution zone and returns tensi"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n16",
+      "n17"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: EBSD IQ mapping tracks the residual-stress distribution across bead, dilution and HAZ zones of the s"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Materials_Characterization/j.matchar.2020.110138",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n12",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n14",
+    "n16",
+    "n17"
+   ],
+   "branch": "qualifies edge a1 -> n12",
+   "fm_family": "EBSD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "EBSD"
+   ],
+   "channels_involved": [
+    "EBSD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n12",
+     "role": "claim"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:601",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": false,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n12"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Bead-zone and HAZ grains carry more intragranular misorientation (plastic strain) than dilution-zone grains"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel:  [EBSD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: HAZ has the largest high-GOS fraction (F9c) yet higher IQ than DZ(I) in the same scan (F10f,g): GOS and IQ disagree on strain"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Materials_Characterization/j.matchar.2020.110138",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n16",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "n17"
+   ],
+   "branch": "qualifies edge a2 -> n16",
+   "fm_family": "EBSD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "EBSD"
+   ],
+   "channels_involved": [
+    "EBSD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "n15",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1016/j.matchar.2020.110138#F11"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n16",
+     "role": "claim"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: a2 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:705",
+     "effect": "10.1016/j.matchar.2020.110138#F11 has no OCR record: counted as annotated, cannot be checked"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.matchar.2020.110138#F11"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.matchar.2020.110138#F11",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a2"
+   ],
+   "target_verdicts": {
+    "a2": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n16"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: EBSD IQ mapping tracks the residual-stress distribution across bead, dilution and HAZ zones of the single-bead clad"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F11 [EBSD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: IQ-RS inversion is inconsistent: IQ rises as signed RS falls in BZ and falls as RS turns tensile in HAZ, but falls in DZ as RS turns more co"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Materials_Characterization/j.matchar.2020.110138",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n16",
+   "evidence": [
+    "a3"
+   ],
+   "hidden": [
+    "a3",
+    "n17"
+   ],
+   "branch": "qualifies edge a3 -> n16",
+   "fm_family": "EBSD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "EBSD"
+   ],
+   "channels_involved": [
+    "EBSD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "n15",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n16",
+     "role": "claim"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:601",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": false,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n16"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: EBSD IQ mapping tracks the residual-stress distribution across bead, dilution and HAZ zones of the single-bead clad"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel:  [EBSD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Scan IQ averages differ fourfold (BZ 311, DZ(C) 300 vs DZ(I) 1255, HAZ 1626) with different colour-bar ranges, so IQ is only comparable with"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
