@@ -1,0 +1,214 @@
+{
+ "paper_id": "Acta_Materialia/10.1016_j.actamat.2021.116713",
+ "title": "Impact of crystallography at Ni/NiAl interfaces on the nucleation of Ni3Al",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2021.116713",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n8",
+   "evidence": [
+    "o16"
+   ],
+   "hidden": [
+    "o16",
+    "n10",
+    "n25",
+    "n9",
+    "n7",
+    "n20",
+    "n2"
+   ],
+   "branch": "qualifies edge o16 -> n8",
+   "fm_family": "EBSD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "EBSD"
+   ],
+   "channels_involved": [
+    "EBSD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o16",
+     "role": "audit",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1016/j.actamat.2021.116713#F2"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "redacted"
+    },
+    {
+     "node": "n25",
+     "role": "redacted"
+    },
+    {
+     "node": "n9",
+     "role": "redacted"
+    },
+    {
+     "node": "n7",
+     "role": "redacted"
+    },
+    {
+     "node": "n20",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o16 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:705",
+     "effect": "10.1016/j.actamat.2021.116713#F2 has no OCR record: counted as annotated, cannot be checked"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n10",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n25",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n9",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n7",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n20",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.actamat.2021.116713#F2"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.actamat.2021.116713#F2",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o16"
+   ],
+   "target_verdicts": {
+    "o16": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Thickness of all three layers grows linearly with sqrt(t) at 650 C (parabolic growth)"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o16"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2 [EBSD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o16"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Ni3Al-into-(Ni) thickness at 48 h (~2.0 um) sits below its fit line (~2.2) and barely above 18 h (~1.7 um)"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}

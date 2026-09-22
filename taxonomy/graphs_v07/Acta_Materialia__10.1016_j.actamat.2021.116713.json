@@ -1,0 +1,1752 @@
+{
+ "paper_id": "Acta_Materialia/10.1016_j.actamat.2021.116713",
+ "title": "Impact of crystallography at Ni/NiAl interfaces on the nucleation of Ni3Al",
+ "vocab_version": "v04",
+ "batch": "v07",
+ "text_source": "captions_plus_linked_text",
+ "notes": "No intro/methods in packet: HYP/DES/PRC are text with requires_unseen. Two branches: (1) layer growth: EDX layers -> parabolic diagnostic -> diffusion control -> flux asymmetry + Kirkendall shift (joint) -> thicker/coarser Ni3Al on NiAl side; (2) nucleation: ORs of ~50% of new grains + bimodal, GB-switched grain density -> oriented nucleation; grain growth insensitive (F5b). Audits: o16 (48 h Ni3Al-into-(Ni) point below parabolic fit, text-silent), a2 (paper's own null result on crystallographic features vs nucleation class, in tension with F4 text), a3 (statistics mix Ni3Al and (Ni) grains), n24 (58 grains each side). Packet oddities: F5a counts 21 interfaces vs '20 configurations' in text; F5b uses two y-axes so 'no pronounced difference' is a scaled visual judgement; F3b green OR share looks smaller than the stated 41%; F4 and F5 linked text are partly duplicated.",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/gap",
+   "label": "Whether interface crystallography at (Ni)/NiAl interfaces governs Ni3Al nucleation is unknown; orientation relationships undocumented in bulk diffusion couples",
+   "attrs": {
+    "gap_kind": "unobserved_regime",
+    "source": "text",
+    "requires_unseen": [
+     "introduction not in packet; gap from title and F3 linked text ('not been documented so far')"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n2",
+   "type": "HYP/hypothesis",
+   "label": "Interface crystallography, through interfacial and strain energies, should affect where and in which orientation Ni3Al nucleates",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "hypothesis framed from title and F4 linked text; introduction not in packet"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n3",
+   "type": "DES/base_system",
+   "label": "Use (Ni)/NiAl diffusion couples annealed at 650 C, where grain-boundary diffusion prevails",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "couple fabrication and alloy purity not in packet",
+     "650 C in captions"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n4",
+   "type": "DES/method",
+   "label": "Statistical EBSD plus STEM-EDX survey: ~2.2 mm of interface, 21 maps, 20 interface configurations, >3000 grains; 5 um near triple junctions excluded",
+   "attrs": {
+    "aspect": "sampling",
+    "source": "text",
+    "requires_unseen": [
+     "sampling numbers in F4/F5 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n5",
+   "type": "PRC/treatment",
+   "label": "Anneal diffusion couples at 650 C for 1, 4, 6, 18 and 48 h",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "annealing times in F2 linked text; atmosphere and cooling not in packet"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n6",
+   "type": "STR/chemistry/composition",
+   "label": "Reaction zone between NiAl and pure (Ni): a ~20-25 at% Al layer (Ni3Al) over a ~5 at% Al layer (Al-enriched (Ni))",
+   "attrs": {
+    "phase_named_from": "stoichiometry",
+    "scope": "per-layer composition",
+    "source": "figure",
+    "image_note": "EBSD cannot separate L12 Ni3Al from fcc (Ni) (F1 linked text), so identity rests on the EDX plateaus; no Ni5Al3 plateau (~37.5 at%) in the profile",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F1b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n8",
+   "type": "PRP/diagnostic",
+   "label": "Thickness of all three layers grows linearly with sqrt(t) at 650 C (parabolic growth)",
+   "attrs": {
+    "property_family": "kinetic",
+    "quantity": "layer thickness vs sqrt(t)",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F2"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n10",
+   "type": "MEC/identification",
+   "label": "Layer growth at 650 C is diffusion-controlled",
+   "attrs": {
+    "mechanism_class": "diffusion-controlled growth",
+    "basis": "evidenced",
+    "source": "inferred",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n25",
+   "type": "MEC/pathway",
+   "label": "Steeper concentration gradients and ~10x higher interdiffusivity on the NiAl side give a larger flux across the NiAl/Ni3Al interface, which migrates faster",
+   "attrs": {
+    "mechanism_class": "interdiffusion flux balance",
+    "basis": "argued",
+    "source": "text",
+    "requires_unseen": [
+     "interdiffusivity ratios from refs in F2 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n9",
+   "type": "PRP/value",
+   "label": "Ni3Al grows fastest into NiAl, then Al-enriched (Ni), slowest Ni3Al into (Ni)",
+   "attrs": {
+    "property_family": "kinetic",
+    "quantity": "parabolic growth rate",
+    "aspect": "ranking",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F2"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n12",
+   "type": "MEC/pathway",
+   "label": "Kirkendall plane lies inside Ni3Al, shifted toward (Ni) because Ni diffuses ~5x faster than Al in Ni3Al",
+   "attrs": {
+    "mechanism_class": "Kirkendall effect",
+    "basis": "argued",
+    "source": "text",
+    "requires_unseen": [
+     "arrows/dashed line mark the Kirkendall plane (F1 caption)",
+     "D_Ni ~5 D_Al from ref [34] (F2 linked text)"
+    ]
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F1a",
+    "10.1016/j.actamat.2021.116713#F1b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n7",
+   "type": "STR/microstructure/feature_size",
+   "label": "Ni3Al on the NiAl side forms a thicker layer (1.35 um) than on the (Ni) side (0.5 um)",
+   "attrs": {
+    "direction": "asymmetric",
+    "source": "figure",
+    "requires_unseen": [
+     "exact averages 1.35 and 0.5 um stated in F1 linked text; F2 1 h points read ~1.4 vs ~0.45 um"
+    ],
+    "read_from": "pixels"
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F2"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n26",
+   "type": "STR/microstructure/feature_size",
+   "label": "Ni3Al grains on the NiAl side are coarser (mean 0.82 um) than on the (Ni) side (0.48 um)",
+   "attrs": {
+    "direction": "asymmetric",
+    "source": "text",
+    "requires_unseen": [
+     "mean grain sizes 0.82 and 0.48 um (equivalent circular diameter) stated in F1 linked text",
+     "which grain row is Ni3Al vs (Ni) needs the EDX/text assignment"
+    ]
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F1a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n13",
+   "type": "STR/interface",
+   "label": "About 50% of new grains hold an orientation relationship to an adjoining parent after 1 h, up to 80% after 6 h",
+   "attrs": {
+    "aspect": "orientation relationship",
+    "source": "text",
+    "requires_unseen": [
+     "~50% of new grains in an orientation relationship after 1 h and up to 80% after 6 h, stated in F3 linked text; no panel plots these fractions or any 6 h data"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n16",
+   "type": "PRP/value",
+   "label": "Ni3Al nucleation rate (grain density per interface length) is bimodal across interfaces: below vs above 1.5 grains/um",
+   "attrs": {
+    "property_family": "kinetic",
+    "object": "interface",
+    "proxy": "grain density at the interface",
+    "source": "text",
+    "requires_unseen": [
+     "1.5 grains/um class boundary stated in F5 linked text (not on the F5a axis)",
+     "grain density used as nucleation-rate proxy (caption/linked text F5)"
+    ]
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F5a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n23",
+   "type": "PRP/value",
+   "label": "Nucleation density switches abruptly where a parent NiAl or (Ni) grain boundary meets the interface",
+   "attrs": {
+    "property_family": "kinetic",
+    "object": "interface",
+    "source": "text",
+    "image_note": "grain boundary misorientations 21 deg (NiAl) and 40 deg (Ni) are text only",
+    "requires_unseen": [
+     "F4a shows a grain boundary in NiAl and F4b one in (Ni), with NiAl on top (caption F4, linked text F1)",
+     "new grains are Ni3Al/(Ni) nuclei (EBSD cannot separate them; linked text F4)"
+    ]
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F4a",
+    "10.1016/j.actamat.2021.116713#F4b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n17",
+   "type": "MEC/pathway",
+   "label": "New grains nucleate in orientation relationships that lower interfacial and strain energy, so interface crystallography influences nucleation even at 650 C",
+   "attrs": {
+    "mechanism_class": "oriented heterogeneous nucleation",
+    "basis": "argued",
+    "source": "text",
+    "requires_unseen": [
+     "energy argument from F3 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n21",
+   "type": "PRP/value",
+   "label": "Grain-size distributions are similar at low- and high-nucleation interfaces: grain growth is little sensitive to interface crystallography",
+   "attrs": {
+    "property_family": "kinetic",
+    "quantity": "grain size distribution",
+    "source": "text",
+    "requires_unseen": [
+     "'no pronounced difference' and 'grain growth little sensitive to interface crystallography' stated in F5 linked text",
+     "low/high nucleation classes differ in interface crystallography (argument in F4/F5 linked text)",
+     "the two histograms use different y-axes, so similarity is a scaled judgement"
+    ]
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F5b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n20",
+   "type": "DSC/conclusion",
+   "label": "Ni3Al forms at (Ni)/NiAl by oriented nucleation sensitive to interface crystallography, followed by diffusion-controlled, asymmetric layer growth",
+   "attrs": {
+    "source": "inferred",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n14",
+   "type": "STR/interface",
+   "label": "First Ni3Al layer: ~45% of its area in K-S relation to NiAl with all variants present, plus ~16% twins of these",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "area fractions and 'all variants' stated in F3 linked text"
+    ]
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F3a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n15",
+   "type": "STR/interface",
+   "label": "Second Ni3Al layer: ~41% of grains near cube-on-cube (~15 deg off) to (Ni) or twin-related to it",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "41% stated in F3 linked text"
+    ]
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F3b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n18",
+   "type": "STR/microstructure/orientation",
+   "label": "Al-enriched (Ni) layer is strongly textured ~26 deg off parent (Ni), within 15 deg of the second Ni3Al layer",
+   "attrs": {
+    "aspect": "texture",
+    "source": "text",
+    "requires_unseen": [
+     "<15 deg to the Ni3Al layer and ~60% coverage stated in F3 linked text"
+    ]
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F3c"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n22",
+   "type": "MEC/pathway",
+   "label": "Immobile small-angle and twin boundaries at the (Ni)/Ni3Al interface slow grain growth in the second Ni3Al layer",
+   "attrs": {
+    "mechanism_class": "boundary mobility",
+    "basis": "argued",
+    "source": "text",
+    "requires_unseen": [
+     "argument and ref [50] in F3 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n19",
+   "type": "MEC/pathway",
+   "label": "Al-enriched (Ni) grains form by diffusion-induced recrystallization driven by grain-boundary diffusion at 650 C",
+   "attrs": {
+    "mechanism_class": "diffusion-induced recrystallization",
+    "basis": "argued",
+    "source": "text",
+    "requires_unseen": [
+     "interpretation in F1 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n24",
+   "type": "PRP/value",
+   "label": "Both Ni3Al layers in the F1a map contain 58 grains, implying similar nucleation rates on both sides despite different orientation relationships",
+   "attrs": {
+    "property_family": "kinetic",
+    "source": "text",
+    "requires_unseen": [
+     "grain count 58 stated in F2 linked text; not countable from the map"
+    ]
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F1a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "not_shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k1",
+   "type": "KNW/lookup",
+   "label": "Layer thickness proportional to sqrt(t) indicates diffusion-controlled growth",
+   "attrs": {
+    "source": "prior_knowledge",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k2",
+   "type": "KNW/precedent",
+   "label": "In Ni3Al of NiAl/(Ni) couples at 1000 C the intrinsic diffusivity of Ni is ~5x that of Al [34]",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "ref [34] value from F2 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k3",
+   "type": "KNW/precedent",
+   "label": "Interdiffusion coefficient in NiAl is ~10x that in (Ni); in Ni3Al it is higher at the NiAl side [8,45-48]",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "refs in F2 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k5",
+   "type": "KNW/precedent",
+   "label": "Diffusion-induced recrystallization and grain-boundary migration leave solute-enriched grains behind [38-41]",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "refs in F1 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k6",
+   "type": "KNW/model",
+   "label": "Heterogeneous nucleation: a nucleus in a low-energy orientation relationship has lower interfacial and strain energy, hence a lower barrier",
+   "attrs": {
+    "source": "prior_knowledge",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o1",
+   "type": "OBS/response/characteristic_value",
+   "label": "EDX Al profile plateaus: ~48-50 at% (NiAl), ~21-25 at% (Ni3Al), ~5 at% ((Ni)), ~0 at% (pure (Ni))",
+   "attrs": {
+    "technique": "STEM:EDX",
+    "read_from": "annotation",
+    "source": "figure",
+    "image_note": "phase labels NiAl, Ni3Al, (Ni), pure (Ni) written on the plot; OCR listed 'NiAl','(Ni)','pure (Ni)'",
+    "requires_unseen": [],
+    "annotation_match": "NiAl | (Ni) | pure (Ni)"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F1b"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o2",
+   "type": "OBS/morphology/distribution",
+   "label": "Al drops abruptly (~48 to ~25 at%) at the NiAl/Ni3Al boundary but declines gradually over ~0.7 um at the Ni3Al/(Ni) side",
+   "attrs": {
+    "technique": "STEM:EDX",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "annotation_match": "NiAl | (Ni)"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F1b"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o3",
+   "type": "OBS/morphology/appearance",
+   "label": "STEM BF shows a fine cell network in the lowest region, at the depth labelled pure (Ni) in the profile",
+   "attrs": {
+    "technique": "STEM:BF",
+    "read_from": "annotation",
+    "source": "figure",
+    "requires_unseen": [],
+    "annotation_match": "STEM BF | pure (Ni)"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F1b"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o17",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Dashed zero line lies inside the ~21-25 at% plateau: ~1.5 um of it above, ~0.3 um below",
+   "attrs": {
+    "technique": "STEM:EDX",
+    "read_from": "axis",
+    "source": "figure",
+    "requires_unseen": [],
+    "image_note": "dashed line = Kirkendall plane per F1 caption"
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F1b"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o4",
+   "type": "OBS/morphology/feature_metric",
+   "label": "IPF+IQ map: above the arrowed plane a row of ~0.5-1 um grains; below it a thin row of finer grains, then a discontinuous row of >1.5 um grains",
+   "attrs": {
+    "technique": "EBSD:IPF+IQ",
+    "read_from": "pixels",
+    "source": "figure",
+    "image_note": "sizes by eye against the 5 um bar; arrows = Kirkendall plane per caption",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F1"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F1a"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o5",
+   "type": "OBS/response/trend",
+   "label": "Thickness of all three layers rises roughly linearly with sqrt(t) from 1 to 48 h",
+   "attrs": {
+    "technique": "EBSD:layer_thickness",
+    "read_from": "axis",
+    "source": "figure",
+    "image_note": "fits drawn through the origin (dashed extrapolation), so incubation cannot be resolved (paper says so); instrument for thickness not named, EBSD maps per F1 linked text; large error bars at 48 h",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F2"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o6",
+   "type": "OBS/response/fitted_parameter",
+   "label": "Fitted slopes: ~1.1 (Ni3Al into NiAl), ~0.73 (Al-enriched (Ni)), ~0.32 um/h^0.5 (Ni3Al into (Ni))",
+   "attrs": {
+    "technique": "EBSD:layer_thickness",
+    "read_from": "axis",
+    "source": "figure",
+    "image_note": "slopes read from line ends at sqrt(t)=7; not stated in text",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F2"
+   ],
+   "modality": "xy_curve",
+   "provenance": "derived",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o16",
+   "type": "OBS/response/trend",
+   "label": "Ni3Al-into-(Ni) thickness at 48 h (~2.0 um) sits below its fit line (~2.2) and barely above 18 h (~1.7 um)",
+   "attrs": {
+    "technique": "EBSD:layer_thickness",
+    "read_from": "axis",
+    "source": "figure",
+    "text_silent": true,
+    "image_note": "suggests this layer slows beyond parabolic at long times; error bar ~1.4-2.6 um overlaps the line",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F2"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F2"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o7",
+   "type": "OBS/signal/feature_assignment",
+   "label": "Ni3Al {110}/{111} pole maxima (max 4.9 mrd) coincide with NiAl {111}/{110} poles at the K-S triangles, with similar intensity for all",
+   "attrs": {
+    "technique": "EBSD:pole_figure",
+    "aspect": "orientation_relationship",
+    "read_from": "annotation",
+    "annotation_match": "K-SOrientation relationship()",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F3a"
+   ],
+   "modality": "orientation_distribution",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o8",
+   "type": "OBS/signal/feature_assignment",
+   "label": "Ni3Al {100} maxima (max 5.7 mrd) sit in squares matching (Ni) {100} poles about 15 deg off, with dashed-square twin maxima",
+   "attrs": {
+    "technique": "EBSD:pole_figure",
+    "aspect": "orientation_relationship",
+    "read_from": "annotation",
+    "annotation_match": "nearcube-on-cube",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F3b"
+   ],
+   "modality": "orientation_distribution",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o9",
+   "type": "OBS/signal/feature_quantification",
+   "label": "Al-enriched (Ni) {100} pole figure shows a strong texture (max 18.0 mrd) at squares tilted ~26 deg from the (Ni) poles",
+   "attrs": {
+    "technique": "EBSD:pole_figure",
+    "read_from": "annotation",
+    "annotation_match": "strongtexture",
+    "source": "figure",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F3c"
+   ],
+   "modality": "orientation_distribution",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o10",
+   "type": "OBS/morphology/feature_metric",
+   "label": "IQ maps: OR-highlighted grains cover a large share of layer 1 (red) and most of the lower (Ni) layer (blue), but only scattered grains of layer 2 (green)",
+   "attrs": {
+    "technique": "EBSD:IQ",
+    "read_from": "pixels",
+    "source": "text",
+    "image_note": "text gives ~45%, ~41% and ~60%; the green share in F3b looks well below 41% by eye",
+    "requires_unseen": [
+     "colour = layer (red first Ni3Al, green second Ni3Al, blue Al-enriched (Ni)) and highlighted grains = OR grains (caption and linked text F3)"
+    ]
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F3a",
+    "10.1016/j.actamat.2021.116713#F3b",
+    "10.1016/j.actamat.2021.116713#F3c"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o11",
+   "type": "OBS/morphology/distribution",
+   "label": "F4a: a thick multi-row layer of new grains under the left NiAl grain thins to a sparse single row right of the NiAl grain boundary",
+   "attrs": {
+    "technique": "EBSD:IPF+IQ",
+    "read_from": "pixels",
+    "source": "text",
+    "requires_unseen": [
+     "NiAl on top, (Ni) below (linked text F1)",
+     "F4a contains a grain boundary in NiAl (caption F4)"
+    ]
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F4a"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o12",
+   "type": "OBS/morphology/distribution",
+   "label": "F4b: few isolated grains above the left (Ni) grain, a dense continuous layer above the right (Ni) grain",
+   "attrs": {
+    "technique": "EBSD:IPF+IQ",
+    "read_from": "pixels",
+    "source": "text",
+    "requires_unseen": [
+     "NiAl on top, (Ni) below (linked text F1)",
+     "F4b contains a grain boundary in (Ni) (caption F4)"
+    ]
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F4b"
+   ],
+   "modality": "spatial_map",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o13",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Grain-density histogram: 12 interfaces at 0-0.75 /um, 9 at 2.1-4.4 /um, none in between",
+   "attrs": {
+    "technique": "EBSD:grain_statistics",
+    "read_from": "axis",
+    "source": "figure",
+    "image_note": "classes labelled 'low/high nucleation rate' on the plot; 21 interfaces counted vs '20 configurations' in text; 1.5 /um cut falls in an empty gap",
+    "requires_unseen": []
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F5a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o14",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Grain-size histograms at low and high nucleation interfaces both peak near 0.35 um; the high set has more 0.6-0.8 um grains and a tail to ~2.7 um",
+   "attrs": {
+    "technique": "EBSD:grain_statistics",
+    "read_from": "annotation",
+    "source": "figure",
+    "image_note": "the two sets are plotted on different y-axes (0-140 vs 0-50), so the visual overlap depends on that scaling; low set cumulated over 7 interfaces",
+    "requires_unseen": [],
+    "annotation_match": "highnucleationrate | lownucleationrate"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116713#F5b"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "a2",
+   "type": "DSC/limitation",
+   "label": "No specific crystallographic feature of the initial (Ni)/NiAl interface was found to set the nucleation-rate class or texture",
+   "attrs": {
+    "kind": "scope",
+    "source": "text",
+    "requires_unseen": [
+     "stated in F5 linked text; the correlation analysis is not shown"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "a3",
+   "type": "DSC/limitation",
+   "label": "Grain-density statistics count all new grains, since EBSD cannot tell Ni3Al from (Ni)",
+   "attrs": {
+    "kind": "method",
+    "source": "text",
+    "requires_unseen": [
+     "stated in F4/F5 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  }
+ ],
+ "edges": [
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n5",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n6",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n8",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n10",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n25",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n25",
+   "dst": "n9",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n12",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n7",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint"
+  },
+  {
+   "src": "n12",
+   "dst": "n7",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint"
+  },
+  {
+   "src": "n4",
+   "dst": "n13",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n13",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n17",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n16",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n16",
+   "dst": "n23",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n23",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n16",
+   "dst": "n21",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n20",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n20",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n23",
+   "dst": "n20",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n21",
+   "dst": "n20",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n20",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n14",
+   "dst": "n13",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n13",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n13",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n22",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n22",
+   "dst": "n26",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n19",
+   "dst": "n6",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "n24",
+   "dst": "n17",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "k1",
+   "dst": "n10",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k2",
+   "dst": "n12",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k3",
+   "dst": "n25",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k5",
+   "dst": "n19",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "o1",
+   "dst": "n6",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o2",
+   "dst": "n25",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "o3",
+   "dst": "n19",
+   "rel": "evidences",
+   "mm_op": "inspect_local_feature"
+  },
+  {
+   "src": "o17",
+   "dst": "n12",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o4",
+   "dst": "n7",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o5",
+   "dst": "n8",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o5",
+   "dst": "o6",
+   "rel": "derives",
+   "mm_op": "fit_model",
+   "form": "linearised"
+  },
+  {
+   "src": "o6",
+   "dst": "n9",
+   "rel": "evidences",
+   "mm_op": "compare_coplotted_quantities"
+  },
+  {
+   "src": "o16",
+   "dst": "n8",
+   "rel": "qualifies",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o7",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "assign_features"
+  },
+  {
+   "src": "o8",
+   "dst": "n15",
+   "rel": "evidences",
+   "mm_op": "assign_features"
+  },
+  {
+   "src": "o9",
+   "dst": "n18",
+   "rel": "evidences",
+   "mm_op": "compare_coplotted_quantities"
+  },
+  {
+   "src": "o10",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o11",
+   "dst": "n23",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o12",
+   "dst": "n23",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o13",
+   "dst": "n16",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "o14",
+   "dst": "n21",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "a2",
+   "dst": "n17",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "a3",
+   "dst": "n16",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n26",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint"
+  },
+  {
+   "src": "n12",
+   "dst": "n26",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint"
+  },
+  {
+   "src": "o4",
+   "dst": "n26",
+   "rel": "evidences",
+   "mm_op": "measure_feature_metric"
+  },
+  {
+   "src": "k6",
+   "dst": "n17",
+   "rel": "premise_for",
+   "mm_op": null
+  }
+ ],
+ "review": {
+  "judge": "senior investigator",
+  "verdict": "accept with fixes",
+  "changes": [
+   "split n7 -> n7 (thicker Ni3Al layer on NiAl side) + n26 (coarser Ni3Al grains on NiAl side); n26 side (spine=false); n9->n26 and n12->n26 causes (joint), o4->n26 evidences, n22 explains moved n7 -> n26",
+   "added k6 KNW/model (heterogeneous nucleation energetics) premise_for n17: spine MEC n17 had no OBS evidence or KNW premise",
+   "read_from axis/pixels -> annotation on o1, o2, o3, o14",
+   "source fixes on n16, n21, n23, o10, o11, o12 (-> text, requires_unseen filled) and o17 (text -> figure)",
+   "spine stays 18 nodes; audits 4 (o16, n24, a2, a3); no merges; no mode changes"
+  ],
+  "split_nodes": [
+   {
+    "node": "n7",
+    "into": [
+     "n7",
+     "n26"
+    ],
+    "why": "label stated two claims (layer thickness and grain size asymmetry); n22 (immobile boundaries) explains only the grain-size part"
+   }
+  ],
+  "merged_nodes": [],
+  "read_from_changes": [
+   {
+    "node": "o1",
+    "from": "axis",
+    "to": "annotation",
+    "annotation_match": "NiAl | (Ni) | pure (Ni)",
+    "why": "plateaus are assigned to the in-image region labels NiAl, (Ni), pure (Ni) listed for F1b"
+   },
+   {
+    "node": "o2",
+    "from": "axis",
+    "to": "annotation",
+    "annotation_match": "NiAl | (Ni)",
+    "why": "which side of the profile is NiAl vs (Ni) comes from the listed F1b region labels"
+   },
+   {
+    "node": "o3",
+    "from": "pixels",
+    "to": "annotation",
+    "annotation_match": "STEM BF | pure (Ni)",
+    "why": "label locates the cell network at the region labelled 'pure (Ni)' in the STEM BF panel"
+   },
+   {
+    "node": "o14",
+    "from": "axis",
+    "to": "annotation",
+    "annotation_match": "highnucleationrate | lownucleationrate",
+    "why": "the two histograms are identified by the listed F5b legend strings"
+   }
+  ],
+  "mode_changes": [],
+  "mode_checked": [
+   {
+    "node": "n7",
+    "causes_from": [
+     "n9",
+     "n12"
+    ],
+    "mode": "joint",
+    "kept": true,
+    "why": "no caption shows a choice; F2 linked text attributes the thickness difference to the Kirkendall shift 'in combination with' different interface velocities"
+   },
+   {
+    "node": "n26",
+    "causes_from": [
+     "n9",
+     "n12"
+    ],
+    "mode": "joint",
+    "kept": true,
+    "why": "new node; same F2 linked-text attribution ('in combination')"
+   }
+  ],
+  "source_changes": [
+   {
+    "node": "n16",
+    "from": "figure",
+    "to": "text",
+    "requires_unseen": [
+     "1.5 grains/um class boundary stated in F5 linked text (not on the F5a axis)",
+     "grain density used as nucleation-rate proxy (caption/linked text F5)"
+    ],
+    "why": "the 1.5 grains/um cut is a text value; the histogram only shows an empty gap"
+   },
+   {
+    "node": "n23",
+    "from": "figure",
+    "to": "text",
+    "requires_unseen": [
+     "F4a shows a grain boundary in NiAl and F4b one in (Ni), with NiAl on top (caption F4, linked text F1)",
+     "new grains are Ni3Al/(Ni) nuclei (EBSD cannot separate them; linked text F4)"
+    ],
+    "why": "F4 panels carry no labels; which parent holds the boundary and which side is NiAl are caption/text facts"
+   },
+   {
+    "node": "n21",
+    "from": "figure",
+    "to": "text",
+    "requires_unseen": [
+     "'no pronounced difference' and 'grain growth little sensitive to interface crystallography' stated in F5 linked text",
+     "low/high nucleation classes differ in interface crystallography (argument in F4/F5 linked text)",
+     "the two histograms use different y-axes, so similarity is a scaled judgement"
+    ],
+    "why": "sensitivity to interface crystallography is the paper's inference, not readable from F5b"
+   },
+   {
+    "node": "o10",
+    "from": "figure",
+    "to": "text",
+    "requires_unseen": [
+     "colour = layer (red first Ni3Al, green second Ni3Al, blue Al-enriched (Ni)) and highlighted grains = OR grains (caption and linked text F3)"
+    ],
+    "why": "the colour key and the meaning of highlighting are caption facts no panel shows"
+   },
+   {
+    "node": "o11",
+    "from": "figure",
+    "to": "text",
+    "requires_unseen": [
+     "NiAl on top, (Ni) below (linked text F1)",
+     "F4a contains a grain boundary in NiAl (caption F4)"
+    ],
+    "why": "F4a has no in-image labels; parent phases and the NiAl grain boundary are caption/text facts"
+   },
+   {
+    "node": "o12",
+    "from": "figure",
+    "to": "text",
+    "requires_unseen": [
+     "NiAl on top, (Ni) below (linked text F1)",
+     "F4b contains a grain boundary in (Ni) (caption F4)"
+    ],
+    "why": "F4b labels are illegible OCR; parent phases and the (Ni) grain boundary are caption/text facts"
+   },
+   {
+    "node": "o17",
+    "from": "text",
+    "to": "figure",
+    "requires_unseen": [],
+    "why": "label reads only the dashed line and the plateau; the Kirkendall meaning (caption) is used by n12, which is already text"
+   }
+  ],
+  "matmech": {
+   "supports": 2,
+   "contradicts": 2,
+   "not_covered": 0,
+   "pairs": [
+    {
+     "m": "M1",
+     "cause": "diffusion annealing at 650 C",
+     "effect": "two Ni3Al layers with K-S (to NiAl) and near cube-on-cube (to (Ni)) orientation relationships",
+     "verdict": "supports",
+     "nodes": [
+      "n5",
+      "n6",
+      "n13",
+      "n14",
+      "n15"
+     ]
+    },
+    {
+     "m": "M2",
+     "cause": "Ni3Al grains grown into NiAl with K-S relationships",
+     "effect": "reduced grain-boundary mobility, slower growth",
+     "verdict": "contradicts",
+     "nodes": [
+      "n14",
+      "n15",
+      "n22",
+      "n9",
+      "n26"
+     ]
+    },
+    {
+     "m": "M3",
+     "cause": "longer annealing (to 6-48 h)",
+     "effect": "oriented grain fraction ~50% -> ~80%",
+     "verdict": "supports",
+     "nodes": [
+      "n5",
+      "n13"
+     ]
+    },
+    {
+     "m": "M4",
+     "cause": "formation of Al-enriched (Ni) grains",
+     "effect": "diffusion-induced recrystallization and accelerated (Ni) grain growth",
+     "verdict": "contradicts",
+     "nodes": [
+      "n19",
+      "n6",
+      "k5",
+      "n18"
+     ]
+    }
+   ]
+  }
+ },
+ "cue_overrides": [
+  {
+   "node": "n6",
+   "panel": "10.1016/j.actamat.2021.116713#F1b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o1",
+   "panel": "10.1016/j.actamat.2021.116713#F1b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n8",
+   "panel": "10.1016/j.actamat.2021.116713#F2",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n9",
+   "panel": "10.1016/j.actamat.2021.116713#F2",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n7",
+   "panel": "10.1016/j.actamat.2021.116713#F2",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o5",
+   "panel": "10.1016/j.actamat.2021.116713#F2",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o6",
+   "panel": "10.1016/j.actamat.2021.116713#F2",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n16",
+   "panel": "10.1016/j.actamat.2021.116713#F5a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o13",
+   "panel": "10.1016/j.actamat.2021.116713#F5a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o7",
+   "panel": "10.1016/j.actamat.2021.116713#F3a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "n15",
+   "panel": "10.1016/j.actamat.2021.116713#F3b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o8",
+   "panel": "10.1016/j.actamat.2021.116713#F3b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o9",
+   "panel": "10.1016/j.actamat.2021.116713#F3c",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  }
+ ],
+ "second_read": {
+  "units": 29,
+  "verdicts": {
+   "CORRECT": 13,
+   "PARTIAL": 15,
+   "WRONG": 1,
+   "ABSTAIN": 0,
+   "UNPARSED": 0
+  },
+  "wrong": [
+   {
+    "node": "o12",
+    "panels": [
+     "F4b"
+    ]
+   }
+  ]
+ }
+}
