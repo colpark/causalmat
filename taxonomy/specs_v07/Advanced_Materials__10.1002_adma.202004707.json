@@ -1,0 +1,388 @@
+{
+ "file": "Advanced_Materials__10.1002_adma.202004707.html",
+ "short": "Fused Aromatic Network with Exceptionally High Carrier Mobil",
+ "journal": "Advanced_Materials",
+ "year": null,
+ "title": "Fused Aromatic Network with Exceptionally High Carrier Mobility",
+ "doi": "Advanced_Materials/10.1002_adma.202004707",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: SEM, TEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: DIFF",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Pristine polymeric semiconductors lack high carrier mobility. A fully fused aromatic 2D network should carry charge with exceptionally high mobility.",
+   "detail": "Absorbed: n1 (HYP/need), n2 (HYP/hypothesis), n3 (DES/base_system), n4 (DES/route), n5 (PRC/synthesis), n12 (PRC/deposition), n13 (DES/variable_sweep), n19 (DES/modification), n18 (PRC/treatment). Premises: Aromatization energy gain drives condensation of the amine and ketone units to pyrazine rings",
+   "figs": [],
+   "source": "n1, n2, n3, n4, n5, n12, n13, n19, n18"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Pyrazine-fused aromatic layered framework with evenly spaced holes lined by 12 N atoms. C5N is a crystalline 2D hexagonal lattice with ABC layer stacking",
+   "detail": "Absorbed: n6 (STR/chemistry/bonding), n8 (STR/phase/identity)",
+   "figs": [],
+   "source": "n6, n8"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Gate modulation grows as flakes thin: on/off ~1.7 at 43 nm, none at 84 nm. 43 nm C5N flake: electron mobility 996 and hole mobility 501 cm2 V-1 s-1.",
+   "detail": "Absorbed: n14 (PRP/value), n16 (PRP/descriptor), n17 (MEC/pathway), n21 (MEC/pathway), n20 (PRP/value), n29 (PRP/value). Premises: Multilayer reduced graphene oxide shows the same rise of on/off ratio with decreasing thickness; Extended pi-conjugation across fused aromatic rings and close interlayer pi-stacking delocalise charge carriers; Adsorbed strong acids such as HCl dope sp2 carbon frameworks by charge transfer",
+   "figs": [],
+   "source": "n14, n16, n17, n21, n20, n29"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "These are the highest mobilities with discernible on/off ratio reported for pristine polymeric materials. Pyrazine-fused 2D network C5N reaches ~1000 cm2/Vs electron mobility and ~1e3 S/cm after HCl doping",
+   "detail": "Absorbed: n23 (DSC/comparison), n22 (DSC/conclusion)",
+   "figs": [],
+   "source": "n23, n22"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 1,
+   "row": "S1",
+   "line": 0,
+   "title": "DIFF, F2",
+   "tech": "DIFF",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adma.202004707#F2a, 10.1002/adma.202004707#F2d",
+   "panel_ids": [
+    "10.1002/adma.202004707#F2a",
+    "10.1002/adma.202004707#F2d"
+   ],
+   "head": "Experimental PXRD reflections at ~10.4 and ~26.5 deg coincide with the two main peaks of the simulated ABC-stacking pattern. The strong ~5.5 deg reflection of the simulated AA and AB patterns is absent from the experimental pattern",
+   "solves": "C5N is a crystalline 2D hexagonal lattice with ABC layer stacking",
+   "op": "overlay model on data",
+   "verdict": "partial",
+   "source": "o1, o2",
+   "tech_source": "modality",
+   "note": "trace identities from the on-image labels 'Experimental PXRD' and 'Simulated ABCstacking'; F2d shows the ABC cell used",
+   "claims": [
+    "n8"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n8 keeps shown support from o6, o12 after removal."
+  },
+  {
+   "id": "M2",
+   "lane": 1,
+   "row": "S1",
+   "line": 1,
+   "title": "DIFF, F2",
+   "tech": "DIFF",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adma.202004707#F2a",
+   "panel_ids": [
+    "10.1002/adma.202004707#F2a"
+   ],
+   "head": "Simulated ABC reflections near 14 and 18 deg are missing from the experimental trace, which shows a broad hump at 20-22 deg instead",
+   "solves": "C5N is a crystalline 2D hexagonal lattice with ABC layer stacking",
+   "op": "overlay model on data",
+   "verdict": "shown",
+   "source": "o6",
+   "tech_source": "modality",
+   "note": "audit: only the two strongest ABC reflections are matched; minor ABC peaks absent, extra diffuse intensity present",
+   "audit": true,
+   "claims": [
+    "n8"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S1: "
+  },
+  {
+   "id": "C3",
+   "lane": 2,
+   "row": "S1",
+   "line": 2,
+   "title": "PHYS:porosity, XPS:region, F3",
+   "tech": "PHYS:porosity, XPS:region",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adma.202004707#F3c",
+   "panel_ids": [
+    "10.1002/adma.202004707#F3c"
+   ],
+   "head": "XPS survey shows only C 1s, N 1s and O 1s peaks. N2 uptake stays below ~20 cm3/g up to P/P0 0.8 and rises only near saturation; NLDFT inset peaks at 12.11 and 21.96 nm",
+   "solves": "",
+   "op": "assign features, read characteristic point",
+   "verdict": "shown",
+   "source": "o8, o12",
+   "tech_source": "label",
+   "note": "cited as whole figure F3: crop F3b carries OCR cue 'micrograph', incompatible with PHYS; text S_BET 38.4 m2/g",
+   "detail": "o8: XPS survey shows only C 1s, N 1s and O 1s peaks; o12: N2 uptake stays below ~20 cm3/g up to P/P0 0.8 and rises only near saturation; NLDFT inset peaks at 12.11 and 21.96 nm",
+   "claims": [
+    "n6",
+    "n8"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n6, n8 keeps shown support from o9, o2, o6 after removal."
+  },
+  {
+   "id": "C4",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "XPS:region, F3",
+   "tech": "XPS:region",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adma.202004707#F3c",
+   "panel_ids": [
+    "10.1002/adma.202004707#F3c"
+   ],
+   "head": "In the XPS survey the O 1s peak stands higher above background than the N 1s peak. N 1s resolved into 398.8 eV (pyrazine N) and 400.7 eV (edge -NH2); C 1s into C-C sp2, C-N sp2 and C-heteroatom",
+   "solves": "Pyrazine-fused aromatic layered framework with evenly spaced holes lined by 12 N atoms",
+   "op": "compare coplotted quantities",
+   "verdict": "shown",
+   "source": "o9, o10",
+   "tech_source": "label+none",
+   "note": "audit: O signal comparable to or above N (even allowing for sensitivity factors), large for an ideal C5N basal plane; text ascribes O to edge keto groups and adsorbed moisture only",
+   "audit": true,
+   "detail": "o9: In the XPS survey the O 1s peak stands higher above background than the N 1s peak; o10: N 1s resolved into 398.8 eV (pyrazine N) and 400.7 eV (edge -NH2); C 1s into C-C sp2, C-N sp2 and C-heteroatom",
+   "inner_audit": "o9: audit: O signal comparable to or above N (even allowing for sensitivity factors), large for an ideal C5N basal plane; text ascribes O to edge keto groups and adsorbed moisture only",
+   "claims": [
+    "n6"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S1: o10 text_silent"
+  },
+  {
+   "id": "M5",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "TEM:HRTEM, F3",
+   "tech": "TEM:HRTEM",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adma.202004707#F3e",
+   "panel_ids": [
+    "10.1002/adma.202004707#F3e"
+   ],
+   "head": "HRTEM inset shows lattice fringes spaced 0.34 nm; FFT arcs marked (003)",
+   "solves": "",
+   "op": "measure feature metric",
+   "verdict": "partial",
+   "source": "o7",
+   "tech_source": "label",
+   "note": "values written on the image; packet marks the crop annotated: false despite these OCR tokens. Fringes visible only in the boxed area; most of the field looks disordered",
+   "claims": [
+    "n17"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n17 keeps shown support from o3, o5."
+  },
+  {
+   "id": "M6",
+   "lane": 1,
+   "row": "S2",
+   "line": 1,
+   "title": "DIFF, F2",
+   "tech": "DIFF",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adma.202004707#F2a",
+   "panel_ids": [
+    "10.1002/adma.202004707#F2a"
+   ],
+   "head": "Experimental reflections indexed (101) at ~10.4 deg and (003) at ~26.5 deg",
+   "solves": "",
+   "op": "convert to quantity",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "modality",
+   "note": "hkl labels are OCR tokens on F2a but not in the packet's annotation list; text positions 10.38 and 26.26 deg; the (003) peak carries a shoulder near 24.5 deg",
+   "claims": [
+    "n17"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n17 keeps shown support from o5 after removal."
+  },
+  {
+   "id": "M7",
+   "lane": 1,
+   "row": "S2",
+   "line": 2,
+   "title": "DIFF, F2",
+   "tech": "DIFF",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adma.202004707#F2a",
+   "panel_ids": [
+    "10.1002/adma.202004707#F2a"
+   ],
+   "head": "Pawley-refined profile follows the experimental pattern with a nearly flat difference curve",
+   "solves": "",
+   "op": "overlay model on data",
+   "verdict": "shown",
+   "source": "o5",
+   "tech_source": "modality",
+   "note": "text Rp 5.22%, Rwp 7.96%; a Pawley fit refines cell and profile only, so it tests the cell, not the ABC atom positions",
+   "claims": [
+    "n17"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n17 keeps shown support from o3 after removal."
+  },
+  {
+   "id": "C8",
+   "lane": 2,
+   "row": "S2",
+   "line": 3,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "I_DS-V_GS modulation grows as thickness falls: 84 nm flat at 2.0 mA, 43 nm minimum ~0.9 mA near -20 V rising to ~1.55 mA at +80 V. Normalised channel resistance R_DS*W/L peaks at ~900 ohm near -20 V for 43 nm and is flat at ~400 ohm for 84 nm",
+   "solves": "Gate modulation grows as flakes thin: on/off ~1.7 at 43 nm, none at 84 nm",
+   "op": "compare across conditions, convert to quantity, recognize signature",
+   "verdict": "shown",
+   "source": "o16, o17",
+   "tech_source": "none",
+   "note": "V_DS 0.1 V; 53 nm minimum near -15 V; 62 nm nearly flat, so the Dirac point of -6 V (text) cannot be located on the figure",
+   "detail": "o16: I_DS-V_GS modulation grows as thickness falls: 84 nm flat at 2.0 mA, 43 nm minimum ~0.9 mA near -20 V rising to ~1.55 mA at +80 V; o17: Normalised channel resistance R_DS*W/L peaks at ~900 ohm near -20 V for 43 nm and is flat at ~400 ohm for 84 nm",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n14 (o16, o17)."
+  },
+  {
+   "id": "C9",
+   "lane": 2,
+   "row": "S2",
+   "line": 4,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Pristine flake conductivity 1/(R_DS*W/L * t) is ~260-450 S/cm, far above the 7 S/cm undoped start of the doping series",
+   "solves": "HCl doping raises C5N conductivity by two orders of magnitude over pristine C5N",
+   "op": "cross check consistency",
+   "verdict": "shown",
+   "source": "o18",
+   "tech_source": "none",
+   "note": "audit: 43 nm: 1/(900 ohm x 43 nm) ~ 260 S/cm, 84 nm: 1/(400 ohm x 84 nm) ~ 300 S/cm; doped plateau ~1e3 S/cm is only ~3x the pristine flakes. The doping sample may be a drop-cast film, not a flake (not stated)",
+   "audit": true,
+   "detail": "o18: Pristine flake conductivity 1/(R_DS*W/L * t) is ~260-450 S/cm, far above the 7 S/cm undoped start of the doping series",
+   "inner_audit": "o18: audit: 43 nm: 1/(900 ohm x 43 nm) ~ 260 S/cm, 84 nm: 1/(400 ohm x 84 nm) ~ 300 S/cm; doped plateau ~1e3 S/cm is only ~3x the pristine flakes. The doping sample may be a drop-cast film, not a flake (not stated)",
+   "claims": [
+    "n29"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: "
+  },
+  {
+   "id": "C10",
+   "lane": 2,
+   "row": "S2",
+   "line": 5,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Log conductivity rises steeply from ~7 S/cm (20 C) to ~200 S/cm (40 C), then to ~1e3 S/cm at 120 C and stays flat to 160 C",
+   "solves": "Conductivity rises with doping temperature from ~7 S/cm at 20 C to ~1e3 S/cm, saturating from 120 C",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o19",
+   "tech_source": "none",
+   "note": "doping temperatures written beside each point",
+   "detail": "o19: Log conductivity rises steeply from ~7 S/cm (20 C) to ~200 S/cm (40 C), then to ~1e3 S/cm at 120 C and stays flat to 160 C",
+   "claims": [
+    "n20"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n20 (o19)."
+  },
+  {
+   "id": "C11",
+   "lane": 2,
+   "row": "S2",
+   "line": 6,
+   "title": "evidence",
+   "tech": "",
+   "figs": [],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Table S5: electron mobility 996 and hole mobility 501 cm2 V-1 s-1 in the 43 nm flake",
+   "solves": "43 nm C5N flake: electron mobility 996 and hole mobility 501 cm2 V-1 s-1",
+   "op": "",
+   "verdict": null,
+   "source": "o20",
+   "tech_source": "none",
+   "detail": "o20: Table S5: electron mobility 996 and hole mobility 501 cm2 V-1 s-1 in the 43 nm flake",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and n16 has no other figure-backed support."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "supports"
+  ],
+  [
+   "S0",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}

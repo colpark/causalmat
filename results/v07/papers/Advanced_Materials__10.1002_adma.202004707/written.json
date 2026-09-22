@@ -1,0 +1,1103 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.202004707",
+ "title": "Fused Aromatic Network with Exceptionally High Carrier Mobility",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.202004707",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n8",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "n8",
+    "n17",
+    "n16",
+    "n23"
+   ],
+   "branch": "evidences edge o1 -> n8",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "overlay_model_on_data",
+     "panel_ids": [
+      "10.1002/adma.202004707#F2a",
+      "10.1002/adma.202004707#F2d"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    },
+    {
+     "node": "n23",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n8 (node-level necessity of o1: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['Experimental (dark red line)', 'ABC-stacking model']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1002/adma.202004707#F2a carries ['Experimental PXRD', 'Simulated AA stacking', 'SimulatedABstacking', 'Simulated ABCstacking'] shared with graded targets ['o1']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202004707#F2a",
+    "10.1002/adma.202004707#F2d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202004707#F2a",
+     "sample": "Experimental (dark red line)",
+     "sample_source": "caption",
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": "Experimental (dark red line)"
+    },
+    {
+     "panel": "10.1002/adma.202004707#F2d",
+     "sample": "ABC-stacking model",
+     "sample_source": "caption",
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": "ABC-stacking model"
+    }
+   ],
+   "graded_targets": [
+    "o1"
+   ],
+   "target_verdicts": {
+    "o1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202004707#F2a",
+     "annotations": [
+      "Experimental PXRD",
+      "....Pawley-refinedpattem",
+      "Difference plot",
+      "2DFAN(CN)",
+      "Simulated AA stacking",
+      "SimulatedABstacking",
+      "Simulated ABCstacking",
+      "20(\u00b0)"
+     ],
+     "hits": [
+      {
+       "text": "Experimental PXRD",
+       "shared": [
+        "experimental"
+       ]
+      },
+      {
+       "text": "Simulated AA stacking",
+       "shared": [
+        "simulat",
+        "stack"
+       ]
+      },
+      {
+       "text": "SimulatedABstacking",
+       "shared": [
+        "simulatedabstack"
+       ]
+      },
+      {
+       "text": "Simulated ABCstacking",
+       "shared": [
+        "simulat"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Pristine polymeric semiconductors lack high carrie -> A fully fused aromatic 2D network should carry cha -> Build the network from hexaaminobenzene (HAB) and  -> HAB trihydrochloride and PTK condense in TFMSA at "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2a, F2d [XRD] and estimate (overlay model on data)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Experimental PXRD reflections at ~10.4 and ~26.5 deg coincide with the two main peaks of the simulated ABC-stacking pattern"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: C5N is a crystalline 2D hexagonal lattice with ABC layer stacking"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n17",
+      "n16",
+      "n23"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Fully fused aromatic layers, pi-stacked at 3.4 A in ABC order, delocalise carriers and allow high mo"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Materials/10.1002_adma.202004707",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n8",
+   "evidence": [
+    "o2"
+   ],
+   "hidden": [
+    "o2",
+    "n8",
+    "n17",
+    "n16",
+    "n23"
+   ],
+   "branch": "evidences edge o2 -> n8",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o2",
+     "role": "evidence",
+     "op": "overlay_model_on_data",
+     "panel_ids": [
+      "10.1002/adma.202004707#F2a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    },
+    {
+     "node": "n23",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n8 (node-level necessity of o2: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['Experimental (dark red line)']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1002/adma.202004707#F2a carries ['Experimental PXRD', 'Simulated AA stacking', 'SimulatedABstacking', 'Simulated ABCstacking'] shared with graded targets ['o2']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202004707#F2a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202004707#F2a",
+     "sample": "Experimental (dark red line)",
+     "sample_source": "caption",
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": "Experimental (dark red line)"
+    }
+   ],
+   "graded_targets": [
+    "o2"
+   ],
+   "target_verdicts": {
+    "o2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202004707#F2a",
+     "annotations": [
+      "Experimental PXRD",
+      "....Pawley-refinedpattem",
+      "Difference plot",
+      "2DFAN(CN)",
+      "Simulated AA stacking",
+      "SimulatedABstacking",
+      "Simulated ABCstacking",
+      "20(\u00b0)"
+     ],
+     "hits": [
+      {
+       "text": "Experimental PXRD",
+       "shared": [
+        "experimental"
+       ]
+      },
+      {
+       "text": "Simulated AA stacking",
+       "shared": [
+        "simulat"
+       ]
+      },
+      {
+       "text": "SimulatedABstacking",
+       "shared": [
+        "simulatedabstack"
+       ]
+      },
+      {
+       "text": "Simulated ABCstacking",
+       "shared": [
+        "simulat"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Pristine polymeric semiconductors lack high carrie -> A fully fused aromatic 2D network should carry cha -> Build the network from hexaaminobenzene (HAB) and  -> HAB trihydrochloride and PTK condense in TFMSA at "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2a [XRD] and estimate (overlay model on data)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The strong ~5.5 deg reflection of the simulated AA and AB patterns is absent from the experimental pattern"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: C5N is a crystalline 2D hexagonal lattice with ABC layer stacking"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n17",
+      "n16",
+      "n23"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Fully fused aromatic layers, pi-stacked at 3.4 A in ABC order, delocalise carriers and allow high mo"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Materials/10.1002_adma.202004707",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n8",
+   "evidence": [
+    "o6"
+   ],
+   "hidden": [
+    "o6",
+    "n17",
+    "n16",
+    "n23",
+    "n2"
+   ],
+   "branch": "qualifies edge o6 -> n8",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o6",
+     "role": "audit",
+     "op": "overlay_model_on_data",
+     "panel_ids": [
+      "10.1002/adma.202004707#F2a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    },
+    {
+     "node": "n23",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n8 (node-level necessity of o6: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['Experimental (dark red line)']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o6 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1002/adma.202004707#F2a carries ['Experimental PXRD', 'Simulated AA stacking', 'SimulatedABstacking', 'Simulated ABCstacking', '20(\u00b0)'] shared with graded targets ['o6']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n23",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202004707#F2a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202004707#F2a",
+     "sample": "Experimental (dark red line)",
+     "sample_source": "caption",
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": "Experimental (dark red line)"
+    }
+   ],
+   "graded_targets": [
+    "o6"
+   ],
+   "target_verdicts": {
+    "o6": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202004707#F2a",
+     "annotations": [
+      "Experimental PXRD",
+      "....Pawley-refinedpattem",
+      "Difference plot",
+      "2DFAN(CN)",
+      "Simulated AA stacking",
+      "SimulatedABstacking",
+      "Simulated ABCstacking",
+      "20(\u00b0)"
+     ],
+     "hits": [
+      {
+       "text": "Experimental PXRD",
+       "shared": [
+        "experimental"
+       ]
+      },
+      {
+       "text": "Simulated AA stacking",
+       "shared": [
+        "simulat"
+       ]
+      },
+      {
+       "text": "SimulatedABstacking",
+       "shared": [
+        "simulatedabstack"
+       ]
+      },
+      {
+       "text": "Simulated ABCstacking",
+       "shared": [
+        "simulat"
+       ]
+      },
+      {
+       "text": "20(\u00b0)",
+       "shared": [
+        "20"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: C5N is a crystalline 2D hexagonal lattice with ABC layer stacking"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2a [XRD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Simulated ABC reflections near 14 and 18 deg are missing from the experimental trace, which shows a broad hump at 20-22 deg instead"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Advanced_Materials/10.1002_adma.202004707",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n6",
+   "evidence": [
+    "o9"
+   ],
+   "hidden": [
+    "o9",
+    "n17",
+    "n16",
+    "n23",
+    "n2"
+   ],
+   "branch": "qualifies edge o9 -> n6",
+   "fm_family": "XPS",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "XPS"
+   ],
+   "channels_involved": [
+    "XPS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o9",
+     "role": "audit",
+     "op": "compare_coplotted_quantities",
+     "panel_ids": [
+      "10.1002/adma.202004707#F3c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n6",
+     "role": "claim"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    },
+    {
+     "node": "n23",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['XPS spectrum']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o9 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F3c']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n23",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202004707#F3c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202004707#F3c",
+     "sample": "XPS spectrum",
+     "sample_source": "caption",
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": "XPS spectrum"
+    }
+   ],
+   "graded_targets": [
+    "o9"
+   ],
+   "target_verdicts": {
+    "o9": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202004707#F3c",
+     "annotations": [
+      "C1s",
+      "O1s",
+      "N1s"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Pyrazine-fused aromatic layered framework with evenly spaced holes lined by 12 N atoms"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3c [XPS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: In the XPS survey the O 1s peak stands higher above background than the N 1s peak"
+    }
+   ],
+   "question": "Given the claim under test above and the annotated XPS survey spectrum in panel F3c (peaks marked C1s, O1s, N1s), what does the panel show when the O1s and N1s peaks are compared?",
+   "answer_key": "In the XPS survey shown in panel F3c, the O1s peak stands higher above background than the N1s peak (o9).",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel, node o9.",
+   "answer_key_nodes": [
+    "o9"
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Advanced_Materials/10.1002_adma.202004707",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n29",
+   "evidence": [
+    "o18"
+   ],
+   "hidden": [
+    "o18",
+    "n22"
+   ],
+   "branch": "qualifies edge o18 -> n29",
+   "fm_family": "TRANSPORT",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "TRANSPORT"
+   ],
+   "channels_involved": [
+    "TRANSPORT"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n19",
+     "role": "context"
+    },
+    {
+     "node": "n18",
+     "role": "context"
+    },
+    {
+     "node": "n20",
+     "role": "context"
+    },
+    {
+     "node": "o18",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n29",
+     "role": "claim"
+    },
+    {
+     "node": "n22",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:601",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n22",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": true,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n29"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: HCl doping raises C5N conductivity by two orders of magnitude over pristine C5N"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o18"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel:  [TRANSPORT]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o18"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Pristine flake conductivity 1/(R_DS*W/L * t) is ~260-450 S/cm, far above the 7 S/cm undoped start of the doping series"
+    }
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Advanced_Materials/10.1002_adma.202004707",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "n4",
+   "evidence": [],
+   "branch": "DES/route n4",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "n4"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
