@@ -1,0 +1,1319 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.202004711",
+ "title": "Constructing Li-Rich Artificial SEI Layer in Alloy-Polymer Composite Electrolyte to Achieve High Ionic Conductivity for All-Solid-State Lithium Metal Batteries",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.202004711",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n8",
+   "evidence": [
+    "o6"
+   ],
+   "hidden": [
+    "o6",
+    "n8",
+    "n9",
+    "n11",
+    "n13",
+    "n18",
+    "n21"
+   ],
+   "branch": "evidences edge o6 -> n8",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o6",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1002/adma.202004711#F3c"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n9",
+     "role": "downstream"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    },
+    {
+     "node": "n21",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane TEM necessary for n8 (node-level necessity of o6: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o6 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1002/adma.202004711#F3c carries ['PEO matrix', 'Interface', 'layer'] shared with graded targets ['o6']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202004711#F3c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202004711#F3c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o6"
+   ],
+   "target_verdicts": {
+    "o6": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "o6"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202004711#F3c",
+     "annotations": [
+      "PEO matrix",
+      "LinSis",
+      "Interface",
+      "layer",
+      "20 nm"
+     ],
+     "hits": [
+      {
+       "text": "PEO matrix",
+       "shared": [
+        "matrix"
+       ]
+      },
+      {
+       "text": "Interface",
+       "shared": [
+        "interface"
+       ]
+      },
+      {
+       "text": "layer",
+       "shared": [
+        "layer"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: PEO-based solid polymer electrolytes conduct Li+ t -> A Li-rich artificial SEI layer built around Li-all -> Add ball-milled Li alloy particles LixM (Li21Si5,  -> PEO, LiTFSI and LixM mixed in DOL-DME and dried in"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F3c [TEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: TEM: dark Li21Si5 particle wrapped by a band marked as interface layer between it and the PEO matrix"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: A distinct amorphous interface layer about 15-25 nm thick separates the imaged Li21Si5 particle from the PEO matrix"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n9",
+      "n11",
+      "n13",
+      "n18",
+      "n21"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Li spreads from the alloy particle into PEO as a gradient over tens of nm while Si stays confined to"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Materials/10.1002_adma.202004711",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n8",
+   "evidence": [
+    "o7"
+   ],
+   "hidden": [
+    "o7",
+    "n8",
+    "n9",
+    "n11",
+    "n13",
+    "n18",
+    "n21"
+   ],
+   "branch": "evidences edge o7 -> n8",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o7",
+     "role": "evidence",
+     "op": "measure_feature_metric",
+     "panel_ids": [
+      "10.1002/adma.202004711#F3c"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n9",
+     "role": "downstream"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    },
+    {
+     "node": "n21",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane TEM necessary for n8 (node-level necessity of o7: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o7 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F3c']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202004711#F3c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202004711#F3c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o7"
+   ],
+   "target_verdicts": {
+    "o7": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202004711#F3c",
+     "annotations": [
+      "PEO matrix",
+      "LinSis",
+      "Interface",
+      "layer",
+      "20 nm"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: PEO-based solid polymer electrolytes conduct Li+ t -> A Li-rich artificial SEI layer built around Li-all -> Add ball-milled Li alloy particles LixM (Li21Si5,  -> PEO, LiTFSI and LixM mixed in DOL-DME and dried in"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F3c [TEM] and estimate (measure feature metric)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: TEM: band between the dashed lines is ~17-20 nm wide against the 20 nm scale bar"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: A distinct amorphous interface layer about 15-25 nm thick separates the imaged Li21Si5 particle from the PEO matrix"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n9",
+      "n11",
+      "n13",
+      "n18",
+      "n21"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Li spreads from the alloy particle into PEO as a gradient over tens of nm while Si stays confined to"
+    }
+   ],
+   "question": "In panel F3c, using the annotated PEO matrix, LinSis particle, and 20 nm reference marker, what is the approximate width of the interface region separating the particle from the matrix?",
+   "answer_key": "About 17 to 20 nanometers, read off the panel using the 20 nm reference marker (o7).",
+   "answer_scope": "full",
+   "grading": "Answer key: the numbers and labels on the evidence node o7, judge-confirmed.",
+   "answer_key_nodes": [
+    "o7"
+   ],
+   "writer_passes": 2
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Materials/10.1002_adma.202004711",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n8",
+   "evidence": [
+    "o8"
+   ],
+   "hidden": [
+    "o8",
+    "n8",
+    "n9",
+    "n11",
+    "n13",
+    "n18",
+    "n21"
+   ],
+   "branch": "evidences edge o8 -> n8",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o8",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1002/adma.202004711#F3d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n9",
+     "role": "downstream"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    },
+    {
+     "node": "n21",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane TEM necessary for n8 (node-level necessity of o8: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o8 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1002/adma.202004711#F3d carries ['Interface layer', 'Li,Sis(600)', '2.2A', '2.2A'] shared with graded targets ['o8']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202004711#F3d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202004711#F3d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o8"
+   ],
+   "target_verdicts": {
+    "o8": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "o8"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202004711#F3d",
+     "annotations": [
+      "Interface layer",
+      "Li,Sis(600)",
+      "Liz,Sis",
+      "51/mm",
+      "2.2A",
+      "2.2A"
+     ],
+     "hits": [
+      {
+       "text": "Interface layer",
+       "shared": [
+        "interface",
+        "layer"
+       ]
+      },
+      {
+       "text": "Li,Sis(600)",
+       "shared": [
+        "600"
+       ]
+      },
+      {
+       "text": "2.2A",
+       "shared": [
+        "2.2"
+       ]
+      },
+      {
+       "text": "2.2A",
+       "shared": [
+        "2.2"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: PEO-based solid polymer electrolytes conduct Li+ t -> A Li-rich artificial SEI layer built around Li-all -> Add ball-milled Li alloy particles LixM (Li21Si5,  -> PEO, LiTFSI and LixM mixed in DOL-DME and dried in"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F3d [TEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: HRTEM: 2.2 A fringes labelled Li21Si5 (600) end at a fringe-free region labelled interface layer; SAED ring (600)"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: A distinct amorphous interface layer about 15-25 nm thick separates the imaged Li21Si5 particle from the PEO matrix"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n9",
+      "n11",
+      "n13",
+      "n18",
+      "n21"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Li spreads from the alloy particle into PEO as a gradient over tens of nm while Si stays confined to"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Advanced_Materials/10.1002_adma.202004711",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n19",
+   "evidence": [
+    "a3"
+   ],
+   "hidden": [
+    "a3",
+    "n21",
+    "n2"
+   ],
+   "branch": "qualifies edge a3 -> n19",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1002/adma.202004711#F7c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n19",
+     "role": "claim"
+    },
+    {
+     "node": "n21",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: a3 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F7c']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n21",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202004711#F7c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202004711#F7c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a3"
+   ],
+   "target_verdicts": {
+    "a3": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202004711#F7c",
+     "annotations": [
+      "Coulombicefficiency",
+      "100%",
+      "80%",
+      "60%",
+      "40%",
+      "20%"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n19"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: LiFePO4 cells with PEOm-Li21Si5 cycle stably for 100 cycles at 30, 45 and 60 C with ~100% Coulombic efficiency"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F7c [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: F7c: the 60 C curve has the highest capacity and 30 C the lowest, the reverse of the text's 149.7/140.9/129.2 mAh/g at 30/45/60 C"
+    }
+   ],
+   "question": "The claim under test is that LiFePO4 cells built with PEOm-Li21Si5 cycle stably for 100 cycles at 30, 45 and 60 C with about 100% Coulombic efficiency, and panel F7c (Coulombic efficiency axis marked 20% to 100%) is offered as the supporting evidence. Does the panel actually back this claim once you look at how capacity behaves across the three C-rates?",
+   "answer_key": "No. Panel F7c shows the opposite ordering from what the claim implies: the 60 C curve has the highest capacity and the 30 C curve the lowest, which is the reverse of the text's stated 149.7/140.9/129.2 mAh/g at 30/45/60 C.",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel, node a3.",
+   "answer_key_nodes": [
+    "a3"
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Advanced_Materials/10.1002_adma.202004711",
+   "root": "explain",
+   "subtype": "competing causes",
+   "seed_claim": "n13",
+   "evidence": [
+    "o11",
+    "o18",
+    "o3",
+    "o4"
+   ],
+   "hidden": [
+    "n12",
+    "n18",
+    "n21",
+    "n2"
+   ],
+   "branch": "two `causes` edges into n13: ['n11', 'n10']",
+   "rival": [
+    "n11"
+   ],
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": [
+     "o18",
+     "o4",
+     "o11"
+    ],
+    "note": "floor holds the non-FM causes only, so it picks the rival"
+   },
+   "depth": 4,
+   "depth_families": [
+    "ECHEM",
+    "SIM",
+    "THERMAL",
+    "XRD"
+   ],
+   "mask": "hide the mechanism node(s) explaining the claim; show the competing causes and their evidence",
+   "grader": "judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's",
+   "status": "closed",
+   "ruling": "not derivable from given panels: n12: text, not in given captions: ['hopping mechanism: F5 linked text, refs 57-58']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "o11",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202004711#F5c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o18",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/adma.202004711#F6b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o3",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "o4",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n11",
+     "role": "cause"
+    },
+    {
+     "node": "n10",
+     "role": "cause"
+    },
+    {
+     "node": "n12",
+     "role": "mechanism"
+    },
+    {
+     "node": "n13",
+     "role": "claim"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    },
+    {
+     "node": "n21",
+     "role": "redacted"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n21",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202004711#F5c",
+    "10.1002/adma.202004711#F6b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202004711#F5c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/adma.202004711#F6b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:679",
+     "effect": "not derivable from given panels: n12: text, not in given captions: ['hopping mechanism: F5 linked text, refs 57-58']"
+    },
+    {
+     "rule": "R2",
+     "where": "cut_traces.py:775",
+     "effect": "no sweep with a stated optimum: causes judged on their evidence"
+    }
+   ],
+   "graded_targets": [
+    "n12"
+   ],
+   "target_verdicts": {
+    "n12": {
+     "pass": false,
+     "why": "text, not in given captions: ['hopping mechanism: F5 linked text, refs 57-58']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "n13",
+      "o11"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation to explain: PEOm-Li21Si5 has the highest ionic conductivity of all fillers from 20 to 80 C, ~4e-5 S/cm at 30 C. Its optimum: None vol%."
+    },
+    {
+     "step": 2,
+     "role": "candidates",
+     "nodes": [
+      "n11",
+      "n10"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Candidate causes: n11: Conductivity of the Li-alloy/PEO interface (~5e-4 S/cm) is about an or | n10: All fillers lower PEO crystallinity, Li21Si5 the most"
+    },
+    {
+     "step": 3,
+     "role": "test",
+     "nodes": [
+      "n10",
+      "o3",
+      "o4"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "Test n10 (All fillers lower PEO crystallinity, Li21Si5 the most) against o3, o4 [THERMAL, XRD]: KEEP, its evidence (o3, o4) shows it"
+    },
+    {
+     "step": 4,
+     "role": "test",
+     "nodes": [
+      "n11",
+      "o18"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "Test n11 (Conductivity of the Li-alloy/PEO interface (~5e-4 S/cm) is a) against o18 [SIM]: KEEP, its evidence (o18) shows it"
+    },
+    {
+     "step": 5,
+     "role": "mechanism",
+     "nodes": [
+      "n12",
+      "k5"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: Higher Li+ concentration in the SEI shell lets ion-ion interactions promote Li+ hopping between chains, a fast interfaci  [premise: k5; evidence: none]"
+    },
+    {
+     "step": 6,
+     "role": "mechanism",
+     "nodes": [
+      "n18",
+      "o20",
+      "o21"
+     ],
+     "depends_on": [
+      5
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: Li|PEOm-Li21Si5|Li cell cycles 300 h at 0.2 mA/cm2 and 45 C with ~0.1 V polarization; SiO2 cell ~0.5 V, Si cell fails  [premise: none; evidence: o20, o21]"
+    },
+    {
+     "step": 7,
+     "role": "mechanism",
+     "nodes": [
+      "n21"
+     ],
+     "depends_on": [
+      6
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: Li-alloy fillers build a Li-rich artificial SEI inside PEO that raises ionic conductivity and Li+ transference and lets   [premise: none; evidence: none]"
+    },
+    {
+     "step": 8,
+     "role": "mechanism",
+     "nodes": [
+      "n2"
+     ],
+     "depends_on": [
+      7
+     ],
+     "hidden": true,
+     "text": "Why the surviving cause works: A Li-rich artificial SEI layer built around Li-alloy fillers inside PEO should give fast Li+ pathways and raise ionic co  [premise: none; evidence: none]"
+    },
+    {
+     "step": 9,
+     "role": "adjudication",
+     "nodes": [
+      "n10",
+      "n11"
+     ],
+     "depends_on": [
+      8
+     ],
+     "hidden": false,
+     "text": "The optimum is set by n10, n11; no rival is necessary but not sufficient."
+    }
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Advanced_Materials/10.1002_adma.202004711",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "n4",
+   "evidence": [],
+   "branch": "DES/route n4",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "n4"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Advanced_Materials__10.1002_adma.202004711",
+   "trace": "T5",
+   "root": "explain",
+   "subtype": "competing causes",
+   "targets": [
+    "n12"
+   ],
+   "why": [
+    "n12: text, not in given captions: ['hopping mechanism: F5 linked text, refs 57-58']"
+   ],
+   "requires_unseen": {
+    "n12": [
+     "hopping mechanism: F5 linked text, refs 57-58"
+    ]
+   },
+   "labels": {
+    "n12": "Higher Li+ concentration in the SEI shell lets ion-ion interactions promote Li+ hopping between chains, a fast interfacial pathway"
+   }
+  }
+ ]
+}
