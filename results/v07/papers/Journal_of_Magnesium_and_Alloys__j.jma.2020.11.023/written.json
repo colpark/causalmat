@@ -1,0 +1,1187 @@
+{
+ "paper_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023",
+ "title": "High thermoelectric performance at room temperature of n-type Mg3Bi2-based materials by Se doping",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n7",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "n7",
+    "n15",
+    "n14",
+    "n16",
+    "n18"
+   ],
+   "branch": "evidences edge o1 -> n7",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "not derivable from given panels: o1: text, not in given captions: ['identity of the indexed reference phase (Mg3Sb2, P-3m1) from F1 linked text; F1b ticks carry hkl only']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "match_to_reference",
+     "panel_ids": [
+      "10.1016/j.jma.2020.11.023#F1b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n7",
+     "role": "claim"
+    },
+    {
+     "node": "n15",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n7 (node-level necessity of o1: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:669",
+     "effect": "not derivable from given panels: o1: text, not in given captions: ['identity of the indexed reference phase (Mg3Sb2, P-3m1) from F1 linked text; F1b ticks carry hkl only']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.jma.2020.11.023#F1b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F1b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o1"
+   ],
+   "target_verdicts": {
+    "o1": {
+     "pass": false,
+     "why": "text, not in given captions: ['identity of the indexed reference phase (Mg3Sb2, P-3m1) from F1 linked text; F1b ticks carry hkl only']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n3",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: n-type Mg3Sb2-based thermoelectrics need high near -> Base Mg3.2Bi1.4Sb0.6: 70% Mg3Bi2 alloyed with Mg3S -> Bulk polycrystalline Mg3.2Bi1.4Sb0.6-xSex samples "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1b [XRD] and estimate (match to reference)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: XRD patterns of all x match the Mg3Sb2 reference reflections with no extra peaks"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n7"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: All x are single-phase Mg3Sb2-type (P-3m1) with no impurity reflections detected by XRD"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n15",
+      "n14",
+      "n16",
+      "n18"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Alloy scattering from Bi/Sb disorder in the Mg3Bi2-Mg3Sb2 solid solution lowers kappa_L"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "n9",
+   "evidence": [
+    "o4"
+   ],
+   "hidden": [
+    "n9",
+    "n10",
+    "n12",
+    "n13",
+    "n16",
+    "n18"
+   ],
+   "branch": "evidences edge o4 -> n9",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o4",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.jma.2020.11.023#F2c",
+      "10.1016/j.jma.2020.11.023#F2d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "redacted"
+    },
+    {
+     "node": "n12",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for n9 (node-level necessity of o4: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: ['Mg3Bi1.375Sb0.625 and', 'Mg3Bi1.375Sb0.5Se0.125 by PBE functional']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: n9 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:707",
+     "effect": "given panels carry no answer text: ['F2c', 'F2d']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "redactions": [
+    {
+     "node": "n10",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n12",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.jma.2020.11.023#F2c",
+    "10.1016/j.jma.2020.11.023#F2d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F2c",
+     "sample": "Mg3Bi1.375Sb0.625 and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Mg3Bi1.375Sb0.625 and"
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F2d",
+     "sample": "Mg3Bi1.375Sb0.5Se0.125 by PBE functional",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Mg3Bi1.375Sb0.5Se0.125 by PBE functional"
+    }
+   ],
+   "graded_targets": [
+    "n9"
+   ],
+   "target_verdicts": {
+    "n9": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F2c",
+     "annotations": [
+      "(eV)",
+      "MK",
+      "rA",
+      "LH",
+      "AMLM'L"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F2d",
+     "annotations": [
+      "(eV)",
+      "MK",
+      "TA",
+      "LH",
+      "AMLML"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o4"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: With Se (panel d vs c), conduction-band minima at M, K and L drop from ~0.15 eV above E_F to E_F; Gamma CB stays ~0.35-0  [panels F2c, F2d]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: Se donor electrons lift E_F to a multi-valley conduction-band minimum (M, K, L), raising n without losing valley degener  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "n10",
+      "n13"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: Hall carrier concentration rises from ~0.5e19 (x=0) to ~1.7-3.3e19 cm-3 at 300 K, increasing with x"
+    }
+   ],
+   "question": "Given the base Mg3.2Bi1.4Sb0.6 system, the Mg3.2Bi1.4Sb0.6-xSex synthesis, and the role of Se as a donor on Sb sites described above, what mechanism accounts for the band-structure changes shown when comparing the Se-free and Se-substituted panels (F2c vs F2d)?",
+   "answer_key": "Se donor electrons lift the Fermi level (E_F) to a multi-valley conduction-band minimum located at M, K and L, which raises the carrier concentration (n) without losing valley degeneracy (n9).",
+   "answer_scope": "full",
+   "grading": "Certified judge against the graph's mechanism node n9; there is no rival mechanism node in the graph for this claim.",
+   "answer_key_nodes": [
+    "n9"
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "n9",
+   "evidence": [
+    "o5"
+   ],
+   "hidden": [
+    "n9",
+    "n10",
+    "n12",
+    "n13",
+    "n16",
+    "n18"
+   ],
+   "branch": "evidences edge o5 -> n9",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
+   "status": "closed",
+   "ruling": "not derivable from given panels: n9: text, not in given captions: ['calculated compositions Mg3Bi1.375Sb0.625 and Mg3Bi1.375Sb0.5Se0.125 from F2 caption']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "o5",
+     "role": "evidence",
+     "op": "assign_features",
+     "panel_ids": [
+      "10.1016/j.jma.2020.11.023#F2d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "redacted"
+    },
+    {
+     "node": "n12",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for n9 (node-level necessity of o5: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: ['Mg3Bi1.375Sb0.5Se0.125 by PBE functional']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:669",
+     "effect": "not derivable from given panels: n9: text, not in given captions: ['calculated compositions Mg3Bi1.375Sb0.625 and Mg3Bi1.375Sb0.5Se0.125 from F2 caption']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "redactions": [
+    {
+     "node": "n10",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n12",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.jma.2020.11.023#F2d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F2d",
+     "sample": "Mg3Bi1.375Sb0.5Se0.125 by PBE functional",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Mg3Bi1.375Sb0.5Se0.125 by PBE functional"
+    }
+   ],
+   "graded_targets": [
+    "n9"
+   ],
+   "target_verdicts": {
+    "n9": {
+     "pass": false,
+     "why": "text, not in given captions: ['calculated compositions Mg3Bi1.375Sb0.625 and Mg3Bi1.375Sb0.5Se0.125 from F2 caption']"
+    }
+   },
+   "annotation_read_evidence": [
+    "o5"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: In the Se-containing cell, conduction-band valleys at M, K and L lie at E_F (within ~0.05 eV); the Gamma CB minimum sits  [panels F2d]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: Se donor electrons lift E_F to a multi-valley conduction-band minimum (M, K, L), raising n without losing valley degener  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "n10",
+      "n13"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: Hall carrier concentration rises from ~0.5e19 (x=0) to ~1.7-3.3e19 cm-3 at 300 K, increasing with x"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n15",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n14",
+    "n16",
+    "n18"
+   ],
+   "branch": "qualifies edge a1 -> n15",
+   "fm_family": "THERMAL",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "THERMAL"
+   ],
+   "channels_involved": [
+    "THERMAL"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.jma.2020.11.023#F5f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n15",
+     "role": "claim"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: a1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:707",
+     "effect": "given panels carry no answer text: ['F5f']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.jma.2020.11.023#F5f"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5f",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5f",
+     "annotations": [
+      "T(K)",
+      "x=0.005",
+      "x-0.01",
+      "x=0.02",
+      "x=0.04"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n15"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Alloy scattering from Bi/Sb disorder in the Mg3Bi2-Mg3Sb2 solid solution lowers kappa_L"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F5f [THERMAL]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: x=0 kappa_L+kappa_b (1.1-1.4) is ~0.4-0.6 above every Se-doped sample although its Bi/Sb ratio is the same"
+    }
+   ],
+   "question": "The panel plots kappa_L+kappa_b against temperature for the Se-doped samples x=0.005, 0.01, 0.02 and 0.04 together with the undoped x=0 baseline, all sharing the same Bi/Sb ratio. Does this panel support the claim above that alloy scattering from Bi/Sb disorder is what lowers kappa_L?",
+   "answer_key": "No, not as the full explanation. The panel (a1) shows x=0 kappa_L+kappa_b sitting at 1.1-1.4, about 0.4-0.6 above every Se-doped sample, even though x=0 has the same Bi/Sb ratio as the doped samples. Since the Bi/Sb-disorder scattering is unchanged across the series, it cannot by itself account for the extra drop seen once Se is added.",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel (a1), the figure comparison across x=0 and the Se-doped compositions.",
+   "answer_key_nodes": [
+    "a1"
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n16",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "n18"
+   ],
+   "branch": "qualifies edge a2 -> n16",
+   "fm_family": "TRANSPORT",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "TRANSPORT"
+   ],
+   "channels_involved": [
+    "TRANSPORT"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "n12",
+     "role": "context"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1016/j.jma.2020.11.023#F5a",
+      "10.1016/j.jma.2020.11.023#F5b",
+      "10.1016/j.jma.2020.11.023#F5c",
+      "10.1016/j.jma.2020.11.023#F5d",
+      "10.1016/j.jma.2020.11.023#F6a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n16",
+     "role": "claim"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:600",
+     "effect": "condition labels: [None, 'Seebeck coefficient', None, None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:674",
+     "effect": "graded targets readable: a2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:707",
+     "effect": "given panels carry no answer text: ['F5a', 'F5b', 'F5c', 'F5d', 'F6a']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.jma.2020.11.023#F5a",
+    "10.1016/j.jma.2020.11.023#F5b",
+    "10.1016/j.jma.2020.11.023#F5c",
+    "10.1016/j.jma.2020.11.023#F5d",
+    "10.1016/j.jma.2020.11.023#F6a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5b",
+     "sample": "Seebeck coefficient",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Seebeck coefficient"
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F6a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a2"
+   ],
+   "target_verdicts": {
+    "a2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5a",
+     "annotations": [
+      "\u4e00X=0",
+      "T(K)",
+      "(a)10\u00b0",
+      "X=0.005",
+      "X=0.01",
+      "X=0.02",
+      "X=0.04"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5b",
+     "annotations": [
+      "T(K)",
+      "x=0.005",
+      "X=0.01",
+      "X=0.02",
+      "X=0.04"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5c",
+     "annotations": [
+      "PF(uWcm",
+      "T(K)",
+      "x=0.005",
+      "x=0.01",
+      "x=0.02",
+      "x=0.04"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F5d",
+     "annotations": [
+      "T(K)",
+      "x=0.005",
+      "X=0.01",
+      "X=0.02",
+      "X=0.04"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.jma.2020.11.023#F6a",
+     "annotations": [
+      "n-Bi,Te,Ref.8",
+      "Ref.2",
+      "\u4e00X=0",
+      "T(K)",
+      "-X=0.005",
+      "x=0.01",
+      "X=0.02",
+      "X=0.04"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n16"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Room-temperature ZT reaches ~0.82-0.84 for x=0.005, the highest in the series at 300 K"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F5a, F5b, F5c, F5d, F6a [TRANSPORT]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: x=0.005, 300 K: S^2/rho ~25.8 vs plotted PF ~23; S^2T/(rho kappa) ~0.82 vs PF T/kappa ~0.74; x=0.01 gives ~0.82 vs 0.78"
+    }
+   ],
+   "question": "The five panels give the Seebeck coefficient, resistivity, power factor and the directly plotted thermoelectric performance across the x = 0, 0.005, 0.01, 0.02, 0.04 doping series at 300 K. Cross-checking the power-factor- and thermal-conductivity-derived figure of merit against the directly plotted curve for these compositions, what numbers do you get for x=0.005 and for x=0.01, and how do they compare?",
+   "answer_key": "The cross-check (a2) gives, for x=0.005 at 300 K: S^2/rho ~25.8 vs the plotted PF ~23, and S^2T/(rho kappa) ~0.82 vs PF T/kappa ~0.74. For x=0.01 the same cross-check gives ~0.82 vs 0.78. So the computed room-temperature figure of merit for x=0.01 reaches the same ~0.82 value that is claimed as the series' unique highest for x=0.005, and the plotted and computed values for x=0.005 itself disagree (0.82 computed vs 0.74 plotted) -- the panels do not single out x=0.005 as uniquely highest.",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel (a2).",
+   "answer_key_nodes": [
+    "a2"
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023",
+   "trace": "T1",
+   "root": "infer",
+   "subtype": "estimate",
+   "targets": [
+    "o1"
+   ],
+   "why": [
+    "o1: text, not in given captions: ['identity of the indexed reference phase (Mg3Sb2, P-3m1) from F1 linked text; F1b ticks carry hkl only']"
+   ],
+   "requires_unseen": {
+    "o1": [
+     "identity of the indexed reference phase (Mg3Sb2, P-3m1) from F1 linked text; F1b ticks carry hkl only"
+    ]
+   },
+   "labels": {
+    "o1": "XRD patterns of all x match the Mg3Sb2 reference reflections with no extra peaks"
+   }
+  },
+  {
+   "paper": "Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023",
+   "trace": "T3",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "n9"
+   ],
+   "why": [
+    "n9: text, not in given captions: ['calculated compositions Mg3Bi1.375Sb0.625 and Mg3Bi1.375Sb0.5Se0.125 from F2 caption']"
+   ],
+   "requires_unseen": {
+    "n9": [
+     "calculated compositions Mg3Bi1.375Sb0.625 and Mg3Bi1.375Sb0.5Se0.125 from F2 caption"
+    ]
+   },
+   "labels": {
+    "n9": "Se donor electrons lift E_F to a multi-valley conduction-band minimum (M, K, L), raising n without losing valley degeneracy"
+   }
+  }
+ ]
+}
