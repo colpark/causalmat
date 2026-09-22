@@ -240,7 +240,11 @@ def cut(graph_path, spec_path, group_id, masked_dir="results/v06/masked"):
                 _t["node_necessity"] = nec.get(ev)
                 mark(_t, "seed", f"lane {fam} necessary for {c} (node-level necessity of {ev}: {nec.get(ev)})")
             if V2 and sub == "compare":
-                _t["answer_format"] = "state the difference between the two conditions; do not rank"
+                # v07 fix 4: the format follows the key's shape, so an item whose true answer is "they look the same"
+                # is answerable; "no visible difference" and "cannot determine" are always allowed
+                _t["answer_format"] = ("state how the two conditions compare, including if they look the same; "
+                                       "do not rank. Answer \"no visible difference\" when they look the same, or "
+                                       "\"cannot determine\" when the panels cannot settle it")
                 mark(_t, "R7", f"{len(N[ev].get('panel_ids') or [])} panels: rank became infer/compare")
 
     # --- non-FM audits: negative-control stratum (same shape, no domain model needed)

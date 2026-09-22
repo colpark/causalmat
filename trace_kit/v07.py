@@ -336,6 +336,7 @@ def verdict(P):
         v = classify(full, floor)
         r = {'paper': P, 'trace': T, 'root': pk['root'], 'subtype': pk['subtype'], 'writer_passes': W[T].get('writer_passes', 1),
              'fullarm': full, 'floor': floor, 'verdict': v, 'partial': v == 'valid' and full == 'PARTIAL', 'cause': None,
+             'null_result': bool(pk.get('null_result') or W[T].get('null_result')),
              'stage': 'gate' if v == 'inspect' else None, 'defect': None, 'answer_scope': pk['key']['answer_scope'], 'note': NOTE}
         rows.append(r)
         if v == 'inspect': pend.append(T)
