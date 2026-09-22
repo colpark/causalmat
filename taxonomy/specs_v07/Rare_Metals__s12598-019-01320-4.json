@@ -1,0 +1,312 @@
+{
+ "file": "Rare_Metals__s12598-019-01320-4.html",
+ "short": "Evolution of microstructure and hardness in a dual-phase Al0",
+ "journal": "Rare_Metals",
+ "year": null,
+ "title": "Evolution of microstructure and hardness in a dual-phase Al0.5CoCrFeNi high-entropy alloy with different grain sizes",
+ "doi": "Rare_Metals/s12598-019-01320-4",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: DIFF",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "How grain coarsening sets the hardness of a dual-phase fcc+bcc Al0.5CoCrFeNi HEA is not established. Dual-phase (fcc + bcc) Al0.5CoCrFeNi high-entropy alloy chosen as the system.",
+   "detail": "Absorbed: h1 (HYP/gap), d1 (DES/base_system), d2 (DES/variable_sweep), p1 (PRC/forming), p2 (PRC/treatment), p3 (PRC/treatment)",
+   "figs": [],
+   "source": "h1, d1, d2, p1, p2, p3"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Annealed alloy fully recrystallized into equiaxed grains (with annealing twins) already at the shortest time. Al-Ni-rich precipitates decorate grain boundaries in bands after annealing; some lie inside grains.",
+   "detail": "Absorbed: s4 (STR/microstructure/shape), s5 (STR/microstructure/distribution), s7 (STR/microstructure/feature_size), s8 (STR/phase/lattice). Premises: Grain-boundary hardening efficiency in HEAs exceeds conventional alloys owing to lattice distortion [36]",
+   "figs": [],
+   "source": "s4, s5, s7, s8"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Thermally stable boundary precipitates pin grain boundaries (Zener) and restrain fcc matrix grain growth. Hardness falls as grains coarsen, linear in d^-1/2 (Hall-Petch), about 294 HV to 211 HV.",
+   "detail": "Absorbed: m2 (MEC/pathway), p4 (PRP/value), p5 (PRP/value), m3 (MEC/pathway), m4 (MEC/pathway). Premises: Modified Zener-Smith model: grain growth with boundary-pinning particles, grain size vs t^1/3; Grain-boundary hardening efficiency in HEAs exceeds conventional alloys owing to lattice distortion [36]",
+   "figs": [],
+   "source": "m2, p4, p5, m3, m4"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Annealing time sets grain size, restrained by boundary Al-Ni-rich precipitates; hardness follows Hall-Petch with a high k_HV of 336 HV um^1/2",
+   "detail": "Absorbed: c1 (DSC/conclusion)",
+   "figs": [],
+   "source": "c1"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "MICRO, F2, F3",
+   "tech": "MICRO",
+   "figs": [
+    "F2",
+    "F3"
+   ],
+   "panel": "10.1007/s12598-019-01320-4#F2",
+   "panel_ids": [
+    "10.1007/s12598-019-01320-4#F2"
+   ],
+   "head": "ID pockets show a periodic fine lamellar, basket-weave pattern of alternating contrast. All six annealed microstructures show equiaxed polygonal grains containing straight parallel twin bands",
+   "solves": "Annealed alloy fully recrystallized into equiaxed grains (with annealing twins) already at the shortest time",
+   "op": "recognize signature",
+   "verdict": "shown",
+   "source": "o4, o6",
+   "tech_source": "modality",
+   "claims": [
+    "s5",
+    "s4"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s5, s4 keeps shown support from o7 after removal."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 1,
+   "title": "MICRO, F3",
+   "tech": "MICRO",
+   "figs": [
+    "F3"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Black particles cluster in bands along boundaries where grains are fine; particle-free regions between bands hold coarse grains",
+   "solves": "Al-Ni-rich precipitates decorate grain boundaries in bands after annealing; some lie inside grains",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "source": "o7",
+   "tech_source": "modality",
+   "note": "clearest in F3c; a few dots inside grains in all panels",
+   "claims": [
+    "s5"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s5 keeps shown support from o4 after removal."
+  },
+  {
+   "id": "M3",
+   "lane": 0,
+   "row": "S1",
+   "line": 2,
+   "title": "MICRO, F3",
+   "tech": "MICRO",
+   "figs": [
+    "F3"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Shortest-anneal microstructure is bimodal: coarse grains about 30-70 um between fine-grained (about 3-7 um) particle bands",
+   "solves": "Mean grain size coarsens with annealing time, about 4.5 to 39 um, roughly linear in t^1/3",
+   "op": "measure feature metric",
+   "verdict": "shown",
+   "source": "o15",
+   "tech_source": "modality",
+   "note": "a mean of 4.5-5 um at the shortest time (F4) holds only if the fine bands dominate a number average; text notes sizes range 'from a few microns to dozens of microns'",
+   "audit": true,
+   "claims": [
+    "s7"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S1: "
+  },
+  {
+   "id": "C4",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1007/s12598-019-01320-4#F4",
+   "panel_ids": [
+    "10.1007/s12598-019-01320-4#F4"
+   ],
+   "head": "Measured average grain size rises with t^1/3 from about 4.5 to 39.4 um (third point 8.0 below second 8.8). F4 time axis t^1/3 = 13.9-24.3 s^1/3 corresponds to about 45 min-4 h, not the 75 min-16 h anneals",
+   "solves": "Mean grain size coarsens with annealing time, about 4.5 to 39 um, roughly linear in t^1/3",
+   "op": "convert to quantity, cross check consistency, read trend",
+   "verdict": "shown",
+   "source": "o8, o13",
+   "tech_source": "none",
+   "note": "technique inferred: grain sizes from micrographs (Table 2 not in packet) x = 13.93, 15.30, 16.52, 17.55, 19.3, 24.35 s^1/3 -> 45, 60, 75, 90, 120, 240 min; 16 h would be 38.6 s^1/3",
+   "audit": true,
+   "detail": "o8: Measured average grain size rises with t^1/3 from about 4.5 to 39.4 um (third point 8.0 below second 8.8); o13: F4 time axis t^1/3 = 13.9-24.3 s^1/3 corresponds to about 45 min-4 h, not the 75 min-16 h anneals",
+   "inner_audit": "o13: x = 13.93, 15.30, 16.52, 17.55, 19.3, 24.35 s^1/3 -> 45, 60, 75, 90, 120, 240 min; 16 h would be 38.6 s^1/3",
+   "claims": [
+    "s7"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S1: "
+  },
+  {
+   "id": "C5",
+   "lane": 2,
+   "row": "S2",
+   "line": 0,
+   "title": "evidence, F4",
+   "tech": "",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1007/s12598-019-01320-4#F4",
+   "panel_ids": [
+    "10.1007/s12598-019-01320-4#F4"
+   ],
+   "head": "Measured grain sizes coincide with modified Z-S model points up to t^1/3 = 19.3, but the last point is 39.4 vs 30 um predicted",
+   "solves": "Thermally stable boundary precipitates pin grain boundaries (Zener) and restrain fcc matrix grain growth",
+   "op": "cross check consistency, overlay model on data",
+   "verdict": "partial",
+   "source": "o9",
+   "tech_source": "none",
+   "note": "solid fit through data is steeper than dashed model line; text calls agreement 'good'",
+   "detail": "o9: Measured grain sizes coincide with modified Z-S model points up to t^1/3 = 19.3, but the last point is 39.4 vs 30 um predicted",
+   "claims": [
+    "m2"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and m2 has no other figure-backed support."
+  },
+  {
+   "id": "C6",
+   "lane": 2,
+   "row": "S2",
+   "line": 1,
+   "title": "MECH:hardness, F4, F5",
+   "tech": "MECH:hardness",
+   "figs": [
+    "F4",
+    "F5"
+   ],
+   "panel": "10.1007/s12598-019-01320-4#F5, 10.1007/s12598-019-01320-4#F4",
+   "panel_ids": [
+    "10.1007/s12598-019-01320-4#F5",
+    "10.1007/s12598-019-01320-4#F4"
+   ],
+   "head": "Microhardness rises linearly with d^-1/2 from about 211 HV (0.18 um^-1/2) to 294 HV (0.43 um^-1/2). F5 grain sizes (d = 30.0, 21.6, 19.2, 9.0, 7.0, 5.3 um) equal the F4 model series, not the measured sizes",
+   "solves": "Hardness falls as grains coarsen, linear in d^-1/2 (Hall-Petch), about 294 HV to 211 HV",
+   "op": "convert to quantity, cross check consistency, fit model, read trend",
+   "verdict": "shown",
+   "source": "o11, o14",
+   "tech_source": "label+none",
+   "note": "F5 d^-1/2 = 0.183, 0.215, 0.228, 0.333, 0.377, 0.433; F4 model 30.0, 21.6, 19.3, 9.0, 7.1, 5.3; F4 measured 39.4, 21.9, 20.2, 8.0, 8.8, 4.5 um",
+   "audit": true,
+   "detail": "o11: Microhardness rises linearly with d^-1/2 from about 211 HV (0.18 um^-1/2) to 294 HV (0.43 um^-1/2); o14: F5 grain sizes (d = 30.0, 21.6, 19.2, 9.0, 7.0, 5.3 um) equal the F4 model series, not the measured sizes",
+   "inner_audit": "o14: F5 d^-1/2 = 0.183, 0.215, 0.228, 0.333, 0.377, 0.433; F4 model 30.0, 21.6, 19.3, 9.0, 7.1, 5.3; F4 measured 39.4, 21.9, 20.2, 8.0, 8.8, 4.5 um",
+   "claims": [
+    "p4"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: "
+  },
+  {
+   "id": "C7",
+   "lane": 2,
+   "row": "S2",
+   "line": 2,
+   "title": "evidence, F5",
+   "tech": "",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1007/s12598-019-01320-4#F5",
+   "panel_ids": [
+    "10.1007/s12598-019-01320-4#F5"
+   ],
+   "head": "Linear fit HV = 145.94 + 336.28 d^-1/2, K_HV = 336.28 HV um^1/2",
+   "solves": "Hall-Petch coefficient k_HV = 336.28 HV um^1/2, with intrinsic hardness HV0 = 145.94 HV",
+   "op": "compare with reference value, fit model",
+   "verdict": "shown",
+   "source": "o12",
+   "tech_source": "none",
+   "detail": "o12: Linear fit HV = 145.94 + 336.28 d^-1/2, K_HV = 336.28 HV um^1/2",
+   "claims": [
+    "p5"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for p5 (o12)."
+  },
+  {
+   "id": "M8",
+   "lane": 1,
+   "row": "S4",
+   "line": 0,
+   "title": "DIFF, F1",
+   "tech": "DIFF",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1007/s12598-019-01320-4#F1",
+   "panel_ids": [
+    "10.1007/s12598-019-01320-4#F1"
+   ],
+   "head": "Reflections marked as fcc (about 44, 51, 75, 91, 96 deg) with one bcc reflection near 45 deg",
+   "solves": "",
+   "op": "assign features",
+   "verdict": "partial",
+   "source": "o1",
+   "tech_source": "modality",
+   "note": "as-cast has strong 51 deg; after rolling 51 deg nearly gone and 75 deg strengthened (texture, not discussed); bcc dot only on cold-rolled and 16 h traces",
+   "claims": [
+    "c1"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and c1 has no other figure-backed support."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "supports"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ],
+  [
+   "S1",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}
