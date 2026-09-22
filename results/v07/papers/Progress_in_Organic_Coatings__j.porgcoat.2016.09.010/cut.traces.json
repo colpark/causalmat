@@ -38,8 +38,8 @@
    ],
    "mask": "hide the ruling; show the claim and the panel",
    "grader": "answer key: the audit ruling on the panel",
-   "status": "closed",
-   "ruling": "not derivable from given panels: o22: text, not in given captions: ['panel b = S3 (caption)']",
+   "status": "open",
+   "ruling": "",
    "walk": [
     {
      "node": "n1",
@@ -104,13 +104,18 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
-     "effect": "condition labels: [None]"
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['S3 coatings']"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:669",
-     "effect": "not derivable from given panels: o22: text, not in given captions: ['panel b = S3 (caption)']"
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o22 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F8b']"
     }
    ],
    "node_necessity": "corrective",
@@ -139,13 +144,13 @@
    "condition_labels": [
     {
      "panel": "10.1016/j.porgcoat.2016.09.010#F8b",
-     "sample": null,
-     "sample_source": null,
+     "sample": "S3 coatings",
+     "sample_source": "caption",
      "level": null,
      "unit": null,
      "level_source": null,
      "alias": null,
-     "text": null
+     "text": "S3 coatings"
     }
    ],
    "graded_targets": [
@@ -153,10 +158,33 @@
    ],
    "target_verdicts": {
     "o22": {
-     "pass": false,
-     "why": "text, not in given captions: ['panel b = S3 (caption)']"
+     "pass": true,
+     "why": "text, facts in given caption spans"
     }
    },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.porgcoat.2016.09.010#F8b",
+     "annotations": [
+      "L5=53.24nm",
+      "L4=39.90nm",
+      "L3=69.80nm",
+      "L2=55.86nm",
+      "L1=75.92nm",
+      "SEMMAG:50.0KX",
+      "SEMHV.15.0KV",
+      "MRA3TESCAN",
+      "WD:4.19mm",
+      "Det:InBeam",
+      "View ieid:2.89um",
+      "RAZIFOUNDATION",
+      "500nm",
+      "B:10.00"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
    "linear": [
     {
      "step": 1,
@@ -291,7 +319,7 @@
     },
     {
      "rule": "no_crop",
-     "where": "cut_traces.py:591",
+     "where": "cut_traces.py:601",
      "effect": "evidence cited by figure only: no panel crop to hand over"
     }
    ],
@@ -459,17 +487,17 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
+     "where": "cut_traces.py:610",
      "effect": "condition labels: ['Al 2p high resolution spectrum and']"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o20 (figure)"
     },
     {
      "rule": "skip",
-     "where": "cut_traces.py:707",
+     "where": "cut_traces.py:717",
      "effect": "given panels carry no answer text: ['F2b']"
     }
    ],
@@ -674,17 +702,17 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
+     "where": "cut_traces.py:610",
      "effect": "condition labels: ['O 1s high resolution spectrum']"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o21 (figure)"
     },
     {
      "rule": "skip",
-     "where": "cut_traces.py:707",
+     "where": "cut_traces.py:717",
      "effect": "given panels carry no answer text: ['F2c']"
     }
    ],
@@ -884,7 +912,7 @@
     },
     {
      "rule": "no_crop",
-     "where": "cut_traces.py:591",
+     "where": "cut_traces.py:601",
      "effect": "evidence cited by figure only: no panel crop to hand over"
     }
    ],
@@ -1054,22 +1082,22 @@
    "v2_rules": [
     {
      "rule": "R4",
-     "where": "cut_traces.py:542",
+     "where": "cut_traces.py:552",
      "effect": "context n13 shares a claim with a hidden node: redacted"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:542",
+     "where": "cut_traces.py:552",
      "effect": "context n16 shares a claim with a hidden node: redacted"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:579",
+     "where": "cut_traces.py:589",
      "effect": "given [], withheld ['10.1016/j.porgcoat.2016.09.010#F3a', '10.1016/j.porgcoat.2016.09.010#F3b', '10.1016/j.porgcoat.2016.09.010#F6a', '10.1016/j.porgcoat.2016.09.010#F6b'] (decision 2.0, levels [] None)"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:582",
+     "where": "cut_traces.py:592",
      "effect": "decision 2.0 is not the condition directly after the last given (None)"
     }
    ],
@@ -1127,26 +1155,5 @@
    ]
   }
  ],
- "knowledge_pile": [
-  {
-   "paper": "Progress_in_Organic_Coatings__j.porgcoat.2016.09.010",
-   "trace": "T1",
-   "root": "explain",
-   "subtype": "rejection",
-   "targets": [
-    "o22"
-   ],
-   "why": [
-    "o22: text, not in given captions: ['panel b = S3 (caption)']"
-   ],
-   "requires_unseen": {
-    "o22": [
-     "panel b = S3 (caption)"
-    ]
-   },
-   "labels": {
-    "o22": "S3 fracture surface shows several round cavities ~200-500 nm wide"
-   }
-  }
- ]
+ "knowledge_pile": []
 }

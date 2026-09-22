@@ -85,13 +85,14 @@ def rrgapply(P):
     g['second_read'] = {'units': len(rr['units']), 'verdicts': {v: sum(u.get('verdict') == v for u in rr['units'].values()) for v in ('CORRECT', 'PARTIAL', 'WRONG', 'ABSTAIN', 'UNPARSED')},
                         'wrong': [{'node': u['node'], 'panels': u['panels']} for u in rr['units'].values() if u.get('verdict') == 'WRONG']}
     dump(g, G(P))
-    wrong = [(k, u) for k, u in rr['units'].items() if u.get('verdict') == 'WRONG']
+    wrong = open_wrong(R, rr)
     fix_packet(P, R, rr, wrong)
     print(P, g['second_read']['verdicts'], 'fix packet' if wrong else 'no flags')
 
 def fix_packet(P, R, rr, wrong):
     """rrgraph/fix.md for the staff subagent: the flagged units, their crops, the reader's descriptions and the grader"""
     fx = os.path.join(R, 'fix.md')
+    if wrong and os.path.exists(os.path.join(R, 'fix.json')): fx = os.path.join(R, 'fix2.md')   # a second round after repointing
     if wrong:
         pk = (glob.glob(os.path.join(ROOT, 'taxonomy', 'v07', '*', 'packets', P + '.md')) + glob.glob(os.path.join(ROOT, 'taxonomy', '*', 'packets', P + '.md')) + [''])[0]
         L = [f"# Second-read flags: {P}\n", f"Graph: {G(P)}\n", f"Packet (captions, linked text, panel section with every crop path): {pk}\n",
@@ -105,11 +106,20 @@ def fix_packet(P, R, rr, wrong):
                      + ''.join(f"Crop {p}: {rr['tasks'][p]['crop']}\nReader on {p}:\n{__import__('reread').clean(open(os.path.join(R, f'{p}.reread.out.txt')).read())}\n" for p in u['panels'])
                      + f"Grader: {u['why']}\n")
         open(fx, 'w').write('\n'.join(L))
-    elif os.path.exists(fx): os.remove(fx)
+    elif not os.path.exists(os.path.join(R, 'fix.json')) and os.path.exists(fx): os.remove(fx)   # keep the staff round's record
+
+def kept(R):
+    """(node, panels) the staff subagent re-opened and kept after a WRONG second read: the flag is resolved by a look at the image"""
+    f = os.path.join(R, 'fix.json'); F = J(f) if os.path.exists(f) else {}
+    return {n: x for n, x in F.items() if x.get('action') == 'kept'}
+
+def open_wrong(R, rr):
+    k = kept(R)
+    return [(key, u) for key, u in rr.get('units', {}).items() if u.get('verdict') == 'WRONG' and u['node'] not in k]
 
 def graph_flags(P, C):
-    """per-trace flags from the graph-time second read: an open trace whose evidence node still has a WRONG unit"""
-    rr = J(os.path.join(RG(P), 'reread.json')); bad = {u['node']: u for u in rr.get('units', {}).values() if u.get('verdict') == 'WRONG'}
+    """per-trace flags from the graph-time second read: an open trace whose evidence node still has a WRONG unit the staff did not keep"""
+    rr = J(os.path.join(RG(P), 'reread.json')); bad = {u['node']: u for _, u in open_wrong(RG(P), rr)}
     fl = {}
     for t in C['traces']:
         if t['status'] != 'open': continue
@@ -211,7 +221,7 @@ def grade(P):
         for arm in ('fullarm', 'floor'):
             a = os.path.join(gd, f'{T}.{arm}.out.txt')
             if not os.path.exists(a): continue
-            cand = open(a).read()
+            cand = re.sub(r'\s*</?(invoke|message|parameter)[^>]*>', '', open(a).read())   # stray tool markup in an arm reply breaks the relay
             if cand.strip().upper().startswith('CANNOT DETERMINE'):
                 open(os.path.join(gd, f'{T}.grader.{arm}.out.txt'), 'w').write('ABSTAIN (candidate says CANNOT DETERMINE; not sent to the grader)'); continue
             p = os.path.join(gd, f'{T}.grader.{arm}.txt'); open(p, 'w').write(grader_prompt(pk, q, cand))

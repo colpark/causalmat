@@ -38,8 +38,8 @@
    ],
    "mask": "hide the ruling; show the claim and the panel",
    "grader": "answer key: the audit ruling on the panel",
-   "status": "closed",
-   "ruling": "not derivable from given panels: o22: text, not in given captions: ['panel b = S3 (caption)']",
+   "status": "open",
+   "ruling": "",
    "walk": [
     {
      "node": "n1",
@@ -104,13 +104,18 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
-     "effect": "condition labels: [None]"
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['S3 coatings']"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:669",
-     "effect": "not derivable from given panels: o22: text, not in given captions: ['panel b = S3 (caption)']"
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o22 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F8b']"
     }
    ],
    "node_necessity": "corrective",
@@ -139,13 +144,13 @@
    "condition_labels": [
     {
      "panel": "10.1016/j.porgcoat.2016.09.010#F8b",
-     "sample": null,
-     "sample_source": null,
+     "sample": "S3 coatings",
+     "sample_source": "caption",
      "level": null,
      "unit": null,
      "level_source": null,
      "alias": null,
-     "text": null
+     "text": "S3 coatings"
     }
    ],
    "graded_targets": [
@@ -153,10 +158,33 @@
    ],
    "target_verdicts": {
     "o22": {
-     "pass": false,
-     "why": "text, not in given captions: ['panel b = S3 (caption)']"
+     "pass": true,
+     "why": "text, facts in given caption spans"
     }
    },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.porgcoat.2016.09.010#F8b",
+     "annotations": [
+      "L5=53.24nm",
+      "L4=39.90nm",
+      "L3=69.80nm",
+      "L2=55.86nm",
+      "L1=75.92nm",
+      "SEMMAG:50.0KX",
+      "SEMHV.15.0KV",
+      "MRA3TESCAN",
+      "WD:4.19mm",
+      "Det:InBeam",
+      "View ieid:2.89um",
+      "RAZIFOUNDATION",
+      "500nm",
+      "B:10.00"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
    "linear": [
     {
      "step": 1,
@@ -192,6 +220,13 @@
      "hidden": true,
      "text": "Ruling: S3 fracture surface shows several round cavities ~200-500 nm wide"
     }
+   ],
+   "question": "Given the claim under test above, does the SEM fracture-surface panel for the S3 coating (Figure 8b) support it?",
+   "answer_key": "Not cleanly. The audit reads the S3 fracture surface as showing several round cavities roughly 200-500 nm wide, i.e. residual porosity is visible in this coating, which qualifies rather than confirms the barrier-effect claim (o22).",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel, node o22.",
+   "answer_key_nodes": [
+    "o22"
    ]
   },
   {
@@ -291,7 +326,7 @@
     },
     {
      "rule": "no_crop",
-     "where": "cut_traces.py:591",
+     "where": "cut_traces.py:601",
      "effect": "evidence cited by figure only: no panel crop to hand over"
     }
    ],
@@ -459,17 +494,17 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
+     "where": "cut_traces.py:610",
      "effect": "condition labels: ['Al 2p high resolution spectrum and']"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o20 (figure)"
     },
     {
      "rule": "skip",
-     "where": "cut_traces.py:707",
+     "where": "cut_traces.py:717",
      "effect": "given panels carry no answer text: ['F2b']"
     }
    ],
@@ -574,10 +609,10 @@
      "text": "Ruling: Al 2p fit labels Al2O3 at ~75.4 eV and a ~4x larger Al metal peak at ~78.2 eV, above the oxide"
     }
    ],
-   "question": "You are given the claim under test above and the Al 2p high-resolution XPS spectrum, Figure 2b. Reading the fitted peaks in that spectrum, what does it show about the aluminium and aluminium-oxide components on the nanoparticle surface, and does it support the claim?",
-   "answer_key": "The Al 2p fit in the panel resolves two components: Al2O3 at about 75.4 eV and a metallic Al peak at about 78.2 eV, positioned above the oxide peak and roughly 4x larger in intensity than it (o20). The strong, dominant metallic-Al signal alongside a much smaller oxide component indicates most of the underlying aluminium is still exposed rather than fully covered, consistent with the claim that the Ce layer is very thin and non-uniform and that the nanoparticles are only partly covered by Ce oxides/hydroxides.",
+   "question": "The claim under test says the Ce layer on the Al nanoparticles is very thin and non-uniform, leaving them only partly covered by Ce oxides/hydroxides. Reading the Al 2p high-resolution XPS spectrum in the cited panel, what does the peak fit actually show, and does it support this reading?",
+   "answer_key": "The Al 2p fit in the panel labels the Al2O3 peak at about 75.4 eV and a metallic Al peak roughly 4 times larger at about 78.2 eV, sitting at higher binding energy than the oxide peak (o20).",
    "answer_scope": "full",
-   "grading": "Answer key: the audit ruling on the panel, i.e., the peak assignment and relative-intensity reading held in node o20.",
+   "grading": "Answer key: the audit ruling on the panel, node o20, the sole graded target for this trace.",
    "answer_key_nodes": [
     "o20"
    ]
@@ -681,17 +716,17 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
+     "where": "cut_traces.py:610",
      "effect": "condition labels: ['O 1s high resolution spectrum']"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o21 (figure)"
     },
     {
      "rule": "skip",
-     "where": "cut_traces.py:707",
+     "where": "cut_traces.py:717",
      "effect": "given panels carry no answer text: ['F2c']"
     }
    ],
@@ -794,13 +829,12 @@
      "text": "Ruling: O 1s: Ce2O3 component (~275) is taller than Ce-OH (~250); CeO2 is smallest (~100)"
     }
    ],
-   "question": "The claim under test is that the Ce layer on the Al nanoparticles is very thin and non-uniform, leaving the particles only partly covered by Ce oxides/hydroxides. Does the O 1s high-resolution XPS spectrum in Figure 2c support this claim, and what does the spectrum show about the relative amounts of the Ce-related oxygen species?",
-   "answer_key": "The O 1s spectrum resolves three oxygen-species components with distinct relative intensities: the Ce2O3 component is the tallest (~275), the Ce-OH component is next (~250), and the CeO2 component is the smallest (~100) (o21). This mix of Ce2O3, Ce-OH and CeO2 signals, rather than a single dominant, uniform CeO2 signature, is the panel reading that qualifies the thin/non-uniform, partial-coverage claim.",
+   "question": "The claim under test holds that the Ce layer on the Al nanoparticles is very thin and non-uniform, leaving the particles only partly covered by Ce oxides/hydroxides. Reading the O 1s high-resolution XPS spectrum in Figure 2c, how do the Ce2O3, Ce-OH and CeO2 components compare in peak height?",
+   "answer_key": "The Ce2O3 component (around 275) is the tallest, the Ce-OH component (around 250) is next, and the CeO2 component (around 100) is the smallest.",
    "answer_scope": "full",
-   "grading": "Answer key: the audit ruling on the panel, node o21, judge-confirmed against the O 1s peak heights it specifies.",
+   "grading": "Answer key: the audit ruling on the panel (o21).",
    "answer_key_nodes": [
-    "o21",
-    "n9"
+    "o21"
    ]
   },
   {
@@ -899,7 +933,7 @@
     },
     {
      "rule": "no_crop",
-     "where": "cut_traces.py:591",
+     "where": "cut_traces.py:601",
      "effect": "evidence cited by figure only: no panel crop to hand over"
     }
    ],
@@ -1069,22 +1103,22 @@
    "v2_rules": [
     {
      "rule": "R4",
-     "where": "cut_traces.py:542",
+     "where": "cut_traces.py:552",
      "effect": "context n13 shares a claim with a hidden node: redacted"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:542",
+     "where": "cut_traces.py:552",
      "effect": "context n16 shares a claim with a hidden node: redacted"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:579",
+     "where": "cut_traces.py:589",
      "effect": "given [], withheld ['10.1016/j.porgcoat.2016.09.010#F3a', '10.1016/j.porgcoat.2016.09.010#F3b', '10.1016/j.porgcoat.2016.09.010#F6a', '10.1016/j.porgcoat.2016.09.010#F6b'] (decision 2.0, levels [] None)"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:582",
+     "where": "cut_traces.py:592",
      "effect": "decision 2.0 is not the condition directly after the last given (None)"
     }
    ],
@@ -1142,26 +1176,5 @@
    ]
   }
  ],
- "knowledge_pile": [
-  {
-   "paper": "Progress_in_Organic_Coatings__j.porgcoat.2016.09.010",
-   "trace": "T1",
-   "root": "explain",
-   "subtype": "rejection",
-   "targets": [
-    "o22"
-   ],
-   "why": [
-    "o22: text, not in given captions: ['panel b = S3 (caption)']"
-   ],
-   "requires_unseen": {
-    "o22": [
-     "panel b = S3 (caption)"
-    ]
-   },
-   "labels": {
-    "o22": "S3 fracture surface shows several round cavities ~200-500 nm wide"
-   }
-  }
- ]
+ "knowledge_pile": []
 }

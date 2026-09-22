@@ -22,7 +22,9 @@
    "leak": {
     "bigrams": [],
     "numbers": [],
-    "content_words": [],
+    "content_words": [
+     "higher"
+    ],
     "shared_vocab": "given nodes + panel spans + OCR cues + modality/technique",
     "pass": true
    },
@@ -48,7 +50,7 @@
     "pass": true,
     "key_nodes_outside_targets": [],
     "missing_numbers": [],
-    "word_coverage": 0.6,
+    "word_coverage": 0.67,
     "numbers_checked": 2,
     "rule": "no missing numbers (coverage < 0.5 with fewer than three sourced numbers is a warning)",
     "sources": [
@@ -65,7 +67,14 @@
    }
   },
   "notes": [],
-  "warnings": [],
+  "warnings": [
+   {
+    "kind": "content_words",
+    "words": [
+     "higher"
+    ]
+   }
+  ],
   "verdict": "survives",
   "fails": []
  },
@@ -102,7 +111,7 @@
     "pass": true,
     "key_nodes_outside_targets": [],
     "missing_numbers": [],
-    "word_coverage": 0.67,
+    "word_coverage": 0.36,
     "numbers_checked": 0,
     "rule": "no missing numbers (coverage < 0.5 with fewer than three sourced numbers is a warning)",
     "sources": [
@@ -119,7 +128,12 @@
    }
   },
   "notes": [],
-  "warnings": [],
+  "warnings": [
+   {
+    "kind": "coverage",
+    "word_coverage": 0.36
+   }
+  ],
   "verdict": "survives",
   "fails": []
  },
@@ -156,7 +170,7 @@
     "pass": true,
     "key_nodes_outside_targets": [],
     "missing_numbers": [],
-    "word_coverage": 0.5,
+    "word_coverage": 0.6,
     "numbers_checked": 4,
     "rule": "no missing numbers (coverage < 0.5 with fewer than three sourced numbers is a warning)",
     "sources": [
@@ -210,8 +224,8 @@
     "pass": true,
     "key_nodes_outside_targets": [],
     "missing_numbers": [],
-    "word_coverage": 0.14,
-    "numbers_checked": 2,
+    "word_coverage": 0.24,
+    "numbers_checked": 4,
     "rule": "no missing numbers (coverage < 0.5 with fewer than three sourced numbers is a warning)",
     "sources": [
      "c1",
@@ -224,21 +238,57 @@
    }
   },
   "notes": [],
-  "warnings": [
-   {
-    "kind": "coverage",
-    "word_coverage": 0.14
-   }
-  ],
+  "warnings": [],
   "verdict": "survives",
   "fails": []
  },
  {
   "id": "T7",
-  "status_in": "closed",
-  "nets": {},
+  "status_in": "open",
+  "nets": {
+   "leak": {
+    "bigrams": [],
+    "numbers": [],
+    "content_words": [],
+    "shared_vocab": "given nodes + panel spans + OCR cues + modality/technique",
+    "pass": true
+   },
+   "disjoint": {
+    "pass": true
+   },
+   "grader_withheld": {
+    "pass": true,
+    "held": []
+   },
+   "derivable": {
+    "pass": true,
+    "why": "audit node has a figure"
+   },
+   "panels": {
+    "pass": true,
+    "n": 1
+   },
+   "linear": {
+    "pass": true
+   },
+   "provenance": {
+    "pass": true,
+    "key_nodes_outside_targets": [],
+    "missing_numbers": [],
+    "word_coverage": 0.62,
+    "numbers_checked": 0,
+    "rule": "no missing numbers (coverage < 0.5 with fewer than three sourced numbers is a warning)",
+    "sources": [
+     "c1",
+     "f3",
+     "o21",
+     "r4"
+    ]
+   }
+  },
   "notes": [],
   "warnings": [],
-  "verdict": "closed"
+  "verdict": "survives",
+  "fails": []
  }
 ]

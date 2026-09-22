@@ -37,8 +37,8 @@
    ],
    "mask": "hide the ruling; show the claim and the panel",
    "grader": "answer key: the audit ruling on the panel",
-   "status": "closed",
-   "ruling": "no crop",
+   "status": "open",
+   "ruling": "",
    "walk": [
     {
      "node": "b1",
@@ -103,18 +103,18 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
+     "where": "cut_traces.py:610",
      "effect": "condition labels: [None, None]"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o21 (figure)"
     },
     {
-     "rule": "no_crop",
-     "where": "cut_traces.py:691",
-     "effect": "10.1016/j.bioactmat.2020.02.005#F6c does not resolve to a panel crop"
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F6c', 'F6d']"
     }
    ],
    "redactions": [
@@ -179,7 +179,24 @@
      "why": "figure"
     }
    },
-   "closed_by": "no_crop",
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.bioactmat.2020.02.005#F6c",
+     "annotations": [
+      "Er4d",
+      "168.8eV"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.bioactmat.2020.02.005#F6d",
+     "annotations": [
+      "(d)ce3d"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
    "linear": [
     {
      "step": 1,
@@ -215,7 +232,15 @@
      "hidden": true,
      "text": "Ruling: Ce 3d region is noise with no resolved peaks at the marked u/v positions, and the Er 4d fitted envelope sits well above the noisy data"
     }
-   ]
+   ],
+   "question": "The claim under test holds that Er and Ce are incorporated into the co-doped particles, with each element sitting in the stated oxidation state and Ce present as a mixed-valence surface species. Looking at the two XPS panels (F6c, F6d) cited as evidence for this, does the data actually confirm the labeled peak assignments for each element, and why or why not?",
+   "answer_key": "No. Panel F6c, the region where a Ce mixed-valence signal is expected, is noise with no resolved peaks at the marked positions, and in panel F6d the fitted envelope for the Er signal sits well above the noisy underlying data, so the fit is not supported by the actual signal (o21).",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel, node o21.",
+   "answer_key_nodes": [
+    "o21"
+   ],
+   "writer_passes": 2
   },
   {
    "id": "T2",
@@ -250,8 +275,8 @@
    ],
    "mask": "hide the ruling; show the claim and the panel",
    "grader": "answer key: the audit ruling on the panel",
-   "status": "closed",
-   "ruling": "panel_modality: o24 is UVVIS but F4c reads as micrograph",
+   "status": "open",
+   "ruling": "",
    "walk": [
     {
      "node": "b1",
@@ -315,28 +340,18 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
-     "effect": "condition labels: ['TEM image']"
-    },
-    {
-     "rule": "R6",
      "where": "cut_traces.py:610",
-     "effect": "o24 technique UVVIS vs 10.1016/j.bioactmat.2020.02.005#F4c cues ['micrograph']: blocked panel_modality"
+     "effect": "condition labels: [None]"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o24 (figure)"
     },
     {
      "rule": "skip",
-     "where": "cut_traces.py:707",
+     "where": "cut_traces.py:717",
      "effect": "given panels carry no answer text: ['F4c']"
-    },
-    {
-     "rule": "R6",
-     "where": "cut_traces.py:734",
-     "effect": "open trace with a panel_modality block: closed"
     }
    ],
    "redactions": [
@@ -368,24 +383,15 @@
    "condition_labels": [
     {
      "panel": "10.1016/j.bioactmat.2020.02.005#F4c",
-     "sample": "TEM image",
-     "sample_source": "caption",
+     "sample": null,
+     "sample_source": null,
      "level": null,
      "unit": "mol%",
      "level_source": null,
      "alias": null,
-     "text": "TEM image"
+     "text": null
     }
    ],
-   "blocked": {
-    "reason": "panel_modality",
-    "node": "o24",
-    "panel": "10.1016/j.bioactmat.2020.02.005#F4c",
-    "technique": "UVVIS",
-    "cues": [
-     "micrograph"
-    ]
-   },
    "graded_targets": [
     "o24"
    ],
@@ -399,7 +405,12 @@
     {
      "panel": "10.1016/j.bioactmat.2020.02.005#F4c",
      "annotations": [
-      "100nm"
+      "-TiO2",
+      "-Er0.5Ce0.1Ti-O",
+      "Er0.5Ce0.2Ti-O",
+      "Er0.5Ce0.3T-O",
+      "(Ahv)",
+      "hv"
      ],
      "hits": []
     }
@@ -440,6 +451,13 @@
      "hidden": true,
      "text": "Ruling: Doped-sample Tauc lines are drawn through the sub-edge tail (hv ~2.3-2.9) carrying the Er line near 2.37 eV, not the main edge near 3 eV"
     }
+   ],
+   "question": "The context states that Ce co-doping narrows the optical band gap of TiO2 from 2.90 eV down to 2.20-2.46 eV, with the smallest value (2.20 eV) at Ce 0.2. Does the Tauc plot in Figure 4c support this claim?",
+   "answer_key": "No. On the Tauc plot (F4c), the linear fit lines for the doped samples are drawn through the sub-edge tail region, around hv ~2.3-2.9 eV, which carries the Er absorption line near 2.37 eV, rather than through the main absorption edge near 3 eV. So the extrapolated band-gap values come from fitting this sub-edge tail/Er feature, not from the true TiO2 absorption edge, which undercuts the claimed narrowing.",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel, node o24, the sole graded target for this trace.",
+   "answer_key_nodes": [
+    "o24"
    ]
   },
   {
@@ -543,17 +561,17 @@
    "v2_rules": [
     {
      "rule": "R4",
-     "where": "cut_traces.py:542",
+     "where": "cut_traces.py:552",
      "effect": "context b6 shares a claim with a hidden node: redacted"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:579",
+     "where": "cut_traces.py:589",
      "effect": "given [], withheld ['10.1016/j.bioactmat.2020.02.005#F4a', '10.1016/j.bioactmat.2020.02.005#F9a'] (decision 0.5, levels [0.25, 0.5, 0.75, 1.0] mol%)"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:582",
+     "where": "cut_traces.py:592",
      "effect": "decision 0.5 is not the condition directly after the last given (None)"
     }
    ],

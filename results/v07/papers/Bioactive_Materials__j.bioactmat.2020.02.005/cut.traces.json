@@ -37,8 +37,8 @@
    ],
    "mask": "hide the ruling; show the claim and the panel",
    "grader": "answer key: the audit ruling on the panel",
-   "status": "closed",
-   "ruling": "no crop",
+   "status": "open",
+   "ruling": "",
    "walk": [
     {
      "node": "b1",
@@ -103,18 +103,18 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
+     "where": "cut_traces.py:610",
      "effect": "condition labels: [None, None]"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o21 (figure)"
     },
     {
-     "rule": "no_crop",
-     "where": "cut_traces.py:691",
-     "effect": "10.1016/j.bioactmat.2020.02.005#F6c does not resolve to a panel crop"
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F6c', 'F6d']"
     }
    ],
    "redactions": [
@@ -179,7 +179,24 @@
      "why": "figure"
     }
    },
-   "closed_by": "no_crop",
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.bioactmat.2020.02.005#F6c",
+     "annotations": [
+      "Er4d",
+      "168.8eV"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.bioactmat.2020.02.005#F6d",
+     "annotations": [
+      "(d)ce3d"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
    "linear": [
     {
      "step": 1,
@@ -250,8 +267,8 @@
    ],
    "mask": "hide the ruling; show the claim and the panel",
    "grader": "answer key: the audit ruling on the panel",
-   "status": "closed",
-   "ruling": "panel_modality: o24 is UVVIS but F4c reads as micrograph",
+   "status": "open",
+   "ruling": "",
    "walk": [
     {
      "node": "b1",
@@ -315,28 +332,18 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
-     "effect": "condition labels: ['TEM image']"
-    },
-    {
-     "rule": "R6",
      "where": "cut_traces.py:610",
-     "effect": "o24 technique UVVIS vs 10.1016/j.bioactmat.2020.02.005#F4c cues ['micrograph']: blocked panel_modality"
+     "effect": "condition labels: [None]"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o24 (figure)"
     },
     {
      "rule": "skip",
-     "where": "cut_traces.py:707",
+     "where": "cut_traces.py:717",
      "effect": "given panels carry no answer text: ['F4c']"
-    },
-    {
-     "rule": "R6",
-     "where": "cut_traces.py:734",
-     "effect": "open trace with a panel_modality block: closed"
     }
    ],
    "redactions": [
@@ -368,24 +375,15 @@
    "condition_labels": [
     {
      "panel": "10.1016/j.bioactmat.2020.02.005#F4c",
-     "sample": "TEM image",
-     "sample_source": "caption",
+     "sample": null,
+     "sample_source": null,
      "level": null,
      "unit": "mol%",
      "level_source": null,
      "alias": null,
-     "text": "TEM image"
+     "text": null
     }
    ],
-   "blocked": {
-    "reason": "panel_modality",
-    "node": "o24",
-    "panel": "10.1016/j.bioactmat.2020.02.005#F4c",
-    "technique": "UVVIS",
-    "cues": [
-     "micrograph"
-    ]
-   },
    "graded_targets": [
     "o24"
    ],
@@ -399,7 +397,12 @@
     {
      "panel": "10.1016/j.bioactmat.2020.02.005#F4c",
      "annotations": [
-      "100nm"
+      "-TiO2",
+      "-Er0.5Ce0.1Ti-O",
+      "Er0.5Ce0.2Ti-O",
+      "Er0.5Ce0.3T-O",
+      "(Ahv)",
+      "hv"
      ],
      "hits": []
     }
@@ -543,17 +546,17 @@
    "v2_rules": [
     {
      "rule": "R4",
-     "where": "cut_traces.py:542",
+     "where": "cut_traces.py:552",
      "effect": "context b6 shares a claim with a hidden node: redacted"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:579",
+     "where": "cut_traces.py:589",
      "effect": "given [], withheld ['10.1016/j.bioactmat.2020.02.005#F4a', '10.1016/j.bioactmat.2020.02.005#F9a'] (decision 0.5, levels [0.25, 0.5, 0.75, 1.0] mol%)"
     },
     {
      "rule": "R4",
-     "where": "cut_traces.py:582",
+     "where": "cut_traces.py:592",
      "effect": "decision 0.5 is not the condition directly after the last given (None)"
     }
    ],

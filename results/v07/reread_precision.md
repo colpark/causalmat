@@ -81,4 +81,33 @@ None.
 | u12 | Advanced_Energy_Materials__aenm.201301564 | o1 | F1a+F1b+F1c+F1d | wording |
 | u13 | Rare_Metals__s12598-012-0515-6 | o1 | F1a+F1b+F1c | wording |
 
+## v07 G: re-grade under the lenient grader rule
+
+net-grader.md gained the second-read rule: "Grade whether the description and the observation name the same features of the same image. Different names for the same thing (stain names, map axes written in another order, instrument synonyms) are CORRECT. WRONG only when the image shows a different kind of data or contradicts the observation." After a restart the grader recited it verbatim. The 13 original grader prompts were re-sent unchanged (`reread_precision/regrade/`, every prompt checked byte for byte).
+
+| unit | judge | old | re-grade |
+|---|---|---|---|
+| u01 | wording | WRONG | WRONG |
+| u02 | real | WRONG | WRONG |
+| u03 | wording | WRONG | WRONG |
+| u04 | wording | WRONG | WRONG |
+| u05 | wording | WRONG | WRONG |
+| u06 | wording | WRONG | WRONG |
+| u07 | wording | WRONG | WRONG |
+| u08 | wording | WRONG | PARTIAL |
+| u09 | wording | WRONG | WRONG |
+| u10 | wording | WRONG | CORRECT |
+| u11 | wording | WRONG | PARTIAL |
+| u12 | wording | WRONG | PARTIAL |
+| u13 | wording | WRONG | PARTIAL |
+
+- Wording flags cleared: **5 of 12** (1 CORRECT, 4 PARTIAL). The other 7 stay WRONG.
+- Real flags cleared: **0 of 1** (u02 stays WRONG). The rule needed no tightening.
+- The seven wording flags that survive are reader misreads, not naming differences. The reader's text itself contradicts the node: angular grains where the node says globular (u01), a plateau where it says still rising (u04), red cells where it says almost none (u05), uniform where it says patchy (u06). A grader that sees only the reader's text cannot tell that the reader erred. Leniency on names cannot clear these; only a look at the image can, as the judge did.
+- There was no control run under the old rule, so part of the change may be grader run-to-run variation.
+
+## The one real flag was a tooling bug
+
+The staff subagent re-opened the figure for u02 (ACHM o16 on F6b). The packet's F6b is the paper's Fig. 5b, the dielectric loss plot, which matches the node. The reader had been given the paper's Fig. 6b. The packet numbers figures by their position in `data.json` `image_info`. `panel_record` in `cut_traces.py` looked them up by `match.json` `figure_number`, which repeats or skips when a paper has a scheme or an unnumbered figure. The fix (`fig_by_number`) is in `cut_traces.py` and `validate_traces.py`. It affects 9 of the 32 papers and 51 of the 168 Part C papers. So after the fix, **no flag on the 32 papers is a graph error: precision against graph errors is 0/13.**
+
 Every verdict is model against model.

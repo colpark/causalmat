@@ -104,17 +104,17 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
-     "effect": "condition labels: ['BST@Ag5\\\\%/ PAEN']"
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['BST@Ag5\\\\%']"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o6 (text, facts in given caption spans)"
     },
     {
      "rule": "skip",
-     "where": "cut_traces.py:707",
+     "where": "cut_traces.py:717",
      "effect": "given panels carry no answer text: ['F3e']"
     }
    ],
@@ -144,13 +144,13 @@
    "condition_labels": [
     {
      "panel": "10.1007/s42114-021-00366-2#F3e",
-     "sample": "BST@Ag5\\%/ PAEN",
+     "sample": "BST@Ag5\\%",
      "sample_source": "caption",
      "level": null,
      "unit": "%",
      "level_source": null,
      "alias": null,
-     "text": "BST@Ag5\\%/ PAEN"
+     "text": "BST@Ag5\\%"
     }
    ],
    "graded_targets": [
@@ -166,7 +166,7 @@
     {
      "panel": "10.1007/s42114-021-00366-2#F3e",
      "annotations": [
-      "ley"
+      "500nm"
      ],
      "hits": []
     }
@@ -208,10 +208,10 @@
      "text": "Ruling: No discrete Ag nanoparticles are resolved on the BST@Ag5% particles at this magnification"
     }
    ],
-   "question": "The claim under test says Ag nanoparticles coat the BST-SH surface, roughening particles grown to about 100 nm. Does panel F3e (SEM) support this?",
-   "answer_key": "No. At the magnification shown in F3e, no discrete Ag nanoparticles are resolved on the BST@Ag5% particles, so the panel does not support the claim of Ag nanoparticles coating the surface and roughening particles to about 100 nm (o6).",
+   "question": "The claim under test says Ag nanoparticles coat the BST-SH surface, roughening particles grown to about 100 nm. Does the SEM panel F3e (BST@Ag5%) support this?",
+   "answer_key": "No. At this magnification, no discrete Ag nanoparticles are resolved on the BST@Ag5% particles, so the panel does not support the claim (o6).",
    "answer_scope": "full",
-   "grading": "Answer key: the audit ruling on the panel, i.e. match to o6.",
+   "grading": "Answer key: the audit ruling on the panel (o6).",
    "answer_key_nodes": [
     "o6"
    ]
@@ -311,12 +311,12 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
-     "effect": "condition labels: ['TGA', None, None]"
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['BST-SH/PAEN', 'BST@Ag1%/PAEN; Ag content of the hybrid filler set at 1 %', 'BST@Ag5\\\\%/ PAEN']"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:669",
+     "where": "cut_traces.py:679",
      "effect": "not derivable from given panels: o9: text, not in given captions: ['panel-to-sample assignment F4b-e (caption)']"
     }
    ],
@@ -329,33 +329,33 @@
    "condition_labels": [
     {
      "panel": "10.1007/s42114-021-00366-2#F4b",
-     "sample": "TGA",
+     "sample": "BST-SH/PAEN",
      "sample_source": "caption",
      "level": null,
      "unit": "%",
      "level_source": null,
      "alias": null,
-     "text": "TGA"
+     "text": "BST-SH/PAEN"
     },
     {
      "panel": "10.1007/s42114-021-00366-2#F4c",
-     "sample": null,
-     "sample_source": null,
-     "level": null,
+     "sample": "BST@Ag1%/PAEN",
+     "sample_source": "caption",
+     "level": 1.0,
      "unit": "%",
-     "level_source": null,
+     "level_source": "caption",
      "alias": null,
-     "text": null
+     "text": "BST@Ag1%/PAEN; Ag content of the hybrid filler set at 1 %"
     },
     {
      "panel": "10.1007/s42114-021-00366-2#F4e",
-     "sample": null,
-     "sample_source": null,
+     "sample": "BST@Ag5\\%/ PAEN",
+     "sample_source": "caption",
      "level": null,
      "unit": "%",
      "level_source": null,
      "alias": null,
-     "text": null
+     "text": "BST@Ag5\\%/ PAEN"
     }
    ],
    "graded_targets": [
@@ -527,17 +527,17 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
+     "where": "cut_traces.py:610",
      "effect": "condition labels: [None]"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o16 (figure)"
     },
     {
      "rule": "skip",
-     "where": "cut_traces.py:707",
+     "where": "cut_traces.py:717",
      "effect": "given panels carry no answer text: ['F6b']"
     }
    ],
@@ -587,10 +587,13 @@
     {
      "panel": "10.1007/s42114-021-00366-2#F6b",
      "annotations": [
-      "Breaking elongation(%)",
       "PurePAEN",
-      "BST@A91%",
-      "BST@Ag3%BST@Ag5%"
+      "BST@Ag1%",
+      "BST@Ag3%",
+      "BST@Ag5%",
+      "Loss",
+      "lectric",
+      "Diel"
      ],
      "hits": []
     }
@@ -632,10 +635,10 @@
      "text": "Ruling: BST@Ag1% loss climbs above 100 kHz to ~0.065 at 1 MHz; low-frequency losses exceed 0.026"
     }
    ],
-   "question": "The claim under test says dielectric loss stays low (below 0.026), increasing only slightly with Ag content. Does the panel (F6b, breaking elongation/loss plot for PurePAEN, BST@Ag1%, BST@Ag3%, BST@Ag5%) support this?",
-   "answer_key": "No. On the panel, BST@Ag1% loss climbs above 100 kHz and reaches about 0.065 at 1 MHz, and the low-frequency losses exceed 0.026, so the panel does not bear out the claim of loss staying below 0.026 with only a slight rise.",
+   "question": "The text claims dielectric loss stays low (below 0.026), rising only slightly as Ag content increases. Does panel F6b support this claim?",
+   "answer_key": "No. Panel F6b shows the BST@Ag1% loss curve climbing above 100 kHz to about 0.065 at 1 MHz, and the low-frequency losses exceed 0.026, so the panel contradicts the claimed low, only-slightly-rising loss.",
    "answer_scope": "full",
-   "grading": "Answer key: the audit ruling on the panel, node o16.",
+   "grading": "Answer key: the audit ruling on the panel, read from node o16, the sole graded target for this trace (target_verdicts marks o16 pass).",
    "answer_key_nodes": [
     "o16"
    ]
@@ -731,17 +734,17 @@
     },
     {
      "rule": "P2",
-     "where": "cut_traces.py:600",
+     "where": "cut_traces.py:610",
      "effect": "condition labels: [None]"
     },
     {
      "rule": "R3",
-     "where": "cut_traces.py:674",
+     "where": "cut_traces.py:684",
      "effect": "graded targets readable: o16 (figure)"
     },
     {
      "rule": "skip",
-     "where": "cut_traces.py:707",
+     "where": "cut_traces.py:717",
      "effect": "given panels carry no answer text: ['F6b']"
     }
    ],
@@ -787,10 +790,13 @@
     {
      "panel": "10.1007/s42114-021-00366-2#F6b",
      "annotations": [
-      "Breaking elongation(%)",
       "PurePAEN",
-      "BST@A91%",
-      "BST@Ag3%BST@Ag5%"
+      "BST@Ag1%",
+      "BST@Ag3%",
+      "BST@Ag5%",
+      "Loss",
+      "lectric",
+      "Diel"
      ],
      "hits": []
     }
@@ -832,12 +838,13 @@
      "text": "Ruling: BST@Ag1% loss climbs above 100 kHz to ~0.065 at 1 MHz; low-frequency losses exceed 0.026"
     }
    ],
-   "question": "The text claims that dielectric properties stay stable from 100 Hz to 1 MHz (and up to about 135-140 C) for the BST@Ag/PAEN films. Does panel F6b support this stability claim across that frequency range?",
-   "answer_key": "No. The panel shows the BST@Ag1% loss climbing above 100 kHz to about 0.065 at 1 MHz, while the low-frequency losses already exceed 0.026 \u2014 the loss is not flat across the range, contradicting the stability claim (o16).",
+   "question": "The claim under test: dielectric properties stay stable from 100 Hz to 1 MHz and up to about 135-140 C. Does the loss data in panel F6b support this?",
+   "answer_key": "No. On panel F6b the BST@Ag1% loss climbs above 100 kHz, reaching about 0.065 at 1 MHz, and the low-frequency loss values exceed 0.026, so the panel does not bear out the claimed stability of loss across 100 Hz to 1 MHz.",
    "answer_scope": "full",
-   "grading": "Answer key: the audit ruling on the panel, node o16.",
+   "grading": "Answer key: the audit ruling on the panel, i.e. the graded target o16, checked against the claim in s18.",
    "answer_key_nodes": [
-    "o16"
+    "o16",
+    "s18"
    ]
   }
  ],
