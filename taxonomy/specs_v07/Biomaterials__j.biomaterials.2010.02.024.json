@@ -1,0 +1,372 @@
+{
+ "file": "Biomaterials__j.biomaterials.2010.02.024.html",
+ "short": "Controlling silk fibroin particle features for drug delivery",
+ "journal": "Biomaterials",
+ "year": null,
+ "title": "Controlling silk fibroin particle features for drug delivery",
+ "doi": "Biomaterials/j.biomaterials.2010.02.024",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO, SEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Drug-delivery carriers need controllable size, secondary structure and surface charge to tune drug loading and release. Salting-out parameters (ionic strength, pH, protein concentration) should set silk particle features that govern loading and release.",
+   "detail": "Absorbed: s1 (HYP/need), s2 (HYP/hypothesis), s3 (DES/base_system), s4 (DES/route), s5 (DES/variable_sweep), s6 (PRC/synthesis)",
+   "figs": [],
+   "source": "s1, s2, s3, s4, s5, s6"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Mean particle size grows with silk concentration, ~0.5 um at 0.25 mg/mL to ~3.6 um at 20 mg/mL. Particle secondary structure shifts from silk II-rich (beta sheet) at pH 4-6 to silk I-rich at pH 8-9",
+   "detail": "Absorbed: s8 (STR/microstructure/feature_size), s9 (STR/chemistry/bonding). Premises: Amide I ~1650 cm-1 marks silk I/random coil/helix; ~1620-1630 cm-1 marks silk II beta sheet",
+   "figs": [],
+   "source": "s8, s9"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "pH sets domain charges and chain extension, which set micelle packing and the secondary structure stabilised on particle formation. Particle zeta potential becomes more negative with production pH, about -26 mV (pH 4) to -46 mV (pH 9).",
+   "detail": "Absorbed: s10 (MEC/pathway), s11 (PRP/value), s12 (PRP/value), s13 (MEC/pathway), s14 (PRP/value), s15 (PRP/value)",
+   "figs": [],
+   "source": "s10, s11, s12, s13, s14, s15"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "Silk particles act as tunable sustained-release carriers for positively charged small-molecule drugs",
+   "detail": "Absorbed: s16 (PRF/service_capability)",
+   "figs": [],
+   "source": "s16"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Salting-out ionic strength, pH and silk concentration control particle size, secondary structure and charge, which set drug loading and release",
+   "detail": "Absorbed: s17 (DSC/conclusion)",
+   "figs": [],
+   "source": "s17"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "SEM, F3",
+   "tech": "SEM",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.02.024#F3c, 10.1016/j.biomaterials.2010.02.024#F3d, 10.1016/j.biomaterials.2010.02.024#F3e",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.02.024#F3c",
+    "10.1016/j.biomaterials.2010.02.024#F3d",
+    "10.1016/j.biomaterials.2010.02.024#F3e"
+   ],
+   "head": "SEM: particle size increases from c to d to e; e shows large fused, irregular aggregates",
+   "solves": "Mean particle size grows with silk concentration, ~0.5 um at 0.25 mg/mL to ~3.6 um at 20 mg/mL",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o9",
+   "tech_source": "label",
+   "claims": [
+    "s8"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s8 keeps shown support from o7, o8 after removal."
+  },
+  {
+   "id": "C2",
+   "lane": 1,
+   "row": "S1",
+   "line": 1,
+   "title": "evidence, F3",
+   "tech": "",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.02.024#F3a, 10.1016/j.biomaterials.2010.02.024#F3b",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.02.024#F3a",
+    "10.1016/j.biomaterials.2010.02.024#F3b"
+   ],
+   "head": "Size distributions are narrow and sub-um at low concentration and broaden toward several um at high concentration. Average size rises from ~0.5 um (0.25 mg/mL) to ~3.6 um (20 mg/mL), error bars widening",
+   "solves": "Mean particle size grows with silk concentration, ~0.5 um at 0.25 mg/mL to ~3.6 um at 20 mg/mL",
+   "op": "read distribution statistics, read trend, replot derived series",
+   "verdict": "shown",
+   "source": "o7, o8",
+   "tech_source": "none",
+   "detail": "o7: Size distributions are narrow and sub-um at low concentration and broaden toward several um at high concentration; o8: Average size rises from ~0.5 um (0.25 mg/mL) to ~3.6 um (20 mg/mL), error bars widening",
+   "claims": [
+    "s8"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s8 keeps shown support from o9 after removal."
+  },
+  {
+   "id": "C3",
+   "lane": 1,
+   "row": "S1",
+   "line": 2,
+   "title": "ASSAY, F4",
+   "tech": "ASSAY",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Amide I maximum moves from ~1625 cm-1 (pH 4-6) to ~1652 cm-1 (pH 8-9), pH 7 showing both. FSD: beta-sheet band (B, ~1622 cm-1) dominates at pH 6; helix/silk I band (A, ~1655 cm-1) dominates at pH 8",
+   "solves": "Particle secondary structure shifts from silk II-rich (beta sheet) at pH 4-6 to silk I-rich at pH 8-9",
+   "op": "compare across conditions, compare coplotted quantities, correlate across series, fit model",
+   "verdict": "shown",
+   "source": "o10, o11",
+   "tech_source": "label",
+   "note": "authors' dashed lines labelled 'Silk I' and 'Silk II' drawn on F4a; no annotation list since F4 has no panels offered Table 1 (secondary-structure fractions) is not in the packet",
+   "detail": "o10: Amide I maximum moves from ~1625 cm-1 (pH 4-6) to ~1652 cm-1 (pH 8-9), pH 7 showing both; o11: FSD: beta-sheet band (B, ~1622 cm-1) dominates at pH 6; helix/silk I band (A, ~1655 cm-1) dominates at pH 8",
+   "claims": [
+    "s9"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s9 (o10, o11)."
+  },
+  {
+   "id": "M4",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "MICRO, F6",
+   "tech": "MICRO",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.02.024#F6d",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.02.024#F6d"
+   ],
+   "head": "Confocal: rhodamine B fluorescence fills each ~1-2 um particle uniformly, no bright rim",
+   "solves": "",
+   "op": "inspect local feature",
+   "verdict": "partial",
+   "source": "o16",
+   "tech_source": "modality",
+   "note": "particle size near optical resolution; rim vs core cannot be cleanly separated",
+   "claims": [
+    "s12"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and s12 keeps shown support from o13, o14, a1."
+  },
+  {
+   "id": "C5",
+   "lane": 1,
+   "row": "S2",
+   "line": 1,
+   "title": "ASSAY, PHYS:particlesize, F4",
+   "tech": "ASSAY, PHYS:particlesize",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Zeta potential falls from ~-26 mV (pH 4) to ~-46 mV (pH 9), levelling from pH 7",
+   "solves": "Particle zeta potential becomes more negative with production pH, about -26 mV (pH 4) to -46 mV (pH 9)",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o12",
+   "tech_source": "label",
+   "detail": "o12: Zeta potential falls from ~-26 mV (pH 4) to ~-46 mV (pH 9), levelling from pH 7",
+   "claims": [
+    "s11"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s11 (o12)."
+  },
+  {
+   "id": "C6",
+   "lane": 1,
+   "row": "S2",
+   "line": 2,
+   "title": "evidence, F6",
+   "tech": "",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.02.024#F6a, 10.1016/j.biomaterials.2010.02.024#F6b",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.02.024#F6a",
+    "10.1016/j.biomaterials.2010.02.024#F6b"
+   ],
+   "head": "Loading efficiency ~100% for crystal violet to ratio 60 and alcian blue to ratio 20, then falls (to 64% and 38%). Loading rises with molar ratio to ~13% (alcian blue), ~6.7% (crystal violet), ~4.5% (rhodamine B).",
+   "solves": "Cationic drug loading is near-complete (~100% efficiency) up to ~6% matrix loading, then efficiency falls as the matrix saturates",
+   "op": "compare across conditions, correlate across series, read trend",
+   "verdict": "shown",
+   "source": "o13, o14, a1",
+   "tech_source": "none",
+   "audit": true,
+   "detail": "o13: Loading efficiency ~100% for crystal violet to ratio 60 and alcian blue to ratio 20, then falls (to 64% and 38%); o14: Loading rises with molar ratio to ~13% (alcian blue), ~6.7% (crystal violet), ~4.5% (rhodamine B); a1: Rhodamine B loading efficiency only 68% falling to 48% at all molar ratios, never near 100%",
+   "inner_audit": "a1: Rhodamine B loading efficiency only 68% falling to 48% at all molar ratios, never near 100%",
+   "claims": [
+    "s12"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: "
+  },
+  {
+   "id": "C7",
+   "lane": 1,
+   "row": "S2",
+   "line": 3,
+   "title": "ECHEM:CV, PHYS:particlesize, F6",
+   "tech": "ECHEM:CV, PHYS:particlesize",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.02.024#F6c",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.02.024#F6c"
+   ],
+   "head": "Zeta potential rises with loading; alcian blue crosses zero between 6.6% and 8.1% loading, reaching +43 mV",
+   "solves": "Cationic drugs load by charge-charge binding to negative silk; bound drug neutralises particle charge, ending uptake",
+   "op": "correlate across series",
+   "verdict": "shown",
+   "source": "o15",
+   "tech_source": "label",
+   "note": "linked text says zeta 'decreases' with loading; the plot shows the value increasing from -37 to +43 mV (magnitude of the negative charge decreases). CV and RhB (inset) rise from ~-45 to -20 / -14 mV",
+   "detail": "o15: Zeta potential rises with loading; alcian blue crosses zero between 6.6% and 8.1% loading, reaching +43 mV",
+   "claims": [
+    "s13"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s13 (o15)."
+  },
+  {
+   "id": "C8",
+   "lane": 1,
+   "row": "S2",
+   "line": 4,
+   "title": "evidence, F7",
+   "tech": "",
+   "figs": [
+    "F7"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Release ranking rhodamine B (~90% within hours) >> crystal violet (48% at 14 d) > alcian blue (35% at 14 d)",
+   "solves": "Initial burst ranks rhodamine B >> crystal violet > alcian blue, i.e. more positive charge gives more sustained release",
+   "op": "compare across conditions, read trend",
+   "verdict": "shown",
+   "source": "o17",
+   "tech_source": "none",
+   "detail": "o17: Release ranking rhodamine B (~90% within hours) >> crystal violet (48% at 14 d) > alcian blue (35% at 14 d)",
+   "claims": [
+    "s14"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s14 (o17)."
+  },
+  {
+   "id": "C9",
+   "lane": 1,
+   "row": "S2",
+   "line": 5,
+   "title": "ASSAY, F7",
+   "tech": "ASSAY",
+   "figs": [
+    "F7"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Crystal violet release pH 7 > pH 8 > pH 9 at every time point up to 7 d",
+   "solves": "Crystal violet release is faster from pH 7 particles than from pH 8 and pH 9 particles over 7 days",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o18",
+   "tech_source": "label",
+   "detail": "o18: Crystal violet release pH 7 > pH 8 > pH 9 at every time point up to 7 d",
+   "claims": [
+    "s15"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s15 (o18)."
+  },
+  {
+   "id": "C10",
+   "lane": 1,
+   "row": "S2",
+   "line": 6,
+   "title": "evidence, F5",
+   "tech": "",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1016/j.biomaterials.2010.02.024#F5a",
+   "panel_ids": [
+    "10.1016/j.biomaterials.2010.02.024#F5a"
+   ],
+   "head": "Domain table: pI 4.6 (N-term), 3.80 (repetitive), 10.5 (C-term), 5.1 (light chain); repetitive part charge ratio 34/5",
+   "solves": "pH sets domain charges and chain extension, which set micelle packing and the secondary structure stabilised on particle formation",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o19",
+   "tech_source": "none",
+   "detail": "o19: Domain table: pI 4.6 (N-term), 3.80 (repetitive), 10.5 (C-term), 5.1 (light chain); repetitive part charge ratio 34/5",
+   "claims": [
+    "s10"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s10 (o19)."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S0",
+   "S2",
+   "causes"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "causes"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S1",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": false
+}

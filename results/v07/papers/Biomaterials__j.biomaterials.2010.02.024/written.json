@@ -1,0 +1,403 @@
+{
+ "paper_id": "Biomaterials/j.biomaterials.2010.02.024",
+ "title": "Controlling silk fibroin particle features for drug delivery",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Biomaterials/j.biomaterials.2010.02.024",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "s12",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "s14",
+    "s16",
+    "s17",
+    "s2"
+   ],
+   "branch": "qualifies edge a1 -> s12",
+   "fm_family": "PHYS",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "PHYS"
+   ],
+   "channels_involved": [
+    "PHYS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "redacted"
+    },
+    {
+     "node": "s4",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "s11",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.biomaterials.2010.02.024#F6a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s12",
+     "role": "claim"
+    },
+    {
+     "node": "s14",
+     "role": "redacted"
+    },
+    {
+     "node": "s16",
+     "role": "redacted"
+    },
+    {
+     "node": "s17",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: a1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1016/j.biomaterials.2010.02.024#F6a carries ['efficiency', 'RhodaminB', 'molarratio(MD:SF)'] shared with graded targets ['a1']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "s14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.biomaterials.2010.02.024#F6a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.biomaterials.2010.02.024#F6a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.biomaterials.2010.02.024#F6a",
+     "annotations": [
+      "efficiency",
+      "Crystalviolet",
+      "Alcianblue",
+      "RhodaminB",
+      "molarratio(MD:SF)"
+     ],
+     "hits": [
+      {
+       "text": "efficiency",
+       "shared": [
+        "efficiency"
+       ]
+      },
+      {
+       "text": "RhodaminB",
+       "shared": [
+        "rhodaminb"
+       ]
+      },
+      {
+       "text": "molarratio(MD:SF)",
+       "shared": [
+        "molarratio"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "s12"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Cationic drug loading is near-complete (~100% efficiency) up to ~6% matrix loading, then efficiency falls as the matrix "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F6a [PHYS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Rhodamine B loading efficiency only 68% falling to 48% at all molar ratios, never near 100%"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Biomaterials/j.biomaterials.2010.02.024",
+   "root": "intervene",
+   "subtype": "next condition",
+   "seed_claim": "x4",
+   "evidence": [
+    "o4",
+    "o9",
+    "o12"
+   ],
+   "hidden": [
+    "x4",
+    "o12",
+    "x4"
+   ],
+   "hidden_panels": [
+    "10.1016/j.biomaterials.2010.02.024#F1c",
+    "10.1016/j.biomaterials.2010.02.024#F1d",
+    "10.1016/j.biomaterials.2010.02.024#F1e",
+    "10.1016/j.biomaterials.2010.02.024#F3c",
+    "10.1016/j.biomaterials.2010.02.024#F3d",
+    "10.1016/j.biomaterials.2010.02.024#F3e"
+   ],
+   "branch": "sweep s5 with optimum x4",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "note": "trend extrapolation of the classical series picks the earlier optimum"
+   },
+   "depth": 2,
+   "depth_families": [
+    "PHYS",
+    "SEM"
+   ],
+   "mask": "show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next",
+   "grader": "the measured outcome at the chosen condition from o12, held out",
+   "status": "closed",
+   "ruling": "decision None is not the condition directly after the last given (None)",
+   "walk": [
+    {
+     "node": "o4",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.biomaterials.2010.02.024#F1c",
+      "10.1016/j.biomaterials.2010.02.024#F1d",
+      "10.1016/j.biomaterials.2010.02.024#F1e"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o9",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.biomaterials.2010.02.024#F3c",
+      "10.1016/j.biomaterials.2010.02.024#F3d",
+      "10.1016/j.biomaterials.2010.02.024#F3e"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o12",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "x4",
+     "role": "claim"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [],
+   "v2_rules": [
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:589",
+     "effect": "given [], withheld ['10.1016/j.biomaterials.2010.02.024#F1c', '10.1016/j.biomaterials.2010.02.024#F1d', '10.1016/j.biomaterials.2010.02.024#F1e', '10.1016/j.biomaterials.2010.02.024#F3c', '10.1016/j.biomaterials.2010.02.024#F3d', '10.1016/j.biomaterials.2010.02.024#F3e'] (decision None, levels [] None)"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:592",
+     "effect": "decision None is not the condition directly after the last given (None)"
+    }
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Hypothesis, design, processing: "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o4",
+      "o9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Results so far, as panels only:  [SEM]"
+    },
+    {
+     "step": 3,
+     "role": "decision",
+     "nodes": [
+      "x4"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Decide the next condition: Silk particles can be sterilised with ethanol without altering their secondary structure"
+    },
+    {
+     "step": 4,
+     "role": "outcome",
+     "nodes": [
+      "o12"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Outcome at that condition (grader): Zeta potential falls from ~-26 mV (pH 4) to ~-46 mV (pH 9), levelling from pH 7"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Biomaterials/j.biomaterials.2010.02.024",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "s4",
+   "evidence": [],
+   "branch": "DES/route s4",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "s4"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
