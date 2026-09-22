@@ -1,0 +1,662 @@
+{
+ "paper_id": "Progress_in_Organic_Coatings/j.porgcoat.2021.106672",
+ "title": "Stretchable and self-healing polyurethane coating with synergistic anticorrosion effect for the corrosion protection of stainless steels",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Progress_in_Organic_Coatings/j.porgcoat.2021.106672",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n10",
+   "evidence": [
+    "o4"
+   ],
+   "hidden": [
+    "o4",
+    "n10",
+    "n13",
+    "n15",
+    "n17",
+    "n25"
+   ],
+   "branch": "evidences edge o4 -> n10",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o4",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1016/j.porgcoat.2021.106672#F2d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n15",
+     "role": "downstream"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    },
+    {
+     "node": "n25",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n10 (node-level necessity of o4: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['SEM of F-d@MX']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o4 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F2d']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.porgcoat.2021.106672#F2d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.porgcoat.2021.106672#F2d",
+     "sample": "SEM of F-d@MX",
+     "sample_source": "caption",
+     "level": null,
+     "unit": "wt%",
+     "level_source": null,
+     "alias": null,
+     "text": "SEM of F-d@MX"
+    }
+   ],
+   "graded_targets": [
+    "o4"
+   ],
+   "target_verdicts": {
+    "o4": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.porgcoat.2021.106672#F2d",
+     "annotations": [
+      "100nm"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n5",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Organic barrier coatings on steel lose protection  -> Combining a 2D MXene barrier with a CeO2 inhibitor -> Add furan-functionalised PDA-coated CeO2 (F-d@Ce)  -> Total filler 0, 0.5, 1, 2, 5 wt% (mPU, PCM0.5-PCM5 -> CeO2 and MXene treated with dopamine (NH4OH) then "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o4"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2d [SEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o4"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Stacked, near-vertical thin sheets tens of nm thick, with rounded particles lodged between them"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: F-d@MX fillers are thin lamellar sheets"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n13",
+      "n15",
+      "n17",
+      "n25"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Lamellar MXene lengthens the diffusion path of water, O2 and Cl- through the coating ('labyrinth' ba"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Progress_in_Organic_Coatings/j.porgcoat.2021.106672",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n10b",
+   "evidence": [
+    "o3"
+   ],
+   "hidden": [
+    "o3",
+    "n10b",
+    "n14",
+    "n15",
+    "n17",
+    "n25"
+   ],
+   "branch": "evidences edge o3 -> n10b",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o3",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1016/j.porgcoat.2021.106672#F2b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10b",
+     "role": "claim"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n15",
+     "role": "downstream"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    },
+    {
+     "node": "n25",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n10b (node-level necessity of o3: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['SEMofF-d@Ce']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o3 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F2b']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.porgcoat.2021.106672#F2b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.porgcoat.2021.106672#F2b",
+     "sample": "SEMofF-d@Ce",
+     "sample_source": "caption",
+     "level": null,
+     "unit": "wt%",
+     "level_source": null,
+     "alias": null,
+     "text": "SEMofF-d@Ce"
+    }
+   ],
+   "graded_targets": [
+    "o3"
+   ],
+   "target_verdicts": {
+    "o3": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.porgcoat.2021.106672#F2b",
+     "annotations": [
+      "50nm"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n5",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Organic barrier coatings on steel lose protection  -> Combining a 2D MXene barrier with a CeO2 inhibitor -> Add furan-functionalised PDA-coated CeO2 (F-d@Ce)  -> Total filler 0, 0.5, 1, 2, 5 wt% (mPU, PCM0.5-PCM5 -> CeO2 and MXene treated with dopamine (NH4OH) then "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2b [SEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: A single sphere ~200-250 nm across with a granular, rough surface"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n10b"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: F-d@Ce fillers are rough-surfaced spheres ~200-250 nm across"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n14",
+      "n15",
+      "n17",
+      "n25"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Ce ions precipitate insoluble Ce(OH)3/CeO2 on the steel, adding active corrosion inhibition"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Progress_in_Organic_Coatings/j.porgcoat.2021.106672",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n8",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n20",
+    "n22",
+    "n24",
+    "n25",
+    "n2"
+   ],
+   "branch": "qualifies edge a1 -> n8",
+   "fm_family": "FTIR",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "FTIR"
+   ],
+   "channels_involved": [
+    "FTIR"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1016/j.porgcoat.2021.106672#F2a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n20",
+     "role": "redacted"
+    },
+    {
+     "node": "n22",
+     "role": "redacted"
+    },
+    {
+     "node": "n24",
+     "role": "redacted"
+    },
+    {
+     "node": "n25",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:261",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: ['FTIRcurvesofF-d@Ce']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: a1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1016/j.porgcoat.2021.106672#F2a carries ['732cm'] shared with graded targets ['a1']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n20",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n22",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n24",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n25",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.porgcoat.2021.106672#F2a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.porgcoat.2021.106672#F2a",
+     "sample": "FTIRcurvesofF-d@Ce",
+     "sample_source": "caption",
+     "level": null,
+     "unit": "wt%",
+     "level_source": null,
+     "alias": null,
+     "text": "FTIRcurvesofF-d@Ce"
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.porgcoat.2021.106672#F2a",
+     "annotations": [
+      "PCM",
+      "F-d@MX",
+      "F-d@Ce",
+      "732cm"
+     ],
+     "hits": [
+      {
+       "text": "732cm",
+       "shared": [
+        "732"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Filler furan groups react with mPU maleimide ends by Diels-Alder, crosslinking fillers into the PU network"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2a [FTIR]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: The F-d@Ce trace shows no distinct dip at 732 cm-1; the line falls on a broad transmittance maximum"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}

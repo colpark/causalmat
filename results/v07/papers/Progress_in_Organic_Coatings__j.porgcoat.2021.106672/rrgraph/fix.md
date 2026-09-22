@@ -1,0 +1,73 @@
+# Second-read flags: Progress_in_Organic_Coatings__j.porgcoat.2021.106672
+
+Graph: /home/aid1/Documents/causalmat/taxonomy/graphs_v07/Progress_in_Organic_Coatings__j.porgcoat.2021.106672.json
+
+Packet (captions, linked text, panel section with every crop path): /home/aid1/Documents/causalmat/taxonomy/v07/partC/packets/Progress_in_Organic_Coatings__j.porgcoat.2021.106672.md
+
+A blind reader described each crop below without the paper; a grader ruled the description contradicts the node. For each: open the whole figure and the crop, decide whether the node cites the wrong panel. If another panel of the same paper shows the observation, set panel_ids (and figs) to it. If no panel shows it, set attrs.source to "text", drop panel_ids, and list the fact in attrs.requires_unseen. If the node and panel are right and the reader or grader erred, leave the node and say so. Edit only the flagged nodes in the graph JSON (keep ids), and write /home/aid1/Documents/causalmat/results/v07/papers/Progress_in_Organic_Coatings__j.porgcoat.2021.106672/rrgraph/fix.json: {"<node>": {"action": "repointed|text|kept", "panel_ids": [...], "why": "one sentence"}}. Do not run git.
+
+
+## n8 cites F2a
+Node label: Filler furan groups react with mPU maleimide ends by Diels-Alder, crosslinking fillers into the PU network
+Crop F2a: /home/aid1/Documents/causalmat/matmech/Progress_in_Organic_Coatings/j.porgcoat.2021.106672/panels/crops/fccb622e04e05cfbb59041f90e42ec893ad3341d2bb54b41b7816e69594d13e8_A.jpg
+Reader on F2a:
+Panel description (image: /home/aid1/Documents/causalmat/.v07work/rr/7d9ebe5cd2d4997e.jpg, labeled "a"):
+
+This is an FTIR (Fourier-transform infrared) spectroscopy panel showing three stacked absorbance/transmittance spectra plotted against wavenumber (500–4000 cm⁻¹, x-axis) with no y-axis scale values shown (curves are vertically offset for comparison) and no scale bar (not applicable to spectral data). The three traces, labeled and color-coded, are: "PCM" (blue, top), "F-d@MX" (red, middle), and "F-d@Ce" (black, bottom). The PCM trace shows several sharp, well-resolved absorption bands in the 1000–1500 cm⁻¹ fingerprint region and a distinct dip near 2900 cm⁻¹ (typical C-H stretching). The F-d@MX and F-d@Ce traces are broader and less sharply featured, with F-d@Ce showing a prominent broad absorption band centered around 3200–3600 cm⁻¹ (consistent with O-H/N-H stretching) and a labeled peak at 732 cm⁻¹ (marked with a dashed vertical guideline). The overall trend across the three spectra suggests progressive broadening/loss of sharp fingerprint features and emergence of broad bands upon going from PCM to the F-d@MX and F-d@Ce composite/coated materials, consistent with encapsulation, surface functionalization, or coating of the PCM by MX or Ce-based shell material.
+
+No other information (paper source, full caption, or panel b/c) was visible in the cropped image; only panel "a" is shown.
+Grader: WRONG
+
+The candidate describes an FTIR spectroscopy panel showing three stacked spectra (PCM, F-d@MX, F-d@Ce) with peak broadening consistent with encapsulation/coating of a phase-change material (PCM) by MX or Ce-based shells. The answer key states this panel shows filler furan groups reacting with mPU maleimide ends via Diels-Alder chemistry, crosslinking fillers into the polyurethane network. These describe entirely different materials systems (PCM encapsulation vs. PU/filler crosslinking) and different chemistries, so the candidate contradicts the key rather than merely omitting a detail.
+
+
+## a1 cites F2a
+Node label: The F-d@Ce trace shows no distinct dip at 732 cm-1; the line falls on a broad transmittance maximum
+Crop F2a: /home/aid1/Documents/causalmat/matmech/Progress_in_Organic_Coatings/j.porgcoat.2021.106672/panels/crops/fccb622e04e05cfbb59041f90e42ec893ad3341d2bb54b41b7816e69594d13e8_A.jpg
+Reader on F2a:
+Panel description (image: /home/aid1/Documents/causalmat/.v07work/rr/7d9ebe5cd2d4997e.jpg, labeled "a"):
+
+This is an FTIR (Fourier-transform infrared) spectroscopy panel showing three stacked absorbance/transmittance spectra plotted against wavenumber (500–4000 cm⁻¹, x-axis) with no y-axis scale values shown (curves are vertically offset for comparison) and no scale bar (not applicable to spectral data). The three traces, labeled and color-coded, are: "PCM" (blue, top), "F-d@MX" (red, middle), and "F-d@Ce" (black, bottom). The PCM trace shows several sharp, well-resolved absorption bands in the 1000–1500 cm⁻¹ fingerprint region and a distinct dip near 2900 cm⁻¹ (typical C-H stretching). The F-d@MX and F-d@Ce traces are broader and less sharply featured, with F-d@Ce showing a prominent broad absorption band centered around 3200–3600 cm⁻¹ (consistent with O-H/N-H stretching) and a labeled peak at 732 cm⁻¹ (marked with a dashed vertical guideline). The overall trend across the three spectra suggests progressive broadening/loss of sharp fingerprint features and emergence of broad bands upon going from PCM to the F-d@MX and F-d@Ce composite/coated materials, consistent with encapsulation, surface functionalization, or coating of the PCM by MX or Ce-based shell material.
+
+No other information (paper source, full caption, or panel b/c) was visible in the cropped image; only panel "a" is shown.
+Grader: WRONG — The candidate states the F-d@Ce trace shows "a labeled peak at 732 cm⁻¹ (marked with a dashed vertical guideline)," which asserts a distinct spectral feature/dip at that wavenumber. This directly contradicts the answer key, which specifies that the F-d@Ce trace shows NO distinct dip at 732 cm⁻¹ and instead the line falls flat on a broad transmittance maximum at that position. The dashed guideline in the image likely marks the reference wavenumber (732 cm⁻¹) to show its absence of a dip in this trace (contrasted with other traces that presumably do dip there), but the candidate misread this as evidence of a peak, reversing the key's finding.
+
+
+## n10 cites F2d
+Node label: F-d@MX fillers are thin lamellar sheets
+Crop F2d: /home/aid1/Documents/causalmat/matmech/Progress_in_Organic_Coatings/j.porgcoat.2021.106672/panels/crops/fccb622e04e05cfbb59041f90e42ec893ad3341d2bb54b41b7816e69594d13e8_D.jpg
+Reader on F2d:
+Panel "d" is a scanning electron microscopy (SEM) image at high magnification (scale bar = 100 nm) showing a cross-sectional or side view of an array of elongated, rod- or fiber-like structures oriented roughly vertically (top to bottom) across the frame. The rods have smooth, slightly curved/undulating surfaces and appear closely packed side by side with narrow gaps between them, some gaps showing V-shaped or wedge-shaped openings where adjacent rods diverge. In the background, visible through and between the gaps, are several rounded, bead- or grain-like particles (spherical to ovoid, roughly tens of nanometers in size) partially occluded by the foreground rods. The image is grayscale with typical SEM contrast (bright edges/highlights on rod surfaces, darker shadowed recesses), and there is no visible compositional or trend data (e.g., no EDS mapping or quantitative overlay) — it is a purely morphological/structural micrograph. No other labels or annotations besides the panel letter "d" and the scale bar are present.
+Grader: WRONG - the key states the panel shows thin lamellar sheets, but the candidate describes elongated rod/fiber-like structures with rounded bead-like particles, which contradicts the sheet-like morphology stated in the key.
+
+
+## n11b cites F3d
+Node label: Elongation at break falls as filler content rises
+Crop F3d: /home/aid1/Documents/causalmat/matmech/Progress_in_Organic_Coatings/j.porgcoat.2021.106672/panels/crops/6aac026c1090a1b95848ce835616f34d71a29143153b9d9f32e5cd46ebf17eb2_D.jpg
+Reader on F3d:
+Panel description for /home/aid1/Documents/causalmat/.v07work/rr/36720d610b4833b8.jpg:
+
+This is panel (d) of a multi-panel figure showing a stress-strain plot (mechanical tensile testing data), not a microscopy image — there is no scale bar since it is a line/scatter graph. The x-axis is "Strain (%)" ranging from 0 to 1000%, and the y-axis is "Stress (MPa)" ranging from 0 to 35 MPa. Seven curves are plotted for different sample formulations (mPU, PCM0.5, PCM1, PCM2, PCM2(Ce), PCM2(Mx), PCM5), each rendered as a colored line with circular/diamond markers and ending in a near-vertical drop indicating fracture/failure point. Trends: mPU (gray) shows the lowest stress and strain-to-failure (~5 MPa at ~850% strain); PCM2(Mx) (yellow/gold) reaches high stress early and plateaus around 20-21 MPa over a wide strain range before failing near 900% strain; PCM2(Ce) (purple) shows a late, steep rise to the highest peak stress (~27 MPa) at around 700% strain before an abrupt drop; PCM2 (green) and PCM5 (cyan) show intermediate, more gradual increases; PCM0.5 (red) and PCM1 (blue) show lower, steadily rising curves reaching ~14-18 MPa near 850-950% strain before failure. Overall the panel compares elongation/toughness and ultimate tensile stress across the sample series, with the additive-modified samples (Ce, Mx) achieving higher stress at comparable or greater strain than the base formulations.
+
+No further action taken — this was a pure image-read/describe task.
+Grader: WRONG — the candidate's description contradicts the key. The key states elongation at break falls as filler content rises, but the candidate reports strain-to-failure values that do not decrease with filler content (mPU ~850%, PCM0.5/PCM1 ~850-950%, PCM2(Mx) ~900%) and explicitly concludes the additive-modified samples achieve "higher stress at comparable or greater strain" than the base formulation — the opposite trend from what the key describes.
+
+
+## o8b cites F3d
+Node label: Elongation at break: PCM0.5 ~920%, PCM2(Mx) ~880%, mPU ~830%, PCM2 ~800%, PCM2(Ce) ~700%, PCM5 ~650%
+Crop F3d: /home/aid1/Documents/causalmat/matmech/Progress_in_Organic_Coatings/j.porgcoat.2021.106672/panels/crops/6aac026c1090a1b95848ce835616f34d71a29143153b9d9f32e5cd46ebf17eb2_D.jpg
+Reader on F3d:
+Panel description for /home/aid1/Documents/causalmat/.v07work/rr/36720d610b4833b8.jpg:
+
+This is panel (d) of a multi-panel figure showing a stress-strain plot (mechanical tensile testing data), not a microscopy image — there is no scale bar since it is a line/scatter graph. The x-axis is "Strain (%)" ranging from 0 to 1000%, and the y-axis is "Stress (MPa)" ranging from 0 to 35 MPa. Seven curves are plotted for different sample formulations (mPU, PCM0.5, PCM1, PCM2, PCM2(Ce), PCM2(Mx), PCM5), each rendered as a colored line with circular/diamond markers and ending in a near-vertical drop indicating fracture/failure point. Trends: mPU (gray) shows the lowest stress and strain-to-failure (~5 MPa at ~850% strain); PCM2(Mx) (yellow/gold) reaches high stress early and plateaus around 20-21 MPa over a wide strain range before failing near 900% strain; PCM2(Ce) (purple) shows a late, steep rise to the highest peak stress (~27 MPa) at around 700% strain before an abrupt drop; PCM2 (green) and PCM5 (cyan) show intermediate, more gradual increases; PCM0.5 (red) and PCM1 (blue) show lower, steadily rising curves reaching ~14-18 MPa near 850-950% strain before failure. Overall the panel compares elongation/toughness and ultimate tensile stress across the sample series, with the additive-modified samples (Ce, Mx) achieving higher stress at comparable or greater strain than the base formulations.
+
+No further action taken — this was a pure image-read/describe task.
+Grader: WRONG — the candidate's description explicitly states mPU shows the "lowest stress and strain-to-failure" among the plotted curves, but the answer key's elongation-at-break ranking places mPU (~830%) above PCM2(Ce) (~700%) and PCM5 (~650%), meaning mPU is not actually the lowest in elongation. This is a direct contradiction of the trend/comparison the key draws (which sample has the lowest elongation at break), not merely a missing detail, so it does not qualify as PARTIAL.
+
+
+## o10 cites F5
+Node label: mPU impedance lies near zero on the GOhm axis at both times; filled coatings plateau at ~0.4-2 GOhm cm2
+Crop F5: /home/aid1/Documents/causalmat/matmech/Progress_in_Organic_Coatings/j.porgcoat.2021.106672/images/ba8535cdcda86becd5c6b6f4d3da8a51e47b791f01a2fef88a0ee242e301d314.jpg
+Reader on F5:
+The image (/home/aid1/Documents/causalmat/.v07work/rr/d79587d638c6fbe1.jpg) shows a 3x3 grid of 3D electrochemical impedance spectroscopy (EIS) plots comparing multiple coating/sample conditions (legend labels appear to include "5wt%", "0.5wt%", "1wt%", "2wt%-Ce", "2wt%-MX", plotted as colored series: black, red, green, blue, cyan, magenta, olive). Columns are: left = Bode-modulus plots (Impedance in Ω·cm², log scale, vs Frequency in Hz), middle = Bode-phase plots (Phase angle in degrees vs Frequency in Hz), right = Nyquist plots (Z'' vs Z', both in Ω·cm²). Each row appears to represent a different immersion/exposure time or condition, with impedance magnitudes decreasing markedly from top row (~2.0 GΩ·cm² max) to bottom row (~2 MΩ·cm² max), consistent with degrading corrosion-protective performance over time. In the Bode-modulus plots, the black curve (likely the 5wt% or bare/control condition) shows a distinct plateau/knee indicating lower impedance and single-time-constant behavior, while other colored curves show higher, flatter plateaus suggestive of better barrier protection; phase angle plots show corresponding broad or double peaks (indicating one or two time constants) that shift and narrow across rows. Nyquist plots show semicircle/capacitive arcs whose diameters shrink from top to bottom row, again indicating decreasing charge-transfer/barrier resistance with the progression shown (likely increasing immersion time). No scale bar is present as this is a plotted dataset, not a micrograph; axes are labeled with units but exact tick values are hard to read at this resolution.
+Grader: WRONG — the candidate describes a 3x3 EIS panel grid with impedance decreasing markedly across rows (interpreted as time/exposure progression, from ~2.0 GOhm cm2 down to ~2 MOhm cm2), and identifies multiple wt% coating series without any mention of an "mPU" curve sitting near zero on the GOhm axis. This contradicts the answer key, which states the mPU impedance lies near zero at both times while filled coatings maintain a stable ~0.4–2 GOhm cm2 plateau (not a decreasing trend to MOhm range). The mismatch in the described trend (degrading/decreasing vs. stable plateau) and the absence of the key's specific mPU-near-zero feature makes this a contradiction rather than merely a missing detail.
