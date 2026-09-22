@@ -1,0 +1,663 @@
+{
+ "paper_id": "Materials_Characterization/j.matchar.2021.111031",
+ "title": "Mesoporous g-C3N4 nanosheets with improved photocatalytic performance for hydrogen evolution",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Materials_Characterization/j.matchar.2021.111031",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n6",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "n6",
+    "n7",
+    "n13",
+    "n14"
+   ],
+   "branch": "evidences edge o1 -> n6",
+   "fm_family": "SEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM",
+    "TEM",
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.matchar.2021.111031#F1a",
+      "10.1016/j.matchar.2021.111031#F1b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n6",
+     "role": "claim"
+    },
+    {
+     "node": "n7",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    }
+   ],
+   "node_necessity": "redundant",
+   "v2_rules": [
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n6 (node-level necessity of o1: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:244",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o1 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F1a', 'F1b']"
+    }
+   ],
+   "answer_format": "state the difference between the two conditions; do not rank",
+   "siblings": [
+    "T3"
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.matchar.2021.111031#F1a",
+    "10.1016/j.matchar.2021.111031#F1b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.matchar.2021.111031#F1a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.matchar.2021.111031#F1b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o1"
+   ],
+   "target_verdicts": {
+    "o1": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.matchar.2021.111031#F1a",
+     "annotations": [],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.matchar.2021.111031#F1b",
+     "annotations": [
+      "200nm"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Bulk g-C3N4 is a thick multilayer stack with low s -> Exfoliating bulk g-C3N4 into thin mesoporous nanos -> Bulk graphitic carbon nitride (BCN) as the startin -> Ultrasonic exfoliation of BCN powder yields CNS"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1a, F1b [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: SEM: irregular micron-sized blocky particles with layered steps (a) vs a thin crumpled sheet perforated by many irregular pores (b)"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Exfoliation turns micron-sized stacked BCN blocks into few-layer 2D nanosheets"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n7",
+      "n13",
+      "n14"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: CNS has a much larger specific surface area (7.61 -> 55.41 m2/g) and mesopore volume (0.055 -> 0.216"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Materials_Characterization/j.matchar.2021.111031",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n6",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n7",
+    "n13",
+    "n14",
+    "n2"
+   ],
+   "branch": "qualifies edge a1 -> n6",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM",
+    "TEM",
+    "XRD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n6",
+     "role": "claim"
+    },
+    {
+     "node": "n7",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n6 (node-level necessity of a1: corrective)"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:601",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "n7",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Exfoliation turns micron-sized stacked BCN blocks into few-layer 2D nanosheets"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel:  [XRD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: XRD (002) reflection of CNS is as tall and narrow as that of BCN; no weakening or broadening of the stacking peak"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Materials_Characterization/j.matchar.2021.111031",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n18",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "n18",
+    "n7",
+    "n13",
+    "n14"
+   ],
+   "branch": "evidences edge o1 -> n18",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.matchar.2021.111031#F1a",
+      "10.1016/j.matchar.2021.111031#F1b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n18",
+     "role": "claim"
+    },
+    {
+     "node": "n7",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n18 (node-level necessity of o1: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:244",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o1 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F1a', 'F1b']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state the difference between the two conditions; do not rank",
+   "siblings": [
+    "T1"
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1016/j.matchar.2021.111031#F1a",
+    "10.1016/j.matchar.2021.111031#F1b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.matchar.2021.111031#F1a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1016/j.matchar.2021.111031#F1b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o1"
+   ],
+   "target_verdicts": {
+    "o1": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.matchar.2021.111031#F1a",
+     "annotations": [],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.matchar.2021.111031#F1b",
+     "annotations": [
+      "200nm"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Bulk g-C3N4 is a thick multilayer stack with low s -> Exfoliating bulk g-C3N4 into thin mesoporous nanos -> Bulk graphitic carbon nitride (BCN) as the startin -> Ultrasonic exfoliation of BCN powder yields CNS"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1a, F1b [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: SEM: irregular micron-sized blocky particles with layered steps (a) vs a thin crumpled sheet perforated by many irregular pores (b)"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n18"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Exfoliated CNS sheets are perforated by abundant surface mesopores of about 30-50 nm"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n7",
+      "n13",
+      "n14"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: CNS has a much larger specific surface area (7.61 -> 55.41 m2/g) and mesopore volume (0.055 -> 0.216"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Materials_Characterization/j.matchar.2021.111031",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "n4",
+   "evidence": [],
+   "branch": "DES/route n4",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": false,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "n4"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
