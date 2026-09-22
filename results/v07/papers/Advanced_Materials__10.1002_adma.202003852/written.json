@@ -1,0 +1,868 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.202003852",
+ "title": "Oriented Perovskite Growth Regulation Enables Sensitive Broadband Detection and Imaging of Polarized Photons Covering 300-1050 nm",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.202003852",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n6",
+   "evidence": [
+    "o4"
+   ],
+   "hidden": [
+    "o4",
+    "n6",
+    "n9",
+    "n11",
+    "n13",
+    "n14",
+    "n16"
+   ],
+   "branch": "evidences edge o4 -> n6",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o4",
+     "role": "evidence",
+     "op": "assign_features",
+     "panel_ids": [
+      "10.1002/adma.202003852#F1e"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "n6",
+     "role": "claim"
+    },
+    {
+     "node": "n9",
+     "role": "downstream"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n6 (node-level necessity of o4: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R6",
+     "where": "cut_traces.py:617",
+     "effect": "o4 technique XRD vs 10.1002/adma.202003852#F1e cues ['micrograph']: judge cue_override honoured, not blocked"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o4 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:717",
+     "effect": "given panels carry no answer text: ['F1e']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202003852#F1e"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202003852#F1e",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o4"
+   ],
+   "target_verdicts": {
+    "o4": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202003852#F1e",
+     "annotations": [],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Polarization photodetectors need intrinsically ani -> Regulating oriented growth of a quasi-2D Sn-Pb per -> Quasi-2D PEA2MA4(Pb0.5Sn0.5)5I16 as absorber; Sn2+ -> One-step spin coating of the precursor solution fo"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o4"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1e [XRD] and classify (assign features)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o4"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: GIWAXS map shows a (202) spot on the qz axis at ~20 nm^-1; qz line-cut has one sharp peak there"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Additive-grown films have a preferred out-of-plane orientation, (202) planes parallel to the substrate, layers vertically aligned"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n9",
+      "n11",
+      "n13",
+      "n14",
+      "n16"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Oriented films show absorption linear dichroism: absorbance is higher for 0 deg than 90 deg polariza"
+    }
+   ],
+   "question": "The context above covers the motivation for anisotropic absorbers, the hypothesis about oriented growth, the quasi-2D Sn-Pb perovskite composition, and the one-step spin-coating deposition. Using panel F1e for the additive-grown film, what feature appears in the diffraction map, roughly where is it positioned, and what does the corresponding intensity profile taken along that same direction look like?",
+   "answer_key": "The diffraction map for the additive-grown film shows a single distinct (202) feature lying on the out-of-plane direction at roughly 20 nm^-1; the intensity profile taken along that same out-of-plane direction shows one sharp, well-defined feature at that same position, indicating a single dominant signal rather than a ring or multiple scattered features.",
+   "answer_scope": "full",
+   "grading": "Judge-confirmed against the reading of panel F1e recorded on node o4 (the observation node), which is the sole graded target for this trace.",
+   "answer_key_nodes": [
+    "o4"
+   ],
+   "writer_passes": 2
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Materials/10.1002_adma.202003852",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n6",
+   "evidence": [
+    "o6"
+   ],
+   "hidden": [
+    "o6",
+    "n6",
+    "n9",
+    "n11",
+    "n13",
+    "n14",
+    "n16"
+   ],
+   "branch": "evidences edge o6 -> n6",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "not derivable from given panels: o6: text, not in given captions: ['indices (111)/(202) from linked text F1']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o6",
+     "role": "evidence",
+     "op": "assign_features",
+     "panel_ids": [
+      "10.1002/adma.202003852#F1f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n6",
+     "role": "claim"
+    },
+    {
+     "node": "n9",
+     "role": "downstream"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n6 (node-level necessity of o6: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:679",
+     "effect": "not derivable from given panels: o6: text, not in given captions: ['indices (111)/(202) from linked text F1']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202003852#F1f"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202003852#F1f",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o6"
+   ],
+   "target_verdicts": {
+    "o6": {
+     "pass": false,
+     "why": "text, not in given captions: ['indices (111)/(202) from linked text F1']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Polarization photodetectors need intrinsically ani -> Regulating oriented growth of a quasi-2D Sn-Pb per -> Quasi-2D PEA2MA4(Pb0.5Sn0.5)5I16 as absorber; Sn2+ -> One-step spin coating of the precursor solution fo"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1f [XRD] and classify (assign features)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: XRD of all films shows only two reflections, ~14.5 and ~29 deg 2theta, indexed (111) and (202)"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Additive-grown films have a preferred out-of-plane orientation, (202) planes parallel to the substrate, layers vertically aligned"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n9",
+      "n11",
+      "n13",
+      "n14",
+      "n16"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Oriented films show absorption linear dichroism: absorbance is higher for 0 deg than 90 deg polariza"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Materials/10.1002_adma.202003852",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n6",
+   "evidence": [
+    "o5"
+   ],
+   "hidden": [
+    "o5",
+    "n9",
+    "n11",
+    "n13",
+    "n14",
+    "n16",
+    "n2"
+   ],
+   "branch": "qualifies edge o5 -> n6",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o5",
+     "role": "audit",
+     "op": "assess_spatial_distribution",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n6",
+     "role": "claim"
+    },
+    {
+     "node": "n9",
+     "role": "redacted"
+    },
+    {
+     "node": "n11",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n6 (node-level necessity of o5: corrective)"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:601",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "n9",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n11",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Additive-grown films have a preferred out-of-plane orientation, (202) planes parallel to the substrate, layers verticall"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o5"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel:  [XRD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o5"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Beyond the weak (202) spot the GIWAXS map is dominated by a broad chi-uniform scattering halo at q ~5-15 nm^-1"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Advanced_Materials/10.1002_adma.202003852",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n6",
+   "evidence": [
+    "o7"
+   ],
+   "hidden": [
+    "o7",
+    "n9",
+    "n11",
+    "n13",
+    "n14",
+    "n16",
+    "n2"
+   ],
+   "branch": "qualifies edge o7 -> n6",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o7",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202003852#F1f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n6",
+     "role": "claim"
+    },
+    {
+     "node": "n9",
+     "role": "redacted"
+    },
+    {
+     "node": "n11",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n6 (node-level necessity of o7: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:610",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:684",
+     "effect": "graded targets readable: o7 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:716",
+     "effect": "10.1002/adma.202003852#F1f carries ['withoutadditive'] shared with graded targets ['o7']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "n9",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n11",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202003852#F1f"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202003852#F1f",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o7"
+   ],
+   "target_verdicts": {
+    "o7": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202003852#F1f",
+     "annotations": [
+      "PEA,MAPb116",
+      "withadditive",
+      "withoutadditive",
+      "PEA,MA(Pb.Sn.s\uff09s6"
+     ],
+     "hits": [
+      {
+       "text": "withoutadditive",
+       "shared": [
+        "withoutadditive"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Additive-grown films have a preferred out-of-plane orientation, (202) planes parallel to the substrate, layers verticall"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F1f [XRD]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Sn-Pb film without additive already shows the same two sharp reflections; the additive changes only intensity, which is scaled nonproportion"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Advanced_Materials__10.1002_adma.202003852",
+   "trace": "T2",
+   "root": "infer",
+   "subtype": "classify",
+   "targets": [
+    "o6"
+   ],
+   "why": [
+    "o6: text, not in given captions: ['indices (111)/(202) from linked text F1']"
+   ],
+   "requires_unseen": {
+    "o6": [
+     "indices (111)/(202) from linked text F1"
+    ]
+   },
+   "labels": {
+    "o6": "XRD of all films shows only two reflections, ~14.5 and ~29 deg 2theta, indexed (111) and (202)"
+   }
+  }
+ ]
+}
