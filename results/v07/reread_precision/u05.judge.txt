@@ -1,0 +1,34 @@
+You are a judge. A blind second reader described figure panel(s) without the paper; a grader compared the description with the paper graph's evidence node and ruled WRONG (a contradiction). Decide whether that flag is a real citation error.
+
+Open every image below with the Read tool and look at it yourself before ruling. Do not open any other file.
+- panel F6a: /home/aid1/Documents/causalmat/.v07work/rr/dacf8cf9afb4252a.jpg
+- panel F7a: /home/aid1/Documents/causalmat/.v07work/rr/d139ee9e87855e00.jpg
+- panel F8a: /home/aid1/Documents/causalmat/.v07work/rr/a87273b327964a92.jpg
+- panel F9a: /home/aid1/Documents/causalmat/.v07work/rr/e22f7f189a6f8970.jpg
+
+Evidence node o15 (what the graph says these panels show):
+AO/EB images show almost only green cells; no red EB-stained dead cells matching the 12-26% non-vital fraction are visible
+
+Second reader's description(s):
+Panel F6a:
+Panel (A) shows fluorescence microscopy (live/dead or cell-viability style staining, green fluorescent signal on black background, likely calcein-AM/live-cell stain) comparing cell attachment/proliferation on two material surfaces over time. It is a 2-row by 3-column grid: rows are labeled "Mg-Zn-Y-Nd" (top) and "317L SS" (bottom, stainless steel), columns are time points "4 h", "1 day", and "3 days". Each micrograph has a small white scale bar in the lower-right corner (label barely legible but present in each panel). Trend: on the Mg-Zn-Y-Nd surface, green fluorescent (cell) signal is sparse at 4 h, decreases further by 1 day, and is markedly diminished/fragmented by 3 days, with some scattered small bright punctate spots at 3 days. On the 317L SS surface, cell density is denser than Mg-Zn-Y-Nd at all time points and increases progressively from 4 h to 1 day to 3 days, culminating in a dense, near-confluent network of green-stained cells at 3 days. Overall the panel indicates better/increasing cell viability and proliferation on 317L SS versus poor and declining cell coverage on the Mg-Zn-Y-Nd alloy over the 3-day culture period.
+
+Panel F7a:
+Panel (A) shows fluorescence microscopy images (live/dead or cell-adhesion staining, green fluorescent signal on black background) comparing two materials — "Mg-Zn-Y-Nd" (top row) and "317L SS" (stainless steel, bottom row) — at three time points: 4 h, 1 day, and 3 days (six panels total in a 2x3 grid). Each panel has a white scale bar in the lower-right corner (label too small to read exactly, appears to be ~100 µm). Trend: for Mg-Zn-Y-Nd, sparse green puncta/aggregates at 4 h, increasing slightly and clustering by 1 day, then decreasing in density/brightness by 3 days. For 317L SS, green punctate signal is present and fairly dense already at 4 h and 1 day, then dramatically increases to near-confluent, densely packed green spots covering the whole field by 3 days — indicating much greater cell attachment/proliferation (or fluorescent signal) on the stainless steel substrate over time compared to the Mg-alloy, which shows a decline at the 3-day timepoint.
+
+Panel F8a:
+Panel A of a live/dead-style fluorescence microscopy figure, comparing cell adhesion/viability on two substrates (top row "Mg-Zn-Y-Nd" alloy, bottom row "317L SS" stainless steel) across three time points (columns: 4 h, 1 day, 3 days). Cells are labeled with a green fluorescent stain (likely calcein-AM or similar live-cell marker) imaged against a black background, with a small white scale bar in the bottom-right corner of each micrograph (label too small to read exact value, appears consistent across panels, likely 100 µm). Trend: for both substrates, the number and size/spread of green-stained cells increases progressively from 4 h to 3 days, indicating increasing cell attachment/proliferation over time. The 317L SS row shows visibly denser and more confluent cell coverage at each time point (especially at 3 days) compared to the Mg-Zn-Y-Nd row, suggesting greater cell density/proliferation on the stainless steel surface than on the magnesium alloy under the same culture conditions.
+
+Panel F9a:
+Panel (A) shows a 2x3 grid of fluorescence micrographs (green fluorescent signal, likely live/dead or fluorescent cell staining, on black background) comparing two materials — "Mg-Zn-Y-Nd" (top row) and "317L SS" (stainless steel, bottom row) — imaged at three time points: 4 h, 1 day, and 3 days (columns, labeled across the top). Each sub-panel contains a small white scale bar in the lower-right corner (label not legibly resolved at this resolution, but present and consistent in each image). For the Mg-Zn-Y-Nd row, green punctate signal (sparse cell/particle-like dots) remains low and sparse across all three time points, showing little increase from 4 h to 3 days. For the 317L SS row, green signal starts similarly sparse at 4 h and 1 day but increases dramatically by 3 days, with dense, confluent clusters of green fluorescence covering much of the field — indicating strong proliferation/growth (e.g., cell attachment or bacterial/biofilm growth) on the 317L SS surface over time, in contrast to the much more limited signal on the Mg-Zn-Y-Nd material.
+
+Grader's verdict:
+WRONG — The candidate's descriptions (F6a, F7a, F8a, F9a) frame the panels as 2x3 grids comparing cell growth/proliferation on two different materials (Mg-Zn-Y-Nd alloy vs 317L SS) across three time points, with an increasing/comparative density trend. This contradicts the answer key, which characterizes these as AO/EB (acridine orange/ethidium bromide) live/dead staining images showing almost entirely green (live) cells with a notable absence of red (dead) cells that would be expected given a reported 12-26% non-vital cell fraction. The candidate never identifies the AO/EB live/dead staining scheme or the green/red vitality discrepancy that is the key's central point, and instead substitutes a different narrative about comparative proliferation trends across two materials and time points.
+
+Rule one of:
+- real: the panel(s) do not show what the node says (a different kind of data, a different sample or quantity, or the image contradicts the node). The citation or the node is wrong.
+- wording: the panel(s) do show what the node says; the flag comes from the reader naming or framing the same features differently, or from the grader reading a difference in words as a contradiction.
+- partial: some of what the node says is shown and some is not (for example one of several panels is wrong, or the node overstates what is visible).
+- unclear: you cannot tell from the image(s).
+
+Reply with JSON only: {"ruling": "real|wording|partial|unclear", "why": "one or two sentences naming what the image shows"}

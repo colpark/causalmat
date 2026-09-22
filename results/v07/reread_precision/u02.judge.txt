@@ -1,0 +1,22 @@
+You are a judge. A blind second reader described figure panel(s) without the paper; a grader compared the description with the paper graph's evidence node and ruled WRONG (a contradiction). Decide whether that flag is a real citation error.
+
+Open every image below with the Read tool and look at it yourself before ruling. Do not open any other file.
+- panel F6b: /home/aid1/Documents/causalmat/.v07work/rr/67cc2c6b2f6ba53f.jpg
+
+Evidence node o16 (what the graph says these panels show):
+BST@Ag1% loss climbs above 100 kHz to ~0.065 at 1 MHz; low-frequency losses exceed 0.026
+
+Second reader's description(s):
+Panel F6b:
+Panel (b) is a bar chart, not a microscopy/imaging technique — it plots "Breaking elongation (%)" on the y-axis (0–8 scale) for four sample groups on the x-axis: Pure PAEN, BST@Ag1%, BST@Ag3%, and BST@Ag5%. Bars are drawn with diagonal hatching (no color fill) and each has an error bar plus a numeric value labeled above it. Values decrease monotonically with increasing Ag content: Pure PAEN = 6.9%, BST@Ag1% = 5.8%, BST@Ag3% = 4.5%, BST@Ag5% = 4.4% (this last drop is small and within overlapping error bars). No scale bar is present since this is a data plot, not a micrograph. Overall trend: increasing Ag-doped BST filler content progressively reduces the breaking elongation (ductility) of the PAEN-based composite, with the effect leveling off between 3% and 5% loading.
+
+Grader's verdict:
+WRONG — the candidate describes a bar chart of breaking elongation (%) vs Ag-doping content, which is an entirely different figure/technique and content than the key's dielectric loss vs frequency plot for BST@Ag1%, so it contradicts the key.
+
+Rule one of:
+- real: the panel(s) do not show what the node says (a different kind of data, a different sample or quantity, or the image contradicts the node). The citation or the node is wrong.
+- wording: the panel(s) do show what the node says; the flag comes from the reader naming or framing the same features differently, or from the grader reading a difference in words as a contradiction.
+- partial: some of what the node says is shown and some is not (for example one of several panels is wrong, or the node overstates what is visible).
+- unclear: you cannot tell from the image(s).
+
+Reply with JSON only: {"ruling": "real|wording|partial|unclear", "why": "one or two sentences naming what the image shows"}

@@ -1,0 +1,34 @@
+You are a judge. A blind second reader described figure panel(s) without the paper; a grader compared the description with the paper graph's evidence node and ruled WRONG (a contradiction). Decide whether that flag is a real citation error.
+
+Open every image below with the Read tool and look at it yourself before ruling. Do not open any other file.
+- panel F1a: /home/aid1/Documents/causalmat/.v07work/rr/d0c567546b4d2c59.jpg
+- panel F1b: /home/aid1/Documents/causalmat/.v07work/rr/5b4751ed720eb39d.jpg
+- panel F1c: /home/aid1/Documents/causalmat/.v07work/rr/6ee03c7a8a07de85.jpg
+- panel F1d: /home/aid1/Documents/causalmat/.v07work/rr/5eef1df965e39c91.jpg
+
+Evidence node o1 (what the graph says these panels show):
+Insets: bare spheres show few large flakes; GO-containing spheres consist of many smaller, thinner flakes, finest in c-d
+
+Second reader's description(s):
+Panel F1a:
+Image at /tmp/claude-1000/-home-aid1-Documents-causalmat/b4c462e3-a61b-4313-ad94-b2c138a0e88c/scratchpad/rr/d0c567546b4d2c59.jpg is a scanning electron microscopy (SEM) panel labeled "(a)" with an inset in the upper right. The main view shows a cluster of rounded, petal-like or flake-covered microparticles/microspheres (several micrometers in size) with a scale bar of 2 μm; some particles have small needle- or whisker-like protrusions growing from clustered nucleation sites on their surfaces. The inset is a higher-magnification SEM image of one such particle, zooming into the surface where thin, elongated whisker/nanorod-like structures emerge from a wrinkled, layered or petal-textured surface, with its own scale bar of 500 nm. No other data (e.g., graphs, spectra) or trend lines are present—this is purely morphological SEM characterization showing a hierarchical structure: micron-scale spherical/flake aggregates decorated with nanoscale whiskers.
+
+Panel F1b:
+Panel (b) is a scanning electron microscopy (SEM) image of a granular/particulate surface or powder, imaged at 5 μm scale (main frame). The main view shows an aggregate of rounded/spherical particles of varying sizes (roughly 1–10 μm) with rougher, flake-like or cauliflower-like surface texture; three regions are highlighted with red ovals/circles marking areas of interest (likely showing a distinct surface feature or defect, possibly nucleation sites or a particular phase). An inset in the upper right, at higher magnification with a 500 nm scale bar, zooms into one of the circled regions, revealing a flower-like or petal/sheet-like nanostructure composed of thin, curved nanosheets or nanoflakes radiating from a central point. No quantitative trend data (e.g., a plot) is present — this is purely a qualitative morphological/microstructural SEM characterization panel, likely illustrating a hierarchical particle-on-particle or nanostructured coating morphology.
+
+Panel F1c:
+Panel (c) is a scanning electron microscopy (SEM) image showing a rough, granular surface/coating composed of numerous rounded, cauliflower-like microparticles or agglomerates (roughly a few micrometers in diameter) with fine, textured surface morphology; scale bar for the main image is 5 μm. An inset in the upper right shows a higher-magnification SEM view of a single spherical particle, revealing that its surface is covered with dense, radiating needle-like or petal-like nanostructures (nanorods/nanoflakes) arranged in a flower-like pattern; the inset scale bar is 500 nm. The overall trend depicted is a hierarchical structure: micron-scale spherical/globular aggregates built up from finer nanoscale needle/flake sub-features, consistent with a nanostructured coating or particle morphology (e.g., a corrosion-protective or bioactive coating layer). No compositional or quantitative data (e.g., EDS, size distribution) are shown in this panel—only morphological/structural SEM imaging at two magnifications.
+
+Panel F1d:
+Panel (d) is a scanning electron microscopy (SEM) image showing a fractured or particulate surface with irregular, crumpled/foliated flake-like morphology at low magnification (main image, scale bar 5 μm). An inset in the upper right shows a higher-magnification close-up (scale bar 1 μm) of a single rounded particle/agglomerate whose surface is covered in thin, wrinkled, sheet-like lamellae radiating or folding across the particle, giving it a crumpled-paper or petal-like texture. The main panel's surface consists of similarly textured, layered/flaky material with sharp-edged, ridge-like features and voids between clusters. No obvious quantitative trend is shown (single static image, not a series), but the combination of main view and zoomed inset is meant to illustrate the fine nanoscale/microscale flaky substructure underlying the coarser particle morphology. No other labels, axes, or additional annotations are present besides the panel label "(d)" and the two scale bars.
+
+Grader's verdict:
+WRONG
+
+Rule one of:
+- real: the panel(s) do not show what the node says (a different kind of data, a different sample or quantity, or the image contradicts the node). The citation or the node is wrong.
+- wording: the panel(s) do show what the node says; the flag comes from the reader naming or framing the same features differently, or from the grader reading a difference in words as a contradiction.
+- partial: some of what the node says is shown and some is not (for example one of several panels is wrong, or the node overstates what is visible).
+- unclear: you cannot tell from the image(s).
+
+Reply with JSON only: {"ruling": "real|wording|partial|unclear", "why": "one or two sentences naming what the image shows"}

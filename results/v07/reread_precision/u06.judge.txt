@@ -1,0 +1,27 @@
+You are a judge. A blind second reader described figure panel(s) without the paper; a grader compared the description with the paper graph's evidence node and ruled WRONG (a contradiction). Decide whether that flag is a real citation error.
+
+Open every image below with the Read tool and look at it yourself before ruling. Do not open any other file.
+- panel F2d: /home/aid1/Documents/causalmat/.v07work/rr/b18a508670b3584d.jpg
+
+Evidence node o6 (what the graph says these panels show):
+Zn fills the particle evenly; Ni is patchy; Co covers most of the particle, less patchy than Ni
+
+Second reader's description(s):
+Panel F2d:
+Image at /home/aid1/Documents/causalmat/.v07work/rr/b18a508670b3584d.jpg shows a 4-panel figure, labeled "(d)".
+
+- Panel 1 (leftmost, grayscale): a high-angle annular dark-field (HAADF) STEM image of a single irregularly shaped particle/aggregate (roughly a few hundred nm across, blob-like with lobed/branching morphology), with a "500 nm" white scale bar in the lower-left corner.
+- Panels 2–4: corresponding EDS (energy-dispersive X-ray spectroscopy) elemental mapping overlays of the same particle, color-coded and labeled by element: Co (red), Ni (green), Zn (cyan).
+- Trend/observation: all three elemental maps (Co, Ni, Zn) closely reproduce the same particle outline/shape seen in the grayscale STEM image, with signal distributed fairly uniformly and densely across the entire particle area rather than being localized to a sub-region — consistent with a homogeneous distribution of Co, Ni, and Zn throughout the particle (suggestive of a mixed/doped or alloyed composition rather than phase-segregated domains).
+- No other scale bars, insets, or quantitative overlays are present; no axis labels or data plots — purely qualitative STEM-EDS elemental mapping imagery.
+
+Grader's verdict:
+WRONG - the candidate claims all three elements (Co, Ni, Zn) are uniformly and densely distributed across the particle, contradicting the key's differentiated description where Zn is even, Ni is patchy, and Co is intermediate (covers most but less patchy than Ni).
+
+Rule one of:
+- real: the panel(s) do not show what the node says (a different kind of data, a different sample or quantity, or the image contradicts the node). The citation or the node is wrong.
+- wording: the panel(s) do show what the node says; the flag comes from the reader naming or framing the same features differently, or from the grader reading a difference in words as a contradiction.
+- partial: some of what the node says is shown and some is not (for example one of several panels is wrong, or the node overstates what is visible).
+- unclear: you cannot tell from the image(s).
+
+Reply with JSON only: {"ruling": "real|wording|partial|unclear", "why": "one or two sentences naming what the image shows"}
