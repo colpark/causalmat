@@ -21,8 +21,11 @@ def panel_store(graph_path, panels_dir=None):
     mp=os.path.join(panels_dir,'match.json'); op=os.path.join(panels_dir,'ocr.json')
     if not os.path.exists(mp): return None
     ocr={c['crop']:c for c in json.load(open(op))['crops']} if os.path.exists(op) else {}
-    store={}   # (figure_number, letter or 'single' or '*' for the figure as a whole) -> text
+    store={}   # (packet figure number, letter or 'single' or '*' for the figure as a whole) -> text
+    dp=os.path.join(panels_dir,'..','data.json')   # packet ids number figures by position in data.json image_info
+    order={im.get('image_path'):i for i,im in enumerate((json.load(open(dp)) if os.path.exists(dp) else {}).get('image_info') or [],1)}
     for f in json.load(open(mp))['figures']:
+        f=dict(f, figure_number=order[f['file']]) if f['file'] in order else f
         h=os.path.basename(f['file']).rsplit('.',1)[0]   # crops are named <figure image hash>_<detector label>.jpg
         cs=[c for k,c in ocr.items() if os.path.basename(k).startswith(h+'_')]
         store[(f['figure_number'],'pre')]=f.get('caption_preamble') or ''

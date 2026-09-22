@@ -1,5 +1,10 @@
 """v07.py: the v07 per-paper pipeline, one stage per call. Subagent work goes through relay.py job files.
 
+  v07.py rrgraph <P>          graph-time panel check (v07 G), after the judge: net-reread on every panel cited by any node
+                              -> jobs_rrgraph.json (panels already read for the same crop are skipped)
+  v07.py rrggrade <P>         grader prompts, one per (node, its panels), only where the prompt is new -> jobs_rrggrade.json
+  v07.py rrgapply <P>         verdicts; WRONG units -> rrgraph/fix.md for the staff subagent; CORRECT units record
+                              cue_overrides in the graph (the second read confirms the panel, so an OCR cue conflict is a misfire)
   v07.py prep <P> <part>      spec, cut (A1 skip rule), writer packets and reread tasks for the open traces
                               -> jobs_writer.json, jobs_reread.json
   v07.py rrgrade <P>          after the reread harvest: grader prompts, one per (panel, evidence node) -> jobs_rrgrade.json
@@ -52,25 +57,83 @@ def prep(P, part):
     jobs(P, 'writer', [{'id': f'{P}/{T}/writer', 'agent': 'net-writer', 'prompt': os.path.join(W, f'{T}.writer.txt'),
                         'out': os.path.join(W, f'{T}.writer.out.txt')} for T in op])
     R = os.path.join(d, 'reread')
+    if os.path.exists(os.path.join(RG(P), 'reread.json')):   # v07 G: the panel check ran at graph time; traces inherit its flags
+        os.makedirs(R, exist_ok=True)
+        dump({'paper': C['paper_id'], 'from_graph': True, 'tasks': {}, 'units': {}, 'flags': graph_flags(P, C)}, os.path.join(R, 'reread.json'))
+        return jobs(P, 'reread', [])
     run('trace_kit/reread.py', 'build', cut, G(P), R, IMG)
     rr = J(os.path.join(R, 'reread.json'))['tasks']
     jobs(P, 'reread', [{'id': f'{P}/{p}/reread', 'agent': 'net-reread', 'prompt': os.path.join(R, f'{p}.reread.txt'),
                         'out': os.path.join(R, f'{p}.reread.out.txt')} for p in rr])
 
-def rrgrade(P, R=None):
+def RG(P): return os.path.join(D(P), 'rrgraph')
+
+def rrgraph(P):
+    import reread; os.makedirs(D(P), exist_ok=True); stamp(P, 'rrgraph'); R = RG(P)
+    todo = reread.graph(G(P), R, IMG)
+    jobs(P, 'rrgraph', [{'id': f'{P}/{p}/rrgraph', 'agent': 'net-reread', 'prompt': os.path.join(R, f'{p}.reread.txt'),
+                         'out': os.path.join(R, f'{p}.reread.out.txt')} for p in todo])
+
+def rrggrade(P):
+    out = rrgrade(P, RG(P), only_new=True); return jobs(P, 'rrggrade', out)
+
+def rrgapply(P):
+    R = RG(P); flags = apply_reread(P, R); rr = J(os.path.join(R, 'reread.json')); g = J(G(P))
+    ok = [(u['node'], p) for u in rr['units'].values() if u.get('verdict') == 'CORRECT' for p in u['panels']]
+    full = {pname: rr['tasks'][pname]['panel'] for pname in rr['tasks']}
+    g['cue_overrides'] = [{'node': n, 'panel': full[p], 'cue': 'any', 'why': 'graph-time second read CORRECT'} for n, p in ok]
+    g['second_read'] = {'units': len(rr['units']), 'verdicts': {v: sum(u.get('verdict') == v for u in rr['units'].values()) for v in ('CORRECT', 'PARTIAL', 'WRONG', 'ABSTAIN', 'UNPARSED')},
+                        'wrong': [{'node': u['node'], 'panels': u['panels']} for u in rr['units'].values() if u.get('verdict') == 'WRONG']}
+    dump(g, G(P))
+    wrong = [(k, u) for k, u in rr['units'].items() if u.get('verdict') == 'WRONG']
+    fix_packet(P, R, rr, wrong)
+    print(P, g['second_read']['verdicts'], 'fix packet' if wrong else 'no flags')
+
+def fix_packet(P, R, rr, wrong):
+    """rrgraph/fix.md for the staff subagent: the flagged units, their crops, the reader's descriptions and the grader"""
+    fx = os.path.join(R, 'fix.md')
+    if wrong:
+        pk = (glob.glob(os.path.join(ROOT, 'taxonomy', 'v07', '*', 'packets', P + '.md')) + glob.glob(os.path.join(ROOT, 'taxonomy', '*', 'packets', P + '.md')) + [''])[0]
+        L = [f"# Second-read flags: {P}\n", f"Graph: {G(P)}\n", f"Packet (captions, linked text, panel section with every crop path): {pk}\n",
+             "A blind reader described each crop below without the paper; a grader ruled the description contradicts the node. For each: open the "
+             "whole figure and the crop, decide whether the node cites the wrong panel. If another panel of the same paper shows the observation, set "
+             "panel_ids (and figs) to it. If no panel shows it, set attrs.source to \"text\", drop panel_ids, and list the fact in attrs.requires_unseen. "
+             "If the node and panel are right and the reader or grader erred, leave the node and say so. Edit only the flagged nodes in the graph JSON "
+             f"(keep ids), and write {os.path.join(R, 'fix.json')}: {{\"<node>\": {{\"action\": \"repointed|text|kept\", \"panel_ids\": [...], \"why\": \"one sentence\"}}}}. Do not run git.\n"]
+        for k, u in wrong:
+            L.append(f"\n## {u['node']} cites {', '.join(u['panels'])}\nNode label: {rr['tasks'][u['panels'][0]]['node_labels'][u['node']]}\n"
+                     + ''.join(f"Crop {p}: {rr['tasks'][p]['crop']}\nReader on {p}:\n{__import__('reread').clean(open(os.path.join(R, f'{p}.reread.out.txt')).read())}\n" for p in u['panels'])
+                     + f"Grader: {u['why']}\n")
+        open(fx, 'w').write('\n'.join(L))
+    elif os.path.exists(fx): os.remove(fx)
+
+def graph_flags(P, C):
+    """per-trace flags from the graph-time second read: an open trace whose evidence node still has a WRONG unit"""
+    rr = J(os.path.join(RG(P), 'reread.json')); bad = {u['node']: u for u in rr.get('units', {}).values() if u.get('verdict') == 'WRONG'}
+    fl = {}
+    for t in C['traces']:
+        if t['status'] != 'open': continue
+        for ev in t['evidence']:
+            if ev in bad: fl.setdefault(t['id'], []).append({'panels': bad[ev]['panels'], 'node': ev, 'why': bad[ev]['why']})
+    return fl
+
+def rrgrade(P, R=None, only_new=False):
     from reread import grader_prompt, units
     R = R or os.path.join(D(P), 'reread'); rr = J(os.path.join(R, 'reread.json')); out = []
     labels = {n: l for k in rr['tasks'].values() for n, l in k['node_labels'].items()}
     for key, u in units(rr).items():
         descs = [(p, open(os.path.join(R, f'{p}.reread.out.txt')).read()) for p in u['panels'] if os.path.exists(os.path.join(R, f'{p}.reread.out.txt'))]
         if len(descs) < len(u['panels']): continue
-        q = os.path.join(R, f'{key}.grader.txt'); open(q, 'w').write(grader_prompt(descs, labels[u['node']]))
+        q = os.path.join(R, f'{key}.grader.txt'); text = grader_prompt(descs, labels[u['node']])
+        if only_new and os.path.exists(q) and open(q).read() == text and os.path.exists(q.replace('.grader.txt', '.grader.out.txt')): continue
+        open(q, 'w').write(text)
         out.append({'id': f'{P}/{key}/rrgrade', 'agent': 'net-grader', 'prompt': q, 'out': q.replace('.grader.txt', '.grader.out.txt')})
     rr['units'] = units(rr); dump(rr, os.path.join(R, 'reread.json'))
     return jobs(P, 'rrgrade', out) if R == os.path.join(D(P), 'reread') else out
 
 def apply_reread(P, R=None):
     R = R or os.path.join(D(P), 'reread'); path = os.path.join(R, 'reread.json'); rr = J(path); flags = {}
+    if rr.get('from_graph'): return rr['flags']
     for key, u in rr.get('units', {}).items():
         f = os.path.join(R, f'{key}.grader.out.txt')
         if not os.path.exists(f): continue
@@ -282,6 +345,7 @@ def row(P, meta_path=None):
 
 if __name__ == '__main__':
     a = sys.argv
-    {'prep': lambda: prep(a[2], a[3]), 'rrgrade': lambda: rrgrade(a[2]), 'written': lambda: written_stage(a[2]),
+    {'rrgraph': lambda: rrgraph(a[2]), 'rrggrade': lambda: rrggrade(a[2]), 'rrgapply': lambda: rrgapply(a[2]),
+     'prep': lambda: prep(a[2], a[3]), 'rrgrade': lambda: rrgrade(a[2]), 'written': lambda: written_stage(a[2]),
      'written2': lambda: written2(a[2]), 'gate': lambda: gate(a[2]), 'grade': lambda: grade(a[2]), 'verdict': lambda: verdict(a[2]),
      'cause': lambda: cause(a[2]), 'row': lambda: row(a[2]), 'log': lambda: log(a[2], a[3], a[4])}[a[1]]()

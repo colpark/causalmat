@@ -394,7 +394,17 @@ def store_for(graph_path):
     base = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "matmech", j, d)
     mj = json.load(open(f"{base}/panels/match.json")); pj = json.load(open(f"{base}/panels/panels.json"))
     ocr = {c["crop"]: c for c in json.load(open(f"{base}/panels/ocr.json"))["crops"]} if os.path.exists(f"{base}/panels/ocr.json") else {}
+    # packet ids number figures by their position in data.json image_info (build_packets_v06), not by match.json figure_number,
+    # which repeats or skips when a paper has a scheme or an unnumbered figure
+    d = json.load(open(f"{base}/data.json")) if os.path.exists(f"{base}/data.json") else {}
+    mj = dict(mj, _order={im.get("image_path"): i for i, im in enumerate(d.get("image_info") or [], 1)})
     return base, mj, pj, ocr
+
+def fig_by_number(mj, n):
+    """the match.json figure a packet id F<n> names (position in data.json image_info; figure_number only without data.json)"""
+    order = mj.get("_order") or {}
+    if order: return next((f for f in mj["figures"] if order.get(f["file"]) == n), None)
+    return next((f for f in mj["figures"] if f["figure_number"] == n), None)
 
 def panel_record(store, pid):
     """crop path (absolute), caption span, OCR record for a canonical panel id; the figure number maps to the image via match.json."""
@@ -402,7 +412,7 @@ def panel_record(store, pid):
     m = re.match(r".*#F(\d+)([a-z]?)$", pid)
     if not m: return None
     n, let = int(m.group(1)), m.group(2).upper()
-    fig = next((f for f in mj["figures"] if f["figure_number"] == n), None)
+    fig = fig_by_number(mj, n)
     if not fig: return None
     pf = next((f for f in pj["figures"] if f["file"] == fig["file"]), {})
     if let:
@@ -441,7 +451,7 @@ SPAN_GENERIC = set("panel panels caption captions figure fig only the and of in 
 
 def fig_preamble(store, pid):
     m = re.match(r".*#F(\d+)", pid)
-    fig = next((f for f in store[1]["figures"] if m and f["figure_number"] == int(m.group(1))), None)
+    fig = fig_by_number(store[1], int(m.group(1))) if m else None
     return fig.get("caption_preamble") if fig else None
 
 def graded_targets(t, N):
@@ -483,7 +493,7 @@ def linked_text(store, pid):
     base, mj = store[0], store[1]
     if base not in _DATA:
         dp = os.path.join(base, "data.json"); _DATA[base] = json.load(open(dp)) if os.path.exists(dp) else {}
-    m = re.match(r".*#F(\d+)", pid); fig = next((f for f in mj["figures"] if m and f["figure_number"] == int(m.group(1))), None)
+    m = re.match(r".*#F(\d+)", pid); fig = fig_by_number(mj, int(m.group(1))) if m else None
     im = next((i for i in (_DATA[base].get("image_info") or []) if fig and i.get("image_path") == fig["file"]), None)
     return " ".join(im.get("image_description") or []) if im else ""
 

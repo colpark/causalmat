@@ -3,6 +3,10 @@
   reread.py build <cut.traces.json> <graph.json> <out_dir>
       writes <out_dir>/reread.json (one task per distinct given panel: crop path, the traces and evidence nodes that cite
       it) and <out_dir>/<panel>.reread.txt, the net-reread prompt (the image path only: no label, no question)
+  reread.py graph <graph.json> <out_dir> [img_dir]
+      the graph-time panel check (v07 G): one task per panel cited by any node of the graph, before the cut. Units are
+      (node, all its panel_ids) under the pseudo-trace "G". A panel already read (its .reread.out.txt exists for the same
+      crop) is not read again.
   reread.py grade <out_dir> <map.txt> <tasks_dir>
       map lines 'agent panel': takes each reread reply from its transcript, writes <panel>.reread.out.txt and one
       net-grader prompt per (panel, evidence node): <panel>.<node>.grader.txt
@@ -75,6 +79,30 @@ def build(cut_path, graph_path, out, img_dir=None):
     json.dump({"paper": cut["paper_id"], "tasks": tasks}, open(os.path.join(out, "reread.json"), "w"), indent=1)
     print(f"{len(tasks)} panels to reread, {sum(len(k['node_labels']) for k in tasks.values())} grader checks")
 
+def graph(graph_path, out, img_dir=None):
+    import hashlib, shutil
+    g = json.load(open(graph_path)); store = store_for(graph_path); os.makedirs(out, exist_ok=True)
+    old = json.load(open(os.path.join(out, "reread.json")))["tasks"] if os.path.exists(os.path.join(out, "reread.json")) else {}
+    tasks = {}
+    for n in g["nodes"]:
+        for pid in n.get("panel_ids") or []:
+            rec = panel_record(store, pid) or {}
+            if not rec.get("crop"): continue
+            k = tasks.setdefault(pname(pid), {"panel": pid, "crop": os.path.realpath(rec["crop"]), "cited_by": [{"trace": "G", "nodes": []}], "node_labels": {}})
+            k["cited_by"][0]["nodes"].append(n["id"]); k["node_labels"][n["id"]] = n["label"]
+    for p, k in tasks.items():
+        if img_dir:
+            os.makedirs(img_dir, exist_ok=True)
+            k["image"] = os.path.join(os.path.realpath(img_dir), hashlib.sha1(k["panel"].encode()).hexdigest()[:16] + os.path.splitext(k["crop"])[1])
+            shutil.copyfile(k["crop"], k["image"])
+        o = os.path.join(out, f"{p}.reread.out.txt")
+        if os.path.exists(o) and (old.get(p) or {}).get("crop") != k["crop"]: os.remove(o)   # the panel id now names another crop
+        open(os.path.join(out, f"{p}.reread.txt"), "w").write(k.get("image") or k["crop"])
+    json.dump({"paper": g["paper_id"], "graph_time": True, "tasks": tasks}, open(os.path.join(out, "reread.json"), "w"), indent=1)
+    todo = [p for p in tasks if not os.path.exists(os.path.join(out, f"{p}.reread.out.txt"))]
+    print(f"{len(tasks)} cited panels, {len(todo)} to read, {len(units({'tasks': tasks}))} grader units")
+    return todo
+
 def grade(out, mp, tasks_dir):
     R = json.load(open(os.path.join(out, "reread.json")))
     for line in open(mp):
@@ -110,4 +138,4 @@ def apply(out, mp, tasks_dir):
     print("flags:", {t: [f"{pname(f['panel'])}/{f['node']}" for f in v] for t, v in flags.items()})
 
 if __name__ == "__main__":
-    {"build": build, "grade": grade, "apply": apply}[sys.argv[1]](*sys.argv[2:])
+    {"build": build, "graph": graph, "grade": grade, "apply": apply}[sys.argv[1]](*sys.argv[2:])
