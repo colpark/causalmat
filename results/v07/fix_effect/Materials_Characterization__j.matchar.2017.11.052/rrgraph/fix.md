@@ -1,0 +1,15 @@
+# Second-read flags: Materials_Characterization__j.matchar.2017.11.052
+
+Graph: /home/aid1/Documents/causalmat/taxonomy/graphs_v07/Materials_Characterization__j.matchar.2017.11.052.json
+
+Packet (captions, linked text, panel section with every crop path): /home/aid1/Documents/causalmat/taxonomy/v07/partB/packets/Materials_Characterization__j.matchar.2017.11.052.md
+
+A blind reader described each crop below without the paper; a grader ruled the description contradicts the node. For each: open the whole figure and the crop, decide whether the node cites the wrong panel. If another panel of the same paper shows the observation, set panel_ids (and figs) to it. If no panel shows it, set attrs.source to "text", drop panel_ids, and list the fact in attrs.requires_unseen. If the node and panel are right and the reader or grader erred, leave the node and say so. Edit only the flagged nodes in the graph JSON (keep ids), and write /home/aid1/Documents/causalmat/results/v07/fix_effect/Materials_Characterization__j.matchar.2017.11.052/rrgraph/fix.json: {"<node>": {"action": "repointed|text|kept", "panel_ids": [...], "why": "one sentence"}}. Do not run git.
+
+
+## o15 cites F3
+Node label: Hardness error bars overlap across widths and the series is non-monotonic (0.35-0.46 mm ~109 HV above 0.57-0.66 mm ~107.5 HV)
+Crop F3: /home/aid1/Documents/causalmat/matmech/Materials_Characterization/j.matchar.2017.11.052/images/1f0912d8ed11a6afd235f6df822f521551ea6f595f8b4a5189554bb257865a71.jpg
+Reader on F3:
+The panel is a line/scatter plot (not a micrograph) reporting Vickers microhardness measurements as a function of specimen width. X-axis is "Measured width of fabricated samples, d_m /mm" plotted on a log scale from 10^-1 to beyond 10^1; y-axis is "Vickers Hardness /Hv" on a linear scale from 100 to 120. An inset box in the upper left reads "Load: 0.98 N," indicating the indentation test load used. Data are shown as filled black circles with vertical error bars (representing scatter/standard deviation) at roughly 11 distinct width values spanning ~0.25 mm to ~11 mm. Hardness values cluster tightly between about 106.5 and 112 Hv across the entire width range, with error bars typically spanning ±2 to ±3 Hv. The overall trend is a very slight, gradual increase in hardness with increasing sample width (from ~106.5 Hv at the smallest width to ~111.7-111.8 Hv at the largest widths), but the effect is small relative to the scatter, suggesting hardness is largely independent of (or only weakly dependent on) fabricated sample width under this load. There is no scale bar since this is a plotted graph, not a micrograph.
+Grader: WRONG — The candidate's description of a "very slight, gradual increase in hardness with increasing sample width" describes a monotonic trend, which contradicts the key's explicit non-monotonic characterization (the 0.35–0.46 mm group being higher (~109 HV) than the 0.57–0.66 mm group (~107.5 HV) before any later increase), even though both agree the error bars overlap/scatter is comparable to the effect size.

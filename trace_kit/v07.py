@@ -30,7 +30,8 @@ IMG = os.path.join(ROOT, '.v07work', 'rr')
 GRAPHS = os.environ.get('V07_GRAPHS', os.path.join(ROOT, 'taxonomy', 'graphs_v07'))
 NOTE = "Every verdict is model against model."
 
-def D(P): return os.path.join(ROOT, 'results', 'v07', 'papers', P)
+PAPERS = os.environ.get('V07_PAPERS', os.path.join(ROOT, 'results', 'v07', 'papers'))
+def D(P): return os.path.join(PAPERS, P)
 def G(P): return os.path.join(GRAPHS, P + '.json')
 def J(p): return json.load(open(p))
 def dump(o, p): json.dump(o, open(p, 'w'), indent=1)

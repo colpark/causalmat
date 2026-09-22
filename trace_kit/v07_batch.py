@@ -8,7 +8,7 @@ The relay is shared by the papers in the batch; each paper's log records it with
 import json, os, subprocess, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 W = os.path.join(ROOT, '.v07work')
-def D(P): return os.path.join(ROOT, 'results', 'v07', 'papers', P)
+def D(P): return os.path.join(os.environ.get('V07_PAPERS', os.path.join(ROOT, 'results', 'v07', 'papers')), P)
 
 def merge(name, stage, papers):
     jobs, meta = [], {'stage': stage, 'papers': papers}
