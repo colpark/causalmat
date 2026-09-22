@@ -1,0 +1,453 @@
+{
+ "file": "Materials_Characterization__j.matchar.2017.11.052.html",
+ "short": "Size dependence of microstructure of AlSi10Mg alloy fabricat",
+ "journal": "Materials_Characterization",
+ "year": null,
+ "title": "Size dependence of microstructure of AlSi10Mg alloy fabricated by selective laser melting",
+ "doi": "Materials_Characterization/j.matchar.2017.11.052",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO, SEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "How part size (plate width 0.1-10 mm, lattice-strut scale) changes SLM AlSi10Mg microstructure is unknown. AlSi10Mg (measured Al-10.8Si-0.2Mg-0.4Fe wt%) chosen as the SLM alloy.",
+   "detail": "Absorbed: n1 (HYP/gap), n2 (DES/base_system), n3 (DES/variable_sweep), n4 (PRC/forming)",
+   "figs": [],
+   "source": "n1, n2, n3, n4"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "All widths consist of overlapping arc-shaped melt pools; the narrowest strip is only one to two pools wide. In narrow samples (<1 mm) fine Si particles also sit inside the columnar alpha-Al cells, not only at cell boundaries.",
+   "detail": "Absorbed: n5 (STR/microstructure/shape), n8 (STR/microstructure/distribution), n9 (STR/chemistry/composition), n10 (STR/defect/extended), n11 (STR/microstructure/feature_size). Premises: Annealed SLM AlSi10Mg shows similar fine Si precipitates inside alpha-Al cells; Low-angle boundaries are tangled dislocation arrays; fewer of them means recovery",
+   "figs": [],
+   "source": "n5, n8, n9, n10, n11"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Powder contact at side faces cuts heat removal from narrow parts, slowing cooling and letting later laser passes reheat them. Vickers hardness falls slightly with decreasing width, ~112 HV at >=5 mm to ~107 HV at 0.27 mm",
+   "detail": "Absorbed: n7 (MEC/pathway), n13 (PRP/value). Premises: AlSi10Mg thermal conductivity is 120-170 W/m/K; SLM cooling rates reach ~1e5 K/s; Highly porous metal foams have low thermal conductivity, so a powder bed conducts heat poorly; Solute in solid solution and dislocations both strengthen Al alloys; losing either softens the matrix",
+   "figs": [],
+   "source": "n7, n13"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "SLM reproduces plate widths within ~15% down to ~1 mm; thinner plates come out increasingly wider, floor ~0.27 mm",
+   "detail": "Absorbed: n6 (PRF/service_capability)",
+   "figs": [],
+   "source": "n6"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Part size affects Si particle morphology (intracellular Si precipitation) more than the alpha-Al matrix; small parts stay hot longer during SLM",
+   "detail": "Absorbed: n14 (DSC/conclusion)",
+   "figs": [],
+   "source": "n14"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "MICRO, F4",
+   "tech": "MICRO",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F4a, 10.1016/j.matchar.2017.11.052#F4b, 10.1016/j.matchar.2017.11.052#F4c, 10.1016/j.matchar.2017.11.052#F4d",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F4a",
+    "10.1016/j.matchar.2017.11.052#F4b",
+    "10.1016/j.matchar.2017.11.052#F4c",
+    "10.1016/j.matchar.2017.11.052#F4d"
+   ],
+   "head": "Stacked arc-shaped melt-pool boundaries in all four widths; narrowest strip spans one to two pools",
+   "solves": "All widths consist of overlapping arc-shaped melt pools; the narrowest strip is only one to two pools wide",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o2",
+   "tech_source": "modality",
+   "claims": [
+    "n5"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n5 (o2)."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 1,
+   "title": "MICRO, F4",
+   "tech": "MICRO",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F4a, 10.1016/j.matchar.2017.11.052#F4d",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F4a",
+    "10.1016/j.matchar.2017.11.052#F4d"
+   ],
+   "head": "Visible melt-pool arcs ~200-300 um wide and ~70-100 um high against the 100 um bar",
+   "solves": "All widths consist of overlapping arc-shaped melt pools; the narrowest strip is only one to two pools wide",
+   "op": "measure feature metric",
+   "verdict": "partial",
+   "source": "o3",
+   "tech_source": "modality",
+   "note": "Text: pool height ~150 um, mean width 300 um; visible heights are smaller because later pools overlap earlier ones; only F4d carries the 100 um bar, so the F4a reading assumes equal magnification across F4a-d",
+   "claims": [
+    "n5"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n5 keeps shown support from o2."
+  },
+  {
+   "id": "M3",
+   "lane": 0,
+   "row": "S1",
+   "line": 2,
+   "title": "SEM, F7",
+   "tech": "SEM",
+   "figs": [
+    "F7"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F7a, 10.1016/j.matchar.2017.11.052#F7b, 10.1016/j.matchar.2017.11.052#F7c, 10.1016/j.matchar.2017.11.052#F7d",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F7a",
+    "10.1016/j.matchar.2017.11.052#F7b",
+    "10.1016/j.matchar.2017.11.052#F7c",
+    "10.1016/j.matchar.2017.11.052#F7d"
+   ],
+   "head": "SEM: Si particles in Z-aligned strings with clear matrix between in (a),(b); in (c),(d) many particles scattered between strings",
+   "solves": "In narrow samples (<1 mm) fine Si particles also sit inside the columnar alpha-Al cells, not only at cell boundaries",
+   "op": "assess spatial distribution, compare across conditions",
+   "verdict": "shown",
+   "source": "o8",
+   "tech_source": "label",
+   "claims": [
+    "n8"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n8 keeps shown support from o13 after removal."
+  },
+  {
+   "id": "C4",
+   "lane": 2,
+   "row": "S1",
+   "line": 3,
+   "title": "EBSD, F5, F6",
+   "tech": "EBSD",
+   "figs": [
+    "F5",
+    "F6"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F5a, 10.1016/j.matchar.2017.11.052#F5b, 10.1016/j.matchar.2017.11.052#F5c, 10.1016/j.matchar.2017.11.052#F5d, 10.1016/j.matchar.2017.11.052#F6b",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F5a",
+    "10.1016/j.matchar.2017.11.052#F5b",
+    "10.1016/j.matchar.2017.11.052#F5c",
+    "10.1016/j.matchar.2017.11.052#F5d",
+    "10.1016/j.matchar.2017.11.052#F6b"
+   ],
+   "head": "EBSD maps: elongated grains along Z, many red (<001>//Z), finer equiaxed grains at pool boundaries, alike in all widths. HAGB mean intercept L stays at 7.0-7.8 um from 0.27 to 10.4 mm width",
+   "solves": "alpha-Al grain size (HAGB mean intercept ~7-8 um) is independent of plate width",
+   "op": "compare across conditions, convert to quantity, measure feature metric, read trend",
+   "verdict": "shown",
+   "source": "o5, o6",
+   "tech_source": "label+none",
+   "note": "F5c,d also show coarse off-colour grains in powder attached to the side faces",
+   "detail": "o5: EBSD maps: elongated grains along Z, many red (<001>//Z), finer equiaxed grains at pool boundaries, alike in all widths; o6: HAGB mean intercept L stays at 7.0-7.8 um from 0.27 to 10.4 mm width",
+   "claims": [
+    "n11"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n11 (o5, o6)."
+  },
+  {
+   "id": "C5",
+   "lane": 2,
+   "row": "S1",
+   "line": 4,
+   "title": "evidence",
+   "tech": "",
+   "figs": [],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Si number density ~30 um^-2 for widths >0.5 mm, rising to ~40 um^-2 below 0.5 mm",
+   "solves": "In narrow samples (<1 mm) fine Si particles also sit inside the columnar alpha-Al cells, not only at cell boundaries",
+   "op": "",
+   "verdict": null,
+   "source": "o10",
+   "tech_source": "none",
+   "detail": "o10: Si number density ~30 um^-2 for widths >0.5 mm, rising to ~40 um^-2 below 0.5 mm",
+   "claims": [
+    "n8"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n8 keeps shown support from o8, o13."
+  },
+  {
+   "id": "C6",
+   "lane": 2,
+   "row": "S1",
+   "line": 5,
+   "title": "ATOM:CALPHAD, F2",
+   "tech": "ATOM:CALPHAD",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F2b",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F2b"
+   ],
+   "head": "Si area fraction higher in narrower samples, all below equilibrium, gap to equilibrium shrinking with decreasing width. CALPHAD equilibrium Si fraction ~0.105 just below the solidus, rising to ~0.12 below ~300 C",
+   "solves": "Less supersaturated Si remains in the alpha-Al matrix of narrower samples",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o11, o12",
+   "tech_source": "label+none",
+   "note": "Solidus dashed line sits near 575-580 C; text says ~560 C",
+   "detail": "o11: Si area fraction higher in narrower samples, all below equilibrium, gap to equilibrium shrinking with decreasing width; o12: CALPHAD equilibrium Si fraction ~0.105 just below the solidus, rising to ~0.12 below ~300 C",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n9 (o12)."
+  },
+  {
+   "id": "C7",
+   "lane": 2,
+   "row": "S1",
+   "line": 6,
+   "title": "evidence, F2",
+   "tech": "",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F2a",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F2a"
+   ],
+   "head": "At the alloy composition the vertical section passes liquid -> alpha+liquid -> alpha+Si+AlFeSi-beta (+Mg2Si below ~400 C)",
+   "solves": "",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o13",
+   "tech_source": "none",
+   "detail": "o13: At the alloy composition the vertical section passes liquid -> alpha+liquid -> alpha+Si+AlFeSi-beta (+Mg2Si below ~400 C)",
+   "claims": [
+    "n8"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n8 keeps shown support from o8 after removal."
+  },
+  {
+   "id": "C8",
+   "lane": 2,
+   "row": "S1",
+   "line": 7,
+   "title": "EBSD, F7",
+   "tech": "EBSD",
+   "figs": [
+    "F7"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "EBSD Sv(LAB) = 0.149, 0.143, 0.125 um^-1 for maps (a), (b), (c)",
+   "solves": "Low-angle boundary (dislocation-array) density is lower in the narrowest sample, indicating enhanced recovery",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o14",
+   "tech_source": "label",
+   "note": "One map per sample; 10.41 vs 2.10 mm differ by only 4%",
+   "detail": "o14: EBSD Sv(LAB) = 0.149, 0.143, 0.125 um^-1 for maps (a), (b), (c)",
+   "claims": [
+    "n10"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n10 (o14)."
+  },
+  {
+   "id": "C9",
+   "lane": 2,
+   "row": "S2",
+   "line": 0,
+   "title": "MECH:hardness, F3",
+   "tech": "MECH:hardness",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F3",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F3"
+   ],
+   "head": "Hardness error bars overlap across widths and the series is non-monotonic (0.35-0.46 mm ~109 HV above 0.57-0.66 mm ~107.5 HV). Hardness ~111.8 HV at 10.4 and 5.3 mm, ~107-109 HV at 0.57-2.8 mm, ~106.6 HV at 0.27 mm",
+   "solves": "Vickers hardness falls slightly with decreasing width, ~112 HV at >=5 mm to ~107 HV at 0.27 mm",
+   "op": "compare across conditions, read trend",
+   "verdict": "shown",
+   "source": "o15, o16",
+   "tech_source": "label",
+   "audit": true,
+   "detail": "o15: Hardness error bars overlap across widths and the series is non-monotonic (0.35-0.46 mm ~109 HV above 0.57-0.66 mm ~107.5 HV); o16: Hardness ~111.8 HV at 10.4 and 5.3 mm, ~107-109 HV at 0.57-2.8 mm, ~106.6 HV at 0.27 mm",
+   "inner_audit": "o15: Hardness error bars overlap across widths and the series is non-monotonic (0.35-0.46 mm ~109 HV above 0.57-0.66 mm ~107.5 HV)",
+   "claims": [
+    "n13"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: "
+  },
+  {
+   "id": "M10",
+   "lane": 0,
+   "row": "S3",
+   "line": 0,
+   "title": "MICRO, F4",
+   "tech": "MICRO",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F4c, 10.1016/j.matchar.2017.11.052#F4d",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F4c",
+    "10.1016/j.matchar.2017.11.052#F4d"
+   ],
+   "head": "Side faces of the thin strips are wavy with partially fused powder particles attached",
+   "solves": "SLM reproduces plate widths within ~15% down to ~1 mm; thinner plates come out increasingly wider, floor ~0.27 mm",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "source": "o4",
+   "tech_source": "modality",
+   "claims": [
+    "n6"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n6 keeps shown support from o1 after removal."
+  },
+  {
+   "id": "C11",
+   "lane": 2,
+   "row": "S3",
+   "line": 1,
+   "title": "evidence, F1",
+   "tech": "",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F1c",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F1c"
+   ],
+   "head": "Measured widths sit on or just above the 1:1 line down to ~1 mm, deviate increasingly below ~0.5 mm, floor ~0.27 mm at d_s = 0.1",
+   "solves": "SLM reproduces plate widths within ~15% down to ~1 mm; thinner plates come out increasingly wider, floor ~0.27 mm",
+   "op": "match to design",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "none",
+   "note": "Read from F1c: d_s 1.0 -> d_m ~1.13; 0.5 -> ~0.66; 0.4 -> ~0.56; 0.3 -> ~0.46; 0.2 -> ~0.35; 0.1 -> ~0.27 mm. Grey band 0.3-0.4 mm is the EOS sheet limit",
+   "detail": "o1: Measured widths sit on or just above the 1:1 line down to ~1 mm, deviate increasingly below ~0.5 mm, floor ~0.27 mm at d_s = 0.1",
+   "claims": [
+    "n6"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n6 keeps shown support from o4 after removal."
+  },
+  {
+   "id": "C12",
+   "lane": 2,
+   "row": "S4",
+   "line": 0,
+   "title": "evidence, F6, F8",
+   "tech": "",
+   "figs": [
+    "F6",
+    "F8"
+   ],
+   "panel": "10.1016/j.matchar.2017.11.052#F6a, 10.1016/j.matchar.2017.11.052#F8a, 10.1016/j.matchar.2017.11.052#F8b, 10.1016/j.matchar.2017.11.052#F8c, 10.1016/j.matchar.2017.11.052#F8d",
+   "panel_ids": [
+    "10.1016/j.matchar.2017.11.052#F6a",
+    "10.1016/j.matchar.2017.11.052#F8a",
+    "10.1016/j.matchar.2017.11.052#F8b",
+    "10.1016/j.matchar.2017.11.052#F8c",
+    "10.1016/j.matchar.2017.11.052#F8d"
+   ],
+   "head": "{001}, {011}, {111} area fractions ~0.2, ~0.15, ~0.08 with no systematic width trend except {001} dropping to ~0.165 at 5-10 mm. Si size histograms alike (mode bin ~25-50 nm, tail to ~250 nm, sparse to ~400 nm in a,b); mean 60, 63, 60, 53 nm",
+   "solves": "",
+   "op": "compare across conditions, read trend",
+   "verdict": "shown",
+   "source": "o7, o9",
+   "tech_source": "none",
+   "note": "Peak bin ~26.5% in (a) vs ~28.5-29.5% in (b)-(d), matching the text's 'slightly lower frequency near 50 nm' for the 10 mm sample",
+   "detail": "o7: {001}, {011}, {111} area fractions ~0.2, ~0.15, ~0.08 with no systematic width trend except {001} dropping to ~0.165 at 5-10 mm; o9: Si size histograms alike (mode bin ~25-50 nm, tail to ~250 nm, sparse to ~400 nm in a,b); mean 60, 63, 60, 53 nm",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n14 (o7, o9)."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S3",
+   "causes"
+  ],
+  [
+   "S0",
+   "S2",
+   "causes"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ],
+  [
+   "S1",
+   "S4",
+   "supports"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}
