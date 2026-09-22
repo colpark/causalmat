@@ -10,7 +10,7 @@ import json, re, sys, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 EXEMPLARS = os.path.join(HERE, 'fixtures', 'writer_exemplars.json')
 NEGATIVE = os.path.join(HERE, 'fixtures', 'writer_exemplars_negative.json')   # questions not to write, one-line reason each
-FIELDS = ('question', 'answer_key', 'answer_scope', 'grading', 'answer_key_nodes')
+FIELDS = ('question', 'answer_key', 'answer_scope', 'grading', 'answer_key_nodes', 'asks_for')
 DROP = FIELDS + ('validation',)
 EX_DROP = ('linear', 'walk')   # exemplars are for form and length of the written fields; their step lists only add bulk
 
@@ -53,7 +53,7 @@ def merge(traces_path, out_dir, written_path, suffix='writer.out.txt'):
         if not os.path.exists(p): bad.append((t['id'], 'no reply')); continue
         try: r = parse(open(p).read())
         except Exception as e: bad.append((t['id'], f'unparsable: {e}')); continue
-        for k in FIELDS: t[k] = r.get(k, [] if k == 'answer_key_nodes' else '')
+        for k in FIELDS: t[k] = r.get(k, [] if k in ('answer_key_nodes', 'asks_for') else '')
     json.dump(T, open(written_path, 'w'), indent=1)
     print('merged ->', written_path, 'problems:', bad)
     return bad

@@ -3,6 +3,8 @@
   v07.py rrgraph <P>          graph-time panel check (v07 G), after the judge: net-reread on every panel cited by any node
                               -> jobs_rrgraph.json (panels already read for the same crop are skipped)
   v07.py rrggrade <P>         grader prompts, one per (node, its panels), only where the prompt is new -> jobs_rrggrade.json
+  v07.py pjudge <P>          v07 fix 2: every WRONG unit goes to net-panel-judge (opens the crop) -> jobs_pjudge.json
+  v07.py pjapply <P>         judge rulings applied: only "real" flags the trace and asks staff for a citation fix
   v07.py rrgapply <P>         verdicts; WRONG units -> rrgraph/fix.md for the staff subagent; CORRECT units record
                               cue_overrides in the graph (the second read confirms the panel, so an OCR cue conflict is a misfire)
   v07.py prep <P> <part>      spec, cut (A1 skip rule), writer packets and reread tasks for the open traces
@@ -150,9 +152,43 @@ def open_wrong(R, rr, P=None):
     return [(key, u) for key, u in rr.get('units', {}).items() if u.get('verdict') == 'WRONG' and u['node'] not in k
             and (cur is None or cur.get(u['node']) == sorted(u['panels']))]
 
+def pjudge(P):
+    """v07 fix 2: the blind read screens, the panel judge decides. One job per WRONG unit."""
+    import reread; R = RG(P); rr = J(os.path.join(R, 'reread.json')); out = []
+    for key, u in rr.get('units', {}).items():
+        if u.get('verdict') != 'WRONG' or u.get('judge'): continue
+        labels = {n: l for k in rr['tasks'].values() for n, l in k['node_labels'].items()}
+        imgs = '\n'.join(f"- panel {p}: {rr['tasks'][p].get('image') or rr['tasks'][p]['crop']}" for p in u['panels'])
+        descs = '\n\n'.join(f"Panel {p}:\n{reread.clean(open(os.path.join(R, f'{p}.reread.out.txt')).read())}" for p in u['panels'])
+        q = os.path.join(R, f'{key}.pjudge.txt')
+        open(q, 'w').write(f"Crops:\n{imgs}\n\nEvidence node {u['node']} (what the graph says these panels show):\n{labels.get(u['node'], '')}"
+                           f"\n\nSecond reader's description(s):\n{descs}\n\nGrader's verdict:\n{u.get('why', '')}")
+        out.append({'id': f'{P}/{key}/pjudge', 'agent': 'net-panel-judge', 'prompt': q, 'out': q.replace('.pjudge.txt', '.pjudge.out.txt')})
+    return jobs(P, 'pjudge', out)
+
+def pjapply(P):
+    R = RG(P); path = os.path.join(R, 'reread.json'); rr = J(path); g = J(G(P)); real = []
+    for key, u in rr.get('units', {}).items():
+        f = os.path.join(R, f'{key}.pjudge.out.txt')
+        if u.get('verdict') != 'WRONG' or not os.path.exists(f): continue
+        rep = open(f).read(); m = re.search(r'\{.*\}', rep, re.S)
+        try: j = json.loads(m.group(0)) if m else {}
+        except ValueError: j = {}
+        u['judge'] = j.get('ruling') or ('real' if re.search(r'\breal\b', rep[:200], re.I) else 'UNPARSED')
+        u['judge_why'] = j.get('why', rep.strip()[:400])
+        if u['judge'] == 'real': real.append((key, u))
+    dump(rr, path)
+    g['second_read'] = dict(g.get('second_read') or {}, panel_judge={'flags': sum(1 for u in rr['units'].values() if u.get('verdict') == 'WRONG'),
+                            'real': len(real), 'ok': sum(1 for u in rr['units'].values() if u.get('judge') == 'ok')})
+    dump(g, G(P)); fix_packet(P, R, rr, real)
+    print(P, g['second_read']['panel_judge'], 'fix packet' if real else 'no real flags')
+    return real
+
 def graph_flags(P, C):
     """per-trace flags from the graph-time second read: an open trace whose evidence node still has a WRONG unit the staff did not keep"""
-    rr = J(os.path.join(RG(P), 'reread.json')); bad = {u['node']: u for _, u in open_wrong(RG(P), rr, P)}
+    rr = J(os.path.join(RG(P), 'reread.json'))
+    bad = {u['node']: u for _, u in open_wrong(RG(P), rr, P) if u.get('judge') in (None, 'real', 'UNPARSED')} \
+        if any(u.get('judge') for u in rr.get('units', {}).values()) else {u['node']: u for _, u in open_wrong(RG(P), rr, P)}
     fl = {}
     for t in C['traces']:
         if t['status'] != 'open': continue
@@ -204,6 +240,11 @@ def feedback(P, written, val):
         if 'provenance' in f:
             m = v['nets']['provenance'].get('missing_numbers') or []
             if m: msgs.append('The provenance net flagged your answer key: it contains ' + ', '.join(m) + ', which no cited node label carries. Use only numbers written in the node labels.')
+        if 'scope' in f:
+            sc = v['nets']['scope']
+            msgs.append('The scope net flagged your question: asks_for is ' + (str(sc['asks_for']) or 'empty') +
+                        ' but the graded target is ' + str(sc['graded_targets']) + '. Ask for exactly that target, and set '
+                        'asks_for to it. If you cannot ask for it plainly, reply with asks_for [] and an empty answer_key.')
         if msgs: fb[v['id']] = '\n'.join(msgs)
     return fb
 
@@ -230,7 +271,11 @@ def written2(P):
                 r = parse(open(f).read()); t['writer_passes'] = 2
                 for k in FIELDS: t[k] = r.get(k, [] if k == 'answer_key_nodes' else '')
             except Exception as e: t['writer_pass2_error'] = str(e)
-    dump(T, wr); nets(P, wr)
+    dump(T, wr); val = nets(P, wr)
+    fails = {v['id']: v.get('fails') or [] for v in val}
+    for t in T['traces']:   # v07 fix 3: an item whose question still does not ask for the graded target is blocked
+        if 'scope' in fails.get(t['id'], []): t['blocked_by'] = 'scope'
+    dump(T, wr)
 
 def gate(P):
     d = D(P); stamp(P, 'gate'); import gate_packets
@@ -342,13 +387,18 @@ def reread_counts(P, flags):
     if os.path.exists(rp):
         rr = J(rp); fx = os.path.join(R, 'fix.json'); F = J(fx) if os.path.exists(fx) else {}
         wrong = {u['node'] for u in rr.get('units', {}).values() if u.get('verdict') == 'WRONG'} | set(F)
+        pj = [u.get('judge') for u in rr.get('units', {}).values() if u.get('verdict') == 'WRONG']
+        real = sum(1 for x in pj if x == 'real')
         return {'reread_checks': len(rr.get('units', {})), 'reread_flags': len(wrong),
-                'reread_real': sum(1 for x in F.values() if x.get('action') in ('repointed', 'text'))}
+                'reread_real': sum(1 for x in F.values() if x.get('action') in ('repointed', 'text')),
+                'paneljudge_real': real if any(pj) else None,
+                'paneljudge_precision': (round(real / len(pj), 3) if pj else None) if any(pj) else None}
     rr = J(os.path.join(D(P), 'reread', 'reread.json')) if os.path.exists(os.path.join(D(P), 'reread', 'reread.json')) else {}
-    return {'reread_checks': len(rr.get('units', {})), 'reread_flags': len(flags), 'reread_real': None}
+    return {'reread_checks': len(rr.get('units', {})), 'reread_flags': len(flags), 'reread_real': None,
+            'paneljudge_real': None, 'paneljudge_precision': None}
 
 COLS = ['paper', 'journal', 'year', 'n_figures', 'annotated_share', 'graph_nodes', 'graph_spine', 'judge_checks', 'judge_overturns',
-        'traces_cut', 'open', 'closed_by_rule', 'written', 'passed_nets', 'reread_checks', 'reread_flags', 'reread_real', 'valid', 'valid_partial', 'text_sufficient',
+        'traces_cut', 'open', 'closed_by_rule', 'written', 'passed_nets', 'reread_checks', 'reread_flags', 'reread_real', 'paneljudge_real', 'paneljudge_precision', 'valid', 'valid_partial', 'text_sufficient',
         'inspect', 'inspect_cause', 'subagent_dispatches', 'wall_minutes']
 
 def row(P, meta_path=None):
@@ -400,7 +450,7 @@ def row(P, meta_path=None):
 
 if __name__ == '__main__':
     a = sys.argv
-    {'rrgraph': lambda: rrgraph(a[2]), 'rrggrade': lambda: rrggrade(a[2]), 'rrgapply': lambda: rrgapply(a[2]),
+    {'rrgraph': lambda: rrgraph(a[2]), 'pjudge': lambda: pjudge(a[2]), 'pjapply': lambda: pjapply(a[2]), 'rrggrade': lambda: rrggrade(a[2]), 'rrgapply': lambda: rrgapply(a[2]),
      'prep': lambda: prep(a[2], a[3]), 'rrgrade': lambda: rrgrade(a[2]), 'written': lambda: written_stage(a[2]),
      'written2': lambda: written2(a[2]), 'gate': lambda: gate(a[2]), 'grade': lambda: grade(a[2]), 'verdict': lambda: verdict(a[2]),
      'cause': lambda: cause(a[2]), 'row': lambda: row(a[2]), 'log': lambda: log(a[2], a[3], a[4])}[a[1]]()

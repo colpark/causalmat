@@ -26,6 +26,10 @@ Rules
   "is it X or Y", unless the trace is a competing-causes trace.
 - The answer key states only what the graded target nodes say (the trace record's `graded_targets`). Do not extend it
   to the claims they support. `answer_key_nodes` lists only graded targets and given nodes.
-- Reply with JSON only: {"question": "...", "answer_key": "...", "answer_scope": "full", "grading": "...", "answer_key_nodes": ["q11", "q15"]}
+- The question must ask for exactly the graded target. If you cannot ask for it plainly, say so in `asks_for: []`
+  and leave the key empty.
+- `asks_for` lists the node ids the question actually asks the solver to produce. It is the same set as the trace
+  record's `graded_targets` whenever you can write the question at all.
+- Reply with JSON only: {"question": "...", "answer_key": "...", "answer_scope": "full", "grading": "...", "answer_key_nodes": ["q11", "q15"], "asks_for": ["q15"]}
   answer_scope is "full" when the given panels support the whole answer and "partial" when they support only part of an
   order or a mechanism; a partial key states that part and says "cannot determine" for the rest.

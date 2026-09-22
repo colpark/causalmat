@@ -59,6 +59,29 @@ def build(out, *dirs):
               open(os.path.join(out, "jobs.json"), "w"), indent=1)
     print(f"{len(U)} flagged units, {sum(len(u['traces']) for u in U.values())} trace flags")
 
+def build_sample(out, pairs_json, n="40", seed="7"):
+    """v07 C checkpoint: a seeded random sample of graph-time flags [(paper, unit key)] -> judge prompts as in build"""
+    import random
+    pairs = json.load(open(pairs_json)); random.Random(int(seed)).shuffle(pairs); pairs = sorted(pairs[:int(n)])
+    os.makedirs(out, exist_ok=True); U = {}
+    for P, key in pairs:
+        R = f"results/v07/papers/{P}/rrgraph"; rr = json.load(open(os.path.join(R, "reread.json")))
+        node, _, ps = key.partition("."); panels = ps.split("+")
+        if not all(p in rr["tasks"] for p in panels): continue
+        k = f"u{len(U)+1:02d}"; t = rr["tasks"][panels[0]]
+        U[k] = {"paper": P, "unit": key, "node": node, "panels": panels, "traces": ["G"],
+                "label": t["node_labels"].get(node) or next((x["node_labels"][node] for x in rr["tasks"].values() if node in x["node_labels"]), ""),
+                "why": open(os.path.join(R, key + ".grader.out.txt")).read().strip(),
+                "images": {p: rr["tasks"][p].get("image") or rr["tasks"][p]["crop"] for p in panels},
+                "crops": {p: rr["tasks"][p]["crop"] for p in panels},
+                "descs": {p: open(os.path.join(R, f"{p}.reread.out.txt")).read() for p in panels}, "reread_dir": R,
+                "staff": (json.load(open(os.path.join(R, "fix.json"))) if os.path.exists(os.path.join(R, "fix.json")) else {}).get(node, {}).get("action")}
+        open(os.path.join(out, f"{k}.judge.txt"), "w").write(prompt(U[k]))
+    json.dump(U, open(os.path.join(out, "units.json"), "w"), indent=1)
+    json.dump([{"id": k, "agent": "general-purpose", "prompt": os.path.abspath(os.path.join(out, f"{k}.judge.txt")), "out": os.path.abspath(os.path.join(out, f"{k}.judge.out.txt"))} for k in U],
+              open(os.path.join(out, "jobs.json"), "w"), indent=1)
+    print(f"{len(U)} sampled flags of {len(json.load(open(pairs_json)))}")
+
 def harvest(out, *harvest_files):
     """rulings from the <k>.judge.out.txt files relay.py harvest wrote (it checked each prompt against its file)"""
     U = json.load(open(os.path.join(out, "units.json")))
@@ -78,4 +101,4 @@ def tally(out):
     return c
 
 if __name__ == "__main__":
-    {"build": build, "harvest": harvest, "tally": tally}[sys.argv[1]](*sys.argv[2:])
+    {"build": build, "sample": build_sample, "harvest": harvest, "tally": tally}[sys.argv[1]](*sys.argv[2:])
