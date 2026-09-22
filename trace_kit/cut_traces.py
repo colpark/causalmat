@@ -23,6 +23,8 @@ V2 = False   # cutter v2 (v06 pilot): switched on by cut() when the graph is a v
 # control strata) are off on v06 graphs unless --v1-filters is passed; when off, what they would have ruled is kept in
 # t["v1_filter"] so the gate verdict can be compared against it.
 V1F = "--v1-filters" in sys.argv
+# v07 A1: annotated panels are skipped, not masked. R5 masking survives only behind --r5-mask (for comparison).
+R5MASK = "--r5-mask" in sys.argv
 def here(): return f"cut_traces.py:{inspect.stack()[1].lineno}"
 def mark(t, rule, effect): t.setdefault("v2_rules", []).append({"rule": rule, "where": f"cut_traces.py:{inspect.stack()[1].lineno}", "effect": effect})
 
@@ -583,7 +585,10 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
         # v2.2: an evidence node cited by figure only (figs, no panel ids) hands over the whole figure; with neither,
         # hard rule 2 closes the trace: nothing would be given to read the answer from
         doi = next((p.split("#")[0] for n in N.values() for p in (n.get("panel_ids") or [])), None)
-        given_panels = [f"{doi}#{f}" for ev in t["evidence"] for f in (N[ev].get("figs") or []) if doi and re.fullmatch(r"F\d+", f)]
+        given_panels = [f"{doi}#{f}" for ev in t["evidence"] for f in (N[ev].get("figs") or []) if doi and re.fullmatch(r"F\d+", f)] if R5MASK else []   # v07 A1: no whole-figure fallback
+        if not R5MASK and any(N[ev].get("figs") for ev in t["evidence"]):
+            t["status"] = "closed"; t["ruling"] = "no crop"; t["closed_by"] = "no_crop"
+            mark(t, "no_crop", "evidence cited by figure only: no panel crop to hand over"); return
         if given_panels: mark(t, "R3", f"evidence cited by figure only: whole figure(s) {given_panels} handed over")
         elif t["root"] == "infer":
             t["status"] = "closed"; t["ruling"] = "not derivable from given panels: the evidence cites no panel or figure"
@@ -667,9 +672,42 @@ def v2_prelinear(t, N, inn, out, store, masked_dir, paper):
                                "labels": {x: N[x]["label"] for x in tg}})
         return
     mark(t, "R3", "graded targets readable: " + "; ".join(f"{x} ({v[1]})" for x, v in verdicts.items()))
+    # v07 A1 (skip rule, replaces R5 masking): the answer must not be written on a given image. A given panel with no crop
+    # closes the trace (no crop); one with no OCR record counts as annotated and closes (it cannot be checked); otherwise an
+    # annotation string that shares a content word (5-letter stem) or a number with a graded target closes the trace.
+    # Author-written values the packet builder classes as scale/tick (0.227 nm) count as annotations; round scale bars,
+    # temperature labels and numbers the context already gives do not.
+    if not R5MASK:
+        tg_labels = [N[x]["label"] for x in tg if x in N]
+        NUM = r"(?<![A-Za-z\d.])\d+(?:\.\d+)?"
+        _nums = lambda txt: re.findall(NUM, re.sub(r"[x×]\s*10\S*|(?<=[A-Za-zÅ)])\s*[-−⁻]\s*\d\b|[eE][-+]?\d+\b|[²³¹]", " ", txt))   # unit exponents (A-1) and x10^n are units, not numbers
+        ctx_nums = set(_nums(" ".join(N[st["node"]]["label"] for st in t["walk"] if st["node"] not in hidden and st["role"] != "redacted") + " " + labels_text))
+        tg_nums = set(_nums(" ".join(tg_labels))) - ctx_nums
+        exempt = re.compile(r"\s*((1|2|3|5|10|20|30|50|100|200|300|500|1000)\s*(nm|µm|μm|um|mm|Å)|T\s*=\s*-?\d+(\.\d+)?\s*°?\s*[CK]?|-?\d+(\.\d+)?\s*(°\s*[CK]?|[CK]))\s*")
+        for pid in given_panels:
+            rec = panel_record(store, pid)
+            if not rec or not rec.get("crop"):
+                t["status"] = "closed"; t["ruling"] = "no crop"; t["closed_by"] = "no_crop"
+                mark(t, "no_crop", f"{pid} does not resolve to a panel crop"); return
+            toks = (rec.get("ocr") or {}).get("tokens")
+            if not rec.get("ocr"):
+                t["status"] = "closed"; t["ruling"] = "answer written on the image"; t["closed_by"] = "skip"
+                mark(t, "skip", f"{pid} has no OCR record: counted as annotated, cannot be checked"); return
+            ann = annotations(rec)
+            ann += [tok for tok in toks or [] if all(tok is not x for x in ann) and re.findall(NUM, tok["text"]) and re.search(r"[A-Za-zµμÅ%°]", tok["text"]) and any(("." in x or len(x) >= 2) for x in re.findall(NUM, tok["text"]))]
+            hits = []
+            for tok in ann:
+                if exempt.fullmatch(tok["text"]): continue
+                shared = shares_content(tok["text"], tg_labels) + [x for x in _nums(tok["text"]) if x in tg_nums]
+                if shared: hits.append({"text": tok["text"], "shared": shared})
+            t.setdefault("annotated_panels", []).append({"panel": pid, "annotations": [x["text"] for x in ann], "hits": hits})
+            if hits:
+                t["status"] = "closed"; t["ruling"] = "answer written on the image"; t["closed_by"] = "skip"
+                mark(t, "skip", f"{pid} carries {[h['text'] for h in hits]} shared with graded targets {tg}"); return
+        mark(t, "skip", f"given panels carry no answer text: {[p.split('#')[1] for p in given_panels]}")
     # v2 rule 5 (annotation masking): mask annotation strings that share content with a hidden target
     hid_labels = [N[h]["label"] for h in set(t.get("hidden", [])) | set(targets_of(t)) if h in N]
-    for pid in given_panels:
+    for pid in (given_panels if R5MASK else []):
         rec = panel_record(store, pid)
         if not rec or not rec.get("crop"): continue
         hits = [(tok, shares_content(tok["text"], hid_labels)) for tok in annotations(rec)]

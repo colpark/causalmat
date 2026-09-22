@@ -1,6 +1,6 @@
 """gate_packets.py: solving-gate packets for written v2.2 traces that pass the structural nets.
 
-  python gate_packets.py <paper> <written.json> <validation.json> <out_dir>
+  python gate_packets.py <paper> <written.json> <validation.json> <out_dir> [<graph.json>]   (default graphs_v06b)
 One JSON per trace: the full-arm prompt (context, condition labels, panel captions, question, image paths),
 the floor prompt (the same text, no images) and, kept apart, the key with answer_scope for the grader.
 Images are the masked crops where the cutter masked a panel, else the panel crop, else the whole figure.
@@ -9,8 +9,8 @@ import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 from cut_traces import store_for, panel_record, unmath, fig_preamble
 
-def main(paper, written, validation, out_dir):
-    gp = os.path.join(HERE, '..', 'taxonomy', 'graphs_v06b', paper + '.json'); g = json.load(open(gp))
+def main(paper, written, validation, out_dir, gp=None):
+    gp = gp or os.path.join(HERE, '..', 'taxonomy', 'graphs_v06b', paper + '.json'); g = json.load(open(gp))
     N = {n['id']: n for n in g['nodes']}; st = store_for(gp)
     val = {v['id']: v for v in json.load(open(validation))}
     os.makedirs(out_dir, exist_ok=True); n = 0
@@ -38,4 +38,4 @@ def main(paper, written, validation, out_dir):
         json.dump(pk, open(os.path.join(out_dir, f"{t['id']}.gate.json"), 'w'), indent=1); n += 1
     print(paper, n, 'gate packets')
 
-if __name__ == '__main__': main(*sys.argv[1:5])
+if __name__ == '__main__': main(*sys.argv[1:6])
