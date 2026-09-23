@@ -1,0 +1,1318 @@
+{
+ "paper_id": "Advanced_Functional_Materials/10.1002_adfm.202008301",
+ "title": "Functional Passivation Interface of LiNi0.8Co0.1Mn0.1O2 toward Superior Lithium Storage",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008301",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n8",
+   "evidence": [
+    "o15"
+   ],
+   "hidden": [
+    "o15",
+    "n8",
+    "n16",
+    "n19"
+   ],
+   "branch": "evidences edge o15 -> n8",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o15",
+     "role": "evidence",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1002/adfm.202008301#F7b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for n8 (node-level necessity of o15: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o15 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adfm.202008301#F7b carries ['\u25b3E=0.11eV'] shared with graded targets ['o15']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adfm.202008301#F7b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adfm.202008301#F7b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o15"
+   ],
+   "target_verdicts": {
+    "o15": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "o15"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adfm.202008301#F7b",
+     "annotations": [
+      "--Li-LiNiOLiNiPO",
+      "\u25b3E=0.11eV",
+      "Diffusion path"
+     ],
+     "hits": [
+      {
+       "text": "\u25b3E=0.11eV",
+       "shared": [
+        "0.11"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6",
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Ni-rich NCM cathodes cycled to 4.5 V lose capacity -> A preformed P-based passivation interface on NCM s -> Phosphorize the pristine NCM with PH3 released fro -> PH3 gas reacts with the NCM surface and the subseq -> An amorphous LiTMPO4 passivation layer 1-2 nm thic"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F7b [ATOM] and estimate (read characteristic point)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o15"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The computed Li migration profile across the heterostructure has a barrier of 0.11 eV with a shallow intermediate minimum at 0.035 eV"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Li+ migration across the LiNiO2/LiNiPO4 heterostructure costs only 0.11 eV, less than in either bulk phase"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n16",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: NCM-2 delivers the highest capacity of the four samples at every rate from 0.25 C to 25 C"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008301",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "n9",
+   "evidence": [
+    "o19"
+   ],
+   "hidden": [
+    "n9",
+    "n11",
+    "n13",
+    "n15",
+    "n19",
+    "n2"
+   ],
+   "branch": "evidences edge o19 -> n9",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o19",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "n11",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n15",
+     "role": "redacted"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    }
+   ],
+   "node_necessity": "necessary",
+   "v2_rules": [
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n9 (node-level necessity of o19: necessary)"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:605",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n11",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n15",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o19"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: After 50 cycles the pristine primary particles are buried under a continuous surface film and the secondary particle sho  [panels ]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: The preformed layer works as an artificial CEI: it keeps the electrolyte off the NCM surface and suppresses the side rea  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "n11",
+      "n12",
+      "n25"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: After 50 cycles the modified electrode shows far fewer intergranular cracks in cross-section than the pristine one"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008301",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n11",
+   "evidence": [
+    "o20"
+   ],
+   "hidden": [
+    "o20",
+    "n11",
+    "n13",
+    "n15",
+    "n19"
+   ],
+   "branch": "evidences edge o20 -> n11",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "o20",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n11",
+     "role": "claim"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n15",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n11 (node-level necessity of o20: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "0 panels: rank became infer/compare"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:605",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": true,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6",
+      "n7",
+      "n9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Ni-rich NCM cathodes cycled to 4.5 V lose capacity -> A preformed P-based passivation interface on NCM s -> Phosphorize the pristine NCM with PH3 released fro -> PH3 gas reacts with the NCM surface and the subseq -> An amorphous LiTMPO4 passivation layer 1-2 nm thic -> The preformed layer works as an artificial CEI: it"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o20"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels  [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o20"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: In cross-section the cycled pristine particle is crossed by dark intergranular cracks that reach its interior, while the modified one shows "
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n11"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: After 50 cycles the modified electrode shows far fewer intergranular cracks in cross-section than the pristine one"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n13",
+      "n15",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Interfacial resistance stays nearly constant over 50 cycles for the modified cathode but grows stead"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008301",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n12",
+   "evidence": [
+    "o21"
+   ],
+   "hidden": [
+    "o21",
+    "n12",
+    "n14",
+    "n17",
+    "n19"
+   ],
+   "branch": "evidences edge o21 -> n12",
+   "fm_family": "TEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "o21",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adfm.202008301#F10a",
+      "10.1002/adfm.202008301#F10b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n12",
+     "role": "claim"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane TEM necessary for n12 (node-level necessity of o21: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['NCM-0 and', 'NCM-2 after 50 cycles']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o21 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adfm.202008301#F10a carries ['Fm-3m', 'R-3m', 'R-3m/Fm-3m'] shared with graded targets ['o21']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adfm.202008301#F10a",
+    "10.1002/adfm.202008301#F10b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adfm.202008301#F10a",
+     "sample": "NCM-0 and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "NCM-0 and"
+    },
+    {
+     "panel": "10.1002/adfm.202008301#F10b",
+     "sample": "NCM-2 after 50 cycles",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "NCM-2 after 50 cycles"
+    }
+   ],
+   "graded_targets": [
+    "o21"
+   ],
+   "target_verdicts": {
+    "o21": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotation_read_evidence": [
+    "o21"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adfm.202008301#F10a",
+     "annotations": [
+      "Fm-3m",
+      "R-3m",
+      "R-3m/Fm-3m"
+     ],
+     "hits": [
+      {
+       "text": "Fm-3m",
+       "shared": [
+        "3"
+       ]
+      },
+      {
+       "text": "R-3m",
+       "shared": [
+        "3"
+       ]
+      },
+      {
+       "text": "R-3m/Fm-3m",
+       "shared": [
+        "3",
+        "3"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6",
+      "n7",
+      "n9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Ni-rich NCM cathodes cycled to 4.5 V lose capacity -> A preformed P-based passivation interface on NCM s -> Phosphorize the pristine NCM with PH3 released fro -> PH3 gas reacts with the NCM surface and the subseq -> An amorphous LiTMPO4 passivation layer 1-2 nm thic -> The preformed layer works as an artificial CEI: it"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o21"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F10a, F10b [TEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o21"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: On the cycled pristine particle the three FFTs index from the outside inward as Fm-3m, mixed R-3m/Fm-3m and R-3m, while all three FFTs of th"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n12"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: After 50 cycles the layered R-3m structure survives to the surface of the modified particle, while the pristine surface converts to rock-sal"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n14",
+      "n17",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The reversible H1/M, M/H2 and H2/H3 transformations are maintained over 100 cycles in the modified c"
+    }
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008301",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n12",
+   "evidence": [
+    "o22"
+   ],
+   "hidden": [
+    "o22",
+    "n14",
+    "n17",
+    "n19",
+    "n2"
+   ],
+   "branch": "qualifies edge o22 -> n12",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "o22",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1002/adfm.202008301#F10a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n12",
+     "role": "claim"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane TEM necessary for n12 (node-level necessity of o22: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['NCM-0 and']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o22 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F10a']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adfm.202008301#F10a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adfm.202008301#F10a",
+     "sample": "NCM-0 and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "NCM-0 and"
+    }
+   ],
+   "graded_targets": [
+    "o22"
+   ],
+   "target_verdicts": {
+    "o22": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "o22"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adfm.202008301#F10a",
+     "annotations": [
+      "Fm-3m",
+      "R-3m",
+      "R-3m/Fm-3m"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n12"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: After 50 cycles the layered R-3m structure survives to the surface of the modified particle, while the pristine surface "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o22"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F10a [TEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o22"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: No Fd-3m spinel FFT is labelled anywhere on the cycled pristine particle; the only labels are R-3m, R-3m/Fm-3m and Fm-3m"
+    }
+   ],
+   "question": "Given the claim above and panel F10a, what phases are actually labelled on the cycled pristine particle in the panel, and does that labelling fully bear out the claim?",
+   "answer_key": "The panel labels only R-3m, R-3m/Fm-3m and Fm-3m on the cycled pristine particle; no Fd-3m spinel FFT is labelled anywhere on that particle (o22).",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel (o22).",
+   "answer_key_nodes": [
+    "o22"
+   ],
+   "asks_for": [
+    "o22"
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008301",
+   "root": "intervene",
+   "subtype": "next condition",
+   "seed_claim": "n24",
+   "evidence": [
+    "o1",
+    "o8",
+    "o19",
+    "o20",
+    "o21",
+    "o12"
+   ],
+   "hidden": [
+    "n24",
+    "o12",
+    "n7",
+    "n18",
+    "n24",
+    "n7",
+    "n18"
+   ],
+   "hidden_panels": [
+    "10.1002/adfm.202008301#F10a",
+    "10.1002/adfm.202008301#F10b",
+    "10.1002/adfm.202008301#F1a",
+    "10.1002/adfm.202008301#F1b",
+    "10.1002/adfm.202008301#F1c",
+    "10.1002/adfm.202008301#F1d",
+    "10.1002/adfm.202008301#F3c",
+    "10.1002/adfm.202008301#F3f",
+    "10.1002/adfm.202008301#F5e"
+   ],
+   "branch": "sweep n5 with optimum n24",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "note": "trend extrapolation of the classical series picks the earlier optimum"
+   },
+   "depth": 4,
+   "depth_families": [
+    "ECHEM",
+    "SEM",
+    "TEM",
+    "XAS"
+   ],
+   "mask": "show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next",
+   "grader": "the measured outcome at the chosen condition from o12, held out",
+   "status": "closed",
+   "ruling": "decision 6.0 is not the condition directly after the last given (None)",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/adfm.202008301#F1a",
+      "10.1002/adfm.202008301#F1b",
+      "10.1002/adfm.202008301#F1c",
+      "10.1002/adfm.202008301#F1d"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "o8",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/adfm.202008301#F3c",
+      "10.1002/adfm.202008301#F3f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o19",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "o20",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "o21",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/adfm.202008301#F10a",
+      "10.1002/adfm.202008301#F10b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o12",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/adfm.202008301#F5e"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n24",
+     "role": "claim"
+    }
+   ],
+   "has_sweep": true,
+   "redactions": [
+    {
+     "node": "n7",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "n18",
+     "why": "shares a claim with a hidden node"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:556",
+     "effect": "context n7 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:556",
+     "effect": "context n18 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:593",
+     "effect": "given [], withheld ['10.1002/adfm.202008301#F10a', '10.1002/adfm.202008301#F10b', '10.1002/adfm.202008301#F1a', '10.1002/adfm.202008301#F1b', '10.1002/adfm.202008301#F1c', '10.1002/adfm.202008301#F1d', '10.1002/adfm.202008301#F3c', '10.1002/adfm.202008301#F3f', '10.1002/adfm.202008301#F5e'] (decision 6.0, levels [] None)"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:596",
+     "effect": "decision 6.0 is not the condition directly after the last given (None)"
+    }
+   ],
+   "given_panels": [],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Hypothesis, design, processing: Ni-rich NCM cathodes cycled to 4.5 V lose capacity -> A preformed P-based passivation interface on NCM s -> Phosphorize the pristine NCM with PH3 released fro -> PH3 gas reacts with the NCM surface and the subseq"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1",
+      "o8",
+      "o19",
+      "o20",
+      "o21"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Results so far, as panels only:  [SEM, TEM, XAS]"
+    },
+    {
+     "step": 3,
+     "role": "decision",
+     "nodes": [
+      "n24"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Decide the next condition: A 6:1 NCM:NaH2PO2 ratio, giving a 1-2 nm layer, is the optimum; thicker layers cost initial capacity and rate capability"
+    },
+    {
+     "step": 4,
+     "role": "outcome",
+     "nodes": [
+      "o12"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Outcome at that condition (grader): Polarization voltage climbs from 0.090 to 0.223 V over 100 cycles for NCM-0 but only to 0.171 and 0.174 V for NCM-2 and "
+    }
+   ]
+  },
+  {
+   "id": "T7",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008301",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "n4",
+   "evidence": [],
+   "branch": "DES/route n4",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "n4"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
