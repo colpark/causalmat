@@ -77,12 +77,18 @@ def build(case):
 
     # closing profile: the claim's own support, and what no panel shows
     sups = [s['expected_support'] for s in steps]
-    closing = ('shown' if sups.count('shown') >= 2 and 'contradicts' not in sups
-               else 'partial' if 'shown' in sups or 'partial' in sups else 'not addressed')
-    if 'contradicts' in sups: closing = 'partial'
-    missing = list(dict.fromkeys(
-        (N[claim].get('attrs', {}).get('requires_unseen') or [])
-        + [u for s in steps for u in s['requires_unseen']]))
+    claim_unseen = N[claim].get('attrs', {}).get('requires_unseen') or []
+    missing = list(dict.fromkeys(claim_unseen + [u for s in steps for u in s['requires_unseen']]))
+    # The closing label is the claim's own support profile. A claim that carries requires_unseen is not
+    # fully carried by its panels however many steps read "shown": part of it lives only in the text.
+    if 'shown' not in sups and 'partial' not in sups: closing = 'not addressed'
+    elif claim_unseen or 'contradicts' in sups or 'partial' in sups: closing = 'partial'
+    elif sups.count('shown') >= 2: closing = 'shown'
+    else: closing = 'partial'
+    closing_why = ('the claim names a fact no panel carries: ' + '; '.join(claim_unseen) if claim_unseen
+                   else 'a step contradicts the claim' if 'contradicts' in sups
+                   else 'a step is only partial' if 'partial' in sups
+                   else 'two or more channels show it and nothing is missing')
 
     # plan section 5: structural leave-one-out at CHANNEL level, no model calls
     chans = sorted({s['family'] for s in steps})
@@ -106,7 +112,7 @@ def build(case):
                       'other': sum(1 for s in steps if s['lane'] == 'other')},
             'tests': {k: sum(1 for s in steps if s['tests'] == k) for k in ('perception', 'selection', 'integration')},
             'steps': steps, 'dropped_panels': dropped,
-            'closing_support': closing, 'closing_missing': missing,
+            'closing_support': closing, 'closing_why': closing_why, 'closing_missing': missing,
             'necessity': nec, 'note': 'Every verdict is model against model.'}
 
 
