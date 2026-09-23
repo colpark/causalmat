@@ -1,0 +1,80 @@
+{
+ "figures_in_packet": 7,
+ "figures_opened": [
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "F5",
+  "F6",
+  "F7"
+ ],
+ "crops_opened": [
+  "10.1021/acs.nanolett.0c04043#F3a",
+  "10.1021/acs.nanolett.0c04043#F3b",
+  "10.1021/acs.nanolett.0c04043#F3c",
+  "10.1021/acs.nanolett.0c04043#F4b",
+  "10.1021/acs.nanolett.0c04043#F4c",
+  "10.1021/acs.nanolett.0c04043#F4d",
+  "10.1021/acs.nanolett.0c04043#F5a",
+  "10.1021/acs.nanolett.0c04043#F5b",
+  "10.1021/acs.nanolett.0c04043#F5c",
+  "10.1021/acs.nanolett.0c04043#F5d",
+  "10.1021/acs.nanolett.0c04043#F6a",
+  "10.1021/acs.nanolett.0c04043#F6b"
+ ],
+ "panels_offered": 15,
+ "panels_cited": 10,
+ "panels_cited_ids": [
+  "10.1021/acs.nanolett.0c04043#F3b",
+  "10.1021/acs.nanolett.0c04043#F3c",
+  "10.1021/acs.nanolett.0c04043#F4b",
+  "10.1021/acs.nanolett.0c04043#F4c",
+  "10.1021/acs.nanolett.0c04043#F4d",
+  "10.1021/acs.nanolett.0c04043#F5a",
+  "10.1021/acs.nanolett.0c04043#F5b",
+  "10.1021/acs.nanolett.0c04043#F5d",
+  "10.1021/acs.nanolett.0c04043#F6a",
+  "10.1021/acs.nanolett.0c04043#F6b"
+ ],
+ "technique_cue_conflicts_resolved": [
+  {
+   "panel": "10.1021/acs.nanolett.0c04043#F4b",
+   "cue_classes": [
+    "micrograph"
+   ],
+   "node_technique": "AFM:height",
+   "resolution": "no conflict: family AFM is in the 'micrograph' cue list. Same for F4c and F4d, whose crops mix an AFM image with a height line profile (o4 reads the profile and is typed spatial_map)."
+  },
+  {
+   "panel": "10.1021/acs.nanolett.0c04043#F5a",
+   "cue_classes": [
+    "FTIR"
+   ],
+   "node_technique": "FTIR",
+   "resolution": "no conflict: FTIR is in the 'FTIR' cue list. o6 is the only spectrum node."
+  },
+  {
+   "panel": "10.1021/acs.nanolett.0c04043#F6a",
+   "cue_classes": [],
+   "node_technique": "TRANSPORT / DERIVED",
+   "resolution": "crop carries no cue class, so it is not checked. I-V measurement nodes use TRANSPORT; the two Simmons-inverted relative-gap nodes (o10, o11) use DERIVED and each has an incoming derives edge. Same for F6b."
+  },
+  {
+   "panel": "F7 (whole figure, tier C)",
+   "cue_classes": [],
+   "node_technique": "AFM:height / TRANSPORT",
+   "resolution": "no crops offered, so no cue check applies; o14, o15 and a1 cite figs=['F7'] with panel_ids=[]."
+  }
+ ],
+ "merged_nodes": [
+  "F3b and F5d merged into one OBS o1: both are TEM cross-sections stating the same claim (a continuous molecular layer of even thickness under the nanorod facet)",
+  "F5c (top-view SEM of the assembled device) dropped as a node and recorded in o1 image_note: it restates o1's bridging claim with no new inference",
+  "the F6a and F6b run-to-run drifts merged into one OBS o9: one claim (repeated sweeping raises conductance) read from two panels of the same kind",
+  "'gap compresses for PEG-thiol' and 'gap does not compress for dodecanethiol' merged into one PRP/value n14, since the paper's claim is the contrast",
+  "'hysteresis' and 'irreversible run-to-run conductance rise' kept apart: hysteresis feeds the reversible MEC n13 (o8), the drift feeds the degradation class n15 (o9)",
+  "the triboelectric attribution folded into n21 attrs.attributed_cause instead of a separate MEC node",
+  "F4b colour-scale caveat folded into o3 image_note and image_support=partial instead of a separate audit node (audit budget kept at a1 + n24)"
+ ],
+ "panels_offered_note": "15 entries in the panel section: F1 and F2 are whole-figure entries with no crop file (opened as whole images, cited as figs with panel_ids=[] nowhere since neither carries scientific content), plus the 12 real crops F3a-c, F4a-d, F5a-d, F6a-b. F7 is tier C and offers no panels."
+}
