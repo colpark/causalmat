@@ -33,8 +33,9 @@
    "delivery": "crop",
    "tests": "selection",
    "lane": "fm",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "Extra reflections (stars, ~21-37, 50, 67 deg) appear only in the Al-Cu-Mn-La pattern; Sm pattern matches the RE-free one",
    "read_from": "annotation",
    "requires_unseen": [],
@@ -58,7 +59,15 @@
      "png": "images/F2.png",
      "masked_fraction": null
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The presence of extra XRD reflections only in the La-containing pattern (matching absence in Sm and RE-free patterns) supports that La induces a new phase while Sm does not, but the observation only reports reflection positions and does not by itself establish the specific phase identity or structure (Al6Cu6La, cubic NaZn13 type), which requires further indexing/crystallographic analysis.",
+   "unsettled": [
+    "specific phase composition Al6Cu6La",
+    "cubic NaZn13 crystal structure identification",
+    "location of the phase at dendrite boundaries"
+   ],
+   "expected_support_image": "shown"
   },
   {
    "step": 2,
@@ -71,7 +80,8 @@
    "tests": "perception",
    "lane": "fm",
    "expected_support": "partial",
-   "support_basis": "image_support partial",
+   "support_basis": "contribution supports_part (was image_support partial)",
+   "image_support": "partial",
    "observation": "Arrow B in (c) marks a second, finer bright boundary phase beside the arrow-A particles",
    "read_from": "pixels",
    "requires_unseen": [
@@ -97,7 +107,15 @@
      "png": "images/F1c.png",
      "masked_fraction": null
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The arrow-B feature confirms a distinct second boundary phase is present (consistent with a new phase forming at dendrite boundaries), but it does not identify this phase's composition or crystal structure as cubic NaZn13-type Al6Cu6La, nor does it say anything about the Sm-containing sample lacking a new phase.",
+   "unsettled": [
+    "identity/composition of the phase as Al6Cu6La",
+    "cubic NaZn13-type crystal structure confirmation",
+    "comparison showing Sm forms no analogous new phase"
+   ],
+   "expected_support_image": "partial"
   },
   {
    "step": 3,
@@ -109,8 +127,9 @@
    "delivery": "oracle",
    "tests": "selection",
    "lane": "oracle",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "La alloy shows weak peak A (~605 C) and shoulder B (~638 C), assigned to Al2Cu and Al6Cu6La dissolution",
    "read_from": "axis",
    "requires_unseen": [
@@ -136,10 +155,20 @@
      "png": "images/F3.png",
      "masked_fraction": null
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The observation's assignment of a shoulder to Al6Cu6La dissolution supports the presence of this new phase in the La alloy, but it does not address the Sm alloy forming no new phase, nor does it establish the cubic NaZn13 crystal structure or the dendrite-boundary location claimed.",
+   "unsettled": [
+    "Sm forms no new phase",
+    "cubic NaZn13 crystal structure identification",
+    "location at dendrite boundaries"
+   ],
+   "expected_support_image": "shown"
   }
  ],
  "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "contribution",
  "closing_support": "partial",
  "closing_why": "the claim names a fact no panel carries: arrow B = Al6Cu6La and NaZn13 structure from caption/linked text [16]",
  "closing_missing": [
@@ -149,18 +178,18 @@
  ],
  "necessity": {
   "SEM": {
-   "structural": "redundant_by_single_loo",
-   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
-   "confidence": "low"
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
   },
   "THERMAL": {
-   "structural": "redundant_by_single_loo",
-   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
-   "confidence": "low"
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
   },
   "XRD": {
    "structural": "necessary",
-   "why": "sole channel carrying the across-condition comparison the claim needs",
+   "why": "no shown support survives removing this channel",
    "confidence": "high"
   }
  },

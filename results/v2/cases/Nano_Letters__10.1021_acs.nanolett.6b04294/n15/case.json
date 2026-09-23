@@ -34,7 +34,8 @@
    "tests": "integration",
    "lane": "oracle",
    "expected_support": "partial",
-   "support_basis": "shown in the panel, entering by a qualifies edge: a caveat on the claim",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "Na 1st discharge passes ~865 mAh/g, near the Li value, although structural probes show only minor reaction",
    "read_from": "axis",
    "requires_unseen": [],
@@ -58,7 +59,16 @@
      "png": "images/F2c.png",
      "masked_fraction": 0.1894
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The near-Li-level discharge capacity raises a puzzle about how much sodiation occurred, but the accompanying note that structural probes show only minor reaction backs the claim's core structural conclusion (retained crystalline oxide, no metallic Co) without explaining or quantifying what accounts for the large capacity.",
+   "unsettled": [
+    "whether the high capacity reflects side reactions/SEI rather than PCO reduction",
+    "quantitative extent of crystalline oxide retention",
+    "confirmation of absence of metallic Co",
+    "reconciliation between electrochemical and structural signals"
+   ],
+   "expected_support_image": "partial"
   },
   {
    "step": 2,
@@ -70,8 +80,9 @@
    "delivery": "crop",
    "tests": "selection",
    "lane": "fm",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "Na SXRD: same reflections persist through discharge/charge with only modest intensity loss",
    "read_from": "axis",
    "requires_unseen": [
@@ -97,7 +108,14 @@
      "png": "images/F4b.png",
      "masked_fraction": 0.4495
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The SXRD persistence of the same reflections with only modest intensity loss evidences that the crystalline oxide phase is largely retained and only slightly reduced, but it does not explicitly report the absence of new metallic Co reflections needed to confirm 'no metallic Co'.",
+   "unsettled": [
+    "absence of metallic Co reflections/new phase formation",
+    "quantitative extent of PCO reduction"
+   ],
+   "expected_support_image": "shown"
   },
   {
    "step": 3,
@@ -109,8 +127,9 @@
    "delivery": "crop",
    "tests": "integration",
    "lane": "fm",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "Na XANES: discharged spectra keep a strong white line (~1.25 at ~7728 eV), unlike Co foil; charged lie between CoO and Co3O4",
    "read_from": "axis",
    "requires_unseen": [
@@ -136,7 +155,15 @@
      "png": "images/F5d.png",
      "masked_fraction": 0.3014
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The retained strong white line in discharged (sodiated) Na XANES spectra, distinct from metallic Co foil, directly evidences that sodiation does not produce metallic Co and that the material remains in an oxide-like electronic/oxidation state, but XANES white-line intensity is a local electronic-structure/oxidation-state probe and does not itself establish retention of the crystalline (long-range ordered) oxide structure or quantify the degree of reduction as only slight.",
+   "unsettled": [
+    "retention of crystalline (long-range) structure of PCO",
+    "quantitative degree/slightness of any reduction",
+    "whether charged-state data (between CoO and Co3O4) pertains to sodiation-induced change versus a separate charge process"
+   ],
+   "expected_support_image": "shown"
   },
   {
    "step": 4,
@@ -148,8 +175,9 @@
    "delivery": "crop",
    "tests": "selection",
    "lane": "fm",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "XANES contours: Li white-line maximum vanishes at each discharge and returns on charge; Na maximum persists all cycles",
    "read_from": "pixels",
    "requires_unseen": [
@@ -193,7 +221,15 @@
      "png": "images/F5c.png",
      "masked_fraction": null
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "the persistence of the Na white-line maximum across cycling indicates Co retains its oxidized state during sodiation (unlike the Li case where the white-line vanishes, implying reduction), supporting 'no metallic Co' and only slight reduction, but XANES white-line data alone does not establish retention of crystalline oxide structure, which would require diffraction evidence",
+   "unsettled": [
+    "retention of crystalline (long-range ordered) oxide structure",
+    "quantitative extent of the slight reduction",
+    "direct confirmation via diffraction or EXAFS of phase/structure"
+   ],
+   "expected_support_image": "shown"
   },
   {
    "step": 5,
@@ -206,7 +242,8 @@
    "tests": "integration",
    "lane": "fm",
    "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "support_basis": "contribution establishes (was image_support shown)",
+   "image_support": "shown",
    "observation": "Na EXAFS FT: 1.5 and 2.5 A oxide peaks persist over the whole cycle with small decrease; no Co-foil peak dominates",
    "read_from": "axis",
    "requires_unseen": [],
@@ -230,10 +267,16 @@
      "png": "images/F5f.png",
      "masked_fraction": 0.2713
     }
-   ]
+   ],
+   "contribution": "establishes",
+   "contribution_why": "The EXAFS FT data directly shows persistence of the crystalline oxide coordination peaks (1.5 and 2.5 A) with only small decrease across the full cycle and no dominant Co-foil (metallic Co) peak, which is exactly what the claim asserts.",
+   "unsettled": [],
+   "expected_support_image": "shown"
   }
  ],
  "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "contribution",
  "closing_support": "partial",
  "closing_why": "the claim names a fact no panel carries: F4b and F5d identified as Na/PCO only in caption",
  "closing_missing": [
@@ -249,9 +292,9 @@
    "confidence": "low"
   },
   "XAS": {
-   "structural": "redundant_by_single_loo",
-   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
-   "confidence": "low"
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
   },
   "XRD": {
    "structural": "redundant_by_single_loo",

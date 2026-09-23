@@ -32,8 +32,9 @@
    "delivery": "crop",
    "tests": "integration",
    "lane": "fm",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "Every trace steps down near 150 K; for PC (004) the two branches coexist over a shaded band from ~150 to ~175 K",
    "read_from": "axis",
    "requires_unseen": [],
@@ -57,7 +58,16 @@
      "png": "images/F2a.png",
      "masked_fraction": 0.0438
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The observation documents a step near 150 K in every trace and a coexistence band (~150-175 K) for one case (PC (004)), which is consistent with the existence of a transition temperature and a finite transition window, but it reports data for a single domain size rather than comparing multiple domain sizes, so it does not itself show that the transition temperature rises or that the window narrows as domain size grows.",
+   "unsettled": [
+    "comparison of transition temperature across different domain sizes",
+    "comparison of transition window width across different domain sizes",
+    "whether the trend is monotonic with domain size",
+    "whether other traces besides PC (004) also show a comparable coexistence band"
+   ],
+   "expected_support_image": "shown"
   },
   {
    "step": 2,
@@ -69,8 +79,9 @@
    "delivery": "crop",
    "tests": "selection",
    "lane": "other",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "PL at 80 K: one ~790 nm band for D_d of 20-50 nm, two bands (~750 and ~785 nm) for 50-200 um, one ~750 nm band above 300 um",
    "read_from": "annotation",
    "requires_unseen": [],
@@ -94,7 +105,16 @@
      "png": "images/F5a.png",
      "masked_fraction": null
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The observation shows that at a single fixed temperature (80 K) the PL signature shifts from one band (small domains) to two coexisting bands (intermediate domains) to one band again (large domains), which is consistent with domain size shifting the phase-transition/coexistence region, but it provides no temperature-scan data to quantify that the transition temperature actually rises or that the transition window narrows with increasing domain size.",
+   "unsettled": [
+    "quantitative transition temperature values across domain sizes",
+    "direct measurement of transition window width (temperature range) for each domain size",
+    "confirmation that the two-band region corresponds to the transition window rather than a static structural difference",
+    "temperature dependence beyond the single 80 K snapshot"
+   ],
+   "expected_support_image": "shown"
   },
   {
    "step": 3,
@@ -107,7 +127,8 @@
    "tests": "integration",
    "lane": "other",
    "expected_support": "partial",
-   "support_basis": "image_support partial",
+   "support_basis": "contribution supports_part (was image_support partial)",
+   "image_support": "partial",
    "observation": "Emission-regime map: single orthorhombic at low T and large domains, single tetragonal at high T, a dual band between that widens toward small domains",
    "read_from": "annotation",
    "requires_unseen": [],
@@ -131,7 +152,14 @@
      "png": "images/F5b.png",
      "masked_fraction": null
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The map directly shows the dual-band transition window widening toward small domains (equivalently narrowing as domains grow), but it only implies rather than directly quantifies that the transition temperature itself shifts upward with increasing domain size.",
+   "unsettled": [
+    "explicit rise of the transition temperature (not just window width) as a function of domain size",
+    "quantitative relationship or threshold between domain size and transition temperature"
+   ],
+   "expected_support_image": "partial"
   },
   {
    "step": 4,
@@ -143,8 +171,9 @@
    "delivery": "crop",
    "tests": "selection",
    "lane": "other",
-   "expected_support": "contradicts",
-   "support_basis": "contradicts in the panel, entering by a qualifies edge: a caveat on the claim",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support contradicts)",
+   "image_support": "contradicts",
    "observation": "In F5a the 300 and 400 um spectra are already single orthorhombic peaks, so dual emission ends between 200 and 300 um, not above 500 um",
    "read_from": "pixels",
    "requires_unseen": [],
@@ -168,23 +197,33 @@
      "png": "images/F5a.png",
      "masked_fraction": 0.4316
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The observation pins down the domain-size threshold at which dual emission collapses into a single peak (between 200-300 um rather than above 500 um), supporting the window-narrowing part of the claim but saying nothing about whether transition temperature itself rises with domain size.",
+   "unsettled": [
+    "transition temperature rising with domain size",
+    "precise onset point of narrowing below 200 um",
+    "whether narrowing is monotonic across the full size range"
+   ],
+   "expected_support_image": "contradicts"
   }
  ],
  "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "contribution",
  "closing_support": "partial",
- "closing_why": "a step contradicts the claim",
+ "closing_why": "a step is only partial",
  "closing_missing": [],
  "necessity": {
   "PL": {
    "structural": "necessary",
-   "why": "sole channel carrying the across-condition comparison the claim needs",
+   "why": "no shown support survives removing this channel",
    "confidence": "high"
   },
   "XRD": {
-   "structural": "redundant_by_single_loo",
-   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
-   "confidence": "low"
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
   }
  },
  "note": "Every verdict is model against model."

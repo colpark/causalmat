@@ -5,7 +5,7 @@
 No model call: the four-level scale is a closed set, so grading is exact-match against the chain's
 own ground truth. Writes gate.json beside case.json.
 """
-import json, os, re, sys
+import collections, json, os, re, sys
 LEVELS = ('shown', 'partial', 'not addressed', 'contradicts')
 
 
@@ -76,6 +76,7 @@ def main(case_dir):
            'oracle_carries_the_task': bool(arms.get('oracle_complete', {}).get('steps_correct', 0)
                                            >= arms.get('full', {}).get('steps_correct', 0)
                                            and arms.get('oracle_complete', {}).get('closing_correct')),
+           'majority_class_baseline': out_majority,
            'note': 'Every verdict is model against model. The four-level ground truth is itself a model label.'}
     # control: permute the answer key across cases. No dispatch -- the full arm's real reply is scored
     # against another case's expected levels, which must be wrong.
@@ -96,6 +97,13 @@ def main(case_dir):
             'closing_correct': full.get('closing_got') == other['closing_support'],
             'steps': {k: {'expected': okeys.get(k), 'got': v, 'correct': v == okeys.get(k)} for k, v in got.items() if k in okeys}}
 
+    # a constant-answer baseline: with a skewed target, an arm that never looks still scores. Report it
+    # beside every arm so the comparison cannot be read as skill when it is the class prior.
+    truth_vals = list(truth.values())
+    maj = collections.Counter(truth_vals).most_common(1)[0] if truth_vals else (None, 0)
+    out_majority = {'answer': maj[0], 'steps_correct': maj[1], 'n_steps': len(truth_vals),
+                    'rate': round(maj[1] / len(truth_vals), 3) if truth_vals else None}
+
     dsp = disputes(ch, arms)
     out['gt_disputes'] = len(dsp)
     if dsp:
@@ -114,6 +122,7 @@ def main(case_dir):
         got = [v['steps'][k]['got'] for k in sorted(v['steps'])]
         print(f"   {a:16s} steps {v['steps_correct']}/{v['n_steps']}  {got}  closing={v['closing_got']} "
               f"{'OK' if v['closing_correct'] else 'x'}")
+    print(f"   majority-class baseline: always '{out_majority['answer']}' scores {out_majority['steps_correct']}/{out_majority['n_steps']}")
     print(f"   item_valid={out['item_valid']}  closing_alone_discriminates={out['closing_alone_discriminates']}"
           f"  oracle_carries={out['oracle_carries_the_task']}  gt_disputes={out['gt_disputes']}")
     return out

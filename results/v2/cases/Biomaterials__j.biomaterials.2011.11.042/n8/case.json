@@ -33,8 +33,9 @@
    "delivery": "crop",
    "tests": "selection",
    "lane": "fm",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "Small-angle XRD: one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)",
    "read_from": "axis",
    "requires_unseen": [],
@@ -58,7 +59,15 @@
      "png": "images/F2.png",
      "masked_fraction": 0.0608
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "A single low-angle XRD reflection in each pattern indicates some periodic mesostructure (a characteristic d-spacing) in MBG, 2Co-MBG and 5Co-MBG, but one peak alone does not establish the pore diameter (~4-5 nm) or confirm a channel (e.g., hexagonal) pore geometry, which would require additional peak indexing or complementary data like TEM/nitrogen sorption.",
+   "unsettled": [
+    "actual pore size (~4-5 nm) determination",
+    "channel/hexagonal pore geometry versus other ordered arrangements",
+    "long-range order beyond a single reflection (higher-order peaks)"
+   ],
+   "expected_support_image": "shown"
   },
   {
    "step": 2,
@@ -70,8 +79,9 @@
    "delivery": "crop",
    "tests": "selection",
    "lane": "fm",
-   "expected_support": "partial",
-   "support_basis": "shown in the panel, entering by a qualifies edge: a caveat on the claim",
+   "expected_support": "contradicts",
+   "support_basis": "contribution cuts_against (was image_support shown)",
+   "image_support": "shown",
    "observation": "Low-angle peak height falls ~8-fold with Co: ~180000 (MBG), ~74000 (2Co), ~23000 (5Co), 5Co peak barely above the rising background",
    "read_from": "axis",
    "requires_unseen": [],
@@ -95,7 +105,15 @@
      "png": "images/F2.png",
      "masked_fraction": 0.0608
     }
-   ]
+   ],
+   "contribution": "cuts_against",
+   "contribution_why": "The steep ~8-fold drop in low-angle XRD peak intensity, with the 5Co peak barely rising above background, indicates a substantial loss of long-range mesopore ordering rather than a preserved ordered channel structure, which undermines the claim especially for 5Co-MBG.",
+   "unsettled": [
+    "actual pore diameter (~4-5 nm) confirmation via TEM or N2 sorption",
+    "whether 2Co retains sufficient order despite reduced peak height",
+    "whether the intensity drop reflects loss of order vs. reduced scattering contrast/wall thickness changes"
+   ],
+   "expected_support_image": "partial"
   },
   {
    "step": 3,
@@ -107,8 +125,9 @@
    "delivery": "crop",
    "tests": "perception",
    "lane": "fm",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "TEM: parallel channel stripes over ~200 nm in a and a regular pore lattice in b, period ~5-6 nm",
    "read_from": "pixels",
    "requires_unseen": [
@@ -152,7 +171,15 @@
      "png": "images/F4b.png",
      "masked_fraction": null
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The TEM images show ordered channel stripes and a regular pore lattice consistent with an ordered mesoporous structure, and the ~5-6 nm period is close to the claimed ~4-5 nm pore size, but the observation does not explicitly confirm that panels a and b correspond specifically to the 2Co- and 5Co-MBG samples nor pin the pore size precisely to the 4-5 nm range.",
+   "unsettled": [
+    "explicit identification of panel a and b as 2Co-MBG and 5Co-MBG specifically",
+    "exact pore size match to 4-5 nm versus measured ~5-6 nm",
+    "whether ordering is uniform across the whole sample beyond the ~200 nm imaged region"
+   ],
+   "expected_support_image": "shown"
   },
   {
    "step": 4,
@@ -164,8 +191,9 @@
    "delivery": "oracle",
    "tests": "integration",
    "lane": "oracle",
-   "expected_support": "shown",
-   "support_basis": "image_support shown",
+   "expected_support": "partial",
+   "support_basis": "contribution supports_part (was image_support shown)",
+   "image_support": "shown",
    "observation": "N2 isotherms of all three show a hysteresis step at P/P0 ~0.45-0.6 (type IV)",
    "read_from": "axis",
    "requires_unseen": [],
@@ -189,10 +217,20 @@
      "png": "images/F3a.png",
      "masked_fraction": 0.2681
     }
-   ]
+   ],
+   "contribution": "supports_part",
+   "contribution_why": "The type IV isotherm with H1/H2-type hysteresis at P/P0 ~0.45-0.6 is characteristic of capillary condensation in uniform mesopores and thus evidences a mesoporous structure common to all three samples, but the isotherm shape alone does not pin down the specific pore diameter (~4-5 nm, which requires BJH/pore-size-distribution analysis) or confirm long-range structural order of the channels (typically shown by XRD or TEM).",
+   "unsettled": [
+    "exact pore size ~4-5 nm",
+    "long-range ordering of the channel structure",
+    "that 2Co- and 5Co-MBG specifically (as opposed to the third sample) retain this structure"
+   ],
+   "expected_support_image": "shown"
   }
  ],
  "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "contribution",
  "closing_support": "partial",
  "closing_why": "the claim names a fact no panel carries: TEM panel a = 2Co-MBG, b = 5Co-MBG (caption); pore size 4.5-5 nm from caption",
  "closing_missing": [
@@ -202,18 +240,18 @@
  ],
  "necessity": {
   "PHYS": {
-   "structural": "redundant_by_single_loo",
-   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
-   "confidence": "low"
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
   },
   "TEM": {
-   "structural": "redundant_by_single_loo",
-   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
-   "confidence": "low"
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
   },
   "XRD": {
    "structural": "necessary",
-   "why": "sole channel carrying the across-condition comparison the claim needs",
+   "why": "no shown support survives removing this channel",
    "confidence": "high"
   }
  },

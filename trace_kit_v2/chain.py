@@ -27,7 +27,15 @@ def fam(t):
     return (t or '').split(':')[0].upper()
 
 
-def build(case):
+def contrib_labels():
+    """the sidecar claim-contribution labels, keyed by (case, step). Empty when part 2 has not run."""
+    f = os.path.join(ROOT, 'results/v2/contrib_labels.jsonl')
+    if not os.path.exists(f): return {}
+    return {(l['case'], l['step']): l for l in map(json.loads, open(f))}
+
+
+def build(case, use_contrib=False):
+    CL = contrib_labels() if use_contrib else {}
     P, claim = case['paper'], case['claim']
     gp = os.path.join(ROOT, 'taxonomy', case['graphs'], P + '.json')
     g = json.load(open(gp)); N = {n['id']: n for n in g['nodes']}
@@ -63,7 +71,8 @@ def build(case):
             dropped.append({'node': nid, 'technique': tech, 'panel_ids': pids,
                             'reason': 'no crop resolves for any cited panel; cannot hand the data over'})
             continue
-        steps.append({'step': len(steps) + 1, 'node': nid, 'relation': rel, 'mm_op': op,
+        st_no = len(steps) + 1
+        steps.append({'step': st_no, 'node': nid, 'relation': rel, 'mm_op': op,
                       'technique': tech, 'family': f, 'delivery': delivery,
                       'tests': TESTS.get(op, 'integration'),
                       'lane': 'fm' if f in FM_LANE else ('oracle' if f in ORACLE else 'other'),
@@ -76,11 +85,27 @@ def build(case):
                                           else (n.get('image_support') or 'not addressed'),
                       'support_basis': (f"{n.get('image_support')} in the panel, entering by a {rel} edge: a caveat on the claim"
                                         if rel in ('qualifies', 'contrasts') else f"image_support {n.get('image_support')}"),
+                      'image_support': n.get('image_support'),
                       'observation': n.get('label'),
                       'read_from': n.get('attrs', {}).get('read_from'),
                       'requires_unseen': n.get('attrs', {}).get('requires_unseen') or [],
                       'image_note': n.get('attrs', {}).get('image_note'),
                       'panels': panels})
+
+    # part 3: expected_support taken from the contribution label rather than image_support
+    contrib_flags = []
+    for st in steps:
+        l = CL.get((case['case'], st['step']))
+        if not l: continue
+        st['contribution'] = l['contribution']; st['contribution_why'] = l['why']
+        st['unsettled'] = l['unsettled']
+        st['expected_support_image'] = st['expected_support']
+        st['expected_support'] = l['mapped_support']
+        st['support_basis'] = f"contribution {l['contribution']} (was image_support {st.get('image_support')})"
+        # the case-4 caveat rule stays as a cross-check
+        if st['relation'] in ('qualifies', 'contrasts') and l['contribution'] == 'establishes':
+            contrib_flags.append({'step': st['step'], 'node': st['node'], 'relation': st['relation'],
+                                  'why': 'a caveat edge came back as establishes, which the caveat rule forbids'})
 
     # closing profile: the claim's own support, and what no panel shows
     sups = [s['expected_support'] for s in steps]
@@ -118,15 +143,16 @@ def build(case):
                       'oracle': sum(1 for s in steps if s['lane'] == 'oracle'),
                       'other': sum(1 for s in steps if s['lane'] == 'other')},
             'tests': {k: sum(1 for s in steps if s['tests'] == k) for k in ('perception', 'selection', 'integration')},
-            'steps': steps, 'dropped_panels': dropped,
+            'steps': steps, 'dropped_panels': dropped, 'contrib_caveat_flags': contrib_flags,
+            'ground_truth': 'contribution' if CL else 'image_support',
             'closing_support': closing, 'closing_why': closing_why, 'closing_missing': missing,
             'necessity': nec, 'note': 'Every verdict is model against model.'}
 
 
-def main(case_id):
+def main(case_id, use_contrib=False):
     sel = json.load(open(os.path.join(ROOT, 'results/v2/case_selection.json')))
     case = next(c for c in sel['cases'] if c['case'] == case_id)
-    ch = build(case)
+    ch = build(case, use_contrib)
     d = os.path.join(ROOT, 'results/v2/cases', ch['paper'], ch['claim'])
     os.makedirs(d, exist_ok=True)
     json.dump(ch, open(os.path.join(d, 'case.json'), 'w'), indent=1)
@@ -141,4 +167,4 @@ def main(case_id):
     return d
 
 
-if __name__ == '__main__': main(sys.argv[1])
+if __name__ == '__main__': main(sys.argv[1], '--contrib' in sys.argv)
