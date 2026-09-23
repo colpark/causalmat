@@ -18,9 +18,29 @@ def load(only=None):
     return rows
 
 
+V06C = os.path.join(ROOT, 'results', 'v06c')
+_PILOT_GATE = None
+
+def pilot_gate():
+    """the v06c gate rows, for the pilot papers that have no v07 gate.jsonl of their own"""
+    global _PILOT_GATE
+    if _PILOT_GATE is None:
+        f = os.path.join(V06C, 'solving_gate.jsonl')
+        rows = [json.loads(l) for l in open(f) if l.strip()] if os.path.exists(f) else []
+        _PILOT_GATE = collections.defaultdict(list)
+        for r in rows: _PILOT_GATE[r['paper']].append(r)
+    return _PILOT_GATE
+
+
 def gate_rows(p):
     f = os.path.join(PAPERS, p, 'gate.jsonl')
-    return [json.loads(l) for l in open(f) if l.strip()] if os.path.exists(f) else []
+    if os.path.exists(f): return [json.loads(l) for l in open(f) if l.strip()]
+    return pilot_gate().get(p, [])
+
+
+def written_path(p):
+    f = os.path.join(PAPERS, p, 'written.json')
+    return f if os.path.exists(f) else os.path.join(V06C, 'writer', p, 'written.json')
 
 
 def funnel(rows):
@@ -89,7 +109,7 @@ def modality(rows):
             c[g['verdict']] += 0
     fam_all = collections.Counter(); fam_valid = collections.Counter()
     for r in rows:
-        w = os.path.join(PAPERS, r['paper'], 'written.json')
+        w = written_path(r['paper'])
         if not os.path.exists(w): continue
         T = {t['id']: t for t in json.load(open(w))['traces']}
         for g in gate_rows(r['paper']):
@@ -105,7 +125,7 @@ def modality(rows):
 def knowledge(rows):
     n = 0; papers = 0
     for r in rows:
-        w = os.path.join(PAPERS, r['paper'], 'written.json')
+        w = written_path(r['paper'])
         if not os.path.exists(w): continue
         kp = json.load(open(w)).get('knowledge_pile') or []
         if kp: papers += 1
