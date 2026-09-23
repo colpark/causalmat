@@ -153,6 +153,7 @@ dialog p{{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8
                       f'data-suffix="{E(p["suffix"])}"><figcaption>{E(p["suffix"])} &middot; '
                       f'{p.get("width")}&times;{p.get("height")}</figcaption></figure>')
                 A('</div>')
+            A('</div>')          # close .step -- without this every step nests inside the last
         if c['dropped_panels']:
             for d in c['dropped_panels']:
                 A(f'<div class="drop"><b>Panel dropped:</b> {E(d["node"])} &mdash; {E(d["reason"])}</div>')
