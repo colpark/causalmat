@@ -1,0 +1,112 @@
+{
+ "case": "Advanced_Functional_Materials__10.1002_adfm.202008088:n13",
+ "paper": "Advanced_Functional_Materials__10.1002_adfm.202008088",
+ "graph": "taxonomy/graphs_v07/Advanced_Functional_Materials__10.1002_adfm.202008088.json",
+ "claim": "n13",
+ "claim_type": "PRP/value",
+ "claim_text": "As-grown emission below 150 K ranks with crystalline state: PC dual peak plus IR tail, HOC intermediate, SC a single peak",
+ "n_steps": 2,
+ "channels": [
+  "",
+  "PL"
+ ],
+ "n_channels": 2,
+ "lanes": {
+  "fm": 0,
+  "oracle": 0,
+  "other": 2
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 1,
+  "integration": 1
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "n16",
+   "relation": "contrasts",
+   "mm_op": null,
+   "technique": null,
+   "family": "",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "other",
+   "expected_support": "partial",
+   "support_basis": "shown in the panel, entering by a contrasts edge: a caveat on the claim",
+   "image_support": "shown",
+   "observation": "After grinding all three converge on one tetragonal-like emission band that red-shifts smoothly, with no detectable transition below 150 K",
+   "read_from": null,
+   "requires_unseen": [
+    "the converged 765-800 nm band is the tetragonal phase (linked text F3); F3b carries no phase label"
+   ],
+   "image_note": "single band moving from ~765 nm at 120 K to ~800 nm at 300 K in all three TDPL maps of F3b",
+   "panels": [
+    {
+     "panel_id": "10.1002/adfm.202008088#F3b",
+     "suffix": "F3b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/panels/crops/72e316d7b84668955dc339083adaf876f95c31aaf3ed9d8dbfc0c3dc6c69355a_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/images/72e316d7b84668955dc339083adaf876f95c31aaf3ed9d8dbfc0c3dc6c69355a.jpg",
+     "caption_span": "after finely grinding",
+     "ocr_tokens": 49,
+     "png": "images/F3b.png",
+     "width": 738,
+     "height": 586
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o9",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "PL",
+   "family": "PL",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "other",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "As grown: PC shows two emission branches plus an IR tail below 150 K and across 50-370 uW at 80 K; HOC is intermediate; SC shows one band",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "TDPL (left) and PDPL (right) sub-panels of the same crop, labelled PC, HOC, SC and '@ 80 K'; SC band sits at ~745 nm below 150 K and ~780 nm above; the PC PDPL map is normalised differently (blue-green background)",
+   "panels": [
+    {
+     "panel_id": "10.1002/adfm.202008088#F3a",
+     "suffix": "F3a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/panels/crops/72e316d7b84668955dc339083adaf876f95c31aaf3ed9d8dbfc0c3dc6c69355a_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/images/72e316d7b84668955dc339083adaf876f95c31aaf3ed9d8dbfc0c3dc6c69355a.jpg",
+     "caption_span": "before and",
+     "ocr_tokens": 50,
+     "png": "images/F3a.png",
+     "width": 731,
+     "height": 586
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "a step is only partial",
+ "closing_missing": [
+  "the converged 765-800 nm band is the tetragonal phase (linked text F3); F3b carries no phase label"
+ ],
+ "necessity": {
+  "": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "PL": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

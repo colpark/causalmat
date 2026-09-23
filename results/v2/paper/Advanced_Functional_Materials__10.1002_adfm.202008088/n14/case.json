@@ -1,0 +1,170 @@
+{
+ "case": "Advanced_Functional_Materials__10.1002_adfm.202008088:n14",
+ "paper": "Advanced_Functional_Materials__10.1002_adfm.202008088",
+ "graph": "taxonomy/graphs_v07/Advanced_Functional_Materials__10.1002_adfm.202008088.json",
+ "claim": "n14",
+ "claim_type": "PRP/value",
+ "claim_text": "Transition temperature rises and the transition window narrows as domain size grows",
+ "n_steps": 4,
+ "channels": [
+  "PL",
+  "XRD"
+ ],
+ "n_channels": 2,
+ "lanes": {
+  "fm": 1,
+  "oracle": 0,
+  "other": 3
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 2,
+  "integration": 2
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o5",
+   "relation": "evidences",
+   "mm_op": "read_characteristic_point",
+   "technique": "XRD:insitu",
+   "family": "XRD",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Every trace steps down near 150 K; for PC (004) the two branches coexist over a shaded band from ~150 to ~175 K",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "the regime labels 'orthorhombic' and 'tetragonal(224)' are written along the bottom axis of F2a; the coexistence band is highlighted in yellow",
+   "panels": [
+    {
+     "panel_id": "10.1002/adfm.202008088#F2a",
+     "suffix": "F2a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/panels/crops/8fc82949e475185da7906211382314b4dd94e8e2af3f8a08ebf5df5b7e7a631a_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/images/8fc82949e475185da7906211382314b4dd94e8e2af3f8a08ebf5df5b7e7a631a.jpg",
+     "caption_span": "Temperature-dependent XRD 2theta peaks of SC (blue color), PC (red color), and HOC (black color) perovskites in the range from 40.5 to 42.5 . Visual illustration of",
+     "ocr_tokens": 21,
+     "png": "images/F2a.png",
+     "width": 388,
+     "height": 453
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o12",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "PL",
+   "family": "PL",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "other",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "PL at 80 K: one ~790 nm band for D_d of 20-50 nm, two bands (~750 and ~785 nm) for 50-200 um, one ~750 nm band above 300 um",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "nine stacked spectra labelled D_d < 20 nm to > 500 um with an arrow 'Domain size decrease'; D_d = 1 and 10 um are single broad asymmetric bands, D_d = 300 and 400 um a sharp 750 nm peak with a weak shoulder",
+   "panels": [
+    {
+     "panel_id": "10.1002/adfm.202008088#F5a",
+     "suffix": "F5a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/panels/crops/a2748a82fd9a87cc6f7a14944e6dffd5108542d8ddee1a61cdac8de06bfe1a3f_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/images/a2748a82fd9a87cc6f7a14944e6dffd5108542d8ddee1a61cdac8de06bfe1a3f.jpg",
+     "caption_span": "PL spectra at 80K for MAPb|3 perovskites of different domain-sizes",
+     "ocr_tokens": 19,
+     "png": "images/F5a.png",
+     "width": 406,
+     "height": 569
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "node": "o13",
+   "relation": "evidences",
+   "mm_op": "read_characteristic_point",
+   "technique": "PL",
+   "family": "PL",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "other",
+   "expected_support": "partial",
+   "support_basis": "image_support partial",
+   "image_support": "partial",
+   "observation": "Emission-regime map: single orthorhombic at low T and large domains, single tetragonal at high T, a dual band between that widens toward small domains",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "smoothed drawn summary with no data points or contour values; temperature axis runs downward from ~90 K to ~190 K; the dual/tetragonal boundary sits near 150-157 K at 5e2 um and the tetragonal field reaches ~105-110 K near zero domain size",
+   "panels": [
+    {
+     "panel_id": "10.1002/adfm.202008088#F5b",
+     "suffix": "F5b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/panels/crops/a2748a82fd9a87cc6f7a14944e6dffd5108542d8ddee1a61cdac8de06bfe1a3f_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/images/a2748a82fd9a87cc6f7a14944e6dffd5108542d8ddee1a61cdac8de06bfe1a3f.jpg",
+     "caption_span": "Contour map of the phase-transition process as a function of domain-size for MAPb|3 from 80 to 90K",
+     "ocr_tokens": 20,
+     "png": "images/F5b.png",
+     "width": 649,
+     "height": 569
+    }
+   ]
+  },
+  {
+   "step": 4,
+   "node": "a3",
+   "relation": "qualifies",
+   "mm_op": "compare_across_conditions",
+   "technique": "PL",
+   "family": "PL",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "other",
+   "expected_support": "contradicts",
+   "support_basis": "contradicts in the panel, entering by a qualifies edge: a caveat on the claim",
+   "image_support": "contradicts",
+   "observation": "In F5a the 300 and 400 um spectra are already single orthorhombic peaks, so dual emission ends between 200 and 300 um, not above 500 um",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": "linked text says dual emission runs from 1 to 300 um and a single orthorhombic peak appears only above 500 um; D_d = 1 and 10 um also look single and broad rather than dual",
+   "panels": [
+    {
+     "panel_id": "10.1002/adfm.202008088#F5a",
+     "suffix": "F5a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/panels/crops/a2748a82fd9a87cc6f7a14944e6dffd5108542d8ddee1a61cdac8de06bfe1a3f_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/images/a2748a82fd9a87cc6f7a14944e6dffd5108542d8ddee1a61cdac8de06bfe1a3f.jpg",
+     "caption_span": "PL spectra at 80K for MAPb|3 perovskites of different domain-sizes",
+     "ocr_tokens": 19,
+     "png": "images/F5a.png",
+     "width": 406,
+     "height": 569
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "a step contradicts the claim",
+ "closing_missing": [],
+ "necessity": {
+  "PL": {
+   "structural": "necessary",
+   "why": "sole channel carrying the across-condition comparison the claim needs",
+   "confidence": "high"
+  },
+  "XRD": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

@@ -1,0 +1,203 @@
+{
+ "case": "Acta_Materialia__10.1016_j.actamat.2020.116609:n10",
+ "paper": "Acta_Materialia__10.1016_j.actamat.2020.116609",
+ "graph": "taxonomy/graphs_v07/Acta_Materialia__10.1016_j.actamat.2020.116609.json",
+ "claim": "n10",
+ "claim_type": "MEC/pathway",
+ "claim_text": "Galvanic coupling between layers: Al corrodes sacrificially in Al/Ti and Al/Cu, Mg is the anode in Al/Mg",
+ "n_steps": 3,
+ "channels": [
+  "ECHEM",
+  "SEM",
+  "SIM"
+ ],
+ "n_channels": 3,
+ "lanes": {
+  "fm": 1,
+  "oracle": 1,
+  "other": 1
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 1,
+  "integration": 2
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o12",
+   "relation": "evidences",
+   "mm_op": "read_characteristic_point",
+   "technique": "ECHEM:polarization",
+   "family": "ECHEM",
+   "delivery": "oracle",
+   "tests": "integration",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Monolithic films: Ecorr Mg ~-1.75 V < Al ~-0.65 V < Ti ~-0.3 V < Cu ~-0.2 V vs Ag/AgCl",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F4a",
+     "suffix": "F4a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/4cef676d8700e055d2a9b3d2531e2dd14fc5f2678aeb8df68f676eeb4ceaabcf_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/4cef676d8700e055d2a9b3d2531e2dd14fc5f2678aeb8df68f676eeb4ceaabcf.jpg",
+     "caption_span": "monolithic films and are replotted as dashed lines in",
+     "ocr_tokens": 31,
+     "png": "images/F4a.png",
+     "width": 353,
+     "height": 285
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o16",
+   "relation": "qualifies",
+   "mm_op": "register_colocated_views",
+   "technique": "SEM:EDS",
+   "family": "SEM",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "fm",
+   "expected_support": "partial",
+   "support_basis": "shown in the panel, entering by a qualifies edge: a caveat on the claim",
+   "image_support": "shown",
+   "observation": "EDS insets for corroded Al/Cu show maps labelled Al, C and O, all near-uniform; no Cu map, so Cu enrichment of the nodules is not shown",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": "linked text: 'EDS mapping in Fig. 5(c) suggests these nodules are enriched in Cu'; the Cu-rich label is only an arrow annotation on the SEM image",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F5c",
+     "suffix": "F5c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/6d5256bd6d8a50c66fc55c2cb6190395a5c4e5fd1f205aa41dc598fb1a02888d_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/6d5256bd6d8a50c66fc55c2cb6190395a5c4e5fd1f205aa41dc598fb1a02888d.jpg",
+     "caption_span": "PD and show the corresponding EDS element maps",
+     "ocr_tokens": 5,
+     "png": "images/F5c.png",
+     "width": 346,
+     "height": 346
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "node": "o17",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "SIM:FEM",
+   "family": "SIM",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "other",
+   "expected_support": "partial",
+   "support_basis": "image_support partial",
+   "image_support": "partial",
+   "observation": "FE corrosion: Al layers recede and current peaks at Al layer edges in Al/Ti and Al/Cu (10 min, <=6e-6 A/cm2); Mg layers recede in Al/Mg within 0.2 s (up to 5e-3 A/cm2)",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "Al/Ti layer recession after 10 min is barely visible; Mg recession in Al/Mg clear; colour scale 1e3 higher for Al/Mg",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F8a",
+     "suffix": "F8a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e.jpg",
+     "caption_span": "cross-sectional morphology and",
+     "ocr_tokens": 3,
+     "png": "images/F8a.png",
+     "width": 304,
+     "height": 293
+    },
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F8b",
+     "suffix": "F8b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e.jpg",
+     "caption_span": "cross-sectional morphology and",
+     "ocr_tokens": 4,
+     "png": "images/F8b.png",
+     "width": 326,
+     "height": 293
+    },
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F8c",
+     "suffix": "F8c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e.jpg",
+     "caption_span": "cross-sectional morphology and",
+     "ocr_tokens": 4,
+     "png": "images/F8c.png",
+     "width": 320,
+     "height": 293
+    },
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F8d",
+     "suffix": "F8d",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e_D.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e.jpg",
+     "caption_span": "current density distribution of all NMMs after corrosion in 0.6M NaCl aqueous solution",
+     "ocr_tokens": 12,
+     "png": "images/F8d.png",
+     "width": 344,
+     "height": 273
+    },
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F8e",
+     "suffix": "F8e",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e_E.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e.jpg",
+     "caption_span": "current density distribution of all NMMs after corrosion in 0.6M NaCl aqueous solution",
+     "ocr_tokens": 14,
+     "png": "images/F8e.png",
+     "width": 350,
+     "height": 274
+    },
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F8f",
+     "suffix": "F8f",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e_F.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/8491cedb44db721b34b23f5e94d7f35a636ec079a7c594a937b5a827685f812e.jpg",
+     "caption_span": "current density distribution of all NMMs after corrosion in 0.6M NaCl aqueous solution",
+     "ocr_tokens": 11,
+     "png": "images/F8f.png",
+     "width": 382,
+     "height": 272
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "the claim names a fact no panel carries: F8 panels are FE-simulated corrosion in 0.6 M NaCl with dashed lines = original surface (caption and linked text F8); galvanic sacrificial-anode reading (linked text F8)",
+ "closing_missing": [
+  "F8 panels are FE-simulated corrosion in 0.6 M NaCl with dashed lines = original surface (caption and linked text F8)",
+  "galvanic sacrificial-anode reading (linked text F8)"
+ ],
+ "necessity": {
+  "ECHEM": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  },
+  "SEM": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "SIM": {
+   "structural": "necessary",
+   "why": "sole channel carrying the across-condition comparison the claim needs",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

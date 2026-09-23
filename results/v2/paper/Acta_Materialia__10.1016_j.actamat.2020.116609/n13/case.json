@@ -1,0 +1,110 @@
+{
+ "case": "Acta_Materialia__10.1016_j.actamat.2020.116609:n13",
+ "paper": "Acta_Materialia__10.1016_j.actamat.2020.116609",
+ "graph": "taxonomy/graphs_v07/Acta_Materialia__10.1016_j.actamat.2020.116609.json",
+ "claim": "n13",
+ "claim_type": "PRF/service_capability",
+ "claim_text": "Tribocorrosion material loss is smallest for Al/Cu, slightly larger for Al/Ti and far largest for Al/Mg",
+ "n_steps": 2,
+ "channels": [
+  "PROFILOMETRY"
+ ],
+ "n_channels": 1,
+ "lanes": {
+  "fm": 0,
+  "oracle": 2,
+  "other": 0
+ },
+ "tests": {
+  "perception": 1,
+  "selection": 1,
+  "integration": 0
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o23",
+   "relation": "evidences",
+   "mm_op": "measure_feature_metric",
+   "technique": "PROFILOMETRY",
+   "family": "PROFILOMETRY",
+   "delivery": "oracle",
+   "tests": "perception",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Wear-track depth: Al/Mg ~0.9 um deep and ~50 um wide; Al/Ti ~0.15 um with pile-ups; Al/Cu <0.03 um",
+   "read_from": "axis",
+   "requires_unseen": [
+    "profiles are wear-track cross-sections after tribocorrosion (caption F6)"
+   ],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F6c",
+     "suffix": "F6c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/2f0f7c3e9a994f4638817ed8e3ece900d68f98d99230faf118b7f41c2ea2ee3d_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/2f0f7c3e9a994f4638817ed8e3ece900d68f98d99230faf118b7f41c2ea2ee3d.jpg",
+     "caption_span": "Typical wear track cross-sectional surface dept profiles and wer measured perpendicular to the sliding direction on the worn surface of all samples",
+     "ocr_tokens": 17,
+     "png": "images/F6c.png",
+     "width": 334,
+     "height": 239
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o24",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "PROFILOMETRY",
+   "family": "PROFILOMETRY",
+   "delivery": "oracle",
+   "tests": "selection",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Measured wear volume: Al/Mg ~1.45e-4 mm^3 >> Al/Ti ~4.8e-6 > Al/Cu ~2.6e-6 mm^3",
+   "read_from": "axis",
+   "requires_unseen": [
+    "bars are wear volume after tribocorrosion (caption F6)"
+   ],
+   "image_note": "broken left axis",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2020.116609#F6d",
+     "suffix": "F6d",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/panels/crops/2f0f7c3e9a994f4638817ed8e3ece900d68f98d99230faf118b7f41c2ea2ee3d_D.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2020.116609/images/2f0f7c3e9a994f4638817ed8e3ece900d68f98d99230faf118b7f41c2ea2ee3d.jpg",
+     "caption_span": "summary of experimentally measured wear volume and FE model predicted corrosion current of all NMMs after tribocorrosion tests. The profiles in",
+     "ocr_tokens": 24,
+     "png": "images/F6d.png",
+     "width": 350,
+     "height": 242
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "the claim names a fact no panel carries: the test is tribocorrosion (sliding in 0.6 M NaCl), stated in caption F6 and linked text",
+ "closing_missing": [
+  "the test is tribocorrosion (sliding in 0.6 M NaCl), stated in caption F6 and linked text",
+  "profiles are wear-track cross-sections after tribocorrosion (caption F6)",
+  "bars are wear volume after tribocorrosion (caption F6)"
+ ],
+ "necessity": {
+  "PROFILOMETRY": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

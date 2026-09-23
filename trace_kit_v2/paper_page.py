@@ -22,7 +22,16 @@ def b64(path):
     return _cache[path]
 
 
+def necessity_map():
+    """measured necessity, keyed by (paper, claim). Empty for chains never measured."""
+    out = {}
+    for f in glob.glob(os.path.join(ROOT, 'results/v2/necessity/case*.json')):
+        o = json.load(open(f)); out[(o['paper'], o['claim'])] = o
+    return out
+
+
 def main(paper, out=None):
+    NEC = necessity_map()
     base = os.path.join(ROOT, 'results/v2/paper', paper)
     chains = []
     for f in sorted(glob.glob(os.path.join(base, '*', 'case.json'))):
@@ -89,6 +98,15 @@ figcaption{{font:11px ui-monospace,monospace;color:var(--mut);margin-top:4px}}
 .close{{border-top:1px solid var(--line);margin-top:12px;padding-top:12px;font-size:13px;color:var(--mut)}}
 .close b{{color:var(--ink)}}
 .drop{{background:var(--co);border-left:3px solid var(--co-i);border-radius:8px;padding:9px 12px;font-size:12.5px;margin-top:10px}}
+.nec{{border-top:1px solid var(--line);margin-top:14px;padding-top:12px}}
+.nec h4{{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}}
+.nec .lead{{font-size:13px;margin-bottom:8px}}
+.nec table{{width:100%;border-collapse:collapse;font-size:12.5px}}
+.nec th{{text-align:left;color:var(--mut);font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;padding:4px 6px;border-bottom:1px solid var(--line)}}
+.nec td{{padding:5px 6px;border-bottom:1px solid var(--line)}}
+.nec td.n{{text-align:right;font:12px ui-monospace,Menlo,monospace}}
+.yes{{color:var(--ok-i);font-weight:600}}.no{{color:var(--mut)}}
+.measured{{background:var(--ok);border-color:var(--ok-i);color:var(--ok-i)}}
 dialog{{border:0;background:transparent;max-width:96vw;max-height:96vh;padding:0}}
 dialog::backdrop{{background:rgba(0,0,0,.82)}}
 dialog img{{max-width:96vw;max-height:92vh;border-radius:10px;display:block}}
@@ -124,6 +142,8 @@ dialog p{{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8
         A('<div class="chead">')
         A(f'<span class="cid">{E(c["claim"])}</span>')
         if c.get('spine'): A('<span class="badge spine">spine</span>')
+        nec = NEC.get((paper, c['claim']))
+        if nec: A('<span class="badge measured">necessity measured</span>')
         A(f'<span class="badge">{E(c.get("claim_type"))}</span>')
         A(f'<span class="badge">{c["n_steps"]} steps</span>')
         A(f'<span class="badge">{E(", ".join(c["channels"]))}</span>')
@@ -157,6 +177,28 @@ dialog p{{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8
         if c['dropped_panels']:
             for d in c['dropped_panels']:
                 A(f'<div class="drop"><b>Panel dropped:</b> {E(d["node"])} &mdash; {E(d["reason"])}</div>')
+        if nec:
+            A('<div class="nec"><h4>Measured necessity, by removal</h4>')
+            A(f'<div class="lead">With every panel: <b>{E(nec["full_verdict"])}</b> '
+              f'({nec["full_confidence"]}). With none: <b>{E(nec["confidence_floor"]["verdict"])}</b> '
+              f'({nec["confidence_floor"]["confidence"]}). '
+              f'Answered by <code>net-claim</code> (sonnet) from panels alone, {nec["repeats"]} repeats, '
+              f'threshold drop &gt; {nec["threshold"]}.</div>')
+            A('<table><thead><tr><th>remove</th><th>verdict without it</th><th class="n">drop</th>'
+              '<th class="n">rank</th><th>necessary</th></tr></thead><tbody>')
+            for r in sorted(nec['channels'], key=lambda x: (x['drop'] is None, -(x['drop'] or 0))):
+                tag = f'channel {E(r["channel"])} ({r["n_panels"]})'
+                A(f'<tr><td>{tag}</td><td>{E(r["verdict_without"])}</td><td class="n">{r["drop"]}</td>'
+                  f'<td class="n">{r.get("rank","-")}{" tie" if r.get("tied") else ""}</td>'
+                  f'<td class="{"yes" if r["necessary"] else "no"}">{"yes" if r["necessary"] else "no"}</td></tr>')
+            for r in sorted(nec['panels'], key=lambda x: (x['drop'] is None, -(x['drop'] or 0))):
+                A(f'<tr><td>panel {E(r["panel"])}</td><td>{E(r["verdict_without"])}</td>'
+                  f'<td class="n">{r["drop"]}</td><td class="n">{r.get("rank","-")}{" tie" if r.get("tied") else ""}</td>'
+                  f'<td class="{"yes" if r["necessary"] else "no"}">{"yes" if r["necessary"] else "no"}</td></tr>')
+            A('</tbody></table>')
+            A(f'<div class="lead" style="margin-top:8px">Split: <b>{E(nec["split"])}</b> at panel level, '
+              f'<b>{E(nec["channel_split"])}</b> at channel level. Necessity is relative to this answerer, '
+              f'this prompt and this model.</div></div>')
         A(f'<div class="close"><b>Closing: {E(c["closing_support"])}</b>')
         if c.get('closing_why'): A(f' &mdash; {E(c["closing_why"])}')
         if c['closing_missing']:

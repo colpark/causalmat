@@ -1,0 +1,110 @@
+{
+ "case": "Biomaterials__j.biomaterials.2011.11.042:n10",
+ "paper": "Biomaterials__j.biomaterials.2011.11.042",
+ "graph": "taxonomy/graphs_v07/Biomaterials__j.biomaterials.2011.11.042.json",
+ "claim": "n10",
+ "claim_type": "MEC/pathway",
+ "claim_text": "Co2+ in place of Ca2+ perturbs the ordered orientation of mesopore channels during self-assembly",
+ "n_steps": 2,
+ "channels": [
+  "PHYS",
+  "XRD"
+ ],
+ "n_channels": 2,
+ "lanes": {
+  "fm": 1,
+  "oracle": 1,
+  "other": 0
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 2,
+  "integration": 0
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o4",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "XRD:small_angle",
+   "family": "XRD",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Low-angle peak height falls ~8-fold with Co: ~180000 (MBG), ~74000 (2Co), ~23000 (5Co), 5Co peak barely above the rising background",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "linked text calls all three peaks 'obvious'",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.biomaterials.2011.11.042#F2",
+     "suffix": "F2",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/6370384ae83c8278928240744db31ecc7c40199f69a91dd04c3acff1299d414b.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/6370384ae83c8278928240744db31ecc7c40199f69a91dd04c3acff1299d414b.jpg",
+     "caption_span": "Fig. 2. Small-angle XRD analysis for MBG, 2Co-MBG and 5Co-MBG scaffolds.",
+     "ocr_tokens": 0,
+     "png": "images/F2.png",
+     "width": 695,
+     "height": 497
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o9",
+   "relation": "qualifies",
+   "mm_op": "compare_across_conditions",
+   "technique": "PHYS:N2_sorption",
+   "family": "PHYS",
+   "delivery": "oracle",
+   "tests": "selection",
+   "lane": "oracle",
+   "expected_support": "partial",
+   "support_basis": "shown in the panel, entering by a qualifies edge: a caveat on the claim",
+   "image_support": "shown",
+   "observation": "5Co-MBG has the tallest, narrowest pore-size peak (dV/dD ~0.016 vs ~0.0107 for MBG, FWHM ~1.5 vs ~5 nm)",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "a narrower mesopore distribution at the highest Co level does not fit a Co-induced channel-disorder reading",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.biomaterials.2011.11.042#F3b",
+     "suffix": "F3b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/panels/crops/91ef7e82aec7cf777d05a177201f7c357fd3db125138941c37674c3532767af0_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/91ef7e82aec7cf777d05a177201f7c357fd3db125138941c37674c3532767af0.jpg",
+     "caption_span": "of MBG, 2Co-MBG and 5Co-MBG scaffolds",
+     "ocr_tokens": 19,
+     "png": "images/F3b.png",
+     "width": 684,
+     "height": 486
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "the claim names a fact no panel carries: linked text F11: 'may somehow disrupt the ordered orientation'",
+ "closing_missing": [
+  "linked text F11: 'may somehow disrupt the ordered orientation'"
+ ],
+ "necessity": {
+  "PHYS": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "XRD": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

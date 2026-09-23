@@ -1,0 +1,113 @@
+{
+ "case": "Acta_Materialia__10.1016_j.actamat.2021.116797:n31",
+ "paper": "Acta_Materialia__10.1016_j.actamat.2021.116797",
+ "graph": "taxonomy/graphs_v07/Acta_Materialia__10.1016_j.actamat.2021.116797.json",
+ "claim": "n31",
+ "claim_type": "MEC/pathway",
+ "claim_text": "Zn and Y retained in solid solution also harden the matrix, raising even the basal-slip CRSS",
+ "n_steps": 2,
+ "channels": [
+  "MECH"
+ ],
+ "n_channels": 1,
+ "lanes": {
+  "fm": 0,
+  "oracle": 2,
+  "other": 0
+ },
+ "tests": {
+  "perception": 1,
+  "selection": 0,
+  "integration": 1
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o19",
+   "relation": "evidences",
+   "mm_op": "compare_with_reference_value",
+   "technique": "MECH:compression",
+   "family": "MECH",
+   "delivery": "oracle",
+   "tests": "integration",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Basal-slip CRSS is itself raised, from ~0.5 MPa in pure Mg to ~4.3 MPa in the alloy, an ~8x increase",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "the green basal branches of the two panels differ by about a factor eight; the text calls the basal CRSS unchanged/low and attributes all hardening to nanoplate intersection",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F7a",
+     "suffix": "F7a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/a26f14aa90854c172cbf0c6fe5894ebd4fb4b5fbad7ad4dd5945483e776fc6c4_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/a26f14aa90854c172cbf0c6fe5894ebd4fb4b5fbad7ad4dd5945483e776fc6c4.jpg",
+     "caption_span": "Temperature dependencies of the CRSS estimated in the as-grown Mg99.2Zn0.20.6 single crystal investigated in this study, and",
+     "ocr_tokens": 25,
+     "png": "images/F7a.png",
+     "width": 546,
+     "height": 481
+    },
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F7b",
+     "suffix": "F7b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/a26f14aa90854c172cbf0c6fe5894ebd4fb4b5fbad7ad4dd5945483e776fc6c4_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/a26f14aa90854c172cbf0c6fe5894ebd4fb4b5fbad7ad4dd5945483e776fc6c4.jpg",
+     "caption_span": "those in pure- -Mg single crystals reported in refs. [33\u201335] and measured in this study",
+     "ocr_tokens": 22,
+     "png": "images/F7b.png",
+     "width": 534,
+     "height": 483
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o20",
+   "relation": "qualifies",
+   "mm_op": "read_trend",
+   "technique": "MECH:compression",
+   "family": "MECH",
+   "delivery": "oracle",
+   "tests": "perception",
+   "lane": "oracle",
+   "expected_support": "partial",
+   "support_basis": "shown in the panel, entering by a qualifies edge: a caveat on the claim",
+   "image_support": "shown",
+   "observation": "Yield stress in [11-20] at RT: 167 MPa as-grown, 113 MPa after the 520 C anneal, 160 MPa after the further 400 C anneal",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "bar chart, three states, one bar each, no scatter shown; the drop and recovery track the nanoplate density of Fig. 1(f)",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F8a",
+     "suffix": "F8a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/6bb3ed968061257a35fa0b6e371706825d87cf7056aba63e397a963f5ba7599e_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/6bb3ed968061257a35fa0b6e371706825d87cf7056aba63e397a963f5ba7599e.jpg",
+     "caption_span": "Variation in the yield stress with heat treatment for deformation in the [1120] orientation at RT",
+     "ocr_tokens": 12,
+     "png": "images/F8a.png",
+     "width": 356,
+     "height": 346
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "a step is only partial",
+ "closing_missing": [],
+ "necessity": {
+  "MECH": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": false
+}

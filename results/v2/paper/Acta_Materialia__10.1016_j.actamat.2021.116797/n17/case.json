@@ -1,0 +1,113 @@
+{
+ "case": "Acta_Materialia__10.1016_j.actamat.2021.116797:n17",
+ "paper": "Acta_Materialia__10.1016_j.actamat.2021.116797",
+ "graph": "taxonomy/graphs_v07/Acta_Materialia__10.1016_j.actamat.2021.116797.json",
+ "claim": "n17",
+ "claim_type": "PRF/service_capability",
+ "claim_text": "The crystal keeps a yield stress above 100 MPa with more than 5% compressive plastic strain in [11-20] and [01-10] from RT to 400 C",
+ "n_steps": 2,
+ "channels": [
+  "MECH"
+ ],
+ "n_channels": 1,
+ "lanes": {
+  "fm": 0,
+  "oracle": 2,
+  "other": 0
+ },
+ "tests": {
+  "perception": 1,
+  "selection": 1,
+  "integration": 0
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o7",
+   "relation": "evidences",
+   "mm_op": "read_trend",
+   "technique": "MECH:compression",
+   "family": "MECH",
+   "delivery": "oracle",
+   "tests": "perception",
+   "lane": "oracle",
+   "expected_support": "partial",
+   "support_basis": "image_support partial",
+   "image_support": "partial",
+   "observation": "Between RT and 400 C the alloy's [11-20]/[01-10] yield stress falls only from ~165 to ~105 MPa, while the gray pure-Mg reference falls from ~270 to ~15 MPa and sits near 10 MPa in the soft orientations",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "'gray plots: pure-Mg' is written on the panel, but the gray symbols are not individually labelled by orientation, so the ~11x factor rests on reading the gray circle near 10-12 MPa at RT",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F2a",
+     "suffix": "F2a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5.jpg",
+     "caption_span": "Temperature dependence of the yield stress of the as-grown Mg99.2Zn0.20.6 single crystal in four loading orientations. The yield stress of the pure-Mg single crystals reported in ref. [32] and that measured in this study are also plotted in gray for comparison",
+     "ocr_tokens": 23,
+     "png": "images/F2a.png",
+     "width": 602,
+     "height": 472
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o8",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "MECH:compression",
+   "family": "MECH",
+   "delivery": "oracle",
+   "tests": "selection",
+   "lane": "oracle",
+   "expected_support": "partial",
+   "support_basis": "image_support partial",
+   "image_support": "partial",
+   "observation": "Stress-strain curves: [11-20], [01-10] and [1 1 -2 1.85] all pass 5% plastic strain at RT and 300 C, [0001] fractures without yielding (x at ~355 and ~255 MPa), and only [01-10] at RT work-hardens, 165 -> 205 MPa",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "the strain axis carries no ticks, only a 1% scale bar, so the '>5%' reading is by counting that bar across the curve",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F2b",
+     "suffix": "F2b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5.jpg",
+     "caption_span": "Typical stress\u2013strain curves deformed at RT and",
+     "ocr_tokens": 18,
+     "png": "images/F2b.png",
+     "width": 481,
+     "height": 407
+    },
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F2c",
+     "suffix": "F2c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5.jpg",
+     "caption_span": "Typical stress\u2013strain curves deformed at 300C in four different loading orientations",
+     "ocr_tokens": 21,
+     "png": "images/F2c.png",
+     "width": 464,
+     "height": 404
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "a step is only partial",
+ "closing_missing": [],
+ "necessity": {
+  "MECH": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

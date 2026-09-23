@@ -1,0 +1,107 @@
+{
+ "case": "Rare_Metals__s12598-012-0515-6:s3",
+ "paper": "Rare_Metals__s12598-012-0515-6",
+ "graph": "taxonomy/graphs_v06b/Rare_Metals__s12598-012-0515-6.json",
+ "claim": "s3",
+ "claim_type": "STR/phase/identity",
+ "claim_text": "In the La alloy the ternary eutectic is replaced by Al2Cu plus Al6Cu6La",
+ "n_steps": 2,
+ "channels": [
+  "THERMAL"
+ ],
+ "n_channels": 1,
+ "lanes": {
+  "fm": 0,
+  "oracle": 2,
+  "other": 0
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 2,
+  "integration": 0
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o4",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "THERMAL:DSC",
+   "family": "THERMAL",
+   "delivery": "oracle",
+   "tests": "selection",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "The ~548 C endotherm of Al-Cu-Mn and Al-Cu-Mn-Sm is absent in Al-Cu-Mn-La",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "main endotherm at ~651 C common to all three",
+   "panels": [
+    {
+     "panel_id": "10.1007/s12598-012-0515-6#F3",
+     "suffix": "F3",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/images/c712ac908b3f762899c99c2e5c1d93bee4799527d4b05ca9ddfd115e2885b444.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/images/c712ac908b3f762899c99c2e5c1d93bee4799527d4b05ca9ddfd115e2885b444.jpg",
+     "caption_span": "Fig. 3 DSC curves of the as-cast alloys",
+     "ocr_tokens": 0,
+     "png": "images/F3.png",
+     "width": 594,
+     "height": 445
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o5",
+   "relation": "evidences",
+   "mm_op": "assign_features",
+   "technique": "THERMAL:DSC",
+   "family": "THERMAL",
+   "delivery": "oracle",
+   "tests": "selection",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "La alloy shows weak peak A (~605 C) and shoulder B (~638 C), assigned to Al2Cu and Al6Cu6La dissolution",
+   "read_from": "axis",
+   "requires_unseen": [
+    "assignment of A/B from linked text"
+   ],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1007/s12598-012-0515-6#F3",
+     "suffix": "F3",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/images/c712ac908b3f762899c99c2e5c1d93bee4799527d4b05ca9ddfd115e2885b444.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/images/c712ac908b3f762899c99c2e5c1d93bee4799527d4b05ca9ddfd115e2885b444.jpg",
+     "caption_span": "Fig. 3 DSC curves of the as-cast alloys",
+     "ocr_tokens": 0,
+     "png": "images/F3.png",
+     "width": 594,
+     "height": 445
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "the claim names a fact no panel carries: DSC peak assignments (eutectic, A=Al2Cu, B=Al6Cu6La) from linked text",
+ "closing_missing": [
+  "DSC peak assignments (eutectic, A=Al2Cu, B=Al6Cu6La) from linked text",
+  "assignment of A/B from linked text"
+ ],
+ "necessity": {
+  "THERMAL": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": false
+}

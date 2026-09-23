@@ -1,0 +1,105 @@
+{
+ "case": "Biomaterials__j.biomaterials.2011.11.042:n12",
+ "paper": "Biomaterials__j.biomaterials.2011.11.042",
+ "graph": "taxonomy/graphs_v07/Biomaterials__j.biomaterials.2011.11.042.json",
+ "claim": "n12",
+ "claim_type": "MEC/pathway",
+ "claim_text": "Released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF",
+ "n_steps": 2,
+ "channels": [
+  "BIO"
+ ],
+ "n_channels": 1,
+ "lanes": {
+  "fm": 0,
+  "oracle": 2,
+  "other": 0
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 1,
+  "integration": 1
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o16",
+   "relation": "qualifies",
+   "mm_op": "cross_check_consistency",
+   "technique": "BIO:ELISA",
+   "family": "BIO",
+   "delivery": "oracle",
+   "tests": "integration",
+   "lane": "oracle",
+   "expected_support": "partial",
+   "support_basis": "shown in the panel, entering by a qualifies edge: a caveat on the claim",
+   "image_support": "shown",
+   "observation": "5Co-MBG VEGF secretion (~115 pg/mL) is not above MBG (~100), although 5Co releases the most Co2+",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "set against F5a (highest Co2+ from 5Co) and F9 (strongest HIF-1alpha band for 5Co)",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.biomaterials.2011.11.042#F8",
+     "suffix": "F8",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/e95eacbc620b7a2f332fd1dfd88fe82bebb32637efcd4515be010a9919a259ec.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/e95eacbc620b7a2f332fd1dfd88fe82bebb32637efcd4515be010a9919a259ec.jpg",
+     "caption_span": "Fig. 8. The effect of Co contents in MBG scaffolds on VEGF secretion of BMSCs.",
+     "ocr_tokens": 0,
+     "png": "images/F8.png",
+     "width": 697,
+     "height": 512
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o17",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "BIO:western_blot",
+   "family": "BIO",
+   "delivery": "oracle",
+   "tests": "selection",
+   "lane": "oracle",
+   "expected_support": "partial",
+   "support_basis": "image_support partial",
+   "image_support": "partial",
+   "observation": "HIF-1alpha band faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG; alpha-tubulin bands equal",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": "2Co band is no stronger than MBG; only 5Co shows an increase; single blot, no densitometry",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.biomaterials.2011.11.042#F9",
+     "suffix": "F9",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/3a4ab77ab277b136e8680d300d521f2e806a1a68cb73f0543e900ff174d3914c.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/3a4ab77ab277b136e8680d300d521f2e806a1a68cb73f0543e900ff174d3914c.jpg",
+     "caption_span": "Fig. 9. HIF-1a expression of BMSCs in Co-MBG scaffolds by western blotting.",
+     "ocr_tokens": 0,
+     "png": "images/F9.png",
+     "width": 650,
+     "height": 175
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "the claim names a fact no panel carries: linked text F8: HIF-1alpha increased with Co content; hypoxia-mimicking framing from title",
+ "closing_missing": [
+  "linked text F8: HIF-1alpha increased with Co content",
+  "hypoxia-mimicking framing from title"
+ ],
+ "necessity": {
+  "BIO": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

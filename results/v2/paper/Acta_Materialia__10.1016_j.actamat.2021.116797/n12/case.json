@@ -1,0 +1,136 @@
+{
+ "case": "Acta_Materialia__10.1016_j.actamat.2021.116797:n12",
+ "paper": "Acta_Materialia__10.1016_j.actamat.2021.116797",
+ "graph": "taxonomy/graphs_v07/Acta_Materialia__10.1016_j.actamat.2021.116797.json",
+ "claim": "n12",
+ "claim_type": "PRP/value",
+ "claim_text": "Yield stress is strongly orientation dependent and, in [11-20] and [01-10], reaches ~145-165 MPa at RT, about 11x the pure-Mg single crystal",
+ "n_steps": 3,
+ "channels": [
+  "MECH"
+ ],
+ "n_channels": 1,
+ "lanes": {
+  "fm": 0,
+  "oracle": 3,
+  "other": 0
+ },
+ "tests": {
+  "perception": 1,
+  "selection": 0,
+  "integration": 2
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o6",
+   "relation": "evidences",
+   "mm_op": "read_characteristic_point",
+   "technique": "MECH:compression",
+   "family": "MECH",
+   "delivery": "oracle",
+   "tests": "integration",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "RT yield stress by orientation: ~9 MPa for [1 1 -2 1.85], ~148-165 MPa for [11-20], ~143 MPa for [01-10]; [0001] fractures at ~355 MPa without yielding",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "the linked text quotes ~130 MPa for [11-20] at RT, but the plotted RT points are ~148 and ~165 MPa; the [0001] points are labelled 'fracture' on the panel",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F2a",
+     "suffix": "F2a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5.jpg",
+     "caption_span": "Temperature dependence of the yield stress of the as-grown Mg99.2Zn0.20.6 single crystal in four loading orientations. The yield stress of the pure-Mg single crystals reported in ref. [32] and that measured in this study are also plotted in gray for comparison",
+     "ocr_tokens": 23,
+     "png": "images/F2a.png",
+     "width": 602,
+     "height": 472
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o7",
+   "relation": "evidences",
+   "mm_op": "compare_with_reference_value",
+   "technique": "MECH:compression",
+   "family": "MECH",
+   "delivery": "oracle",
+   "tests": "integration",
+   "lane": "oracle",
+   "expected_support": "partial",
+   "support_basis": "image_support partial",
+   "image_support": "partial",
+   "observation": "Between RT and 400 C the alloy's [11-20]/[01-10] yield stress falls only from ~165 to ~105 MPa, while the gray pure-Mg reference falls from ~270 to ~15 MPa and sits near 10 MPa in the soft orientations",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "'gray plots: pure-Mg' is written on the panel, but the gray symbols are not individually labelled by orientation, so the ~11x factor rests on reading the gray circle near 10-12 MPa at RT",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F2a",
+     "suffix": "F2a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/94dcf1ab1e5375d11e97c990eefead48acb46c2d5497c338028d1fbaa786a9a5.jpg",
+     "caption_span": "Temperature dependence of the yield stress of the as-grown Mg99.2Zn0.20.6 single crystal in four loading orientations. The yield stress of the pure-Mg single crystals reported in ref. [32] and that measured in this study are also plotted in gray for comparison",
+     "ocr_tokens": 23,
+     "png": "images/F2a.png",
+     "width": 602,
+     "height": 472
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "node": "o20",
+   "relation": "evidences",
+   "mm_op": "read_trend",
+   "technique": "MECH:compression",
+   "family": "MECH",
+   "delivery": "oracle",
+   "tests": "perception",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Yield stress in [11-20] at RT: 167 MPa as-grown, 113 MPa after the 520 C anneal, 160 MPa after the further 400 C anneal",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "bar chart, three states, one bar each, no scatter shown; the drop and recovery track the nanoplate density of Fig. 1(f)",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F8a",
+     "suffix": "F8a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/6bb3ed968061257a35fa0b6e371706825d87cf7056aba63e397a963f5ba7599e_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/6bb3ed968061257a35fa0b6e371706825d87cf7056aba63e397a963f5ba7599e.jpg",
+     "caption_span": "Variation in the yield stress with heat treatment for deformation in the [1120] orientation at RT",
+     "ocr_tokens": 12,
+     "png": "images/F8a.png",
+     "width": 356,
+     "height": 346
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "the claim names a fact no panel carries: the ~11x factor (~12 MPa in pure Mg to ~130 MPa in [11-20]) is stated in the Fig. 2 linked text; the gray pure-Mg points on #F2a are not labelled by orientation, and the plotted alloy RT points read ~148-165 MPa, not the text's ~130 MPa",
+ "closing_missing": [
+  "the ~11x factor (~12 MPa in pure Mg to ~130 MPa in [11-20]) is stated in the Fig. 2 linked text",
+  "the gray pure-Mg points on #F2a are not labelled by orientation, and the plotted alloy RT points read ~148-165 MPa, not the text's ~130 MPa"
+ ],
+ "necessity": {
+  "MECH": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

@@ -1,0 +1,110 @@
+{
+ "case": "Acta_Materialia__10.1016_j.actamat.2021.116797:n18",
+ "paper": "Acta_Materialia__10.1016_j.actamat.2021.116797",
+ "graph": "taxonomy/graphs_v07/Acta_Materialia__10.1016_j.actamat.2021.116797.json",
+ "claim": "n18",
+ "claim_type": "PRF/service_capability",
+ "claim_text": "In tension along [0001] the crystal elongates ~45% at 65-80 MPa by kink-band formation, the first bulk demonstration of tensile ductility by kinking",
+ "n_steps": 2,
+ "channels": [
+  "MECH",
+  "OM"
+ ],
+ "n_channels": 2,
+ "lanes": {
+  "fm": 0,
+  "oracle": 1,
+  "other": 1
+ },
+ "tests": {
+  "perception": 1,
+  "selection": 0,
+  "integration": 1
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o23",
+   "relation": "evidences",
+   "mm_op": "read_characteristic_point",
+   "technique": "MECH:tensile",
+   "family": "MECH",
+   "delivery": "oracle",
+   "tests": "integration",
+   "lane": "oracle",
+   "expected_support": "partial",
+   "support_basis": "image_support partial",
+   "image_support": "partial",
+   "observation": "Tensile [0001] test at RT: the flow stress starts at ~72 MPa, is serrated between ~52 and ~80 MPa, and the specimen reaches ~45% plastic strain before fracture",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "the text quotes a ~55 MPa tensile yield stress, but no low-strain point of the plotted curve is near 55 MPa; the first plateau is ~65-72 MPa and 52 MPa is reached only at the ~17% serration",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F10a",
+     "suffix": "F10a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/eb5781f855f2fd9c9bb9a8d71fc09e5d29b3e7c9e14882f89606fc49c2bbeb49_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/eb5781f855f2fd9c9bb9a8d71fc09e5d29b3e7c9e14882f89606fc49c2bbeb49.jpg",
+     "caption_span": "Stress-strain curve in the tensile test of Mg99.2Zn0.20.6 single crystal along [ooo1] at RT. The entire view of the deformed specimen is inserted in the figure The side surface planes in observation is parallel to (10i0)",
+     "ocr_tokens": 15,
+     "png": "images/F10a.png",
+     "width": 415,
+     "height": 357
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o24",
+   "relation": "evidences",
+   "mm_op": "inspect_local_feature",
+   "technique": "OM",
+   "family": "OM",
+   "delivery": "crop",
+   "tests": "perception",
+   "lane": "other",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "The tensile gauge is filled with fine bands inclined to the [0001] tensile direction, across which the marked basal-plane trace kinks",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": "100 um scale; the red basal-plane trace changes direction at each band, the same signature as the compression kink bands of Fig. 6",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F10b",
+     "suffix": "F10b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/eb5781f855f2fd9c9bb9a8d71fc09e5d29b3e7c9e14882f89606fc49c2bbeb49_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/eb5781f855f2fd9c9bb9a8d71fc09e5d29b3e7c9e14882f89606fc49c2bbeb49.jpg",
+     "caption_span": "Higher magnification image of the deformation microstructure showing the formation of many deformation kink bands, observed at the part indicated by the red circle in Fig. 10",
+     "ocr_tokens": 3,
+     "png": "images/F10b.png",
+     "width": 324,
+     "height": 323
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "the claim names a fact no panel carries: the 'first report of tensile ductility by kink-band formation in a bulk material' priority claim is text only",
+ "closing_missing": [
+  "the 'first report of tensile ductility by kink-band formation in a bulk material' priority claim is text only"
+ ],
+ "necessity": {
+  "MECH": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "OM": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

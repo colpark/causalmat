@@ -1,0 +1,193 @@
+{
+ "case": "Biomaterials__j.biomaterials.2011.11.042:n8",
+ "paper": "Biomaterials__j.biomaterials.2011.11.042",
+ "graph": "taxonomy/graphs_v07/Biomaterials__j.biomaterials.2011.11.042.json",
+ "claim": "n8",
+ "claim_type": "STR/phase/identity",
+ "claim_text": "2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)",
+ "n_steps": 4,
+ "channels": [
+  "PHYS",
+  "TEM",
+  "XRD"
+ ],
+ "n_channels": 3,
+ "lanes": {
+  "fm": 3,
+  "oracle": 1,
+  "other": 0
+ },
+ "tests": {
+  "perception": 1,
+  "selection": 2,
+  "integration": 1
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o3",
+   "relation": "evidences",
+   "mm_op": "assign_features",
+   "technique": "XRD:small_angle",
+   "family": "XRD",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Small-angle XRD: one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "linked text gives 2theta 1.25-1.30 deg; plotted peaks sit at ~1.35-1.5 deg",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.biomaterials.2011.11.042#F2",
+     "suffix": "F2",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/6370384ae83c8278928240744db31ecc7c40199f69a91dd04c3acff1299d414b.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/6370384ae83c8278928240744db31ecc7c40199f69a91dd04c3acff1299d414b.jpg",
+     "caption_span": "Fig. 2. Small-angle XRD analysis for MBG, 2Co-MBG and 5Co-MBG scaffolds.",
+     "ocr_tokens": 0,
+     "png": "images/F2.png",
+     "width": 695,
+     "height": 497
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o4",
+   "relation": "qualifies",
+   "mm_op": "compare_across_conditions",
+   "technique": "XRD:small_angle",
+   "family": "XRD",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "fm",
+   "expected_support": "partial",
+   "support_basis": "shown in the panel, entering by a qualifies edge: a caveat on the claim",
+   "image_support": "shown",
+   "observation": "Low-angle peak height falls ~8-fold with Co: ~180000 (MBG), ~74000 (2Co), ~23000 (5Co), 5Co peak barely above the rising background",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "linked text calls all three peaks 'obvious'",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.biomaterials.2011.11.042#F2",
+     "suffix": "F2",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/6370384ae83c8278928240744db31ecc7c40199f69a91dd04c3acff1299d414b.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/6370384ae83c8278928240744db31ecc7c40199f69a91dd04c3acff1299d414b.jpg",
+     "caption_span": "Fig. 2. Small-angle XRD analysis for MBG, 2Co-MBG and 5Co-MBG scaffolds.",
+     "ocr_tokens": 0,
+     "png": "images/F2.png",
+     "width": 695,
+     "height": 497
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "node": "o5",
+   "relation": "evidences",
+   "mm_op": "inspect_local_feature",
+   "technique": "TEM",
+   "family": "TEM",
+   "delivery": "crop",
+   "tests": "perception",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "TEM: parallel channel stripes over ~200 nm in a and a regular pore lattice in b, period ~5-6 nm",
+   "read_from": "pixels",
+   "requires_unseen": [
+    "panel a = 2Co-MBG, b = 5Co-MBG (caption)"
+   ],
+   "image_note": "packet F4 is paper Fig. 3; pore diameter alone is not resolvable from wall at this scale; MBG not imaged",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.biomaterials.2011.11.042#F4a",
+     "suffix": "F4a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/panels/crops/27b14ac929f740f2255b924a95617e69ccf4424594e66db2f69a8e8e8705bad0_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/27b14ac929f740f2255b924a95617e69ccf4424594e66db2f69a8e8e8705bad0.jpg",
+     "caption_span": "and 5Co-MBG",
+     "ocr_tokens": 2,
+     "png": "images/F4a.png",
+     "width": 467,
+     "height": 483
+    },
+    {
+     "panel_id": "10.1016/j.biomaterials.2011.11.042#F4b",
+     "suffix": "F4b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/panels/crops/27b14ac929f740f2255b924a95617e69ccf4424594e66db2f69a8e8e8705bad0_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/27b14ac929f740f2255b924a95617e69ccf4424594e66db2f69a8e8e8705bad0.jpg",
+     "caption_span": "scaffolds. They have well-ordered mesopore channel structure with a pore size around 4.5-5nm",
+     "ocr_tokens": 2,
+     "png": "images/F4b.png",
+     "width": 468,
+     "height": 484
+    }
+   ]
+  },
+  {
+   "step": 4,
+   "node": "o6",
+   "relation": "evidences",
+   "mm_op": "recognize_signature",
+   "technique": "PHYS:N2_sorption",
+   "family": "PHYS",
+   "delivery": "oracle",
+   "tests": "integration",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "N2 isotherms of all three show a hysteresis step at P/P0 ~0.45-0.6 (type IV)",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "packet F3 is paper Fig. 4",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.biomaterials.2011.11.042#F3a",
+     "suffix": "F3a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/panels/crops/91ef7e82aec7cf777d05a177201f7c357fd3db125138941c37674c3532767af0_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Biomaterials/j.biomaterials.2011.11.042/images/91ef7e82aec7cf777d05a177201f7c357fd3db125138941c37674c3532767af0.jpg",
+     "caption_span": "and mesopore pore size distribution",
+     "ocr_tokens": 19,
+     "png": "images/F3a.png",
+     "width": 682,
+     "height": 501
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "the claim names a fact no panel carries: TEM panel a = 2Co-MBG, b = 5Co-MBG (caption); pore size 4.5-5 nm from caption",
+ "closing_missing": [
+  "TEM panel a = 2Co-MBG, b = 5Co-MBG (caption)",
+  "pore size 4.5-5 nm from caption",
+  "panel a = 2Co-MBG, b = 5Co-MBG (caption)"
+ ],
+ "necessity": {
+  "PHYS": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "TEM": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "XRD": {
+   "structural": "necessary",
+   "why": "sole channel carrying the across-condition comparison the claim needs",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

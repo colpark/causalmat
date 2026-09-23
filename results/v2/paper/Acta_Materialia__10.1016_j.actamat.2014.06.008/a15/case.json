@@ -1,0 +1,107 @@
+{
+ "case": "Acta_Materialia__10.1016_j.actamat.2014.06.008:a15",
+ "paper": "Acta_Materialia__10.1016_j.actamat.2014.06.008",
+ "graph": "taxonomy/graphs_v06b/Acta_Materialia__10.1016_j.actamat.2014.06.008.json",
+ "claim": "a15",
+ "claim_type": "PRP/value",
+ "claim_text": "Single-grain out-of-plane strain vs temperature departs from the thermoelastic slope with hysteresis, and after the first heating it follows the film average",
+ "n_steps": 2,
+ "channels": [
+  "XRD"
+ ],
+ "n_channels": 1,
+ "lanes": {
+  "fm": 2,
+  "oracle": 0,
+  "other": 0
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 1,
+  "integration": 1
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o13",
+   "relation": "evidences",
+   "mm_op": "overlay_model_on_data",
+   "technique": "XRD:CXD",
+   "family": "XRD",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Single-grain strain loops leave the thermoelastic line: slopes are much lower and heating and cooling branches do not coincide",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "Syn cycle 1 starts at -0.057% and ends at -0.167% after cooling (more compressive out-of-plane); text quotes 95 MPa -> 250 MPa in-plane stress; text also quotes M111 = 188.6 MPa, which must be GPa",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2014.06.008#F4a",
+     "suffix": "F4a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2014.06.008/panels/crops/b62029cbf46453c2c2a36fa76123aea38209557da58923b5325f920eb96d0371_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2014.06.008/images/b62029cbf46453c2c2a36fa76123aea38209557da58923b5325f920eb96d0371.jpg",
+     "caption_span": "Out-of-plane lattice strain is reported for three successive thermal cycles. The first cycle was measured with a laboratory source (red line) and is relative to a large number of (111)-oriented grains. The second cycle (green line) is deduced from the average position of the coherent diffraction pattern of the single investigated grain (see Fig. 5). A third cycle was measured (blue line) in the same conditions as the one used in the second cycle. The ideal thermoelastic slope is also represented (cyan line)",
+     "ocr_tokens": 19,
+     "png": "images/F4a.png",
+     "width": 645,
+     "height": 584
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o14",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "XRD",
+   "family": "XRD",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Lab (film average) loop and synchrotron cycle 2 nearly coincide; synchrotron cycle 1 heating branch lies well above both",
+   "read_from": "axis",
+   "requires_unseen": [
+    "Lab cycle = average over many (111) grains, Syn cycles = the single grain (caption)"
+   ],
+   "image_note": "lab cycle runs to 350 C while text says cycles went to 270 C",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2014.06.008#F4a",
+     "suffix": "F4a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2014.06.008/panels/crops/b62029cbf46453c2c2a36fa76123aea38209557da58923b5325f920eb96d0371_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2014.06.008/images/b62029cbf46453c2c2a36fa76123aea38209557da58923b5325f920eb96d0371.jpg",
+     "caption_span": "Out-of-plane lattice strain is reported for three successive thermal cycles. The first cycle was measured with a laboratory source (red line) and is relative to a large number of (111)-oriented grains. The second cycle (green line) is deduced from the average position of the coherent diffraction pattern of the single investigated grain (see Fig. 5). A third cycle was measured (blue line) in the same conditions as the one used in the second cycle. The ideal thermoelastic slope is also represented (cyan line)",
+     "ocr_tokens": 19,
+     "png": "images/F4a.png",
+     "width": 645,
+     "height": 584
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "the claim names a fact no panel carries: Lab cycle = film average over many (111) grains (caption)",
+ "closing_missing": [
+  "Lab cycle = film average over many (111) grains (caption)",
+  "Lab cycle = average over many (111) grains, Syn cycles = the single grain (caption)"
+ ],
+ "necessity": {
+  "XRD": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

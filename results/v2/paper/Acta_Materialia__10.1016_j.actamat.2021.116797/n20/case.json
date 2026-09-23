@@ -1,0 +1,108 @@
+{
+ "case": "Acta_Materialia__10.1016_j.actamat.2021.116797:n20",
+ "paper": "Acta_Materialia__10.1016_j.actamat.2021.116797",
+ "graph": "taxonomy/graphs_v07/Acta_Materialia__10.1016_j.actamat.2021.116797.json",
+ "claim": "n20",
+ "claim_type": "STR/microstructure/distribution",
+ "claim_text": "The LPSO nanoplates lie parallel to (0001) and are dispersed, heterogeneously, through the whole as-grown crystal",
+ "n_steps": 2,
+ "channels": [
+  "SEM",
+  "TEM"
+ ],
+ "n_channels": 2,
+ "lanes": {
+  "fm": 2,
+  "oracle": 0,
+  "other": 0
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 0,
+  "integration": 2
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o1",
+   "relation": "evidences",
+   "mm_op": "assess_spatial_distribution",
+   "technique": "SEM",
+   "family": "SEM",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "SEM of the as-grown crystal: dense fine straight traces on a single alignment fill the grains, with no large precipitates",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": "10 um scale bar; the traces run edge to edge, spacing well below 1 um",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F1a",
+     "suffix": "F1a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/48349b1c3d4240b624681ec1aba9fef4a6fbc63fb28035afe85786deac3b0d1c_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/48349b1c3d4240b624681ec1aba9fef4a6fbc63fb28035afe85786deac3b0d1c.jpg",
+     "caption_span": "SEM image of the as-grown DS alloy",
+     "ocr_tokens": 2,
+     "png": "images/F1a.png",
+     "width": 307,
+     "height": 313
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o2",
+   "relation": "evidences",
+   "mm_op": "assess_spatial_distribution",
+   "technique": "TEM",
+   "family": "TEM",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Bright-field TEM taken with g=0002 shows strong planar fault-like contrast lying on (0001), roughly ten plates per um",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": "the 'g 0002' arrow is drawn on the panel; the contrast is strong, whereas an R=1/3<10-10> fault would be extinct at g=0002",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2021.116797#F1b",
+     "suffix": "F1b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/panels/crops/48349b1c3d4240b624681ec1aba9fef4a6fbc63fb28035afe85786deac3b0d1c_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2021.116797/images/48349b1c3d4240b624681ec1aba9fef4a6fbc63fb28035afe85786deac3b0d1c.jpg",
+     "caption_span": "Bright-field TEM image showing the microstructure in the as-grown alloy was annealed at 520C for 5h followed by water quenching, and",
+     "ocr_tokens": 3,
+     "png": "images/F1b.png",
+     "width": 309,
+     "height": 315
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "shown",
+ "closing_why": "two or more channels show it and nothing is missing",
+ "closing_missing": [],
+ "necessity": {
+  "SEM": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "TEM": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": false
+}

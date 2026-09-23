@@ -1,0 +1,106 @@
+{
+ "case": "Acta_Materialia__10.1016_j.actamat.2014.06.008:a14",
+ "paper": "Acta_Materialia__10.1016_j.actamat.2014.06.008",
+ "graph": "taxonomy/graphs_v06b/Acta_Materialia__10.1016_j.actamat.2014.06.008.json",
+ "claim": "a14",
+ "claim_type": "STR/microstructure/orientation",
+ "claim_text": "Among g1's neighbours, g3 and g6 are strongly misoriented in-plane from g1, while g2, g4 and g5 are nearly aligned with it",
+ "n_steps": 2,
+ "channels": [
+  "EBSD"
+ ],
+ "n_channels": 1,
+ "lanes": {
+  "fm": 2,
+  "oracle": 0,
+  "other": 0
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 0,
+  "integration": 2
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o15",
+   "relation": "evidences",
+   "mm_op": "compare_coplotted_quantities",
+   "technique": "EBSD",
+   "family": "EBSD",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Projected <110> arrows: g1 and g5 coincide, g2 and g4 deviate slightly, g6 about 15 deg one way and g3 about 30 deg the other",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2014.06.008#F7c",
+     "suffix": "F7c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2014.06.008/panels/crops/2cb867ffae7e2fba0e5834fb61d0e05b187fbe3261e7416b80bb7dcdfdcab418_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2014.06.008/images/2cb867ffae7e2fba0e5834fb61d0e05b187fbe3261e7416b80bb7dcdfdcab418.jpg",
+     "caption_span": "110 directions projected in the film plane (xy) for the studied grain and its neighbors",
+     "ocr_tokens": 8,
+     "png": "images/F7c.png",
+     "width": 502,
+     "height": 304
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o16",
+   "relation": "evidences",
+   "mm_op": "assess_spatial_distribution",
+   "technique": "EBSD",
+   "family": "EBSD",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "EBSD map: g4 and g2 above and g5 below g1 along Y; g6 and g3 flank g1 on either side along X",
+   "read_from": "pixels",
+   "requires_unseen": [
+    "EBSD map axes coincide with the CXD sample frame (text)"
+   ],
+   "image_note": "F7a SEM is a mirrored and rotated view of the same neighbourhood",
+   "panels": [
+    {
+     "panel_id": "10.1016/j.actamat.2014.06.008#F7b",
+     "suffix": "F7b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2014.06.008/panels/crops/2cb867ffae7e2fba0e5834fb61d0e05b187fbe3261e7416b80bb7dcdfdcab418_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Acta_Materialia/10.1016_j.actamat.2014.06.008/images/2cb867ffae7e2fba0e5834fb61d0e05b187fbe3261e7416b80bb7dcdfdcab418.jpg",
+     "caption_span": "EBSD micrograph of the same region from where in-plane (110 direction) orientation is extracted",
+     "ocr_tokens": 14,
+     "png": "images/F7b.png",
+     "width": 501,
+     "height": 422
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "shown",
+ "closing_why": "two or more channels show it and nothing is missing",
+ "closing_missing": [
+  "EBSD map axes coincide with the CXD sample frame (text)"
+ ],
+ "necessity": {
+  "EBSD": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}
