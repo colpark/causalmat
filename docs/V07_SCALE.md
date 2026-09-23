@@ -6,7 +6,7 @@
 panel judge on every flag, staff citation fix, cutter, writer, structural nets, solving gate, inspector.
 Per-paper rows are in `results/v07/batch.csv`; per-item rows in each paper's `results/v07/papers/<P>/gate.jsonl`.
 
-**111 valid items, 1.11 per paper.** 9 more are text-sufficient and 56 went to inspect.
+**112 valid items, 1.12 per paper.** 9 more are text-sufficient and 55 went to inspect.
 
 ## Funnel
 
@@ -16,11 +16,11 @@ Per-paper rows are in `results/v07/batch.csv`; per-item rows in each paper's `re
 | open after the cutter rules | 181 | 38% |
 | written | 180 | 38% |
 | passed the structural nets | 173 | 36% |
-| **valid** | 111 | 23% |
+| **valid** | 112 | 23% |
 | text-sufficient | 9 | 2% |
-| inspect | 56 | 12% |
+| inspect | 55 | 12% |
 
-41 of the 111 valid items are partial. 100 papers, 1.11 valid per paper.
+41 of the 112 valid items are partial. 100 papers, 1.12 valid per paper.
 
 ## Yield by journal
 
@@ -28,7 +28,7 @@ Per-paper rows are in `results/v07/batch.csv`; per-item rows in each paper's `re
 |---|---|---|---|---|
 | Acta_Materialia | 10 | 49 | 11 | 1.10 |
 | Advanced_Composites_and_Hybrid_Materials | 4 | 21 | 6 | 1.50 |
-| Advanced_Energy_Materials | 11 | 78 | 21 | 1.91 |
+| Advanced_Energy_Materials | 11 | 78 | 22 | 2.00 |
 | Advanced_Functional_Materials | 10 | 49 | 6 | 0.60 |
 | Advanced_Materials | 11 | 49 | 10 | 0.91 |
 | Bioactive_Materials | 6 | 19 | 4 | 0.67 |
@@ -58,7 +58,7 @@ Per-paper rows are in `results/v07/batch.csv`; per-item rows in each paper's `re
 | 2018 | 2 | 7 | 0 | 0.00 |
 | 2019 | 5 | 26 | 1 | 0.20 |
 | 2020 | 11 | 49 | 9 | 0.82 |
-| 2021 | 47 | 244 | 52 | 1.11 |
+| 2021 | 47 | 244 | 53 | 1.13 |
 | 2022 | 14 | 70 | 23 | 1.64 |
 
 ## Yield by annotated share of crops
@@ -68,13 +68,13 @@ Per-paper rows are in `results/v07/batch.csv`; per-item rows in each paper's `re
 | 0.00-0.25 | 1 | 10 | 0 | 0.00 |
 | 0.25-0.50 | 6 | 23 | 6 | 1.00 |
 | 0.50-0.75 | 34 | 150 | 39 | 1.15 |
-| 0.75-1.00 | 59 | 294 | 66 | 1.12 |
+| 0.75-1.00 | 59 | 294 | 67 | 1.14 |
 
 ## Yield by figure-modality family
 
 | figure-modality family | gate items | valid | rate |
 |---|---|---|---|
-| SEM | 58 | 39 | 67% |
+| SEM | 58 | 40 | 69% |
 | TEM | 23 | 15 | 65% |
 | XRD | 20 | 14 | 70% |
 | ECHEM | 17 | 6 | 35% |
@@ -99,13 +99,13 @@ Per-paper rows are in `results/v07/batch.csv`; per-item rows in each paper's `re
 | ASSAY | 1 | 0 | 0% |
 | CT | 1 | 1 | 100% |
 
-## Inspect causes (56 items)
+## Inspect causes (55 items)
 
 | cause | items | share |
 |---|---|---|
-| solver | 25 | 45% |
+| solver | 26 | 47% |
 | writer | 16 | 29% |
-| graph | 10 | 18% |
+| graph | 8 | 15% |
 | cutter | 5 | 9% |
 
 ## What the cutter closed (296 traces)
@@ -130,9 +130,9 @@ Panel-judge precision on the flags: 22%.
 
 ## Cost
 
-4447 subagent dispatches, 44.5 per paper. Median wall time per paper 188 min.
+4458 subagent dispatches, 44.6 per paper. Median wall time per paper 188 min.
 
-At 44.5 dispatches per paper, the 16,487-paper corpus projects to 733k dispatches and 18,301 valid items.
+At 44.6 dispatches per paper, the 16,487-paper corpus projects to 735k dispatches and 18,465 valid items.
 
 ## Where the yield goes
 
@@ -146,9 +146,9 @@ times across the whole set now that the second read supplies `cue_overrides`.
 
 | cause | items | share | what it means |
 |---|---|---|---|
-| solver | 25 | 45% | the item is fair and the image arm misread it — the benchmark working |
+| solver | 26 | 47% | the item is fair and the image arm misread it — the benchmark working |
 | writer | 16 | 29% | the question or key is at fault |
-| graph | 10 | 18% | the evidence node misreads the panel |
+| graph | 8 | 15% | the evidence node misreads the panel |
 | cutter | 5 | 9% | the item withholds what the key needs |
 
 **The writer is the largest fixable defect.** Sixteen items failed because the question and the key do not

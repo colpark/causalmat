@@ -478,8 +478,9 @@ def main(argv):
     for p in out_roots.values(): os.makedirs(p, exist_ok=True)
     YEARS = years(); log = []
     by_verdict = {}
-    for paper in sorted(os.listdir(PAPERS)):
-        if not os.path.isdir(os.path.join(PAPERS, paper)): continue
+    # every paper in the run: the v07 trees plus the pilot papers, whose rows come from results/v07/pilot/gate.jsonl
+    todo = sorted({p for p in os.listdir(PAPERS) if os.path.isdir(os.path.join(PAPERS, p))} | set(YEARS))
+    for paper in todo:
         try:
             for it, dirp, prows in export_paper(paper, want, out_roots, YEARS, log):
                 by_verdict.setdefault(it['verdict'], []).append((it, dirp, prows))
