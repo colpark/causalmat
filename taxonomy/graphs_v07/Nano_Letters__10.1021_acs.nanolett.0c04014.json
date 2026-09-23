@@ -1,0 +1,1710 @@
+{
+ "paper_id": "Nano_Letters/10.1021_acs.nanolett.0c04014",
+ "title": "Enhancing Vibrational Light-Matter Coupling Strength beyond the Molecular Concentration Limit Using Plasmonic Arrays",
+ "vocab_version": "v04",
+ "batch": "v07",
+ "text_source": "captions_plus_linked_text",
+ "staff": "C54",
+ "notes": "No introduction, methods or SI in the packet, so HYP, DES and PRC nodes are text with requires_unseen. Spine: sqrt(C) ceiling -> plasmon array as a third resonator -> nanorod arrays of five lengths in an FP cavity -> plasmon tuning -> 3 cavity-plasmon polaritons -> three-component coupling 220/202 cm-1 -> beyond the concentration limit. Control branch: cavity+molecule only (Rabi 101/46 cm-1, strong-coupling regime, fitted g 41/18 cm-1). Second branch: polariton linewidth narrowing (~70 cm-1) explained by suppressed radiative damping. Audits: a1 the paper's own 'crude assumptions', a2 the non-dispersing artifact bands in F5, a3 the cavity thicknesses used for the F5 simulations (10.8/8.5/10.4 um) do not match those used for the F6 fits (9.7/8.0/10.1 um). Packet oddities: F1 is the TOC/abstract graphic and F2 the journal cover thumbnail, both caption-less and carrying no data, yet both are offered as whole-figure panels; F3-F6 are paper Figures 1-4, so packet figure ids are offset by two from the paper's. F5 is tier C3_caption_swap with no crops, and the caption's blue dash-dot polariton guides are not discernible in the packet image, so the '2+1=3 polaritons' count had to be taken from F6a rather than F5a. The F4b/F4c splittings read by eye (~110 and ~65 cm-1) are larger than the caption's 101 and 46 cm-1. The key quantities (220, 202, 172, 41, 18, 70, 84 cm-1) all live in the linked text; the figures show the fits, not the numbers.",
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "HYP/need",
+   "label": "Coupling strength cannot be pushed further by concentration: neat liquid is already the ceiling",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "that the neat liquid is the practical concentration ceiling is stated only in the F3/F4 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n2",
+   "type": "HYP/hypothesis",
+   "label": "A plasmonic array tuned to the same frequency as cavity and molecule should push the coupling above the sqrt(C) limit",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "'increase the coupling strength above the limit of sqrt(C)' and the artificial-molecule idea are text only"
+    ],
+    "expected_effect": "three mutually coupled entities -> hybrid polaritons with larger total coupling"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F3a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n3",
+   "type": "DES/base_system",
+   "label": "Fabry-Perot cavity of IR-transparent CaF2 and ZnSe windows with 10 nm gold mirrors and a polymer spacer of 11-16 um",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "11-16 um mirror spacing, the polymer spacer and the two liquid inlets are stated only in the linked text"
+    ],
+    "reason": "IR transparency and a free spectral range that places an FP mode on each molecular band"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F3b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n4",
+   "type": "DES/modification",
+   "label": "Add a gold nanorod array on a 450 nm SiO2 spacer inside the cavity as a third resonant component",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "site": "on the SiO2-coated lower (ZnSe) mirror",
+    "intended_role": "artificial molecule of large oscillator strength; the 450 nm SiO2 keeps the rods off the gold mirror"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F3b"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n5",
+   "type": "DES/variable_sweep",
+   "label": "Five arrays of equal rod thickness and spacing with rod length 1100, 1200, 1300, 1400 and 1500 nm",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "variable": "nanorod length",
+    "levels": "1100-1500 nm in 100 nm steps",
+    "purpose": "tune the plasmon resonance across both molecular bands and the FP modes (cavity-plasmon detuning)"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F3d"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n6",
+   "type": "PRC/deposition",
+   "label": "Deposit the five gold nanorod arrays (about 100 um2 each) on the SiO2-coated gold/ZnSe mirror",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "array patch area ~100 um2 and the lithography/deposition route are in the linked text and SI only"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n7",
+   "type": "PRC/forming",
+   "label": "Assemble the two gold-coated windows with a polymer spacer into an 11-16 um Fabry-Perot cavity with two inlets",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "spacer material, cavity thickness range and the inlet design are text only"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n8",
+   "type": "PRC/stimulus",
+   "label": "Fill the cavity with neat hexanal or 4-butylbenzonitrile through the two inlets",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "neat-liquid processing and the two-inlet filling are stated only in the linked text"
+    ],
+    "aspect": "exposing the rod-loaded cavity to the neat molecular medium produces the vibro-polaritons that are read out"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n9",
+   "type": "STR/microstructure/shape",
+   "label": "The arrays are regular rectangular lattices of uniform gold nanorods of constant width and pitch, length 1100-1500 nm",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "scale": "mesoscale",
+    "image_note": "F3d insets at 1 um show clean, straight-edged rods; the 5 um field shows no missing or merged rods"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F3d"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n10",
+   "type": "PRP/value",
+   "label": "The plasmon resonance red-shifts monotonically with rod length, sweeping across both molecular bands and the FP modes",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "property_family": "optical",
+    "quantity": "localized surface plasmon resonance wavenumber",
+    "direction": "decreases with rod length"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F4d"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n11",
+   "type": "PRP/value",
+   "label": "Cavity-molecule strong coupling gives a Rabi splitting of 101 cm-1 for C=O and 46 cm-1 for C-N",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "the numbers 101 and 46 cm-1 are given only in the Figure 2 caption and linked text"
+    ],
+    "property_family": "optical",
+    "quantity": "vacuum Rabi splitting",
+    "image_note": "reading the orange cavity traces by eye gives ~110 cm-1 in F4b (peaks near 1800 and 1690) and ~65 cm-1 in F4c (peaks near 2255 and 2190)",
+    "note": "both splittings exceed the bare molecular (27 / 10 cm-1) and cavity linewidths; that criterion is carried by n12 with k4"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F4b",
+    "10.1021/acs.nanolett.0c04014#F4c"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n12",
+   "type": "PRP/behavior_class",
+   "label": "Both filled cavities sit in the vibrational strong-coupling regime, forming vibro-polaritons",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "the strong-coupling verdict is stated in the linked text"
+    ],
+    "property_family": "optical",
+    "basis": "argued",
+    "class": "strong coupling (splitting exceeds molecular and cavity linewidths)"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n13",
+   "type": "PRP/value",
+   "label": "Rods plus cavity give 2+1 = 3 microcavity-plasmon polaritons with almost linear dispersion in rod length",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "'exactly 2+1 = 3 microcavity-plasmon polaritonic states' and the almost linear dispersion are stated only in the F5 linked text",
+     "the identification of the three bright branches as polaritons rests on the F5 caption's blue dash-dot guides, which are not discernible in the packet image"
+    ],
+    "property_family": "optical",
+    "quantity": "number and dispersion of polaritonic branches",
+    "image_note": "F5a shows dispersing bright branches that track rod length, but the branch count cannot be read from pixels because the caption's blue dash-dot guides are not discernible",
+    "panel_note": "F5 offers no crops (tier C3_caption_swap); read from the whole figure. F6a was dropped: its abscissa is the plasmon frequency, not rod length, and it carries the JC fit (o10), not the 2+1 = 3 count"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n14",
+   "type": "PRP/value",
+   "label": "The plasmon polariton linewidth drops to about 70 cm-1, an order of magnitude below the bare plasmon",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "the values 70 cm-1 and the FP mode fwhm 84 +/- 7.3 cm-1 come from the linked text and Table S2, which are not in the packet"
+    ],
+    "property_family": "optical",
+    "quantity": "polariton fwhm",
+    "direction": "decreases",
+    "basis": "argued",
+    "floor_note": "the linked text adds that the FP mode fwhm 84 +/- 7.3 cm-1 (Table S2) sets the floor, i.e. the cavity limits the polariton linewidth"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n15",
+   "type": "MEC/pathway",
+   "label": "Inside the closed cavity the rods' radiation is recycled between the mirrors instead of escaping, suppressing radiative damping",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "the recycling argument is given in the F5 linked text"
+    ],
+    "mechanism_class": "radiative_damping_suppression",
+    "basis": "argued"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n16",
+   "type": "PRP/value",
+   "label": "The three-component system reaches a resonant coupling strength of about 220 cm-1 (hexanal) and 202 cm-1 (4-butylbenzonitrile)",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "220 and 202 cm-1, the FP mode orders and the cavity thicknesses 8.0 and 10.1 um are stated only in the F6 linked text"
+    ],
+    "property_family": "optical",
+    "quantity": "zero-detuning collective coupling strength g"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F6b",
+    "10.1021/acs.nanolett.0c04014#F6c"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n17",
+   "type": "MEC/pathway",
+   "label": "The nanorod array acts as an artificial molecule whose oscillator strength joins the real molecules in one collective oscillator",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "stated as the key idea in the F6 linked text"
+    ],
+    "mechanism_class": "collective_oscillator_hybridisation",
+    "basis": "argued"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n18",
+   "type": "PRF/service_capability",
+   "label": "At unchanged neat concentration the hybrid delivers ~5x (hexanal) and ~11x (nitrile) the cavity-molecule coupling, beating the sqrt(C) ceiling",
+   "attrs": {
+    "source": "inferred",
+    "requires_unseen": [
+     "the ratios are formed from 220/41 and 202/18, all four numbers text-only"
+    ],
+    "condition": "zero detuning, resonant FP mode",
+    "basis": "argued"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "n19",
+   "type": "DSC/conclusion",
+   "label": "Plasmonic arrays inside an IR cavity raise vibrational light-matter coupling beyond the molecular concentration limit while the cavity tames their radiative losses",
+   "attrs": {
+    "source": "inferred",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": true,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "s1",
+   "type": "PRP/value",
+   "label": "The empty cavity has Q = 28, a free spectral range of 496 cm-1 and a mode fwhm of about 50 cm-1 at 1520 cm-1",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "property_family": "optical",
+    "quantity": "cavity quality factor, FSR and mode width",
+    "object": "empty FP cavity"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F4a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "s2",
+   "type": "STR/chemistry/bonding",
+   "label": "The coupled vibrations are the C=O stretch of hexanal (~1724 cm-1) and the C-N stretch of 4-butylbenzonitrile (~2225 cm-1)",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "the molecule names hexanal and 4-butylbenzonitrile come from the F3c and F4b,c captions; F3c carries no annotations",
+     "the band centres 1724 and 2225 cm-1 are caption/linked-text values"
+    ],
+    "image_note": "F3c highlights exactly these two groups in orange on the two drawn structures"
+   },
+   "figs": [
+    "F3",
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F3c",
+    "10.1021/acs.nanolett.0c04014#F4b",
+    "10.1021/acs.nanolett.0c04014#F4c"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "s3",
+   "type": "PRP/value",
+   "label": "Bare plasmon resonances are broad (fwhm 621-1120 cm-1) because radiative loss dominates the IR nanorod linewidth",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "the fwhm range 621-1120 cm-1 and the radiative-loss attribution are text only"
+    ],
+    "property_family": "optical",
+    "quantity": "plasmon resonance fwhm"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F4d"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "s4",
+   "type": "PRP/value",
+   "label": "Without rods the zero-detuning cavity-molecule coupling is only about 41 cm-1 (hexanal) and 18 cm-1 (4-butylbenzonitrile)",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "both values come from a fit shown in Figure S6, which is not in the packet"
+    ],
+    "property_family": "optical",
+    "quantity": "collective coupling strength g",
+    "basis": "argued"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "s5",
+   "type": "PRP/value",
+   "label": "The nanorod array alone couples to the fourth FP mode of a 9.7 um cavity with a strength of about 172 cm-1",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "172 cm-1, the mode order and the 9.7 um thickness are stated only in the F6 linked text"
+    ],
+    "property_family": "optical",
+    "quantity": "collective coupling strength g"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F6a"
+   ],
+   "modality": null,
+   "provenance": null,
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "s6",
+   "type": "DSC/comparison",
+   "label": "The fitted cavity-molecule coupling strengths (41, 18 cm-1) sit close to the bulk polariton values (49, 21 cm-1)",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "all four numbers and the g_bulk expression come from the F6 linked text"
+    ],
+    "against": "model",
+    "verdict": "agree"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "s7",
+   "type": "DES/method",
+   "label": "Probe with polarization-resolved transmission along the rod long axis, where the microcavity-plasmon polaritons appear",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "the rod anisotropy argument and the polarizer orientation are stated in the F5 linked text and caption"
+    ],
+    "aspect": "technique",
+    "reason": "the polaritons are observed only along the rods' long axis; along the short axis the bare cavity is recovered"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o1",
+   "type": "OBS/morphology/appearance",
+   "label": "SEM shows uniform, straight-edged gold rods on a regular rectangular lattice with constant pitch and no missing rods",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "pixels",
+    "technique": "SEM",
+    "object": "nanorod array"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F3d"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o2",
+   "type": "OBS/morphology/feature_metric",
+   "label": "Across the five SEM panels the rod length steps 1100 -> 1500 nm while rod width and lattice pitch stay the same",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "annotation",
+    "annotation_match": [
+     "L=1100nm",
+     "L=1200nm",
+     "L=1300nm",
+     "L=1400nm",
+     "L=1500nm"
+    ],
+    "technique": "SEM",
+    "image_note": "the lengths are printed on the panels; the 5 um and 1 um bars let the trend be checked by eye"
+   },
+   "figs": [
+    "F3"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F3d"
+   ],
+   "modality": "micrograph",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o3",
+   "type": "OBS/response/characteristic_value",
+   "label": "The empty-cavity transmission comb is annotated FSR = 496 cm-1, Q = 28, d = 10.19 um and a 1520 cm-1 mode width of ~50 cm-1",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "annotation",
+    "annotation_match": [
+     "FSR=496cm-1",
+     "Q=28",
+     "d=10.19um",
+     "dv1520~50cm-1"
+    ],
+    "technique": "FTIR:transmission",
+    "image_note": "eight peaks between 4500 and 1000 cm-1; peak transmission falls from ~21% to ~3% toward low wavenumber"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F4a"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o4",
+   "type": "OBS/signal/feature_assignment",
+   "label": "The ATR traces carry one deep band at ~1724 cm-1 labelled C=O and one sharp band at ~2225 cm-1 labelled C-N",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "annotation",
+    "annotation_match": [
+     "C=O",
+     "C=N"
+    ],
+    "technique": "FTIR:ATR"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F4b",
+    "10.1021/acs.nanolett.0c04014#F4c"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o5",
+   "type": "OBS/signal/feature_presence",
+   "label": "In both filled cavities two transmission peaks straddle the molecular absorption band where a single FP mode would sit",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "pixels",
+    "technique": "FTIR:transmission",
+    "image_note": "F4b: orange peaks near 1800 and 1690 cm-1 about the purple C=O dip; F4c: peaks near 2255 and 2190 cm-1 about the C-N dip; the other orange peaks (2230, 2000 in F4b) are uncoupled FP modes"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F4b",
+    "10.1021/acs.nanolett.0c04014#F4c"
+   ],
+   "modality": "spectrum",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o6",
+   "type": "OBS/response/trend",
+   "label": "In the reflection map the low-reflectance plasmon band moves from ~2000 cm-1 at 1100 nm rods to ~1750 cm-1 at 1500 nm rods",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "axis",
+    "technique": "FTIR:reflection"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F4d"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o7",
+   "type": "OBS/signal/feature_quantification",
+   "label": "Each plasmon reflection band is several hundred cm-1 wide, spanning roughly 2200-1500 cm-1 for the longest rods",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "pixels",
+    "technique": "FTIR:reflection",
+    "image_note": "the colour scale bottoms out near R = 55-60%, so the band is shallow as well as broad"
+   },
+   "figs": [
+    "F4"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F4d"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o8",
+   "type": "OBS/response/trend",
+   "label": "The transmission maps of the rod-loaded cavity show bright bands whose wavenumber shifts monotonically with rod length",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "pixels",
+    "technique": "FTIR:transmission",
+    "image_note": "the grey dots (plasmon absorption maximum) fall from ~2230 cm-1 at 1100 nm to ~1750 cm-1 at 1500 nm; the caption's blue dash-dot polariton guides are not discernible in the packet image",
+    "panel_note": "F5 offers no crops (tier C3_caption_swap); read from the whole figure"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o9",
+   "type": "OBS/signal/reference_match",
+   "label": "The simulated maps (F5d-f) reproduce the branch positions and slopes of the measured maps (F5a-c) panel for panel",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "pixels",
+    "technique": "FTIR:transmission",
+    "image_note": "panels d-f are simulation output, not an instrument reading; the simulated branches are far sharper than the measured ones and the caption gives simulated thicknesses 10.8 / 8.5 / 10.4 um",
+    "panel_note": "F5 offers no crops; read from the whole figure"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o10",
+   "type": "OBS/signal/reference_match",
+   "label": "Measured transmission-peak positions of the rod-cavity system populate three eigenvalue branches of the multimode JC fit",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "pixels",
+    "technique": "FTIR:transmission",
+    "image_note": "five magenta points per branch on the ~1750-1850, ~2100-2200 and ~2600 cm-1 branches; the branches bend away from the dotted bare-plasmon diagonal (anticrossing)"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F6a"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o11",
+   "type": "OBS/signal/reference_match",
+   "label": "In the two hybrid systems the measured peaks again lie on the JC branches, which flatten at the C=O and C-N lines",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "pixels",
+    "technique": "FTIR:transmission",
+    "image_note": "F6b has ~7 and F6c ~8 branches against ~6 in F6a, i.e. more FP modes in the same range; measured points sit on 3 branches in F6b and 4 in F6c"
+   },
+   "figs": [
+    "F6"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.0c04014#F6b",
+    "10.1021/acs.nanolett.0c04014#F6c"
+   ],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "o12",
+   "type": "OBS/signal/feature_quantification",
+   "label": "The bright branches of the rod-loaded cavity are several times narrower in wavenumber than the bare plasmon reflection band",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "pixels",
+    "technique": [
+     "FTIR:transmission",
+     "FTIR:reflection"
+    ],
+    "image_note": "the in-cavity branches in F5a span roughly 100 cm-1 against roughly 700 cm-1 for the bare plasmon band in F4d; the two are transmission and reflection respectively, so this is a width comparison only",
+    "panel_note": "the narrow branches live in F5a, and F5 offers no crops (tier C3_caption_swap), so the comparison is read from the whole F5 figure against F4d; F4d alone carries only the bare-plasmon half and was dropped from panel_ids"
+   },
+   "figs": [
+    "F4",
+    "F5"
+   ],
+   "panel_ids": [],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "partial",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "a1",
+   "type": "DSC/limitation",
+   "label": "The Hamiltonian analysis admits 'several rather crude assumptions', chiefly plasmon plus molecules as one collective oscillator",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "the admission is in the F6 linked text"
+    ],
+    "kind": "method"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "a2",
+   "type": "OBS/signal/feature_presence",
+   "label": "Non-dispersing vertical bands persist in the transmission maps beside the dispersing branches",
+   "attrs": {
+    "source": "figure",
+    "requires_unseen": [],
+    "read_from": "pixels",
+    "technique": "FTIR:transmission",
+    "image_note": "the F5 caption calls them an artifact of non-ideal polarization alignment; they are as bright as the polariton branches, so branch identification rests on the caption's guides",
+    "text_silent": false,
+    "panel_note": "F5 offers no crops; read from the whole figure"
+   },
+   "figs": [
+    "F5"
+   ],
+   "panel_ids": [],
+   "modality": "xy_curve",
+   "provenance": "measured",
+   "image_support": "shown",
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "a3",
+   "type": "DSC/limitation",
+   "label": "Cavity thicknesses differ between the simulations (10.8 / 8.5 / 10.4 um) and the Hamiltonian fits (9.7 / 8.0 / 10.1 um) of the same systems",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "simulated thicknesses from the F5 caption, fitted thicknesses from the F6 linked text"
+    ],
+    "kind": "method"
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k1",
+   "type": "KNW/fact",
+   "label": "Collective light-matter coupling scales as sqrt(N/V), i.e. sqrt(C), so a neat liquid is the concentration ceiling",
+   "attrs": {
+    "source": "prior_knowledge",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k2",
+   "type": "KNW/precedent",
+   "label": "Bisht et al. built the analogous cavity-plasmon-TMD hybrid in the visible regime",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "reference 54 is named in the linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k3",
+   "type": "KNW/precedent",
+   "label": "The authors' earlier plasmon arrays ultrastrongly coupled to FP cavities showed the same linewidth narrowing",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "reference 55 is named in the F5 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k4",
+   "type": "KNW/lookup",
+   "label": "A Rabi splitting larger than both the molecular and the cavity linewidth is the criterion for strong coupling",
+   "attrs": {
+    "source": "prior_knowledge",
+    "requires_unseen": []
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  },
+  {
+   "id": "k5",
+   "type": "KNW/model",
+   "label": "Multimode Jaynes-Cummings Hamiltonian over the 20 lowest cavity modes, coupling read at zero detuning",
+   "attrs": {
+    "source": "text",
+    "requires_unseen": [
+     "M = 20 and the zero-detuning convention are stated in the F6 linked text"
+    ]
+   },
+   "figs": [],
+   "panel_ids": [],
+   "modality": null,
+   "provenance": null,
+   "image_support": null,
+   "spine": false,
+   "fit": "good",
+   "proposed": false
+  }
+ ],
+ "edges": [
+  {
+   "src": "k1",
+   "dst": "n1",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n1",
+   "dst": "n2",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "k2",
+   "dst": "n2",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n3",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n2",
+   "dst": "n4",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n5",
+   "rel": "motivates",
+   "mm_op": null
+  },
+  {
+   "src": "n3",
+   "dst": "n7",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n4",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n5",
+   "dst": "n6",
+   "rel": "realizes",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n7",
+   "rel": "feeds_into",
+   "mm_op": null
+  },
+  {
+   "src": "n7",
+   "dst": "n8",
+   "rel": "feeds_into",
+   "mm_op": null
+  },
+  {
+   "src": "n6",
+   "dst": "n9",
+   "rel": "produces",
+   "mm_op": null
+  },
+  {
+   "src": "n9",
+   "dst": "n10",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n8",
+   "dst": "n11",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "s2",
+   "dst": "n11",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n11",
+   "dst": "n12",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "k4",
+   "dst": "n12",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "s1",
+   "dst": "n12",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "n10",
+   "dst": "n13",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint",
+   "mode_basis": "F6a shows the two flat FP-mode branches of the assembled cavity and the dispersing plasmon branch entering the same three polaritonic states"
+  },
+  {
+   "src": "n7",
+   "dst": "n13",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint",
+   "mode_basis": "F6a shows the two flat FP-mode branches of the assembled cavity and the dispersing plasmon branch entering the same three polaritonic states"
+  },
+  {
+   "src": "n13",
+   "dst": "n14",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n15",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n15",
+   "dst": "n14",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "k3",
+   "dst": "n14",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k3",
+   "dst": "n15",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "s3",
+   "dst": "n15",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "s3",
+   "dst": "n14",
+   "rel": "contrasts",
+   "mm_op": null
+  },
+  {
+   "src": "n13",
+   "dst": "n16",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint",
+   "mode_basis": "F6b,c fit plasmon and molecular resonance together as one collective oscillator, so both components act at once"
+  },
+  {
+   "src": "n11",
+   "dst": "n16",
+   "rel": "causes",
+   "mm_op": null,
+   "mode": "joint",
+   "mode_basis": "F6b,c fit plasmon and molecular resonance together as one collective oscillator, so both components act at once"
+  },
+  {
+   "src": "n13",
+   "dst": "n17",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n16",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "k5",
+   "dst": "n16",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "s5",
+   "dst": "n17",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n16",
+   "dst": "n18",
+   "rel": "causes",
+   "mm_op": null
+  },
+  {
+   "src": "n17",
+   "dst": "n18",
+   "rel": "explains",
+   "mm_op": null
+  },
+  {
+   "src": "s4",
+   "dst": "n18",
+   "rel": "contrasts",
+   "mm_op": null
+  },
+  {
+   "src": "s6",
+   "dst": "n18",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n18",
+   "dst": "n19",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n14",
+   "dst": "n19",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "n12",
+   "dst": "n19",
+   "rel": "supports",
+   "mm_op": null
+  },
+  {
+   "src": "o1",
+   "dst": "n9",
+   "rel": "evidences",
+   "mm_op": "assess_spatial_distribution"
+  },
+  {
+   "src": "o2",
+   "dst": "n9",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o3",
+   "dst": "s1",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o4",
+   "dst": "s2",
+   "rel": "evidences",
+   "mm_op": "assign_features"
+  },
+  {
+   "src": "o5",
+   "dst": "n11",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "o6",
+   "dst": "n10",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o7",
+   "dst": "s3",
+   "rel": "evidences",
+   "mm_op": "read_characteristic_point"
+  },
+  {
+   "src": "o8",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "read_trend"
+  },
+  {
+   "src": "o9",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "overlay_model_on_data"
+  },
+  {
+   "src": "o10",
+   "dst": "n13",
+   "rel": "evidences",
+   "mm_op": "overlay_model_on_data"
+  },
+  {
+   "src": "o10",
+   "dst": "s5",
+   "rel": "evidences",
+   "mm_op": "overlay_model_on_data"
+  },
+  {
+   "src": "o11",
+   "dst": "n16",
+   "rel": "evidences",
+   "mm_op": "overlay_model_on_data"
+  },
+  {
+   "src": "o12",
+   "dst": "n14",
+   "rel": "evidences",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "k5",
+   "dst": "o10",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "k5",
+   "dst": "o11",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "a1",
+   "dst": "n16",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "a1",
+   "dst": "n17",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "a2",
+   "dst": "n13",
+   "rel": "qualifies",
+   "mm_op": "compare_across_conditions"
+  },
+  {
+   "src": "a3",
+   "dst": "n16",
+   "rel": "qualifies",
+   "mm_op": null
+  },
+  {
+   "src": "s7",
+   "dst": "o8",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "s7",
+   "dst": "o10",
+   "rel": "premise_for",
+   "mm_op": null
+  },
+  {
+   "src": "s7",
+   "dst": "o11",
+   "rel": "premise_for",
+   "mm_op": null
+  }
+ ],
+ "review": {
+  "judge": "senior investigator",
+  "verdict": "accept with fixes",
+  "changes": [
+   "n1 relabelled: it restated k1 (KNW/fact, the sqrt(C) scaling law) almost word for word; it now states the shortfall (neat liquid is already the ceiling), so the HYP/need and its KNW premise are no longer the same claim",
+   "split n8 -> n8 (fill the cavity with neat liquid) + s7 (DES/method, polarization-resolved probe along the rod long axis, spine=false); s7 premise_for o8, o10, o11",
+   "edge n8 -> n13 causes retargeted to n7 -> n13: n13 is the air-filled rod-cavity system (F5a, F6a), so it cannot be caused by filling the cavity with molecules; the FP-mode half of the 2+1 hybridisation comes from the assembled cavity (n7). mode stays joint on both causes edges, mode_basis updated",
+   "n11 label trimmed: 'above both bare linewidths' is n12's claim (with k4) and is now attrs.note",
+   "n14 label trimmed: 'set by the cavity mode' (FP fwhm 84 +/- 7.3 cm-1, Table S2) is a second claim and is now attrs.floor_note",
+   "source figure -> text on n13 and s2, with the unseen facts listed",
+   "no merges; no read_from changes; no mode changes. Spine stays 19 nodes, audits stay 3 (a1, a2, a3); 46 nodes, 62 edges"
+  ],
+  "split_nodes": [
+   {
+    "node": "n8",
+    "into": [
+     "n8",
+     "s7"
+    ],
+    "why": "the label stated two acts: filling the cavity with neat liquid (the exposure whose effect is studied) and probing it with polarized mid-IR (a characterization choice). The probe is DES/method with attrs.aspect=technique and is periphery, so the spine count is unchanged"
+   }
+  ],
+  "merged_nodes": [],
+  "read_from_changes": [],
+  "read_from_checked": [
+   {
+    "nodes": [
+     "o2",
+     "o3",
+     "o4"
+    ],
+    "read_from": "annotation",
+    "kept": true,
+    "why": "each restates strings listed for its panel: L=1100nm..L=1500nm (F3d); FSR=496cm-1, Q=28, d=10.19um, v1520~50cm-1 (F4a); C=O and C=N (F4b, F4c)"
+   },
+   {
+    "nodes": [
+     "o1",
+     "o5",
+     "o7",
+     "o8",
+     "o9",
+     "o10",
+     "o11",
+     "o12",
+     "a2"
+    ],
+    "read_from": "pixels",
+    "kept": true,
+    "why": "their content is the visual reading (lattice regularity, peak pairs, branch positions and widths, the artifact bands); the F4b,c and F6b,c annotations only identify the band or the sample, and F5 offers no OCR at all"
+   },
+   {
+    "nodes": [
+     "o6"
+    ],
+    "read_from": "axis",
+    "kept": true,
+    "why": "the plasmon band position is read in cm-1 against the F4d wavenumber and rod-length axes; F4d's annotations are only the 'Rod length' axis-label fragments"
+   }
+  ],
+  "mode_changes": [],
+  "mode_checked": [
+   {
+    "node": "n13",
+    "causes_from": [
+     "n10",
+     "n7"
+    ],
+    "mode": "joint",
+    "kept": true,
+    "why": "no caption shows a choice; the F5 linked text says the two FP cavity modes couple to the plasmonic array mode forming exactly 2+1=3 states, i.e. both act at once (src of the second edge corrected from n8 to n7)"
+   },
+   {
+    "node": "n16",
+    "causes_from": [
+     "n13",
+     "n11"
+    ],
+    "mode": "joint",
+    "kept": true,
+    "why": "no caption shows a choice; the F6 linked text models the plasmon-molecule hybrid as a single collective oscillator, so both components act together"
+   }
+  ],
+  "source_changes": [
+   {
+    "node": "n13",
+    "from": "figure",
+    "to": "text",
+    "requires_unseen": [
+     "'exactly 2+1 = 3 microcavity-plasmon polaritonic states' and the almost linear dispersion are stated in the F5 linked text",
+     "the identification of the three branches as polaritons rests on the F5 caption's blue dash-dot guides, which are not discernible in the packet image"
+    ],
+    "why": "the node's own image_note admits the branch count cannot be read from F5a; F6a shows three branches of a fit, not the 2+1 decomposition or the polaritonic reading"
+   },
+   {
+    "node": "s2",
+    "from": "figure",
+    "to": "text",
+    "requires_unseen": [
+     "the molecule names hexanal and 4-butylbenzonitrile come from the F3c and F4b,c captions; F3c carries no annotations",
+     "the band centres 1724 and 2225 cm-1 are caption/linked-text values"
+    ],
+    "why": "the panels carry only the C=O and C=N labels; which drawn structure is which molecule, and the two band centres, are caption facts"
+   }
+  ],
+  "matmech": {
+   "supports": 3,
+   "contradicts": 0,
+   "not_covered": 0,
+   "pairs": [
+    {
+     "m": "M1",
+     "cause": "Incorporation of a gold nanorod array into a Fabry-Perot cavity filled with organic molecules",
+     "effect": "Formation of hybrid polaritonic states from cavity-plasmon-molecule coupling",
+     "verdict": "supports",
+     "nodes": [
+      "n4",
+      "n5",
+      "n6",
+      "n7",
+      "n8",
+      "n9",
+      "n13",
+      "n16",
+      "n17",
+      "o8",
+      "o11"
+     ]
+    },
+    {
+     "m": "M2",
+     "cause": "Formation of hybrid polaritonic states",
+     "effect": "Rabi splitting and coupling strength (optical properties)",
+     "verdict": "supports",
+     "nodes": [
+      "n11",
+      "n13",
+      "n16",
+      "n17",
+      "k5",
+      "o5",
+      "o10",
+      "o11",
+      "s4",
+      "s5",
+      "s6"
+     ]
+    },
+    {
+     "m": "M3",
+     "cause": "Rabi splitting and coupling strength",
+     "effect": "Increased coupling strength and narrowed plasmon linewidth, for plasmon-based biosensing",
+     "verdict": "supports",
+     "nodes": [
+      "n14",
+      "n15",
+      "n16",
+      "n18",
+      "n19",
+      "o12",
+      "s3"
+     ],
+     "note": "partial: n16 causes n18 carries the coupling-strength leg, but the graph routes the linewidth narrowing from n13 (polariton formation) via n15 (suppressed radiative damping), not from the Rabi splitting; the biosensing application has no node because the packet has no abstract, introduction or outlook text"
+    }
+   ]
+  }
+ },
+ "cue_overrides": [
+  {
+   "node": "n4",
+   "panel": "10.1021/acs.nanolett.0c04014#F3b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o6",
+   "panel": "10.1021/acs.nanolett.0c04014#F4d",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o11",
+   "panel": "10.1021/acs.nanolett.0c04014#F6b",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o11",
+   "panel": "10.1021/acs.nanolett.0c04014#F6c",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "s1",
+   "panel": "10.1021/acs.nanolett.0c04014#F4a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  },
+  {
+   "node": "o3",
+   "panel": "10.1021/acs.nanolett.0c04014#F4a",
+   "cue": "any",
+   "why": "graph-time second read CORRECT"
+  }
+ ],
+ "second_read": {
+  "units": 23,
+  "verdicts": {
+   "CORRECT": 5,
+   "PARTIAL": 11,
+   "WRONG": 7,
+   "ABSTAIN": 0,
+   "UNPARSED": 0
+  },
+  "wrong": [
+   {
+    "node": "n5",
+    "panels": [
+     "F3d"
+    ]
+   },
+   {
+    "node": "o1",
+    "panels": [
+     "F3d"
+    ]
+   },
+   {
+    "node": "o2",
+    "panels": [
+     "F3d"
+    ]
+   },
+   {
+    "node": "o12",
+    "panels": [
+     "F4d"
+    ]
+   },
+   {
+    "node": "n13",
+    "panels": [
+     "F6a"
+    ]
+   },
+   {
+    "node": "s5",
+    "panels": [
+     "F6a"
+    ]
+   },
+   {
+    "node": "o10",
+    "panels": [
+     "F6a"
+    ]
+   }
+  ],
+  "panel_judge": {
+   "flags": 7,
+   "real": 4,
+   "ok": 3
+  }
+ }
+}

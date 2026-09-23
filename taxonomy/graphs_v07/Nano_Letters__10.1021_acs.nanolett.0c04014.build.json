@@ -1,0 +1,99 @@
+{
+ "figures_in_packet": 6,
+ "figures_opened": [
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "F5",
+  "F6"
+ ],
+ "crops_opened": [
+  "10.1021/acs.nanolett.0c04014#F1 (whole figure, TOC/abstract graphic)",
+  "10.1021/acs.nanolett.0c04014#F2 (whole figure, journal cover thumbnail)",
+  "10.1021/acs.nanolett.0c04014#F3a",
+  "10.1021/acs.nanolett.0c04014#F3b",
+  "10.1021/acs.nanolett.0c04014#F3c",
+  "10.1021/acs.nanolett.0c04014#F3d",
+  "10.1021/acs.nanolett.0c04014#F4a",
+  "10.1021/acs.nanolett.0c04014#F4b",
+  "10.1021/acs.nanolett.0c04014#F4c",
+  "10.1021/acs.nanolett.0c04014#F4d",
+  "10.1021/acs.nanolett.0c04014#F5 (whole figure, no crops offered)",
+  "10.1021/acs.nanolett.0c04014#F6a",
+  "10.1021/acs.nanolett.0c04014#F6b",
+  "10.1021/acs.nanolett.0c04014#F6c"
+ ],
+ "panels_offered": 13,
+ "panels_cited": 11,
+ "panels_cited_ids": [
+  "10.1021/acs.nanolett.0c04014#F3a",
+  "10.1021/acs.nanolett.0c04014#F3b",
+  "10.1021/acs.nanolett.0c04014#F3c",
+  "10.1021/acs.nanolett.0c04014#F3d",
+  "10.1021/acs.nanolett.0c04014#F4a",
+  "10.1021/acs.nanolett.0c04014#F4b",
+  "10.1021/acs.nanolett.0c04014#F4c",
+  "10.1021/acs.nanolett.0c04014#F4d",
+  "10.1021/acs.nanolett.0c04014#F6a",
+  "10.1021/acs.nanolett.0c04014#F6b",
+  "10.1021/acs.nanolett.0c04014#F6c"
+ ],
+ "panels_not_cited": [
+  "10.1021/acs.nanolett.0c04014#F1 (TOC/abstract rendering, no data, no caption)",
+  "10.1021/acs.nanolett.0c04014#F2 (journal cover thumbnail, no data, no caption)"
+ ],
+ "technique_cue_conflicts_resolved": [],
+ "technique_cue_notes": [
+  "F3d cue class 'micrograph' -> SEM is in the compatible list (o1, o2): agrees",
+  "F4a-F4d cue class 'FTIR' -> FTIR family required; o3/o5 FTIR:transmission, o4 FTIR:ATR, o6/o7 FTIR:reflection, o12 [FTIR:transmission, FTIR:reflection]: all agree",
+  "F3a, F3b, F3c and F6a-c carry no cue classes, so their citations are unchecked; F5 offers no crops at all (tier C3_caption_swap) and is cited as a whole figure with panel_ids []",
+  "no citation had to be moved or dropped"
+ ],
+ "merged_nodes": [
+  {
+   "kept": "o4",
+   "merged": "separate OBS nodes for the hexanal C=O ATR band (F4b) and the 4-butylbenzonitrile C-N ATR band (F4c)",
+   "why": "one band-assignment claim, same technique, same modality, both panels cited on the one node"
+  },
+  {
+   "kept": "o5",
+   "merged": "separate OBS nodes for the hexanal (F4b) and nitrile (F4c) normal-mode splittings",
+   "why": "one claim ('two transmission peaks straddle the molecular band'), read the same way in both panels"
+  },
+  {
+   "kept": "n11",
+   "merged": "'the Rabi splittings exceed the bare molecular and cavity fwhm' stated separately in the linked text",
+   "why": "same claim as the Rabi-splitting node; the comparison is carried by k4 -> n12 and s1 -> n12"
+  },
+  {
+   "kept": "n17",
+   "merged": "'plasmonic array acts as an artificial molecule with oscillator strength exceeding molecular ones' and 'joining the real molecules in a single collective oscillator, thus boosting the coupling'",
+   "why": "one mechanism stated as two halves of the same sentence in the F6 linked text"
+  },
+  {
+   "kept": "n9",
+   "merged": "'five arrays with equal thickness and spacing' (text) with the SEM reading of lattice regularity",
+   "why": "one structural claim about the array geometry; rod length is carried by o2 and the sweep node n5"
+  }
+ ],
+ "packet_defects": [
+  "F1 and F2 carry no caption and no data: F1 is the TOC/abstract rendering, F2 is a journal cover thumbnail. Both are nonetheless offered as whole-figure panels, so 'panels offered' overstates the usable panel count (13 offered, 11 usable).",
+  "Packet figure ids are offset by two from the paper's own numbering: F3=paper Fig. 1, F4=Fig. 2, F5=Fig. 3, F6=Fig. 4.",
+  "F5 is tier C3_caption_swap with no crops offered. The caption's 'blue dash-dot lines' marking the polaritonic states are not discernible in the packet image, so the 2+1=3 branch count was taken from F6a instead and F5-backed nodes carry image_support partial.",
+  "F4b/F4c: splittings read by eye (~110 and ~65 cm-1) exceed the caption's 101 and 46 cm-1; recorded in o5/n11 image_note.",
+  "Simulated cavity thicknesses in the F5 caption (10.8 / 8.5 / 10.4 um) do not match the fitted thicknesses in the F6 linked text (9.7 / 8.0 / 10.1 um) for the same three systems; raised as audit a3.",
+  "Every headline number (220, 202, 172, 41, 18, 70, 84 cm-1) lives in the linked text; Figure S6, Figure S7 and Table S2, which carry the fits behind them, are not in the packet."
+ ],
+ "counts": {
+  "nodes": 45,
+  "edges": 59,
+  "spine_nodes": 19,
+  "obs_nodes": 12,
+  "knw_nodes": 5,
+  "audit_nodes": 3,
+  "source": {"text": 21, "figure": 20, "inferred": 2, "prior_knowledge": 2},
+  "read_from": {"pixels": 9, "annotation": 3, "axis": 1},
+  "causes_mode": {"joint": 4, "single": 4}
+ }
+}

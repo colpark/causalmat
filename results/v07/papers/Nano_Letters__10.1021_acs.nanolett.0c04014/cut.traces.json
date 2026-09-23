@@ -1,0 +1,619 @@
+{
+ "paper_id": "Nano_Letters/10.1021_acs.nanolett.0c04014",
+ "title": "Enhancing Vibrational Light-Matter Coupling Strength beyond the Molecular Concentration Limit Using Plasmonic Arrays",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c04014",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n9",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "n9",
+    "n10",
+    "n13",
+    "n14",
+    "n19"
+   ],
+   "branch": "evidences edge o1 -> n9",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "assess_spatial_distribution",
+     "panel_ids": [
+      "10.1021/acs.nanolett.0c04014#F3d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n9 (node-level necessity of o1: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F3d']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1021/acs.nanolett.0c04014#F3d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c04014#F3d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o1"
+   ],
+   "target_verdicts": {
+    "o1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c04014#F3d",
+     "annotations": [
+      "PT",
+      "L=1100nm",
+      "L=1300nm",
+      "L=1400nm",
+      "L=1500nm",
+      "L=1200nm"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Coupling strength cannot be pushed further by conc -> A plasmonic array tuned to the same frequency as c -> Add a gold nanorod array on a 450 nm SiO2 spacer i -> Deposit the five gold nanorod arrays (about 100 um"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F3d [SEM] and estimate (assess spatial distribution)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: SEM shows uniform, straight-edged gold rods on a regular rectangular lattice with constant pitch and no missing rods"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The arrays are regular rectangular lattices of uniform gold nanorods of constant width and pitch, length 1100-1500 nm"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n10",
+      "n13",
+      "n14",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The plasmon resonance red-shifts monotonically with rod length, sweeping across both molecular bands"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c04014",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n9",
+   "evidence": [
+    "o2"
+   ],
+   "hidden": [
+    "o2",
+    "n9",
+    "n10",
+    "n13",
+    "n14",
+    "n19"
+   ],
+   "branch": "evidences edge o2 -> n9",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o2",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1021/acs.nanolett.0c04014#F3d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n9 (node-level necessity of o2: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "1 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1021/acs.nanolett.0c04014#F3d carries ['L=1100nm', 'L=1500nm'] shared with graded targets ['o2']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1021/acs.nanolett.0c04014#F3d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c04014#F3d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o2"
+   ],
+   "target_verdicts": {
+    "o2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "o2"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1021/acs.nanolett.0c04014#F3d",
+     "annotations": [
+      "PT",
+      "L=1100nm",
+      "L=1300nm",
+      "L=1400nm",
+      "L=1500nm",
+      "L=1200nm"
+     ],
+     "hits": [
+      {
+       "text": "L=1100nm",
+       "shared": [
+        "1100"
+       ]
+      },
+      {
+       "text": "L=1500nm",
+       "shared": [
+        "1500"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Coupling strength cannot be pushed further by conc -> A plasmonic array tuned to the same frequency as c -> Add a gold nanorod array on a 450 nm SiO2 spacer i -> Deposit the five gold nanorod arrays (about 100 um"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F3d [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Across the five SEM panels the rod length steps 1100 -> 1500 nm while rod width and lattice pitch stay the same"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The arrays are regular rectangular lattices of uniform gold nanorods of constant width and pitch, length 1100-1500 nm"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n10",
+      "n13",
+      "n14",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The plasmon resonance red-shifts monotonically with rod length, sweeping across both molecular bands"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Nano_Letters/10.1021_acs.nanolett.0c04014",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n13",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "n14",
+    "n19",
+    "n2"
+   ],
+   "branch": "qualifies edge a2 -> n13",
+   "fm_family": "FTIR",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "FTIR"
+   ],
+   "channels_involved": [
+    "FTIR"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n13",
+     "role": "claim"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:605",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n13"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Rods plus cavity give 2+1 = 3 microcavity-plasmon polaritons with almost linear dispersion in rod length"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel:  [FTIR]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Non-dispersing vertical bands persist in the transmission maps beside the dispersing branches"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
