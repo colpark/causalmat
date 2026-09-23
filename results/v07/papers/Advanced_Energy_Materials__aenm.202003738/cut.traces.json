@@ -1,0 +1,2190 @@
+{
+ "paper_id": "Advanced_Energy_Materials/aenm.202003738",
+ "title": "Understanding the Outstanding High-Voltage Performance of NCM523||Graphite Lithium Ion Cells after Elimination of Ethylene Carbonate Solvent from Conventional Electrolyte",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Energy_Materials/aenm.202003738",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n7",
+   "evidence": [
+    "o7"
+   ],
+   "hidden": [
+    "o7",
+    "n7",
+    "n10",
+    "n6",
+    "n19"
+   ],
+   "branch": "evidences edge o7 -> n7",
+   "fm_family": "SEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o7",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.202003738#F4a",
+      "10.1002/aenm.202003738#F4b"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "n7",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "downstream"
+    },
+    {
+     "node": "n6",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "node_necessity": "redundant",
+   "v2_rules": [
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n7 (node-level necessity of o7: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['EC-based and', 'EC free electrolytes']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o7 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F4a', 'F4b']"
+    }
+   ],
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202003738#F4a",
+    "10.1002/aenm.202003738#F4b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "sample": "EC-based and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC-based and"
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F4b",
+     "sample": "EC free electrolytes",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC free electrolytes"
+    }
+   ],
+   "graded_targets": [
+    "o7"
+   ],
+   "target_verdicts": {
+    "o7": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "annotations": [
+      "SEM",
+      "EDXF",
+      "EDX Co",
+      "EDX Mn",
+      "EDX Ni",
+      "100m"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F4b",
+     "annotations": [
+      "(b) 1.0 M LiPF; in EMC",
+      "SEM",
+      "EDXF",
+      "EDX Co",
+      "EDXMn",
+      "EDXNi",
+      "100m"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: High-voltage 4.5 V NCM523||graphite cells are need -> Eliminating EC from the conventional LiPF6 carbona -> Comparison axis: 1.0 M LiPF6 in EC:EMC 3:7 by wt.  -> Formulate the two electrolytes, 1.0 M LiPF6 in EC: -> Galvanostatic charge/discharge cycling of NCM523||"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4a, F4b [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The cycled EC-based graphite shows large bright irregular patches; the EC-free graphite is uniformly granular"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n7"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: On the EC-based graphite anode, transition-metal deposits and Li dendrites sit at the same localized spots; the EC-free anode has no such sp"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n10",
+      "n6",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The EC-based cell fails by penetration of Li dendrites that create micro short-circuits"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Energy_Materials/aenm.202003738",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n7",
+   "evidence": [
+    "o8"
+   ],
+   "hidden": [
+    "o8",
+    "n7",
+    "n10",
+    "n6",
+    "n19"
+   ],
+   "branch": "evidences edge o8 -> n7",
+   "fm_family": "SEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o8",
+     "role": "evidence",
+     "op": "register_colocated_views",
+     "panel_ids": [
+      "10.1002/aenm.202003738#F4a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n7",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "downstream"
+    },
+    {
+     "node": "n6",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n7 (node-level necessity of o8: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['EC-based and']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o8 (text, facts in given caption spans)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F4a']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202003738#F4a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "sample": "EC-based and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC-based and"
+    }
+   ],
+   "graded_targets": [
+    "o8"
+   ],
+   "target_verdicts": {
+    "o8": {
+     "pass": true,
+     "why": "text, facts in given caption spans"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "annotations": [
+      "SEM",
+      "EDXF",
+      "EDX Co",
+      "EDX Mn",
+      "EDX Ni",
+      "100m"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: High-voltage 4.5 V NCM523||graphite cells are need -> Eliminating EC from the conventional LiPF6 carbona -> Comparison axis: 1.0 M LiPF6 in EC:EMC 3:7 by wt.  -> Formulate the two electrolytes, 1.0 M LiPF6 in EC: -> Galvanostatic charge/discharge cycling of NCM523||"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4a [SEM] and estimate (register colocated views)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: In the EC-based row the EDX F, Co, Mn and Ni maps show the same four to five blobs at identical positions, on the bright SEM patches"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n7"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: On the EC-based graphite anode, transition-metal deposits and Li dendrites sit at the same localized spots; the EC-free anode has no such sp"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n10",
+      "n6",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The EC-based cell fails by penetration of Li dendrites that create micro short-circuits"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Energy_Materials/aenm.202003738",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n7",
+   "evidence": [
+    "o9"
+   ],
+   "hidden": [
+    "o9",
+    "n7",
+    "n10",
+    "n6",
+    "n19"
+   ],
+   "branch": "evidences edge o9 -> n7",
+   "fm_family": "SEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o9",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.202003738#F4b",
+      "10.1002/aenm.202003738#F4a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n7",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "downstream"
+    },
+    {
+     "node": "n6",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n7 (node-level necessity of o9: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['EC free electrolytes', 'EC-based and']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o9 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F4b', 'F4a']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "siblings": [
+    "T5"
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202003738#F4b",
+    "10.1002/aenm.202003738#F4a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4b",
+     "sample": "EC free electrolytes",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC free electrolytes"
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "sample": "EC-based and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC-based and"
+    }
+   ],
+   "graded_targets": [
+    "o9"
+   ],
+   "target_verdicts": {
+    "o9": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4b",
+     "annotations": [
+      "(b) 1.0 M LiPF; in EMC",
+      "SEM",
+      "EDXF",
+      "EDX Co",
+      "EDXMn",
+      "EDXNi",
+      "100m"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "annotations": [
+      "SEM",
+      "EDXF",
+      "EDX Co",
+      "EDX Mn",
+      "EDX Ni",
+      "100m"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: High-voltage 4.5 V NCM523||graphite cells are need -> Eliminating EC from the conventional LiPF6 carbona -> Comparison axis: 1.0 M LiPF6 in EC:EMC 3:7 by wt.  -> Formulate the two electrolytes, 1.0 M LiPF6 in EC: -> Galvanostatic charge/discharge cycling of NCM523||"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4b, F4a [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: For the EC-free anode the F signal is spread evenly over the whole field and the Co, Mn and Ni maps are essentially blank"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n7"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: On the EC-based graphite anode, transition-metal deposits and Li dendrites sit at the same localized spots; the EC-free anode has no such sp"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n10",
+      "n6",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The EC-based cell fails by penetration of Li dendrites that create micro short-circuits"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Advanced_Energy_Materials/aenm.202003738",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n7",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n10",
+    "n6",
+    "n19",
+    "n2"
+   ],
+   "branch": "qualifies edge a1 -> n7",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1002/aenm.202003738#F4a",
+      "10.1002/aenm.202003738#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n7",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "redacted"
+    },
+    {
+     "node": "n6",
+     "role": "redacted"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    }
+   ],
+   "node_necessity": "corrective",
+   "v2_rules": [
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n7 (node-level necessity of a1: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['EC-based and', 'EC free electrolytes']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F4a', 'F4b']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n10",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n6",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202003738#F4a",
+    "10.1002/aenm.202003738#F4b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "sample": "EC-based and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC-based and"
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F4b",
+     "sample": "EC free electrolytes",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC free electrolytes"
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "annotations": [
+      "SEM",
+      "EDXF",
+      "EDX Co",
+      "EDX Mn",
+      "EDX Ni",
+      "100m"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F4b",
+     "annotations": [
+      "(b) 1.0 M LiPF; in EMC",
+      "SEM",
+      "EDXF",
+      "EDX Co",
+      "EDXMn",
+      "EDXNi",
+      "100m"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: On the EC-based graphite anode, transition-metal deposits and Li dendrites sit at the same localized spots; the EC-free "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F4a, F4b [SEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: At the 100 um field of view the SEM frames resolve only diffuse bright patches; no dendrite morphology is visible"
+    }
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Advanced_Energy_Materials/aenm.202003738",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n8",
+   "evidence": [
+    "o9"
+   ],
+   "hidden": [
+    "o9",
+    "n8",
+    "n7",
+    "n10",
+    "n6",
+    "n19"
+   ],
+   "branch": "evidences edge o9 -> n8",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n12",
+     "role": "context"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "n14",
+     "role": "context"
+    },
+    {
+     "node": "o9",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.202003738#F4b",
+      "10.1002/aenm.202003738#F4a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n7",
+     "role": "downstream"
+    },
+    {
+     "node": "n10",
+     "role": "downstream"
+    },
+    {
+     "node": "n6",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n8 (node-level necessity of o9: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['EC free electrolytes', 'EC-based and']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o9 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F4b', 'F4a']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "siblings": [
+    "T3"
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202003738#F4b",
+    "10.1002/aenm.202003738#F4a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4b",
+     "sample": "EC free electrolytes",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC free electrolytes"
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "sample": "EC-based and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC-based and"
+    }
+   ],
+   "graded_targets": [
+    "o9"
+   ],
+   "target_verdicts": {
+    "o9": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202003738#F4b",
+     "annotations": [
+      "(b) 1.0 M LiPF; in EMC",
+      "SEM",
+      "EDXF",
+      "EDX Co",
+      "EDXMn",
+      "EDXNi",
+      "100m"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F4a",
+     "annotations": [
+      "SEM",
+      "EDXF",
+      "EDX Co",
+      "EDX Mn",
+      "EDX Ni",
+      "100m"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "n5",
+      "n12",
+      "n13",
+      "n14"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: High-voltage 4.5 V NCM523||graphite cells are need -> Eliminating EC from the conventional LiPF6 carbona -> Comparison axis: 1.0 M LiPF6 in EC:EMC 3:7 by wt.  -> Formulate the two electrolytes, 1.0 M LiPF6 in EC: -> Galvanostatic charge/discharge cycling of NCM523|| -> Surface layers of the EC-free cells hold ~8-10 at% -> LixPOyFz species (PO3F2-) scavenge dissolved TM io -> Positive crosstalk: without EC, LiPF6 reduction yi"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F4b, F4a [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: For the EC-free anode the F signal is spread evenly over the whole field and the Co, Mn and Ni maps are essentially blank"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Far more transition metal is present on the graphite anode after 100 cycles with the EC-based than with the EC-free electrolyte"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n7",
+      "n10",
+      "n6",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: On the EC-based graphite anode, transition-metal deposits and Li dendrites sit at the same localized"
+    }
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Advanced_Energy_Materials/aenm.202003738",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n8",
+   "evidence": [
+    "o12"
+   ],
+   "hidden": [
+    "o12",
+    "n8",
+    "n7",
+    "n10",
+    "n6",
+    "n19"
+   ],
+   "branch": "evidences edge o12 -> n8",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n12",
+     "role": "context"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "n14",
+     "role": "context"
+    },
+    {
+     "node": "o12",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.202003738#F6a",
+      "10.1002/aenm.202003738#F6b"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n7",
+     "role": "downstream"
+    },
+    {
+     "node": "n10",
+     "role": "downstream"
+    },
+    {
+     "node": "n6",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n8 (node-level necessity of o12: decorative)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['EC-containing electrolyte and', 'EC-free electrolyte']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o12 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F6a', 'F6b']"
+    }
+   ],
+   "node_necessity": "decorative",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202003738#F6a",
+    "10.1002/aenm.202003738#F6b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202003738#F6a",
+     "sample": "EC-containing electrolyte and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC-containing electrolyte and"
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F6b",
+     "sample": "EC-free electrolyte",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "EC-free electrolyte"
+    }
+   ],
+   "graded_targets": [
+    "o12"
+   ],
+   "target_verdicts": {
+    "o12": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202003738#F6a",
+     "annotations": [
+      "1.0MLiPFinEC:EMC\uff083:7bywt.)",
+      "Mn",
+      "Ni",
+      "Co",
+      "Mn"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1002/aenm.202003738#F6b",
+     "annotations": [
+      "1.0MLiPFinEMC",
+      "Mn",
+      "Mn",
+      "Co",
+      "Ni",
+      "Co"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "n5",
+      "n12",
+      "n13",
+      "n14"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: High-voltage 4.5 V NCM523||graphite cells are need -> Eliminating EC from the conventional LiPF6 carbona -> Comparison axis: 1.0 M LiPF6 in EC:EMC 3:7 by wt.  -> Formulate the two electrolytes, 1.0 M LiPF6 in EC: -> Galvanostatic charge/discharge cycling of NCM523|| -> Surface layers of the EC-free cells hold ~8-10 at% -> LixPOyFz species (PO3F2-) scavenge dissolved TM io -> Positive crosstalk: without EC, LiPF6 reduction yi"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o12"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6a, F6b [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o12"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The Mn, Co and Ni EDX peaks are strong for the EC-based anode and barely above background for the EC-free one"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Far more transition metal is present on the graphite anode after 100 cycles with the EC-based than with the EC-free electrolyte"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n7",
+      "n10",
+      "n6",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: On the EC-based graphite anode, transition-metal deposits and Li dendrites sit at the same localized"
+    }
+   ]
+  },
+  {
+   "id": "T7",
+   "group_id": "Advanced_Energy_Materials/aenm.202003738",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n6",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "n19",
+    "n2"
+   ],
+   "branch": "qualifies edge a2 -> n6",
+   "fm_family": "ECHEM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "ECHEM"
+   ],
+   "channels_involved": [
+    "ECHEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1002/aenm.202003738#F3a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n6",
+     "role": "claim"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['NCM523||graphite full-cells and']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F3a']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202003738#F3a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202003738#F3a",
+     "sample": "NCM523||graphite full-cells and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "NCM523||graphite full-cells and"
+    }
+   ],
+   "graded_targets": [
+    "a2"
+   ],
+   "target_verdicts": {
+    "a2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202003738#F3a",
+     "annotations": [
+      "NCM523||Graphite",
+      "mAh",
+      "1.0MLIPFin",
+      "EC:EMC\uff083:7bywt.)",
+      "EMC",
+      "4.5V"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: EC-based cells collapse by rollover fading from about cycle 45, while EC-free cells keep ~160 mAh/g over 100 cycles at 4"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3a [ECHEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: After cycle ~85 the EC-based capacity partly recovers (60 to 82 mAh/g) and the error bars span about +/-40 mAh/g"
+    }
+   ]
+  },
+  {
+   "id": "T8",
+   "group_id": "Advanced_Energy_Materials/aenm.202003738",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n12",
+   "evidence": [
+    "a3"
+   ],
+   "hidden": [
+    "a3",
+    "n13",
+    "n14",
+    "n8",
+    "n7",
+    "n10",
+    "n6",
+    "n19",
+    "n2"
+   ],
+   "branch": "qualifies edge a3 -> n12",
+   "fm_family": "XPS",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "XPS"
+   ],
+   "channels_involved": [
+    "XPS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/aenm.202003738#F8a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n12",
+     "role": "claim"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n8",
+     "role": "redacted"
+    },
+    {
+     "node": "n7",
+     "role": "redacted"
+    },
+    {
+     "node": "n10",
+     "role": "redacted"
+    },
+    {
+     "node": "n6",
+     "role": "redacted"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a3 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/aenm.202003738#F8a carries ['Anodelayer', 'Degraded'] shared with graded targets ['a3']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n8",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n7",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n10",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n6",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/aenm.202003738#F8a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/aenm.202003738#F8a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a3"
+   ],
+   "target_verdicts": {
+    "a3": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/aenm.202003738#F8a",
+     "annotations": [
+      "Anodelayer",
+      "Cathodelayer",
+      "Degraded",
+      "LiPF6",
+      "P2pLiPO\uff0cF,highFconten",
+      "P2pLiPOF,lowFcontent",
+      "P2pLiPFe",
+      "C1sCarbonates",
+      "01sC-O/P-Ospecies",
+      "F1sLiF",
+      "EC-based",
+      "EC-free",
+      "EC-based",
+      "EC-free"
+     ],
+     "hits": [
+      {
+       "text": "Anodelayer",
+       "shared": [
+        "anodelayer"
+       ]
+      },
+      {
+       "text": "Degraded",
+       "shared": [
+        "degrad"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n12"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Surface layers of the EC-free cells hold ~8-10 at% high-F LixPOyFz on both electrodes"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F8a [XPS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Total degraded LiPF6 on the anode is nearly the same for the two electrolytes (~10 vs ~11.5 at%); only its high-F LixPOyFz part grows"
+    }
+   ]
+  },
+  {
+   "id": "T9",
+   "group_id": "Advanced_Energy_Materials/aenm.202003738",
+   "root": "intervene",
+   "subtype": "next condition",
+   "seed_claim": "n27",
+   "evidence": [
+    "o7",
+    "o9",
+    "o12",
+    "o1"
+   ],
+   "hidden": [
+    "n27",
+    "o1",
+    "n12",
+    "n13",
+    "n14",
+    "n17",
+    "n27",
+    "n12",
+    "n13",
+    "n14",
+    "n17"
+   ],
+   "hidden_panels": [
+    "10.1002/aenm.202003738#F1a",
+    "10.1002/aenm.202003738#F4a",
+    "10.1002/aenm.202003738#F4b",
+    "10.1002/aenm.202003738#F6a",
+    "10.1002/aenm.202003738#F6b"
+   ],
+   "branch": "sweep n3 with optimum n27",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "note": "trend extrapolation of the classical series picks the earlier optimum"
+   },
+   "depth": 2,
+   "depth_families": [
+    "ECHEM",
+    "SEM"
+   ],
+   "mask": "show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next",
+   "grader": "the measured outcome at the chosen condition from o1, held out",
+   "status": "closed",
+   "ruling": "decision 1.0 is not the condition directly after the last given (None)",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n12",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n15",
+     "role": "context"
+    },
+    {
+     "node": "n16",
+     "role": "context"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    },
+    {
+     "node": "o7",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.202003738#F4a",
+      "10.1002/aenm.202003738#F4b"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "o9",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.202003738#F4b",
+      "10.1002/aenm.202003738#F4a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o12",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.202003738#F6a",
+      "10.1002/aenm.202003738#F6b"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1002/aenm.202003738#F1a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n27",
+     "role": "claim"
+    }
+   ],
+   "has_sweep": true,
+   "redactions": [
+    {
+     "node": "n12",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "n13",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "n14",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "n17",
+     "why": "shares a claim with a hidden node"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:556",
+     "effect": "context n12 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:556",
+     "effect": "context n13 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:556",
+     "effect": "context n14 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:556",
+     "effect": "context n17 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:593",
+     "effect": "given [], withheld ['10.1002/aenm.202003738#F1a', '10.1002/aenm.202003738#F4a', '10.1002/aenm.202003738#F4b', '10.1002/aenm.202003738#F6a', '10.1002/aenm.202003738#F6b'] (decision 1.0, levels [] None)"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:596",
+     "effect": "decision 1.0 is not the condition directly after the last given (None)"
+    }
+   ],
+   "given_panels": [],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "n5",
+      "n15",
+      "n16"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Hypothesis, design, processing: High-voltage 4.5 V NCM523||graphite cells are need -> Eliminating EC from the conventional LiPF6 carbona -> Comparison axis: 1.0 M LiPF6 in EC:EMC 3:7 by wt.  -> Formulate the two electrolytes, 1.0 M LiPF6 in EC: -> Galvanostatic charge/discharge cycling of NCM523|| -> Add 1 wt% LiDFP to the EC-based electrolyte as an  -> Cycle NCM523||graphite cells with and without 1 wt"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o7",
+      "o9",
+      "o12"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Results so far, as panels only:  [SEM]"
+    },
+    {
+     "step": 3,
+     "role": "decision",
+     "nodes": [
+      "n27"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Decide the next condition: Adding only 1 wt% LiDFP to the state-of-the-art EC-based electrolyte realizes rollover-free 4.5 V cycling"
+    },
+    {
+     "step": 4,
+     "role": "outcome",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Outcome at that condition (grader): Ionic conductivity of both electrolytes rises with temperature; the EC-free curve lies below the EC-based one (4 vs 7 mS"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
