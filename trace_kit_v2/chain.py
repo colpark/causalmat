@@ -67,8 +67,15 @@ def build(case):
                       'technique': tech, 'family': f, 'delivery': delivery,
                       'tests': TESTS.get(op, 'integration'),
                       'lane': 'fm' if f in FM_LANE else ('oracle' if f in ORACLE else 'other'),
-                      'expected_support': 'contradicts' if rel in ('qualifies', 'contrasts') and n.get('image_support') == 'contradicts'
+                      # the plan: ground truth is image_support PLUS the edge relation. A node entering by
+                      # qualifies/contrasts is a caveat on the claim, not support for it: the data may be
+                      # plainly shown and still cut against what the claim asserts.
+                      'expected_support': ('contradicts' if n.get('image_support') == 'contradicts'
+                                           else 'partial' if n.get('image_support') in ('shown', 'partial')
+                                           else 'not addressed') if rel in ('qualifies', 'contrasts')
                                           else (n.get('image_support') or 'not addressed'),
+                      'support_basis': (f"{n.get('image_support')} in the panel, entering by a {rel} edge: a caveat on the claim"
+                                        if rel in ('qualifies', 'contrasts') else f"image_support {n.get('image_support')}"),
                       'observation': n.get('label'),
                       'read_from': n.get('attrs', {}).get('read_from'),
                       'requires_unseen': n.get('attrs', {}).get('requires_unseen') or [],
