@@ -1,0 +1,65 @@
+{
+ "figures_in_packet": 5,
+ "figures_opened": [
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "F5"
+ ],
+ "crops_opened": [
+  "10.1002/adfm.202007736#F1",
+  "10.1002/adfm.202007736#F3a",
+  "10.1002/adfm.202007736#F3b",
+  "10.1002/adfm.202007736#F3c",
+  "10.1002/adfm.202007736#F4a",
+  "10.1002/adfm.202007736#F4b",
+  "10.1002/adfm.202007736#F4c",
+  "10.1002/adfm.202007736#F4d",
+  "10.1002/adfm.202007736#F4e",
+  "10.1002/adfm.202007736#F4f",
+  "10.1002/adfm.202007736#F4g",
+  "10.1002/adfm.202007736#F5"
+ ],
+ "crops_opened_note": "the 10 lettered crops were opened as crop files; #F1 and #F5 are offered as 'crop (whole figure)' and were opened as the whole-figure images listed in the Figures section. F4d, F4c and the F1 first/last frames were additionally re-read magnified (PIL upscale of the same crop, no new image source) to settle the XRD peak markers, the bipyramidal facets and the 50 nm scale-bar sizes.",
+ "panels_offered": 12,
+ "panels_cited": 12,
+ "panels_cited_ids": [
+  "10.1002/adfm.202007736#F1",
+  "10.1002/adfm.202007736#F3a",
+  "10.1002/adfm.202007736#F3b",
+  "10.1002/adfm.202007736#F3c",
+  "10.1002/adfm.202007736#F4a",
+  "10.1002/adfm.202007736#F4b",
+  "10.1002/adfm.202007736#F4c",
+  "10.1002/adfm.202007736#F4d",
+  "10.1002/adfm.202007736#F4e",
+  "10.1002/adfm.202007736#F4f",
+  "10.1002/adfm.202007736#F4g",
+  "10.1002/adfm.202007736#F5"
+ ],
+ "technique_cue_conflicts_resolved": [],
+ "technique_cue_note": "no crop in this packet carries OCR cue classes (every panel lists 'cue classes: []'), so no citation was checkable against cue_technique.json and none had to be resolved. F2 offers no panels at all (tier C6_unresolved), so o3-o5 carry figs F2 with panel_ids [].",
+ "merged_nodes": [
+  "'growth occurs at the facets marked by red arrows' merged into o1 (attrs.image_note) instead of a separate F1 observation - it is the same tracked growth sequence",
+  "'the COD reflections form continuous rings rather than discrete spots' merged into o11 (attrs.image_note) - one reading of one SAED pattern, and the ring-vs-spot judgement is what weakened o11's image_support to partial",
+  "the EDS (F4f) and the EELS (F4g) spectra merged into one node o15: both are spectra stating the same claim (O-K larger relative to Ca-L with citrate), so attrs.technique is the list [EDS, EELS]; the quantified ensemble ratio F4e stayed separate as o14 with a derives edge o15 -> o14",
+  "'COM is the most stable, lowest-free-energy CaOx polymorph' and 'a 120 degree corner marks a rhombohedral CaOx particle' merged into one premise k1 (KNW/lookup)",
+  "'citrate limits CaOx to about 20 nm' NOT made its own node: it is a text-only number, kept in n12 attrs.requires_unseen and o6 attrs.image_note",
+  "the DSC/comparison 'in situ COD agrees with ex situ SEM/XRD/EDS/EELS' dropped as a node; o10-o13 evidence n16 directly and n19 produces n16"
+ ],
+ "audit_nodes": [
+  "a1 (F4d: only the citrate pattern plotted) qualifies n16",
+  "a2 (F4e: EELS 95% intervals overlap) qualifies n15",
+  "d1 (DSC/limitation: liquid-cell and MD scale limits) qualifies n14",
+  "d2 (DSC/limitation: rectangular product called COM without diffraction) qualifies n10"
+ ],
+ "packet_problems": [
+  "F4d lists only '(os1)' under annotations although about twenty author-drawn Miller-index labels are on the panel and appear in its OCR tokens; o13 records this in attrs.annotation_note and keeps read_from 'annotation'",
+  "F1 has 'ocr: none for this crop' although '0s'-'11s' time stamps and two red '120 degree' markers are drawn on the frames; o1/o2 therefore read_from 'pixels'",
+  "F3a lists annotations ['Os'] only although '90 degree' is in the same crop's OCR tokens; o6 read_from 'pixels'",
+  "F2 is tier C6_unresolved with no panels offered, yet it is a 12-frame time series that carries the whole non-classical argument",
+  "F4b annotation strings are OCR-mangled ('(350)cob', '(532)co0', '(141)coo' for the COD indices)",
+  "no panel in the paper carries a with/without-citrate label, so every condition assignment is a caption-only fact"
+ ]
+}

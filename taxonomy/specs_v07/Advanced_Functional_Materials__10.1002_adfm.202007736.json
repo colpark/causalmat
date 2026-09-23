@@ -1,0 +1,432 @@
+{
+ "file": "Advanced_Functional_Materials__10.1002_adfm.202007736.html",
+ "short": "In Situ Liquid-Cell TEM Observation of Multiphase Classical ",
+ "journal": "Advanced_Functional_Materials",
+ "year": null,
+ "title": "In Situ Liquid-Cell TEM Observation of Multiphase Classical and Nonclassical Nucleation of Calcium Oxalate",
+ "doi": "Advanced_Functional_Materials/10.1002_adfm.202007736",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: DIFF, XRD",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Calcium oxalate is the main kidney-stone mineral, so its nucleation and its inhibition by citrate matter clinically. How CaOx nucleates at the nanoscale, and how citrate blocks it, has never been watched directly.",
+   "detail": "Absorbed: n1 (HYP/need), n2 (HYP/gap), n3 (HYP/hypothesis), n4 (DES/method), n5 (DES/variable_sweep), n6 (PRC/synthesis)",
+   "figs": [],
+   "source": "n1, n2, n3, n4, n5, n6"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "Without citrate the classical route yields a rhombohedral COM crystal with 120 degree corners. The non-classical product is a rectangular, 90 degree-cornered particle, not a rhombohedron.",
+   "detail": "Absorbed: n8 (STR/phase/identity), n10 (STR/microstructure/shape), n15 (STR/chemistry/composition), n16 (STR/phase/identity). Premises: 120 degree corners mark rhombohedral COM, reported as the most stable, lowest-free-energy CaOx polymorph; An O:Ca of 5:1 corresponds to monohydrate COM and 6:1 to dihydrate COD",
+   "figs": [],
+   "source": "n8, n10, n15, n16"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Classical pathway: a stable nucleus forms, then grows by monomer addition on specific facets. Non-classical pathway: a poorly crystalline precursor grows, partly dissolves, reforms and the residues coalesce.",
+   "detail": "Absorbed: n7 (MEC/pathway), n9 (MEC/pathway), n11 (MEC/pathway), n12 (PRP/behavior_class), n13 (MEC/pathway), n14 (MEC/pathway). Premises: Tridentate citrate has three carboxylates and binds Ca2+ more strongly than bidentate oxalate",
+   "figs": [],
+   "source": "n7, n9, n11, n12, n13, n14"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "The nanoscale nucleation pathway sets the final CaOx polymorph. Citrate buffers CaOx formation and, once the buffer is overcome, the product is COD",
+   "detail": "Absorbed: n17 (DSC/conclusion), n20 (DSC/conclusion)",
+   "figs": [],
+   "source": "n17, n20"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "MICRO, F1",
+   "tech": "MICRO",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1002/adfm.202007736#F1",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F1"
+   ],
+   "head": "Two adjacent 120 degree corners are marked on the 3 s frame; the particle is hexagonal",
+   "solves": "Without citrate the classical route yields a rhombohedral COM crystal with 120 degree corners",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "source": "o2",
+   "tech_source": "modality",
+   "note": "'120' with the degree sign is drawn in red on the 3 s frame, but the packet lists no OCR tokens or annotations for F1, so this is read from the pixels",
+   "claims": [
+    "n8"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n8 (o2)."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 1,
+   "title": "MICRO, F2",
+   "tech": "MICRO",
+   "figs": [
+    "F2"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "The two residues show 90 degree corners and a rectangular outline at 67-76 s",
+   "solves": "The non-classical product is a rectangular, 90 degree-cornered particle, not a rhombohedron",
+   "op": "track feature across series",
+   "verdict": "shown",
+   "source": "o5",
+   "tech_source": "modality",
+   "note": "red 90 degree markers are drawn on the 67 s and 76 s frames; the edges between the marked corners are straight",
+   "claims": [
+    "n10"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n10 (o5)."
+  },
+  {
+   "id": "M3",
+   "lane": 0,
+   "row": "S1",
+   "line": 2,
+   "title": "MICRO, F4",
+   "tech": "MICRO",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/adfm.202007736#F4c",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F4c"
+   ],
+   "head": "Ex situ crystals grown with citrate show the tetragonal bipyramidal habit of COD",
+   "solves": "With citrate CaOx crystallises as the dihydrate COD instead of the monohydrate COM",
+   "op": "recognize signature",
+   "verdict": "shown",
+   "source": "o12",
+   "tech_source": "modality",
+   "note": "several particles show two pyramid halves meeting at a ridge, but faces are rounded and pitted; the 500 nm bar length comes from the caption, not the panel",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n16 keeps shown support from o10, o13, a1 after removal."
+  },
+  {
+   "id": "M4",
+   "lane": 1,
+   "row": "S1",
+   "line": 3,
+   "title": "DIFF, F4",
+   "tech": "DIFF",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/adfm.202007736#F4b, 10.1002/adfm.202007736#F4d",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F4b",
+    "10.1002/adfm.202007736#F4d"
+   ],
+   "head": "Diffuse rings index to COD (121),(141),(350),(532); discrete spot pairs to graphene (100),(210). Every labelled reflection indexes to COD, including (200) near 14.3 and (141) near 32 degrees",
+   "solves": "With citrate CaOx crystallises as the dihydrate COD instead of the monohydrate COM",
+   "op": "assign features",
+   "verdict": "partial",
+   "source": "o11, o13",
+   "tech_source": "modality",
+   "note": "the COD labels point at faint broad haloes rather than sharp rings; only the innermost ring stands clearly above the bright central disc, so the polycrystalline reading is weaker than the caption states leader lines tie each label to a peak and small black markers sit on the weaker peaks; indices and 2theta are mutually consistent for tetragonal COD",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n16 keeps shown support from o10, o12, a1 after removal."
+  },
+  {
+   "id": "M5",
+   "lane": 1,
+   "row": "S1",
+   "line": 4,
+   "title": "XRD, F4",
+   "tech": "XRD",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/adfm.202007736#F4d",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F4d"
+   ],
+   "head": "Only the citrate-grown pattern is plotted; no without-citrate XRD is shown for comparison",
+   "solves": "With citrate CaOx crystallises as the dihydrate COD instead of the monohydrate COM",
+   "op": "cross check consistency",
+   "verdict": "shown",
+   "source": "a1",
+   "tech_source": "label",
+   "note": "the panel carries a single trace, so it establishes that COD is present but not that citrate changed the polymorph",
+   "audit": true,
+   "claims": [
+    "n16"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S1: "
+  },
+  {
+   "id": "C6",
+   "lane": 3,
+   "row": "S1",
+   "line": 5,
+   "title": "ASSAY:stain, F4",
+   "tech": "ASSAY:stain",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/adfm.202007736#F4a",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F4a"
+   ],
+   "head": "Particles formed with citrate in the cell are irregular, showing none of the facetted habits",
+   "solves": "With citrate CaOx crystallises as the dihydrate COD instead of the monohydrate COM",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o10",
+   "tech_source": "label",
+   "note": "the green-coloured particles drift and merge across 0-90 s inside one droplet; outlines are lobed with no sustained straight edges",
+   "detail": "o10: Particles formed with citrate in the cell are irregular, showing none of the facetted habits",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n16 keeps shown support from o12, o13, a1 after removal."
+  },
+  {
+   "id": "C7",
+   "lane": 3,
+   "row": "S1",
+   "line": 6,
+   "title": "EDS:spectrum, F4",
+   "tech": "EDS:spectrum",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1002/adfm.202007736#F4e, 10.1002/adfm.202007736#F4f, 10.1002/adfm.202007736#F4g",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F4e",
+    "10.1002/adfm.202007736#F4f",
+    "10.1002/adfm.202007736#F4g"
+   ],
+   "head": "Mean O:Ca rises from 5.0 to 6.2 by EDS and 4.5 to 5.2 by EELS with citrate. The O-K signal is larger relative to Ca-L in both citrate-treated spectra.",
+   "solves": "The O:Ca ratio rises from about 5:1 without citrate to about 6:1 with citrate",
+   "op": "compare across conditions, convert to quantity, read characteristic point",
+   "verdict": "partial",
+   "source": "o14, o15, a2",
+   "tech_source": "label+none",
+   "note": "the four condition labels are written on the abscissa; markers are means with 95% confidence bars over ten ex situ samples both panels are offset 3-D waterfalls with no shared intensity axis, so the ratio change can only be judged qualitatively; in g the untreated trace is drawn over a shorter energy window than the treated one only the EDS pair is separated; the caption's 'consistent increase' holds for EDS but not for EELS",
+   "detail": "o14: Mean O:Ca rises from 5.0 to 6.2 by EDS and 4.5 to 5.2 by EELS with citrate; o15: The O-K signal is larger relative to Ca-L in both citrate-treated spectra; a2: The EELS 95% intervals for without (4.25-4.8) and with citrate (4.6-5.7) overlap",
+   "claims": [
+    "n15"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n15 (o14, a2)."
+  },
+  {
+   "id": "M8",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "MICRO, F1, F2, F3",
+   "tech": "MICRO",
+   "figs": [
+    "F1",
+    "F2",
+    "F3"
+   ],
+   "panel": "10.1002/adfm.202007736#F1, 10.1002/adfm.202007736#F3a",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F1",
+    "10.1002/adfm.202007736#F3a"
+   ],
+   "head": "One nucleus appears at 0 s and grows monotonically through 11 s without ever dissolving. The particle nearly dissolves between 61 and 63 s, leaving a much smaller irregular residue.",
+   "solves": "Classical pathway: a stable nucleus forms, then grows by monomer addition on specific facets",
+   "op": "track feature across series",
+   "verdict": "partial",
+   "source": "o1, o4, o16, o6",
+   "tech_source": "modality",
+   "note": "using the caption's 50 nm bar the particle goes from ~25 nm at 0 s to ~145 nm at 11 s; red arrows mark the facet where each increment appears and move from facet to facet between frames the false colour switches from green to yellow exactly at 63 s, so the panel encodes the authors' crystalline/amorphous call; at 63 s I see one reduced mass, the two separate residues only resolve at 67-69 s the two blocks touch at 77 s and read as one rounded rectangle at 85 s a white 90 degree marker sits on the 3 s frame (in the OCR tokens but not in the panel's annotations list); the ~20 nm diameter is from the linked text, the panel's scale bar carries no label",
+   "claims": [
+    "n7",
+    "n9",
+    "n12"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n7, n9, n12 keeps shown support from o3 after removal."
+  },
+  {
+   "id": "M9",
+   "lane": 0,
+   "row": "S2",
+   "line": 1,
+   "title": "MICRO, F2",
+   "tech": "MICRO",
+   "figs": [
+    "F2"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "The 120 degree corners at 6 s are rounded, far less sharp than in Figure 1",
+   "solves": "Non-classical pathway: a poorly crystalline precursor grows, partly dissolves, reforms and the residues coalesce",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "modality",
+   "note": "F2 offers no panels (tier C6_unresolved), so the whole figure was read; the 6 s frame carries a red 120 degree marker like F1 but the outline between the marked edges is visibly curved",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n9 keeps shown support from o16 after removal."
+  },
+  {
+   "id": "M10",
+   "lane": 2,
+   "row": "S2",
+   "line": 2,
+   "title": "ATOM, F3",
+   "tech": "ATOM",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adfm.202007736#F3b",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F3b"
+   ],
+   "head": "Without citrate the simulated ions aggregate into ever larger clusters; with citrate they stay dispersed",
+   "solves": "Citrate chelates Ca2+ into soluble complexes, lowering free Ca2+ and blocking stable CaOx precipitation",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o7",
+   "tech_source": "modality",
+   "note": "top green-boxed row coarsens steadily from 0 to 100 ns; the bottom red-boxed row stays a fine dispersion of small complexes at every frame",
+   "claims": [
+    "n11"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n11 keeps shown support from o9 after removal."
+  },
+  {
+   "id": "C11",
+   "lane": 3,
+   "row": "S2",
+   "line": 3,
+   "title": "evidence, F3",
+   "tech": "",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adfm.202007736#F3c",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F3c"
+   ],
+   "head": "H2O:Ca falls with cluster size to about 5 without citrate but stays 10-15 with citrate",
+   "solves": "Citrate draws extra water into the forming CaOx nucleus, raising its hydration state",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o8",
+   "tech_source": "none",
+   "note": "the two plots use different ordinate ranges (0-25 green, 0-50 red) and different abscissa ranges, so the comparison has to be made value by value at matched cluster size",
+   "detail": "o8: H2O:Ca falls with cluster size to about 5 without citrate but stays 10-15 with citrate",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and n14 has no other figure-backed support."
+  },
+  {
+   "id": "C12",
+   "lane": 3,
+   "row": "S2",
+   "line": 4,
+   "title": "evidence, F3",
+   "tech": "",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1002/adfm.202007736#F3c",
+   "panel_ids": [
+    "10.1002/adfm.202007736#F3c"
+   ],
+   "head": "Clusters reach about 67 Ca ions without citrate but only 13 with citrate",
+   "solves": "Citrate chelates Ca2+ into soluble complexes, lowering free Ca2+ and blocking stable CaOx precipitation",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o9",
+   "tech_source": "none",
+   "note": "the green series runs to the last abscissa tick near 67; the red series stops at 13 with its axis ending at 14",
+   "detail": "o9: Clusters reach about 67 Ca ions without citrate but only 13 with citrate",
+   "claims": [
+    "n11"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n11 keeps shown support from o7 after removal."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S0",
+   "S2",
+   "causes"
+  ],
+  [
+   "S1",
+   "S2",
+   "supports"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ],
+  [
+   "S1",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}
