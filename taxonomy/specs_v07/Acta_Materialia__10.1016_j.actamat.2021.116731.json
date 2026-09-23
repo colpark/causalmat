@@ -1,0 +1,578 @@
+{
+ "file": "Acta_Materialia__10.1016_j.actamat.2021.116731.html",
+ "short": "Orientation-dependent plastic deformation mechanisms and com",
+ "journal": "Acta_Materialia",
+ "year": null,
+ "title": "Orientation-dependent plastic deformation mechanisms and competition with stress-induced phase transformation in microscale NiTi",
+ "doi": "Acta_Materialia/10.1016_j.actamat.2021.116731",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO, SEM, TEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: DIFF, XRD",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Why microscale NiTi deforms by stress-induced transformation in some orientations and by plasticity in others is unexplained. Because transformation, slip and deformation twinning have different orientation-dependent Schmid factors, the active mode should switch with the compression axis.",
+   "detail": "Absorbed: n1 (HYP/gap), n2 (HYP/hypothesis), n3 (DES/base_system), n4 (DES/variable_sweep), n5 (PRC/treatment), n6 (PRC/forming), n7 (PRC/stimulus)",
+   "figs": [],
+   "source": "n1, n2, n3, n4, n5, n6, n7"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "The solutionized alloy is B2 austenite with a trace of Ti4Ni2O. Plastic deformation of the [001] pillar is localized to one narrow band; the rest of the pillar shaft stays featureless.",
+   "detail": "Absorbed: n8 (STR/phase/identity), n10 (STR/microstructure/distribution), n11 (STR/defect/extended), n14 (STR/microstructure/distribution), n15 (STR/phase/identity), n16 (STR/defect/extended). Premises: (001)B19' compound twins a few nanometres wide have been reported before in NiTi shape memory alloys",
+   "figs": [],
+   "source": "n8, n10, n11, n14, n15, n16"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "[001]-oriented pillars are superelastic: a stress-induced transformation plateau from ~430 MPa and hysteresis loops that close on unloading. [112]-oriented pillars are not superelastic: unloading is linear and ~12% of the strain is permanent.",
+   "detail": "Absorbed: n9 (PRP/value), n13 (PRP/behavior_class), n17 (MEC/identification), n18 (PRP/value), n19 (MEC/pathway). Premises: Conventional theory of martensite: B2-B19' with [011]B19' type II twins as lattice-invariant shear cannot produce (001)B19' compound twins; Schmid law: resolved shear stress equals applied stress times the Schmid factor, so the CRSS of one mechanism must be orientation independent",
+   "figs": [],
+   "source": "n9, n13, n17, n18, n19"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "Orientation decides whether microscale NiTi deforms by herringbone stress-induced MT with superelastic recovery ([001]) or by {011}<100> slip with permanent strain ([112])",
+   "detail": "Absorbed: n20 (DSC/conclusion)",
+   "figs": [],
+   "source": "n20"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "MICRO, F3, F5",
+   "tech": "MICRO",
+   "figs": [
+    "F3",
+    "F5"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F3b, 10.1016/j.actamat.2021.116731#F3c, 10.1016/j.actamat.2021.116731#F5b",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F3b",
+    "10.1016/j.actamat.2021.116731#F3c",
+    "10.1016/j.actamat.2021.116731#F5b"
+   ],
+   "head": "[001] pillar after deformation: a few fine surface traces confined to one band near the pillar top, the shaft below staying smooth. The austenite islands of the [112] pillar show line contrast on one (-110) trace direction only, with no twin lamellae inside the austenite",
+   "solves": "Plastic deformation of the [001] pillar is localized to one narrow band; the rest of the pillar shaft stays featureless",
+   "op": "inspect local feature",
+   "verdict": "partial",
+   "source": "o6, o15",
+   "tech_source": "modality",
+   "note": "only two austenite islands are in the field, so the absence of austenite twins is weakly supported",
+   "claims": [
+    "n10",
+    "n14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n10, n14 keeps shown support from o9, o8, o13 after removal."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 1,
+   "title": "MICRO, F3",
+   "tech": "MICRO",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F3e, 10.1016/j.actamat.2021.116731#F3f",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F3e",
+    "10.1016/j.actamat.2021.116731#F3f"
+   ],
+   "head": "[112] pillar after deformation: dense parallel slip traces over the whole gauge length with a visible shear offset at the pillar base",
+   "solves": "Deformation of the [112] pillar is spread over the whole pillar as many parallel traces of a single slip plane",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "source": "o8",
+   "tech_source": "modality",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n14 keeps shown support from o13 after removal."
+  },
+  {
+   "id": "M3",
+   "lane": 0,
+   "row": "S1",
+   "line": 2,
+   "title": "TEM:brightfield, F4, F5",
+   "tech": "TEM:brightfield",
+   "figs": [
+    "F4",
+    "F5"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F5a",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F5a"
+   ],
+   "head": "Bright-field TEM of the [001] pillar: strong deformation contrast confined to one narrow band crossing the pillar, the matrix on either side clean apart from Ti4Ni2O particles. Bright-field TEM of the [112] pillar: deformation contrast fills the whole pillar cross-section rather than one band",
+   "solves": "Plastic deformation of the [001] pillar is localized to one narrow band; the rest of the pillar shaft stays featureless",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "source": "o9, o13",
+   "tech_source": "label",
+   "note": "F4 offers no panel crops (tier C), so the whole figure was read",
+   "claims": [
+    "n10",
+    "n14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n10, n14 keeps shown support from o6, o8 after removal."
+  },
+  {
+   "id": "M4",
+   "lane": 0,
+   "row": "S1",
+   "line": 3,
+   "title": "TEM, F6",
+   "tech": "TEM",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F6a",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F6a"
+   ],
+   "head": "HR-TEM: four martensite domains M1-M4 meet along sharp boundaries in a herringbone arrangement, the internal line contrast reversing direction from domain to domain",
+   "solves": "The martensite domains are built of (001)B19' compound twins a few nanometres wide, arranged in a herringbone structure",
+   "op": "recognize signature",
+   "verdict": "shown",
+   "source": "o16",
+   "tech_source": "label",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n16 keeps shown support from o17, o18, a1 after removal."
+  },
+  {
+   "id": "M5",
+   "lane": 1,
+   "row": "S1",
+   "line": 4,
+   "title": "XRD, F1",
+   "tech": "XRD",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F1a",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F1a"
+   ],
+   "head": "XRD peaks index to B2 austenite (100),(110),(200),(210),(211),(220) with weak Ti4Ni2O (511),(440),(822)/(660),(10 2 2) reflections",
+   "solves": "The solutionized alloy is B2 austenite with a trace of Ti4Ni2O",
+   "op": "assign features",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "label",
+   "note": "the Ti4Ni2O peaks are only a few counts above a sloping background, so the trace fraction is not quantifiable from the panel",
+   "claims": [
+    "n8"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n8 (o1)."
+  },
+  {
+   "id": "M6",
+   "lane": 1,
+   "row": "S1",
+   "line": 5,
+   "title": "DIFF, F4, F5",
+   "tech": "DIFF",
+   "figs": [
+    "F4",
+    "F5"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F5b",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F5b"
+   ],
+   "head": "SADPs taken inside the [001] band index to B19' martensite domains alternating with B2 austenite layers. The two austenite SADPs taken on either side of the [001] band are the same pattern rotated by 29 deg.",
+   "solves": "Both deformed pillars keep B19' martensite coexisting with B2 austenite: domains inside the [001] band, islands in the [112] pillar",
+   "op": "assign features",
+   "verdict": "shown",
+   "source": "o10, o11, o14",
+   "tech_source": "modality",
+   "claims": [
+    "n15",
+    "n11"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n15, n11 (o10, o11, o14)."
+  },
+  {
+   "id": "M7",
+   "lane": 1,
+   "row": "S1",
+   "line": 6,
+   "title": "DIFF, F4, F5",
+   "tech": "DIFF",
+   "figs": [
+    "F4",
+    "F5"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F5b",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F5b"
+   ],
+   "head": "Neither SADP shows the second spot set mirrored across (001)B19' that the compound twins should give",
+   "solves": "The martensite domains are built of (001)B19' compound twins a few nanometres wide, arranged in a herringbone structure",
+   "op": "cross check consistency",
+   "verdict": "shown",
+   "source": "a1",
+   "tech_source": "modality",
+   "note": "the paper ascribes the missing spots to the ~150 nm selected-area aperture against few-nm twins (F6 linked text)",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n16 keeps shown support from o16, o17, o18 after removal."
+  },
+  {
+   "id": "M8",
+   "lane": 2,
+   "row": "S1",
+   "line": 7,
+   "title": "ATOM:MD, F6",
+   "tech": "ATOM:MD",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F6c, 10.1016/j.actamat.2021.116731#F6d",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F6c",
+    "10.1016/j.actamat.2021.116731#F6d"
+   ],
+   "head": "MD snapshots: two martensite domains M1 and M2 meet across a herringbone boundary, each filled with (001)B19' compound twins about two atomic planes wide",
+   "solves": "The martensite domains are built of (001)B19' compound twins a few nanometres wide, arranged in a herringbone structure",
+   "op": "overlay model on data",
+   "verdict": "shown",
+   "source": "o18",
+   "tech_source": "label",
+   "note": "in (c) only a thin blue (B2) layer survives at the domain boundary; almost the whole cell is red B19' martensite",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n16 keeps shown support from o16, o17, a1 after removal."
+  },
+  {
+   "id": "C9",
+   "lane": 3,
+   "row": "S1",
+   "line": 8,
+   "title": "ATOM:MD, F6",
+   "tech": "ATOM:MD",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F6b",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F6b"
+   ],
+   "head": "Lamellae between the marked (001) compound twin boundaries measure ~5-8 nm against the 5 nm scale bar",
+   "solves": "The martensite domains are built of (001)B19' compound twins a few nanometres wide, arranged in a herringbone structure",
+   "op": "measure feature metric",
+   "verdict": "shown",
+   "source": "o17",
+   "tech_source": "label",
+   "note": "the FFT inset splits into the mirror-related M2 / M2t spot pairs; the linked text says 'several nanometers' and the MD cell gives 1-2 nm, below what this panel resolves",
+   "detail": "o17: Lamellae between the marked (001) compound twin boundaries measure ~5-8 nm against the 5 nm scale bar",
+   "claims": [
+    "n16"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n16 keeps shown support from o16, o18, a1 after removal."
+  },
+  {
+   "id": "M10",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "SEM, F2",
+   "tech": "SEM",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F2",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F2"
+   ],
+   "head": "SEM insets: the tapered pillar has the same profile before and after the three cycles, with no slip steps or barrelling",
+   "solves": "[001]-oriented pillars are superelastic: a stress-induced transformation plateau from ~430 MPa and hysteresis loops that close on unloading",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o4",
+   "tech_source": "label",
+   "note": "the inset carries a 2 um scale bar; the 'Before'/'After' labels are written on the figure but the packet lists no OCR for this crop",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n9 keeps shown support from o12 after removal."
+  },
+  {
+   "id": "M11",
+   "lane": 0,
+   "row": "S2",
+   "line": 1,
+   "title": "MICRO, F4",
+   "tech": "MICRO",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Dense dislocation contrast on (-110) traces in the austenite immediately below a martensite plate, the traces running parallel to the marked compression axis",
+   "solves": "",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "source": "o12",
+   "tech_source": "modality",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n9 keeps shown support from o4 after removal."
+  },
+  {
+   "id": "C12",
+   "lane": 3,
+   "row": "S2",
+   "line": 2,
+   "title": "THERMAL:DSC, F1, F8",
+   "tech": "THERMAL:DSC",
+   "figs": [
+    "F1",
+    "F8"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F1b, 10.1016/j.actamat.2021.116731#F8b, 10.1016/j.actamat.2021.116731#F8c",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F1b",
+    "10.1016/j.actamat.2021.116731#F8b",
+    "10.1016/j.actamat.2021.116731#F8c"
+   ],
+   "head": "DSC transformation temperatures written on the panel: Ms = 248 K, Mf = 258 K, As = 275 K, Af = 293 K. On the shared 0-400 MPa scale the conventional CRSS map runs from ~40 MPa at [001] to >=400 MPa near [011], while the herringbone map stays mostly between ~150 and 300 MPa",
+   "solves": "",
+   "op": "compare across conditions, read characteristic point",
+   "verdict": "partial",
+   "source": "o2, o22",
+   "tech_source": "label+none",
+   "note": "the Mf marker on the cooling peak lies at lower temperature than the Ms marker, so the quoted 248/258 K pair is transposed relative to the markers; the As/Af markers also sit ~13 K below their quoted values panel (b) carries no colour bar of its own; the caption states (b) and (c) share the (c) scale",
+   "detail": "o2: DSC transformation temperatures written on the panel: Ms = 248 K, Mf = 258 K, As = 275 K, Af = 293 K; o22: On the shared 0-400 MPa scale the conventional CRSS map runs from ~40 MPa at [001] to >=400 MPa near [011], while the herringbone map stays mostly between ~150 and 300 MPa",
+   "claims": [
+    "n9",
+    "n17"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n9, n17 keeps shown support from o4, o12, a2 after removal."
+  },
+  {
+   "id": "C13",
+   "lane": 3,
+   "row": "S2",
+   "line": 3,
+   "title": "evidence, F2, F3",
+   "tech": "",
+   "figs": [
+    "F2",
+    "F3"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F2, 10.1016/j.actamat.2021.116731#F3a",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F2",
+    "10.1016/j.actamat.2021.116731#F3a"
+   ],
+   "head": "All three [001] load-unload cycles trace closed hysteresis loops with a ~400-500 MPa forward plateau; the third cycle reaches ~1850 MPa. [001] curve: transformation plateau from ~430 MPa, a strain burst at ~910 MPa carrying the pillar from ~5.7% to ~12% strain, and ~7.3% residual strain at the reload arrow",
+   "solves": "[001]-oriented pillars are superelastic: a stress-induced transformation plateau from ~430 MPa and hysteresis loops that close on unloading",
+   "op": "compare across conditions, read characteristic point, read trend",
+   "verdict": "partial",
+   "source": "o3, o5",
+   "tech_source": "none",
+   "note": "cycles 2 and 3 are drawn shifted by +10% and +20% engineering strain; the per-cycle remnant strains quoted in the linked text (0.18/0.28/0.35%) are far below what the axis resolves the linked text quotes 427 +/- 28 MPa for the plateau and 1177 +/- 321 MPa for the burst as averages over several pillars; this particular curve bursts near 910 MPa",
+   "detail": "o3: All three [001] load-unload cycles trace closed hysteresis loops with a ~400-500 MPa forward plateau; the third cycle reaches ~1850 MPa; o5: [001] curve: transformation plateau from ~430 MPa, a strain burst at ~910 MPa carrying the pillar from ~5.7% to ~12% strain, and ~7.3% residual strain at the reload arrow",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n9 keeps shown support from o4, o12."
+  },
+  {
+   "id": "C14",
+   "lane": 3,
+   "row": "S2",
+   "line": 4,
+   "title": "evidence, F3",
+   "tech": "",
+   "figs": [
+    "F3"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F3d",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F3d"
+   ],
+   "head": "[112] curve: a small burst at ~450 MPa, a large burst at ~595 MPa running to ~13.5% strain, then a straight unloading line leaving ~12% strain",
+   "solves": "[112]-oriented pillars are not superelastic: unloading is linear and ~12% of the strain is permanent",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o7",
+   "tech_source": "none",
+   "note": "the linked text quotes 463 +/- 93 MPa and 620 +/- 36 MPa as averages; the values read here sit inside that scatter",
+   "detail": "o7: [112] curve: a small burst at ~450 MPa, a large burst at ~595 MPa running to ~13.5% strain, then a straight unloading line leaving ~12% strain",
+   "claims": [
+    "n13"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n13 (o7)."
+  },
+  {
+   "id": "C15",
+   "lane": 3,
+   "row": "S2",
+   "line": 5,
+   "title": "evidence, F7",
+   "tech": "",
+   "figs": [
+    "F7"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F7a, 10.1016/j.actamat.2021.116731#F7b, 10.1016/j.actamat.2021.116731#F7c, 10.1016/j.actamat.2021.116731#F7d, 10.1016/j.actamat.2021.116731#F7e, 10.1016/j.actamat.2021.116731#F7f",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F7a",
+    "10.1016/j.actamat.2021.116731#F7b",
+    "10.1016/j.actamat.2021.116731#F7c",
+    "10.1016/j.actamat.2021.116731#F7d",
+    "10.1016/j.actamat.2021.116731#F7e",
+    "10.1016/j.actamat.2021.116731#F7f"
+   ],
+   "head": "Schmid factors at [001] and [-112]: {011}<100> slip 0 and 0.471; {001}<100> slip 0 and 0.333; {114}<22-1> twinning 0.314 and 0.471; {112}<-1-11> twinning 0.471 and 0.314. MT Schmid factors: conventional B2-B19' 0.386 at [001], 0.439 at [-112], maximum 0.513 near [-149], minimum 0.253 at [-111]; herringbone 0.520 at [001], 0.348 at [-112], minimum 0.169 at [011]",
+   "solves": "Orientation sets the competition: at [001] slip has zero Schmid factor while herringbone MT (0.520) and {112}<111> twinning (0.471) are near maximal, whereas at [112] {011}<100> slip is near maximal (0.471) and herringbone MT only 0.348",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o19, o20",
+   "tech_source": "none",
+   "note": "the panels are contour maps over the standard stereographic triangle; F7b is OCR-lettered 'q' but the panel itself reads (b)",
+   "detail": "o19: Schmid factors at [001] and [-112]: {011}<100> slip 0 and 0.471; {001}<100> slip 0 and 0.333; {114}<22-1> twinning 0.314 and 0.471; {112}<-1-11> twinning 0.471 and 0.314; o20: MT Schmid factors: conventional B2-B19' 0.386 at [001], 0.439 at [-112], maximum 0.513 near [-149], minimum 0.253 at [-111]; herringbone 0.520 at [001], 0.348 at [-112], minimum 0.169 at [011]",
+   "claims": [
+    "n19"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n19 (o19, o20)."
+  },
+  {
+   "id": "C16",
+   "lane": 3,
+   "row": "S2",
+   "line": 6,
+   "title": "ATOM:MD, F8",
+   "tech": "ATOM:MD",
+   "figs": [
+    "F8"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F8a",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F8a"
+   ],
+   "head": "MD transformation stress is lowest at the [001] corner (~150-250 MPa) and rises toward [-111] (~1000-1200 MPa), the [112] region being intermediate (~500-700 MPa)",
+   "solves": "The stress to induce martensite is lowest near [001] and higher at [112]: the [001] pillar transforms from ~430 MPa while the [112] pillar reaches ~595 MPa with no transformation plateau",
+   "op": "read trend, replot derived series",
+   "verdict": "shown",
+   "source": "o21",
+   "tech_source": "label",
+   "note": "read from the 0-1200 MPa colour bar over the discretised triangle; cell values are not printed",
+   "detail": "o21: MD transformation stress is lowest at the [001] corner (~150-250 MPa) and rises toward [-111] (~1000-1200 MPa), the [112] region being intermediate (~500-700 MPa)",
+   "claims": [
+    "n18"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n18 (o21)."
+  },
+  {
+   "id": "C17",
+   "lane": 3,
+   "row": "S2",
+   "line": 7,
+   "title": "evidence, F8",
+   "tech": "",
+   "figs": [
+    "F8"
+   ],
+   "panel": "10.1016/j.actamat.2021.116731#F8c",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116731#F8c"
+   ],
+   "head": "In the herringbone CRSS map the [001] corner cell is still several times lower (~40-60 MPa) than the rest of the triangle (~150-300 MPa), so that CRSS is not orientation independent either",
+   "solves": "The operative transformation is the herringbone B2-B19' MT that produces (001)B19' compound twins, not the conventional B2-B19' MT with [011]B19' type II twins",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "a2",
+   "tech_source": "none",
+   "note": "the linked text claims only 'significantly less variation' and does not mention the surviving [001] outlier",
+   "audit": true,
+   "detail": "a2: In the herringbone CRSS map the [001] corner cell is still several times lower (~40-60 MPa) than the rest of the triangle (~150-300 MPa), so that CRSS is not orientation independent either",
+   "inner_audit": "a2: the linked text claims only 'significantly less variation' and does not mention the surviving [001] outlier",
+   "claims": [
+    "n17"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: "
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S0",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}
