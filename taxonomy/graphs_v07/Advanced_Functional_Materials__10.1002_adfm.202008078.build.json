@@ -1,0 +1,75 @@
+{
+ "figures_in_packet": 5,
+ "figures_opened": ["F1", "F2", "F3", "F4", "F5"],
+ "crops_opened": [
+  "10.1002/adfm.202008078#F1c",
+  "10.1002/adfm.202008078#F1d",
+  "10.1002/adfm.202008078#F1e",
+  "10.1002/adfm.202008078#F1f",
+  "10.1002/adfm.202008078#F1h",
+  "10.1002/adfm.202008078#F1i",
+  "10.1002/adfm.202008078#F1k",
+  "10.1002/adfm.202008078#F1l",
+  "10.1002/adfm.202008078#F1m",
+  "10.1002/adfm.202008078#F1n",
+  "10.1002/adfm.202008078#F2a",
+  "10.1002/adfm.202008078#F2c",
+  "10.1002/adfm.202008078#F2d",
+  "10.1002/adfm.202008078#F3a",
+  "10.1002/adfm.202008078#F3b",
+  "10.1002/adfm.202008078#F3e",
+  "10.1002/adfm.202008078#F3f",
+  "10.1002/adfm.202008078#F3g"
+ ],
+ "panels_offered": 25,
+ "panels_cited": 18,
+ "panels_cited_ids": [
+  "10.1002/adfm.202008078#F1c",
+  "10.1002/adfm.202008078#F1d",
+  "10.1002/adfm.202008078#F1e",
+  "10.1002/adfm.202008078#F1f",
+  "10.1002/adfm.202008078#F1h",
+  "10.1002/adfm.202008078#F1i",
+  "10.1002/adfm.202008078#F1k",
+  "10.1002/adfm.202008078#F1l",
+  "10.1002/adfm.202008078#F1m",
+  "10.1002/adfm.202008078#F1n",
+  "10.1002/adfm.202008078#F2a",
+  "10.1002/adfm.202008078#F2c",
+  "10.1002/adfm.202008078#F2d",
+  "10.1002/adfm.202008078#F3a",
+  "10.1002/adfm.202008078#F3b",
+  "10.1002/adfm.202008078#F3e",
+  "10.1002/adfm.202008078#F3f",
+  "10.1002/adfm.202008078#F3g"
+ ],
+ "technique_cue_conflicts_resolved": [
+  {
+   "node": "o2",
+   "panel": "10.1002/adfm.202008078#F1f",
+   "cue_classes": ["micrograph"],
+   "conflict": "EDS:mapping alone would be incompatible: the micrograph cue class allows SEM/TEM/STEM/HAADF/OPTICAL/AFM/EBSD/CLSM/FLUORESCENCE families, not EDS",
+   "resolution": "panel is a STEM-EDS element map, so technique is the list [\"TEM:STEM\", \"EDS:mapping\"]; the TEM family satisfies the micrograph cue and the panel citation stands"
+  },
+  {
+   "node": "o11",
+   "panel": "10.1002/adfm.202008078#F3f",
+   "cue_classes": ["micrograph"],
+   "conflict": "\"immunofluorescence staining\" normalises to ASSAY:stain, which is not in the micrograph cue list",
+   "resolution": "the instrument that produced the panel is a fluorescence microscope, so technique is OPTICAL:fluorescence (OPTICAL is in the micrograph list); the stain is the subject and stays in the label"
+  },
+  {
+   "note": "no other conflict. F1e (TEM:HAADF) and F2c (TEM) satisfy their micrograph cue directly. Every other cited crop has cue classes [] and is not checked. F4 and F5 are tier C with no panels offered, so they are cited as whole figures with panel_ids [] and carry no cue check."
+  }
+ ],
+ "merged_nodes": [
+  "F1c (TEM), F1d (SEM) and F1e (HAADF-STEM) merged into one appearance node o1: all three state the same claim, that the vesicles are hollow spheres built from one densely packed particle layer; technique carried as a three-instrument list",
+  "F1l (H2O2 decomposition) and F1m (O2 generation) merged into one node o7: both read the same claim, that catalytic turnover happens only for dissociated MVs",
+  "F4G (CD8+ fraction), F4H (CD8/Treg ratio), F4I (TNF-a) and F4J (IFN-g) merged into one node o16: one claim, that every systemic immune readout ranks Dox-MVs plus aPD-L1 first",
+  "F5D (effector-memory T cells), F5E and F5F (serum cytokines after rechallenge) merged into one node o17: one claim, reactivated memory immunity is strongest in the same group",
+  "F5B (secondary tumour volume) and F5H (lung nodule counts) merged into one node o18: one claim, secondary tumour burden is suppressed",
+  "\"bare MVs are non-cytotoxic up to 400 ug/mL\" folded into attrs.image_note of o9 rather than kept as a separate biosafety node; F4F body-weight curves dropped for the same reason",
+  "F1j (DLS distributions after hypoxic incubation) not given its own node: it restates o4's dissociation claim in a second panel kind and would have had to be split from it"
+ ],
+ "notes": "18 of 25 offered panels cited. Not cited: F1a, F1b (schematics, read from the whole figure and used only for the PRC labels, which carry figs F1 with panel_ids []), F1g, F1j, F2b, F3c, F3d."
+}
