@@ -1,0 +1,296 @@
+{
+ "date": "2026-09-23",
+ "branch": "traces-v2/2026-09-23",
+ "note": "Every verdict is model against model.",
+ "pool": {
+  "claims_with_2plus_figure_backed_evidence": 589,
+  "papers": 104,
+  "source": "taxonomy/graphs_v07 and taxonomy/graphs_v06b, read-only",
+  "survey": "trace_kit_v2/survey.py -> results/v2/candidates.json"
+ },
+ "required_properties": {
+  "1_three_or_more_techniques": "case1_three_techniques",
+  "2_annotated_panel": [
+   "case2_annotated",
+   "case3_contradicts",
+   "case5_drop"
+  ],
+  "3_qualifies_or_contrasts": [
+   "case3_contradicts",
+   "case4_oracle"
+  ],
+  "4_oracle_needed": [
+   "case4_oracle",
+   "case1_three_techniques"
+  ],
+  "5_panel_dropped": "case5_drop"
+ },
+ "cases": [
+  {
+   "case": "case1_three_techniques",
+   "paper": "Rare_Metals__s12598-012-0515-6",
+   "claim": "s2",
+   "graphs": "graphs_v06b",
+   "claim_type": "STR/phase/identity",
+   "claim_label": "La forms a new Al6Cu6La phase (cubic NaZn13 type) at dendrite boundaries; Sm forms no new phase",
+   "evidence": [
+    "o2",
+    "o3",
+    "o5"
+   ],
+   "n_evidence": 3,
+   "techniques": [
+    "SEM",
+    "THERMAL",
+    "XRD"
+   ],
+   "relations": [
+    "evidences"
+   ],
+   "supports": [
+    "shown",
+    "partial",
+    "shown"
+   ],
+   "panel_ids": [
+    "10.1007/s12598-012-0515-6#F2",
+    "10.1007/s12598-012-0515-6#F1c",
+    "10.1007/s12598-012-0515-6#F3"
+   ],
+   "no_crop_nodes": [],
+   "oracle_techniques": [
+    "THERMAL"
+   ],
+   "annotated_hits": [],
+   "properties": [
+    "3+ techniques",
+    "oracle lane"
+   ],
+   "why": "Three techniques on one claim, the property the redesign exists for: XRD o2 shown, SEM o3 partial, THERMAL:DSC o5 shown. Named in the brief as the reference case. Two FM-lane steps (XRD, SEM) and one oracle step (DSC), so it also exercises the mixed-delivery rule on the smallest chain that can carry it."
+  },
+  {
+   "case": "case2_annotated",
+   "paper": "Biomaterials__j.biomaterials.2011.11.042",
+   "claim": "n8",
+   "graphs": "graphs_v07",
+   "claim_type": "STR/phase/identity",
+   "claim_label": "2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)",
+   "evidence": [
+    "o3",
+    "o4",
+    "o5",
+    "o6"
+   ],
+   "n_evidence": 4,
+   "techniques": [
+    "PHYS",
+    "TEM",
+    "XRD"
+   ],
+   "relations": [
+    "evidences",
+    "qualifies"
+   ],
+   "supports": [
+    "shown",
+    "shown",
+    "shown",
+    "shown"
+   ],
+   "panel_ids": [
+    "10.1016/j.biomaterials.2011.11.042#F2",
+    "10.1016/j.biomaterials.2011.11.042#F2",
+    "10.1016/j.biomaterials.2011.11.042#F4a",
+    "10.1016/j.biomaterials.2011.11.042#F4b",
+    "10.1016/j.biomaterials.2011.11.042#F3a"
+   ],
+   "no_crop_nodes": [],
+   "oracle_techniques": [],
+   "annotated_hits": [
+    "F2:(Relative exp)",
+    "F2:2Co-MBG",
+    "F2:5Co-MBG",
+    "F2:Blank",
+    "F2:EGF",
+    "F2:MBG",
+    "F2:OCN",
+    "F2:VE"
+   ],
+   "properties": [
+    "annotated panel"
+   ],
+   "why": "Annotation layer, in its hardest form: F2's annotations are sample identities (Blank, 2Co-MBG, 5Co-MBG), not decoration. Hiding the layer removes which curve is which, which is exactly the v1 failure where a blind reader could not recover caption-borne identity. Forces a real layer decision rather than a cosmetic one. TEM and XRD are both FM lanes."
+  },
+  {
+   "case": "case3_contradicts",
+   "paper": "Advanced_Functional_Materials__10.1002_adfm.202008088",
+   "claim": "n14",
+   "graphs": "graphs_v07",
+   "claim_type": "PRP/value",
+   "claim_label": "Transition temperature rises and the transition window narrows as domain size grows",
+   "evidence": [
+    "o5",
+    "o12",
+    "o13",
+    "a3"
+   ],
+   "n_evidence": 4,
+   "techniques": [
+    "PL",
+    "XRD"
+   ],
+   "relations": [
+    "evidences",
+    "qualifies"
+   ],
+   "supports": [
+    "shown",
+    "shown",
+    "partial",
+    "contradicts"
+   ],
+   "panel_ids": [
+    "10.1002/adfm.202008088#F2a",
+    "10.1002/adfm.202008088#F5a",
+    "10.1002/adfm.202008088#F5b",
+    "10.1002/adfm.202008088#F5a"
+   ],
+   "no_crop_nodes": [],
+   "oracle_techniques": [],
+   "annotated_hits": [
+    "F5b:HOC",
+    "F5b:In orthorhombicphase",
+    "F5b:PC",
+    "F5b:SC",
+    "F5b:orthorhombic",
+    "F5b:tetragonal(224)"
+   ],
+   "properties": [
+    "qualifies/contrasts edge",
+    "contradicts step",
+    "annotated panel"
+   ],
+   "why": "The only claim in the whole survey carrying a genuine contradicts support among its evidence: audit a3 qualifies the claim and reads contradicts on F5a. The chain therefore has all three interesting levels in one place - shown (o5, XRD:insitu), shown and partial (o12, o13, PL) and contradicts (a3). F5b is annotated with phase labels, so the layer path runs too."
+  },
+  {
+   "case": "case4_oracle",
+   "paper": "Nano_Letters__10.1021_acs.nanolett.6b04294",
+   "claim": "n15",
+   "graphs": "graphs_v07",
+   "claim_type": "STR/phase/fraction",
+   "claim_label": "Sodiation reduces PCO only slightly: crystalline oxide largely retained, no metallic Co",
+   "evidence": [
+    "a2",
+    "o16",
+    "o19",
+    "o20",
+    "o22"
+   ],
+   "n_evidence": 5,
+   "techniques": [
+    "ECHEM",
+    "XAS",
+    "XRD"
+   ],
+   "relations": [
+    "evidences",
+    "qualifies"
+   ],
+   "supports": [
+    "shown",
+    "shown",
+    "shown",
+    "shown",
+    "shown"
+   ],
+   "panel_ids": [
+    "10.1021/acs.nanolett.6b04294#F2c",
+    "10.1021/acs.nanolett.6b04294#F4b",
+    "10.1021/acs.nanolett.6b04294#F5d",
+    "10.1021/acs.nanolett.6b04294#F5a",
+    "10.1021/acs.nanolett.6b04294#F5c",
+    "10.1021/acs.nanolett.6b04294#F5f"
+   ],
+   "no_crop_nodes": [],
+   "oracle_techniques": [
+    "ECHEM"
+   ],
+   "annotated_hits": [],
+   "properties": [
+    "oracle technique",
+    "qualifies edge"
+   ],
+   "why": "Oracle delivery with a model lane beside it: ECHEM a2 has no model or simulator and is served as plain text, while XAS and XRD hand over real crops. a2 enters by a qualifies edge, so the oracle return is a qualification rather than a confirmation - the plan's requirement that some oracle returns be partial or contradicting."
+  },
+  {
+   "case": "case5_drop",
+   "paper": "Acta_Materialia__10.1016_j.actamat.2021.116797",
+   "claim": "n11",
+   "graphs": "graphs_v07",
+   "claim_type": "STR/microstructure/orientation",
+   "claim_label": "The wavy deformation bands are deformation kink bands: their crystal rotation angle varies continuously from ~5 to ~55 deg instead of taking the fixed ~85 deg o",
+   "evidence": [
+    "o10",
+    "o13",
+    "o14",
+    "o15",
+    "o16",
+    "o17"
+   ],
+   "n_evidence": 6,
+   "techniques": [
+    "EBSD",
+    "OM",
+    "TEM"
+   ],
+   "relations": [
+    "evidences"
+   ],
+   "supports": [
+    "shown",
+    "partial",
+    "shown",
+    "shown",
+    "shown",
+    "shown"
+   ],
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116797#F3c",
+    "10.1016/j.actamat.2021.116797#F3d",
+    "10.1016/j.actamat.2021.116797#F3e",
+    "10.1016/j.actamat.2021.116797#F3f",
+    "10.1016/j.actamat.2021.116797#F4a",
+    "10.1016/j.actamat.2021.116797#F4b",
+    "10.1016/j.actamat.2021.116797#F5a",
+    "10.1016/j.actamat.2021.116797#F5b",
+    "10.1016/j.actamat.2021.116797#F5e",
+    "10.1016/j.actamat.2021.116797#F5f",
+    "10.1016/j.actamat.2021.116797#F6a",
+    "10.1016/j.actamat.2021.116797#F6b",
+    "10.1016/j.actamat.2021.116797#F6c",
+    "10.1016/j.actamat.2021.116797#F6d",
+    "10.1016/j.actamat.2021.116797#F6e",
+    "10.1016/j.actamat.2021.116797#F6f"
+   ],
+   "no_crop_nodes": [
+    "o15"
+   ],
+   "oracle_techniques": [],
+   "annotated_hits": [
+    "F4a:(nm)",
+    "F4a:Lim",
+    "F4a:Lm",
+    "F4a:anneal",
+    "F4a:as-grown",
+    "F4a:jum",
+    "F4a:nanoplates",
+    "F4a:perlum"
+   ],
+   "properties": [
+    "dropped panel",
+    "annotated panel"
+   ],
+   "why": "A panel that must be dropped: evidence node o15 cites a figure with no crop offered (tier C), so it cannot be handed over. Five other figure-backed nodes remain across EBSD, OM and TEM, so the claim still stands and the chain survives - the exact case v1 closed outright (35 closures on missing panels). F4a is annotated, so a layer decision is needed as well."
+  }
+ ]
+}
