@@ -1,0 +1,1184 @@
+{
+ "paper_id": "Advanced_Functional_Materials/10.1002_adfm.202008088",
+ "title": "Domain-Size-Dependent Residual Stress Governs the Phase-Transition and Photoluminescence Behavior of Methylammonium Lead Iodide",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008088",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n8",
+   "evidence": [
+    "o2"
+   ],
+   "hidden": [
+    "o2",
+    "n8",
+    "n14",
+    "n19"
+   ],
+   "branch": "evidences edge o2 -> n8",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o2",
+     "role": "evidence",
+     "op": "overlay_model_on_data",
+     "panel_ids": [
+      "10.1002/adfm.202008088#F1b",
+      "10.1002/adfm.202008088#F1c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n8",
+     "role": "claim"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n8 (node-level necessity of o2: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adfm.202008088#F1b carries ['Theoretical'] shared with graded targets ['o2']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adfm.202008088#F1b",
+    "10.1002/adfm.202008088#F1c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adfm.202008088#F1b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/adfm.202008088#F1c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o2"
+   ],
+   "target_verdicts": {
+    "o2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adfm.202008088#F1b",
+     "annotations": [
+      "Asgrown",
+      "SC",
+      "HOC",
+      "PC",
+      "Theoretical"
+     ],
+     "hits": [
+      {
+       "text": "Theoretical",
+       "shared": [
+        "theoretical"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Reports disagree on whether MAPbI3 shows a low-tem -> Domain size, through the residual stress it stores -> Use MAPbI3 perovskite as the archetypal system, on -> Crystallize MAPbI3 from precursor solution by the "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F1b, F1c [XRD] and estimate (overlay model on data)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Ground powders of all three states reproduce the full theoretical MAPbI3 reflection set, while as-grown SC and HOC show only a peak near 40."
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: All three states are the same MAPbI3 phase of the same composition; their as-grown pattern differences are preferred orientation only"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n14",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Transition temperature rises and the transition window narrows as domain size grows"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008088",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "n9",
+   "evidence": [
+    "o4"
+   ],
+   "hidden": [
+    "o4",
+    "n9",
+    "n10",
+    "n11",
+    "n12",
+    "n13",
+    "n14",
+    "n19"
+   ],
+   "branch": "evidences edge o4 -> n9",
+   "fm_family": "XRD",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o4",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adfm.202008088#F2a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "n10",
+     "role": "downstream"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n12",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n9 (node-level necessity of o4: necessary)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "1 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o4 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adfm.202008088#F2a carries ['tetragonal(224)'] shared with graded targets ['o4']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adfm.202008088#F2a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adfm.202008088#F2a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o4"
+   ],
+   "target_verdicts": {
+    "o4": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adfm.202008088#F2a",
+     "annotations": [
+      "orthorhombic",
+      "tetragonal(224)"
+     ],
+     "hits": [
+      {
+       "text": "tetragonal(224)",
+       "shared": [
+        "224"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n6",
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Reports disagree on whether MAPbI3 shows a low-tem -> Domain size, through the residual stress it stores -> Use MAPbI3 perovskite as the archetypal system, on -> Crystallize MAPbI3 from precursor solution by the  -> Domain size spans four decades: ~0.1 um (PC), ~10-"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o4"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2a [XRD] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o4"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: 2theta of (004)/(400) and (242)/(224) falls with temperature smoothly for SC but with curvature and offsets for PC and HOC"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Lattice expansion with temperature is near-linear in SC but non-linear in PC and HOC, in both phases"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n10",
+      "n11",
+      "n12",
+      "n13",
+      "n14",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Inhomogeneous residual lattice strain builds up toward the transition and its size depends on the cr"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008088",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n10",
+   "evidence": [
+    "o6"
+   ],
+   "hidden": [
+    "o6",
+    "n10",
+    "n11",
+    "n12",
+    "n13",
+    "n14",
+    "n19"
+   ],
+   "branch": "evidences edge o6 -> n10",
+   "fm_family": "XRD",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "XRD"
+   ],
+   "channels_involved": [
+    "XRD"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o6",
+     "role": "evidence",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1002/adfm.202008088#F2d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n12",
+     "role": "downstream"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n14",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "depth one and not an image read: negative-control stratum"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: depth one and not an image read: negative-control stratum"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane XRD necessary for n10 (node-level necessity of o6: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['Variation in FWHM']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o6 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F2d']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adfm.202008088#F2d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adfm.202008088#F2d",
+     "sample": "Variation in FWHM",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Variation in FWHM"
+    }
+   ],
+   "graded_targets": [
+    "o6"
+   ],
+   "target_verdicts": {
+    "o6": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adfm.202008088#F2d",
+     "annotations": [
+      "SC",
+      "PC",
+      "HOC"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n6",
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Reports disagree on whether MAPbI3 shows a low-tem -> Domain size, through the residual stress it stores -> Use MAPbI3 perovskite as the archetypal system, on -> Crystallize MAPbI3 from precursor solution by the  -> Domain size spans four decades: ~0.1 um (PC), ~10-"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2d [XRD] and estimate (read trend)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o6"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Relative peak width drops from ~100% to ~50% at 150 K for SC, but peaks at ~260% (PC, 242) and ~128% (HOC) around 150-155 K"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Inhomogeneous residual lattice strain builds up toward the transition and its size depends on the crystalline state"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n11",
+      "n12",
+      "n13",
+      "n14",
+      "n19"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The 2.0% unit-cell volume change stores residual stress between the two phases; the stress grows wit"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008088",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n12",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n13",
+    "n14",
+    "n19",
+    "n2"
+   ],
+   "branch": "qualifies edge a1 -> n12",
+   "fm_family": "PL",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "PL"
+   ],
+   "channels_involved": [
+    "PL"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1002/adfm.202008088#F3a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n12",
+     "role": "claim"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n14",
+     "role": "redacted"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F3a']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n14",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adfm.202008088#F3a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adfm.202008088#F3a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adfm.202008088#F3a",
+     "annotations": [
+      "Asgrown",
+      "max",
+      "max",
+      "PC",
+      "PC",
+      "Fluence (\u03bcW)",
+      "HOC",
+      "HOC",
+      "SC",
+      "SC",
+      "80K",
+      "@80K",
+      "@80K"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n12"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: The orthorhombic-to-tetragonal transition of SC starts at the domain surface and moves inward, finishing within <10 K"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3a [PL]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: The SC TDPL map carries a blank horizontal band with no data from ~150 to ~165 K, exactly where the abrupt SC transition is claimed"
+    }
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008088",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n14",
+   "evidence": [
+    "a3"
+   ],
+   "hidden": [
+    "a3",
+    "n19",
+    "n2"
+   ],
+   "branch": "qualifies edge a3 -> n14",
+   "fm_family": "PL",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "PL"
+   ],
+   "channels_involved": [
+    "PL"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adfm.202008088#F5a"
+     ],
+     "verdict": "contradicts"
+    },
+    {
+     "node": "n14",
+     "role": "claim"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a3 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adfm.202008088#F5a carries ['D=300\u03bcm', 'D=400\u03bcm', 'D>500\u03bcm', 'D=200\u03bcm'] shared with graded targets ['a3']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adfm.202008088#F5a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adfm.202008088#F5a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a3"
+   ],
+   "target_verdicts": {
+    "a3": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adfm.202008088#F5a",
+     "annotations": [
+      "=50nm",
+      "Domain sizedecrease",
+      "=1um",
+      "D=10\u03bcm",
+      "D=50\u03bcm",
+      "D=300\u03bcm",
+      "D=400\u03bcm",
+      "D>500\u03bcm",
+      "@80K",
+      "D<20nm",
+      "D=200\u03bcm"
+     ],
+     "hits": [
+      {
+       "text": "D=300\u03bcm",
+       "shared": [
+        "300"
+       ]
+      },
+      {
+       "text": "D=400\u03bcm",
+       "shared": [
+        "400"
+       ]
+      },
+      {
+       "text": "D>500\u03bcm",
+       "shared": [
+        "500"
+       ]
+      },
+      {
+       "text": "D=200\u03bcm",
+       "shared": [
+        "200"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n14"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Transition temperature rises and the transition window narrows as domain size grows"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F5a [PL]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: In F5a the 300 and 400 um spectra are already single orthorhombic peaks, so dual emission ends between 200 and 300 um, not above 500 um"
+    }
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Advanced_Functional_Materials/10.1002_adfm.202008088",
+   "root": "generate",
+   "subtype": "design under constraint",
+   "seed_claim": "n5",
+   "evidence": [],
+   "branch": "DES/route n5",
+   "fm_family": "PROCESS",
+   "lift": null,
+   "floor": {
+    "reaches": null
+   },
+   "depth": null,
+   "depth_families": [],
+   "mask": "hide the route; show the constraint and the target structure",
+   "grader": "none in the tool inventory",
+   "status": "closed",
+   "ruling": "no oracle for PROCESS: gate 2 closes the root",
+   "walk": [],
+   "has_sweep": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "closed",
+     "nodes": [
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "no oracle for PROCESS: gate 2 closes the root"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
