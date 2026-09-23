@@ -1,0 +1,164 @@
+{
+ "case": "case1_three_techniques",
+ "paper": "Rare_Metals__s12598-012-0515-6",
+ "graph": "taxonomy/graphs_v06b/Rare_Metals__s12598-012-0515-6.json",
+ "claim": "s2",
+ "claim_type": "STR/phase/identity",
+ "claim_text": "La forms a new Al6Cu6La phase (cubic NaZn13 type) at dendrite boundaries; Sm forms no new phase",
+ "n_steps": 3,
+ "channels": [
+  "SEM",
+  "THERMAL",
+  "XRD"
+ ],
+ "n_channels": 3,
+ "lanes": {
+  "fm": 2,
+  "oracle": 1,
+  "other": 0
+ },
+ "tests": {
+  "perception": 1,
+  "selection": 2,
+  "integration": 0
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o2",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "XRD",
+   "family": "XRD",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "fm",
+   "expected_support": "shown",
+   "observation": "Extra reflections (stars, ~21-37, 50, 67 deg) appear only in the Al-Cu-Mn-La pattern; Sm pattern matches the RE-free one",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "legend reads 'Al5Cu6La' while caption/linked text say Al6Cu6La",
+   "panels": [
+    {
+     "panel_id": "10.1007/s12598-012-0515-6#F2",
+     "suffix": "F2",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/images/e8aa5d043dd87323533ea8b30e8327edd1b7ec843d0fd7a50949826f2e0a4df1.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/images/e8aa5d043dd87323533ea8b30e8327edd1b7ec843d0fd7a50949826f2e0a4df1.jpg",
+     "caption_span": "Fig. 2 XRD patterns of the as-cast alloys",
+     "ocr_tokens": 0,
+     "split_ok": false,
+     "split_method": "none",
+     "split_coverage": 0.0,
+     "n_regions": 0,
+     "hiding_compliant": false,
+     "split_why": "no saturated pixels and no OCR boxes: nothing to split",
+     "layer_decision": "as_is",
+     "layer_why": "no layer could be split (no saturated pixels and no OCR boxes: nothing to split); panel handed over whole and declared",
+     "png": "images/F2.png",
+     "masked_fraction": null
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o3",
+   "relation": "evidences",
+   "mm_op": "inspect_local_feature",
+   "technique": "SEM",
+   "family": "SEM",
+   "delivery": "crop",
+   "tests": "perception",
+   "lane": "fm",
+   "expected_support": "partial",
+   "observation": "Arrow B in (c) marks a second, finer bright boundary phase beside the arrow-A particles",
+   "read_from": "pixels",
+   "requires_unseen": [
+    "arrow B = Al6Cu6La from caption"
+   ],
+   "image_note": "at this magnification the A and B phases are not clearly distinguishable by contrast",
+   "panels": [
+    {
+     "panel_id": "10.1007/s12598-012-0515-6#F1c",
+     "suffix": "F1c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/panels/crops/822b732d2ed854f65aebb367041bdc056e5114e148afcfadac13773ce1b302bc_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/images/822b732d2ed854f65aebb367041bdc056e5114e148afcfadac13773ce1b302bc.jpg",
+     "caption_span": "Al-Cu-Mn-La(arrow A: Al2Cu phase, arrow B: Al6Cu6La phase)",
+     "ocr_tokens": 4,
+     "split_ok": true,
+     "split_method": "ocr_boxes",
+     "split_coverage": 0.0504,
+     "n_regions": 4,
+     "hiding_compliant": false,
+     "split_why": null,
+     "layer_decision": "as_is",
+     "layer_why": "only OCR text boxes could be found, and hiding words while arrows or marks remain is forbidden; panel handed over whole and declared",
+     "png": "images/F1c.png",
+     "masked_fraction": null
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "node": "o5",
+   "relation": "evidences",
+   "mm_op": "assign_features",
+   "technique": "THERMAL:DSC",
+   "family": "THERMAL",
+   "delivery": "oracle",
+   "tests": "selection",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "observation": "La alloy shows weak peak A (~605 C) and shoulder B (~638 C), assigned to Al2Cu and Al6Cu6La dissolution",
+   "read_from": "axis",
+   "requires_unseen": [
+    "assignment of A/B from linked text"
+   ],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1007/s12598-012-0515-6#F3",
+     "suffix": "F3",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/images/c712ac908b3f762899c99c2e5c1d93bee4799527d4b05ca9ddfd115e2885b444.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Rare_Metals/s12598-012-0515-6/images/c712ac908b3f762899c99c2e5c1d93bee4799527d4b05ca9ddfd115e2885b444.jpg",
+     "caption_span": "Fig. 3 DSC curves of the as-cast alloys",
+     "ocr_tokens": 0,
+     "split_ok": false,
+     "split_method": "none",
+     "split_coverage": 0.0,
+     "n_regions": 0,
+     "hiding_compliant": false,
+     "split_why": "no saturated pixels and no OCR boxes: nothing to split",
+     "layer_decision": "as_is",
+     "layer_why": "no layer could be split (no saturated pixels and no OCR boxes: nothing to split); panel handed over whole and declared",
+     "png": "images/F3.png",
+     "masked_fraction": null
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "closing_support": "shown",
+ "closing_missing": [
+  "arrow B = Al6Cu6La and NaZn13 structure from caption/linked text [16]",
+  "arrow B = Al6Cu6La from caption",
+  "assignment of A/B from linked text"
+ ],
+ "necessity": {
+  "SEM": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "THERMAL": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "XRD": {
+   "structural": "necessary",
+   "why": "sole channel carrying the across-condition comparison the claim needs",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model."
+}
