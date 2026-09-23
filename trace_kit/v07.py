@@ -191,7 +191,8 @@ def graph_flags(P, C):
     rr = J(os.path.join(RG(P), 'reread.json'))
     judged = any(u.get('judge') for u in rr.get('units', {}).values())
     if judged:   # v07 fix 2: the panel judge decides, not the blind read and not the staff round
-        bad = {u['node']: u for u in rr.get('units', {}).values() if u.get('judge') == 'real'}
+        k = kept(RG(P))   # a real flag the staff re-opened and kept is resolved: staff looked at the image
+        bad = {u['node']: u for u in rr.get('units', {}).values() if u.get('judge') == 'real' and u['node'] not in k}
     else:
         bad = {u['node']: u for _, u in open_wrong(RG(P), rr, P)}
     fl = {}
@@ -217,7 +218,12 @@ def rrgrade(P, R=None, only_new=False):
 
 def apply_reread(P, R=None):
     R = R or os.path.join(D(P), 'reread'); path = os.path.join(R, 'reread.json'); rr = J(path); flags = {}
-    if rr.get('from_graph'): return rr['flags']
+    if rr.get('from_graph'):
+        # recompute: a real flag the staff later kept, or a flag the panel judge ruled ok, is resolved
+        cp = os.path.join(D(P), 'cut.traces.json')
+        if os.path.exists(cp):
+            rr['flags'] = graph_flags(P, J(cp)); dump(rr, path)
+        return rr['flags']
     for key, u in rr.get('units', {}).items():
         f = os.path.join(R, f'{key}.grader.out.txt')
         if not os.path.exists(f): continue

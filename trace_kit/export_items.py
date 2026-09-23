@@ -24,6 +24,7 @@ pdfmetrics.registerFont(TTFont("DVB", "/usr/share/fonts/truetype/dejavu/DejaVuSa
 pdfmetrics.registerFontFamily("DV", normal="DV", bold="DVB", italic="DV", boldItalic="DVB")
 
 PAPERS = os.path.join(ROOT, 'results', 'v07', 'papers')
+V06C = os.path.join(ROOT, 'results', 'v06c')
 GRAPHS = os.path.join(ROOT, 'taxonomy', 'graphs_v07')
 SPECS = os.path.join(ROOT, 'taxonomy', 'specs_v07')
 PACKET_DIRS = [os.path.join(ROOT, 'taxonomy', 'v07', 'partB', 'packets'),
@@ -269,23 +270,51 @@ def grader_channel_nodes(t):
     return {n for n in re.findall(r'\b[a-z]\d+\b', txt) if n in set(t.get('evidence') or []) | set(t.get('hidden') or [])}
 
 
+_PILOT = None
+
+def pilot_gate(paper):
+    """the v07 pilot gate rows (results/v07/pilot/gate.jsonl) — the same source batch.csv counts"""
+    global _PILOT
+    if _PILOT is None:
+        f = os.path.join(ROOT, 'results', 'v07', 'pilot', 'gate.jsonl')
+        _PILOT = {}
+        if os.path.exists(f):
+            for l in open(f):
+                if l.strip():
+                    r = json.loads(l); _PILOT.setdefault(r['paper'], []).append(r)
+    return _PILOT.get(paper, [])
+
+
 def export_paper(paper, want, out_roots, YEARS, log):
     d = os.path.join(PAPERS, paper)
     gj = os.path.join(d, 'gate.jsonl')
-    if not os.path.exists(gj): return []
-    rows = [json.loads(l) for l in open(gj) if l.strip()]
+    if os.path.exists(gj):
+        rows = [json.loads(l) for l in open(gj) if l.strip()]
+    else:
+        rows = pilot_gate(paper)
+        pd = os.path.join(V06C, 'writer', paper)
+        if rows and os.path.exists(os.path.join(pd, 'written.json')): d = pd
+        elif rows: log.append(f"{paper}: v06c gate rows but no v06c written.json, skipped"); return []
     rows = [r for r in rows if r['verdict'] in want]
     if not rows: return []
-    W = {t['id']: t for t in json.load(open(os.path.join(d, 'written.json')))['traces']}
-    VAL = {v['id']: v for v in json.load(open(os.path.join(d, 'validation.json')))} if os.path.exists(os.path.join(d, 'validation.json')) else {}
+    gdir = os.path.join(d, 'gate') if os.path.exists(os.path.join(d, 'gate')) else os.path.join(V06C, 'gate', paper)
+    wp = os.path.join(d, 'written_pass2.json')
+    if not os.path.exists(wp): wp = os.path.join(d, 'written.json')
+    vp = os.path.join(d, 'validation_pass2.json')
+    if not os.path.exists(vp): vp = os.path.join(d, 'validation.json')
+    W = {t['id']: t for t in json.load(open(wp))['traces']}
+    VAL = {v['id']: v for v in json.load(open(vp))} if os.path.exists(vp) else {}
     gpath = os.path.join(GRAPHS, paper + '.json')
+    if not os.path.exists(gpath):   # pilot papers were graphed under v06b
+        gpath = next((os.path.join(ROOT, 'taxonomy', v, paper + '.json') for v in ('graphs_v06b', 'graphs_v06')
+                      if os.path.exists(os.path.join(ROOT, 'taxonomy', v, paper + '.json'))), gpath)
     graph = json.load(open(gpath)); N = {n['id']: n for n in graph['nodes']}
     spec = json.load(open(os.path.join(SPECS, paper + '.json'))) if os.path.exists(os.path.join(SPECS, paper + '.json')) else {}
     st = store_for(gpath); meta = packet_meta(paper)
     made = []
     for r in rows:
         tid = r['trace']; t = W.get(tid)
-        gate_file = os.path.join(d, 'gate', tid + '.gate.json')
+        gate_file = os.path.join(gdir, tid + '.gate.json')
         if t is None or not os.path.exists(gate_file):
             log.append(f"{paper} {tid}: no written trace or gate packet, skipped"); continue
         gate = json.load(open(gate_file))
@@ -344,10 +373,10 @@ def export_paper(paper, want, out_roots, YEARS, log):
             w.writeheader(); w.writerows(prows)
 
         val = VAL.get(tid, {})
-        arms = {'fullarm': read(os.path.join(d, 'gate', tid + '.fullarm.out.txt')),
-                'floor': read(os.path.join(d, 'gate', tid + '.floor.out.txt')),
-                'fullarm_grader': read(os.path.join(d, 'gate', tid + '.grader.fullarm.out.txt')),
-                'floor_grader': read(os.path.join(d, 'gate', tid + '.grader.floor.out.txt'))}
+        arms = {'fullarm': read(os.path.join(gdir, tid + '.fullarm.out.txt')),
+                'floor': read(os.path.join(gdir, tid + '.floor.out.txt')),
+                'fullarm_grader': read(os.path.join(gdir, tid + '.grader.fullarm.out.txt')),
+                'floor_grader': read(os.path.join(gdir, tid + '.grader.floor.out.txt'))}
         it = {'paper': paper, 'doi': doi, 'journal': spec.get('journal') or paper.split('__')[0], 'year': YEARS.get(paper),
               'trace': tid, 'root': r['root'], 'subtype': r['subtype'], 'depth': t.get('depth'),
               'depth_families': t.get('depth_families'), 'fm_family': t.get('fm_family'),
