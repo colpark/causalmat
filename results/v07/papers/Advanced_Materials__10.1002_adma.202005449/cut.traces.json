@@ -1,0 +1,466 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.202005449",
+ "title": "Multitasking MXene Inks Enable High-Performance Printable Microelectrochemical Energy Storage Devices for All-Flexible Self-Powered Integrated Systems",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.202005449",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n10",
+   "evidence": [
+    "o8"
+   ],
+   "hidden": [
+    "o8",
+    "n10",
+    "n11",
+    "n12",
+    "n18"
+   ],
+   "branch": "evidences edge o8 -> n10",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "o8",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1002/adma.202005449#F2h"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n12",
+     "role": "downstream"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n10 (node-level necessity of o8: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['Top-view and']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o8 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F2h']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202005449#F2h"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005449#F2h",
+     "sample": "Top-view and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Top-view and"
+    }
+   ],
+   "graded_targets": [
+    "o8"
+   ],
+   "target_verdicts": {
+    "o8": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005449#F2h",
+     "annotations": [],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5",
+      "n6",
+      "n7",
+      "n8",
+      "n9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Flexible wearable electronics need micro-scale ene -> One aqueous additive-free MXene ink, if its rheolo -> Take additive-free aqueous Ti3C2Tx MXene ink as th -> Selectively etch Ti3AlC2 in LiF/HCl and delaminate -> The H ink has the elastic shear-thinning rheology  -> Choose the H-MXene ink for all printing and drop t -> Screen-print the H-MXene ink through a patterned m -> Shear flow through the mesh aligns the nanosheets "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2h [SEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Top-view SEM shows a continuous crack-free film of overlapping wrinkled sheets with no pinholes at the 1 um bar"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The printed microelectrode is a continuous film of MXene lamellae stacked parallel to the substrate"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n11",
+      "n12",
+      "n18"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Areal capacitance grows with the number of printed layers, reaching ~1100 mF cm-2 at ten layers"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Materials/10.1002_adma.202005449",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n10",
+   "evidence": [
+    "o9"
+   ],
+   "hidden": [
+    "o9",
+    "n10",
+    "n11",
+    "n12",
+    "n18"
+   ],
+   "branch": "evidences edge o9 -> n10",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "o9",
+     "role": "evidence",
+     "op": "assess_spatial_distribution",
+     "panel_ids": [
+      "10.1002/adma.202005449#F2i"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n12",
+     "role": "downstream"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n10 (node-level necessity of o9: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o9 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F2i']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202005449#F2i"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005449#F2i",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o9"
+   ],
+   "target_verdicts": {
+    "o9": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005449#F2i",
+     "annotations": [
+      "lum"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5",
+      "n6",
+      "n7",
+      "n8",
+      "n9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Flexible wearable electronics need micro-scale ene -> One aqueous additive-free MXene ink, if its rheolo -> Take additive-free aqueous Ti3C2Tx MXene ink as th -> Selectively etch Ti3AlC2 in LiF/HCl and delaminate -> The H ink has the elastic shear-thinning rheology  -> Choose the H-MXene ink for all printing and drop t -> Screen-print the H-MXene ink through a patterned m -> Shear flow through the mesh aligns the nanosheets "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F2i [SEM] and estimate (assess spatial distribution)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The cross-section shows densely packed lamellae lying parallel to the substrate through the whole film thickness"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The printed microelectrode is a continuous film of MXene lamellae stacked parallel to the substrate"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n11",
+      "n12",
+      "n18"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Areal capacitance grows with the number of printed layers, reaching ~1100 mF cm-2 at ten layers"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}
