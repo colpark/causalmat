@@ -1,0 +1,1001 @@
+{
+ "paper_id": "Acta_Materialia/10.1016_j.actamat.2021.116730",
+ "title": "Large-deformation plasticity and fracture behavior of pure lithium under various stress states",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2021.116730",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n10",
+   "evidence": [
+    "o9"
+   ],
+   "hidden": [
+    "o9",
+    "n10",
+    "n11"
+   ],
+   "branch": "evidences edge o9 -> n10",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o9",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1016/j.actamat.2021.116730#F6a"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n10 (node-level necessity of o9: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['Two active slip systems']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o9 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F6a']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.actamat.2021.116730#F6a"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.actamat.2021.116730#F6a",
+     "sample": "Two active slip systems",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Two active slip systems"
+    }
+   ],
+   "graded_targets": [
+    "o9"
+   ],
+   "target_verdicts": {
+    "o9": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.actamat.2021.116730#F6a",
+     "annotations": [],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6",
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Lithium-metal cells need a quantitative large-defo -> Li's plasticity and fracture over stress states fr -> Cut specimens with a 1064 nm laser through a seale -> Laser-cut the five specimen geometries from the fo -> Load each geometry to fracture at 2.4 mm/min with "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6a [SEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: Inside one deformed grain two sets of straight parallel line traces cross at a shallow angle"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Deformation runs by slip: straight traces of two active slip systems inside single grains, stopping at the boundaries"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n11"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Wavy slip lines identify cross-slip as active already at room temperature, as expected for Li's low "
+    }
+   ],
+   "question": "Based only on the specimen-preparation and loading context and panel F6a (SEM, condition \"Two active slip systems\"), what markings or pattern appear on the imaged surface, and how are they oriented and positioned relative to one another?",
+   "answer_key": "Two sets of straight, parallel markings appear together, crossing each other at a shallow angle, located inside a single grain (o9).",
+   "answer_scope": "full",
+   "grading": "Answer key: the numbers and labels on the evidence node o9, judge-confirmed.",
+   "answer_key_nodes": [
+    "o9"
+   ],
+   "asks_for": [
+    "o9"
+   ],
+   "writer_passes": 2
+  },
+  {
+   "id": "T2",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2021.116730",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "n11",
+   "evidence": [
+    "o10"
+   ],
+   "hidden": [
+    "n11",
+    "k3"
+   ],
+   "branch": "evidences edge o10 -> n11",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
+   "status": "closed",
+   "ruling": "not derivable from given panels: n11: inferred from nodes not given: ['k3']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "o10",
+     "role": "evidence",
+     "op": "recognize_signature",
+     "panel_ids": [
+      "10.1016/j.actamat.2021.116730#F6b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n11",
+     "role": "claim"
+    }
+   ],
+   "node_necessity": "redundant",
+   "v2_rules": [
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n11 (node-level necessity of o10: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['Wavy slip lines due to cross slip']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:683",
+     "effect": "not derivable from given panels: n11: inferred from nodes not given: ['k3']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "k3",
+     "why": "premise of the hidden mechanism"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.actamat.2021.116730#F6b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.actamat.2021.116730#F6b",
+     "sample": "Wavy slip lines due to cross slip",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "Wavy slip lines due to cross slip"
+    }
+   ],
+   "graded_targets": [
+    "n11"
+   ],
+   "target_verdicts": {
+    "n11": {
+     "pass": false,
+     "why": "inferred from nodes not given: ['k3']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o10"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: Elsewhere the slip traces are not straight but wavy, curving within the grain  [panels F6b]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "n11",
+      "k3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: Wavy slip lines identify cross-slip as active already at room temperature, as expected for Li's low melting point  [premise: k3]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": false,
+     "text": "What it explains: Deformation runs by slip: straight traces of two active slip systems inside single grains, stopping at the boundaries"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2021.116730",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n12",
+   "evidence": [
+    "o11"
+   ],
+   "hidden": [
+    "o11",
+    "n12",
+    "n13",
+    "n21"
+   ],
+   "branch": "evidences edge o11 -> n12",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o11",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1016/j.actamat.2021.116730#F6d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n12",
+     "role": "claim"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n21",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n12 (node-level necessity of o11: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o11 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F6d']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.actamat.2021.116730#F6d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.actamat.2021.116730#F6d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o11"
+   ],
+   "target_verdicts": {
+    "o11": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.actamat.2021.116730#F6d",
+     "annotations": [
+      "500um",
+      "100um"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6",
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Lithium-metal cells need a quantitative large-defo -> Li's plasticity and fracture over stress states fr -> Cut specimens with a 1064 nm laser through a seale -> Laser-cut the five specimen geometries from the fo -> Load each geometry to fracture at 2.4 mm/min with "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o11"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6d [SEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o11"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The side profile tapers to a knife edge, the fracture line running at mid-thickness from one edge to the other"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n12"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Grains thin continuously until the local thickness reaches zero and the fracture surface collapses to a line"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n13",
+      "n21"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Pure Li fails by perfectly ductile fracture: separation by sliding, no dimples, no crack initiation "
+    }
+   ],
+   "question": "Panel F6d is an SEM image of the tested specimen (context above gives the specimen geometry, laser-cutting method, and load-to-fracture protocol). Looking only at this panel, what shape does the specimen take near where it separated, and how does the separation surface run relative to the specimen's thickness?",
+   "answer_key": "The specimen narrows down continuously to a sharp point near the break, and the separation surface runs across the middle of the specimen's thickness, extending from one side to the other (o11).",
+   "answer_scope": "full",
+   "grading": "Answer key: the description on evidence node o11, judge-confirmed against panel F6d.",
+   "answer_key_nodes": [
+    "o11"
+   ],
+   "asks_for": [
+    "o11"
+   ],
+   "writer_passes": 2
+  },
+  {
+   "id": "T4",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2021.116730",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n12",
+   "evidence": [
+    "o16"
+   ],
+   "hidden": [
+    "o16",
+    "n12",
+    "n13",
+    "n21"
+   ],
+   "branch": "evidences edge o16 -> n12",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "o16",
+     "role": "evidence",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1016/j.actamat.2021.116730#F12"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n12",
+     "role": "claim"
+    },
+    {
+     "node": "n13",
+     "role": "downstream"
+    },
+    {
+     "node": "n21",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n12 (node-level necessity of o16: redundant)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o16 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:709",
+     "effect": "10.1016/j.actamat.2021.116730#F12 has no OCR record: counted as annotated, cannot be checked"
+    }
+   ],
+   "node_necessity": "redundant",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.actamat.2021.116730#F12"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.actamat.2021.116730#F12",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o16"
+   ],
+   "target_verdicts": {
+    "o16": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6",
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Lithium-metal cells need a quantitative large-defo -> Li's plasticity and fracture over stress states fr -> Cut specimens with a 1064 nm laser through a seale -> Laser-cut the five specimen geometries from the fo -> Load each geometry to fracture at 2.4 mm/min with "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o16"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F12 [SEM] and classify (inspect local feature)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o16"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: In-situ in the SEM the two halves of the notched specimen taper to a single point, the fracture plane reduced to a line"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n12"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Grains thin continuously until the local thickness reaches zero and the fracture surface collapses to a line"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n13",
+      "n21"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Pure Li fails by perfectly ductile fracture: separation by sliding, no dimples, no crack initiation "
+    }
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2021.116730",
+   "root": "intervene",
+   "subtype": "next condition",
+   "seed_claim": "n24",
+   "evidence": [
+    "o4",
+    "o3"
+   ],
+   "hidden": [
+    "n24",
+    "o3",
+    "n10",
+    "n15",
+    "n24",
+    "n10",
+    "n15"
+   ],
+   "hidden_panels": [
+    "10.1016/j.actamat.2021.116730#F4b",
+    "10.1016/j.actamat.2021.116730#F4c",
+    "10.1016/j.actamat.2021.116730#F4d"
+   ],
+   "branch": "sweep n5 with optimum n24",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "note": "trend extrapolation of the classical series picks the earlier optimum"
+   },
+   "depth": 2,
+   "depth_families": [
+    "MECH",
+    "SEM"
+   ],
+   "mask": "show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next",
+   "grader": "the measured outcome at the chosen condition from o3, held out",
+   "status": "closed",
+   "ruling": "decision None is not the condition directly after the last given (None)",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "redacted"
+    },
+    {
+     "node": "n15",
+     "role": "redacted"
+    },
+    {
+     "node": "o4",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.actamat.2021.116730#F4c",
+      "10.1016/j.actamat.2021.116730#F4d"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "o3",
+     "role": "evidence",
+     "op": null,
+     "panel_ids": [
+      "10.1016/j.actamat.2021.116730#F4b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n24",
+     "role": "claim"
+    }
+   ],
+   "has_sweep": true,
+   "redactions": [
+    {
+     "node": "n10",
+     "why": "shares a claim with a hidden node"
+    },
+    {
+     "node": "n15",
+     "why": "shares a claim with a hidden node"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:556",
+     "effect": "context n10 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:556",
+     "effect": "context n15 shares a claim with a hidden node: redacted"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:593",
+     "effect": "given [], withheld ['10.1016/j.actamat.2021.116730#F4b', '10.1016/j.actamat.2021.116730#F4c', '10.1016/j.actamat.2021.116730#F4d'] (decision None, levels [] None)"
+    },
+    {
+     "rule": "R4",
+     "where": "cut_traces.py:596",
+     "effect": "decision None is not the condition directly after the last given (None)"
+    }
+   ],
+   "given_panels": [],
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n4",
+      "n6",
+      "n7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Hypothesis, design, processing: Lithium-metal cells need a quantitative large-defo -> Li's plasticity and fracture over stress states fr -> Cut specimens with a 1064 nm laser through a seale -> Laser-cut the five specimen geometries from the fo -> Load each geometry to fracture at 2.4 mm/min with "
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o4"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Results so far, as panels only:  [SEM]"
+    },
+    {
+     "step": 3,
+     "role": "decision",
+     "nodes": [
+      "n24"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Decide the next condition: Both through-thickness anisotropy and rate dependence must be kept: isotropy over-predicts the force, rate independence "
+    },
+    {
+     "step": 4,
+     "role": "outcome",
+     "nodes": [
+      "o3"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Outcome at that condition (grader): The 0, 1 and 10 min curves superpose with a 1.2 MPa peak; the 60 min curve peaks at 1.41 MPa and lies above them to 0.55"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Acta_Materialia__10.1016_j.actamat.2021.116730",
+   "trace": "T2",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "n11"
+   ],
+   "why": [
+    "n11: inferred from nodes not given: ['k3']"
+   ],
+   "requires_unseen": {
+    "n11": [
+     "lithium's low melting point, so that room temperature is already a high homologous temperature (Fig. 6 linked text, k3)"
+    ]
+   },
+   "labels": {
+    "n11": "Wavy slip lines identify cross-slip as active already at room temperature, as expected for Li's low melting point"
+   }
+  }
+ ]
+}
