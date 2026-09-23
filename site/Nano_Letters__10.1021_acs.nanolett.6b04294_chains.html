@@ -14,9 +14,19 @@ h1{font-size:24px;line-height:1.25;margin:0 0 6px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:96px}
 .stat b{display:block;font-size:20px;line-height:1.2}
 .stat span{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.hint{color:var(--mut);font-size:12px;margin:0 0 8px}
 .note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--na-i);
 border-radius:8px;padding:12px 14px;color:var(--mut);font-size:13px;margin-bottom:26px}
-.chain{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:20px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;margin-bottom:-1px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.tab{flex:0 0 auto;background:transparent;border:1px solid var(--line);border-radius:9px 9px 0 0;
+padding:9px 13px;cursor:pointer;color:var(--mut);font:inherit;font-size:13px;line-height:1.25;text-align:left;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected=true]{background:var(--card);color:var(--ink);border-bottom-color:var(--card);font-weight:600}
+.tab .tn{font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;display:block}
+.tab .tm{font-size:11px;opacity:.75}
+.tab:focus-visible{outline:2px solid var(--sh-i);outline-offset:2px}
+.chain{background:var(--card);border:1px solid var(--line);border-radius:0 12px 12px 12px;padding:18px;margin-bottom:20px}
+.chain[hidden]{display:none!important}
 .chead{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin-bottom:6px}
 .cid{font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
 .badge{font-size:11px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--mut)}
@@ -43,7 +53,8 @@ dialog{border:0;background:transparent;max-width:96vw;max-height:96vh;padding:0}
 dialog::backdrop{background:rgba(0,0,0,.82)}
 dialog img{max-width:96vw;max-height:92vh;border-radius:10px;display:block}
 dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8px 0 0}
-@media (max-width:640px){figure{max-width:46%}.wrap{padding:20px 14px 60px}}
+@media (max-width:640px){figure{max-width:46%}.wrap{padding:20px 14px 60px}
+.chain{border-radius:12px}.tabs{padding-bottom:8px}.tab{border-radius:9px}}
 </style></head><body><div class="wrap">
 <h1>Insights into the Distinct Lithiation/Sodiation of Porous Cobalt Oxide by in Operando Synchrotron X-ray Techniques and Ab Initio Molecular Dynamics Simulations</h1>
 <div class="sub">Nano Letters &middot; 10.1021/acs.nanolett.6b04294 &middot; support chains, every claim with two or more figure-backed evidence nodes</div>
@@ -54,7 +65,22 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
 <div class="stat"><b>9</b><span>channels</span></div>
 </div>
 <div class="note"><b>Every verdict is model against model.</b> Each chain is cut from the paper's argument graph; the level on each step is the graph's own four-level support label, and the closing line is the claim's support profile. Panels are handed over whole and unaltered &mdash; annotation removal was withdrawn on 2026-09-23. Images here are downscaled for the page; the measurements were made on the native crops. No item on this page has been checked by a person.</div>
-<div class="chain">
+<p class="hint">One tab per chain. Arrow keys move between them, and each tab has its own link.</p>
+<div class="tabs" role="tablist" aria-label="Support chains">
+<button class="tab" role="tab" id="tab-n15" aria-controls="panel-n15" aria-selected="true" tabindex="0"><span class="tn">n15</span><span class="tm">5 steps &middot; ECHEM, XAS, XRD</span></button>
+<button class="tab" role="tab" id="tab-n12" aria-controls="panel-n12" aria-selected="false" tabindex="-1"><span class="tn">n12</span><span class="tm">4 steps &middot; XAS, XRD</span></button>
+<button class="tab" role="tab" id="tab-n18" aria-controls="panel-n18" aria-selected="false" tabindex="-1"><span class="tn">n18</span><span class="tm">3 steps &middot; ATOM, ECHEM, SAXS</span></button>
+<button class="tab" role="tab" id="tab-n5" aria-controls="panel-n5" aria-selected="false" tabindex="-1"><span class="tn">n5</span><span class="tm">3 steps &middot; PHYS, SEM</span></button>
+<button class="tab" role="tab" id="tab-n7" aria-controls="panel-n7" aria-selected="false" tabindex="-1"><span class="tn">n7</span><span class="tm">3 steps &middot; ECHEM</span></button>
+<button class="tab" role="tab" id="tab-n13" aria-controls="panel-n13" aria-selected="false" tabindex="-1"><span class="tn">n13</span><span class="tm">2 steps &middot; SAXS</span></button>
+<button class="tab" role="tab" id="tab-n16" aria-controls="panel-n16" aria-selected="false" tabindex="-1"><span class="tn">n16</span><span class="tm">2 steps &middot; , SAXS</span></button>
+<button class="tab" role="tab" id="tab-n17" aria-controls="panel-n17" aria-selected="false" tabindex="-1"><span class="tn">n17</span><span class="tm">2 steps &middot; ATOM</span></button>
+<button class="tab" role="tab" id="tab-n4" aria-controls="panel-n4" aria-selected="false" tabindex="-1"><span class="tn">n4</span><span class="tm">2 steps &middot; TGA, XRD</span></button>
+<button class="tab" role="tab" id="tab-n8" aria-controls="panel-n8" aria-selected="false" tabindex="-1"><span class="tn">n8</span><span class="tm">2 steps &middot; ECHEM</span></button>
+<button class="tab" role="tab" id="tab-n14" aria-controls="panel-n14" aria-selected="false" tabindex="-1"><span class="tn">n14</span><span class="tm">3 steps &middot; XAS, XRD</span></button>
+<button class="tab" role="tab" id="tab-n21" aria-controls="panel-n21" aria-selected="false" tabindex="-1"><span class="tn">n21</span><span class="tm">2 steps &middot; ATOM</span></button>
+</div>
+<div class="chain" role="tabpanel" id="panel-n15" aria-labelledby="tab-n15" tabindex="0">
 <div class="chead">
 <span class="cid">n15</span>
 <span class="badge spine">spine</span>
@@ -117,7 +143,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
  &mdash; the claim names a fact no panel carries: F4b and F5d identified as Na/PCO only in caption
 <br>Not carried by any panel: F4b and F5d identified as Na/PCO only in caption; F4b identified as Na/PCO only in caption; F5d identified as Na/PCO only in caption; F5a/F5c cell identity only in caption
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n12" aria-labelledby="tab-n12" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n12</span>
 <span class="badge spine">spine</span>
@@ -172,7 +198,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
  &mdash; the claim names a fact no panel carries: F4a and F5b identified as Li/PCO only in caption; Li2O co-product (text)
 <br>Not carried by any panel: F4a and F5b identified as Li/PCO only in caption; Li2O co-product (text); F4a identified as Li/PCO only in caption; F5b identified as Li/PCO only in caption; F5a/F5c cell identity only in caption
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n18" aria-labelledby="tab-n18" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n18</span>
 <span class="badge spine">spine</span>
@@ -214,7 +240,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
 <div class="close"><b>Closing: partial</b>
  &mdash; a step is only partial
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n5" aria-labelledby="tab-n5" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n5</span>
 <span class="badge spine">spine</span>
@@ -253,7 +279,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
 <div class="close"><b>Closing: partial</b>
  &mdash; a step is only partial
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n7" aria-labelledby="tab-n7" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n7</span>
 <span class="badge spine">spine</span>
@@ -291,7 +317,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
  &mdash; a step is only partial
 <br>Not carried by any panel: F2b identified as Li/PCO only in caption
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n13" aria-labelledby="tab-n13" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n13</span>
 <span class="badge spine">spine</span>
@@ -325,7 +351,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
  &mdash; two or more channels show it and nothing is missing
 <br>Not carried by any panel: F3b identified as Li/PCO only in caption
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n16" aria-labelledby="tab-n16" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n16</span>
 <span class="badge spine">spine</span>
@@ -360,7 +386,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
 <div class="close"><b>Closing: partial</b>
  &mdash; a step is only partial
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n17" aria-labelledby="tab-n17" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n17</span>
 <span class="badge spine">spine</span>
@@ -395,7 +421,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
  &mdash; a step is only partial
 <br>Not carried by any panel: atom colour key (grey Li, purple Na) in caption
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n4" aria-labelledby="tab-n4" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n4</span>
 <span class="badge spine">spine</span>
@@ -428,7 +454,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
 <div class="close"><b>Closing: partial</b>
  &mdash; a step is only partial
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n8" aria-labelledby="tab-n8" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n8</span>
 <span class="badge spine">spine</span>
@@ -458,7 +484,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
  &mdash; two or more channels show it and nothing is missing
 <br>Not carried by any panel: F2d identified as Na/PCO only in caption
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n14" aria-labelledby="tab-n14" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n14</span>
 <span class="badge">STR/phase/identity</span>
@@ -501,7 +527,7 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
  &mdash; the claim names a fact no panel carries: F4a/F5b identified as Li/PCO only in caption; amorphous state inferred with SXRD (text)
 <br>Not carried by any panel: F4a/F5b identified as Li/PCO only in caption; amorphous state inferred with SXRD (text); F4a identified as Li/PCO only in caption; F5b identified as Li/PCO only in caption
 </div></div>
-<div class="chain">
+<div class="chain" role="tabpanel" id="panel-n21" aria-labelledby="tab-n21" tabindex="0" hidden>
 <div class="chead">
 <span class="cid">n21</span>
 <span class="badge">DSC/design_guidance</span>
@@ -536,8 +562,30 @@ dialog p{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8p
 <br>Not carried by any panel: atom colour key (yellow S) in caption
 </div></div>
 </div><dialog id="zoom"><img><p></p></dialog><script>
+const tabs=[...document.querySelectorAll('[role=tab]')];
+const panels=[...document.querySelectorAll('[role=tabpanel]')];
+function show(id,push){
+  tabs.forEach(t=>{const on=t.id==='tab-'+id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;});
+  panels.forEach(p=>{p.hidden=p.id!=='panel-'+id;});
+  if(push&&history.replaceState)history.replaceState(null,'','#'+id);
+}
+tabs.forEach(t=>t.addEventListener('click',()=>show(t.id.slice(4),true)));
+document.querySelector('[role=tablist]').addEventListener('keydown',e=>{
+  const i=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');
+  let n=null;
+  if(e.key==='ArrowRight')n=(i+1)%tabs.length;
+  else if(e.key==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;
+  else if(e.key==='Home')n=0;
+  else if(e.key==='End')n=tabs.length-1;
+  if(n===null)return;
+  e.preventDefault();show(tabs[n].id.slice(4),true);tabs[n].focus();
+});
+function fromHash(){const k=decodeURIComponent(location.hash.slice(1));
+  if(k&&document.getElementById('panel-'+k))show(k,false);}
+fromHash();addEventListener('hashchange',fromHash);
 const dlg=document.getElementById('zoom');
 document.querySelectorAll('figure img').forEach(i=>i.addEventListener('click',()=>{
   dlg.querySelector('img').src=i.src;dlg.querySelector('p').textContent=i.dataset.suffix;dlg.showModal();}));
 dlg.addEventListener('click',()=>dlg.close());
+addEventListener('keydown',e=>{if(e.key==='Escape'&&dlg.open)dlg.close();});
 </script></body></html>

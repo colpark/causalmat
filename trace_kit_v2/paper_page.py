@@ -54,9 +54,19 @@ h1{{font-size:24px;line-height:1.25;margin:0 0 6px}}
 .stat{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:96px}}
 .stat b{{display:block;font-size:20px;line-height:1.2}}
 .stat span{{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.04em}}
+.hint{{color:var(--mut);font-size:12px;margin:0 0 8px}}
 .note{{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--na-i);
 border-radius:8px;padding:12px 14px;color:var(--mut);font-size:13px;margin-bottom:26px}}
-.chain{{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:20px}}
+.tabs{{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;margin-bottom:-1px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}}
+.tab{{flex:0 0 auto;background:transparent;border:1px solid var(--line);border-radius:9px 9px 0 0;
+padding:9px 13px;cursor:pointer;color:var(--mut);font:inherit;font-size:13px;line-height:1.25;text-align:left;white-space:nowrap}}
+.tab:hover{{color:var(--ink)}}
+.tab[aria-selected=true]{{background:var(--card);color:var(--ink);border-bottom-color:var(--card);font-weight:600}}
+.tab .tn{{font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;display:block}}
+.tab .tm{{font-size:11px;opacity:.75}}
+.tab:focus-visible{{outline:2px solid var(--sh-i);outline-offset:2px}}
+.chain{{background:var(--card);border:1px solid var(--line);border-radius:0 12px 12px 12px;padding:18px;margin-bottom:20px}}
+.chain[hidden]{{display:none!important}}
 .chead{{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin-bottom:6px}}
 .cid{{font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}}
 .badge{{font-size:11px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--mut)}}
@@ -83,7 +93,8 @@ dialog{{border:0;background:transparent;max-width:96vw;max-height:96vh;padding:0
 dialog::backdrop{{background:rgba(0,0,0,.82)}}
 dialog img{{max-width:96vw;max-height:92vh;border-radius:10px;display:block}}
 dialog p{{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8px 0 0}}
-@media (max-width:640px){{figure{{max-width:46%}}.wrap{{padding:20px 14px 60px}}}}
+@media (max-width:640px){{figure{{max-width:46%}}.wrap{{padding:20px 14px 60px}}
+.chain{{border-radius:12px}}.tabs{{padding-bottom:8px}}.tab{{border-radius:9px}}}}
 </style></head><body><div class="wrap">""")
     A(f"<h1>{E(paper_title)}</h1>")
     A(f'<div class="sub">{E(paper.split("__")[0].replace("_"," "))} &middot; {E(doi)} &middot; support chains, every claim with two or more figure-backed evidence nodes</div>')
@@ -97,8 +108,19 @@ dialog p{{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8
       'removal was withdrawn on 2026-09-23. Images here are downscaled for the page; the measurements were '
       'made on the native crops. No item on this page has been checked by a person.</div>')
 
-    for c in chains:
-        A('<div class="chain">')
+    A('<p class="hint">One tab per chain. Arrow keys move between them, and each tab has its own link.</p>')
+    A('<div class="tabs" role="tablist" aria-label="Support chains">')
+    for i, c in enumerate(chains):
+        sel = 'true' if i == 0 else 'false'
+        A(f'<button class="tab" role="tab" id="tab-{E(c["claim"])}" aria-controls="panel-{E(c["claim"])}" '
+          f'aria-selected="{sel}" tabindex="{0 if i == 0 else -1}">'
+          f'<span class="tn">{E(c["claim"])}</span>'
+          f'<span class="tm">{c["n_steps"]} steps &middot; {E(", ".join(c["channels"])[:26])}</span></button>')
+    A('</div>')
+
+    for i, c in enumerate(chains):
+        A(f'<div class="chain" role="tabpanel" id="panel-{E(c["claim"])}" '
+          f'aria-labelledby="tab-{E(c["claim"])}" tabindex="0"{"" if i == 0 else " hidden"}>')
         A('<div class="chead">')
         A(f'<span class="cid">{E(c["claim"])}</span>')
         if c.get('spine'): A('<span class="badge spine">spine</span>')
@@ -140,10 +162,32 @@ dialog p{{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8
             A('<br>Not carried by any panel: ' + E('; '.join(c['closing_missing'])[:400]))
         A('</div></div>')
     A('</div><dialog id="zoom"><img><p></p></dialog><script>')
-    A("""const dlg=document.getElementById('zoom');
+    A("""const tabs=[...document.querySelectorAll('[role=tab]')];
+const panels=[...document.querySelectorAll('[role=tabpanel]')];
+function show(id,push){
+  tabs.forEach(t=>{const on=t.id==='tab-'+id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;});
+  panels.forEach(p=>{p.hidden=p.id!=='panel-'+id;});
+  if(push&&history.replaceState)history.replaceState(null,'','#'+id);
+}
+tabs.forEach(t=>t.addEventListener('click',()=>show(t.id.slice(4),true)));
+document.querySelector('[role=tablist]').addEventListener('keydown',e=>{
+  const i=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');
+  let n=null;
+  if(e.key==='ArrowRight')n=(i+1)%tabs.length;
+  else if(e.key==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;
+  else if(e.key==='Home')n=0;
+  else if(e.key==='End')n=tabs.length-1;
+  if(n===null)return;
+  e.preventDefault();show(tabs[n].id.slice(4),true);tabs[n].focus();
+});
+function fromHash(){const k=decodeURIComponent(location.hash.slice(1));
+  if(k&&document.getElementById('panel-'+k))show(k,false);}
+fromHash();addEventListener('hashchange',fromHash);
+const dlg=document.getElementById('zoom');
 document.querySelectorAll('figure img').forEach(i=>i.addEventListener('click',()=>{
   dlg.querySelector('img').src=i.src;dlg.querySelector('p').textContent=i.dataset.suffix;dlg.showModal();}));
-dlg.addEventListener('click',()=>dlg.close());""")
+dlg.addEventListener('click',()=>dlg.close());
+addEventListener('keydown',e=>{if(e.key==='Escape'&&dlg.open)dlg.close();});""")
     A('</script></body></html>')
     out = out or os.path.join(ROOT, 'site', f'{paper}_chains.html')
     os.makedirs(os.path.dirname(out), exist_ok=True)
