@@ -5,7 +5,7 @@
 The question sheet states the claim in full, copied from the claim node (plan section 7), lists the
 steps in the paper's argument order with the data each hands over, and asks for a four-level ruling per
 step plus a closing profile. The answer sheet adds every step's expected level, the closing profile,
-what is missing, the layer decisions and the necessity labels.
+what is missing, and the necessity labels.
 """
 import json, os, sys
 from reportlab.lib.pagesizes import letter
@@ -107,8 +107,6 @@ def build(case_dir, answered):
             for p in s['panels']:
                 if not p.get('png'): continue
                 cap = f"<b>{esc(p['suffix'])}</b>"
-                if p['layer_decision'] == 'hidden':
-                    cap += f" &middot; <font color='#b9312c'>annotation layer hidden, {p['masked_fraction']:.1%} masked</font>"
                 pre = ' '.join(unmath(fig_preamble(st, p['panel_id']) or '').split())
                 shown_cap = LG.caption_for(p['caption_span'], pre, forbidden)
                 if shown_cap: cap += "<br/>" + esc(shown_cap[:150])
@@ -140,9 +138,6 @@ def build(case_dir, answered):
         story.append(rows_table([[P(f"<b>{esc(k)}</b>", small), P(esc(v['structural']), small),
                                   P(esc(v['why']), tiny), P(esc(v['confidence']), tiny)]
                                  for k, v in ch['necessity'].items()], [0.9 * inch, 1.6 * inch, 3.8 * inch, 0.7 * inch]))
-        story.append(P("Layer decisions", h2))
-        story.append(rows_table([[P(f"<b>{esc(p['suffix'])}</b>", small), P(esc(p['layer_decision']), small), P(esc(p['layer_why']), tiny)]
-                                 for s in ch['steps'] for p in s['panels']], [0.7 * inch, 1.0 * inch, 5.3 * inch]))
         story.append(Spacer(1, 8))
         story.append(P("Provenance. Every sentence here is a node label from the paper's argument graph; the four-level "
                        "supports are the graph's own image_support fields. " + ch['note'] + " No human has checked this item.", tiny))

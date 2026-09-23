@@ -10,7 +10,6 @@ import json, os, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, os.path.join(ROOT, 'trace_kit')); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from cut_traces import store_for, panel_record, unmath, fig_preamble
-import annotate
 
 # plan section 4: only these are served as text; everything else hands over the real data
 ORACLE = {'ECHEM', 'THERMAL', 'MECH', 'TRANSPORT', 'ASSAY', 'BIO', 'PHYS', 'CHROM', 'PROFILOMETRY'}
@@ -55,18 +54,11 @@ def build(case, use_contrib=False):
             r = panel_record(st, pid) or {}
             crop = r.get('crop')
             toks = (r.get('ocr') or {}).get('tokens') or []
-            sp = annotate.split(crop, toks) if crop and os.path.exists(crop) else {'ok': False, 'method': 'none', 'why': 'panel id does not resolve to a crop', 'regions': [], 'coverage': 0.0}
             panels.append({'panel_id': pid, 'suffix': pid.split('#')[1],
                            'crop': crop if crop and os.path.exists(crop) else None,
                            'figure': r.get('figure'),
                            'caption_span': ' '.join(unmath(r.get('span') or '').split()) or None,
-                           'ocr_tokens': len(toks),
-                           'split_ok': sp['ok'], 'split_method': sp['method'],
-                           'split_coverage': round(sp.get('coverage', 0.0), 4),
-                           'n_regions': len(sp.get('regions') or []),
-                           # ocr_boxes catches text only; the plan forbids hiding words while arrows stay
-                           'hiding_compliant': sp['ok'] and sp['method'] == 'saturation',
-                           'split_why': sp.get('why')})
+                           'ocr_tokens': len(toks)})
         if delivery == 'crop' and not any(p['crop'] for p in panels):
             dropped.append({'node': nid, 'technique': tech, 'panel_ids': pids,
                             'reason': 'no crop resolves for any cited panel; cannot hand the data over'})
