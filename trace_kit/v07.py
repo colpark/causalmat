@@ -442,7 +442,7 @@ def row(P, meta_path=None):
          'traces_cut': len(C['traces']), 'open': sum(t['status'] == 'open' for t in C['traces']),
          'closed_by_rule': '/'.join(f"{k}:{closed.get(k, 0)}" for k in ('R3', 'R4', 'R6', 'skip', 'no_crop')) + (f"/other:{closed['other']}" if closed.get('other') else ''),
          'written': sum(1 for f in glob.glob(os.path.join(d, 'writer', 'T*.writer.out.txt'))),
-         'passed_nets': sum(1 for v in val if not v.get('fails')), **reread_counts(P, flags),
+         'passed_nets': sum(1 for v in val if v.get('verdict') == 'survives'), **reread_counts(P, flags),
          'valid': sum(x['verdict'] == 'valid' for x in rows), 'valid_partial': sum(x['verdict'] == 'valid' and x.get('partial') for x in rows),
          'text_sufficient': sum(x['verdict'] == 'text-sufficient' for x in rows), 'inspect': sum(x['verdict'] == 'inspect' for x in rows),
          'inspect_cause': '/'.join(f"{k}:{v}" for k, v in sorted(Counter(x['cause'] for x in rows if x['verdict'] == 'inspect').items(), key=lambda kv: str(kv[0]))),
