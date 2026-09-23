@@ -1,0 +1,79 @@
+{
+ "figures_in_packet": 8,
+ "figures_opened": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"],
+ "crops_opened": [
+  "10.1002/adma.202005477#F2b",
+  "10.1002/adma.202005477#F2c",
+  "10.1002/adma.202005477#F2e",
+  "10.1002/adma.202005477#F2f",
+  "10.1002/adma.202005477#F2g",
+  "10.1002/adma.202005477#F3b",
+  "10.1002/adma.202005477#F3e",
+  "10.1002/adma.202005477#F5b",
+  "10.1002/adma.202005477#F5c",
+  "10.1002/adma.202005477#F6a",
+  "10.1002/adma.202005477#F6b",
+  "10.1002/adma.202005477#F6c",
+  "10.1002/adma.202005477#F6d",
+  "10.1002/adma.202005477#F7b",
+  "10.1002/adma.202005477#F7c",
+  "10.1002/adma.202005477#F7d",
+  "10.1002/adma.202005477#F8a",
+  "10.1002/adma.202005477#F8b",
+  "10.1002/adma.202005477#F8c",
+  "10.1002/adma.202005477#F8d",
+  "10.1002/adma.202005477#F8e"
+ ],
+ "crops_opened_note": "All 8 whole-figure images were opened first. F1 (tier C2_order_violation) and F4 (tier C3_caption_swap) offer no panel crops, so every node reading them carries figs F1 or F4 with panel_ids []. The 21 crops listed above are exactly the crops cited. Panels offered but neither cited nor opened as crops: F2a, F2d, F3a, F3c, F3d, F5a, F7a - all schematics or reaction schemes with no readout of their own (their content is already carried by s6, s12 and s14 and by the F2/F3 linked text).",
+ "panels_offered": 28,
+ "panels_cited": 21,
+ "panels_cited_ids": [
+  "10.1002/adma.202005477#F2b",
+  "10.1002/adma.202005477#F2c",
+  "10.1002/adma.202005477#F2e",
+  "10.1002/adma.202005477#F2f",
+  "10.1002/adma.202005477#F2g",
+  "10.1002/adma.202005477#F3b",
+  "10.1002/adma.202005477#F3e",
+  "10.1002/adma.202005477#F5b",
+  "10.1002/adma.202005477#F5c",
+  "10.1002/adma.202005477#F6a",
+  "10.1002/adma.202005477#F6b",
+  "10.1002/adma.202005477#F6c",
+  "10.1002/adma.202005477#F6d",
+  "10.1002/adma.202005477#F7b",
+  "10.1002/adma.202005477#F7c",
+  "10.1002/adma.202005477#F7d",
+  "10.1002/adma.202005477#F8a",
+  "10.1002/adma.202005477#F8b",
+  "10.1002/adma.202005477#F8c",
+  "10.1002/adma.202005477#F8d",
+  "10.1002/adma.202005477#F8e"
+ ],
+ "technique_cue_conflicts_resolved": [
+  {
+   "nodes": [],
+   "technique": "n/a",
+   "panels": ["10.1002/adma.202005477#F2d"],
+   "cue_classes": ["micrograph"],
+   "resolution": "Panel not cited, so no conflict entered the graph. The crop was inspected in the whole-figure read of F2: it is a drawn molecular scheme of TA + .OH -> TAOH with ex/em labels, not a micrograph, and its 'scale bar: True' flag is also wrong. Nothing in the paper is read from it; the reaction it draws is carried by k2 (KNW/lookup) and the readouts by o5 (F2e) and a2 (F2f), both tagged 'optical spectroscopy' and cited with technique PL."
+  },
+  {
+   "nodes": ["o1", "o2", "o3", "o13", "o14", "o15"],
+   "technique": "SEM, TEM, STEM:EDX, FLUORESCENCE:live_dead, BIO:plate_count, BIO:MIC",
+   "panels": [],
+   "cue_classes": [],
+   "resolution": "No conflict possible: F1 and F4 offer no panel crops (tiers C2_order_violation and C3_caption_swap), so these nodes carry figs F1/F4 with panel_ids [] and are not cue-checked. Techniques were taken from the figure captions and confirmed against the images (SEM/TEM micrographs and HAADF-STEM + EDX element tiles in F1; agar photographs, OD600 curves, live/dead fluorescence fields and MIC curves in F4)."
+  }
+ ],
+ "merged_nodes": [
+  "F6c (centre-of-mass distance) and F6d (interaction energy) merged into one OBS o10: both panels are xy_curve and state the same claim, that the flat surface plateaus after about 6 ns while the spiky one does not.",
+  "F8d (CD31 expression) and F8e (vessel count) merged into one OBS o22: same modality, same ranking claim over the same five groups.",
+  "F4b,c (OD600 growth curves) folded into o14's image_note rather than a separate node: the ranking is the same claim as the F4a colony counts.",
+  "F5b 'Bacterial capture' and F5c 'Bacterial capture' were kept apart (o12 membrane destruction from TEM sections; o11 particle-bacterium proximity from SEM fields) because they state different claims, but the duplicate 'spikes penetrate the cytomembrane' reading was folded into o12's image_note with image_support partial.",
+  "The wound-photograph reading (F7c, o17) and the wound-size curve (F7b, o16) were kept apart (different modality) but both evidence the single PRF node s16; the day-4 scab stage is in o17's image_note only.",
+  "'Cu(II) catalyses H2O2' and 'MoO3 accelerates it' merged into the single PRP node s11; the cascade mechanism that separates them sits in s12.",
+  "F1 morphology (o1) and F1 EDX (o2, o3) were split rather than merged because micrograph and spatial_map are different modalities; the Si-rim claim (s9) and the Cu/Mo-core claim (s10) are separate structure nodes.",
+  "'no live bacterium in V-POD-M+H2O2' (F4d) and 'zero colonies' (F4a) kept apart as o13 (localisation, evidences s14) and o14 (count, evidences s15)."
+ ]
+}

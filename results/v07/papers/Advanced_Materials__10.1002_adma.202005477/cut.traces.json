@@ -1,0 +1,2307 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.202005477",
+ "title": "Bioinspired Spiky Peroxidase-Mimics for Localized Bacterial Capture and Synergistic Catalytic Sterilization",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "s8",
+   "evidence": [
+    "o1"
+   ],
+   "hidden": [
+    "o1",
+    "s8",
+    "s13",
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18"
+   ],
+   "branch": "evidences edge o1 -> s8",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "context"
+    },
+    {
+     "node": "s3",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "o1",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "s8",
+     "role": "claim"
+    },
+    {
+     "node": "s13",
+     "role": "downstream"
+    },
+    {
+     "node": "s14",
+     "role": "downstream"
+    },
+    {
+     "node": "s15",
+     "role": "downstream"
+    },
+    {
+     "node": "s16",
+     "role": "downstream"
+    },
+    {
+     "node": "s17",
+     "role": "downstream"
+    },
+    {
+     "node": "s18",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for s8 (node-level necessity of o1: necessary)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "0 panels: rank became infer/compare"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:605",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "node_necessity": "necessary",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": false,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "s1",
+      "s2",
+      "s3",
+      "s6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Bacterial wound infection needs an antibiotic-free -> A virus-like spiky shell on a cascaded Cu(II)+MoO3 -> A Cu(II)-BTC MOF is chosen as the peroxidase-mimet -> POD-M octahedra are assembled at ambient temperatu"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels  [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: POD-M is a smooth-faced octahedron about 2 um across; V-POD-M keeps that core and is covered with fine mesoporous spikes"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "s8"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: V-POD-M keeps the octahedral core of POD-M but its whole surface carries dense mesoporous spikes, where POD-M is smooth"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "s13",
+      "s14",
+      "s15",
+      "s16",
+      "s17",
+      "s18"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: A spiky surface pierces and binds the lipid bilayer far more strongly than a flat surface"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "s12",
+   "evidence": [
+    "o7"
+   ],
+   "hidden": [
+    "s12",
+    "s11",
+    "s15",
+    "s16",
+    "s17",
+    "s18",
+    "s2"
+   ],
+   "branch": "evidences edge o7 -> s12",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM",
+    "UVVIS"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
+   "status": "closed",
+   "ruling": "not derivable from given panels: s12: text, not in given captions: ['that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d', 'that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)']",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "redacted"
+    },
+    {
+     "node": "s3",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "o7",
+     "role": "evidence",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1002/adma.202005477#F3b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s12",
+     "role": "claim"
+    },
+    {
+     "node": "s11",
+     "role": "redacted"
+    },
+    {
+     "node": "s15",
+     "role": "redacted"
+    },
+    {
+     "node": "s16",
+     "role": "redacted"
+    },
+    {
+     "node": "s17",
+     "role": "redacted"
+    },
+    {
+     "node": "s18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model needed: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: plot read, no domain model needed: depth-one negative control"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for s12 (node-level necessity of o7: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:683",
+     "effect": "not derivable from given panels: s12: text, not in given captions: ['that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d', 'that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "s11",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s15",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.202005477#F3b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005477#F3b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "s12"
+   ],
+   "target_verdicts": {
+    "s12": {
+     "pass": false,
+     "why": "text, not in given captions: ['that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d', 'that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)']"
+    }
+   },
+   "annotation_read_evidence": [
+    "o7"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: H2O2 adsorption on MoO3 crosses a 0.06 eV barrier and the MoO2(O2) peroxo intermediate lies 0.78 eV below the reactants  [panels F3b]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "s12"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: MoO3 binds H2O2 into a peroxo-complex intermediate that lowers the Fenton-like barrier at Cu, accelerating .OH release  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "s11"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: Cu(II) and MoO3 together turn H2O2 into hydroxyl radicals far faster than either centre alone"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "rival": null,
+   "rival_note": "no second explains edge and no rules_out edge: no rival",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "s12",
+   "evidence": [
+    "o8"
+   ],
+   "hidden": [
+    "s12",
+    "s11",
+    "s15",
+    "s16",
+    "s17",
+    "s18",
+    "s2"
+   ],
+   "branch": "evidences edge o8 -> s12",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM",
+    "UVVIS"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation",
+   "grader": "certified judge against the graph's mechanism; no rival in the graph",
+   "status": "closed",
+   "ruling": "not derivable from given panels: s12: text, not in given captions: ['that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d', 'that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)']",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "redacted"
+    },
+    {
+     "node": "s3",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "o8",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202005477#F3e"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s12",
+     "role": "claim"
+    },
+    {
+     "node": "s11",
+     "role": "redacted"
+    },
+    {
+     "node": "s15",
+     "role": "redacted"
+    },
+    {
+     "node": "s16",
+     "role": "redacted"
+    },
+    {
+     "node": "s17",
+     "role": "redacted"
+    },
+    {
+     "node": "s18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model needed: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled control: plot read, no domain model needed: depth-one negative control"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for s12 (node-level necessity of o8: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:683",
+     "effect": "not derivable from given panels: s12: text, not in given captions: ['that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d', 'that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "s11",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s15",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.202005477#F3e"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005477#F3e",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "s12"
+   ],
+   "target_verdicts": {
+    "s12": {
+     "pass": false,
+     "why": "text, not in given captions: ['that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d', 'that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)']"
+    }
+   },
+   "annotation_read_evidence": [
+    "o8"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: With the peroxo intermediate both barriers are 0.24 eV, against 0.38 and 0.36 eV for direct Cu/H2O2, and the path ends 0  [panels F3e]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "s12"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: MoO3 binds H2O2 into a peroxo-complex intermediate that lowers the Fenton-like barrier at Cu, accelerating .OH release  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "s11"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: Cu(II) and MoO3 together turn H2O2 into hydroxyl radicals far faster than either centre alone"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "s13",
+   "evidence": [
+    "o9"
+   ],
+   "hidden": [
+    "o9",
+    "s13",
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18"
+   ],
+   "branch": "evidences edge o9 -> s13",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "context"
+    },
+    {
+     "node": "s3",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "s8",
+     "role": "context"
+    },
+    {
+     "node": "o9",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202005477#F6a",
+      "10.1002/adma.202005477#F6b"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "node": "s13",
+     "role": "claim"
+    },
+    {
+     "node": "s14",
+     "role": "downstream"
+    },
+    {
+     "node": "s15",
+     "role": "downstream"
+    },
+    {
+     "node": "s16",
+     "role": "downstream"
+    },
+    {
+     "node": "s17",
+     "role": "downstream"
+    },
+    {
+     "node": "s18",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for s13 (node-level necessity of o9: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None, 'In contrast']"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o9 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adma.202005477#F6a carries ['16ns', '24ns'] shared with graded targets ['o9']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.202005477#F6a",
+    "10.1002/adma.202005477#F6b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005477#F6a",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/adma.202005477#F6b",
+     "sample": "In contrast",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "In contrast"
+    }
+   ],
+   "graded_targets": [
+    "o9"
+   ],
+   "target_verdicts": {
+    "o9": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005477#F6a",
+     "annotations": [
+      "Flatsurface",
+      "0ns",
+      "8ns",
+      "16ns",
+      "24ns"
+     ],
+     "hits": [
+      {
+       "text": "16ns",
+       "shared": [
+        "16"
+       ]
+      },
+      {
+       "text": "24ns",
+       "shared": [
+        "24"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "s1",
+      "s2",
+      "s3",
+      "s6",
+      "s8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Bacterial wound infection needs an antibiotic-free -> A virus-like spiky shell on a cascaded Cu(II)+MoO3 -> A Cu(II)-BTC MOF is chosen as the peroxidase-mimet -> POD-M octahedra are assembled at ambient temperatu -> V-POD-M keeps the octahedral core of POD-M but its"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6a, F6b [ATOM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The flat slab still rests on the bilayer at 24 ns, while the spiky tube has passed through it by 16 ns and splayed the lipid tails"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "s13"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: A spiky surface pierces and binds the lipid bilayer far more strongly than a flat surface"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "s14",
+      "s15",
+      "s16",
+      "s17",
+      "s18"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Localized capture-killing: the spikes hold the bacterium against the particle so the .OH burst is de"
+    }
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "s13",
+   "evidence": [
+    "o10"
+   ],
+   "hidden": [
+    "o10",
+    "s13",
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18"
+   ],
+   "branch": "evidences edge o10 -> s13",
+   "fm_family": "ATOM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "ATOM"
+   ],
+   "channels_involved": [
+    "ATOM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "context"
+    },
+    {
+     "node": "s3",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "s8",
+     "role": "context"
+    },
+    {
+     "node": "o10",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202005477#F6c",
+      "10.1002/adma.202005477#F6d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s13",
+     "role": "claim"
+    },
+    {
+     "node": "s14",
+     "role": "downstream"
+    },
+    {
+     "node": "s15",
+     "role": "downstream"
+    },
+    {
+     "node": "s16",
+     "role": "downstream"
+    },
+    {
+     "node": "s17",
+     "role": "downstream"
+    },
+    {
+     "node": "s18",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane ATOM necessary for s13 (node-level necessity of o10: necessary)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o10 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adma.202005477#F6c carries ['Virus-like surface'] shared with graded targets ['o10']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.202005477#F6c",
+    "10.1002/adma.202005477#F6d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005477#F6c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/adma.202005477#F6d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o10"
+   ],
+   "target_verdicts": {
+    "o10": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005477#F6c",
+     "annotations": [
+      "Flatsurface",
+      "Virus-like surface",
+      "(wu)",
+      "istance"
+     ],
+     "hits": [
+      {
+       "text": "Virus-like surface",
+       "shared": [
+        "surface"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "s1",
+      "s2",
+      "s3",
+      "s6",
+      "s8"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: Bacterial wound infection needs an antibiotic-free -> A virus-like spiky shell on a cascaded Cu(II)+MoO3 -> A Cu(II)-BTC MOF is chosen as the peroxidase-mimet -> POD-M octahedra are assembled at ambient temperatu -> V-POD-M keeps the octahedral core of POD-M but its"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o10"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F6c, F6d [ATOM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o10"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The flat surface plateaus at 4.3 nm and -3000 kJ/mol after about 6 ns, while the spiky surface keeps closing to 1.0 nm and gaining to about "
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "s13"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: A spiky surface pierces and binds the lipid bilayer far more strongly than a flat surface"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "s14",
+      "s15",
+      "s16",
+      "s17",
+      "s18"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Localized capture-killing: the spikes hold the bacterium against the particle so the .OH burst is de"
+    }
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "s15",
+   "evidence": [
+    "a3"
+   ],
+   "hidden": [
+    "a3",
+    "s16",
+    "s17",
+    "s18",
+    "s2"
+   ],
+   "branch": "qualifies edge a3 -> s15",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": true,
+    "support": [
+     "o14"
+    ]
+   },
+   "depth": 1,
+   "depth_families": [
+    "BIO"
+   ],
+   "channels_involved": [
+    "BIO",
+    "SEM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "redacted"
+    },
+    {
+     "node": "s3",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "s11",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "audit",
+     "op": "inspect_local_feature",
+     "panel_ids": [
+      "10.1002/adma.202005477#F5c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s15",
+     "role": "claim"
+    },
+    {
+     "node": "s16",
+     "role": "redacted"
+    },
+    {
+     "node": "s17",
+     "role": "redacted"
+    },
+    {
+     "node": "s18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "floor reaches the claim without FM evidence via ['o14']"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: floor reaches the claim without FM evidence via ['o14']"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for s15 (node-level necessity of a3: corrective)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a3 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F5c']"
+    }
+   ],
+   "node_necessity": "corrective",
+   "redactions": [
+    {
+     "node": "s16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.202005477#F5c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005477#F5c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a3"
+   ],
+   "target_verdicts": {
+    "a3": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotation_read_evidence": [
+    "a3"
+   ],
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005477#F5c",
+     "annotations": [
+      "POD-M+HO2",
+      "V-POD-M+HO2",
+      "POD-Mstructure",
+      "collapse",
+      "Membrane",
+      "No bacterial capture",
+      "Bacterialcapture",
+      "destruction",
+      "POD-Mstructure",
+      "collapse",
+      "E.coli",
+      "Membrane",
+      "No bacterialcapture",
+      "Bacterialcapture",
+      "destruction",
+      "500nm",
+      "10um",
+      "500nm"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "s15"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: V-POD-M+H2O2 reduces S. aureus and E. coli to zero colonies, where POD-M+H2O2 leaves 45-58 CFU"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F5c [SEM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: After H2O2 the POD-M octahedra are gone and only crumpled sheets remain, an alternative reason for the weak killing that the text never weig"
+    }
+   ]
+  },
+  {
+   "id": "T7",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "s11",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "s15",
+    "s16",
+    "s17",
+    "s18",
+    "s2"
+   ],
+   "branch": "qualifies edge a2 -> s11",
+   "fm_family": "PL",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "PL"
+   ],
+   "channels_involved": [
+    "PL"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "redacted"
+    },
+    {
+     "node": "s3",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202005477#F2f"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s11",
+     "role": "claim"
+    },
+    {
+     "node": "s15",
+     "role": "redacted"
+    },
+    {
+     "node": "s16",
+     "role": "redacted"
+    },
+    {
+     "node": "s17",
+     "role": "redacted"
+    },
+    {
+     "node": "s18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F2f']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "s15",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.202005477#F2f"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005477#F2f",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a2"
+   ],
+   "target_verdicts": {
+    "a2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005477#F2f",
+     "annotations": [
+      "PL",
+      "TA+H,O2",
+      "TA+H,O+Cu (I)",
+      "TA+H,O,+MoO",
+      "+Cu(ll)+MoO",
+      "TA+H"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "s11"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Cu(II) and MoO3 together turn H2O2 into hydroxyl radicals far faster than either centre alone"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2f [PL]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: All four TA groups give 185-380 a.u. of TAOH fluorescence, so the Cu(II)+MoO3 gain is about twofold over the blank, not an on/off signal"
+    }
+   ]
+  },
+  {
+   "id": "T8",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "s12",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "s11",
+    "s15",
+    "s16",
+    "s17",
+    "s18",
+    "s2"
+   ],
+   "branch": "qualifies edge a1 -> s12",
+   "fm_family": "UVVIS",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "UVVIS"
+   ],
+   "channels_involved": [
+    "UVVIS"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "redacted"
+    },
+    {
+     "node": "s3",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202005477#F2c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s12",
+     "role": "claim"
+    },
+    {
+     "node": "s11",
+     "role": "redacted"
+    },
+    {
+     "node": "s15",
+     "role": "redacted"
+    },
+    {
+     "node": "s16",
+     "role": "redacted"
+    },
+    {
+     "node": "s17",
+     "role": "redacted"
+    },
+    {
+     "node": "s18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F2c']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "s11",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s15",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.202005477#F2c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005477#F2c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005477#F2c",
+     "annotations": [
+      "+MoO,",
+      "TMB+H,O2",
+      "TMB+H,O+Cu(I)",
+      "O+Cu(Il)+MoO,",
+      "TMB+H"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "s12"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: MoO3 binds H2O2 into a peroxo-complex intermediate that lowers the Fenton-like barrier at Cu, accelerating .OH release"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2c [UVVIS]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: MoO3 alone gives absorbance 0.055 against 0.017 for H2O2 alone and 0.082 for Cu(II) alone, so MoO3 by itself does oxidize TMB"
+    }
+   ]
+  },
+  {
+   "id": "T9",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "s16",
+   "evidence": [
+    "a4"
+   ],
+   "hidden": [
+    "a4",
+    "s17",
+    "s18",
+    "s2"
+   ],
+   "branch": "qualifies edge a4 -> s16",
+   "fm_family": "OPTICAL",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "OPTICAL"
+   ],
+   "channels_involved": [
+    "OPTICAL"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "redacted"
+    },
+    {
+     "node": "s3",
+     "role": "context"
+    },
+    {
+     "node": "s6",
+     "role": "context"
+    },
+    {
+     "node": "s10",
+     "role": "context"
+    },
+    {
+     "node": "s11",
+     "role": "context"
+    },
+    {
+     "node": "s15",
+     "role": "context"
+    },
+    {
+     "node": "a4",
+     "role": "audit",
+     "op": "read_trend",
+     "panel_ids": [
+      "10.1002/adma.202005477#F7b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "s16",
+     "role": "claim"
+    },
+    {
+     "node": "s17",
+     "role": "redacted"
+    },
+    {
+     "node": "s18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a4 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adma.202005477#F7b carries ['Woundsize(', 'Wound', 'Woundinfection', 'Woundhealingprocess'] shared with graded targets ['a4']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "s17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.202005477#F7b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005477#F7b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a4"
+   ],
+   "target_verdicts": {
+    "a4": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005477#F7b",
+     "annotations": [
+      "Control",
+      "H,O2",
+      "V-POD-M+HO2",
+      "Vancomycin",
+      "Woundsize(",
+      "Wound",
+      "Woundinfection",
+      "Woundhealingprocess",
+      "creation",
+      "&treatment",
+      "day.o",
+      "day1",
+      "dav4",
+      "dav.8",
+      "dav.12",
+      "dav16"
+     ],
+     "hits": [
+      {
+       "text": "Woundsize(",
+       "shared": [
+        "woundsize"
+       ]
+      },
+      {
+       "text": "Wound",
+       "shared": [
+        "wound"
+       ]
+      },
+      {
+       "text": "Woundinfection",
+       "shared": [
+        "woundinfection"
+       ]
+      },
+      {
+       "text": "Woundhealingprocess",
+       "shared": [
+        "woundhealingproces"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "s16"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: In S. aureus-infected rabbit wounds, V-POD-M+H2O2 closes the wound by day 16 as well as vancomycin does"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a4"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F7b [OPTICAL]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a4"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: The V-POD-M+H2O2 wound still expands from about 128 to about 197 mm2 by day 1 and measures about 12 mm2 at day 16"
+    }
+   ]
+  },
+  {
+   "id": "T10",
+   "group_id": "Advanced_Materials/10.1002_adma.202005477",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "s14",
+   "evidence": [
+    "o11",
+    "o13"
+   ],
+   "hidden": [
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18",
+    "s2"
+   ],
+   "branch": "joint causes ['s11', 's13'] of s15, explained by s14",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 2,
+   "depth_families": [
+    "FLUORESCENCE",
+    "SEM"
+   ],
+   "channels_involved": [
+    "FLUORESCENCE",
+    "SEM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation and the joint causes",
+   "grader": "certified judge against the graph's mechanism; causes act jointly, no rival",
+   "status": "closed",
+   "ruling": "not derivable from given panels: s14: text, not in given captions: ['the DNA-damage step: no panel in the packet measures bacterial DNA, and it appears only in the F5a schematic drawing and the linked text', \"that capture and .OH release act at the same place and time ('localized' claim), which the F4/F5 panels cannot time-resolve\"]",
+   "walk": [
+    {
+     "node": "s1",
+     "role": "context"
+    },
+    {
+     "node": "s2",
+     "role": "redacted"
+    },
+    {
+     "node": "s5",
+     "role": "context"
+    },
+    {
+     "node": "s7",
+     "role": "context"
+    },
+    {
+     "node": "s9",
+     "role": "context"
+    },
+    {
+     "node": "o11",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202005477#F5c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "o13",
+     "role": "evidence",
+     "op": "assess_spatial_distribution",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "s11",
+     "role": "context"
+    },
+    {
+     "node": "s13",
+     "role": "context"
+    },
+    {
+     "node": "s14",
+     "role": "claim"
+    },
+    {
+     "node": "s15",
+     "role": "redacted"
+    },
+    {
+     "node": "s16",
+     "role": "redacted"
+    },
+    {
+     "node": "s17",
+     "role": "redacted"
+    },
+    {
+     "node": "s18",
+     "role": "redacted"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R1",
+     "where": "cut_traces.py:296",
+     "effect": "causes ['s11', 's13'] into s15 are joint (modes ['joint']): mechanism trace, not competing causes"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:683",
+     "effect": "not derivable from given panels: s14: text, not in given captions: ['the DNA-damage step: no panel in the packet measures bacterial DNA, and it appears only in the F5a schematic drawing and the linked text', \"that capture and .OH release act at the same place and time ('localized' claim), which the F4/F5 panels cannot time-resolve\"]"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "s15",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "s2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": false,
+   "given_panels": [
+    "10.1002/adma.202005477#F5c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005477#F5c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "s14"
+   ],
+   "target_verdicts": {
+    "s14": {
+     "pass": false,
+     "why": "text, not in given captions: ['the DNA-damage step: no panel in the packet measures bacterial DNA, and it appears only in the F5a schematic drawing and the linked text', \"that capture and .OH release act at the same place and time ('localized' claim), which the F4/F5 panels cannot time-resolve\"]"
+    }
+   },
+   "annotation_read_evidence": [
+    "o11"
+   ],
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o11",
+      "o13"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: With POD-M+H2O2 the bacteria sit in clusters away from the particles, while with V-POD-M+H2O2 every bacterium is embedde  [panels F5c]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "s14"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: Localized capture-killing: the spikes hold the bacterium against the particle so the .OH burst is delivered in situ at i  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "s15"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: V-POD-M+H2O2 reduces S. aureus and E. coli to zero colonies, where POD-M+H2O2 leaves 45-58 CFU"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Advanced_Materials__10.1002_adma.202005477",
+   "trace": "T2",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "s12"
+   ],
+   "why": [
+    "s12: text, not in given captions: ['that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d', 'that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)']"
+   ],
+   "requires_unseen": {
+    "s12": [
+     "that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d",
+     "that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)"
+    ]
+   },
+   "labels": {
+    "s12": "MoO3 binds H2O2 into a peroxo-complex intermediate that lowers the Fenton-like barrier at Cu, accelerating .OH release"
+   }
+  },
+  {
+   "paper": "Advanced_Materials__10.1002_adma.202005477",
+   "trace": "T3",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "s12"
+   ],
+   "why": [
+    "s12: text, not in given captions: ['that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d', 'that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)']"
+   ],
+   "requires_unseen": {
+    "s12": [
+     "that the computed Path 1 is the route the real catalyst takes, rather than a candidate path (argued in the F3 linked text); the Path 1/Path 2 names and the MoO3+H2O2 -> MoO2(O2)+H2O reaction are themselves drawn on F3a,c,d",
+     "that the DFT surface model stands for the phosphomolybdate-loaded MOF (F3 linked text)"
+    ]
+   },
+   "labels": {
+    "s12": "MoO3 binds H2O2 into a peroxo-complex intermediate that lowers the Fenton-like barrier at Cu, accelerating .OH release"
+   }
+  },
+  {
+   "paper": "Advanced_Materials__10.1002_adma.202005477",
+   "trace": "T10",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "s14"
+   ],
+   "why": [
+    "s14: text, not in given captions: ['the DNA-damage step: no panel in the packet measures bacterial DNA, and it appears only in the F5a schematic drawing and the linked text', \"that capture and .OH release act at the same place and time ('localized' claim), which the F4/F5 panels cannot time-resolve\"]"
+   ],
+   "requires_unseen": {
+    "s14": [
+     "the DNA-damage step: no panel in the packet measures bacterial DNA, and it appears only in the F5a schematic drawing and the linked text",
+     "that capture and .OH release act at the same place and time ('localized' claim), which the F4/F5 panels cannot time-resolve"
+    ]
+   },
+   "labels": {
+    "s14": "Localized capture-killing: the spikes hold the bacterium against the particle so the .OH burst is delivered in situ at its membrane"
+   }
+  }
+ ]
+}

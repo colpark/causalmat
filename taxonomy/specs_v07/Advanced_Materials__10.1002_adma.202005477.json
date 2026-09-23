@@ -1,0 +1,555 @@
+{
+ "file": "Advanced_Materials__10.1002_adma.202005477.html",
+ "short": "Bioinspired Spiky Peroxidase-Mimics for Localized Bacterial ",
+ "journal": "Advanced_Materials",
+ "year": null,
+ "title": "Bioinspired Spiky Peroxidase-Mimics for Localized Bacterial Capture and Synergistic Catalytic Sterilization",
+ "doi": "Advanced_Materials/10.1002_adma.202005477",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO, TEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "atom",
+   "label": "Atomistic simulation: ATOM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "Bacterial wound infection needs an antibiotic-free agent that eradicates bacteria at ultralow dose. A virus-like spiky shell on a cascaded Cu(II)+MoO3 peroxidase-mimic should capture bacteria and kill them by localized ROS.",
+   "detail": "Absorbed: s1 (HYP/need), s2 (HYP/hypothesis), s3 (DES/base_system), s4 (DES/modification), s5 (DES/architecture), s6 (PRC/synthesis), s7 (PRC/deposition). Premises: Mo/W transition-metal compounds are reported to bind H2O2 strongly and to lower the reaction barrier; Viruses carry surface spikes that let them attach to and enter host cells",
+   "figs": [],
+   "source": "s1, s2, s3, s4, s5, s6, s7"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "V-POD-M keeps the octahedral core of POD-M but its whole surface carries dense mesoporous spikes, where POD-M is smooth. A continuous silica shell about 130 nm thick covers the V-POD-M core.",
+   "detail": "Absorbed: s8 (STR/microstructure/shape), s9 (STR/microstructure/distribution), s10 (STR/chemistry/composition)",
+   "figs": [],
+   "source": "s8, s9, s10"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Cu(II) and MoO3 together turn H2O2 into hydroxyl radicals far faster than either centre alone. MoO3 binds H2O2 into a peroxo-complex intermediate that lowers the Fenton-like barrier at Cu, accelerating .OH release.",
+   "detail": "Absorbed: s11 (PRP/value), s12 (MEC/pathway), s13 (PRP/value), s14 (MEC/pathway), s15 (PRP/value)",
+   "figs": [],
+   "source": "s11, s12, s13, s14, s15"
+  },
+  {
+   "id": "S3",
+   "stage": "PRF",
+   "title": "Performance state",
+   "head": "In S. aureus-infected rabbit wounds, V-POD-M+H2O2 closes the wound by day 16 as well as vancomycin does.",
+   "detail": "Absorbed: s16 (PRF/service_capability), s17 (PRF/service_capability)",
+   "figs": [],
+   "source": "s16, s17"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "A bioinspired spiky peroxidase-mimic sterilizes by localized capture and catalysis, working antibiotic-free at ultralow dose",
+   "detail": "Absorbed: s18 (DSC/conclusion)",
+   "figs": [],
+   "source": "s18"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "MICRO, F1",
+   "tech": "MICRO",
+   "figs": [
+    "F1"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "POD-M is a smooth-faced octahedron about 2 um across; V-POD-M keeps that core and is covered with fine mesoporous spikes",
+   "solves": "V-POD-M keeps the octahedral core of POD-M but its whole surface carries dense mesoporous spikes, where POD-M is smooth",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o1",
+   "tech_source": "modality",
+   "note": "F1c/c-1 (POD-M) show flat facets with the printed label 'Smooth surface'; F1d/d-1 (V-POD-M) show a hairy rim with 'mesoporous spike' arrows. F1 is tier C2 and offers no panel crops, so the whole figure was read. F1c-1 also shows loose dark debris labelled 'unstable MOF'.",
+   "claims": [
+    "s8"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s8 (o1)."
+  },
+  {
+   "id": "C2",
+   "lane": 2,
+   "row": "S1",
+   "line": 1,
+   "title": "TEM:HAADF, F1",
+   "tech": "TEM:HAADF",
+   "figs": [
+    "F1"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Si is absent from the POD-M map and forms a continuous rim about 130 nm thick around the whole V-POD-M particle",
+   "solves": "A continuous silica shell about 130 nm thick covers the V-POD-M core",
+   "op": "register colocated views",
+   "verdict": "shown",
+   "source": "o2",
+   "tech_source": "label",
+   "note": "The Si tile of F1e is black; the Si tile of F1f is filled cyan and the HAADF tile carries the 130 nm bracket.",
+   "detail": "o2: Si is absent from the POD-M map and forms a continuous rim about 130 nm thick around the whole V-POD-M particle",
+   "claims": [
+    "s9"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s9 (o2)."
+  },
+  {
+   "id": "C3",
+   "lane": 2,
+   "row": "S1",
+   "line": 2,
+   "title": "EDS:spectrum, F1",
+   "tech": "EDS:spectrum",
+   "figs": [
+    "F1"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "C, O, Cu and Mo fill the whole particle in both POD-M and V-POD-M EDX maps",
+   "solves": "Cu and Mo catalytic centres are distributed homogeneously through the POD-M core in both samples",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "label",
+   "note": "Cu (magenta) and Mo (yellow) tiles of F1e and F1f are uniformly filled with no core-shell contrast; in F1f they stop inside the Si rim.",
+   "detail": "o3: C, O, Cu and Mo fill the whole particle in both POD-M and V-POD-M EDX maps",
+   "claims": [
+    "s10"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s10 (o3)."
+  },
+  {
+   "id": "M4",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "MICRO, F5",
+   "tech": "MICRO",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1002/adma.202005477#F5c, 10.1002/adma.202005477#F5b",
+   "panel_ids": [
+    "10.1002/adma.202005477#F5c",
+    "10.1002/adma.202005477#F5b"
+   ],
+   "head": "With POD-M+H2O2 the bacteria sit in clusters away from the particles, while with V-POD-M+H2O2 every bacterium is embedded in the particle aggregate. After V-POD-M+H2O2 the bacterial envelopes are broken and the cytoplasm granular, where after V-POD-M alone the envelope is continuous",
+   "solves": "Localized capture-killing: the spikes hold the bacterium against the particle so the .OH burst is delivered in situ at its membrane",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o11, o12",
+   "tech_source": "modality",
+   "note": "Same reading for both strains; the V-POD-M panels are false-coloured (bacteria yellow, particles grey). The spike penetration of the cytomembrane claimed in the linked text is not resolved: at the blue 'Bacterial capture' arrows the dark spiky material lies against the envelope, not visibly inside it. In F5c the membrane damage is a surface dent rather than a collapse of the cell.",
+   "claims": [
+    "s14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s14 keeps shown support from o13 after removal."
+  },
+  {
+   "id": "M5",
+   "lane": 0,
+   "row": "S2",
+   "line": 1,
+   "title": "MICRO, F4",
+   "tech": "MICRO",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "With V-POD-M+H2O2 the bacteria are all red and gathered into one dense captured patch, where controls are green and evenly scattered",
+   "solves": "Localized capture-killing: the spikes hold the bacterium against the particle so the .OH burst is delivered in situ at its membrane",
+   "op": "assess spatial distribution",
+   "verdict": "shown",
+   "source": "o13",
+   "tech_source": "modality",
+   "note": "F4 is tier C3 and offers no panel crops, so the whole figure was read. The POD-M+H2O2 fields are also almost entirely red, only sparser, so the linked text's 'insufficient capability to eradicate' is not what F4d shows; the dashed 'Capture' outline marks the clustered region.",
+   "claims": [
+    "s14"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s14 keeps shown support from o11 after removal."
+  },
+  {
+   "id": "M6",
+   "lane": 0,
+   "row": "S2",
+   "line": 2,
+   "title": "MICRO, F5",
+   "tech": "MICRO",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1002/adma.202005477#F5c",
+   "panel_ids": [
+    "10.1002/adma.202005477#F5c"
+   ],
+   "head": "After H2O2 the POD-M octahedra are gone and only crumpled sheets remain, an alternative reason for the weak killing that the text never weighs",
+   "solves": "V-POD-M+H2O2 reduces S. aureus and E. coli to zero colonies, where POD-M+H2O2 leaves 45-58 CFU",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "source": "a3",
+   "tech_source": "modality",
+   "note": "Both POD-M+H2O2 panels show flat torn foils with no facets left; the V-POD-M+H2O2 particles keep their bulk.",
+   "audit": true,
+   "claims": [
+    "s15"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: "
+  },
+  {
+   "id": "M7",
+   "lane": 1,
+   "row": "S2",
+   "line": 3,
+   "title": "ATOM, F6",
+   "tech": "ATOM",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1002/adma.202005477#F6a, 10.1002/adma.202005477#F6b",
+   "panel_ids": [
+    "10.1002/adma.202005477#F6a",
+    "10.1002/adma.202005477#F6b"
+   ],
+   "head": "The flat slab still rests on the bilayer at 24 ns, while the spiky tube has passed through it by 16 ns and splayed the lipid tails",
+   "solves": "A spiky surface pierces and binds the lipid bilayer far more strongly than a flat surface",
+   "op": "compare across conditions",
+   "verdict": "partial",
+   "source": "o9",
+   "tech_source": "modality",
+   "note": "The two rows are not rendered alike: the bilayer of F6b is already drawn in a looser licorice style at 0 ns, so part of the apparent disorder is a rendering difference. A pulling force is applied to both surfaces, so penetration is force-driven, not spontaneous.",
+   "claims": [
+    "s13"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and s13 keeps shown support from o10."
+  },
+  {
+   "id": "C8",
+   "lane": 2,
+   "row": "S2",
+   "line": 4,
+   "title": "PL, F2",
+   "tech": "PL",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1002/adma.202005477#F2b, 10.1002/adma.202005477#F2e, 10.1002/adma.202005477#F2g, 10.1002/adma.202005477#F2f",
+   "panel_ids": [
+    "10.1002/adma.202005477#F2b",
+    "10.1002/adma.202005477#F2e",
+    "10.1002/adma.202005477#F2g",
+    "10.1002/adma.202005477#F2f"
+   ],
+   "head": "The oxTMB band near 652 nm appears only for TMB+H2O2+Cu(II)+MoO3 (A about 0.60); the other three traces stay below 0.1. The TAOH emission band peaks near 420 nm and is tallest for TA+H2O2+Cu(II)+MoO3 (about 480 a.u.) against about 190 a.u.",
+   "solves": "Cu(II) and MoO3 together turn H2O2 into hydroxyl radicals far faster than either centre alone",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o4, o5, o6, a2",
+   "tech_source": "label+none",
+   "note": "Peak of the purple trace reads about 0.60 at 650-655 nm; the red Cu(II) trace has a shallow bump near 0.08. The band maximum sits at about 420 nm, not the 435 nm quoted in the F2d caption. Cu(II) alone about 275 a.u., MoO3 alone about 220 a.u. The intensity axis carries no scale, so the sixfold factor quoted in the linked text cannot be checked from the panel; only the ordering is readable. DMPOX and DMPO-C marks sit between the DMPO-OH lines in both active traces. Blank 185, Cu(II) 240, MoO3 195, Cu(II)+MoO3 380 a.u., against the linked text's 'only the TA+H2O2+Cu(II)+MoO3 mixture shows an intense photoluminescence signal'.",
+   "audit": true,
+   "detail": "o4: The oxTMB band near 652 nm appears only for TMB+H2O2+Cu(II)+MoO3 (A about 0.60); the other three traces stay below 0.1; o5: The TAOH emission band peaks near 420 nm and is tallest for TA+H2O2+Cu(II)+MoO3 (about 480 a.u.) against about 190 a.u. for TA+H2O2; o6: The four-line DMPO-OH signal is several times taller for H2O2+Cu(II)+MoO3 than for H2O2+Cu(II), and flat for H2O2 and H2O2+MoO3; a2: All four TA groups give 185-380 a.u. of TAOH fluorescence, so the Cu(II)+MoO3 gain is about twofold over the blank, not an on/off signal",
+   "inner_audit": "a2: Blank 185, Cu(II) 240, MoO3 195, Cu(II)+MoO3 380 a.u., against the linked text's 'only the TA+H2O2+Cu(II)+MoO3 mixture shows an intense photoluminescence signal'.",
+   "claims": [
+    "s11"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: "
+  },
+  {
+   "id": "C9",
+   "lane": 2,
+   "row": "S2",
+   "line": 5,
+   "title": "evidence, F2, F3",
+   "tech": "",
+   "figs": [
+    "F2",
+    "F3"
+   ],
+   "panel": "10.1002/adma.202005477#F3b, 10.1002/adma.202005477#F3e, 10.1002/adma.202005477#F2c",
+   "panel_ids": [
+    "10.1002/adma.202005477#F3b",
+    "10.1002/adma.202005477#F3e",
+    "10.1002/adma.202005477#F2c"
+   ],
+   "head": "H2O2 adsorption on MoO3 crosses a 0.06 eV barrier and the MoO2(O2) peroxo intermediate lies 0.78 eV below the reactants. With the peroxo intermediate both barriers are 0.24 eV, against 0.38 and 0.36 eV for direct Cu/H2O2, and the path ends 0.35 eV lower.",
+   "solves": "MoO3 binds H2O2 into a peroxo-complex intermediate that lowers the Fenton-like barrier at Cu, accelerating .OH release",
+   "op": "compare across conditions, read characteristic point",
+   "verdict": "shown",
+   "source": "o7, o8, a1",
+   "tech_source": "none",
+   "note": "Printed levels 0.00, 0.06 and -0.78 eV on the diagram; matches the linked text. Path 1 (red) 0.00, 0.24, -0.67, -0.85, -0.61, -1.42 eV; Path 2 (blue) 0.00, 0.38, -0.49, -0.72, -0.36, -1.07 eV. Second barriers: 0.24 eV (red) vs 0.36 eV (blue). Error bars on the MoO3 bar are small and it is clearly separated from the blank, against the linked text's 'no peroxide catalytic activity of MoO3'.",
+   "audit": true,
+   "detail": "o7: H2O2 adsorption on MoO3 crosses a 0.06 eV barrier and the MoO2(O2) peroxo intermediate lies 0.78 eV below the reactants; o8: With the peroxo intermediate both barriers are 0.24 eV, against 0.38 and 0.36 eV for direct Cu/H2O2, and the path ends 0.35 eV lower; a1: MoO3 alone gives absorbance 0.055 against 0.017 for H2O2 alone and 0.082 for Cu(II) alone, so MoO3 by itself does oxidize TMB",
+   "inner_audit": "a1: Error bars on the MoO3 bar are small and it is clearly separated from the blank, against the linked text's 'no peroxide catalytic activity of MoO3'.",
+   "claims": [
+    "s12"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S2: "
+  },
+  {
+   "id": "C10",
+   "lane": 2,
+   "row": "S2",
+   "line": 6,
+   "title": "evidence, F6",
+   "tech": "",
+   "figs": [
+    "F6"
+   ],
+   "panel": "10.1002/adma.202005477#F6c, 10.1002/adma.202005477#F6d",
+   "panel_ids": [
+    "10.1002/adma.202005477#F6c",
+    "10.1002/adma.202005477#F6d"
+   ],
+   "head": "The flat surface plateaus at 4.3 nm and -3000 kJ/mol after about 6 ns, while the spiky surface keeps closing to 1.0 nm and gaining to about -7000 kJ/mol at 24 ns",
+   "solves": "A spiky surface pierces and binds the lipid bilayer far more strongly than a flat surface",
+   "op": "compare across conditions",
+   "verdict": "shown",
+   "source": "o10",
+   "tech_source": "none",
+   "note": "At 15 ns the spiky energy curve reads about -6.2e3 kJ/mol where the linked text says about -6500; the flat plateau starts near 6 ns where the text says 5 ns. Neither spiky curve has reached a plateau at 24 ns.",
+   "detail": "o10: The flat surface plateaus at 4.3 nm and -3000 kJ/mol after about 6 ns, while the spiky surface keeps closing to 1.0 nm and gaining to about -7000 kJ/mol at 24 ns",
+   "claims": [
+    "s13"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s13 (o10)."
+  },
+  {
+   "id": "C11",
+   "lane": 2,
+   "row": "S2",
+   "line": 7,
+   "title": "ASSAY, F4",
+   "tech": "ASSAY",
+   "figs": [
+    "F4"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Colony counts fall from 819 and 971 CFU to 0 for V-POD-M+H2O2 and to 45 and 58 CFU for POD-M+H2O2. V-POD-M+H2O2 has the lowest MIC of the four groups, near 16 ug/mL for S.",
+   "solves": "V-POD-M+H2O2 reduces S. aureus and E. coli to zero colonies, where POD-M+H2O2 leaves 45-58 CFU",
+   "op": "compare across conditions, read characteristic point",
+   "verdict": "partial",
+   "source": "o14, o15",
+   "tech_source": "label+none",
+   "note": "V-POD-M alone gives 496 and 602 CFU against 673 and 757 for POD-M alone. The OD600 curves of F4b,c stay flat for both +H2O2 groups over 12 h and confirm the same ranking. The concentration axis is broken before 510 ug/mL, so the arrow positions are hard to read exactly; in F4f the V-POD-M+H2O2 arrow sits well above 16 ug/mL on the axis although the linked text quotes 16 ug/mL for both strains.",
+   "detail": "o14: Colony counts fall from 819 and 971 CFU to 0 for V-POD-M+H2O2 and to 45 and 58 CFU for POD-M+H2O2; o15: V-POD-M+H2O2 has the lowest MIC of the four groups, near 16 ug/mL for S. aureus, where V-POD-M alone needs above 250 ug/mL",
+   "claims": [
+    "s15"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s15 keeps shown support from a3 after removal."
+  },
+  {
+   "id": "M12",
+   "lane": 0,
+   "row": "S3",
+   "line": 0,
+   "title": "MICRO, F7, F8",
+   "tech": "MICRO",
+   "figs": [
+    "F7",
+    "F8"
+   ],
+   "panel": "10.1002/adma.202005477#F7d, 10.1002/adma.202005477#F8a",
+   "panel_ids": [
+    "10.1002/adma.202005477#F7d",
+    "10.1002/adma.202005477#F8a"
+   ],
+   "head": "Control and H2O2 sections are packed with dense inflammatory nuclei, while V-POD-M+H2O2 and vancomycin sections show ordered collagen like normal skin. The Masson epidermal band between the dashed lines is thick and uneven in control and H2O2 and thin and regular in V-POD-M+H2O2 and vancomycin",
+   "solves": "In S. aureus-infected rabbit wounds, V-POD-M+H2O2 closes the wound by day 16 as well as vancomycin does",
+   "op": "compare across conditions, measure feature metric",
+   "verdict": "partial",
+   "source": "o18, o19",
+   "tech_source": "modality",
+   "note": "Red dashed boxes mark the infiltrated zones in the two failing groups; green arrows mark fibroblasts and vessels in the two healed groups. At the 50 um scale the band edges are only roughly resolved and the POD-M+H2O2 section is cut obliquely, so the ranking is clear but the thickness is not measurable from this panel.",
+   "claims": [
+    "s16",
+    "s17"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s16, s17 keeps shown support from o16, o17, a4, o20 after removal."
+  },
+  {
+   "id": "C13",
+   "lane": 2,
+   "row": "S3",
+   "line": 1,
+   "title": "evidence, F7",
+   "tech": "",
+   "figs": [
+    "F7"
+   ],
+   "panel": "10.1002/adma.202005477#F7b, 10.1002/adma.202005477#F7c",
+   "panel_ids": [
+    "10.1002/adma.202005477#F7b",
+    "10.1002/adma.202005477#F7c"
+   ],
+   "head": "Control and H2O2 wounds grow to about 300 mm2 by day 8 and are still about 160 mm2 at day 16, while V-POD-M+H2O2 and vancomycin fall to 12-15 mm2. At day 16 the V-POD-M+H2O2 and vancomycin wounds are closed pink scars while control and H2O2 wounds are still open and crusted.",
+   "solves": "In S. aureus-infected rabbit wounds, V-POD-M+H2O2 closes the wound by day 16 as well as vancomycin does",
+   "op": "compare across conditions, read trend",
+   "verdict": "shown",
+   "source": "o16, o17, a4",
+   "tech_source": "none",
+   "note": "Day 0 about 128 mm2 for all four arms; the V-POD-M+H2O2 and vancomycin curves lie on top of each other from day 8 onward. Both treated rows pass through a dark scab at day 4; a ruler in every frame gives the scale. Against the linked text's 'the wounds present no expansion tendency and are completely repaired within 15 d'; the curve is still above zero at day 16 and sits at about 190 mm2 on day 4.",
+   "audit": true,
+   "detail": "o16: Control and H2O2 wounds grow to about 300 mm2 by day 8 and are still about 160 mm2 at day 16, while V-POD-M+H2O2 and vancomycin fall to 12-15 mm2; o17: At day 16 the V-POD-M+H2O2 and vancomycin wounds are closed pink scars while control and H2O2 wounds are still open and crusted; a4: The V-POD-M+H2O2 wound still expands from about 128 to about 197 mm2 by day 1 and measures about 12 mm2 at day 16",
+   "inner_audit": "a4: Against the linked text's 'the wounds present no expansion tendency and are completely repaired within 15 d'; the curve is still above zero at day 16 and sits at about 190 mm2 on day 4.",
+   "claims": [
+    "s16"
+   ],
+   "necessity": "corrective",
+   "necessity_reason": "Changes support for S3: "
+  },
+  {
+   "id": "C14",
+   "lane": 2,
+   "row": "S3",
+   "line": 2,
+   "title": "evidence, F8",
+   "tech": "",
+   "figs": [
+    "F8"
+   ],
+   "panel": "10.1002/adma.202005477#F8c",
+   "panel_ids": [
+    "10.1002/adma.202005477#F8c"
+   ],
+   "head": "The epidermal thickness index falls 8.0, 7.0, 4.0, 2.0 across control, H2O2, POD-M+H2O2 and V-POD-M+H2O2, with vancomycin at 2.25",
+   "solves": "Treated wounds regain near-normal epidermal thickness at 16 d, level with vancomycin",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o20",
+   "tech_source": "none",
+   "note": "Bar heights match the values quoted in the linked text; the *** bracket spans control against both V-POD-M+H2O2 and vancomycin.",
+   "detail": "o20: The epidermal thickness index falls 8.0, 7.0, 4.0, 2.0 across control, H2O2, POD-M+H2O2 and V-POD-M+H2O2, with vancomycin at 2.25",
+   "claims": [
+    "s17"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for s17 (o20)."
+  },
+  {
+   "id": "M15",
+   "lane": 0,
+   "row": "S4",
+   "line": 0,
+   "title": "MICRO, F8",
+   "tech": "MICRO",
+   "figs": [
+    "F8"
+   ],
+   "panel": "10.1002/adma.202005477#F8b",
+   "panel_ids": [
+    "10.1002/adma.202005477#F8b"
+   ],
+   "head": "CD31-positive vessel structures are sparse in control and H2O2 fields and numerous in V-POD-M+H2O2 and vancomycin fields",
+   "solves": "",
+   "op": "assess spatial distribution, measure feature metric",
+   "verdict": "shown",
+   "source": "o21",
+   "tech_source": "modality",
+   "note": "Green CD31 signal on blue DAPI nuclei; the normal-skin field shows the largest single vessel, so the treated fields are not above normal.",
+   "claims": [
+    "s18"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s18 keeps shown support from o22 after removal."
+  },
+  {
+   "id": "C16",
+   "lane": 2,
+   "row": "S4",
+   "line": 1,
+   "title": "evidence, F8",
+   "tech": "",
+   "figs": [
+    "F8"
+   ],
+   "panel": "10.1002/adma.202005477#F8d, 10.1002/adma.202005477#F8e",
+   "panel_ids": [
+    "10.1002/adma.202005477#F8d",
+    "10.1002/adma.202005477#F8e"
+   ],
+   "head": "CD31 expression rises 36, 42, 70, 75 percent across the groups with vancomycin at 78, and vessel counts run 27, 33, 49, 57, 58 per mm2",
+   "solves": "",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o22",
+   "tech_source": "none",
+   "note": "V-POD-M+H2O2 and vancomycin error bars overlap in both panels, so the two are not separated.",
+   "detail": "o22: CD31 expression rises 36, 42, 70, 75 percent across the groups with vancomycin at 78, and vessel counts run 27, 33, 49, 57, 58 per mm2",
+   "claims": [
+    "s18"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "s18 keeps shown support from o21 after removal."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "causes"
+  ],
+  [
+   "S2",
+   "S3",
+   "causes"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ],
+  [
+   "S3",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}
