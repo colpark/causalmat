@@ -1,0 +1,1411 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.202005864",
+ "title": "Realizing Colorful Holographic Mimicry by Metasurfaces",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.202005864",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n7",
+   "evidence": [
+    "o3"
+   ],
+   "hidden": [
+    "o3",
+    "n7",
+    "n11",
+    "n12",
+    "n17",
+    "n18"
+   ],
+   "branch": "evidences edge o3 -> n7",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "OPTICAL",
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o3",
+     "role": "evidence",
+     "op": "match_to_design",
+     "panel_ids": [
+      "10.1002/adma.202005864#F3b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n7",
+     "role": "claim"
+    },
+    {
+     "node": "n11",
+     "role": "downstream"
+    },
+    {
+     "node": "n12",
+     "role": "downstream"
+    },
+    {
+     "node": "n17",
+     "role": "downstream"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n7 (node-level necessity of o3: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o3 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F3b']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202005864#F3b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005864#F3b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o3"
+   ],
+   "target_verdicts": {
+    "o3": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005864#F3b",
+     "annotations": [
+      "BD",
+      "OC"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n6"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: One fixed metasurface should show completely indep -> Phase matrix transformation: a medium-sensitive un -> Reflective metal-insulator-metal platform: 100 nm  -> Standard e-beam lithography writes a 400 x 800 pix"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F3b [SEM] and estimate (match to design)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: SEM: rows of paired gold nanobars whose lengths and widths differ from pixel to pixel"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n7"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The written array carries paired gold nanobars whose lengths and widths differ from pixel to pixel, as designed"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n11",
+      "n12",
+      "n17",
+      "n18"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Per-pixel reflected phase at 800 nm realizes matrix P1 in air and the independent matrix P2 in oil"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Advanced_Materials/10.1002_adma.202005864",
+   "root": "infer",
+   "subtype": "estimate",
+   "seed_claim": "n15",
+   "evidence": [
+    "o7"
+   ],
+   "hidden": [
+    "o7",
+    "n15",
+    "n16",
+    "n19",
+    "n18"
+   ],
+   "branch": "evidences edge o7 -> n15",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "OPTICAL",
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "not derivable from given panels: o7: text, not in given captions: ['the 60 nm smallest width and the 2 um scale-bar value come from caption and text']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "n14",
+     "role": "context"
+    },
+    {
+     "node": "o7",
+     "role": "evidence",
+     "op": "match_to_design",
+     "panel_ids": [
+      "10.1002/adma.202005864#F5b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n15",
+     "role": "claim"
+    },
+    {
+     "node": "n16",
+     "role": "downstream"
+    },
+    {
+     "node": "n19",
+     "role": "downstream"
+    },
+    {
+     "node": "n18",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for n15 (node-level necessity of o7: necessary)"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:683",
+     "effect": "not derivable from given panels: o7: text, not in given captions: ['the 60 nm smallest width and the 2 um scale-bar value come from caption and text']"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202005864#F5b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005864#F5b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o7"
+   ],
+   "target_verdicts": {
+    "o7": {
+     "pass": false,
+     "why": "text, not in given captions: ['the 60 nm smallest width and the 2 um scale-bar value come from caption and text']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n13",
+      "n14"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: One fixed metasurface should show completely indep -> Phase matrix transformation: a medium-sensitive un -> Three-bar composite unit cell in a 500 x 500 nm pe -> E-beam lithography writes the colorful device: 400"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F5b [SEM] and estimate (match to design)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o7"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: SEM: a dense regular lattice of three-bar pixel groups, the narrowest bars only tens of nanometres wide"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n15"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: The colorful sample is a regular lattice of three-bar pixel groups whose bar lengths vary from pixel to pixel"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "n16",
+      "n19",
+      "n18"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The same metasurface shows D and C in air and I and U in oil at 710 and 890 nm, so DC changes to IU"
+    }
+   ]
+  },
+  {
+   "id": "T3",
+   "group_id": "Advanced_Materials/10.1002_adma.202005864",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n12",
+   "evidence": [
+    "a1"
+   ],
+   "hidden": [
+    "a1",
+    "n17",
+    "n18",
+    "n2"
+   ],
+   "branch": "qualifies edge a1 -> n12",
+   "fm_family": "OPTICAL",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "OPTICAL"
+   ],
+   "channels_involved": [
+    "OPTICAL"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "a1",
+     "role": "audit",
+     "op": "overlay_model_on_data",
+     "panel_ids": [
+      "10.1002/adma.202005864#F3c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n12",
+     "role": "claim"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a1 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adma.202005864#F3c carries ['Simulation'] shared with graded targets ['a1']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202005864#F3c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005864#F3c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a1"
+   ],
+   "target_verdicts": {
+    "a1": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005864#F3c",
+     "annotations": [
+      "air",
+      "oil",
+      "Simulation",
+      "air",
+      "oil",
+      "Experiment"
+     ],
+     "hits": [
+      {
+       "text": "Simulation",
+       "shared": [
+        "simulation"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n12"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: At the working wavelength the device projects a bird hologram in air and a fish hologram in oil"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F3c [OPTICAL]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a1"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: The measured bird and fish are blurred and speckled and the fish outline is broken, unlike the sharp simulated outlines"
+    }
+   ]
+  },
+  {
+   "id": "T4",
+   "group_id": "Advanced_Materials/10.1002_adma.202005864",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n16",
+   "evidence": [
+    "o9"
+   ],
+   "hidden": [
+    "o9",
+    "n19",
+    "n18",
+    "n2"
+   ],
+   "branch": "contrasts edge o9 -> n16",
+   "fm_family": "SIM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "SIM"
+   ],
+   "channels_involved": [
+    "SIM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "n14",
+     "role": "context"
+    },
+    {
+     "node": "n15",
+     "role": "context"
+    },
+    {
+     "node": "o9",
+     "role": "audit",
+     "op": "overlay_model_on_data",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n16",
+     "role": "claim"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:605",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n16"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: The same metasurface shows D and C in air and I and U in oil at 710 and 890 nm, so DC changes to IU"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel:  [SIM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o9"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Simulated holograms: D at 710 nm and C at 890 nm in air, I at 710 nm and U at 890 nm in oil"
+    }
+   ]
+  },
+  {
+   "id": "T5",
+   "group_id": "Advanced_Materials/10.1002_adma.202005864",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n16",
+   "evidence": [
+    "a2"
+   ],
+   "hidden": [
+    "a2",
+    "n19",
+    "n18",
+    "n2"
+   ],
+   "branch": "qualifies edge a2 -> n16",
+   "fm_family": "OPTICAL",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "OPTICAL"
+   ],
+   "channels_involved": [
+    "OPTICAL"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "context"
+    },
+    {
+     "node": "n14",
+     "role": "context"
+    },
+    {
+     "node": "n15",
+     "role": "context"
+    },
+    {
+     "node": "a2",
+     "role": "audit",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202005864#F5c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n16",
+     "role": "claim"
+    },
+    {
+     "node": "n19",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a2 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F5c']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n19",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202005864#F5c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005864#F5c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a2"
+   ],
+   "target_verdicts": {
+    "a2": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005864#F5c",
+     "annotations": [
+      "Simulation",
+      "air,710nm",
+      "air,890nm",
+      "oil,710nm",
+      "oil,890nm",
+      "Experiment"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n16"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: The same metasurface shows D and C in air and I and U in oil at 710 and 890 nm, so DC changes to IU"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F5c [OPTICAL]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a2"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: The measured I at oil/710 nm sits on a strong diffuse background and the C at air/890 nm is fragmented"
+    }
+   ]
+  },
+  {
+   "id": "T6",
+   "group_id": "Advanced_Materials/10.1002_adma.202005864",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n17",
+   "evidence": [
+    "a3"
+   ],
+   "hidden": [
+    "a3",
+    "n18",
+    "n2"
+   ],
+   "branch": "qualifies edge a3 -> n17",
+   "fm_family": "SIM",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "SIM"
+   ],
+   "channels_involved": [
+    "SIM"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "closed",
+   "ruling": "answer written on the image",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "context"
+    },
+    {
+     "node": "n11",
+     "role": "context"
+    },
+    {
+     "node": "n12",
+     "role": "context"
+    },
+    {
+     "node": "a3",
+     "role": "audit",
+     "op": "read_characteristic_point",
+     "panel_ids": [
+      "10.1002/adma.202005864#F2c",
+      "10.1002/adma.202005864#F2d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n17",
+     "role": "claim"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: a3 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:720",
+     "effect": "10.1002/adma.202005864#F2c carries ['Reflection'] shared with graded targets ['a3']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202005864#F2c",
+    "10.1002/adma.202005864#F2d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005864#F2c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/adma.202005864#F2d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "a3"
+   ],
+   "target_verdicts": {
+    "a3": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005864#F2c",
+     "annotations": [
+      "Reflection",
+      "(wu)x"
+     ],
+     "hits": [
+      {
+       "text": "Reflection",
+       "shared": [
+        "reflection"
+       ]
+      }
+     ]
+    }
+   ],
+   "closed_by": "skip",
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n17"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Working efficiency of the single-wavelength device is 17.6% in air and 15.5% in oil at 800 nm"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2c, F2d [SIM]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "a3"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: At the 800 nm working line the simulated reflection is about 0.8 in air but about 0.2, at the resonance-A minimum, in oil"
+    }
+   ]
+  },
+  {
+   "id": "T7",
+   "group_id": "Advanced_Materials/10.1002_adma.202005864",
+   "root": "explain",
+   "subtype": "mechanism",
+   "seed_claim": "n10",
+   "evidence": [
+    "o2"
+   ],
+   "hidden": [
+    "n10",
+    "n11",
+    "n12",
+    "n17",
+    "n18",
+    "n2"
+   ],
+   "branch": "joint causes ['n7', 'n9'] of n11, explained by n10",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SIM"
+   ],
+   "channels_involved": [
+    "SIM"
+   ],
+   "mask": "hide the mechanism and its premises; show the observation and the joint causes",
+   "grader": "certified judge against the graph's mechanism; causes act jointly, no rival",
+   "status": "closed",
+   "ruling": "not derivable from given panels: n10: text, not in given captions: ['the phase values 0 (air) and pi (oil) are stated only in the text; the packet has no phase panel']",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n8",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "o2",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1002/adma.202005864#F2c",
+      "10.1002/adma.202005864#F2d"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n7",
+     "role": "context"
+    },
+    {
+     "node": "n10",
+     "role": "claim"
+    },
+    {
+     "node": "n11",
+     "role": "redacted"
+    },
+    {
+     "node": "n12",
+     "role": "redacted"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v2_rules": [
+    {
+     "rule": "R1",
+     "where": "cut_traces.py:296",
+     "effect": "causes ['n7', 'n9'] into n11 are joint (modes ['joint']): mechanism trace, not competing causes"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None, None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:683",
+     "effect": "not derivable from given panels: n10: text, not in given captions: ['the phase values 0 (air) and pi (oil) are stated only in the text; the packet has no phase panel']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "n11",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n12",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202005864#F2c",
+    "10.1002/adma.202005864#F2d"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005864#F2c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    },
+    {
+     "panel": "10.1002/adma.202005864#F2d",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "nm",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "n10"
+   ],
+   "target_verdicts": {
+    "n10": {
+     "pass": false,
+     "why": "text, not in given captions: ['the phase values 0 (air) and pi (oil) are stated only in the text; the packet has no phase panel']"
+    }
+   },
+   "linear": [
+    {
+     "step": 1,
+     "role": "puzzle",
+     "nodes": [
+      "o2"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Observation: The near field wraps both bars in air but is confined to the right bar alone in oil  [panels F2c, F2d]"
+    },
+    {
+     "step": 2,
+     "role": "mechanism",
+     "nodes": [
+      "n10"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": true,
+     "text": "Mechanism that produces it: At 800 nm the index change switches the excited mode from a two-bar coupled mode to a dipole on the right bar alone, giv  [premise: none]"
+    },
+    {
+     "step": 3,
+     "role": "prediction",
+     "nodes": [
+      "n11",
+      "n16"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "What it explains: Per-pixel reflected phase at 800 nm realizes matrix P1 in air and the independent matrix P2 in oil"
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": [
+  {
+   "paper": "Advanced_Materials__10.1002_adma.202005864",
+   "trace": "T2",
+   "root": "infer",
+   "subtype": "estimate",
+   "targets": [
+    "o7"
+   ],
+   "why": [
+    "o7: text, not in given captions: ['the 60 nm smallest width and the 2 um scale-bar value come from caption and text']"
+   ],
+   "requires_unseen": {
+    "o7": [
+     "the 60 nm smallest width and the 2 um scale-bar value come from caption and text"
+    ]
+   },
+   "labels": {
+    "o7": "SEM: a dense regular lattice of three-bar pixel groups, the narrowest bars only tens of nanometres wide"
+   }
+  },
+  {
+   "paper": "Advanced_Materials__10.1002_adma.202005864",
+   "trace": "T7",
+   "root": "explain",
+   "subtype": "mechanism",
+   "targets": [
+    "n10"
+   ],
+   "why": [
+    "n10: text, not in given captions: ['the phase values 0 (air) and pi (oil) are stated only in the text; the packet has no phase panel']"
+   ],
+   "requires_unseen": {
+    "n10": [
+     "the phase values 0 (air) and pi (oil) are stated only in the text; the packet has no phase panel",
+     "the 800 nm working wavelength is stated only in caption and text"
+    ]
+   },
+   "labels": {
+    "n10": "At 800 nm the index change switches the excited mode from a two-bar coupled mode to a dipole on the right bar alone, giving phases 0 and pi"
+   }
+  }
+ ]
+}
