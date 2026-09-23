@@ -1,0 +1,61 @@
+{
+ "figures_in_packet": 6,
+ "figures_opened": [
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "F5",
+  "F6"
+ ],
+ "crops_opened": [
+  "10.1016/j.actamat.2021.116790#F1a",
+  "10.1016/j.actamat.2021.116790#F1b",
+  "10.1016/j.actamat.2021.116790#F2a",
+  "10.1016/j.actamat.2021.116790#F2b",
+  "10.1016/j.actamat.2021.116790#F2c",
+  "10.1016/j.actamat.2021.116790#F4a",
+  "10.1016/j.actamat.2021.116790#F4b",
+  "10.1016/j.actamat.2021.116790#F4c",
+  "10.1016/j.actamat.2021.116790#F4d",
+  "10.1016/j.actamat.2021.116790#F5a",
+  "10.1016/j.actamat.2021.116790#F5b",
+  "F3 (whole figure: tier C, no panels offered)",
+  "F6 (whole figure: tier C, no panels offered)"
+ ],
+ "panels_offered": 11,
+ "panels_cited": 11,
+ "panels_cited_ids": [
+  "10.1016/j.actamat.2021.116790#F1a",
+  "10.1016/j.actamat.2021.116790#F1b",
+  "10.1016/j.actamat.2021.116790#F2a",
+  "10.1016/j.actamat.2021.116790#F2b",
+  "10.1016/j.actamat.2021.116790#F2c",
+  "10.1016/j.actamat.2021.116790#F4a",
+  "10.1016/j.actamat.2021.116790#F4b",
+  "10.1016/j.actamat.2021.116790#F4c",
+  "10.1016/j.actamat.2021.116790#F4d",
+  "10.1016/j.actamat.2021.116790#F5a",
+  "10.1016/j.actamat.2021.116790#F5b"
+ ],
+ "technique_cue_conflicts_resolved": [
+  {
+   "panel": "10.1016/j.actamat.2021.116790#F4b",
+   "cue_classes": [
+    "micrograph"
+   ],
+   "technique": "AFM:STM",
+   "resolution": "kept the panel and the technique. F4b is the STM image named in the Fig. 4 caption, so the citation is right. cue_technique.json maps 'micrograph' to a family list that contains AFM but not STM; taxonomy/normalize_technique.py normalises '\\bSTM\\b|scanning tunn' to the AFM family, so the controlled form AFM:STM is inside the allowed list and the conflict is only in the spelling of the cue map."
+  },
+  {
+   "note": "F2a, F5a and F5b carry cue 'SEM' and are cited with technique SEM; F1a/F1b, F2b/F2c, F4a, F4c and F4d carry no cue class and are not checked. F3 and F6 offer no panels (tier C) and are cited as figs with panel_ids []."
+  }
+ ],
+ "merged_nodes": [
+  "F5a and F5b read as one comparison node o8 ((110) striated vs (320) featureless) instead of one node per panel",
+  "the HAADF appearance of F6a folded into o22.image_note instead of its own OBS node",
+  "the three known spacings (a = 3.596 A, d(110) = 1.27 A, d(320) = 1.0/0.5 A) merged into one KNW/fact k1",
+  "the two F1a readings of the Mn maximum and of the Mn collapse kept apart (o2) but the Ni rise above 873 K folded into o2 rather than a second node",
+  "no separate node for 'the surface is not equiatomic': that claim is n6, and p1 states only the depth confinement that n6 and n13/n14 jointly give"
+ ]
+}

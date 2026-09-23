@@ -1,0 +1,397 @@
+{
+ "paper_id": "Acta_Materialia/10.1016_j.actamat.2021.116790",
+ "title": "The (110) and (320) surfaces of a Cantor alloy",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2021.116790",
+   "root": "infer",
+   "subtype": "classify",
+   "seed_claim": "n13",
+   "evidence": [
+    "o22"
+   ],
+   "hidden": [
+    "o22",
+    "n13",
+    "p1",
+    "d1"
+   ],
+   "branch": "evidences edge o22 -> n13",
+   "fm_family": "TEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "TEM"
+   ],
+   "channels_involved": [
+    "TEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "closed",
+   "ruling": "no crop",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "o22",
+     "role": "evidence",
+     "op": "assign_features",
+     "panel_ids": [],
+     "verdict": "shown"
+    },
+    {
+     "node": "n13",
+     "role": "claim"
+    },
+    {
+     "node": "p1",
+     "role": "downstream"
+    },
+    {
+     "node": "d1",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane TEM necessary for n13 (node-level necessity of o22: necessary)"
+    },
+    {
+     "rule": "no_crop",
+     "where": "cut_traces.py:605",
+     "effect": "evidence cited by figure only: no panel crop to hand over"
+    }
+   ],
+   "node_necessity": "necessary",
+   "has_sweep": true,
+   "closed_by": "no_crop",
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: The surface composition and atomic structure of th -> Repeated annealing in this temperature range could -> Use a FeCrMnNiCo (Cantor) sample exposing one (110 -> Repeated Ar-ion sputtering and UHV annealing cycle"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o22"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels  [TEM] and classify (assign features)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o22"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: The SAED inset is one square array of sharp spots indexed 020 and 002, i.e. a single fcc phase"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "n13"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Bulk and subsurface remain a single fcc phase after the annealing cycles; no precipitates form"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "p1",
+      "d1"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: Chemical inhomogeneity is confined to the topmost ~2 nm: a Ni/Mn-rich skin sits on an unchanged equi"
+    }
+   ]
+  },
+  {
+   "id": "T2",
+   "group_id": "Acta_Materialia/10.1016_j.actamat.2021.116790",
+   "root": "infer",
+   "subtype": "compare",
+   "seed_claim": "p2",
+   "evidence": [
+    "o8"
+   ],
+   "hidden": [
+    "o8",
+    "p2",
+    "d1"
+   ],
+   "branch": "evidences edge o8 -> p2",
+   "fm_family": "SEM",
+   "lift": null,
+   "floor": {
+    "reaches": false,
+    "support": []
+   },
+   "depth": 1,
+   "depth_families": [
+    "SEM"
+   ],
+   "channels_involved": [
+    "SEM"
+   ],
+   "mask": "hide the observation; hand over the panel(s)",
+   "grader": "answer key: the numbers and labels on the evidence node, judge-confirmed",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "context"
+    },
+    {
+     "node": "n3",
+     "role": "context"
+    },
+    {
+     "node": "n5",
+     "role": "context"
+    },
+    {
+     "node": "n9",
+     "role": "context"
+    },
+    {
+     "node": "o8",
+     "role": "evidence",
+     "op": "compare_across_conditions",
+     "panel_ids": [
+      "10.1016/j.actamat.2021.116790#F5a",
+      "10.1016/j.actamat.2021.116790#F5b"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "p2",
+     "role": "claim"
+    },
+    {
+     "node": "d1",
+     "role": "downstream"
+    }
+   ],
+   "v1_filter": {
+    "status": "closed",
+    "ruling": "bare infer: no rejection, no budget, no stopping rule"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:238",
+     "effect": "v1 filter would have ruled closed: bare infer: no rejection, no budget, no stopping rule"
+    },
+    {
+     "rule": "seed",
+     "where": "cut_traces.py:241",
+     "effect": "lane SEM necessary for p2 (node-level necessity of o8: redundant)"
+    },
+    {
+     "rule": "R7",
+     "where": "cut_traces.py:248",
+     "effect": "2 panels: rank became infer/compare"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: ['(110) grain and', None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o8 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F5a', 'F5b']"
+    }
+   ],
+   "node_necessity": "redundant",
+   "answer_format": "state how the two conditions compare, including if they look the same; do not rank. Answer \"no visible difference\" when they look the same, or \"cannot determine\" when the panels cannot settle it",
+   "has_sweep": true,
+   "given_panels": [
+    "10.1016/j.actamat.2021.116790#F5a",
+    "10.1016/j.actamat.2021.116790#F5b"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1016/j.actamat.2021.116790#F5a",
+     "sample": "(110) grain and",
+     "sample_source": "caption",
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": "(110) grain and"
+    },
+    {
+     "panel": "10.1016/j.actamat.2021.116790#F5b",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": null,
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o8"
+   ],
+   "target_verdicts": {
+    "o8": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1016/j.actamat.2021.116790#F5a",
+     "annotations": [
+      "AccV Spot MagnDET WD",
+      "5.00KV3.020000x5E5.6"
+     ],
+     "hits": []
+    },
+    {
+     "panel": "10.1016/j.actamat.2021.116790#F5b",
+     "annotations": [
+      "Acc.VSpot Magn DET WD",
+      "5.00kV3.05000SE4.1"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "context",
+     "nodes": [
+      "n1",
+      "n2",
+      "n3",
+      "n5",
+      "n9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "What was made and why: The surface composition and atomic structure of th -> Repeated annealing in this temperature range could -> Use a FeCrMnNiCo (Cantor) sample exposing one (110 -> Repeated Ar-ion sputtering and UHV annealing cycle -> The (110) surface is rough and anisotropic: atomic"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Open the panels F5a, F5b [SEM] and compare (compare across conditions)"
+    },
+    {
+     "step": 3,
+     "role": "observation",
+     "nodes": [
+      "o8"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Observation: At micrometre scale the (110) grain is covered by parallel striations while the (320) grain is featureless"
+    },
+    {
+     "step": 4,
+     "role": "claim",
+     "nodes": [
+      "p2"
+     ],
+     "depends_on": [
+      3
+     ],
+     "hidden": true,
+     "text": "Claim it establishes: Surface topography is orientation-dependent from the nanometre to the micrometre scale: (110) corrugated, (320) flat"
+    },
+    {
+     "step": 5,
+     "role": "downstream",
+     "nodes": [
+      "d1"
+     ],
+     "depends_on": [
+      4
+     ],
+     "hidden": true,
+     "text": "Feeds: The Cantor alloy keeps a homogeneous fcc bulk but develops a Ni/Mn-enriched surface whose structure "
+    }
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}

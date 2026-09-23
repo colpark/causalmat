@@ -1,0 +1,523 @@
+{
+ "file": "Acta_Materialia__10.1016_j.actamat.2021.116790.html",
+ "short": "The (110) and (320) surfaces of a Cantor alloy",
+ "journal": "Acta_Materialia",
+ "year": null,
+ "title": "The (110) and (320) surfaces of a Cantor alloy",
+ "doi": "Acta_Materialia/10.1016_j.actamat.2021.116790",
+ "lanes": [
+  {
+   "key": "micro",
+   "label": "Microscopy: MICRO, TEM",
+   "sub": "foundation model in hand"
+  },
+  {
+   "key": "diff",
+   "label": "Diffraction: DIFF",
+   "sub": "foundation model candidate"
+  },
+  {
+   "key": "classic",
+   "label": "Classical tools",
+   "sub": "collapsed to one node per state"
+  }
+ ],
+ "states": [
+  {
+   "id": "S0",
+   "stage": "HYP",
+   "title": "Hypothesis and design",
+   "head": "The surface composition and atomic structure of the Cantor alloy FeCrMnNiCo are undetermined. Repeated annealing in this temperature range could decompose the single-phase solid solution into (inter)metallic phases.",
+   "detail": "Absorbed: n1 (HYP/gap), n2 (HYP/hypothesis), n3 (DES/base_system), n4 (DES/variable_sweep), n5 (PRC/treatment). Premises: Earlier studies [25-27] annealed Cantor alloys over a comparable temperature range",
+   "figs": [],
+   "source": "n1, n2, n3, n4, n5"
+  },
+  {
+   "id": "S1",
+   "stage": "STR",
+   "title": "Structure state",
+   "head": "The annealed surface is Ni- and Mn-enriched: Mn triples to ~24 at.% and Ni reaches ~38 at.% in the topmost layers. Above ~873 K the surface Mn content collapses.",
+   "detail": "Absorbed: n6 (STR/chemistry/composition), n7 (STR/chemistry/composition), n9 (STR/microstructure/shape), n10 (STR/phase/identity), n11 (STR/phase/identity), n12 (STR/microstructure/shape), n15 (STR/microstructure/shape), n13 (STR/phase/identity), n14 (STR/chemistry/composition). Premises: FeCrMnNiCo is fcc with a = 3.596 A, giving a (110) interlayer spacing of 1.27 A and d(320) = 1.0 A (half-step 0.5 A)",
+   "figs": [],
+   "source": "n6, n7, n9, n10, n11, n12, n15, n13, n14"
+  },
+  {
+   "id": "S2",
+   "stage": "PRP",
+   "title": "Property state and mechanisms",
+   "head": "Annealing drives Ni and Mn to segregate to the surface in equal amounts, a surface rather than grain-boundary process. The Mn loss above 873 K is desorption from the surface, not diffusion into the bulk.",
+   "detail": "Absorbed: m1 (MEC/pathway), m2 (MEC/identification), m3 (MEC/pathway), p1 (PRP/value), p2 (PRP/value). Premises: fcc(320) surface model: primitive mesh 6.73 x 3.60 A (alpha = 105.5 deg), centred mesh 12.97 x 3.60 A, rows spaced 6.48 A",
+   "figs": [],
+   "source": "m1, m2, m3, p1, p2"
+  },
+  {
+   "id": "S4",
+   "stage": "DSC",
+   "title": "Conclusion",
+   "head": "The Cantor alloy keeps a homogeneous fcc bulk but develops a Ni/Mn-enriched surface whose structure depends on grain orientation",
+   "detail": "Absorbed: d1 (DSC/conclusion)",
+   "figs": [],
+   "source": "d1"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "M1",
+   "lane": 0,
+   "row": "S1",
+   "line": 0,
+   "title": "MICRO, F5",
+   "tech": "MICRO",
+   "figs": [
+    "F5"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F5a, 10.1016/j.actamat.2021.116790#F5b",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F5a",
+    "10.1016/j.actamat.2021.116790#F5b"
+   ],
+   "head": "At micrometre scale the (110) grain is covered by parallel striations while the (320) grain is featureless",
+   "solves": "The (110) surface is rough and anisotropic: atomically flat rows along [001] separated by ~1.2 A steps",
+   "op": "compare across conditions, cross check consistency",
+   "verdict": "shown",
+   "source": "o8",
+   "tech_source": "modality",
+   "note": "panel a is a 20000x view of the striated grain; in panel b the labels (320) and (110) are written on the image",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n9 keeps shown support from o11, o13, o14 after removal."
+  },
+  {
+   "id": "M2",
+   "lane": 0,
+   "row": "S1",
+   "line": 1,
+   "title": "MICRO, F3",
+   "tech": "MICRO",
+   "figs": [
+    "F3"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Atomically resolved rows along [001] carry a 3.6 A motif spacing (circled in the FFT) and a doubled line type",
+   "solves": "The (110) surface is locally (2x1) reconstructed along [001] and strongly disordered along [-110]",
+   "op": "measure feature metric",
+   "verdict": "partial",
+   "source": "o15",
+   "tech_source": "modality",
+   "note": "'3.6 A' is printed beside the circled FFT spot; the two arrowed line types are visible but the 7.2 A spacing cannot be measured at this scale; donut-shaped motifs and dark holes mark the [-110] disorder",
+   "claims": [
+    "n10"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and n10 keeps shown support from o12."
+  },
+  {
+   "id": "M3",
+   "lane": 1,
+   "row": "S1",
+   "line": 2,
+   "title": "DIFF, F3, F4",
+   "tech": "DIFF",
+   "figs": [
+    "F3",
+    "F4"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F4a",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F4a"
+   ],
+   "head": "The 64 eV LEED pattern is a (1x1) mesh whose drawn a* and b* are perpendicular with |b*|/|a*| ~ 1.4. The 80 eV LEED pattern of the second grain shows sharp spots on a low background with a near-rectangular mesh",
+   "solves": "The (110) surface is rough and anisotropic: atomically flat rows along [001] separated by ~1.2 A steps",
+   "op": "overlay model on data",
+   "verdict": "partial",
+   "source": "o11, o17",
+   "tech_source": "modality",
+   "note": "sqrt(2) is expected for an fcc(110) mesh; the expected structure is in Fig. S5, not in the packet '80 eV' is printed in the panel; from the drawn arrows I measure |b*|/|a*| ~ 2 and an angle ~ 78-80 deg against the quoted 1.9 and 74 +/- 1 deg; no extra spots from other orientations",
+   "claims": [
+    "n9",
+    "n11"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n9, n11 keeps shown support from o8, o13, o14 after removal."
+  },
+  {
+   "id": "M4",
+   "lane": 1,
+   "row": "S1",
+   "line": 3,
+   "title": "DIFF, F3",
+   "tech": "DIFF",
+   "figs": [
+    "F3"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "At 30 eV four parallel streaks (arrowed) replace the spots, together with diffuse facet-related intensity",
+   "solves": "The (110) surface is locally (2x1) reconstructed along [001] and strongly disordered along [-110]",
+   "op": "assign features",
+   "verdict": "shown",
+   "source": "o12",
+   "tech_source": "modality",
+   "note": "streaks run perpendicular to a*; their spacing is read in the text as a local (2x1) periodicity",
+   "claims": [
+    "n10"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n10 (o12)."
+  },
+  {
+   "id": "C5",
+   "lane": 2,
+   "row": "S1",
+   "line": 4,
+   "title": "evidence, F1",
+   "tech": "",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F1a, 10.1016/j.actamat.2021.116790#F1b",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F1a",
+    "10.1016/j.actamat.2021.116790#F1b"
+   ],
+   "head": "Ni (23 to 32 at.%) and Mn (8 to 13 at.%) rise with annealing temperature while Cr, Fe and Co stay at 19-25 at.%. From 0 to 70 deg take-off angle Ni climbs 26 to 38 at.% and Mn 12 to 24 at.%, while Cr, Fe and Co fall to 12-13 at.%",
+   "solves": "The annealed surface is Ni- and Mn-enriched: Mn triples to ~24 at.% and Ni reaches ~38 at.% in the topmost layers",
+   "op": "read trend",
+   "verdict": "shown",
+   "source": "o1, o4",
+   "tech_source": "none",
+   "note": "0 deg take-off, sampling depth 6.42 nm per the linked text; element legend is printed inside the panel 70 deg corresponds to a 2.2 nm sampling depth per the linked text; sample annealed to 833 K",
+   "detail": "o1: Ni (23 to 32 at.%) and Mn (8 to 13 at.%) rise with annealing temperature while Cr, Fe and Co stay at 19-25 at.%; o4: From 0 to 70 deg take-off angle Ni climbs 26 to 38 at.% and Mn 12 to 24 at.%, while Cr, Fe and Co fall to 12-13 at.%",
+   "claims": [
+    "n6"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n6 keeps shown support from o3 after removal."
+  },
+  {
+   "id": "C6",
+   "lane": 2,
+   "row": "S1",
+   "line": 5,
+   "title": "evidence, F1",
+   "tech": "",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F1a",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F1a"
+   ],
+   "head": "Above ~873 K the Mn points fall from their ~13 at.% maximum to 5-8 at.% while Ni keeps rising",
+   "solves": "Above ~873 K the surface Mn content collapses",
+   "op": "read characteristic point",
+   "verdict": "shown",
+   "source": "o2",
+   "tech_source": "none",
+   "note": "the break sits between the 870 K and 913 K points; the text quotes 873 K",
+   "detail": "o2: Above ~873 K the Mn points fall from their ~13 at.% maximum to 5-8 at.% while Ni keeps rising",
+   "claims": [
+    "n7"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n7 (o2)."
+  },
+  {
+   "id": "C7",
+   "lane": 2,
+   "row": "S1",
+   "line": 6,
+   "title": "evidence, F1",
+   "tech": "",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F1a",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F1a"
+   ],
+   "head": "The two open Mn squares at ~703 and ~853 K lie ~2.5 at.% below the full-symbol Mn line",
+   "solves": "",
+   "op": "cross check consistency",
+   "verdict": "shown",
+   "source": "o3",
+   "tech_source": "none",
+   "note": "open square 6.2 vs full 8.7 at.% near 703 K; open 9.8 vs full 12.3 at.% near 853 K",
+   "detail": "o3: The two open Mn squares at ~703 and ~853 K lie ~2.5 at.% below the full-symbol Mn line",
+   "claims": [
+    "n6"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n6 keeps shown support from o1, o4 after removal."
+  },
+  {
+   "id": "C8",
+   "lane": 2,
+   "row": "S1",
+   "line": 7,
+   "title": "AFM, F3",
+   "tech": "AFM",
+   "figs": [
+    "F3"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "STM shows a rough, strongly anisotropic surface of flat rows of roughly uniform width running along [001]. Consecutive peaks of the step-height histogram are spaced 1.1-1.2 A",
+   "solves": "The (110) surface is rough and anisotropic: atomically flat rows along [001] separated by ~1.2 A steps",
+   "op": "assess spatial distribution, measure feature metric",
+   "verdict": "shown",
+   "source": "o13, o14",
+   "tech_source": "label+none",
+   "note": "[001] and [-110] direction markers are drawn on the panel; field sizes are caption-only peaks read at Z ~ 1.75, 2.85, 4.0, 5.05, 6.2 A; the text quotes a 1.20 A step",
+   "detail": "o13: STM shows a rough, strongly anisotropic surface of flat rows of roughly uniform width running along [001]; o14: Consecutive peaks of the step-height histogram are spaced 1.1-1.2 A",
+   "claims": [
+    "n9"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "n9 keeps shown support from o8, o11 after removal."
+  },
+  {
+   "id": "C9",
+   "lane": 2,
+   "row": "S1",
+   "line": 8,
+   "title": "AFM, F4",
+   "tech": "AFM",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F4b",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F4b"
+   ],
+   "head": "The STM image shows wide terraces separated by steps whose edges mostly run along the marked [001] direction. The height histogram of that image has regularly spaced peaks about 0.5-0.7 A apart over an 11 A range",
+   "solves": "The (320) surface is a terrace-and-step morphology with 0.5 and 1.0 A step heights",
+   "op": "inspect local feature, measure feature metric",
+   "verdict": "partial",
+   "source": "o18, o19",
+   "tech_source": "label+none",
+   "note": "[001] arrow is drawn on the panel; the 373 x 373 A2 field size is caption-only the text reads two step heights, 1.0 and 0.5 A; by eye the peak train is regular but the two values cannot be separated",
+   "detail": "o18: The STM image shows wide terraces separated by steps whose edges mostly run along the marked [001] direction; o19: The height histogram of that image has regularly spaced peaks about 0.5-0.7 A apart over an 11 A range",
+   "claims": [
+    "n12"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n12 (o18)."
+  },
+  {
+   "id": "C10",
+   "lane": 2,
+   "row": "S1",
+   "line": 9,
+   "title": "TEM:HAADF, F6",
+   "tech": "TEM:HAADF",
+   "figs": [
+    "F6"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "The SAED inset is one square array of sharp spots indexed 020 and 002, i.e. a single fcc phase",
+   "solves": "Bulk and subsurface remain a single fcc phase after the annealing cycles; no precipitates form",
+   "op": "assign features",
+   "verdict": "shown",
+   "source": "o22",
+   "tech_source": "label",
+   "note": "'020' and '002' are printed on the inset; the 3.6 A cell and the 150 nm aperture are text-only. The HAADF panel itself shows an unbroken lattice with uniform contrast and no second phase",
+   "detail": "o22: The SAED inset is one square array of sharp spots indexed 020 and 002, i.e. a single fcc phase",
+   "claims": [
+    "n13"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for n13 (o22)."
+  },
+  {
+   "id": "C11",
+   "lane": 2,
+   "row": "S1",
+   "line": 10,
+   "title": "EDS:mapping, F6",
+   "tech": "EDS:mapping",
+   "figs": [
+    "F6"
+   ],
+   "panel": "",
+   "panel_ids": [],
+   "head": "The EELS element maps show only weak intensity variations, arrowed as correlated between Co, Fe, Mn, Ni and anti-correlated for Cr",
+   "solves": "The bulk is chemically homogeneous at the nanoscale, with only 2-4 at.% local variations",
+   "op": "register colocated views",
+   "verdict": "partial",
+   "source": "o24",
+   "tech_source": "label",
+   "note": "all five maps are dominated by pixel noise; the arrowed correlations are not convincing by eye",
+   "detail": "o24: The EELS element maps show only weak intensity variations, arrowed as correlated between Co, Fe, Mn, Ni and anti-correlated for Cr",
+   "claims": [
+    "n14"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and n14 has no other figure-backed support."
+  },
+  {
+   "id": "M12",
+   "lane": 0,
+   "row": "S2",
+   "line": 0,
+   "title": "MICRO, F2, F5",
+   "tech": "MICRO",
+   "figs": [
+    "F2",
+    "F5"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F2a, 10.1016/j.actamat.2021.116790#F5b",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F2a",
+    "10.1016/j.actamat.2021.116790#F5b"
+   ],
+   "head": "A single bright, straight boundary separates the two labelled grains; a white rectangle marks the mapped area. Within about a micrometre of the boundary the (110) striations fade into a smooth band",
+   "solves": "",
+   "op": "inspect local feature",
+   "verdict": "shown",
+   "source": "o6, o10",
+   "tech_source": "modality",
+   "note": "'(320)' and '(110)' are written on the micrograph but are not in the panel's annotation list; EHT 3.00 kV, 1 um bar the smooth band runs along the whole boundary in the 5000x view",
+   "claims": [
+    "m1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "m1 keeps shown support from o5 after removal."
+  },
+  {
+   "id": "M13",
+   "lane": 0,
+   "row": "S2",
+   "line": 1,
+   "title": "MICRO, F4",
+   "tech": "MICRO",
+   "figs": [
+    "F4"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F4c",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F4c"
+   ],
+   "head": "Terraces carry parallel unresolved rows of 6.5 A spacing (circled in the FFT inset) with dark patches along them",
+   "solves": "The (320) surface is built of two (110) and one (100) facets, and this facet succession corrugates it into ~6.5 A rows",
+   "op": "measure feature metric, overlay model on data",
+   "verdict": "shown",
+   "source": "o20",
+   "tech_source": "modality",
+   "note": "'6.5 A' is printed beside the circled FFT spot; the rows are not atomically resolved",
+   "claims": [
+    "m3"
+   ],
+   "necessity": "necessary",
+   "necessity_reason": "Only figure-backed support with image_support shown for m3 (o20)."
+  },
+  {
+   "id": "C14",
+   "lane": 2,
+   "row": "S2",
+   "line": 2,
+   "title": "evidence, F1",
+   "tech": "",
+   "figs": [
+    "F1"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F1b",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F1b"
+   ],
+   "head": "Ni and Mn rise with the same slope above 30 deg: their difference stays at 14-15 at.% across the series",
+   "solves": "Annealing drives Ni and Mn to segregate to the surface in equal amounts, a surface rather than grain-boundary process",
+   "op": "compare coplotted quantities",
+   "verdict": "shown",
+   "source": "o5",
+   "tech_source": "none",
+   "note": "Ni-Mn measured 14.5 (0 deg), 14.5 (30 deg), 15.4 (50 deg), 14.0 (60 deg), 14.0 at.% (70 deg)",
+   "detail": "o5: Ni and Mn rise with the same slope above 30 deg: their difference stays at 14-15 at.% across the series",
+   "claims": [
+    "m1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "m1 keeps shown support from o6, o10 after removal."
+  },
+  {
+   "id": "C15",
+   "lane": 2,
+   "row": "S2",
+   "line": 3,
+   "title": "EDS:AES, EDS:spectrum, F2",
+   "tech": "EDS:AES, EDS:spectrum",
+   "figs": [
+    "F2"
+   ],
+   "panel": "10.1016/j.actamat.2021.116790#F2b, 10.1016/j.actamat.2021.116790#F2c",
+   "panel_ids": [
+    "10.1016/j.actamat.2021.116790#F2b",
+    "10.1016/j.actamat.2021.116790#F2c"
+   ],
+   "head": "In the Auger maps a faint bright diagonal line follows the boundary in Mn and a darker one in Fe. EDS gives Mn 12.0 at.% inside both grains but 8.7 at.% averaged on the boundary, i.e.",
+   "solves": "",
+   "op": "assess spatial distribution",
+   "verdict": "partial",
+   "source": "o7, a1",
+   "tech_source": "label",
+   "note": "both maps are pixel-noisy; the Fe depletion line is clearer than the Mn enrichment line opposite in sign to the surface-sensitive SAM map of F2b",
+   "detail": "o7: In the Auger maps a faint bright diagonal line follows the boundary in Mn and a darker one in Fe; a1: EDS gives Mn 12.0 at.% inside both grains but 8.7 at.% averaged on the boundary, i.e. bulk Mn depletion there",
+   "claims": [
+    "m1"
+   ],
+   "necessity": "redundant",
+   "necessity_reason": "No member reaches image_support shown, and m1 keeps shown support from o5, o6, o10."
+  },
+  {
+   "id": "C16",
+   "lane": 2,
+   "row": "S2",
+   "line": 4,
+   "title": "XPS",
+   "tech": "XPS",
+   "figs": [],
+   "panel": "",
+   "panel_ids": [],
+   "head": "Mn is detected by XPS on a Si(111) surface held above the sample while it was annealed to 933 K",
+   "solves": "The Mn loss above 873 K is desorption from the surface, not diffusion into the bulk",
+   "op": "",
+   "verdict": null,
+   "source": "o25",
+   "tech_source": "label",
+   "detail": "o25: Mn is detected by XPS on a Si(111) surface held above the sample while it was annealed to 933 K",
+   "claims": [
+    "m2"
+   ],
+   "necessity": "decorative",
+   "necessity_reason": "No member reaches image_support shown and m2 has no other figure-backed support."
+  }
+ ],
+ "edges": [
+  [
+   "S0",
+   "S1",
+   "produces"
+  ],
+  [
+   "S1",
+   "S2",
+   "supports"
+  ],
+  [
+   "S2",
+   "S4",
+   "supports"
+  ],
+  [
+   "S1",
+   "S4",
+   "supports"
+  ]
+ ],
+ "figs": {},
+ "fm_critical": true
+}
