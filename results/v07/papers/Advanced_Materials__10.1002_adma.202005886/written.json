@@ -1,0 +1,250 @@
+{
+ "paper_id": "Advanced_Materials/10.1002_adma.202005886",
+ "title": "Luminescent Erbium-Doped Silicon Thin Films for Advanced Anti-Counterfeit Labels",
+ "cutter": "v2.2",
+ "traces": [
+  {
+   "id": "T1",
+   "group_id": "Advanced_Materials/10.1002_adma.202005886",
+   "root": "explain",
+   "subtype": "rejection",
+   "seed_claim": "n9",
+   "evidence": [
+    "o16"
+   ],
+   "hidden": [
+    "o16",
+    "m1",
+    "n10",
+    "m2",
+    "n13",
+    "n16",
+    "n17",
+    "n18",
+    "n2"
+   ],
+   "branch": "qualifies edge o16 -> n9",
+   "fm_family": "RAMAN",
+   "lift": "required rejection with written reason",
+   "floor": {
+    "reaches": false,
+    "note": "the text asserts the claim; the ruling needs the plot"
+   },
+   "depth": 1,
+   "depth_families": [
+    "RAMAN"
+   ],
+   "channels_involved": [
+    "RAMAN"
+   ],
+   "mask": "hide the ruling; show the claim and the panel",
+   "grader": "answer key: the audit ruling on the panel",
+   "status": "open",
+   "ruling": "",
+   "walk": [
+    {
+     "node": "n1",
+     "role": "context"
+    },
+    {
+     "node": "n2",
+     "role": "redacted"
+    },
+    {
+     "node": "n4",
+     "role": "context"
+    },
+    {
+     "node": "n6",
+     "role": "context"
+    },
+    {
+     "node": "o16",
+     "role": "audit",
+     "op": "cross_check_consistency",
+     "panel_ids": [
+      "10.1002/adma.202005886#F2c"
+     ],
+     "verdict": "shown"
+    },
+    {
+     "node": "n9",
+     "role": "claim"
+    },
+    {
+     "node": "m1",
+     "role": "redacted"
+    },
+    {
+     "node": "n10",
+     "role": "redacted"
+    },
+    {
+     "node": "m2",
+     "role": "redacted"
+    },
+    {
+     "node": "n13",
+     "role": "redacted"
+    },
+    {
+     "node": "n16",
+     "role": "redacted"
+    },
+    {
+     "node": "n17",
+     "role": "redacted"
+    },
+    {
+     "node": "n18",
+     "role": "redacted"
+    }
+   ],
+   "v1_filter": {
+    "status": "control",
+    "ruling": "plot read, no domain model: depth-one negative control"
+   },
+   "v2_rules": [
+    {
+     "rule": "v1-off",
+     "where": "cut_traces.py:265",
+     "effect": "v1 filter would have ruled control: plot read, no domain model: depth-one negative control"
+    },
+    {
+     "rule": "P2",
+     "where": "cut_traces.py:614",
+     "effect": "condition labels: [None]"
+    },
+    {
+     "rule": "R3",
+     "where": "cut_traces.py:688",
+     "effect": "graded targets readable: o16 (figure)"
+    },
+    {
+     "rule": "skip",
+     "where": "cut_traces.py:721",
+     "effect": "given panels carry no answer text: ['F2c']"
+    }
+   ],
+   "redactions": [
+    {
+     "node": "m1",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n10",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "m2",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n13",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n16",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n17",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n18",
+     "why": "downstream conclusion restates the answer"
+    },
+    {
+     "node": "n2",
+     "why": "hypothesis states the mechanism the model must produce"
+    }
+   ],
+   "has_sweep": true,
+   "given_panels": [
+    "10.1002/adma.202005886#F2c"
+   ],
+   "condition_labels": [
+    {
+     "panel": "10.1002/adma.202005886#F2c",
+     "sample": null,
+     "sample_source": null,
+     "level": null,
+     "unit": "mJ/cm2",
+     "level_source": null,
+     "alias": null,
+     "text": null
+    }
+   ],
+   "graded_targets": [
+    "o16"
+   ],
+   "target_verdicts": {
+    "o16": {
+     "pass": true,
+     "why": "figure"
+    }
+   },
+   "annotated_panels": [
+    {
+     "panel": "10.1002/adma.202005886#F2c",
+     "annotations": [
+      "c-Si:Er:Oa-SiO:Er:O",
+      "(ne)",
+      "Fluence(mJ/cm)",
+      "10\u00b0"
+     ],
+     "hits": []
+    }
+   ],
+   "answer_scope_required": true,
+   "linear": [
+    {
+     "step": 1,
+     "role": "claim",
+     "nodes": [
+      "n9"
+     ],
+     "depends_on": [],
+     "hidden": false,
+     "text": "Claim under test: Irradiated zones contain crystalline silicon grains"
+    },
+    {
+     "step": 2,
+     "role": "read",
+     "nodes": [
+      "o16"
+     ],
+     "depends_on": [
+      1
+     ],
+     "hidden": false,
+     "text": "Read the panel: F2c [RAMAN]"
+    },
+    {
+     "step": 3,
+     "role": "ruling",
+     "nodes": [
+      "o16"
+     ],
+     "depends_on": [
+      2
+     ],
+     "hidden": true,
+     "text": "Ruling: Figure 2c puts the crystalline maximum near 3 mJ/cm2, where Figure 3 still shows it growing at 6.4"
+    }
+   ],
+   "question": "The claim above is that irradiated zones contain crystalline silicon grains. Does the Raman panel F2c, which plots the signal against fluence in mJ/cm2, actually support this claim as stated?",
+   "answer_key": "Not cleanly. Figure 2c puts the crystalline maximum near 3 mJ/cm2, but elsewhere in the paper Figure 3 shows the response still growing at 6.4 mJ/cm2 -- so the panel's own picture of where crystallization peaks does not line up with the fluence at which the claim is actually being used.",
+   "answer_scope": "full",
+   "grading": "Answer key: the audit ruling on the panel, node o16.",
+   "answer_key_nodes": [
+    "o16"
+   ],
+   "asks_for": [
+    "o16"
+   ]
+  }
+ ],
+ "knowledge_pile": []
+}

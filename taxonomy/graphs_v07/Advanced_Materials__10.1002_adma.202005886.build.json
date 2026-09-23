@@ -1,0 +1,90 @@
+{
+ "figures_in_packet": 4,
+ "figures_opened": ["F1", "F2", "F3", "F4"],
+ "crops_opened": [
+  "10.1002/adma.202005886#F1 (whole-figure crop, no separate crop file; the F1 image was opened)",
+  "10.1002/adma.202005886#F2a",
+  "10.1002/adma.202005886#F2b",
+  "10.1002/adma.202005886#F2c",
+  "10.1002/adma.202005886#F2d",
+  "10.1002/adma.202005886#F3a",
+  "10.1002/adma.202005886#F3b",
+  "10.1002/adma.202005886#F3c",
+  "10.1002/adma.202005886#F3d",
+  "F4 (whole figure only; the packet offers no crops for F4, tier C4_two_level). Zoom-ins of the F4a AFM scan, the F4c PL spectra, the F4d AFM profile inset and the F4e PL map were made locally from the same image file to read the axes"
+ ],
+ "panels_offered": 9,
+ "panels_cited": 6,
+ "panels_cited_ids": [
+  "10.1002/adma.202005886#F1",
+  "10.1002/adma.202005886#F2a",
+  "10.1002/adma.202005886#F2b",
+  "10.1002/adma.202005886#F2c",
+  "10.1002/adma.202005886#F2d",
+  "10.1002/adma.202005886#F3a"
+ ],
+ "technique_cue_conflicts_resolved": [
+  {
+   "node": "o8",
+   "panel": "10.1002/adma.202005886#F3b",
+   "technique": "RAMAN:mapping",
+   "cue_classes": ["micrograph"],
+   "resolution": "panel citation dropped; node carries figs ['F3'] and attrs.fig_ref 'F3b'. The panel is a Raman intensity map (its own axis label reads 'Raman Intensity at 518 cm-1 (a.u.)'), but its only OCR cue class is 'micrograph', raised by the 'um' scale-bar token; the cue map does not list RAMAN under 'micrograph'. Technique not changed to fit the cue."
+  },
+  {
+   "node": "o9",
+   "panel": "10.1002/adma.202005886#F3c",
+   "technique": "PL:mapping",
+   "cue_classes": ["micrograph"],
+   "resolution": "panel citation dropped; figs ['F3'] + attrs.fig_ref 'F3c'. Same cause: a PL intensity map whose only cue class is 'micrograph', which the cue map does not allow for PL (PL sits under 'optical spectroscopy')."
+  },
+  {
+   "node": "o11",
+   "panel": "10.1002/adma.202005886#F3d",
+   "technique": "PL:mapping",
+   "cue_classes": ["micrograph"],
+   "resolution": "panel citation dropped; figs ['F3'] + attrs.fig_ref 'F3d'. Same cause as F3c."
+  }
+ ],
+ "technique_cue_notes": [
+  "F2a cue 'Raman' vs technique RAMAN: passes.",
+  "F2b cue 'optical spectroscopy' vs technique PL: passes.",
+  "F2c has no cue classes, so the RAMAN (o2, o16) and PL (o3) techniques on that panel are unchecked.",
+  "F2d cue 'micrograph' (from the inset optical image of the scanned line) vs technique OPTICAL: passes.",
+  "F3a cue 'micrograph' vs technique SEM: passes.",
+  "F1 has no OCR for its crop and is cited only on the non-OBS node n2, so no technique check applies.",
+  "F4 offers no crops, so the PL, OPTICAL:brightfield and AFM techniques on o12-o15 are unchecked."
+ ],
+ "merged_nodes": [
+  {
+   "kept": "n9",
+   "merged": "'the appearance of a peak at about 518 cm-1 ... corresponds to the TO mode of crystalline silicon' and 'this indicates the formation of silicon crystalline grains in the film' and 'the deviation of the position from 520 cm-1 is associated with the finite small sizes of crystal grains'",
+   "why": "three sentences of the F2 linked text state one phase-identity claim; the grain-size reading of the peak position is the KNW lookup k1, not a second claim"
+  },
+  {
+   "kept": "n12",
+   "merged": "'partial removal of the material occurs at the center of the irradiated area resulting in the donut-like shape' (F3 linked text, SEM) and 'the depths of the laser annealed spots are 97 +/- 13 nm (FaS) and 94 +/- 16 nm (LuS); the widths are 494 +/- 100 and 488 +/- 90 nm' (F4 linked text, AFM)",
+   "why": "one crater-geometry claim read from two instruments; SEM gives the shape, AFM the depth and width, and the paper uses them for the same point, that the two spot types look the same"
+  },
+  {
+   "kept": "n13",
+   "merged": "'the increase in the laser processing fluence leads to the growth of the amplitude for the PL signal' and 'the reason for the subsequent decrease of the PL signal is the evaporation of the material when the laser intensity exceeds the damage threshold'",
+   "why": "rise and fall are one non-monotonic trend of the same property against the same variable; the evaporation reading is the separate mechanism node m3"
+  },
+  {
+   "kept": "n14",
+   "merged": "'such treatment has no influence on the label photoluminescent properties' and 'since the erbium layer was removed, spots recorded at the fourth step are non-luminescent but look like LuS'",
+   "why": "both are the one property claim that F4c shows as two traces: the luminescent spots survive the etch and the spots written after it do not emit"
+  },
+  {
+   "kept": "n17",
+   "merged": "'the label looks like a continuous array of holes in an optical or scanning electron microscope' (F1 linked text) and 'only some of them can provide luminescence at 1530 nm creating an image' and 'securing the stored QR-code from direct optical reading' (F4 linked text)",
+   "why": "one service-capability claim stated once in the F1 introduction of the concept and twice in the F4 walk-through"
+  },
+  {
+   "kept": "o14",
+   "merged": "a separate audit node for the disagreement between the two AFM profiles in the F4d inset",
+   "why": "the discrepancy is carried by image_support 'partial' and attrs.image_note of the same reading, as the protocol requires, rather than by a second node"
+  }
+ ]
+}
