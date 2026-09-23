@@ -4,9 +4,9 @@
  "claim": "s2",
  "truth": {
   "steps": {
-   "1": "shown",
+   "1": "partial",
    "2": "partial",
-   "3": "shown"
+   "3": "partial"
   },
   "closing": "partial"
  },
@@ -15,7 +15,7 @@
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     },
@@ -25,7 +25,7 @@
      "correct": false
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     }
@@ -35,14 +35,14 @@
    "closing_expected": "partial",
    "closing_got": "not addressed",
    "closing_correct": false,
-   "missing_said": "None of the three steps include any actual data, results, or in-text description beyond bare figure captions, so there is no evidence in this excerpt of XRD peak indexing, SEM phase morphology/composition, or DSC thermal signatures that would confirm or refute Al6Cu6La formation with La versus its absence with Sm."
+   "missing_said": "Only generic panel captions (technique + 'as-cast alloys') are available for all three steps; none mention La, Sm, Al6Cu6La, dendrite boundaries, or specific peaks/microstructure/thermal signatures, so there is no textual evidence tying any figure to the specific claim about a new cubic NaZn13-type phase forming with La but not Sm."
   },
   "full": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
-     "got": "partial",
+     "expected": "partial",
+     "got": "shown",
      "correct": false
     },
     "2": {
@@ -51,35 +51,35 @@
      "correct": true
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    },
-   "steps_correct": 1,
+   "steps_correct": 2,
    "n_steps": 3,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "Across the three steps there is converging but incomplete support: XRD shows La-specific diffraction peaks (labeled Al5Cu6La, a stoichiometry mismatch with the claimed Al6Cu6La) absent in the Sm alloy, SEM shows boundary-located particles consistent with a discrete phase, and DSC shows an extra thermal event in the La alloy -- together these are suggestive of a new La-associated boundary phase and"
+   "missing_said": "XRD (F2) is the strongest direct evidence, cleanly showing La-specific extra peaks and their absence in Sm. SEM (F1c) only shows morphology at boundaries without composition, and the DSC data is limited to the La alloy with no Sm counterpart for contrast - so the phase identity (Al5Cu6La per the figure legend, vs. Al6Cu6La per the claim text - a formula discrepancy not resolved here) and the 'Sm f"
   },
   "no_image": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
-     "got": "partial",
+     "expected": "partial",
+     "got": "not addressed",
      "correct": false
     },
     "2": {
      "expected": "partial",
-     "got": "partial",
-     "correct": true
+     "got": "not addressed",
+     "correct": false
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    },
    "steps_correct": 1,
@@ -87,15 +87,15 @@
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "The given evidence never states the actual XRD peak indexing confirming a cubic NaZn13-type Al6Cu6La phase, never describes SEM/EDS observations placing a distinct phase specifically at dendrite boundaries, and provides no DSC or other data on the Sm alloy for comparison, so the claim's specific phase identity/location for La and the absence of a new phase for Sm remain unconfirmed by this evidenc"
+   "missing_said": "The chain lacks any reported specifics from the XRD and SEM steps (peak indexing, EDS/phase mapping at dendrite boundaries) that would directly confirm the Al6Cu6La (NaZn13-type cubic) phase in the La alloy, and lacks a DSC or SEM/XRD comparison showing the Sm alloy does not form an analogous new phase. Only the DSC thermal anomaly in the La alloy offers indirect, non-specific support."
   },
   "oracle_complete": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "2": {
      "expected": "partial",
@@ -103,23 +103,23 @@
      "correct": true
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    },
-   "steps_correct": 1,
+   "steps_correct": 3,
    "n_steps": 3,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "Across all three steps there is consistent, converging circumstantial evidence (diffraction, imaging, thermal) that La produces an extra phase at dendrite boundaries while Sm does not, but none of the results directly establish the specific identity (Al6Cu6La composition) or crystal structure (cubic NaZn13 type) of that phase \u2014 this would require indexed XRD peak assignments or lattice-parameter m"
+   "missing_said": "The three lines of evidence together are consistent with La forming an additional phase that Sm does not, but none of them independently confirms the specific identity of that phase as cubic NaZn13-type Al6Cu6La or explicitly localizes it to dendrite boundaries in a La-vs-Sm side-by-side comparison; missing are composition/EDS data tying the boundary phase to Al6Cu6La stoichiometry, crystal-struct"
   },
   "permute_image": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     },
@@ -129,7 +129,7 @@
      "correct": false
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     }
@@ -139,20 +139,20 @@
    "closing_expected": "partial",
    "closing_got": "not addressed",
    "closing_correct": false,
-   "missing_said": "The images supplied do not correspond to the cited evidence at all\u2014Steps 1 and 2 point to XRD and as-cast SEM panels, but the actual images show deformation-band/twinning micrographs from a mechanically tested hexagonal-metal specimen (unrelated microstructural characterization), and Step 3 has no image at all. None of the panels show diffraction peaks, dendrite-boundary phase morphology, or DSC t"
+   "missing_said": "None of the six images provided (F3c-f, F4a-b) correspond to the cited evidence (XRD patterns of as-cast alloys, SEM of as-cast alloys, DSC thermal data); they instead depict deformation-band/twinning microstructure of a hexagonal alloy under varying test temperatures. The claim about Al6Cu6La phase formation in La- vs Sm-containing alloys cannot be assessed from these images; a likely figure-mapp"
   },
   "permute_answer": {
    "parsed": true,
    "permuted_from": "case5_drop",
-   "steps_correct": 1,
+   "steps_correct": 2,
    "n_steps": 3,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
    "steps": {
     "1": {
-     "expected": "shown",
-     "got": "partial",
+     "expected": "partial",
+     "got": "shown",
      "correct": false
     },
     "2": {
@@ -161,9 +161,9 @@
      "correct": true
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    }
   }
@@ -171,6 +171,12 @@
  "item_valid": true,
  "closing_alone_discriminates": false,
  "oracle_carries_the_task": true,
+ "majority_class_baseline": {
+  "answer": "partial",
+  "steps_correct": 3,
+  "n_steps": 3,
+  "rate": 1.0
+ },
  "note": "Every verdict is model against model. The four-level ground truth is itself a model label.",
- "gt_disputes": 2
+ "gt_disputes": 1
 }

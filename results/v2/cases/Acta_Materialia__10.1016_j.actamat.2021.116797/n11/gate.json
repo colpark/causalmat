@@ -4,11 +4,11 @@
  "claim": "n11",
  "truth": {
   "steps": {
-   "1": "shown",
+   "1": "partial",
    "2": "partial",
-   "3": "shown",
-   "4": "shown",
-   "5": "shown"
+   "3": "partial",
+   "4": "partial",
+   "5": "partial"
   },
   "closing": "partial"
  },
@@ -17,7 +17,7 @@
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     },
@@ -27,17 +27,17 @@
      "correct": false
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     },
     "4": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     },
     "5": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     }
@@ -47,15 +47,15 @@
    "closing_expected": "partial",
    "closing_got": "not addressed",
    "closing_correct": false,
-   "missing_said": "None of the supplied evidence excerpts contain actual data, only generic panel captions/figure labels; there is no reported measurement of crystal rotation angle (continuous 5-55 deg) versus the fixed ~85 deg twin angle from EBSD or TEM/SAED, so the claim cannot be evaluated from this evidence set."
+   "missing_said": "All five evidence items are bare figure captions without any reported data\u2014no rotation-angle measurements (5-55 deg range), no EBSD misorientation profiles across the bands, and no SAED analysis confirming a lack of the fixed ~85 deg twin relationship. The claim's core quantitative comparison (continuous rotation vs. fixed twin angle) is not demonstrated by the text provided; the actual figure con"
   },
   "full": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "2": {
      "expected": "partial",
@@ -63,35 +63,35 @@
      "correct": true
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "shown",
-     "correct": true
-    },
-    "4": {
-     "expected": "shown",
-     "got": "partial",
      "correct": false
     },
+    "4": {
+     "expected": "partial",
+     "got": "partial",
+     "correct": true
+    },
     "5": {
-     "expected": "shown",
-     "got": "shown",
+     "expected": "partial",
+     "got": "partial",
      "correct": true
     }
    },
-   "steps_correct": 3,
+   "steps_correct": 4,
    "n_steps": 5,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "The image sequence (OM morphology to EBSD color-gradient maps to SAED c-axis rotation across points A-D) coherently supports that the wavy bands undergo continuous, gradual crystal rotation rather than the single fixed misorientation of a {10-12} twin, and F5f's side-by-side kink-band/twin labeling is the strongest single piece of visual evidence. What is still missing from the images alone is any"
+   "missing_said": "The image set consistently shows a morphologically and crystallographically distinct 'kink band' (graded IPF coloring in F5e/f, progressively rotating c-axis across points A-D in F6b-f) versus a sharp bicolor {10-12} twin, which qualitatively supports continuous rather than fixed-angle rotation. However, none of the provided crops display the actual numeric misorientation values (5 to 55 deg vs 85"
   },
   "no_image": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "2": {
      "expected": "partial",
@@ -99,35 +99,35 @@
      "correct": true
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "4": {
-     "expected": "shown",
-     "got": "partial",
+     "expected": "partial",
+     "got": "not addressed",
      "correct": false
     },
     "5": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    },
-   "steps_correct": 1,
+   "steps_correct": 4,
    "n_steps": 5,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "The technique sequence (OM to show band morphology, EBSD and TEM/SAED to measure crystal orientation) is exactly what would be needed to establish that rotation varies continuously from ~5 to ~55 deg rather than sitting at a fixed ~85 deg twin angle, and no step contradicts the claim. However, the evidence excerpts supplied are all figure captions/panel labels without the actual reported angle val"
+   "missing_said": "The evidence chain uses the right techniques (OM for band morphology, EBSD and TEM/SAED for crystallographic rotation) that would be needed to distinguish continuously varying kink-band rotation (5-55 deg) from the fixed ~85 deg {10-12} twin misorientation, but none of the captions supplied contain the actual quantitative angle measurements or explicit comparison to the 85 deg twin relation, so th"
   },
   "oracle_complete": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "2": {
      "expected": "partial",
@@ -135,27 +135,27 @@
      "correct": true
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "shown",
-     "correct": true
+     "correct": false
     },
     "4": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "5": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    },
-   "steps_correct": 2,
+   "steps_correct": 4,
    "n_steps": 5,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "The evidence consistently supports that wavy bands are kink-type features with a [0001]-parallel shear and orientation that varies continuously (rather than the fixed, uniform misorientation seen in {10-12} twins), via OM, EBSD, and TEM/SAED. What is missing is an explicit quantitative step tying the raw SAED/TEM angle measurements to the specific claimed 5-55 deg range, and an explicit measured ~"
+   "missing_said": "The evidence consistently and convincingly shows that wavy-band reorientation is continuous/variable (EBSD colour shading, non-constant TEM boundary bends, differing SAED c-axis directions) in contrast to the twin's single uniform orientation, which supports the qualitative core of the claim. However, none of the five steps explicitly reports or derives the specific numeric rotation-angle range of"
   },
   "permute_image": {
    "parsed": false
@@ -163,21 +163,21 @@
   "permute_answer": {
    "parsed": true,
    "permuted_from": "case3_contradicts",
-   "steps_correct": 0,
+   "steps_correct": 3,
    "n_steps": 4,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "2": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "3": {
      "expected": "partial",
@@ -185,16 +185,22 @@
      "correct": false
     },
     "4": {
-     "expected": "contradicts",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    }
   }
  },
  "item_valid": true,
  "closing_alone_discriminates": false,
- "oracle_carries_the_task": false,
+ "oracle_carries_the_task": true,
+ "majority_class_baseline": {
+  "answer": "partial",
+  "steps_correct": 5,
+  "n_steps": 5,
+  "rate": 1.0
+ },
  "note": "Every verdict is model against model. The four-level ground truth is itself a model label.",
- "gt_disputes": 2
+ "gt_disputes": 1
 }

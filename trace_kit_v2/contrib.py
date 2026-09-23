@@ -22,7 +22,12 @@ def rows(): return [json.loads(l) for l in open(IN)]
 
 
 PANEL = re.compile(r'\b(?:in|from|on|of)\s+F\d+[a-z]?(?:\s*[,/and]+\s*F\d+[a-z]?)*\b[,:]?\s*', re.I)
-PANEL2 = re.compile(r'\bF\d+[a-z]?\b')
+PANEL2 = re.compile(r'\bF\d+[a-z]?\b', re.I)
+# container words: the label is told it has an observation, and naming the vessel adds nothing but
+# does tell it the evidence is pictorial. Replaced, not deleted, so the sentence still reads.
+CONTAINER = [(re.compile(r'\b(?:the\s+)?(?:sub)?panels?\b', re.I), 'the data'),
+             (re.compile(r'\b(?:the\s+)?(?:micrograph|image|figure|map|inset|frame)s?\b', re.I), 'the data'),
+             (re.compile(r'\bin\s+the\s+data\b', re.I), 'here')]
 
 
 def scrub(o):
@@ -30,6 +35,8 @@ def scrub(o):
     are provenance, and naming one would tell the label it is looking at figure evidence."""
     t = PANEL.sub('', o or '')
     t = PANEL2.sub('the data', t)
+    for rx, rep in CONTAINER: t = rx.sub(rep, t)
+    t = re.sub(r'\b(the data)(\s+\1)+\b', r'\1', t, flags=re.I)
     return ' '.join(t.split()).strip().lstrip(',;').strip()
 
 

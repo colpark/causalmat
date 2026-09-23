@@ -15,11 +15,11 @@
     "TEM"
    ],
    "expected_levels": [
-    "shown",
     "partial",
-    "shown",
-    "shown",
-    "shown"
+    "partial",
+    "partial",
+    "partial",
+    "partial"
    ],
    "closing": "partial",
    "closing_why": "a step is only partial",
@@ -43,9 +43,9 @@
     }
    ],
    "necessity": {
-    "EBSD": "redundant_by_single_loo",
-    "OM": "redundant_by_single_loo",
-    "TEM": "redundant_by_single_loo"
+    "EBSD": "necessary",
+    "OM": "necessary",
+    "TEM": "necessary"
    },
    "layer_decisions": {
     "as_is": 13,
@@ -53,7 +53,7 @@
    },
    "arms": {
     "full": {
-     "steps_correct": 3,
+     "steps_correct": 4,
      "n_steps": 5,
      "closing_got": "partial",
      "closing_correct": true,
@@ -67,21 +67,21 @@
      "parsed": true
     },
     "oracle_complete": {
-     "steps_correct": 2,
+     "steps_correct": 4,
      "n_steps": 5,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "no_image": {
-     "steps_correct": 1,
+     "steps_correct": 4,
      "n_steps": 5,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "permute_answer": {
-     "steps_correct": 0,
+     "steps_correct": 3,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
@@ -96,9 +96,9 @@
     }
    },
    "item_valid": true,
-   "oracle_carries_the_task": false,
+   "oracle_carries_the_task": true,
    "closing_alone_discriminates": false,
-   "gt_disputes": 2
+   "gt_disputes": 1
   },
   {
    "case": "case3_contradicts",
@@ -111,13 +111,13 @@
     "XRD"
    ],
    "expected_levels": [
-    "shown",
-    "shown",
     "partial",
-    "contradicts"
+    "partial",
+    "partial",
+    "partial"
    ],
    "closing": "partial",
-   "closing_why": "a step contradicts the claim",
+   "closing_why": "a step is only partial",
    "lanes": {
     "fm": 1,
     "oracle": 0,
@@ -132,7 +132,7 @@
    "dropped_panels": [],
    "necessity": {
     "PL": "necessary",
-    "XRD": "redundant_by_single_loo"
+    "XRD": "necessary"
    },
    "layer_decisions": {
     "hidden": 2,
@@ -140,52 +140,52 @@
    },
    "arms": {
     "full": {
-     "steps_correct": 0,
+     "steps_correct": 3,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "floor": {
-     "steps_correct": 1,
+     "steps_correct": 3,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "oracle_complete": {
-     "steps_correct": 0,
+     "steps_correct": 3,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "no_image": {
-     "steps_correct": 1,
+     "steps_correct": 3,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "permute_answer": {
-     "steps_correct": 2,
+     "steps_correct": 3,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "permute_image": {
-     "steps_correct": 0,
-     "n_steps": 4,
-     "closing_got": "not addressed",
-     "closing_correct": false,
-     "parsed": true
+     "steps_correct": null,
+     "n_steps": null,
+     "closing_got": null,
+     "closing_correct": null,
+     "parsed": false
     }
    },
    "item_valid": false,
    "oracle_carries_the_task": true,
    "closing_alone_discriminates": false,
-   "gt_disputes": 4
+   "gt_disputes": 1
   },
   {
    "case": "case2_annotated",
@@ -199,10 +199,10 @@
     "XRD"
    ],
    "expected_levels": [
-    "shown",
     "partial",
-    "shown",
-    "shown"
+    "contradicts",
+    "partial",
+    "partial"
    ],
    "closing": "partial",
    "closing_why": "the claim names a fact no panel carries: TEM panel a = 2Co-MBG, b = 5Co-MBG (caption); pore size 4.5-5 nm from caption",
@@ -221,8 +221,8 @@
    ],
    "dropped_panels": [],
    "necessity": {
-    "PHYS": "redundant_by_single_loo",
-    "TEM": "redundant_by_single_loo",
+    "PHYS": "necessary",
+    "TEM": "necessary",
     "XRD": "necessary"
    },
    "layer_decisions": {
@@ -231,35 +231,35 @@
    },
    "arms": {
     "full": {
-     "steps_correct": 1,
+     "steps_correct": 3,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "floor": {
-     "steps_correct": 1,
+     "steps_correct": 3,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "oracle_complete": {
-     "steps_correct": 0,
+     "steps_correct": 3,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "no_image": {
-     "steps_correct": 1,
+     "steps_correct": 2,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
      "parsed": true
     },
     "permute_answer": {
-     "steps_correct": 1,
+     "steps_correct": 4,
      "n_steps": 4,
      "closing_got": "partial",
      "closing_correct": true,
@@ -274,9 +274,9 @@
     }
    },
    "item_valid": false,
-   "oracle_carries_the_task": false,
+   "oracle_carries_the_task": true,
    "closing_alone_discriminates": false,
-   "gt_disputes": 3
+   "gt_disputes": 1
   },
   {
    "case": "case4_oracle",
@@ -291,9 +291,9 @@
    ],
    "expected_levels": [
     "partial",
-    "shown",
-    "shown",
-    "shown",
+    "partial",
+    "partial",
+    "partial",
     "shown"
    ],
    "closing": "partial",
@@ -314,7 +314,7 @@
    "dropped_panels": [],
    "necessity": {
     "ECHEM": "redundant_by_single_loo",
-    "XAS": "redundant_by_single_loo",
+    "XAS": "necessary",
     "XRD": "redundant_by_single_loo"
    },
    "layer_decisions": {
@@ -330,16 +330,16 @@
      "parsed": true
     },
     "floor": {
-     "steps_correct": 0,
+     "steps_correct": 1,
      "n_steps": 5,
-     "closing_got": "partial",
-     "closing_correct": true,
+     "closing_got": "not addressed",
+     "closing_correct": false,
      "parsed": true
     },
     "oracle_complete": {
-     "steps_correct": 5,
+     "steps_correct": 2,
      "n_steps": 5,
-     "closing_got": "shown",
+     "closing_got": "shown, with one partial",
      "closing_correct": false,
      "parsed": true
     },
@@ -351,7 +351,7 @@
      "parsed": true
     },
     "permute_answer": {
-     "steps_correct": 2,
+     "steps_correct": 3,
      "n_steps": 5,
      "closing_got": "partial",
      "closing_correct": true,
@@ -365,7 +365,7 @@
      "parsed": false
     }
    },
-   "item_valid": false,
+   "item_valid": true,
    "oracle_carries_the_task": false,
    "closing_alone_discriminates": false,
    "gt_disputes": 3
@@ -382,9 +382,9 @@
     "XRD"
    ],
    "expected_levels": [
-    "shown",
     "partial",
-    "shown"
+    "partial",
+    "partial"
    ],
    "closing": "partial",
    "closing_why": "the claim names a fact no panel carries: arrow B = Al6Cu6La and NaZn13 structure from caption/linked text [16]",
@@ -403,8 +403,8 @@
    ],
    "dropped_panels": [],
    "necessity": {
-    "SEM": "redundant_by_single_loo",
-    "THERMAL": "redundant_by_single_loo",
+    "SEM": "necessary",
+    "THERMAL": "necessary",
     "XRD": "necessary"
    },
    "layer_decisions": {
@@ -412,7 +412,7 @@
    },
    "arms": {
     "full": {
-     "steps_correct": 1,
+     "steps_correct": 2,
      "n_steps": 3,
      "closing_got": "partial",
      "closing_correct": true,
@@ -426,7 +426,7 @@
      "parsed": true
     },
     "oracle_complete": {
-     "steps_correct": 1,
+     "steps_correct": 3,
      "n_steps": 3,
      "closing_got": "partial",
      "closing_correct": true,
@@ -440,7 +440,7 @@
      "parsed": true
     },
     "permute_answer": {
-     "steps_correct": 1,
+     "steps_correct": 2,
      "n_steps": 3,
      "closing_got": "partial",
      "closing_correct": true,
@@ -457,7 +457,7 @@
    "item_valid": true,
    "oracle_carries_the_task": true,
    "closing_alone_discriminates": false,
-   "gt_disputes": 2
+   "gt_disputes": 1
   }
  ],
  "totals": {
@@ -465,70 +465,73 @@
   "graded_steps": 21,
   "channels_per_case": 2.8,
   "steps_per_case": 4.2,
-  "labels_harvested": 750,
+  "labels_harvested": 1500,
   "layer_decisions": {
    "as_is": 22,
    "hidden": 12
   },
-  "gt_disputes": 14,
-  "gt_dispute_rate": 0.667,
+  "gt_disputes": 7,
+  "gt_dispute_rate": 0.333,
   "dispute_directions": {
-   "shown->partial": 12,
-   "partial->shown": 1,
-   "contradicts->partial": 1
+   "partial->shown": 4,
+   "contradicts->partial": 1,
+   "partial->not addressed": 1,
+   "shown->partial": 1
   },
-  "items_valid": 2
+  "items_valid": 3
  },
  "arm_totals": {
   "full": {
-   "steps_correct": 7,
+   "steps_correct": 14,
    "of": 21,
    "closings_correct": 5,
    "parsed": 5
   },
   "floor": {
-   "steps_correct": 2,
+   "steps_correct": 7,
    "of": 21,
-   "closings_correct": 3,
+   "closings_correct": 2,
    "parsed": 5
   },
   "oracle_complete": {
-   "steps_correct": 8,
+   "steps_correct": 15,
    "of": 21,
    "closings_correct": 4,
    "parsed": 5
   },
   "no_image": {
-   "steps_correct": 5,
+   "steps_correct": 11,
    "of": 21,
    "closings_correct": 5,
    "parsed": 5
   },
   "permute_answer": {
-   "steps_correct": 6,
+   "steps_correct": 15,
    "of": 20,
    "closings_correct": 5,
    "parsed": 5
   },
   "permute_image": {
    "steps_correct": 0,
-   "of": 11,
+   "of": 7,
    "closings_correct": 0,
-   "parsed": 3
+   "parsed": 2
   }
  },
  "stop_rules": {
   "oracle_matches_full_in_2_or_more": {
    "fired": true,
    "cases": [
+    "case5_drop",
     "case3_contradicts",
+    "case2_annotated",
     "case4_oracle",
     "case1_three_techniques"
    ]
   },
   "gt_disputes_over_one_third": {
-   "fired": true,
-   "rate": 0.667
+   "fired": false,
+   "rate": 0.333
   },
   "single_step_item": {
    "fired": false

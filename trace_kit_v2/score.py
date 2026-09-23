@@ -46,6 +46,12 @@ def disputes(ch, arms):
 def main(case_dir):
     ch = json.load(open(os.path.join(case_dir, 'case.json')))
     truth = {s['step']: s['expected_support'] for s in ch['steps']}
+    # a constant-answer baseline: with a skewed target, an arm that never looks still scores. Report it
+    # beside every arm so the comparison cannot be read as skill when it is the class prior.
+    _tv = list(truth.values())
+    _maj = collections.Counter(_tv).most_common(1)[0] if _tv else (None, 0)
+    out_majority = {'answer': _maj[0], 'steps_correct': _maj[1], 'n_steps': len(_tv),
+                    'rate': round(_maj[1] / len(_tv), 3) if _tv else None}
     gd = os.path.join(case_dir, 'gate')
     arms = {}
     for f in sorted(os.listdir(gd)):
@@ -96,13 +102,6 @@ def main(case_dir):
             'closing_got': full.get('closing_got'),
             'closing_correct': full.get('closing_got') == other['closing_support'],
             'steps': {k: {'expected': okeys.get(k), 'got': v, 'correct': v == okeys.get(k)} for k, v in got.items() if k in okeys}}
-
-    # a constant-answer baseline: with a skewed target, an arm that never looks still scores. Report it
-    # beside every arm so the comparison cannot be read as skill when it is the class prior.
-    truth_vals = list(truth.values())
-    maj = collections.Counter(truth_vals).most_common(1)[0] if truth_vals else (None, 0)
-    out_majority = {'answer': maj[0], 'steps_correct': maj[1], 'n_steps': len(truth_vals),
-                    'rate': round(maj[1] / len(truth_vals), 3) if truth_vals else None}
 
     dsp = disputes(ch, arms)
     out['gt_disputes'] = len(dsp)

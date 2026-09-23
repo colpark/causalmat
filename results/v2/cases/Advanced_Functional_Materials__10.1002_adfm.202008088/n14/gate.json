@@ -4,10 +4,10 @@
  "claim": "n14",
  "truth": {
   "steps": {
-   "1": "shown",
-   "2": "shown",
+   "1": "partial",
+   "2": "partial",
    "3": "partial",
-   "4": "contradicts"
+   "4": "partial"
   },
   "closing": "partial"
  },
@@ -16,14 +16,14 @@
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     },
     "2": {
-     "expected": "shown",
-     "got": "not addressed",
-     "correct": false
+     "expected": "partial",
+     "got": "partial",
+     "correct": true
     },
     "3": {
      "expected": "partial",
@@ -31,30 +31,30 @@
      "correct": true
     },
     "4": {
-     "expected": "contradicts",
-     "got": "not addressed",
-     "correct": false
+     "expected": "partial",
+     "got": "partial",
+     "correct": true
     }
    },
-   "steps_correct": 1,
+   "steps_correct": 3,
    "n_steps": 4,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "The captions establish that domain-size-dependent phase-transition data (including a temperature-resolved PL contour map) exist, which is the right category of evidence, but none of the caption text actually states the direction of the trend (i.e., that transition temperature increases and the window narrows with larger domain size). Confirming the claim would require the figure's underlying data/"
+   "missing_said": "All four items are captions only, with two of them essentially generic figure titles and one truncated mid-sentence; none explicitly states that transition temperature increases or that the transition window narrows with domain size. The contour map (step 3) is the most promising single piece of evidence but its actual described trend (axis values, direction of shift) is not given in the caption, "
   },
   "full": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "2": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "3": {
      "expected": "partial",
@@ -62,30 +62,30 @@
      "correct": false
     },
     "4": {
-     "expected": "contradicts",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    },
-   "steps_correct": 0,
+   "steps_correct": 3,
    "n_steps": 4,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "The contour map (F5b) is the only panel that directly and quantitatively shows both the rise in transition temperature and the narrowing of the transition window as domain size increases; the XRD panel (F2a) and the PL spectra panel (F5a) each only illustrate the phase-transition phenomenon (via 2theta splitting or emission splitting) at fixed conditions without varying domain size across temperat"
+   "missing_said": "The core trend (rising transition temperature, narrowing window with domain size) is visually shown only in the single F5b contour map; there is no accompanying quantitative plot (e.g., extracted transition T and window width vs domain size with error bars) or corroborating XRD data at multiple domain sizes to cross-validate the PL-based contour map."
   },
   "no_image": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "not addressed",
      "correct": false
     },
     "2": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "3": {
      "expected": "partial",
@@ -93,30 +93,30 @@
      "correct": true
     },
     "4": {
-     "expected": "contradicts",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    },
-   "steps_correct": 1,
+   "steps_correct": 3,
    "n_steps": 4,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "The cited panels (in-situ XRD illustration, PL domain-size-dependent figure, and a PL contour map over 80-90K) are topically relevant to a domain-size/transition relationship, but none of the captions as given explicitly state that transition temperature increases and the transition window narrows with larger domain size; the actual quantitative trend (peak positions, onset/offset temperatures, wi"
+   "missing_said": "The evidence chain is topically on point (PL panels F5a/F5b are explicitly framed around domain-size-dependent transition behavior across a temperature range), but based on the captions alone there is no explicit statement confirming that transition temperature actually rises and the window actually narrows with larger domain size; the XRD illustration (F2a) does not address domain-size dependence"
   },
   "oracle_complete": {
    "parsed": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "2": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "3": {
      "expected": "partial",
@@ -124,62 +124,34 @@
      "correct": false
     },
     "4": {
-     "expected": "contradicts",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    },
-   "steps_correct": 0,
+   "steps_correct": 3,
    "n_steps": 4,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "The narrowing-of-window half of the claim is reasonably supported by Steps 3-4 (dual-band region shrinks toward larger domains), but no step directly shows the transition temperature itself rising with domain size across multiple domain sizes; Step 1 only reports one coexistence band without a domain-size comparison, and Step 2's non-monotonic single/dual/single pattern is not fully reconciled wit"
+   "missing_said": "The qualitative trend -- transition window narrowing as domain size grows, with an implied rise in transition temperature -- is supported across steps 2-4, but there is no direct, single measurement of transition temperature itself as a function of domain size (only indirect inference from fixed-T PL snapshots and a regime map), and steps 3 and 4 disagree on the precise domain size at which the du"
   },
   "permute_image": {
-   "parsed": true,
-   "steps": {
-    "1": {
-     "expected": "shown",
-     "got": "not addressed",
-     "correct": false
-    },
-    "2": {
-     "expected": "shown",
-     "got": "not addressed",
-     "correct": false
-    },
-    "3": {
-     "expected": "partial",
-     "got": "not addressed",
-     "correct": false
-    },
-    "4": {
-     "expected": "contradicts",
-     "got": "not addressed",
-     "correct": false
-    }
-   },
-   "steps_correct": 0,
-   "n_steps": 4,
-   "closing_expected": "partial",
-   "closing_got": "not addressed",
-   "closing_correct": false,
-   "missing_said": "All eleven images actually retrieved (F3c-F3f, F4a-F4b, F5a-F5b-F5e-F5f, F6a) depict mechanical-deformation microstructure (twins, kink bands, deformation bands) in what appears to be a metal alloy, imaged by TEM/optical microscopy and EBSD, not photoluminescence or XRD data on a perovskite (e.g., MAPbI3) phase-transition temperature versus domain size. None of the panels correspond to the claim's"
+   "parsed": false
   },
   "permute_answer": {
    "parsed": true,
    "permuted_from": "case5_drop",
-   "steps_correct": 2,
+   "steps_correct": 3,
    "n_steps": 4,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
    "steps": {
     "1": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     },
     "2": {
      "expected": "partial",
@@ -187,14 +159,14 @@
      "correct": true
     },
     "3": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "shown",
-     "correct": true
+     "correct": false
     },
     "4": {
-     "expected": "shown",
+     "expected": "partial",
      "got": "partial",
-     "correct": false
+     "correct": true
     }
    }
   }
@@ -202,6 +174,12 @@
  "item_valid": false,
  "closing_alone_discriminates": false,
  "oracle_carries_the_task": true,
+ "majority_class_baseline": {
+  "answer": "partial",
+  "steps_correct": 4,
+  "n_steps": 4,
+  "rate": 1.0
+ },
  "note": "Every verdict is model against model. The four-level ground truth is itself a model label.",
- "gt_disputes": 4
+ "gt_disputes": 1
 }
