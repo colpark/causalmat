@@ -35,15 +35,15 @@
    "closing_expected": "partial",
    "closing_got": "not addressed",
    "closing_correct": false,
-   "missing_said": "All three steps are represented only by bare figure captions with no reported results, measurements, or interpretation; there is no actual evidence text (peak positions/indexing from XRD, phase morphology/EDS from SEM, or thermal signatures from DSC) linking to the specific claim that La forms a cubic Al6Cu6La NaZn13-type phase at dendrite boundaries while Sm forms no new phase. The underlying dat"
+   "missing_said": "None of the three steps include any actual data, results, or in-text description beyond bare figure captions, so there is no evidence in this excerpt of XRD peak indexing, SEM phase morphology/composition, or DSC thermal signatures that would confirm or refute Al6Cu6La formation with La versus its absence with Sm."
   },
   "full": {
    "parsed": true,
    "steps": {
     "1": {
      "expected": "shown",
-     "got": "shown",
-     "correct": true
+     "got": "partial",
+     "correct": false
     },
     "2": {
      "expected": "partial",
@@ -56,25 +56,25 @@
      "correct": false
     }
    },
-   "steps_correct": 2,
+   "steps_correct": 1,
    "n_steps": 3,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "XRD (F2) is the strongest and most direct support, showing La-specific peaks matching an Al-Cu-La phase and their absence in the Sm sample. SEM (F1c) only shows boundary-located microstructural features without phase identification, and the DSC excerpt shows thermal anomalies without composition or structure assignment and without an explicit Sm comparison. Still missing: (1) direct crystallograph"
+   "missing_said": "Across the three steps there is converging but incomplete support: XRD shows La-specific diffraction peaks (labeled Al5Cu6La, a stoichiometry mismatch with the claimed Al6Cu6La) absent in the Sm alloy, SEM shows boundary-located particles consistent with a discrete phase, and DSC shows an extra thermal event in the La alloy -- together these are suggestive of a new La-associated boundary phase and"
   },
   "no_image": {
    "parsed": true,
    "steps": {
     "1": {
      "expected": "shown",
-     "got": "not addressed",
+     "got": "partial",
      "correct": false
     },
     "2": {
      "expected": "partial",
-     "got": "not addressed",
-     "correct": false
+     "got": "partial",
+     "correct": true
     },
     "3": {
      "expected": "shown",
@@ -82,12 +82,12 @@
      "correct": false
     }
    },
-   "steps_correct": 0,
+   "steps_correct": 1,
    "n_steps": 3,
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "No XRD peak indexing confirming the cubic NaZn13-type Al6Cu6La structure in La alloys or its absence in Sm alloys, no SEM/EDS localization of a new phase at dendrite boundaries, and no direct thermal or structural evidence at all addressing the Sm alloy's lack of a new phase."
+   "missing_said": "The given evidence never states the actual XRD peak indexing confirming a cubic NaZn13-type Al6Cu6La phase, never describes SEM/EDS observations placing a distinct phase specifically at dendrite boundaries, and provides no DSC or other data on the Sm alloy for comparison, so the claim's specific phase identity/location for La and the absence of a new phase for Sm remain unconfirmed by this evidenc"
   },
   "oracle_complete": {
    "parsed": true,
@@ -113,12 +113,64 @@
    "closing_expected": "partial",
    "closing_got": "partial",
    "closing_correct": true,
-   "missing_said": "The three lines of evidence converge to show something new (extra reflections, a second boundary phase, extra thermal events) occurs with La and not Sm, but none of the steps provide the crystallographic indexing or compositional (e.g., EDS) confirmation needed to specifically identify that new phase as cubic NaZn13-type Al6Cu6La, so the precise phase identity claimed remains unverified from this "
+   "missing_said": "Across all three steps there is consistent, converging circumstantial evidence (diffraction, imaging, thermal) that La produces an extra phase at dendrite boundaries while Sm does not, but none of the results directly establish the specific identity (Al6Cu6La composition) or crystal structure (cubic NaZn13 type) of that phase \u2014 this would require indexed XRD peak assignments or lattice-parameter m"
+  },
+  "permute_answer": {
+   "parsed": true,
+   "permuted_from": "case5_drop",
+   "steps_correct": 1,
+   "n_steps": 3,
+   "closing_expected": "partial",
+   "closing_got": "partial",
+   "closing_correct": true,
+   "steps": {
+    "1": {
+     "expected": "shown",
+     "got": "partial",
+     "correct": false
+    },
+    "2": {
+     "expected": "partial",
+     "got": "partial",
+     "correct": true
+    },
+    "3": {
+     "expected": "shown",
+     "got": "partial",
+     "correct": false
+    }
+   }
+  },
+  "permute_image": {
+   "parsed": true,
+   "steps": {
+    "1": {
+     "expected": "shown",
+     "got": "not addressed",
+     "correct": false
+    },
+    "2": {
+     "expected": "partial",
+     "got": "not addressed",
+     "correct": false
+    },
+    "3": {
+     "expected": "shown",
+     "got": "not addressed",
+     "correct": false
+    }
+   },
+   "steps_correct": 0,
+   "n_steps": 3,
+   "closing_expected": "partial",
+   "closing_got": "not addressed",
+   "closing_correct": false,
+   "missing_said": "The images supplied do not correspond to the cited evidence at all\u2014Steps 1 and 2 point to XRD and as-cast SEM panels, but the actual images show deformation-band/twinning micrographs from a mechanically tested hexagonal-metal specimen (unrelated microstructural characterization), and Step 3 has no image at all. None of the panels show diffraction peaks, dendrite-boundary phase morphology, or DSC t"
   }
  },
  "item_valid": true,
  "closing_alone_discriminates": false,
- "oracle_carries_the_task": false,
+ "oracle_carries_the_task": true,
  "note": "Every verdict is model against model. The four-level ground truth is itself a model label.",
- "gt_disputes": 1
+ "gt_disputes": 2
 }

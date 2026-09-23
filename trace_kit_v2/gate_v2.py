@@ -49,11 +49,14 @@ def prompt(ch, arm, images_from=None, chain_from=None):
             else:
                 L.append(f"{head} — tool result: {LG.measurement(s['observation'])}")
         else:
+            # permute_image hands over another case's panels, from that case's own folder, so the
+            # swapped picture is certainly wrong for this claim
             use = img_ch['steps'][i % len(img_ch['steps'])] if images_from else s
             ps = [p for p in use['panels'] if p.get('png')]
             caps = '; '.join(caption(st, p, forb) for p in s['panels']) or '(no caption)'
             L.append(f"{head} — panels {', '.join(p['suffix'] for p in ps)}: {caps}")
-            imgs += [os.path.join(ROOT, 'results/v2/cases', img_ch['paper'], img_ch['claim'], p['png']) for p in ps]
+            imgs += [os.path.join(ROOT, 'results/v2/cases', img_ch['paper'], img_ch['claim'], p['png'])
+                     for p in ps]
     L += ["", ASK]
     text = "\n".join(L)
     if imgs and arm not in ('floor', 'oracle_complete', 'no_image'):
@@ -68,8 +71,8 @@ def main(cmd, case_dir):
               if json.load(open(f))['case'] != ch['case']]
     jobs = []
     plan = [('full', None, None), ('floor', None, None), ('oracle_complete', None, None), ('no_image', None, None)]
-    if others:
-        plan += [('permute_answer', None, others[0]), ('permute_image', others[0], None)]
+    # permute_answer needs no dispatch: it scores the full arm's real reply against another case's key
+    if others: plan += [('permute_image', others[0], None)]
     for arm, imf, chf in plan:
         t, _ = prompt(ch, arm, imf, chf)
         p = os.path.join(gd, f'{arm}.txt'); open(p, 'w').write(t)

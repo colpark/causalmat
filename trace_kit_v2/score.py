@@ -77,6 +77,25 @@ def main(case_dir):
                                            >= arms.get('full', {}).get('steps_correct', 0)
                                            and arms.get('oracle_complete', {}).get('closing_correct')),
            'note': 'Every verdict is model against model. The four-level ground truth is itself a model label.'}
+    # control: permute the answer key across cases. No dispatch -- the full arm's real reply is scored
+    # against another case's expected levels, which must be wrong.
+    import glob as _g
+    other = None
+    for f in sorted(_g.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'results/v2/cases/*/*/case.json'))):
+        o = json.load(open(f))
+        if o['case'] != ch['case']: other = o; break
+    full = arms.get('full') or {}
+    if other and full.get('parsed'):
+        okeys = {s2['step']: s2['expected_support'] for s2 in other['steps']}
+        got = {k: v['got'] for k, v in full['steps'].items()}
+        n = sum(1 for k in got if k in okeys)
+        arms['permute_answer'] = {'parsed': True, 'permuted_from': other['case'],
+            'steps_correct': sum(1 for k, v in got.items() if k in okeys and v == okeys[k]),
+            'n_steps': n, 'closing_expected': other['closing_support'],
+            'closing_got': full.get('closing_got'),
+            'closing_correct': full.get('closing_got') == other['closing_support'],
+            'steps': {k: {'expected': okeys.get(k), 'got': v, 'correct': v == okeys.get(k)} for k, v in got.items() if k in okeys}}
+
     dsp = disputes(ch, arms)
     out['gt_disputes'] = len(dsp)
     if dsp:
