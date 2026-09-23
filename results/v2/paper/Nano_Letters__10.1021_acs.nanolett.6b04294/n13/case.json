@@ -1,0 +1,106 @@
+{
+ "case": "Nano_Letters__10.1021_acs.nanolett.6b04294:n13",
+ "paper": "Nano_Letters__10.1021_acs.nanolett.6b04294",
+ "graph": "taxonomy/graphs_v07/Nano_Letters__10.1021_acs.nanolett.6b04294.json",
+ "claim": "n13",
+ "claim_type": "STR/microstructure/porosity",
+ "claim_text": "Li/PCO pore structure changes strongly on discharge and does not recover on charge",
+ "n_steps": 2,
+ "channels": [
+  "SAXS"
+ ],
+ "n_channels": 1,
+ "lanes": {
+  "fm": 2,
+  "oracle": 0,
+  "other": 0
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 2,
+  "integration": 0
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o11",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "SAXS",
+   "family": "SAXS",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Li SAXS contours at low q bend to lower q during discharge (~6-11 h) and do not return on charge",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F3a",
+     "suffix": "F3a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/edfcea89cc02a36c02d2919e588e651ffd26d7b476a04d7ee1043abb8e367859_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/edfcea89cc02a36c02d2919e588e651ffd26d7b476a04d7ee1043abb8e367859.jpg",
+     "caption_span": "2D contour plot of in operando SAXS data along with the 1st discharge/charge curve at 0.1 C and",
+     "ocr_tokens": 21,
+     "png": "images/F3a.png",
+     "width": 684,
+     "height": 380
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o12",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "SAXS",
+   "family": "SAXS",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Li SAXS: 0.02 V and 3 V curves drop below OCV at 0.01-0.1 A-1; hump grows at ~0.2-0.3 A-1",
+   "read_from": "axis",
+   "requires_unseen": [
+    "F3b identified as Li/PCO only in caption"
+   ],
+   "image_note": "1.07 V curve overlaps OCV, consistent with text (SEI before 1.07 V)",
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F3b",
+     "suffix": "F3b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/edfcea89cc02a36c02d2919e588e651ffd26d7b476a04d7ee1043abb8e367859_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/edfcea89cc02a36c02d2919e588e651ffd26d7b476a04d7ee1043abb8e367859.jpg",
+     "caption_span": "typical SAXS data at different charge/discharge states of Li/PCO cell",
+     "ocr_tokens": 16,
+     "png": "images/F3b.png",
+     "width": 474,
+     "height": 379
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "shown",
+ "closing_why": "two or more channels show it and nothing is missing",
+ "closing_missing": [
+  "F3b identified as Li/PCO only in caption"
+ ],
+ "necessity": {
+  "SAXS": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

@@ -1,0 +1,156 @@
+{
+ "case": "Nano_Letters__10.1021_acs.nanolett.6b04294:n18",
+ "paper": "Nano_Letters__10.1021_acs.nanolett.6b04294",
+ "graph": "taxonomy/graphs_v07/Nano_Letters__10.1021_acs.nanolett.6b04294.json",
+ "claim": "n18",
+ "claim_type": "MEC/identification",
+ "claim_text": "Na capacity fading stems from poor sodiation activity (minor conversion), not from volume change",
+ "n_steps": 3,
+ "channels": [
+  "ATOM",
+  "ECHEM",
+  "SAXS"
+ ],
+ "n_channels": 3,
+ "lanes": {
+  "fm": 2,
+  "oracle": 1,
+  "other": 0
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 2,
+  "integration": 1
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "a2",
+   "relation": "qualifies",
+   "mm_op": "cross_check_consistency",
+   "technique": "ECHEM:GCD",
+   "family": "ECHEM",
+   "delivery": "oracle",
+   "tests": "integration",
+   "lane": "oracle",
+   "expected_support": "partial",
+   "support_basis": "shown in the panel, entering by a qualifies edge: a caveat on the claim",
+   "image_support": "shown",
+   "observation": "Na 1st discharge passes ~865 mAh/g, near the Li value, although structural probes show only minor reaction",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": "charge must go to side reactions (e.g. SEI) if Na conversion is minor; packet text does not reconcile this",
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F2c",
+     "suffix": "F2c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/47932ff90b58b750d67879eafcd018636a4f2fe8dd66ff48d0e50f28e95f66b5_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/47932ff90b58b750d67879eafcd018636a4f2fe8dd66ff48d0e50f28e95f66b5.jpg",
+     "caption_span": "Discharge/charge curves and",
+     "ocr_tokens": 29,
+     "png": "images/F2c.png",
+     "width": 524,
+     "height": 418
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o13",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "SAXS",
+   "family": "SAXS",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Na SAXS contours stay nearly straight; I(q) curves overlap except a small drop at ~0.03-0.1 A-1 at 0.11/0.02 V",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": "small residual change is visible in F3d, consistent with the paper's 'much smaller' (not zero) change",
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F3c",
+     "suffix": "F3c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/edfcea89cc02a36c02d2919e588e651ffd26d7b476a04d7ee1043abb8e367859_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/edfcea89cc02a36c02d2919e588e651ffd26d7b476a04d7ee1043abb8e367859.jpg",
+     "caption_span": "2D contour plot of in operando SAXS data along with the 1st discharge/charge curve at 0.1C and",
+     "ocr_tokens": 15,
+     "png": "images/F3c.png",
+     "width": 682,
+     "height": 369
+    },
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F3d",
+     "suffix": "F3d",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/edfcea89cc02a36c02d2919e588e651ffd26d7b476a04d7ee1043abb8e367859_D.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/edfcea89cc02a36c02d2919e588e651ffd26d7b476a04d7ee1043abb8e367859.jpg",
+     "caption_span": "typical SAXS data at different charge/discharge states of Na/PCO cell. The color scale bar means the intensity of the SAXS spectra, red means high, blue means low",
+     "ocr_tokens": 17,
+     "png": "images/F3d.png",
+     "width": 480,
+     "height": 370
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "node": "o24",
+   "relation": "evidences",
+   "mm_op": "compare_across_conditions",
+   "technique": "ATOM:AIMD",
+   "family": "ATOM",
+   "delivery": "crop",
+   "tests": "selection",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F6d",
+     "suffix": "F6d",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/6139e4c8123fd9f6c0fd401273b557c309b586226a6facebff2d2d727296e604_D.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/6139e4c8123fd9f6c0fd401273b557c309b586226a6facebff2d2d727296e604.jpg",
+     "caption_span": "the degree of oxidation of Li/Na as a function of MD simulation time for lithiated Co3O4 , sodiated Co3O4 and sodiated Co3S4 . The grey and purple atoms represent Li and Na , respectively. The red atom means Oxygen, the blue atom means Cobalt and the yellow atom means Sulfur",
+     "ocr_tokens": 18,
+     "png": "images/F6d.png",
+     "width": 557,
+     "height": 402
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "a step is only partial",
+ "closing_missing": [],
+ "necessity": {
+  "ATOM": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "ECHEM": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "SAXS": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

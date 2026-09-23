@@ -1,0 +1,139 @@
+{
+ "case": "Nano_Letters__10.1021_acs.nanolett.6b04294:n5",
+ "paper": "Nano_Letters__10.1021_acs.nanolett.6b04294",
+ "graph": "taxonomy/graphs_v07/Nano_Letters__10.1021_acs.nanolett.6b04294.json",
+ "claim": "n5",
+ "claim_type": "STR/microstructure/porosity",
+ "claim_text": "PCO is mesoporous: hysteretic type IV isotherm, pores mostly 5-7 nm",
+ "n_steps": 3,
+ "channels": [
+  "PHYS",
+  "SEM"
+ ],
+ "n_channels": 2,
+ "lanes": {
+  "fm": 1,
+  "oracle": 2,
+  "other": 0
+ },
+ "tests": {
+  "perception": 2,
+  "selection": 0,
+  "integration": 1
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o3",
+   "relation": "evidences",
+   "mm_op": "recognize_signature",
+   "technique": "PHYS:N2_sorption",
+   "family": "PHYS",
+   "delivery": "oracle",
+   "tests": "integration",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "N2 isotherm: adsorption/desorption hysteresis from P/P0 ~0.5 to 1.0, uptake ~110 cm3/g",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F1c",
+     "suffix": "F1c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de.jpg",
+     "caption_span": "2 adsorption/de-sorption isotherm curve and",
+     "ocr_tokens": 32,
+     "png": "images/F1c.png",
+     "width": 546,
+     "height": 427
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o4",
+   "relation": "evidences",
+   "mm_op": "read_distribution_statistics",
+   "technique": "PHYS:N2_sorption",
+   "family": "PHYS",
+   "delivery": "oracle",
+   "tests": "perception",
+   "lane": "oracle",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Pore size distribution (inset) peaks at ~5.5 and ~6.9 nm, tail below 4 nm",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F1c",
+     "suffix": "F1c",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de_C.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de.jpg",
+     "caption_span": "2 adsorption/de-sorption isotherm curve and",
+     "ocr_tokens": 32,
+     "png": "images/F1c.png",
+     "width": 546,
+     "height": 427
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "node": "o5",
+   "relation": "evidences",
+   "mm_op": "inspect_local_feature",
+   "technique": "SEM",
+   "family": "SEM",
+   "delivery": "crop",
+   "tests": "perception",
+   "lane": "fm",
+   "expected_support": "partial",
+   "support_basis": "image_support partial",
+   "image_support": "partial",
+   "observation": "SEM: agglomerated faceted particles (~250-500 nm) with open gaps; internal mesopores not resolved",
+   "read_from": "pixels",
+   "requires_unseen": [],
+   "image_note": "text: 10-20 nm nanoparticles seen only by TEM (Fig. S1, not in packet); sizes re-measured against the 500 nm bar (~148 px)",
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F1d",
+     "suffix": "F1d",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de_D.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de.jpg",
+     "caption_span": "SEM image of the as-prepared PCO",
+     "ocr_tokens": 2,
+     "png": "images/F1d.png",
+     "width": 595,
+     "height": 424
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "a step is only partial",
+ "closing_missing": [],
+ "necessity": {
+  "PHYS": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  },
+  "SEM": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

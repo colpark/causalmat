@@ -1,0 +1,108 @@
+{
+ "case": "Nano_Letters__10.1021_acs.nanolett.6b04294:n4",
+ "paper": "Nano_Letters__10.1021_acs.nanolett.6b04294",
+ "graph": "taxonomy/graphs_v07/Nano_Letters__10.1021_acs.nanolett.6b04294.json",
+ "claim": "n4",
+ "claim_type": "STR/phase/identity",
+ "claim_text": "As-prepared PCO is a two-phase Co3O4 + CoO mixture",
+ "n_steps": 2,
+ "channels": [
+  "TGA",
+  "XRD"
+ ],
+ "n_channels": 2,
+ "lanes": {
+  "fm": 1,
+  "oracle": 0,
+  "other": 1
+ },
+ "tests": {
+  "perception": 0,
+  "selection": 0,
+  "integration": 2
+ },
+ "steps": [
+  {
+   "step": 1,
+   "node": "o1",
+   "relation": "evidences",
+   "mm_op": "overlay_model_on_data",
+   "technique": "XRD:synchrotron",
+   "family": "XRD",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "fm",
+   "expected_support": "shown",
+   "support_basis": "image_support shown",
+   "image_support": "shown",
+   "observation": "Rietveld calculation with Co3O4 and CoO phases overlays the HEXRD pattern; difference curve nearly flat",
+   "read_from": "axis",
+   "requires_unseen": [],
+   "image_note": null,
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F1a",
+     "suffix": "F1a",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de_A.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de.jpg",
+     "caption_span": "Rietveld refinement of HEXRD",
+     "ocr_tokens": 20,
+     "png": "images/F1a.png",
+     "width": 559,
+     "height": 440
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "node": "o6",
+   "relation": "qualifies",
+   "mm_op": "read_characteristic_point",
+   "technique": "TGA",
+   "family": "TGA",
+   "delivery": "crop",
+   "tests": "integration",
+   "lane": "other",
+   "expected_support": "partial",
+   "support_basis": "shown in the panel, entering by a qualifies edge: a caveat on the claim",
+   "image_support": "shown",
+   "observation": "TGA weight falls to 95.8 wt% between ~250 and 400 C",
+   "read_from": "annotation",
+   "requires_unseen": [],
+   "image_note": "text attributes 4.2 wt% loss to residual Co-MOF",
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F1b",
+     "suffix": "F1b",
+     "crop": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/panels/crops/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de_B.jpg",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de.jpg",
+     "caption_span": "TGA curve at air atmosphere",
+     "ocr_tokens": 15,
+     "png": "images/F1b.png",
+     "width": 593,
+     "height": 436
+    }
+   ]
+  }
+ ],
+ "dropped_panels": [],
+ "contrib_caveat_flags": [],
+ "ground_truth": "image_support",
+ "closing_support": "partial",
+ "closing_why": "a step is only partial",
+ "closing_missing": [],
+ "necessity": {
+  "TGA": {
+   "structural": "redundant_by_single_loo",
+   "why": "a shown support survives without it; single leave-one-out cannot separate redundant pairs",
+   "confidence": "low"
+  },
+  "XRD": {
+   "structural": "necessary",
+   "why": "no shown support survives removing this channel",
+   "confidence": "high"
+  }
+ },
+ "note": "Every verdict is model against model.",
+ "spine": true
+}

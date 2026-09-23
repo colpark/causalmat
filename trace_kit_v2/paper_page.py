@@ -1,0 +1,155 @@
+"""paper_page.py: one self-contained HTML page with every support chain of one paper.
+
+  python3 trace_kit_v2/paper_page.py <paper> [out.html]
+
+Panels are embedded as base64 so the file stands alone. They are downscaled for the page only;
+the measurements were made on the native crops in results/v2/paper/<paper>/<claim>/images/.
+"""
+import base64, glob, html, io, json, os, sys, collections
+from PIL import Image
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+MAXW = 760
+E = lambda s: html.escape(str(s if s is not None else ''))
+LEVEL = {'shown': 'lv-shown', 'partial': 'lv-partial', 'contradicts': 'lv-contra', 'not addressed': 'lv-na'}
+
+_cache = {}
+def b64(path):
+    if path in _cache: return _cache[path]
+    im = Image.open(path).convert('RGB')
+    if im.size[0] > MAXW: im = im.resize((MAXW, round(im.size[1] * MAXW / im.size[0])), Image.LANCZOS)
+    buf = io.BytesIO(); im.save(buf, 'JPEG', quality=82, optimize=True)
+    _cache[path] = 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode()
+    return _cache[path]
+
+
+def main(paper, out=None):
+    base = os.path.join(ROOT, 'results/v2/paper', paper)
+    chains = []
+    for f in sorted(glob.glob(os.path.join(base, '*', 'case.json'))):
+        ch = json.load(open(f)); ch['_dir'] = os.path.dirname(f); chains.append(ch)
+    chains.sort(key=lambda c: (not c.get('spine'), -c['n_steps']))
+    title = chains[0].get('claim_text', '')[:0] or paper
+    g = json.load(open(os.path.join(ROOT, chains[0]['graph'])))
+    paper_title = g.get('title') or paper
+    doi = next((p['panel_id'].split('#')[0] for c in chains for s in c['steps'] for p in s['panels']), '')
+    allch = sorted({x for c in chains for x in c['channels']})
+    npanels = len({p['suffix'] for c in chains for s in c['steps'] for p in s['panels'] if p.get('png')})
+    steps_total = sum(c['n_steps'] for c in chains)
+
+    P = []
+    A = P.append
+    A(f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{E(paper_title)} — support chains</title><style>
+:root{{color-scheme:light;--ink:#1c2430;--mut:#66727f;--line:#dde3ea;--bg:#f7f8fa;--card:#fff;
+--sh:#e8f0f7;--sh-i:#1f6e9e;--pa:#fdf3e3;--pa-i:#c08a2e;--co:#fbeae8;--co-i:#b9312c;--na:#eef0f2;--na-i:#8a8f98;--ok:#e7f3ec;--ok-i:#2f8f5b}}
+@media (prefers-color-scheme:dark){{:root:not([data-theme=light]){{color-scheme:dark;--ink:#e6ebf1;--mut:#9aa6b4;--line:#2b3440;--bg:#12171d;--card:#1a2129;
+--sh:#12303f;--sh-i:#4aa3d4;--pa:#3a2f16;--pa-i:#d8a33f;--co:#3b1f1e;--co-i:#e0716b;--na:#232a32;--na-i:#8a95a2;--ok:#16301f;--ok-i:#54b47c}}}}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}}
+.wrap{{max-width:1080px;margin:0 auto;padding:28px 18px 80px}}
+h1{{font-size:24px;line-height:1.25;margin:0 0 6px}}
+.sub{{color:var(--mut);font-size:13px;margin-bottom:20px}}
+.stats{{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 26px}}
+.stat{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:96px}}
+.stat b{{display:block;font-size:20px;line-height:1.2}}
+.stat span{{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.04em}}
+.note{{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--na-i);
+border-radius:8px;padding:12px 14px;color:var(--mut);font-size:13px;margin-bottom:26px}}
+.chain{{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:20px}}
+.chead{{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin-bottom:6px}}
+.cid{{font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}}
+.badge{{font-size:11px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--mut)}}
+.badge.spine{{background:var(--ok);border-color:var(--ok-i);color:var(--ok-i)}}
+.claim{{font-size:16px;font-weight:600;margin:2px 0 10px}}
+.meta{{color:var(--mut);font-size:12px;margin-bottom:14px}}
+.step{{border-top:1px solid var(--line);padding:14px 0 4px}}
+.srow{{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}}
+.sn{{font:600 12px ui-monospace,monospace;background:var(--na);color:var(--na-i);border-radius:6px;padding:2px 7px}}
+.lv{{font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;text-transform:uppercase;letter-spacing:.03em}}
+.lv-shown{{background:var(--sh);color:var(--sh-i)}}.lv-partial{{background:var(--pa);color:var(--pa-i)}}
+.lv-contra{{background:var(--co);color:var(--co-i)}}.lv-na{{background:var(--na);color:var(--na-i)}}
+.tech{{font:12px ui-monospace,monospace;color:var(--mut)}}
+.obs{{font-size:14px;margin:4px 0 10px}}
+.pans{{display:flex;flex-wrap:wrap;gap:10px}}
+figure{{margin:0;max-width:240px}}
+figure img{{width:100%;height:auto;border:1px solid var(--line);border-radius:8px;display:block;background:#fff;cursor:zoom-in}}
+figcaption{{font:11px ui-monospace,monospace;color:var(--mut);margin-top:4px}}
+.oracle{{background:var(--pa);border-left:3px solid var(--pa-i);border-radius:8px;padding:10px 12px;font-size:13px}}
+.close{{border-top:1px solid var(--line);margin-top:12px;padding-top:12px;font-size:13px;color:var(--mut)}}
+.close b{{color:var(--ink)}}
+.drop{{background:var(--co);border-left:3px solid var(--co-i);border-radius:8px;padding:9px 12px;font-size:12.5px;margin-top:10px}}
+dialog{{border:0;background:transparent;max-width:96vw;max-height:96vh;padding:0}}
+dialog::backdrop{{background:rgba(0,0,0,.82)}}
+dialog img{{max-width:96vw;max-height:92vh;border-radius:10px;display:block}}
+dialog p{{color:#fff;font:12px ui-monospace,monospace;text-align:center;margin:8px 0 0}}
+@media (max-width:640px){{figure{{max-width:46%}}.wrap{{padding:20px 14px 60px}}}}
+</style></head><body><div class="wrap">""")
+    A(f"<h1>{E(paper_title)}</h1>")
+    A(f'<div class="sub">{E(paper.split("__")[0].replace("_"," "))} &middot; {E(doi)} &middot; support chains, every claim with two or more figure-backed evidence nodes</div>')
+    A('<div class="stats">')
+    for v, k in ((len(chains), 'chains'), (steps_total, 'steps'), (npanels, 'panels'), (len(allch), 'channels')):
+        A(f'<div class="stat"><b>{v}</b><span>{k}</span></div>')
+    A('</div>')
+    A('<div class="note"><b>Every verdict is model against model.</b> Each chain is cut from the paper\'s '
+      'argument graph; the level on each step is the graph\'s own four-level support label, and the closing '
+      'line is the claim\'s support profile. Panels are handed over whole and unaltered &mdash; annotation '
+      'removal was withdrawn on 2026-09-23. Images here are downscaled for the page; the measurements were '
+      'made on the native crops. No item on this page has been checked by a person.</div>')
+
+    for c in chains:
+        A('<div class="chain">')
+        A('<div class="chead">')
+        A(f'<span class="cid">{E(c["claim"])}</span>')
+        if c.get('spine'): A('<span class="badge spine">spine</span>')
+        A(f'<span class="badge">{E(c.get("claim_type"))}</span>')
+        A(f'<span class="badge">{c["n_steps"]} steps</span>')
+        A(f'<span class="badge">{E(", ".join(c["channels"]))}</span>')
+        A('</div>')
+        A(f'<div class="claim">{E(c["claim_text"])}</div>')
+        lanes = c['lanes']; tests = c['tests']
+        A(f'<div class="meta">{lanes["fm"]} instrument step{"s" if lanes["fm"]!=1 else ""}, '
+          f'{lanes["oracle"]} served as text &middot; perception {tests["perception"]}, '
+          f'selection {tests["selection"]}, integration {tests["integration"]}</div>')
+        for s in c['steps']:
+            A('<div class="step"><div class="srow">')
+            A(f'<span class="sn">{s["step"]}</span>')
+            A(f'<span class="lv {LEVEL.get(s["expected_support"],"lv-na")}">{E(s["expected_support"])}</span>')
+            A(f'<span class="tech">{E(s["technique"])}</span>')
+            A(f'<span class="tech">&middot; {E(s["relation"])} &middot; {E(s["tests"])}</span>')
+            A('</div>')
+            A(f'<div class="obs">{E(s["observation"])}</div>')
+            if s['delivery'] == 'oracle':
+                A(f'<div class="oracle"><b>Served as a plain-text tool result</b> &mdash; {E(s["family"])} has no model or simulator.</div>')
+            else:
+                A('<div class="pans">')
+                for p in s['panels']:
+                    if not p.get('png'): continue
+                    src = b64(os.path.join(c['_dir'], p['png']))
+                    cap = E((p.get('caption_span') or '')[:90])
+                    A(f'<figure><img src="{src}" alt="panel {E(p["suffix"])}" loading="lazy" '
+                      f'data-suffix="{E(p["suffix"])}"><figcaption>{E(p["suffix"])} &middot; '
+                      f'{p.get("width")}&times;{p.get("height")}</figcaption></figure>')
+                A('</div>')
+        if c['dropped_panels']:
+            for d in c['dropped_panels']:
+                A(f'<div class="drop"><b>Panel dropped:</b> {E(d["node"])} &mdash; {E(d["reason"])}</div>')
+        A(f'<div class="close"><b>Closing: {E(c["closing_support"])}</b>')
+        if c.get('closing_why'): A(f' &mdash; {E(c["closing_why"])}')
+        if c['closing_missing']:
+            A('<br>Not carried by any panel: ' + E('; '.join(c['closing_missing'])[:400]))
+        A('</div></div>')
+    A('</div><dialog id="zoom"><img><p></p></dialog><script>')
+    A("""const dlg=document.getElementById('zoom');
+document.querySelectorAll('figure img').forEach(i=>i.addEventListener('click',()=>{
+  dlg.querySelector('img').src=i.src;dlg.querySelector('p').textContent=i.dataset.suffix;dlg.showModal();}));
+dlg.addEventListener('click',()=>dlg.close());""")
+    A('</script></body></html>')
+    out = out or os.path.join(ROOT, 'site', f'{paper}_chains.html')
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    open(out, 'w').write('\n'.join(P))
+    print(f"{len(chains)} chains, {steps_total} steps, {npanels} panels -> {os.path.relpath(out, ROOT)} "
+          f"({os.path.getsize(out)/1e6:.1f} MB, self-contained)")
+
+
+if __name__ == '__main__': main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)
