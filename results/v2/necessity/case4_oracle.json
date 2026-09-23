@@ -2,6 +2,62 @@
  "case": "case4_oracle",
  "paper": "Nano_Letters__10.1021_acs.nanolett.6b04294",
  "claim": "n15",
+ "channels": [
+  {
+   "channel": "ECHEM",
+   "n_panels": 1,
+   "panels": [
+    "F2c"
+   ],
+   "verdict_without": "partly supported",
+   "confidence_without": 0.5,
+   "drop": -0.05,
+   "flip": false,
+   "necessary": false,
+   "same_as_panel_level": true,
+   "rank": 1,
+   "tied": false
+  },
+  {
+   "channel": "XRD",
+   "n_panels": 1,
+   "panels": [
+    "F4b"
+   ],
+   "verdict_without": "partly supported",
+   "confidence_without": 0.55,
+   "drop": -0.1,
+   "flip": false,
+   "necessary": false,
+   "same_as_panel_level": true,
+   "rank": 2,
+   "tied": false
+  },
+  {
+   "channel": "XAS",
+   "n_panels": 4,
+   "panels": [
+    "F5d",
+    "F5a",
+    "F5c",
+    "F5f"
+   ],
+   "verdict_without": "cannot tell",
+   "confidence_without": 0.75,
+   "drop": -0.3,
+   "flip": true,
+   "necessary": true,
+   "same_as_panel_level": false,
+   "rank": 3,
+   "tied": false
+  }
+ ],
+ "n_channels": 3,
+ "n_necessary_channels": 1,
+ "channel_split": "mixed",
+ "one_panel_per_channel": false,
+ "repeat_conf_spread": 0.0,
+ "ordering_outside_noise": true,
  "claim_text": "Sodiation reduces PCO only slightly: crystalline oxide largely retained, no metallic Co",
  "answerer": "net-claim (sonnet), tools: Read",
  "threshold": 0.15,
@@ -13,6 +69,7 @@
   "confidence": 0.95,
   "repeats": 3,
   "repeats_agreed": true,
+  "conf_spread": 0.0,
   "unsettled": [
    "Whether the white-line/pre-edge intensities characteristic of CoO/Co3O4 remain largely unchanged after sodiation",
    "Whether any metallic Co foil-like shoulder (~7713 eV) appears in the discharged spectra",
@@ -34,7 +91,8 @@
     "Whether XRD (F4b) actually shows retained crystalline PCO peaks, since the visible crop is essentially flat"
    ],
    "necessary": false,
-   "rank": 1
+   "rank": 1,
+   "tied": true
   },
   {
    "panel": "F4b",
@@ -47,7 +105,8 @@
     "quantitative degree of reduction (oxide vs some reduced Co species) since F5d's reference overlay is not legible; whether long-range crystallinity (vs just short-range Co-O coordination) is retained, since EXAFS in F5f shows peak-position/coordination changes rather than an unchanged CoO fingerprint."
    ],
    "necessary": false,
-   "rank": 3
+   "rank": 3,
+   "tied": true
   },
   {
    "panel": "F5d",
@@ -63,7 +122,8 @@
     "The single-value-labeled 2.19 A curve in F5f is ambiguous and not clearly ruled in or out as a metallic Co-Co contribution"
    ],
    "necessary": false,
-   "rank": 4
+   "rank": 3,
+   "tied": true
   },
   {
    "panel": "F5a",
@@ -77,7 +137,8 @@
     "Whether the oxide retains long-range crystallinity (vs. just local/short-range order) is not settled \u2014 F4b shows no clear diffraction peaks, and F5f only speaks to local coordination (EXAFS), not crystallinity per se."
    ],
    "necessary": false,
-   "rank": 6
+   "rank": 6,
+   "tied": false
   },
   {
    "panel": "F5c",
@@ -92,7 +153,8 @@
     "Precise magnitude of oxide reduction ('only slightly') given the peak-position shifts seen in F5f relative to the CoO reference"
    ],
    "necessary": false,
-   "rank": 2
+   "rank": 1,
+   "tied": true
   },
   {
    "panel": "F5f",
@@ -107,7 +169,8 @@
     "Magnitude of any partial reduction ('only slightly') is not quantified in any panel"
    ],
    "necessary": false,
-   "rank": 5
+   "rank": 3,
+   "tied": true
   }
  ],
  "split": "all_redundant",

@@ -16,6 +16,7 @@ OUT = os.path.join(ROOT, 'results/v2/necessity')
 REPEATS = 3
 THRESHOLD = 0.15          # fixed in advance, per the brief
 VERDICTS = ('supported', 'partly supported', 'cannot tell', 'contradicted')
+STRENGTH = {'supported': 3, 'partly supported': 2, 'cannot tell': 1, 'contradicted': 0}
 # the answerer must not be told what any panel shows, nor how the chain is built
 BANNED = re.compile(r'\b(observation|contribution|establishes|supports_part|supports part|cuts_against|'
                     r'cuts against|not_addressed|image_support|step \d|shown|partial|contradicts|'
@@ -39,6 +40,17 @@ def context(ch):
         if (n.get('type') or '').startswith('OBS'): continue
         if n.get('label'): out.append(n['label'])
     return out[:4]
+
+
+def channels(ch):
+    """panels grouped by the step's technique family. Removing a channel pulls all its panels at once."""
+    out = collections.OrderedDict()
+    for s in ch['steps']:
+        for p in s['panels']:
+            if p.get('png'): out.setdefault(s['family'], []).append(p)
+    for k in out:   # dedupe by suffix, keep order
+        seen = set(); out[k] = [p for p in out[k] if not (p['suffix'] in seen or seen.add(p['suffix']))]
+    return out
 
 
 def panels(ch):
@@ -71,8 +83,12 @@ def prompts():
     jobs, leaks, plan = [], [], []
     for ch, cdir in cases():
         ctx = context(ch); ps = panels(ch)
-        configs = [('full', ps)] + [(f"drop_{p['suffix']}", [q for q in ps if q is not p]) for p in ps] \
-                  + [('floor_nopanels', [])]
+        ch_map = channels(ch)
+        configs = [('full', ps)] + [(f"drop_{p['suffix']}", [q for q in ps if q is not p]) for p in ps]
+        for fam, fps in ch_map.items():
+            keep = [q for q in ps if q['suffix'] not in {x['suffix'] for x in fps}]
+            configs.append((f"dropchan_{fam}", keep))
+        configs.append(('floor_nopanels', []))
         for name, keep in configs:
             t = text(ch, ctx, keep, cdir)
             bad = sorted({m.group(0).lower() for m in BANNED.finditer(t)})
@@ -128,9 +144,11 @@ def collect():
     os.makedirs(OUT, exist_ok=True)
     allrows, unstable, tot_cfg = [], 0, 0
     for ch, cdir in cases():
-        ps = panels(ch)
+        ps = panels(ch); ch_map = channels(ch)
         res = {}
-        for name in ['full'] + [f"drop_{p['suffix']}" for p in ps] + ['floor_nopanels']:
+        names = ['full'] + [f"drop_{p['suffix']}" for p in ps] \
+                + [f"dropchan_{f}" for f in ch_map] + ['floor_nopanels']
+        for name in names:
             rs = []
             for r in range(1, REPEATS + 1):
                 f = os.path.join(WORK, f"{ch['case']}.{name}.r{r}.out.txt")
@@ -140,7 +158,9 @@ def collect():
                     rs.append({'verdict': v if v in VERDICTS else 'unparsed',
                                'confidence': j.get('confidence'), 'unsettled': j.get('unsettled') or []})
             v, c, agreed = majority(rs)
+            confs = [r['confidence'] for r in rs if isinstance(r.get('confidence'), (int, float))]
             res[name] = {'verdict': v, 'confidence': c, 'repeats': len(rs), 'repeats_agreed': agreed,
+                         'conf_spread': round(max(confs) - min(confs), 3) if len(confs) > 1 else 0.0,
                          'unsettled': (rs[0]['unsettled'] if rs else [])}
             tot_cfg += 1
             if agreed is False: unstable += 1
@@ -154,7 +174,6 @@ def collect():
             # "partly supported", where the only weaker verdict is "cannot tell" -- so a rule keyed on
             # "from supported" can never fire for them and reports all_redundant by construction.
             # Necessity is removal STRICTLY WEAKENING the verdict, wherever it started.
-            STRENGTH = {'supported': 3, 'partly supported': 2, 'cannot tell': 1, 'contradicted': 0}
             weaker = STRENGTH.get(d['verdict'], 1) < STRENGTH.get(full['verdict'], 1)
             nec = bool(weaker or (drop is not None and drop > THRESHOLD))
             new_uns = [u for u in d['unsettled'] if u not in full['unsettled']]
@@ -162,11 +181,41 @@ def collect():
                          'verdict_without': d['verdict'], 'confidence_without': d['confidence'],
                          'drop': round(drop, 3) if drop is not None else None,
                          'unsettled_delta': new_uns[:4], 'necessary': nec})
-        ranked = sorted([r for r in rows if r['drop'] is not None], key=lambda x: -x['drop'])
-        for i, r in enumerate(ranked, 1): r['rank'] = i
+        def rank_in_place(rs):
+            rk = sorted([r for r in rs if r['drop'] is not None], key=lambda x: -x['drop'])
+            i = 0
+            while i < len(rk):
+                j = i
+                while j + 1 < len(rk) and rk[j + 1]['drop'] == rk[i]['drop']: j += 1
+                for k in range(i, j + 1): rk[k]['rank'] = i + 1; rk[k]['tied'] = j > i
+                i = j + 1
+        rank_in_place(rows)
+
+        chrows = []
+        for fam, fps in ch_map.items():
+            d = res[f"dropchan_{fam}"]
+            drop = (full['confidence'] - d['confidence']) if (full['confidence'] is not None and d['confidence'] is not None) else None
+            weaker = STRENGTH.get(d['verdict'], 1) < STRENGTH.get(full['verdict'], 1)
+            chrows.append({'channel': fam, 'n_panels': len(fps),
+                           'panels': [p['suffix'] for p in fps],
+                           'verdict_without': d['verdict'], 'confidence_without': d['confidence'],
+                           'drop': round(drop, 3) if drop is not None else None,
+                           'flip': d['verdict'] != full['verdict'],
+                           'necessary': bool(weaker or (drop is not None and drop > THRESHOLD)),
+                           'same_as_panel_level': len(fps) == 1})
+        rank_in_place(chrows)
+        cnn = sum(1 for r in chrows if r['necessary'])
+        csplit = 'all_necessary' if cnn == len(chrows) else ('all_redundant' if cnn == 0 else 'mixed')
+        # an ordering inside the repeat-to-repeat spread is not an ordering
+        spread = max([res[n]['conf_spread'] for n in names] or [0.0])
+        drops = [abs(r['drop']) for r in rows if r['drop'] is not None]
+        ordering_real = bool(drops) and max(drops) > spread
         nn = sum(1 for r in rows if r['necessary'])
         split = 'all_necessary' if nn == len(rows) else ('all_redundant' if nn == 0 else 'mixed')
         obj = {'case': ch['case'], 'paper': ch['paper'], 'claim': ch['claim'],
+               'channels': chrows, 'n_channels': len(chrows), 'n_necessary_channels': cnn,
+               'channel_split': csplit, 'one_panel_per_channel': all(r['same_as_panel_level'] for r in chrows),
+               'repeat_conf_spread': spread, 'ordering_outside_noise': ordering_real,
                'claim_text': ch['claim_text'], 'answerer': 'net-claim (sonnet), tools: Read',
                'threshold': THRESHOLD, 'repeats': REPEATS,
                'full_verdict': full['verdict'], 'full_confidence': full['confidence'],
@@ -177,7 +226,9 @@ def collect():
         allrows.append(obj)
         print(f"  {ch['case']:22s} full={full['verdict']}({full['confidence']}) "
               f"floor={res['floor_nopanels']['verdict']}({res['floor_nopanels']['confidence']}) "
-              f"necessary {nn}/{len(rows)} -> {split}")
+              f"panel {nn}/{len(rows)} {split}  |  channel {cnn}/{len(chrows)} {csplit}"
+              + ("  [1 panel per channel: same measurement twice]" if obj['one_panel_per_channel'] else "")
+              + ("" if ordering_real else "  [all drops inside the repeat spread: no ordering]"))
     print(f"\nrepeat instability: {unstable}/{tot_cfg} configurations disagreed across the 3 repeats "
           f"({unstable/tot_cfg:.0%}); the stop rule is one third")
     mixed = sum(1 for o in allrows if o['split'] == 'mixed')
