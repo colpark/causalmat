@@ -114,6 +114,50 @@ causal structure MatMech never recorded, and the 149 without one are exactly wha
 requirement discarded. `produces` yields zero pairs — its upstream is a design or process node that
 is rarely figure-backed.
 
+## Per paper
+
+Paper names are truncated; several journals contribute more than one paper.
+
+| paper | v5 items | v2.5 items | cov | comp | edge | attached | chains | max depth | conv |
+|---|---|---|---|---|---|---|---|---|---|
+| Bioactive Materials | 0 | 5 | 1 | 2 | 2 | 0 | 2 | 2 | 0 |
+| Bioactive Materials | 2 | 26 | 5 | 6 | 15 | 16 | 18 | 4 | 0 |
+| Biomaterials | 0 | 5 | 0 | 3 | 2 | 0 | 0 | - | 0 |
+| Biomaterials | 0 | 2 | 0 | 1 | 1 | 0 | 0 | - | 0 |
+| Journal of Magnesium and Alloys | 0 | 5 | 0 | 2 | 3 | 0 | 2 | 2 | 0 |
+| Journal of Magnesium and Alloys | 0 | 14 | 1 | 6 | 7 | 0 | 8 | 2 | 0 |
+| Journal of Materials Science & Tec | 0 | 9 | 0 | 2 | 7 | 0 | 2 | 6 | 0 |
+| Advanced Energy Materials | 1 | 13 | 0 | 5 | 8 | 1 | 4 | 3 | 0 |
+| Advanced Energy Materials | 0 | 3 | 0 | 2 | 1 | 0 | 1 | 2 | 0 |
+| Bioactive Materials | 2 | 13 | 1 | 6 | 6 | 1 | 4 | 3 | 0 |
+| Journal of Advanced Ceramics | 0 | 5 | 0 | 1 | 4 | 0 | 2 | 2 | 0 |
+| Journal of Advanced Ceramics | 0 | 10 | 0 | 1 | 9 | 0 | 5 | 4 | 0 |
+| Journal of Materials Science & Tec | 1 | 7 | 0 | 3 | 4 | 2 | 3 | 3 | 0 |
+| Materials Characterization | 0 | 10 | 0 | 7 | 3 | 0 | 3 | 2 | 0 |
+| Nano Letters | 0 | 7 | 0 | 1 | 6 | 0 | 5 | 2 | 0 |
+| Progress in Organic Coatings | 1 | 4 | 1 | 0 | 3 | 0 | 1 | 2 | 0 |
+| Advanced Composites and Hybrid Mat | 0 | 13 | 1 | 3 | 9 | 0 | 7 | 4 | 0 |
+| Advanced Energy Materials | 1 | 12 | 1 | 7 | 4 | 3 | 4 | 3 | 0 |
+| Advanced Energy Materials | 4 | 9 | 0 | 3 | 6 | 4 | 6 | 4 | 0 |
+| Advanced Energy Materials | 0 | 8 | 0 | 2 | 6 | 0 | 2 | 3 | 0 |
+| Advanced Functional Materials | 0 | 16 | 1 | 6 | 9 | 0 | 14 | 4 | 0 |
+| Advanced Materials | 0 | 1 | 0 | 0 | 1 | 0 | 0 | - | 0 |
+| Journal of Advanced Ceramics | 0 | 4 | 0 | 0 | 4 | 0 | 1 | 2 | 0 |
+| Journal of Advanced Ceramics | 3 | 10 | 0 | 1 | 9 | 0 | 2 | 2 | 0 |
+| Journal of Magnesium and Alloys | 1 | 7 | 0 | 1 | 6 | 4 | 4 | 2 | 2 |
+| Journal of Magnesium and Alloys | 2 | 6 | 1 | 2 | 3 | 1 | 0 | - | 0 |
+| Journal of Magnesium and Alloys | 1 | 16 | 1 | 0 | 15 | 4 | 16 | 5 | 0 |
+| Biomaterials | 5 | 13 | 1 | 3 | 9 | 6 | 8 | 3 | 0 |
+| Advanced Functional Materials | 1 | 7 | 0 | 2 | 5 | 1 | 1 | 2 | 0 |
+| Acta Materialia | 2 | 12 | 2 | 7 | 3 | 3 | 1 | 2 | 1 |
+| Nano Letters | 1 | 10 | 2 | 4 | 4 | 3 | 4 | 2 | 0 |
+| Rare Metals | 1 | 1 | 0 | 1 | 0 | 0 | 0 | - | 0 |
+| **total** | **29** | **283** | **19** | **90** | **174** | **49** | **130** | **6** | **3** |
+
+Four papers yield items but no chain: their pairs do not share a claim in the direction a join
+needs. Eight papers reach depth 3 or more. Only two reach a convergence claim once independence is
+tested on figures.
+
 ## What went wrong in the build, and what caught it
 
 Four defects, **none found by the checks I had written**:
