@@ -19,6 +19,8 @@ unsatisfiable by any correct matcher:
 Claims in neither set are allowed but not required.
 """
 import json, os, sys, collections
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from support import claim_support, supported
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 RM = 'Rare_Metals__s12598-012-0515-6'
 ADFM = 'Advanced_Functional_Materials__10.1002_adfm.202008088'
@@ -67,22 +69,22 @@ def main():
             ok = False
             print(f"     why this row: {why}")
 
-    print("\n=== attachment reach: do the matched claims carry any image support?")
+    print("\n=== attachment reach (support.py: direct `evidences` edges only, one step)")
     reach = collections.Counter(); dead = []
     for p in PAPERS:
         d = json.load(open(os.path.join(ROOT, 'results/v3', p, 'decompose.json')))
         st = json.load(open(os.path.join(ROOT, 'results/v3', p, 'stitch.json')))
         g = json.load(open(os.path.join(ROOT, st['graph'])))
-        N = {n['id']: n for n in g['nodes']}
+        sup = claim_support(g)
         for h, v in d['hops'].items():
             cs = v['effect']['claims']
-            ev = [c for c in cs if N.get(c, {}).get('image_support') in ('shown', 'partial')]
+            ev = [c for c in cs if supported(sup, c)]
             k = 'no match' if not cs else ('reaches evidence' if ev else 'text-only claims')
             reach[k] += 1
             if k == 'text-only claims': dead.append((p, h, cs))
     for k, n in reach.most_common(): print(f"  {k:20s} {n}")
     if dead:
-        print("  hops matching only claims with no image support (these can carry no trace):")
+        print("  hops whose matched claims have no direct evidences edge (these can carry no trace):")
         for p, h, cs in dead: print(f"    {p[:32]:32s} {h}  {cs}")
 
     print("\n=== agreement with the lexical matcher, per hop")
