@@ -1,0 +1,32 @@
+Property under test: Rank the three samples by emission complexity below 150 K, and compare that ranking with the domain sizes from step 1.
+
+Previous step established: Domain size spans four decades: ~0.1 um (PC), ~10-100 um (HOC) and ~1e2-1e3 um (SC)
+
+Observations (PL):
+  [obs1] As grown: PC shows two emission branches plus an IR tail below 150 K and across 50-370 uW at 80 K; HOC is intermediate; SC shows one band
+
+Proposition under test: The orderings correspond inversely across the same three samples: ~0.1 um PC shows two bands plus an IR tail, 1e2-1e3 um SC shows one band, HOC lies between on both axes.
+
+Does this proposition compare quantities of DIFFERENT KINDS?
+
+A comparison is only meaningful between quantities of the same kind. Mismatches to look for:
+
+  charge capacity against discharge capacity
+  a rate against an accumulated or cumulative amount
+  a test temperature against a service temperature
+  a yield stress against a fracture stress or a flow stress
+  an instantaneous value against a time-averaged one
+  a normalized value against an absolute one
+  a value at one cycle, time or condition against a value at a different one
+
+Rule `same_kind` or `mixed`. If mixed, quote BOTH quantities exactly as the proposition or the
+observations state them, name the kind of each, and say whether the observations contain a
+same-kind pair that could be used instead. If they do not, say so -- the correct repair is then to
+state the mismatch as a limit rather than to swap in numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed",
+ "quantity_a": "...", "kind_a": "...", "quantity_b": "...", "kind_b": "...",
+ "same_kind_pair_available": true or false,
+ "fix": "corrected proposition" or null,
+ "limit_to_add": "..." or null}

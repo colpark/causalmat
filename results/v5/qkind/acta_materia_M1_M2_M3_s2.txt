@@ -1,0 +1,34 @@
+Property under test: Across the three heat treatments, does the yield stress measured here move with the nanoplate number density from step 1? Give the comparison.
+
+Previous step established: The dense basal planar defects are LPSO nanoplates: aggregates of four-layer Zn/Y-segregated fcc-type stacking faults, not conventional stacking faults
+
+Observations (MECH:compression):
+  [obs1] Yield stress in [11-20] at RT: 167 MPa as-grown, 113 MPa after the 520 C anneal, 160 MPa after the further 400 C anneal
+  [obs2] RT yield stress by orientation: ~9 MPa for [1 1 -2 1.85], ~148-165 MPa for [11-20], ~143 MPa for [01-10]; [0001] fractures at ~355 MPa without yielding
+  [obs3] Between RT and 400 C the alloy's [11-20]/[01-10] yield stress falls only from ~165 to ~105 MPa, while the gray pure-Mg reference falls from ~270 to ~15 MPa and sits near 10 MPa in the soft orientations
+
+Proposition under test: Yield stress and nanoplate number density move together across the three heat treatments: 167 -> 113 -> 160 MPa against 9.8 -> 0.3 -> 9.0 per um, both dipping after the 520 C anneal and recovering after the further 400 C anneal. This is consistent with a strengthening contribution from the nanoplates.
+
+Does this proposition compare quantities of DIFFERENT KINDS?
+
+A comparison is only meaningful between quantities of the same kind. Mismatches to look for:
+
+  charge capacity against discharge capacity
+  a rate against an accumulated or cumulative amount
+  a test temperature against a service temperature
+  a yield stress against a fracture stress or a flow stress
+  an instantaneous value against a time-averaged one
+  a normalized value against an absolute one
+  a value at one cycle, time or condition against a value at a different one
+
+Rule `same_kind` or `mixed`. If mixed, quote BOTH quantities exactly as the proposition or the
+observations state them, name the kind of each, and say whether the observations contain a
+same-kind pair that could be used instead. If they do not, say so -- the correct repair is then to
+state the mismatch as a limit rather than to swap in numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed",
+ "quantity_a": "...", "kind_a": "...", "quantity_b": "...", "kind_b": "...",
+ "same_kind_pair_available": true or false,
+ "fix": "corrected proposition" or null,
+ "limit_to_add": "..." or null}

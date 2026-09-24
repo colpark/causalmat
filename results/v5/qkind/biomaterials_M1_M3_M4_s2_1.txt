@@ -1,0 +1,35 @@
+Property under test: Order the three scaffolds by the cobalt released here and compare that order with the pore structure from step 1. What can be concluded about what sets the release?
+
+Previous step established: 2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)
+
+Observations (CHEM:ion_concentration):
+  [obs1] Co2+ in medium: 5Co ~8.9/17.9/20.8 and 2Co ~4.7/10.5/16.9 mg/L at 1/3/7 days; 0Co stays at 0
+  [obs2] HIF-1alpha band faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG; alpha-tubulin bands equal
+  [obs3] Cumulative drug release ~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h (plateau)
+  [obs4] Relative survival with Scaffolds+Ampicillin ~105, ~81, ~52% at days 1, 3, 7 vs blank 100 and drug-free scaffolds 110-118%
+
+Proposition under test: Release rises as surface area and pore volume fall -- 0 -> 16.9 -> 20.8 mg/L at 7 days against 290 -> 180 -> 127 m2/g -- so a texture-driven mechanism predicts the opposite order and is ruled out in that direction. It does NOT follow that cobalt content sets the release: **cobalt inventory and texture cannot be separated here**, because adding cobalt both lowers the texture and raises the inventory. The identifiable answer is that the two candidate causes are confounded by construction.
+
+Does this proposition compare quantities of DIFFERENT KINDS?
+
+A comparison is only meaningful between quantities of the same kind. Mismatches to look for:
+
+  charge capacity against discharge capacity
+  a rate against an accumulated or cumulative amount
+  a test temperature against a service temperature
+  a yield stress against a fracture stress or a flow stress
+  an instantaneous value against a time-averaged one
+  a normalized value against an absolute one
+  a value at one cycle, time or condition against a value at a different one
+
+Rule `same_kind` or `mixed`. If mixed, quote BOTH quantities exactly as the proposition or the
+observations state them, name the kind of each, and say whether the observations contain a
+same-kind pair that could be used instead. If they do not, say so -- the correct repair is then to
+state the mismatch as a limit rather than to swap in numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed",
+ "quantity_a": "...", "kind_a": "...", "quantity_b": "...", "kind_b": "...",
+ "same_kind_pair_available": true or false,
+ "fix": "corrected proposition" or null,
+ "limit_to_add": "..." or null}

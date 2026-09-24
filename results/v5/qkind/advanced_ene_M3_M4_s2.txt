@@ -1,0 +1,35 @@
+Property under test: how the material performs in service
+
+Previous step established: CnC HS lowers the zinc nucleation overpotential (39 vs 43 mV) and the plating overpotential at every current density
+
+Observations (SEM):
+  [obs1] Zinc on CnC HS is a largely flat deposit with sparse protruding platelets; on C HS the surface is a dense mat of sharp platelets
+  [obs2] CnC HS holds roughly 93-100% Coulombic efficiency to about 205 cycles; C HS data end near 50 cycles after falling to zero at ~40 and ~48
+  [obs3] C HS voltage spikes grow from ~2600 min and its trace ends near 4400 min at the 'C HS battery failure' arrow, while CnC HS stays within ~0.03 V to 7100 min
+  [obs4] Under a stepped current-density staircase C HS develops large voltage spikes from ~2300 min while CnC HS stays within ~0.05 V to 3500 min
+
+Proposition under test: Building on step 1's finding that CnC HS shows a lower zinc nucleation overpotential (39 vs 43 mV) and lower plating overpotential at every current density, the SEM and cycling evidence at this step shows CnC HS also forms a flatter, less sharply platelet-covered zinc deposit (obs1), retains ~93-100% Coulombic efficiency to about 205 cycles versus C HS collapsing to zero by ~40-48 cycles and ending near 50 cycles (obs2), survives symmetric cycling to ~7100 min within ~0.03 V versus C HS failing near 4400 min with spikes from ~2600 min (obs3), and tolerates a stepped current-density staircase to 3500 min within ~0.05 V versus C HS developing large spikes from ~2300 min (obs4). Together these permit the conclusion that the lower-overpotential CnC HS material correlates with a smoother deposit morphology and with much longer, more stable cycling and Coulombic-efficiency retention than C HS.
+
+Does this proposition compare quantities of DIFFERENT KINDS?
+
+A comparison is only meaningful between quantities of the same kind. Mismatches to look for:
+
+  charge capacity against discharge capacity
+  a rate against an accumulated or cumulative amount
+  a test temperature against a service temperature
+  a yield stress against a fracture stress or a flow stress
+  an instantaneous value against a time-averaged one
+  a normalized value against an absolute one
+  a value at one cycle, time or condition against a value at a different one
+
+Rule `same_kind` or `mixed`. If mixed, quote BOTH quantities exactly as the proposition or the
+observations state them, name the kind of each, and say whether the observations contain a
+same-kind pair that could be used instead. If they do not, say so -- the correct repair is then to
+state the mismatch as a limit rather than to swap in numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed",
+ "quantity_a": "...", "kind_a": "...", "quantity_b": "...", "kind_b": "...",
+ "same_kind_pair_available": true or false,
+ "fix": "corrected proposition" or null,
+ "limit_to_add": "..." or null}

@@ -1,0 +1,33 @@
+Property under test: the mechanical property
+
+Previous step established: Tensile yield strength rises from ~93 to ~142 MPa with SiCp, largest gains at 5 and 10 wt%
+
+Observations (MECH:creep):
+  [obs1] Minimum creep rate vs applied stress: 15, 20, 25 wt% lie below AZ91; 5 and 10 wt% overlap or lie slightly above
+  [obs2] YS bars rise ~93, 113, 124, 127, 136, 142 MPa for 0-25 wt% SiCp
+
+Proposition under test: The SiCp loading that gives the largest yield-strength gains (5 and 10 wt%, raising YS from ~93 MPa to ~113-124 MPa) is not the loading that improves creep resistance: minimum creep rate is pushed below AZ91 only at 15, 20 and 25 wt% SiCp, while 5 and 10 wt% curves overlap or sit slightly above AZ91. So the two mechanical responses to SiCp content diverge - the composition that helps yield strength most is not the one that helps creep resistance.
+
+Does this proposition compare quantities of DIFFERENT KINDS?
+
+A comparison is only meaningful between quantities of the same kind. Mismatches to look for:
+
+  charge capacity against discharge capacity
+  a rate against an accumulated or cumulative amount
+  a test temperature against a service temperature
+  a yield stress against a fracture stress or a flow stress
+  an instantaneous value against a time-averaged one
+  a normalized value against an absolute one
+  a value at one cycle, time or condition against a value at a different one
+
+Rule `same_kind` or `mixed`. If mixed, quote BOTH quantities exactly as the proposition or the
+observations state them, name the kind of each, and say whether the observations contain a
+same-kind pair that could be used instead. If they do not, say so -- the correct repair is then to
+state the mismatch as a limit rather than to swap in numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed",
+ "quantity_a": "...", "kind_a": "...", "quantity_b": "...", "kind_b": "...",
+ "same_kind_pair_available": true or false,
+ "fix": "corrected proposition" or null,
+ "limit_to_add": "..." or null}

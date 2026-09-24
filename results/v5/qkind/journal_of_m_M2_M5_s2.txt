@@ -1,0 +1,32 @@
+Property under test: how the material performs in service
+
+Previous step established: Ag0.25Pd0.75-ZIS shows the most efficient photocarrier separation, ranking Ag0.25Pd0.75-ZIS > Pd-ZIS > Ag-ZIS > ZIS
+
+Observations (PHOTOCAT:H2evolution):
+  [obs1] H2 evolution rate: Ag0.25Pd0.75 125.4 > Ag0.5Pd0.5 57.3 > Ag0.75Pd0.25 43.5 > Pd 34.5 > Ag 3.2 > ZIS 1.5 umol/h
+
+Proposition under test: The photocarrier separation ranking from step 1 (Ag0.25Pd0.75-ZIS > Pd-ZIS > Ag-ZIS > ZIS) matches the H2 evolution rate ranking for the same four samples (125.4 > 34.5 > 3.2 > 1.5 umol/h), so the sample with the most efficient photocarrier separation is also the sample with the highest H2 evolution rate. This supports an association between photocarrier separation efficiency and H2 evolution activity across this series, with Ag0.25Pd0.75-ZIS's rate (125.4 umol/h, 83.6x ZIS, 3.6x Pd-ZIS) consistent with its top separation ranking.
+
+Does this proposition compare quantities of DIFFERENT KINDS?
+
+A comparison is only meaningful between quantities of the same kind. Mismatches to look for:
+
+  charge capacity against discharge capacity
+  a rate against an accumulated or cumulative amount
+  a test temperature against a service temperature
+  a yield stress against a fracture stress or a flow stress
+  an instantaneous value against a time-averaged one
+  a normalized value against an absolute one
+  a value at one cycle, time or condition against a value at a different one
+
+Rule `same_kind` or `mixed`. If mixed, quote BOTH quantities exactly as the proposition or the
+observations state them, name the kind of each, and say whether the observations contain a
+same-kind pair that could be used instead. If they do not, say so -- the correct repair is then to
+state the mismatch as a limit rather than to swap in numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed",
+ "quantity_a": "...", "kind_a": "...", "quantity_b": "...", "kind_b": "...",
+ "same_kind_pair_available": true or false,
+ "fix": "corrected proposition" or null,
+ "limit_to_add": "..." or null}

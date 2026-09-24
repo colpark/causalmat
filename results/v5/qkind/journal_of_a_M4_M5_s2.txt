@@ -1,0 +1,32 @@
+Property under test: how the material performs in service
+
+Previous step established: Porosity falls with sintering temperature; S1 and S2 densify below 1%, S3 keeps ~7.7%
+
+Observations (['MECH:toughness', 'MECH:flexural']):
+  [obs1] K_IC (red, left axis) ~5.6 to 5.1 MPa m^1/2 and sigma (black, right axis) 462-545 MPa from RT to 800 C
+
+Proposition under test: Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an 8.7% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature is raised from RT to 800 C. That is, low porosity co-occurs with only modest degradation of toughness and strength across this service-temperature range.
+
+Does this proposition compare quantities of DIFFERENT KINDS?
+
+A comparison is only meaningful between quantities of the same kind. Mismatches to look for:
+
+  charge capacity against discharge capacity
+  a rate against an accumulated or cumulative amount
+  a test temperature against a service temperature
+  a yield stress against a fracture stress or a flow stress
+  an instantaneous value against a time-averaged one
+  a normalized value against an absolute one
+  a value at one cycle, time or condition against a value at a different one
+
+Rule `same_kind` or `mixed`. If mixed, quote BOTH quantities exactly as the proposition or the
+observations state them, name the kind of each, and say whether the observations contain a
+same-kind pair that could be used instead. If they do not, say so -- the correct repair is then to
+state the mismatch as a limit rather than to swap in numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed",
+ "quantity_a": "...", "kind_a": "...", "quantity_b": "...", "kind_b": "...",
+ "same_kind_pair_available": true or false,
+ "fix": "corrected proposition" or null,
+ "limit_to_add": "..." or null}

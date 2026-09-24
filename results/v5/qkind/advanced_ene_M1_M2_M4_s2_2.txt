@@ -1,0 +1,38 @@
+Property under test: the electrochemical property
+
+Previous step established: On zinc plating Zn-N bonds form at pyridinic-nitrogen sites, moving their chemical state toward graphitic nitrogen
+
+Observations (XAS:NEXAFS):
+  [obs1] After zinc deposition the ~398 eV N 1s feature collapses and the ~401 eV feature becomes the taller of the two
+  [obs2] The ~1200 cm-1 Raman feature weakens from the pristine trace at the top of the stack to the zinc-loaded trace at the bottom
+  [obs3] The two hosts' plating plateaus nearly coincide at the lowest rate and separate strongly at the highest (about -0.05 V vs -0.10 V)
+  [obs4] Nucleation overpotentials of 39 mV and 43 mV are marked on the two initial discharge profiles
+  [obs5] Charge transfer to zinc is more negative at every N-doped site (-0.032 to -0.037 e) than at the pristine sites (-0.023 to -0.027 e)
+  [obs6] Electron accumulation sits as a detached lobe above zinc on pristine graphene but is denser in the zinc-substrate gap on N-doped graphene
+  [obs7] Binding energies are +0.030/+0.014/+0.029 eV at top/hollow/bridge on pristine graphene and -0.072/-0.089/-0.077 eV on N-doped graphene
+
+Proposition under test: Putting the previous step's finding (zinc plating drives Zn-N bond formation at pyridinic-N sites, shifting their chemical state toward graphitic nitrogen) together with this step's evidence permits the conclusion that this N-site chemical change on the N-doped host is accompanied by a measurably lower zinc nucleation overpotential (39 mV vs 43 mV, obs4) and a lower plating overpotential at every current density tested (obs3), and that DFT calculations offer a mechanistically consistent picture (more negative charge transfer to zinc, obs5; denser interfacial charge accumulation, obs6; and more negative, i.e. stronger, binding energies at N-doped sites, obs7) for why zinc would nucleate and plate more easily on the N-doped host.
+
+Does this proposition compare quantities of DIFFERENT KINDS?
+
+A comparison is only meaningful between quantities of the same kind. Mismatches to look for:
+
+  charge capacity against discharge capacity
+  a rate against an accumulated or cumulative amount
+  a test temperature against a service temperature
+  a yield stress against a fracture stress or a flow stress
+  an instantaneous value against a time-averaged one
+  a normalized value against an absolute one
+  a value at one cycle, time or condition against a value at a different one
+
+Rule `same_kind` or `mixed`. If mixed, quote BOTH quantities exactly as the proposition or the
+observations state them, name the kind of each, and say whether the observations contain a
+same-kind pair that could be used instead. If they do not, say so -- the correct repair is then to
+state the mismatch as a limit rather than to swap in numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed",
+ "quantity_a": "...", "kind_a": "...", "quantity_b": "...", "kind_b": "...",
+ "same_kind_pair_available": true or false,
+ "fix": "corrected proposition" or null,
+ "limit_to_add": "..." or null}
