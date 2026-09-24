@@ -1,0 +1,41 @@
+Question as the solver sees it: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Observation A (ECHEM:GCD): Discharge capacity ranks w/ HCl > w/o HCl > simple mixing at every cycle (initial ~91, ~81, ~61 mAh/g)
+Observation B (ECHEM:GCD): First discharge capacity of the w/ HCl cathode ~91 mAh/g
+
+How the graph links them: r1 -causes-> f1
+Panels: F2a, F2a
+
+What the paper concluded, for your reference as the key's author:
+  Electrochemical utilization and capacity retention increase with crystallinity
+  Initial discharge capacity 91 mAh/g at 110 mA/g, above earlier aqueous PBAs (50-65 mAh/g)
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

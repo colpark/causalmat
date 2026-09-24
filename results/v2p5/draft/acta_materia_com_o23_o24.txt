@@ -1,0 +1,40 @@
+Question as the solver sees it: What does each of these two measurements establish on its own about PRF/service_capability, and what does putting them together add that neither gives alone?
+
+Observation A (MECH:tensile): Tensile [0001] test at RT: the flow stress starts at ~72 MPa, is serrated between ~52 and ~80 MPa, and the specimen reaches ~45% plastic strain before fracture
+Observation B (OM): The tensile gauge is filled with fine bands inclined to the [0001] tensile direction, across which the marked basal-plane trace kinks
+
+How the graph links them: both evidence n18: MECH and OM
+Panels: F10a, F10b
+
+What the paper concluded, for your reference as the key's author:
+  In tension along [0001] the crystal elongates ~45% at 65-80 MPa by kink-band formation, the first bulk demonstration of tensile ductility by kinking
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

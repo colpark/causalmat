@@ -1,0 +1,41 @@
+Question as the solver sees it: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (TRANSPORT:piezo_output): Voltage pulse train inverts sign when the electrode connection is reversed
+Observation B (TRANSPORT:piezo_output): Peak voltage rises 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt% PZT
+
+How the graph links them: n12 -explains-> n13
+Panels: F7f, F7b
+
+What the paper concluded, for your reference as the key's author:
+  Aligned PVDF chain dipoles and poled PZT domain dipoles rotate under compression, changing net polarization and pumping electrons through the load
+  Open-circuit output voltage of ~220 um fiber PENGs rises monotonically with PZT content, 7.5 V at 0 wt% to 62 V at 10 wt%
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

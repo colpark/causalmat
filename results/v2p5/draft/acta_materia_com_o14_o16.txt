@@ -1,0 +1,40 @@
+Question as the solver sees it: What does each of these two measurements establish on its own about STR/microstructure/orientation, and what does putting them together add that neither gives alone?
+
+Observation A (EBSD): EBSD orientation maps: lenticular bands take one uniform colour distinct from the matrix, whereas the wavy bands shade continuously with position; in the [01-10] specimen uniformly red {10-12} twins and shade-varying purple kink bands coexist
+Observation B (TEM): Bright-field TEM of the kink bands: the marked basal-plane trace bends by a large, non-constant angle at each band boundary, and many low-angle (<15 deg) boundaries coexist
+
+How the graph links them: both evidence n11: EBSD and TEM
+Panels: F5a, F5b, F5e, F5f, F6a
+
+What the paper concluded, for your reference as the key's author:
+  The wavy deformation bands are deformation kink bands: their crystal rotation angle varies continuously from ~5 to ~55 deg instead of taking the fixed ~85 deg of {10-12} twins
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

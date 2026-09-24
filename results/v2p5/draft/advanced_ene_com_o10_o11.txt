@@ -1,0 +1,40 @@
+Question as the solver sees it: What does each of these two measurements establish on its own about STR/chemistry/composition, and what does putting them together add that neither gives alone?
+
+Observation A (XPS): Deconvolved Co3+ component of Co 2p is larger in Co5Fe5 and Co5Fe3Cr2 than in Co and Co5Cr5
+Observation B (EELS): Co L3 edge of Co5Fe3Cr2 and Co5Fe5 blue-shifted by 1.35 eV relative to Co and Co5Cr5
+
+How the graph links them: both evidence n10: XPS and EELS
+Panels: F3a, F3b
+
+What the paper concluded, for your reference as the key's author:
+  Fe incorporation raises Co valence (more Co3+) in Co5Fe5 and Co5Fe3Cr2
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

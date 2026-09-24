@@ -1,0 +1,41 @@
+Question as the solver sees it: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (XRD:small_angle): Small-angle XRD: one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)
+Observation B (CHEM:release_assay): Cumulative drug release ~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h (plateau)
+
+How the graph links them: n8 -causes-> n15
+Panels: F2, F11a
+
+What the paper concluded, for your reference as the key's author:
+  2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)
+  2Co-MBG releases ampicillin over the first ~72 h, then the release plateaus
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

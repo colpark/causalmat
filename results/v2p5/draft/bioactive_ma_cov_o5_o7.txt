@@ -1,0 +1,40 @@
+Question as the solver sees it: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (FTIR:GATR): BVLD-PPAmF spectrum carries a labelled -COOH stretch (~3400 cm-1) and -C=O band (~1660 cm-1) over the PPAmF spectrum
+Observation B (QCM:dissipation): QCM-D: BVLD mass rises after BVLD injection to ~0.78 ug/cm2 and settles near 0.71 after PBS rinse; 0.74 +/- 0.05 ug/cm2 annotated
+
+How the graph links them: shared claim n14
+Panels: F3b, F3c
+
+What the paper concluded, for your reference as the key's author:
+  BVLD is immobilised on the coating surface at ~0.74 ug/cm2 and stays after PBS rinsing
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

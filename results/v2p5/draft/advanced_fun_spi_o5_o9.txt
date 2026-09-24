@@ -1,0 +1,41 @@
+Question as the solver sees it: Does the upstream evidence account for the downstream observation about STR/phase/fraction / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (XRD:insitu): Every trace steps down near 150 K; for PC (004) the two branches coexist over a shaded band from ~150 to ~175 K
+Observation B (PL): As grown: PC shows two emission branches plus an IR tail below 150 K and across 50-370 uW at 80 K; HOC is intermediate; SC shows one band
+
+How the graph links them: n12 -causes-> n13
+Panels: F2a, F3a
+
+What the paper concluded, for your reference as the key's author:
+  The orthorhombic-to-tetragonal transition of SC starts at the domain surface and moves inward, finishing within <10 K
+  As-grown emission below 150 K ranks with crystalline state: PC dual peak plus IR tail, HOC intermediate, SC a single peak
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

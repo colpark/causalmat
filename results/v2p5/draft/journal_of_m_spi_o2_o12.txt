@@ -1,0 +1,41 @@
+Question as the solver sees it: Does the upstream evidence account for the downstream observation about STR/microstructure/distribution / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (OPTICAL): Dark particles spread across the whole field in panels b-f, with a few local clusters
+Observation B (MECH:creep): Minimum creep rate vs applied stress: 15, 20, 25 wt% lie below AZ91; 5 and 10 wt% overlap or lie slightly above
+
+How the graph links them: n7 -causes-> n16
+Panels: F1b, F1c, F1d, F1e, F1f
+
+What the paper concluded, for your reference as the key's author:
+  SiCp near-uniformly dispersed in the matrix with few agglomerates, local clusters around grains
+  Minimum creep rate at 175 C is lowered for 15-25 wt% SiCp; 5-10 wt% differ little from AZ91
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

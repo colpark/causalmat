@@ -1,0 +1,40 @@
+Question as the solver sees it: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (CORR:immersion): Immersion corrosion rate of Mg-Zn-Y-Nd (0.13-0.38 mm/y, peak at day 7) stays above 317L SS (<0.07 mm/y) at every time point
+Observation B (ECHEM:polarization): Polarization curves: Mg-Zn-Y-Nd corrosion potential near -1.5 V vs about -0.25 V for 317L SS, its branches 2-3 decades to higher current
+
+How the graph links them: shared claim n7
+Panels: F5b, F3
+
+What the paper concluded, for your reference as the key's author:
+  Mg-Zn-Y-Nd degrades far faster than 317L SS: much lower corrosion potential, ~3 decades higher corrosion current, higher immersion corrosion rate
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply as JSON only:
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}
