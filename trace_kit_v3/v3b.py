@@ -235,6 +235,12 @@ def gnorm(s):
     return None
 
 
+# Nano Letters delivers both its steps as oracle text, so its `full` arm has no images at all and
+# its `permute_image` prompt is byte-identical to `full`. It cannot act as a control there and is
+# excluded from the permute comparison rather than counted as a pass.
+NO_IMAGES = {'nano_letters_M1_M2'}
+
+
 def score():
     rows = []
     for cj in sorted(glob.glob(os.path.join(ROOT, 'results/v3/traces/*/case.json'))):
@@ -250,6 +256,7 @@ def score():
             for st in j.get('steps', []):
                 v = gnorm(st.get('verdict'))
                 if not v: continue
+                if arm == 'permute_image' and ch['case'] in NO_IMAGES: continue
                 i = int(st['step'])
                 # reordered was graded against a reversed key; map back to the real step number
                 real = (len(ch['steps']) - i + 1) if arm == 'reordered' else i
@@ -259,6 +266,7 @@ def score():
               open(os.path.join(ROOT, 'results/v3b/scores.json'), 'w'), indent=1)
     by = collections.defaultdict(collections.Counter)
     for r in rows: by[r['arm']][r['verdict']] += 1
+    print(f"excluded from permute_image: {sorted(NO_IMAGES)} (no images in the full arm)\n")
     print(f"{len(rows)} graded step-rulings\n")
     print(f"{'arm':14s} {'n':>4s} {'correct':>8s} {'partly':>7s} {'wrong':>6s} {'cannot':>7s}  hit-rate")
     for a in ARMS + sorted({r['arm'] for r in rows} - set(ARMS)):
