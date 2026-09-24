@@ -160,22 +160,22 @@ tested on figures.
 
 ## The join audit: composing a chain launders limits
 
-All 145 joins audited, 144 parsed.
+All 147 joins audited, 146 parsed.
 
 | | single pairs | **joined** |
 |---|---|---|
-| propositions hold | 50% | **36/144 = 25%** |
+| propositions hold | 50% | **36/146 = 25%** |
 
-Of the 108 that do not hold, **every one overreaches and none is wrong**. Joining does not introduce
+Of the 110 that do not hold, **every one overreaches and none is wrong**. Joining does not introduce
 false statements; it introduces unwarranted confidence.
 
 | upstream limits, across the handoff | |
 |---|---|
-| carried | 161/529 = 30% |
-| **dropped** | **123/529 = 23%** |
-| not applicable | 245/529 = 46% |
+| carried | 165/538 = 31% |
+| **dropped** | **123/538 = 23%** |
+| not applicable | 250/538 = 46% |
 
-**82 of 144 joins — 57% — launder a limit.** The upstream conclusion was true only within its
+**82 of 146 joins — 56% — launder a limit.** The upstream conclusion was true only within its
 limits; the downstream item uses it as if those limits did not apply. Every individual statement
 stays true while it happens, which is why a per-item audit cannot see it: that audit rules whether
 each *stated* limit is true, and each one is. What changes is that the next item stops carrying
@@ -185,12 +185,12 @@ them.
 
 | chains preserving *every* limit | |
 |---|---|
-| depth 2 | 30/64 = 47% |
+| depth 2 | 32/66 = 48% |
 | depth 3 | 8/31 = 26% |
 | depth 4 | **1/26 = 4%** |
 | depth 5 | 0/3 = 0% |
 | depth 6 | 0/2 = 0% |
-| **all** | **39/126 = 31%** |
+| **all** | **41/128 = 32%** |
 
 Beyond depth 3 the chains essentially stop preserving their qualifications: one chain in 26 at depth
 4, none at all at 5 or 6.
