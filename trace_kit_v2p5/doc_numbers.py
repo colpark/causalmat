@@ -2,7 +2,13 @@
 
   python3 trace_kit_v2p5/doc_numbers.py
 
-Reads only results/v2p5 and the audit batch manifests. Runs no model call and writes nothing.
+Reads only results/v2p5 and taxonomy, all tracked in the repo, so it runs on a clean checkout.
+Runs no model call and writes nothing.
+
+It used to read the batch manifests under .v07work/, which git does not track, so the script failed
+outside this server. The manifests carried the sampled item list and each packet's output path;
+results/v2p5/check/ and results/v2p5/qkind/ hold exactly the same item sets -- verified identical,
+69 each -- with the item id as the filename, so the directories are read directly instead.
 
 Verdict spellings are normalised before counting: a judge writes "overreach", "Overreaches" and
 "overreaches the evidence" for one ruling, and counting them apart understates the category.
@@ -76,13 +82,16 @@ def main():
     P, L, off, n = collections.Counter(), collections.Counter(), 0, 0
     gen_p = collections.defaultdict(collections.Counter)
     I = {i['item']: i for i in D}
-    for j in json.load(open(R('.v07work/batch_v2p5_audit.json'))):
-        if j['id'] in bad: continue
-        r = parse(open(j['out']).read(), 'proposition') if os.path.exists(j['out']) else None
+    cd = R('results/v2p5/check')
+    for f in sorted(os.listdir(cd)):
+        if not f.endswith('.out.txt'): continue
+        iid = f[:-len('.out.txt')]
+        if iid in bad or iid not in I: continue
+        r = parse(open(os.path.join(cd, f)).read(), 'proposition')
         if not r: off += 1; continue
         n += 1
         v = vn((r.get('proposition') or {}).get('verdict'))
-        P[v] += 1; gen_p[I[j['id']]['generator']][v] += 1
+        P[v] += 1; gen_p[I[iid]['generator']][v] += 1
         for x in (r.get('limits') or []): L[vn(x.get('verdict'))] += 1
     out['key_audit'] = {'packets': n, 'unparsed': off, 'invalidated': len(bad),
                         'propositions': dict(P), 'limits': dict(L),
@@ -92,11 +101,15 @@ def main():
 
     # --- quantity kind, sample
     qk, qgen = collections.Counter(), collections.defaultdict(collections.Counter)
-    for j in json.load(open(R('.v07work/batch_v2p5_qk.json'))):
-        r = parse(open(j['out']).read(), 'ruling') if os.path.exists(j['out']) else None
+    qd = R('results/v2p5/qkind')
+    for f in sorted(os.listdir(qd)):
+        if not f.endswith('.out.txt'): continue
+        iid = f[:-len('.out.txt')]
+        if iid not in I: continue
+        r = parse(open(os.path.join(qd, f)).read(), 'ruling')
         if not r: qk['unparsed'] += 1; continue
         rule = 'mixed' if str(r.get('ruling', '')).lower().startswith('mix') else 'same_kind'
-        qk[rule] += 1; qgen[I[j['id']]['generator']][rule] += 1
+        qk[rule] += 1; qgen[I[iid]['generator']][rule] += 1
     out['qkind'] = {**dict(qk), 'total': sum(v for k, v in qk.items() if k != 'unparsed'),
                     'by_generator': {g: dict(c) for g, c in qgen.items()}}
 
