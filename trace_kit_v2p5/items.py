@@ -258,7 +258,14 @@ def _belongs(it, key):
     about a different material entirely.
     """
     import re as _re
-    def w(t): return {x for x in _re.findall(r'[a-z][a-z0-9\-]{3,}', (t or '').lower())}
+    def w(t):
+        t = (t or '').lower()
+        # Words AND numbers. The first version matched only tokens starting with a letter, so a key
+        # that agreed with its observations entirely through quoted measurements -- 130.3 to 81.9
+        # kJ/mol, 150 min to 11 min -- scored near zero and was quarantined as foreign. Numbers are
+        # often the strongest evidence that a key belongs to its item.
+        return ({x for x in _re.findall(r'[a-z][a-z0-9\-]{3,}', t)}
+                | {x for x in _re.findall(r'\d+\.?\d*', t) if len(x) > 1})
     stop = w("the and that this with from which they there their been have into over under about "
              "alone both these those does not only same different between across than more less "
              "would could should observation observations evidence measurement measurements panel "
