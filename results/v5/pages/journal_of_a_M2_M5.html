@@ -1,0 +1,237 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>journal_of_a_M2_M5</title><style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#16181d;--mut:#5d6470;--line:#e2e4e8;--acc:#2f6f4f;
+--warn:#8a5a00;--hide:#7a3ea1;--chip:#eef1f5}
+:root:not([data-theme=light]) @media (prefers-color-scheme:dark){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111317;--card:#181b21;
+--ink:#e8eaee;--mut:#9aa3b2;--line:#2a2f38;--acc:#6fbf95;--warn:#e0a33a;--hide:#c79be8;--chip:#222732}}
+:root[data-theme="dark"]{--bg:#111317;--card:#181b21;--ink:#e8eaee;--mut:#9aa3b2;--line:#2a2f38;
+--acc:#6fbf95;--warn:#e0a33a;--hide:#c79be8;--chip:#222732}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 ui-sans-serif,-apple-system,
+"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:26px 16px 60px}
+h1{font-size:21px;margin:0 0 4px}
+.sub{color:var(--mut);font-size:13px;margin:0 0 4px}
+.mvm{color:var(--acc);font-size:12.5px;font-weight:600;margin:0 0 18px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 0;margin-bottom:-1px}
+.tab{flex:0 0 auto;background:transparent;border:1px solid var(--line);border-radius:9px 9px 0 0;
+padding:8px 13px;color:var(--mut);cursor:pointer;font:inherit;font-size:13.5px}
+.tab[aria-selected=true]{background:var(--card);color:var(--ink);border-bottom-color:var(--card);font-weight:600}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:0 12px 12px 12px;padding:18px}
+.step{border:1px solid var(--line);border-radius:12px;padding:14px 15px;margin:0 0 4px;background:var(--card)}
+.sh{display:flex;gap:9px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px}
+.sn{font:600 12px ui-monospace,Menlo,monospace;background:var(--chip);padding:2px 8px;border-radius:6px}
+.prop{color:var(--mut);font-size:13px}
+.q{background:var(--chip);border-left:3px solid var(--acc);padding:9px 12px;border-radius:0 8px 8px 0;margin:8px 0}
+.q b{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);display:block}
+.pans{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.pan{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--bg);max-width:290px}
+.pan img{display:block;width:100%;height:auto}
+.pan .cap{font:11px ui-monospace,Menlo,monospace;color:var(--mut);padding:4px 7px}
+.rr{margin:10px 0}
+.rr h4{margin:10px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.rr li{margin:3px 0}
+.chip{font:600 10.5px ui-monospace,Menlo,monospace;background:var(--chip);color:var(--mut);
+padding:1px 6px;border-radius:5px;margin-left:5px}
+.chip.inf{background:transparent;border:1px dashed var(--warn);color:var(--warn)}
+.hid{border:1px dashed var(--hide);border-radius:9px;padding:9px 12px;margin:10px 0}
+.hid b{color:var(--hide);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;display:block}
+.arrow{text-align:center;color:var(--mut);font-size:12.5px;padding:6px 0 10px}
+.arrow .lbl{display:inline-block;border:1px solid var(--line);border-radius:14px;padding:8px 15px;
+background:var(--card);max-width:760px;text-align:left}
+.comb{margin-top:7px;border-top:1px dashed var(--line);padding-top:7px;font-size:12.5px}
+.comb b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--acc);margin-bottom:2px}
+.comb.none b{color:var(--warn)}
+.comb .from{color:var(--mut);font-size:11.5px;margin-top:3px}
+.comb .from span{font-weight:600}
+.dep{font-weight:600}.dep.real{color:var(--acc)}.dep.none{color:var(--warn)}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.04em}
+.gsvg{width:100%;height:auto;background:var(--bg);border:1px solid var(--line);border-radius:10px}
+.gcol{font:600 11px ui-monospace,Menlo,monospace;fill:var(--mut)}
+.gn rect{fill:var(--card);stroke:var(--line)}
+.gn text{font:600 11px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.gn.on rect{fill:var(--acc);stroke:var(--acc)}.gn.on text{fill:#fff}
+.gstep{font:10px ui-monospace,Menlo,monospace;fill:var(--acc);text-anchor:middle}
+.ge{stroke:var(--line);stroke-width:1}.ge.on{stroke:var(--acc);stroke-width:2.2}
+.audit{border:1px solid var(--warn);border-radius:10px;padding:12px 14px;background:var(--card)}
+.audit b{color:var(--warn)}
+@media(max-width:640px){.wrap{padding:18px 16px 50px}.pan{max-width:100%}}
+
+.item{border:1px solid var(--line);border-radius:12px;padding:15px;margin:0 0 14px;background:var(--card)}
+.badge{font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 7px;border-radius:5px;margin-left:6px}
+.badge.hand{background:var(--acc);color:#fff}.badge.draft{background:var(--chip);color:var(--mut)}
+.badge.ni{background:transparent;border:1px dashed var(--hide);color:var(--hide)}
+.lab{display:flex;gap:8px;flex-wrap:wrap;margin:9px 0}
+.lab span{font-size:11.5px;background:var(--chip);border-radius:6px;padding:3px 9px;color:var(--mut)}
+.lab b{color:var(--ink)}
+.key{border-left:3px solid var(--acc);background:var(--chip);padding:10px 13px;border-radius:0 8px 8px 0;margin:9px 0}
+.key h5{margin:0 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.lim{border-left:3px solid var(--warn);padding:8px 13px;margin:8px 0;font-size:13px}
+.lim h5{margin:0 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--warn)}
+.ni{border:1px dashed var(--hide);border-radius:9px;padding:9px 12px;margin:8px 0;font-size:13px}
+.ni b{color:var(--hide);font-size:11px;text-transform:uppercase;letter-spacing:.05em;display:block}
+.qty{font-size:12px;color:var(--mut);margin:6px 0}
+</style><body><div class="wrap">
+<h1>journal_of_a_M2_M5</h1>
+<p class="sub">Journal_of_Advanced_Ceramics__s40145-021-0536-4 &middot; chain M2 &amp;rarr; M5 &middot; 1 surviving item</p>
+<p class="mvm">Every verdict is model against model.</p>
+<div class="tabs" role="tablist" aria-label="views">
+<button class="tab" role="tab" id="tab-items" aria-controls="panel-items" aria-selected="true" tabindex="0">Items</button>
+<button class="tab" role="tab" id="tab-graph" aria-controls="panel-graph" aria-selected="false" tabindex="-1">Whole graph</button>
+<button class="tab" role="tab" id="tab-prov" aria-controls="panel-prov" aria-selected="false" tabindex="-1">Provenance</button>
+</div>
+<div class="panel" role="tabpanel" id="panel-items" aria-labelledby="tab-items">
+<div class="item">
+<div class="sh"><span class="sn">step 2</span><span class="prop">how the material performs in service</span><span class="badge draft">drafted key</span><span class="badge ni">not identifiable</span></div>
+<p class="qty">takes from step 1: Flexural strength generally rises with sintering temperature; S1 at 1600 C is highest at ~465 MPa</p>
+<p class="qty"><b>previous</b> &mdash; amount: flexural strength (MPa) at a given (room) test condition, compared across sintering-temperature levels, with S1/1600 C at ~465 MPa</p>
+<p class="qty"><b>this</b> &mdash; amount: K_IC (MPa m^1/2, left axis) and flexural strength sigma (MPa, right axis) for S1, measured across service/test temperature from RT to 800 C</p>
+<div class="lab"><span>dependency <b>real</b></span><span>inference <b>follows, weakly</b></span><span>causal strength <b>descriptive</b></span></div>
+<div class="pans">
+<figure class="pan"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wAARCAFmAiYDASIAAhEBAxEB/8QAHQABAAIDAQEBAQAAAAAAAAAAAAYHBAUIAQMCCf/EAFUQAAEDAgMCBwoJCQUHBAMBAAADBAUBBgcREwIhFBUWIzFR0QgXM0FDU1dhcZQSVnOBkZOVocEkNDhUVWODsfAyNnWz4SIlJkSj0/EYN3bDNVJypf/EABkBAQEBAQEBAAAAAAAAAAAAAAADBQEEAv/EACYRAQACAgECBgIDAAAAAAAAAAABAxETBCExBRQjM0FRU/ACEpH/2gAMAwEAAhEDEQA/AOpwAAAAAA8r0AYC0uyQdosVl0aLrdCPWfJ7LsWCyKCy6CCy5ALgSRQxTt+qSG9ZBwfC7qvUL1QfQC9F5NBnz7KvjQzJbsND+PDicLLZyDd+hrtFqLI+LRMv4ezSuVKZkCwncNFrcrwLW1dZbW1unXz3mQ5vt3szDyMjYRV7VluW2tag3I3cOzbNVXwnQKrlcTrxYvVUGeF0w/Qp5ZF5Tf8AcfDvv376Gpz31HsKvKtsFSd9+/fQ1Oe+o9g779++hqc99R7ALbBUnffv30NTnvqPYO+/fvoanPfUewC2wVJ33799DU576j2Dvv376Gpz31HsAtsFSd9+/fQ1Oe+o9g779++hqc99R7ALbBUnffv30NTnvqPYO+/fvoanPfUewC2wVJ33799DU576j2Dvv376Gpz31HsAtsFSd9+/fQ1Oe+o9g779++hqc99R7ALbBUnffv30NTnvqPYO+/fvoanPfUewC2wVJ33799DU576j2Dvv376Gpz31HsAtsFSd9+/fQ1Oe+o9g779++hqc99R7ALbBUnffv30NTnvqPYO+/fvoanPfUewC2wVJ33799DU576j2Dvv376Gpz31HsAtsFSd9+/fQ1Oe+o9g779++hqc99R7ALbBUnffv30NTnvqPYO+/fvoanPfUewC2wVJ33799DU576j2Dvv376Gpz31HsAtsFSd9+/fQ1Oe+o9g779++hqc99R7ALbBUnffv30NTnvqPYO+/fvoanPfUewC2wVJ33799DU576j2Dvv376Gpz31HsAtsFSd9+/fQ1Oe+o9g779++hqc99R7ALbBUnffv30NTnvqPYO+/fvoanPfUewC2wVJ33799DU576j2Dvv376Gpz31HsAtsFSd9+/fQ1Oe+o9g779++hqc99R7ALbBUnffv30NTnvqPYO+/fvoanPfUewC2wVJ33799DU576j2Dvv376Gpz31HsAts1EnPRUFoVlHqCHCK6KOdfDEDsLF99dF3u7QmbSfW7JoM+GZLr0W3bvV6zWYpW1cFMTLMu6OZLy8bGV0HbNHwyGefPf11esCz2FyREpGUk2Mm3XY18vRXcfiMuyEnNuiMbJtnClUaOMqdOln0nJj9d4vYOLkrGUct4V9MoaPt1+e/AmTx+9Y4x4e8C8NyRR/yVwL75aW9xjxXxsz4brcH0Namev5n2kgOKlV1v/TMs+rnxnyu16rU8+dhwqq68OyXd0pwhVBGqvtr/wCQNkAAAAAAAAAAAAAjL6y2r+dbzSyqtXTPOiPUfp7aLdxLcaJLLoPNDQ1keokWdBnQ6rvtamEgmVux/AmSHwUSMWZ/e65flqE82t2zWnqK0gZNZnek83SZLuKLLUzWR8juI3vXx8212ys4AFWeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhv1qtmiy9EVnGilWuil5Xd0UAqGL/AEqpn/AEfwLKuG2ti5m/A13zxBopStFkUK6VVvnKaw+nF7k7o+RkHsM+hF629WnAnvh9y1N/3nQoEbXsS3l7VWtXZjG6EKsjo6CO7cYFvYbRcHMt5vhDx89QZ8AaLL1z0EOomYArrvMW4s7+Hk44u4y404t8jw3z3WWKAAAAAAAAAAAAAA8r0AY6rlHU0a9J78KhWdwJ6WLFvbSW7mFz6XXLPJO82dvoo0WQRR4Qujq5a1CW5oRxM4wsZFwi42cklqK5+shVmUyu+5adS1DZ2TcyNxxNVkG/BNputorN6+RqReKuNKDu+5NRk+X1l6V5lDPxHL3aKLY21LUBqomW42Za9EF2/wAubUszgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIde+IbexEGazyKln1F/1BDWyAg0X+lVM/4Aj+BcD583j0dd2uggjTyqtSgcOrqRvTukpSUbsnzBGtv6Oi+Q0V+lDxGw7oLjOPuWy5SAXQfSjNfmIWv/OgXazft5FGizRdBdCvlUlc6HyZSrCRpXgbxuvpdNEVszk5zeFV8McRbkjHa7KUlZNDhcbl+Zb8t39eIkvGi1u4xWHSOySQe2khVZDz+SK9afRlQDovjZjwzi/hjfheXgNamsbE4xVln1e54WunhGU1W7+Ha9fDUXOvIRdWQiGTxanOroIq7Xz0zA2QAAAAAAAAAAAACJyFk7MhdDO4Nt5zjOlaJI6O4SdoovZ1GbaL6LxFGqHy1CVbj3o6zqsX2tBbNtoW2x2kEN9V1arKqV8dTQ2bs/8AGFzZ+JYnVN9KbXUVtBzqMVd88iqgvXWWz5lEje9fHm26LZWaACrPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxXzzZYtFnq3gUUqq1+gCn4v8ASqmf8AR/Al1z4eoz90w10sXlWExGUqkitpaySyNd+VafP1laWNdTG9e6QkpeNRfoocQUQyeIaNd1aV6Oo6HArFrgtBuI66G8m4Wfr3MvRd6vpaVaV6ckuoyYHChKPuNncElKbUk7jYykWzpo0QoijT2ePfX6SxQBUS2BESshxLw5xyX4z414r0fL9Wt06PqyLc3JUPQAAAAAAAAAAAAAAfGu18GuzQ9/s/CrWpWtxqrp4pQKOy4X0VUdpXR1d2dDe3hMLoxj1BovRusiz11V/Mkt71eSmdfXulOevs5+ohNmf3vuX5ahn4ZOOEWRF/IEairiYwV33JwvXpqr08iceimmY3VQtUGqhJhvOs6PWVeZqbUszQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIle+JcDh+3aLTy66PDK/BR0Eaq7/AJgIDF/pVyf/AMfRLrOd8P7si767pKUlYZZdZlW39HnkdLxoFk3/AIYsMQHbNeXk5VuzZo1roMl9DOvrAn55q0OWlKq4fYQ3nc8A7fbTeUe8CZLuF9ZaqFOZ1s+s2MfOuLMxWs1jG1zZSlpt13iOz5ZbJfnq+sDpTVoenHy11y6+DXfGquvyh5T63C/3PmPkTrCLebMjGNHnn0EVvp3gbEAAAAAAMRw5RYIKruFUkEUab1lfEBlgqic7pPDSIUojyhq+U62KGsSS0MUbOvylUYCbbrr1pvQ8Et9AEzPD0AQyUs95I3ZGTXCEEtlnSuaPXmfafw9hJ7XWXZIVeLJfB18t5Jj6nNUKxzLcxhHLOtlG1YVGM+FrLZc6tWnhq9ZprNp/xhc1OpYnPTltdRW1uzrOLvaeQeLURVXX5qlfHQnh6+PNt0Wys4AFWeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB5pUPTEfOG8czWdrrUQQSprKq+oCn4v8ASrk//j6JZt1x0nK23JMoVwi3fLo1RRWVp4GvrKfsi6Ye8u6XkpWCeIvmXJ7Q10ejPXp/oX8BBpnDiMnMN6WLt1qgy2WaKCK1OmladX0feauEwp2kbrirgmF0VloWLpFskUabt1fDe3fUs0AUktgHnD8lONEKWzx1xtl5f5AupFDZbo0SS3UofsAAAAAAGouK44q1Id3LSi3B2aHhleoq6770sy84Gr+RlX6sCy/PYxBKqSy3Vr08wWXeEBylgHkXoIL69Mslugh10RfKGIpGXnaTl83rT87jFdav0dNAN2zwmsFFslRC0YOiXTlwKhhyWDNlOVuGMopGIkkN6L6L5ldH6CcIeBQPuBiMUV0GSKDxXXWolkqt0Z1MsADF2tr4Ndmh9P7Pwq1K+npeTZ4jxEZR7TgS9KrVRy6jNvhlKLxbx4zm14xFFHVS0PZ4yW96vJe1H2mOfwtnOnUQi00UHF3XJrIo80tTf8xtrBfyj61GTiUyo8VpvI3b0syirwuXhb1BHn6eGrkF6aZjdUs4GCwfoP0ddkuguh+5M4qzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMdZCjhHRWMg0M9dkDayCSk5MsIzZX8DwhbRpUCqIJgyie6kkm7JFBBGkBs10EUsvHQvUoS2Z2MuTunZGQhnrd8yrAbNNdBXOmedO0lGL2JL20FYW3oROlZqZX0Uea1tBHPKq2X4AWmCjbkxPaQeFs9M21OPZOZZ14Ass+rksgtn40q7qGDE39KW3iTa8Ou9fP4yZt5B4tVdbXrRavl/uA6AByurincXe0751JVfhnKHg3AvhcxwHzOln9507HSGxIMkHqVOZXSorQDLAAAAAae6YpxPQLyLZPl45ZwjWiLxHpRr1lcrYISrlDR75t6fxly3gBGH99WrbVUmUncMUxXTp4JZ5SlfvMmCvW3bm21koSaYSlUPDUZr0Wy+g5HkHGDTK459C50J6bfcZr5PWa2evv9vtLc7nVewXEjN8gWMqzSoihVer1UC+jyp6AK+mbelH19Rk0ikjVkyRrnWq3Wfa7GFwvVUEItkxXZUrqrUXV8N6iZ/MfbKhzVD1Ry+2PhpLd2pSsVnMot0HlaeCQruIpbUSxlLtuThrFFfnqU52mfiLE8nUry03yLe77kQWXQRWWWpo+vcTvW485rtlPWDFuxR0WaCKCPUkZQBVngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+C6+gjrlcssZ2L6c2oRG17r4ajo66NWO5v95YL96yh2az16uk3bo01VlleilOs51tTHKyKYyz8nw5dBjJtGbRBZZHKnwks8/5gdLAAAAAAAAAAAAAAAAGmnbSg7k2EKTMUwk9DwVXiFFsvpNyfiquilTaVrkBQ1swkZBd05JMIpk3YsuIKV0EEdKm+tCUYpYcyU3eNqXtDUos8hF+eaVr4dGtc93r7SO2/KMpXuoZFxGO0HjfiDZprILa1M86bi9gKFXwIfz0Tf67tZJk7uZ5whklnX8npnnTV3fyNnCYZScpe1vXDcKNGKMLCIRmjrZ661Pw3lzgDnJXAuc5G97vmuK+UXGnGmt/yPR9edBN2qDFokgl4FFLRp9xlgACrb0x9te1nqsUybv7hfI+GQi0qLaHt8RGWPdRx6qtKSVj3YwQ89RDWyAvgGpt+5Y26YtKVg3bd+0V6FUusAbYAAcvsX2KEDJTSEDhdFPYteUcLo6yH772lkYPy16yMlKcrLQY25SiKOjVBHLX6fWeY2orzzRnGQuIcTaj5ktrrVcPdDMmlt3JBy1KxTGaYSbxkijr6C9FvnAkoB5UBuBX8tdco1v6Nh9ZHgLvZrXLx7j7yd0rr3ajb6C1UfyKq6y1PaR3PVHDsTXa37WXirQr62ohm+vWeWeIILLILU0c/FuNph3dCt1wVHa9PyhFaqKvzf+TAtZ0i2u+5aqqopZr0O916abad1UrBB+EF0lqc1WlT9lWcAAAAAAAAAAAAAAAAAAAAAAAAAAADFcudBFVbSVW0vEl01K8i8Y2ErMcSo2vdlHaWhRxRaNr+T63nt+4CzQAAANbLTsXDoa0nJMmSP/7Lr0R/nUDZAr9XG20NbQjHEhOr+ai2Sy9f5GNS7b/nKbPElibTBHZplRxOPdGtf4KWdfvAskx3DhFujzy1ECAbVr4izfwqTN7IRSNKZ8Hg2XT/ABls6/ceo4IWtq600rMXEt1yr5ZfIDMlMXLGiFODrXKycL16UGVeEL1+pzMDaxPmZetKW1YVxPs+hZ/TgSP016SZRFtQkEjpRkWxY06kENE24FR3JamIN/2XOwk1swUXV4hkybsllla6tN/PLVp0dHiOUIjBq9Ze6lrYpCroPEaUqrVau5FDxH9A160QS1uope3bmdtsWJuaVs67UGMm0ZtEFqxlcs0s8/51Ak+2rfdnoM2EXCMrii2bNFGteGaL2tabvHuCONkMycbLe4oqettXLftSbSuyh9b0Fkn4Wbor051Km17QNXB3JCz7fVh5Vi/R626+sbcgsrhHZEspwhaARZOKdKzH8nX/AOjka3aw7vGDplbV/P6I1pvRmkuG5fOBZgK32roxFg9mvHVnoTSVaZcIt5ffT+CtXP7z7ssbrR1aoSy763V/MzKHB6gWCDXsX7GRQ1mbxBdCvlkVszYAAAAAAAxXDZu9QWQWRosirTJVKplGI8kGMfs/lbxBCn71XL+YFHWlbcXandLyUVCskGLHiDZroI+2hfhRUO+Rfd1JJLoLoLocn9nej7aG9xsxG2rHaxTFhOMYV++Wy4Y8Q19BHx7gLYBRuziTcVvYXTN3PLmhLqVzogyqxQ0kEa186feLxNl4q+YCAl31HzKagNmUqvoeAXr0/wAHKlQLrMV43o8arIVrXJWmWaXSc8q43XFSyu+UivTgPH/AeLNLmuA/975zoVk7QfNEV0qcyulRWnz5AV/eF82tgpDsm+xCrflG5BjGI01SF17q+Le1RQjLPnF11ltFHVSplUkt8zCFyyiDGzL1g2N1t6LI0QWX1a1p46eqvzeM0t0YRXzILooW9dLFm0WXRevElUf7LinSuju7ALVaWxGR71eUZMaNXL2nPaXjqDfIeDoAPQCpsXXV6Sb6KtayHyMW6eorPHr1auWih0fzAqqTw1jJi5ZNotZdxP55FZeVdvHauSL6mv4FGvRWlc/uqSjucUYZC57opCWjKwrOiKGSz/PWpXzJJMJ9rEO3pl7bF+PkJTZ4Jw1m9SWzrWmeVadFC2dZvwvg3lctbIDJPKnoArichZRfEGHkkWS3AWiNdZf2n2krXXQvpG4EEF1kVmXB1tH2k/8AhHyzOa3qjl2wieGtsrWpbdEHtacIXVqsrU0cVbcZPXdcfGCFF9FenT1ZFl7W6nwuogtl1zu+5a9axNem+2dtrT39cFw4XxNXcBCxS8Mlo1W2XDxbX1ll8q5erfT6Sb2q7uJzGVVudgyYvdXPRZrVWp9JyF3SF83RK4gydurO10IxivSiDOnRl54sfubsRb1mbWm2y6Li4lozRoy2V1un1VWrnmVZzpUFectcRvRl/wD7aB863JiopTNKw4xH5eZpX+VALHBXFZrFhxTPkfbqNP30vtf9k/etjD+y7L9+X/7AFiArnZ28YHdMtCxm/tVcKj4GMXnbE+pe9oFjArqkTi/tUzVum0UfZFrf9882YHFlWn98bcQp+6hK1/muBYwK+5I4mekVp9ion45GX+48NiZVD5CLQAsQEC5CXv6Tn32WgY/e2uFWn5RiZdmyrTxo6FKf5AFigrquF8ovTNbEy9ao9VF0Ea/5A70238fr6+1f9ALFBXXeYYOKfld03o5+Wm1jzvLQ37duv7fX7QLGBXPeItDzUr9pr9o7xVkV8KxfuPlnq3aBPuEIeeQPytKsUPCvG+x/FIT3isPPiwj9et2nrXA/DpGm+1mDj5fZ1v5gbW775jLVtqSuFVZFwiyS6EFs619RzBbHdO1j8Q5m4pCDrRpM0bpKIpLb0NGmWf3nQszgzaD21pSFYRbeJrJpc84bo76VOb7c7mh7K4gyttvppvVnD6CyzhGm9fW37voA6VlcUUG76rKLtW5Zxfo12TOvB/rjB4zxYnK7VWcHB24hWm+j9xVwt/0dxYbZBvHtUmyKVEUkeZRp1GUBXGzhxcsx/eDEKYWp5qMSoxp91amZF4OWPE7fCawKL1fxqvvyiv8A1cydgDFasUGSGiggigj1JUyMoAAAAAAAAAAAAAAAGI9Ys5FHQet0F0K+SVSzp95lgCv3uDFoLbdHEa3cwK/jWhFeB1+4wtm1sRoP4PEl7MpVCtM9CcY5Zfxkd5ZoArLYxGu+E2aVuewZDOtM9eFW4Yjl7Omhs4rFyx5VTg2zPIMXtOhB9+Tr0+uyJ0aictuFn2+lMRTF+j1OENYDO4QjVHXQprfIlSse6MiX9xo28hb0tw6tcstdl/38j93rhSzhLJuPasZB8zeOGWjRig4W0K+xHryzOKGMTKLyiLBFk9rJ625FFGuuB/Tcil44eW5fiKCNwRdHuyh4HNU2FrIP0LZiUJatFpFFmjr1/e/B3/fmbsDn2xrWhbK7pGTioVlwJlxBsr6Ht2qUqWFfcgs1fsW7iwXF1Rau5ddJJFxofwa9JEI5ei3dVyWl8X9n+dC7wOfZXAtZ7al6NoBHitGbq3WZxavRSqH8jKisN5S48QrYmnzFZiyhbfQZLVX6V16Z9pfAA5bWwkuXvd97Okcrnyj4Xw74VNDgXnvb6i/7hdbNs2HKqM+mKi19pH+CjXL+RJSPXpwPkfN8N/MOBL62l06OjXMDkOrjA1tbmsxf3JS5UUNdJ7vz1y6kO6vsOkcimkq/We1Q3I8H8t/5NWjenc3oIpfkEB9mf6HwlLr7ndxFqppMIii2jklRuy0VvpyA6IbV1kqVB+Nj81S9gAySpcW8KFsTJ6K2krhcQ3A2i1MkPDrZ1pT6C2imccsP7vux9FytpSi7LgKKyK/A16oLVz6qgRj/ANJC2er3wpfPr0f9Sa4SYUrYYS8oktcDmb4YijTJfyOValVRuFd4Sy9GNMYZVk9r/wAk8qugvT6alo4Q4cXTY8xNbc/cTi4OGJI1RdrLrVruz3b8wLcAAA8rWnWeVruIDPXmswulGFqqgzRWRzo8W6zqtNM3dk7z6NnrK2g4JrK3rOru9lWtWS9NLf0biT2ZPLTkPwh83ogrsq1Rzr5X1mos3a/4wuavWsReyiLadsIF3RUJCzDGrfYtGWlbhpRDSeso1Zauyjrf2danqz+ksjDJtb6Fu7OxbUI5hGdFa5oPGegrn7CZgqzgAAAAAAAAAAAAAAAAAAAAAAAAAAYzhGqyCyOrVHPytCvI3BqkVOLTSF7XWu+caGvVddCuvo9GfMlmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+C6GujoFdoYD2e3lONUazvDPPcZr5llgAYr+PRfM1mS3gVktGtDKAHPVgWnGWX3R8jEwyKyLPk9Veustrb6r0OhSlYv8ASqmf8AR/AtK4Z1vbcYq+e0zyzySS6VQNwCjITHx0rhNPXxItEKrNJJZkyaI03eLRpX56/cbS38UpRrecLb0/wFek1DUlEV0Uqo1Qzz5jf09AFvmuloxtMxzqNe0zRdo6Kvz0KOVx6leTPL/g7Pk/x1xVwPTrraPntbP8C3bqklUbMlJSOyqshGruEPmRzoBUcl3O1kWqiu+rHxLuNRpnXZlV1kMv49DQQDDue7jdOYhmkhFyW1XRS1Vq0preLRWz37zWxODV33xtIyeJzu6ntP1NGm/L+RZTC37YwugHD6Hw8lKu0UdyyrdFZx9OYFzI7GmnSgPhsc81Sr6gBklT4yYzr4XLRjFlFcayUn4HWW0UKULYINe0hS23aE4tb3GzJFHRWq3Q1l0aAc7SmzfeKbnZpdN8Wtb8Xs+QTlEK1r9TWufz1L8wnZRMDHOIVler26V0eeVWcL62h6jVIY+YQuEt1wMkKfv2S3YfFljHZ0pNbTeyI9e4ZlwjpfkbPRR/jLVpuAuEGIw1uCJcO0eG6XPaXX6jLA+FSv7ntt7ctyVbyTfWheB8yslXfRfMsc/NaUOq0X6Z6Idh3FzURA1YzFdnNJatEa/uSOxdts5277k4Usujor08CtluLR2qZf7XVQgtl1zu+5q9axF7KL7Z22wlELDoQTKjJBdddKnjXWzyNsAVZwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEOvjDyKxARaIyb2VQojvpwB5o/STEAc7YfWoysPui5KFjV3y6FYDZXzer6y+edCwsQLVveWmkZO2ZWJQRQZ1R0HyGtmtmRuL/AEq5P/4+iXWBytbGEd+OcE7ltd6xSbLLPOEsmi+5ZXLLpr4iYoYezM5iPaMsszXZRsPb+yzeKrVpvWpnTR+8vgAcud6W7KYSK4ecW04Xyh19evgeB5Z62r/VfUdHN4hBCBRivIaOgbUAVM4uTFS1FFUl7RZ3QzQ8C8YvaILr/wAHee98vEx/zTHB5/7XsoggSXEC/wBhh4jFuHiC66cm9RY7NUaZ5Vr4zdtblhZB4sxZyjJd6h4ZBJamdANJaMXc+2mtIXi4So5XyomyY1rVJCnqr46gmYAAACKymGdnzq+vKWxFOF/PVQofmx3NvOGbulvxNGDRFbQrkz0davq6yWFG1vC/cN6r27yDkLiZoK/7rfMlvDI/vuneBcUXIMJZprsltdDwOZsCFYaMZtvArPbgRSQlJJ4s9Xbo76IZ1pkjv6csiagedJ5XZ9Y2a9JFLkvFGEfMYtJGqzx7nRGniS9p0ppm3slGVabdfYVtAwbOWvWcXWotVZmtTS39G4nzGq9UK1XWQW3eRIhZn977l+WoRvezhRNVVsJ+DzM9Kw8YAAAAAAAAAAAAAAAAAAAAAAAAAAABg8bMP15v9cDDOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMR80QfM1mS3gV09KplgDnnDqzYuxe6NkoiG1+Bcn6uOeW1a51Xp4zoYpWL/AEqpn/AEfwJ7eji70GP/AAmhFa3SqtJrVojSnzbwJaCmIHGt9XCCTvaeikEF2ayzdFBCvMuOr8TMgMU3ra9YW3J7gdKTUKjKILpJaWhWvkK5139AFtgoZbH99yb5b8BQ5PcdcVaFfD6Hny8UHFHCSKyPgVQKt7o+1JS67DbqwqHDHsW9Re0b0p4elNxVLaVwjuKrB5b7J9a98oq00WbNBem1Vx5ndTL+R1gYvF7LX1+Boa+XhdGgHux+apavTkDJAAj726WDC5mVuqr0RevkVV0NnxK5EgKQxwvO1rSn4el0Qbh8ksivpP2W5ZlXVpvoBd5SNMIL22l6ooYsyzGnh6M0EaZIlZrYz3vfkvWEt694KKZeRfPvyJZctvBex5S1ZKVcTN3I3E9lEUVqra1Vuj2gTLDy3JO1ILgEzNuJt9VdZarxbpVzJaAB+a0/2alaTkO4QxHRlHaOvGrstDPzFSzT81pTqOq0XaZQLC6IfxUCs3e0XQprV0EV/Ej/AFmaeLt1Kbu649Rd8jpLUpzC1UvF6i060y39VCC2XXO77mr1rEWjRzLZm21D7smlrffbMMyWkMkqZ61XuRNMPrlo/iHar5WqWyitWlVVlSMYg2gs7lVXiKD5bWplzCOZIcPLaRj4h4k9RWW2Vlq5pLokKfee7mTxJ4UfaVcpor9pMfr6DlNFftJj9fQcmIX9mMvqKDkxC/sxl9RQ9rA9F9uNmH64h9cOMWP64j9cYfJGD/ZbH6g85FW5+xmH1FAek2XGLL9aR+up2jjFl+tI/XU7TW8irc/YzD6ig5FW5+xmH1FAek2XD236yh9bQ94eh55L6TWcirc/YzD6ig5GW9+ym31IPSbThKPnRwlHzppuQdufspuOQdufspuDFLc8JR86OEo+dNNyDtz9lNxyDtz9lNwYpbrhKI4TQ0XIS360/wBllRD5JWtByIg/1Zx9et2g9JIdSg1KEe5Cw36uv76t2jkLDfq6/vq3aOjmK/tIdTZGpske5Cw36uv76t2jkNDebc++rdpExX9pDqUPdShHuRsZ5yR99W7RyMjPPy3vq/aW6GK/tspN+jHxzh44rTQRSrVT2FYRFyWm3uR2vtM9nSW0OCZIdPsJlJWpXYgpJu0XcLru0dLn1aq/zKtj7Cm15NZnRFCqzPQ1ufPHe3/CePw5ptm61fupQalDTPLaRfK0W4c/QrTzC2R8ORmz+2573w9nRgYr+0gz2fWe57PWR3kZT9tT3vlT5ci6/tud94BFNf2k+e16hnteoi/JJx8YZT6f9ByScfGGU+n/AEOvrTT+VKM9r1DPa9RFeTb/AOM0p/0ew+vJ+W+Mz36pHsDmmr8qS57XqGe16iNcn5r4yvfqEew94hmfjO593S7A5pr/AC/v+Nw9foMGay6/gUSEo4rsnC+jRkvn8uj2mwnIyUb2/J0Vkln2aNdJLRpuKaQiX2tocBX1vkDw33TDb8J8Movid0umaVzpSozNA8QuDaU2asXzJFDLwSyP4nx+BeHnIP8A6x7cMSaoSXMEZ2lru2ehrE7fsWVp+A2ZS6Mv9qFZ7Xybz/QGlJcxmRnj64fL23WvyTynYOU0mn/btuUr7NpGv4nzsg8rZPaUmyoMqEXpei2XO27LfUDlojTwsVLI+1mfTui1KMxmRnlzE06eHJ//ANM1uw/XLuBpTKr7ZS+4+dkOeUtSTZrmfGtaU8ZoX13RnF7xdk8QerII62iitnUqVG7EUJLWoycUR8zw1cjdbEPdwfC7r4nHw6AIdfmHjHEBFmi9lJdjoVz/AN1vNHMlSFeEJIrH3Ls6YxOHPWHVqM7K7oqSimbx8+R5P6+u+X1189enjLKva4oKjylrz8XL8CeI1proIr1Rr6q1R3kQi/0qpn/AEfwLqDjmPawhn+9HecHGUfKtFZLWhmS9ef0Ea7vp3U+Y2bGzpC8sUbSlE266DKFtlBB4sqjo1qtz1NH7zokAclq4ezdMJFsNqMXHHfKfLcju0P1j5A6kiY6kVGM2XTRFHRNgAAAAAAAa5eIZP1tZdmgtXR0eeRz3fObEAVzcWAGHdy5VcW4g3W88ypo1+4x8LMHGOFstK7UW9cOGb1FLLZXrvSyz7CzgAAAAA1U5Lt4KMXfPfAIB2Iy2NN9KV9pWlvxaz6+J1ejtdtRF3Tclu1qZExtSd5R2+zk9GqGvTPSqR+zf74XL8sSve/j5qi2E9yPQCsM8AAAAAAAAAAAAAAAAAAAAAAAAAAHwX8CRFna0kykVnvHS20svo61NGm/Imp+a0p1CFartUYe06D0AJAAAAAAAAAAA+SiezWhoeRcGgtwhGLb6xIfgj4J2epF1sdnuR6AcAAAeZU6hlTqPQB5lQZUPQB5lTqPzwdLzVD9gGWmlolGQjXbKnM1WR0aq6RTyViVWktGlH2j56rIvilaeIVpTx0I307e7R4Pil3DicfL4oU4Oigifh+34ezVQossjrJeGS6aewywWZ8zmcuecOrXXtXukZWLczT+dWrbutV4+WzW3ronQxSsX+lVM/wCAI/gTW+7qm7YZU4gtZ7cb3LUoklXSSSp66/gHE1BUtvY+QsrhxJXq8YLsuLFqoOGfj1ur7zNtvFOr26Iy3phgiyeSkZSUaVQWotSqNfI13dO6v0AWaCne/wCMeAcpOLNrkzxxxTw3W53p/OMvMlwIrUWpnQD9AAAAAAAAAAAAAPzWm4ru9K3DWkpTZi0F2VGS+itr7+jxljH5rSlTqtF2qcoThNrciGWujRDdzVPUaKLjHkrd9yUaSi7LSXpTmfYWWkgihsV0uohNl0zu66vlqfyItGm/O62Erg2C8eyog8fLvlqeWXNqAVZIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEMv607iudFmlAXg9t1RCuau0gjnr0JmAOecOISTtzujZFhMzK8295PV2uGr0yrlVam4n+LGJ8Zh9Dc+9SQk33NM6VrSvT5b2Eci/wBKqZ/wBH8C23ESxf059k3W+WRA5ylWEBcWAM9CYf8ADpKrJZFd4tpb3C+6q1afNvPsjCq3Pi3YbmPrRVuytNvsrLo18BWqK9KfTWtDoxBigy2eYQQR+RRy/ketmKCFOZRRR+SpkBx+rBPa4ErWRRHO4K3bocCp4Y63hWXF0OzZKb9BBFGvtpuMngKGtwjQR1vO5GSAAAAAAAAAAAAAAfmlaHp+aZVzypkRW571a25TNZi9eUp4WqCPwtGnrO4Uppm3pWlW1v2a19RWkC2kl70natHtEENlamsjVDw24m0HOM52JSfM65or9BF7N/vfdfXrIfyI3vZRmqq3KwAAVZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGI+RXXZLIM1dBaqWSS3TlUywBzzh1FTUR3SMo3uCb47fcna14RoaO7XQ8R0MUrF/pVTP+AI/gWNe95xdjQqs1KcI0EemqCOrUCSAiexiDD7FiI3o71mkbtNOGZK030pXxe0xIPEqMlpdCEWQcMnr1lxozRW8ugBNwVp377c+FwvRccW8acScZ+R1uwssAAAAAAAAAAAAAA/OW7IiF+z7GKjeArPW6Cz3mKVX8ZL/AIW7M07+2YaZV13ca3WV61kczqtE1Rbm1h2OhFoQDdCIWouzR5mi3Tq5EQi0Jhe8Lk4mWbo8/TV1qeMsRiwZR6FG7NBFFLLwVKERszfd91/LU/kReui73bEqgkZVBn/vRdBdf9xQ2oBVngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ6/GN8P0WdLMlIpgtTw/DkNb6CYgDnjDlC6EO6QlErtesX0lyd8MyRyRy10PETvugf/Zq6fkf/uoaGL/Sqmf8AR/AtSctuJuZlwGZYt36FfIrAUPe7JZ/3JMXstMlaoxjFdXry3ZmEsxfSmMeHnFtacxaSGt86K+R0JGW3FQ8ZWMjGCCDLLchSnMiKtiEgVFVYyMZMqrdNUEcs/oA5HWYPqdzatCaNeNOVvB9Dy2udewqSyEOxbrVpwhJBGipick4LjHjPitjw3w2vo7zegAAAAAAAAAAAAAAA1L2dYsFkG66/PrdCKO8ERlstqmVa19RWkFSZrek7xbwfR1qaut7CfRkszl2CT1ktRZFam6tCIWbT/jG6vUsh/Ilc0OH6VVuY/crAABVngAAAEbir1g5ifk7dZvqLycX+eo6QEkAAAAAACPxV6wU5PSkGyfbK0jD/naWn4LMCQAAAAAABHo27IqSuGTt1mrlJRdEVXqOnu56mdN4EhAAAAAACMxl4wkxcknbLJf/AHpF0SVeJUS68v8AQCTAAAAAABH2N1xT+5HtupOM5Nkiiuulp9FK/wBUAkAAAAAAARtle0G/up5azdelZNkjRddDS8QEkAAAAAADQIXdEPbkeWwk4pxmyRousjpeRru/EDfgAAAAABG0r0hVbsWtFJ9/vhFDhqqOj5H+q0AkhiPtfgavAtHX0uZ1ejP1mWAOecOKXNXujJHliky41rb1fzLPQ+DrUy6fnOhilYv9KqZ/wBH8CyriuuKtngOzJLUos9WogyQy51dbqoBIAaC3bmibsaLOoxxRbRWqgrTzK1P/ACb8AAAAAAAAAAAAAAAAD8V/s1KskKOK4u1ot4HivmfpLVy3GokoFlKqIuFqV10ehVLpodiXq4duqeqF4IUX5Kr1V8Fw1bR9mZ9axFzw1yybyLZIPkXlc+eXyJZSsZbUMpWuiyZs0tWvUjTeRKJxdhZR5Ap6LholcNFuLVlqeHy9Xi6SOha7m/2tttx0lr5a5cZkHyyEZZMEuz8Syz7pMPlVjz8QYL7Sp2lyAqz3PEHTHmJuabmuTLJxSR/5JeU5lD5HeSPlVjz8QYL7Sp2lyGnnptvbkWvJvaL1bo01drQSqrXICs+VWPPxBgvtKnaQ+3YzGm3r2n7qRsyIWcTmjroVe0yQy6t5cVn4iQl52pypY0WRjaa2etu3I131NXB4ywcs4hKbKK7dpP1XRjXi27X0enOn0gaHlVjz8QYL7Sp2jlVjz8QYL7Sp2m+nsYIODdTeztIPF0be0OM1kaZ0Q1+gnTGQbyzJF6yVos3XS1UVvFUChYOmO8Vc05NcmYtxST0ckF5PmEfkd5IuVWPPxBgvtKnaXIR+6bsb2pH0XVYvn66u5FkxRqsutX1UArvlVjz8QYL7Sp2kPt6Ixqtm8Z+6kbQiV3Fw1RqshV7+b5FoYf4zW/fSMpVNF9FLRdPyxF7TLQPzEYyQcstCUogugzuCq6UautTw+j01A0PKrHn4gwX2lTtHKrHn4gwX2lTtN9N4vwkS9uBtoPXqdvIorSSyHkc9/wCBNmMg3lmSL1ktRduujrIrAUTE0x3ibsmLh5MMF6SmjkxWk6aDfLdu3ki5VY8/EGC+0qdpchpbinKQTHaccCfP1q+Cbsks1lfUBWvKrHn4gwX2lTtItDR+NURek7eCVmQ6682kgiqhV9SlENGmVMizrBxfhr4WmEKsn0S8hvz1B7TKqP8AWRjxWMkHMrwtNhBZFnPqroRrxam5ZVGuW+ni30A0XKrHn4gwX2lTtHKrHn4gwX2lTtN9N4wwkC7uBDYbrPErfSRWklkPI63R928m0ZIIS0ag+ZLa6C6Osit1gUPF7GOzK65m4q2tHrUldH8iWk6aLfR6t/jJJyqx5+IMF9pU7S5ABTfKrHn4gwX2lTtIjDR+NcJe87d6NlxDh3NpopKo1fUyQ0qUpTL25FvW9iRB3LOT8RHL1U4iojRZevgd+fRX5q/QauIxnt6Y4mU2E1kY6ZXWaR7xanhlUa5dHipWueVesDR8qsefiDBfaVO0cqsefiDBfaVO0kU3i/CxEhOME2jx9tW+iktI1Qp4Cld9PbuJjFy7KdjG8oxWouyXS10VvUBRTDv7sLzkrnrbDBbh6KKFGK0nTRQy6t5IuVWPPxBgvtKnaXIaW6p5G1IB7Nu0l10WSNa1RR31V+YCteVWPPxBgvtKnaReLZ41sb5mLw2bLiaryiKCKzfhtMuZ6Mq5+MsCxsZW99SSzGlqz0Ui3Q11nD9DRRp855F4224/rGK7KK6EdMvVmLN9WmaKy2fj9oGo5VY8/EGC+0qdo5VY8/EGC+0qdpJJvFuIipKaZoovH1YBDXkqoU8DT8SXxcuynYxvKMVqLsl0tdFb1AUUwrjuxvOSuLkwwX4eiijRitJ0qgh7N5IuVWPPxBgvtKnaXIYb962iGar14ukg3RpqrLK9FKdYFT8qsefiDBfaVO0h8XE41RGIUxeSNlxPC5RFFBZCr3md2Xrz7C6bbvRC7kOGtGT5CNrSlUXi/M0XI6wxutyQ2o1eiS6EbKPFWLN6t4BZbP8Al0gajlVjz8QYL7Sp2jlVjz8QYL7Sp2kluTFqJgZOZYpMnj5eFZ8OkdHyCOWZLoOZZT8YzlIxai7J6jrIrddKgUSz2Md217vLn2rXYL0etKIUY1k6aCGXj6ekkfKrHn4gwX2lTtLkInft6s7EgdqVesXL3aqrRFFuz3rLewCD8qsefiDBfaVO0izRljSxvqTvLkXEVcSbNFjtIVe0ypSmXjzJrZ+OjG87k4j5OTsUto1X1nyOjzPWZbLHC3HyTJ7sovko6Sk+KkXtfA6/i/kBqOVWPPxBgvtKnaOVWPPxBgvtKnaSaexZioGYlIpFku9WhWXDnuj5FElsHMsrlh2cpGLa7J4lrIrddKgUSy2ceWN7vLnrazBxR6jRCjGsnzCGXjJHyqx5+IMF9pU7S5CNXxekXh/ALTkpraCG/JGm9WoEA5VY8/EGC+0qdpDmcRjSzxKe3zWy4mr14zoyq34bzNKUyyr05+It5hiWwc3Kjbrxm4YvV2XDkNby6Bqm+OFtr1Zu6JL8WPZOkUhJ+QWW/qlQNPyqx5+IMF9pU7Ryqx5+IMF9pU7SWT2KUVAzEnFIs13q8My4c80fIIkigp1jcsOzloxaizN6jrIV6wKow9tK/HeLb297uhWEVsrRlGVEUF9born+Bi4s6/f7wy1s+Bay+j1a39ZF7kfuC1Iq5km9JJCi/AlddutTwqC3XT6QKqwL4b3zcVcvg8E463fLZrZ/gXqaC3bZibTaLNYxvRHWWqurXzy1f/BvwAAAAAAAAAAAAAAAAAAAhGMDB5KYX3MxZUpVZZkvSlDnpZm9lIXAxlG/7KtFtfPzPP03/wBdR14aJhaUJEvFn7KKYt3q/SuigBvQAANBeX9zJz/DXP8Ak1N+a+UiY+dZVZSaFF0FulFYDn3Cxg9lu5UlWLLe7XRfZesiqLFeVszA9kzrSi1Hq/8AnnUEFaUJbDdZCHi27FFam9FCmR4wtKDipDhzKJYt1608MijlUDmJdm8i7Xx1ZO963DEF86ePn8zoPB9g8i8L7ZYvaUosiyQpWnUbp/acHKu0nzyKYuHFPLLI7zegDR3hdkZZcEtNTK2ggj99TeGiuC0oK7EUkJqLbvkka5pUXSzyAo2EbwU7amILiHlW0rdtwMl3zxFn5BHooh9+XzkMXYvZWxsEGTP894av0+LnzqO3bKty1FFl4SEYxiy+9ardLLP6D9sbSg2DvhzOKYN3vn0UQObUUl4yLx0ZSNaVeZa+fXTf/oXtgvHu4rDC2WT2nPosqUrT+vabuVtODlniL17FMHDinllkc6m9AGnm52KiNFB7Jt2S7yuihrK5Z1NwaeateDuRJJGai2T9JLelRdLP4IFBxlt3LFTuKVscJ48q+jOHUfaPPVX8SHr6fuIhwBxLYX4KsoytOGcaL/551pFxLCIR0Yxkg3Q6kTCZ2jBspGsoyimKD2tPD0RyqBzOqyXjkMfEHddJatG6+zl489cvfBFk7i8K7ZYvNy9GfR1dRIJK0oOXdUevolg8cZeGXRzyN6AIBik+nG0ayQhoV/LILr0o9oxWyWoj6ifgDlGwXElJz+LUa0tpZiu/Z/B0K9LHmFska+LfWuRpeAPZbCXB1kypm7rNL5U/j1OsY+24mLkXsqyYIIPX2Wusl0rHyRtKDYyNZRCKYoPfP0R3gc6t260Otj23kFfhOHCGvTV3/CRrr9pdGBjJ1GYT20yd0yWoz6OrqoSGVtOEnHaLh9FMXK6HllkDegCvsXoaDm7bQjbhuatutVniNKOEVqI1XW6sywTUzUDEXMy4HMxiD9vXyK6OdAKOZ21etqSUzZKVwuLihpOAcLoLr155Bfo/r2lfLsF3+B+F8Uy3veUK6Gj/AB1zriLgouBQ0Ipi3ZJdSKWRho2lBt5HjRGKYovvP0R3gc5uWa7SYx5Rd8zRZjr0rTq31/EurApksxwltlu6S0VqMqbvHQkUraMHOq60nFMXy3WuibwAUn3WHDe9hTgmvwLhqPDdHzP/AJyLsMR6xRfIKt3CKLhFam9Jam6oHPSylwsb9e2TDyj+ThJS2aqoIOV9bQ5nKn0/iQFVg9kMEsN4tohXhnKBdDRp0569f9DreFtmFgKK8VxbdjrdOilkfJG0oNjI1lEIpig98/RHeBz1tt1oS5sbUZLcurF8IS9aG/toW53P8e6i8JYBF5TJWqGrl1UqS6UtiEnlklpOLZPVkejaXRzy+k24Ax1kEfGZAAp2Lau71rf1xtcq7aqS8HE/IoUr/wDdmUy4YLv+58sqKY//AJPlRoaH7/nzriKiWUQzRYsUEGSCPQgj0UMNG0YNGR40RimNHtfL0R3gc9umC8TfmM9HfSvAVcJ+zLd95a3c/R60fhDb6LpKqKmjrUpX29JLpW0oSfWRWk4ti9WR6KrIm73JUA9Kl7ol7GtcNlkZSNq+4auigju8CtXPJb5i2jDfsGUs0VZPW6K6C1OdRV30rQDmW2LbuCxMSHloPXHKGr2316Rj3Pn2SBE3Ee8cYBWZFIJZvaXYshRD189n+J11FWpCQCyy8XFtmSq39raRSyPmjaMGjI8aIxTGj2vl6I7wKDSRUgr9xo4xplVaD10q9aOjX8Miw+5vZPInCWFQf1pqraqyNP3Oe4nsracJPLIrScUxerI9G0sjSpt9yVAPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGL2nJSAg+GwkZxq9WWRRSb6uVK51K5u/Gm57Ku+Htd7b0Su7mKI0SUQfLZJZ1yrnSqG/5i7Tl/uhf/f3Dz+B/ngXbb9wXQ5uJ5Dz0Sybt0kKLt3jNaquv81egmZDsWZx5auHs/NxuXDG7OtUa9Vf6qUdYNsXhclpWpdNvuYpnJorLLPZJd6trPt9eZX3eP2+Knzh1EeatDme5I+r7uqmULw18gyfMtZZFBaqOtXQXMHDe3WL/ABDxHtZdZ/W3mOssixo8Woh0gdTg5RwXfvX/AHPF61ePV1+BUX0Oe8BzBgsoRGX7mNW6Hr58vNM1q6L1Z4tzHP06PpA68ByXeGJFwSFh4aJPHG0ihN75Jaq2jVaiC9N34lpWjY9wwV3S6y3FrK2JRllxMk7qrVFfLyNMqAXEDkrufbMritZ1wMLgmperNF6ho6LzoJ7d7NvtYpsoleS5RpcWaCNv18h+/XWAvWq6KKGrnkn05kcsy8Yu9GTx9EL7K7NB4qhq06Fq06jn3BB4rcuBd6xkyssukyovRGutv8B0G17nG2otbB6Sm1Uc3teGoVrVXxZAdJg44t1+9V7mK6Hy757tPG8qhora1dZHwBK8S5Ff/wBMVsynDXHDKUb116rc94/GB04Ck7PsRFhbULiWvKSr+ZZQmvo8N5hfmCtcPIm5sU7FkpNmuypc1JOq/HKrzJdHLxdG5H1e3pA62IY9vSmzeCNqxCNHslo0We1rXJFkj0b/AGkhiOFcVNOHcH4Xo87oeBz7Cju54VXlsQcTpN4r+WUf7KFKeyqwEtv2SxCZXIjsQLdesPVBDa2lqpI1QpXX5/Wz30po9GR8rXuW9sTNtzM2+9ZQVtUVqizVXZay72lPL7+gsK6WKsjbcmyb1yXXZrIpfPTLsIH3OUohIYWRrFvX4LyL1WLxKvSivSueX9dYGZA3LdzC9ULWn0GDhFZks9RlGddKq3qqj1m12r7QiLwRtiZS4Mq93xrjyC+/wOda+G6Taqy0LW5UYrWbqzVEKrfBrlrJIdZT3dcrLR8DbEszWqg9ZymaOXXkB0AD4IeBQPuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAri6sGLdvG4GNyyT+Zo+bZcH2knOWl4924ACbuIxF3E7ce/pR6jto6S9FfK09f3kBtnA+17UkNrYjn09wNRaq1YtR5mxz+SyyqABnucJoNxfyd6VdydZdvTm6VX5mnqyyPjD4RQcBcUtLtX0rR/Pa1HStV+neABHpPDCEw0wlvTYhFn1WztmurVJwrqUpXL1kRwOw6i7+wYZoyr+V2WW29W4QyRX+Cirz27cABcF1YVWpddvMrbko3ZoyZ/mdEq5aG7xH4tvDxjbrTbbIy04+Xoho0ev3lVVm9MvJVrTcAB+cOcKYHDJu82oBZ/Ru9rRVVJyrq0zyMGWwcteTvde71FZZGV2Uee2WzqqaSu7x5UzAA+1l4M2vYLeSjY2j1ZpKb1my61apfQfWxMLoKwW6jOKdSi7B3T/YZPV9ZFL2UqABGW/c42QhHOInhE7xZILa2yxo8rRFKvqob2SwUtyZs5pZTl3KVjGNKaezr7/pAAltuWy3tmCawbdZVZq2Q0diiu+uRAEcB7Og5V0/jHM7GoqU/KGTJ5VJBX20oABZ7dskilRs3ppJpbqUoVI0gUMPsZFJFltV22V6bFKKt+jRVpv8AhU9W8AC4yu5nCm2JGbdTKe3LRMgp+cLRbuqNVfaABu7VseCstqsrEM6UUUzq4cL1qo4W9qld5Br5h0MSsTIK2n9a7EfA7e3JONjP852tncnT5s94AFxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//9k=" alt="panel F9"><figcaption class="cap">F9</figcaption></figure>
+</div>
+<div class="key"><h5>key &mdash; what the evidence permits</h5>Putting the two steps together: S1 (the sintering condition, ~1600 C, already identified as giving the highest flexural strength, ~465 MPa) is also the specimen shown in F9 to retain high toughness and strength across the RT-to-800 C service-temperature range -- K_IC only falls from 5.6 to 5.1 MPa m^1/2 (an 8.7% drop) and flexural strength stays within 462-545 MPa over that range. So the sintering condition that gave the best room-temperature strength also shows only modest degradation in K_IC and flexural strength when tested up to 800 C.</div>
+<div class="lim"><h5>limits</h5><ul>
+<li>F9&#x27;s temperature sweep (RT to 800 C) was run only on S1; no other sintering-temperature specimen was tested across this service-temperature range, so there is no comparison to know whether this retention is special to the 1600 C condition or would occur regardless of sintering temperature.</li>
+<li>The previous step&#x27;s variable (sintering temperature, a processing variable) and this step&#x27;s variable (test/service temperature, RT to 800 C) are different axes; treating S1&#x27;s good high-temperature behavior as a consequence of its sintering temperature conflates the two.</li>
+<li>Only one specimen composition/condition is represented in F9, so this is a single trend line, not an ordering across conditions.</li>
+</ul></div>
+<div class="ni"><b>not identifiable</b>whether S1&#x27;s modest property loss from RT to 800 C is attributable specifically to being sintered at 1600 C, versus being a behavior common to the material regardless of sintering temperature -- cannot be separated because only S1 was tested across the service-temperature range</div>
+<p class="qty"><b>handoff:</b> S1 (the top sintering condition from step 1, ~465 MPa at RT) maintains K_IC &gt;= 5.1 MPa m^1/2 (down 8.7% from RT) and flexural strength &gt;= 450 MPa (462-545 MPa) across RT to 800 C, per F9.</p>
+<p class="qty">&mdash; carrying: This retention is documented only for S1; other sintering-temperature conditions have not been shown to behave the same or differently at elevated temperature.</p>
+<p class="qty">&mdash; carrying: Sintering temperature and service temperature are separate variables; the handoff should not imply that sintering at 1600 C causes better high-temperature retention, only that the specimen sintered at 1600 C happens to show this retention.</p>
+</div>
+</div>
+<div class="panel" role="tabpanel" id="panel-graph" aria-labelledby="tab-graph" hidden>
+<svg viewBox="0 0 1680 1014" class="gsvg" role="img" aria-label="argument graph">
+<text x="60" y="28" class="gcol">HYP</text>
+<text x="210" y="28" class="gcol">DES</text>
+<text x="360" y="28" class="gcol">PRC</text>
+<text x="510" y="28" class="gcol">STR</text>
+<text x="660" y="28" class="gcol">PRP</text>
+<text x="810" y="28" class="gcol">MEC</text>
+<text x="960" y="28" class="gcol">PRF</text>
+<text x="1110" y="28" class="gcol">DSC</text>
+<text x="1260" y="28" class="gcol">OBS</text>
+<text x="1410" y="28" class="gcol">KNW</text>
+<line x1="112" y1="54" x2="56" y2="100" class="ge"/>
+<line x1="112" y1="100" x2="206" y2="54" class="ge"/>
+<line x1="112" y1="100" x2="206" y2="100" class="ge"/>
+<line x1="262" y1="54" x2="356" y2="54" class="ge"/>
+<line x1="262" y1="100" x2="356" y2="54" class="ge"/>
+<line x1="412" y1="54" x2="506" y2="54" class="ge"/>
+<line x1="412" y1="54" x2="506" y2="146" class="ge"/>
+<line x1="412" y1="54" x2="506" y2="238" class="ge"/>
+<line x1="562" y1="192" x2="656" y2="54" class="ge"/>
+<line x1="712" y1="54" x2="656" y2="192" class="ge"/>
+<line x1="862" y1="54" x2="506" y2="192" class="ge"/>
+<line x1="562" y1="100" x2="806" y2="54" class="ge"/>
+<line x1="712" y1="100" x2="206" y2="146" class="ge"/>
+<line x1="712" y1="146" x2="206" y2="146" class="ge"/>
+<line x1="712" y1="192" x2="206" y2="146" class="ge"/>
+<line x1="262" y1="146" x2="956" y2="54" class="ge"/>
+<line x1="1012" y1="54" x2="1106" y2="54" class="ge"/>
+<line x1="712" y1="54" x2="1106" y2="54" class="ge"/>
+<line x1="712" y1="238" x2="956" y2="54" class="ge"/>
+<line x1="862" y1="100" x2="956" y2="54" class="ge"/>
+<line x1="562" y1="54" x2="506" y2="192" class="ge"/>
+<line x1="562" y1="238" x2="506" y2="192" class="ge"/>
+<line x1="562" y1="146" x2="656" y2="100" class="ge"/>
+<line x1="562" y1="54" x2="656" y2="100" class="ge"/>
+<line x1="712" y1="54" x2="656" y2="146" class="ge"/>
+<line x1="562" y1="146" x2="656" y2="146" class="ge"/>
+<line x1="1462" y1="54" x2="806" y2="54" class="ge"/>
+<line x1="1462" y1="100" x2="656" y2="146" class="ge"/>
+<line x1="1462" y1="146" x2="506" y2="192" class="ge"/>
+<line x1="1462" y1="192" x2="656" y2="54" class="ge"/>
+<line x1="1312" y1="54" x2="506" y2="54" class="ge"/>
+<line x1="1312" y1="100" x2="506" y2="100" class="ge"/>
+<line x1="1312" y1="146" x2="506" y2="54" class="ge"/>
+<line x1="1312" y1="238" x2="506" y2="54" class="ge"/>
+<line x1="1312" y1="192" x2="506" y2="238" class="ge"/>
+<line x1="1312" y1="284" x2="506" y2="146" class="ge"/>
+<line x1="1312" y1="330" x2="506" y2="146" class="ge"/>
+<line x1="1312" y1="652" x2="506" y2="146" class="ge"/>
+<line x1="1312" y1="376" x2="656" y2="100" class="ge"/>
+<line x1="1312" y1="422" x2="656" y2="146" class="ge"/>
+<line x1="1312" y1="468" x2="656" y2="192" class="ge"/>
+<line x1="1312" y1="560" x2="506" y2="192" class="ge"/>
+<line x1="1312" y1="606" x2="506" y2="192" class="ge"/>
+<line x1="1312" y1="744" x2="506" y2="192" class="ge"/>
+<line x1="1312" y1="560" x2="656" y2="54" class="ge"/>
+<line x1="1312" y1="606" x2="656" y2="54" class="ge"/>
+<line x1="1312" y1="698" x2="656" y2="54" class="ge"/>
+<line x1="1312" y1="744" x2="656" y2="54" class="ge"/>
+<line x1="1312" y1="790" x2="656" y2="54" class="ge"/>
+<line x1="1312" y1="836" x2="956" y2="54" class="ge"/>
+<line x1="1312" y1="882" x2="656" y2="238" class="ge"/>
+<line x1="1312" y1="928" x2="656" y2="238" class="ge"/>
+<line x1="1312" y1="928" x2="806" y2="100" class="ge"/>
+<line x1="1312" y1="514" x2="656" y2="146" class="ge"/>
+<line x1="412" y1="54" x2="506" y2="100" class="ge"/>
+<line x1="1312" y1="238" x2="506" y2="100" class="ge"/>
+<line x1="562" y1="100" x2="506" y2="192" class="ge"/>
+<line x1="562" y1="100" x2="656" y2="100" class="ge"/>
+<g class="gn"><title>PcBN tools see local temperature rise in cutting, so binders must keep strength and toughness hot</title><rect x="56" y="41" width="56" height="26" rx="7"/><text x="84" y="58">n1</text></g>
+<g class="gn"><title>The binder system controls sintering, microstructure and mechanical properties of SPS-sintered PcBN</title><rect x="56" y="87" width="56" height="26" rx="7"/><text x="84" y="104">n2</text></g>
+<g class="gn"><title>Three binder systems for cBN: S1 SiAlON-forming, S2 Al2O3-ZrO2, S3 Ti/Al metal binder</title><rect x="206" y="41" width="56" height="26" rx="7"/><text x="234" y="58">n3</text></g>
+<g class="gn"><title>Sintering temperature 1400-1600 C for S1 and S3, 1550-1700 C for S2</title><rect x="206" y="87" width="56" height="26" rx="7"/><text x="234" y="104">n4</text></g>
+<g class="gn"><title>Sample S1 (1600 C) chosen for 400-800 C tests for its best room-temperature properties</title><rect x="206" y="133" width="56" height="26" rx="7"/><text x="234" y="150">n15</text></g>
+<g class="gn"><title>Spark plasma sintering of cBN with each binder at the set temperature</title><rect x="356" y="41" width="56" height="26" rx="7"/><text x="384" y="58">n5</text></g>
+<g class="gn"><title>S1 and S3 binders react during sintering, forming SiAlON (S1) and TiN, TiB2, AlN, AlB2 (S3)</title><rect x="506" y="41" width="56" height="26" rx="7"/><text x="534" y="58">n6</text></g>
+<g class="gn"><title>S2 binder does not react: only alpha-Al2O3, ZrO2 and cBN remain at 1550-1700 C</title><rect x="506" y="87" width="56" height="26" rx="7"/><text x="534" y="104">n21</text></g>
+<g class="gn"><title>Porosity falls with sintering temperature; S1 and S2 densify below 1%, S3 keeps ~7.7%</title><rect x="506" y="133" width="56" height="26" rx="7"/><text x="534" y="150">n8</text></g>
+<g class="gn"><title>cBN/binder bonding is strong in S1 (SiAlON) and weak in S2 (Al2O3) and S3</title><rect x="506" y="179" width="56" height="26" rx="7"/><text x="534" y="196">n9</text></g>
+<g class="gn"><title>In S3 part of the cBN transforms to hBN at 1500 C and above</title><rect x="506" y="225" width="56" height="26" rx="7"/><text x="534" y="242">n7</text></g>
+<g class="gn"><title>Fracture mode: S1 mixed trans/intergranular; S2 intergranular along cBN/Al2O3 interfaces; S3 through the binder with pullout</title><rect x="656" y="41" width="56" height="26" rx="7"/><text x="684" y="58">n11</text></g>
+<g class="gn"><title>Hardness rises with sintering temperature; maxima S1 15.6 &gt; S2 14.8 &gt; S3 14.1 GPa</title><rect x="656" y="87" width="56" height="26" rx="7"/><text x="684" y="104">n12</text></g>
+<g class="gn"><title>Flexural strength generally rises with sintering temperature; S1 at 1600 C is highest at ~465 MPa</title><rect x="656" y="133" width="56" height="26" rx="7"/><text x="684" y="150">n13</text></g>
+<g class="gn"><title>Fracture toughness: S1 at 1600 C highest ~5.6 MPa m^1/2; S3 ~3.7-4.0; S2 at most ~3.5</title><rect x="656" y="179" width="56" height="26" rx="7"/><text x="684" y="196">n14</text></g>
+<g class="gn"><title>S1 keeps cBN pullout and brittle SiAlON fracture at 400-800 C, as at room temperature</title><rect x="656" y="225" width="56" height="26" rx="7"/><text x="684" y="242">n20</text></g>
+<g class="gn"><title>cBN/Al2O3 thermal-expansion mismatch leaves residual and thermal stress at the interface, weakening S2 bonding</title><rect x="806" y="41" width="56" height="26" rx="7"/><text x="834" y="58">n10</text></g>
+<g class="gn"><title>Softening of SiAlON and weaker grain-boundary bonding at high temperature slightly lower K_IC</title><rect x="806" y="87" width="56" height="26" rx="7"/><text x="834" y="104">n17</text></g>
+<g class="gn on"><title>S1 keeps K_IC &gt;= 5.1 MPa m^1/2 (8.7% below RT) and flexural strength &gt;= 450 MPa up to 800 C</title><rect x="956" y="41" width="56" height="26" rx="7"/><text x="984" y="58">n16</text></g>
+<text x="984" y="80" class="gstep">step 2</text>
+<g class="gn"><title>The SiAlON-forming binder gives the best densification, interface bonding and RT-800 C strength and toughness of SPS PcBN</title><rect x="1106" y="41" width="56" height="26" rx="7"/><text x="1134" y="58">n18</text></g>
+<g class="gn"><title>Pattern (a): reflections indexed to Si4Al2O2N6 and Si1.8Al0.2O1.2N1.8 alongside alpha-Al2O3 and cBN</title><rect x="1256" y="41" width="56" height="26" rx="7"/><text x="1284" y="58">o1</text></g>
+<g class="gn"><title>Pattern (b): only alpha-Al2O3, cBN and ZrO2 reflections at every temperature 1550-1700 C, no new peaks</title><rect x="1256" y="87" width="56" height="26" rx="7"/><text x="1284" y="104">o2</text></g>
+<g class="gn"><title>Pattern (c): reflections indexed to TiB2, TiN, AlN and AlB2 besides cBN</title><rect x="1256" y="133" width="56" height="26" rx="7"/><text x="1284" y="150">o3</text></g>
+<g class="gn"><title>Pattern (c): hBN marker near 26 deg appears at 1500 and 1600 C, absent at 1400 C</title><rect x="1256" y="179" width="56" height="26" rx="7"/><text x="1284" y="196">o4</text></g>
+<g class="gn"><title>EDS points: dark grains ~49-52 wt% B, 48-51 wt% N; binder points rich in O-Al-Si-Y (a), O-Al-Zr (b), Ti 45-65 wt% (c)</title><rect x="1256" y="225" width="56" height="26" rx="7"/><text x="1284" y="242">o6</text></g>
+<g class="gn"><title>Apparent porosity falls with temperature: S1 8.7 to 0.4%, S2 7.9 to 0.7%, S3 11.2 to 7.7%</title><rect x="1256" y="271" width="56" height="26" rx="7"/><text x="1284" y="288">o7</text></g>
+<g class="gn"><title>Bulk density rises with temperature to ~3.34 (S1), 3.61 (S2), 3.49 g/cm3 (S3)</title><rect x="1256" y="317" width="56" height="26" rx="7"/><text x="1284" y="334">o8</text></g>
+<g class="gn"><title>Hardness rises with temperature in all three series: S1 9.3 to 15.6, S2 9.4 to 14.8, S3 9.0 to 14.1 GPa</title><rect x="1256" y="363" width="56" height="26" rx="7"/><text x="1284" y="380">o9</text></g>
+<g class="gn"><title>Flexural strength: S1 ~165, 188, 465 MPa (1400-1600 C); S3 ~170-195 flat; S2 ~80, 98, 170, 145 MPa</title><rect x="1256" y="409" width="56" height="26" rx="7"/><text x="1284" y="426">o11</text></g>
+<g class="gn"><title>K_IC: S1 ~2.4, 2.9, 5.6; S3 ~3.7, 3.95, 3.95; S2 ~2.1, 2.0, 3.0, 3.5 MPa m^1/2</title><rect x="1256" y="455" width="56" height="26" rx="7"/><text x="1284" y="472">o12</text></g>
+<g class="gn"><title>S2 flexural strength drops from ~170 (1650 C) to ~145 MPa (1700 C) while its porosity keeps falling</title><rect x="1256" y="501" width="56" height="26" rx="7"/><text x="1284" y="518">o13</text></g>
+<g class="gn"><title>Panel (a): boxed cBN grains and SiAlON regions show cleaved facets and no gaps at their boundaries</title><rect x="1256" y="547" width="56" height="26" rx="7"/><text x="1284" y="564">o14</text></g>
+<g class="gn"><title>Panel (b): a protruding cBN grain beside a deep ~2 um socket; Al2O3 grains show clean faceted faces</title><rect x="1256" y="593" width="56" height="26" rx="7"/><text x="1284" y="610">o15</text></g>
+<g class="gn"><title>Panel (c): rough fracture surface with a few dark cavities between grains</title><rect x="1256" y="639" width="56" height="26" rx="7"/><text x="1284" y="656">o16</text></g>
+<g class="gn"><title>Panels (a,d): crack edge cuts straight across dark grains and bright binder alike</title><rect x="1256" y="685" width="56" height="26" rx="7"/><text x="1284" y="702">o17</text></g>
+<g class="gn"><title>Panels (b,e): crack zig-zags around grain edges (dotted trace) with grains standing proud</title><rect x="1256" y="731" width="56" height="26" rx="7"/><text x="1284" y="748">o18</text></g>
+<g class="gn"><title>Panels (c,f): crack runs along the rim of a large particle through the binder (dotted trace)</title><rect x="1256" y="777" width="56" height="26" rx="7"/><text x="1284" y="794">o19</text></g>
+<g class="gn"><title>K_IC (red, left axis) ~5.6 to 5.1 MPa m^1/2 and sigma (black, right axis) 462-545 MPa from RT to 800 C</title><rect x="1256" y="823" width="56" height="26" rx="7"/><text x="1284" y="840">o20</text></g>
+<g class="gn"><title>Fracture surfaces at 400, 600, 800 C show faceted grains and pullout sockets, like RT surfaces</title><rect x="1256" y="869" width="56" height="26" rx="7"/><text x="1284" y="886">o21</text></g>
+<g class="gn"><title>Crack paths tortuous at 400 and 600 C; straight (dotted line) at 800 C</title><rect x="1256" y="915" width="56" height="26" rx="7"/><text x="1284" y="932">o22</text></g>
+<g class="gn"><title>CTE of cBN (1.2-3.4)e-6 /K vs Al2O3 7.2e-6 /K</title><rect x="1406" y="41" width="56" height="26" rx="7"/><text x="1434" y="58">k1</text></g>
+<g class="gn"><title>Mixed inter/transgranular fracture balances boundary strengthening and grain weakening for optimal strength [29]</title><rect x="1406" y="87" width="56" height="26" rx="7"/><text x="1434" y="104">k2</text></g>
+<g class="gn"><title>hBN is a soft, weakly bonded layered phase that weakens interfaces it forms at</title><rect x="1406" y="133" width="56" height="26" rx="7"/><text x="1434" y="150">k3</text></g>
+<g class="gn"><title>Fractography: clean grain faces and pullout sockets mean intergranular; cleaved grains on the crack path mean transgranular</title><rect x="1406" y="179" width="56" height="26" rx="7"/><text x="1434" y="196">k4</text></g>
+</svg>
+</div>
+<div class="panel" role="tabpanel" id="panel-prov" aria-labelledby="tab-prov" hidden>
+<div class="audit"><b>Audit only &mdash; never shown to a solver.</b><table><thead><tr><th>item</th><th>hop</th><th>stage type</th><th>figures</th></tr></thead><tbody>
+<tr><td>journal_of_a_M2_M5_s2</td><td>M5</td><td>Properties → Performance</td><td>F9, F10, F11</td></tr>
+</tbody></table></div></div>
+</div><script>const tabs=[...document.querySelectorAll('[role=tab]')],ps=[...document.querySelectorAll('[role=tabpanel]')];
+function show(id){tabs.forEach(t=>{const on=t.id==='tab-'+id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1});
+ps.forEach(p=>{p.hidden=p.id!=='panel-'+id})}
+tabs.forEach(t=>t.addEventListener('click',()=>show(t.id.slice(4))));
+document.querySelector('[role=tablist]').addEventListener('keydown',e=>{
+const i=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');let n=null;
+if(e.key==='ArrowRight')n=(i+1)%tabs.length;else if(e.key==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;
+if(n!==null){show(tabs[n].id.slice(4));tabs[n].focus();e.preventDefault()}});</script></body></html>

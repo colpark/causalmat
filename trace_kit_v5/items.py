@@ -186,16 +186,24 @@ def _obj(txt):
             depth -= 1
             if not depth: out.append(txt[start:i + 1])
     for o in sorted(out, key=len, reverse=True):
-        try:
-            j = json.loads(o)
-            if 'labels' in j or 'proposition' in j: return j
-        except Exception: continue
+        for cand in (o, re.sub(r',(\s*[}\]])', r'\1', o)):
+            # the second candidate strips trailing commas. One drafter reported having fixed a
+            # stray trailing comma in its own JSON and had in fact left one in, so a reply that
+            # says it is valid is not evidence that it is.
+            try:
+                j = json.loads(cand)
+                if 'labels' in j or 'proposition' in j: return j
+            except Exception: continue
     return None
 
 
 def collect():
     IT = json.load(open(os.path.join(ROOT, 'results/v5/items.json')))['items']
-    byhand = {(v['paper'], v['from_step']): (k, v) for k, v in HAND.items()}
+    # several hand keys can target one (paper, step): Biomaterials step 2 carries both the
+    # texture/inventory item and the dose-response item, because the brief branches that step.
+    # A plain dict here kept only the last and silently dropped biomat_texture_inventory.
+    byhand = collections.defaultdict(list)
+    for k, v in HAND.items(): byhand[(v['paper'], v['from_step'])].append((k, v))
     n_hand = n_draft = n_fail = 0
     for it in IT:
         f = os.path.join(ROOT, 'results/v5/draft', it['item'] + '.out.txt')
@@ -207,9 +215,9 @@ def collect():
     # hand keys replace the draft on their item, and are added where no item matched
     used = set()
     for it in IT:
-        hit = byhand.get((it['paper'], it['step']))
-        if hit and hit[0] not in used:
-            k, v = hit
+        pool = [x for x in byhand.get((it['paper'], it['step']), []) if x[0] not in used]
+        if pool:
+            k, v = pool[0]
             it['key'] = {'drafted': False, 'hand_calibrated': k, 'proposition': v['key'],
                          'limits': v['limits'], 'not_identifiable': v.get('not_identifiable'),
                          'permitted': v['permitted'], 'not_permitted': v['not_permitted'],
