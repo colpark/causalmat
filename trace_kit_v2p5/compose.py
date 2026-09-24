@@ -145,21 +145,28 @@ def build():
     # first, writing that the routes "share the same core charge-transfer figures rather than being
     # fully disjoint measurements".
     #
-    # Independence is now tested on PANELS, which is what a route actually rests on.
+    # Panels were not enough either. Of the 6 claims the panel test produced, 4 still drew on
+    # different panels of the SAME FIGURE -- which in these papers usually means one experiment on
+    # one set of samples. A judge caught this level too, writing that two routes "draw on the same
+    # underlying experiment and same five surfaces". Independence is therefore tested on FIGURES.
+    #
+    # The cascade is worth recording: node ids disjoint gave 24 claims, panels disjoint gave 6,
+    # figures disjoint gives 2. Each test I wrote was too weak, and each time the auditor said so
+    # before I checked.
     conv = []
     for (paper, cc), items in concl.items():
         if len(items) < 2: continue
         pan = {}
         for k in items:
             it = byitem[k]
-            pan[k] = {p['suffix'] for p in (it.get('panels') or []) if p.get('suffix')}
+            pan[k] = {p['suffix'][:2] for p in (it.get('panels') or []) if p.get('suffix')}
         indep = [k for k in items]
         pairsok = [(a, b) for i, a in enumerate(indep) for b in indep[i + 1:]
                    if pan[a] and pan[b] and not (pan[a] & pan[b])]
         if pairsok:
             conv.append({'paper': paper, 'claim': cc, 'routes': items,
                          'independent_route_pairs': len(pairsok),
-                         'independence': 'disjoint panels'})
+                         'independence': 'disjoint figures'})
 
     res = {'backbone': [b['_item'] for b in bb], 'attachments': att,
            'joins': final, 'rejected': rejected,
