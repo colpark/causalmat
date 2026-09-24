@@ -1,0 +1,980 @@
+{
+ "note": "v2.6 step 4. One net-judge call per join, two texts only.",
+ "joins": 135,
+ "ruled": 135,
+ "unruled": [],
+ "verdicts": {
+  "incompatible": 12,
+  "supports only narrower": 19,
+  "supports": 104
+ },
+ "mismatch": {
+  "quantity": 19,
+  "scope": 8,
+  "none": 104,
+  "sample": 3,
+  "state": 1
+ },
+ "by_shared_obs": {
+  "True": {
+   "supports": 103,
+   "supports only narrower": 15
+  },
+  "False": {
+   "supports only narrower": 1,
+   "incompatible": 2
+  },
+  "None": {
+   "incompatible": 10,
+   "supports only narrower": 3,
+   "supports": 1
+  }
+ },
+ "seams": {
+  "acta_materia_M1_M2_M3_s2__acta_materia_M1_M2_M3_s3": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 establishes a correlation between yield stress and nanoplate density across heat treatments ('move together... consistent with a strengthening contribution'). TEXT 2 concerns orientation-dependent yield stress values for [11-20]/[01-10] versus pure Mg single crystal ('~145-165 MPa... 11x'), a different quantity and scope entirely, with no orientation data in TEXT 1.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "advanced_ene_M1_M2_M4_s2_1__advanced_ene_M1_M2_M4_s2_2": {
+   "verdict": "supports only narrower",
+   "mismatch": "scope",
+   "why": "TEXT 1's own qualification says DFT models 'generic N-doped graphene' and 'they do not specify or isolate a pyridinic-N configuration,' only 'consistent with, but do not specifically isolate' the mechanism. TEXT 2 asserts as given that bonds 'form at pyridinic-nitrogen sites,' a specificity TEXT 1 explicitly disclaims.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "advanced_ene_spi_o4_o5__advanced_ene_M1_M2_M4_s2_2": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 concerns DFT charge-transfer magnitude co-occurring with a charge hotspot ('more negative charge transfer... -0.032 to -0.037 e'), not bond formation or nitrogen speciation. TEXT 2 asserts 'Zn-N bonds form at pyridinic-nitrogen sites, moving their chemical state toward graphitic nitrogen' upon plating -- an unrelated claim about chemical state/bonding, not charge-transfer magnitude.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "advanced_ene_spi_o14_o17__advanced_ene_M1_M2_M4_s3": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 concerns SEM morphology and plateau voltage gap for zinc on CnC HS vs C HS hosts; TEXT 2 concerns DFT adsorption energy of zinc on N-doped vs pristine graphene. Different materials, different quantity ('plateau separation... voltage' vs 'exothermic... eV'), and different experiment entirely; TEXT 1 does not bear on TEXT 2.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "bioactive_ma_M5_M7_s2_1__bioactive_ma_M5_M7_s2_2": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the sustained NO delivery from PPAmF was 'established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm)', directly matching TEXT 2's claim that PPAmF 'prolongs NO release beyond 8 h, versus ~1 h for PPAm'; qualifications target the downstream platelet-effect linkage, not this premise.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "bioactive_ma_com_o11_o12_n18__bioactive_ma_M5_M7_s2_2": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 concerns platelet adhesion counts and SEM morphology ('~5x1e2 cells/mm2', 'few round, unspread platelets') on BVLD/NO-PPAmF; TEXT 2 concerns NO release kinetics ('reduces the NO burst and prolongs NO release beyond 8 h'). Different measured quantity and experiment entirely; TEXT 1 gives no basis for TEXT 2's claim.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "bioactive_ma_spi_o9_o11__bioactive_ma_M5_M7_s2_2": {
+   "verdict": "supports only narrower",
+   "mismatch": "quantity",
+   "why": "TEXT 1 only characterizes the change qualitatively as 'lower peak flux, prolonged duration' over 'a release window from ~1 h to >10 h'; it never establishes the specific numeric claim in TEXT 2 that release is prolonged 'beyond 8 h... versus ~1 h for PPAm'.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "bioactive_ma_spi_o10_o11__bioactive_ma_M5_M7_s2_2": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 concerns 'thrombin specific activity' and SEM 'platelet spreading/activation' on BVLD-bearing coatings; TEXT 2 concerns 'NO burst' and 'NO release' duration for PPAmF. Different quantities and different experiments entirely; TEXT 1 does not bear on NO release kinetics.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "bioactive_ma_spi_o16_o11__bioactive_ma_M5_M7_s2_2": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 concerns SEM-observed 'fibrin networks' and 'platelet spreading/activation' across a surface series; TEXT 2 concerns a wholly different quantity, 'NO burst' and NO release duration ('8 h' vs '~1 h'). No overlap in measurement, mechanism, or specimen scope discussed.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "bioactive_ma_spi_o16_o11_n25-n18__bioactive_ma_M5_M7_s2_2": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 concerns SEM morphology rankings of 'fibrin network density/cell trapping' and 'platelet count/spreading' across surfaces; TEXT 2 concerns 'NO burst' and 'NO release' kinetics duration. Different measurement entirely; TEXT 1 says nothing about nitric oxide release, so it cannot establish TEXT 2's premise.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "biomaterials_M1_M3_M4_s2_1__biomaterials_M1_M3_M4_s2_2": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 addresses release-mechanism confounding between cobalt inventory and texture, mentioning pore diameter only as an aside ('only gives pore diameter ~4-5 nm, not m2/g or cm3/g'). It asserts nothing about 'ordered mesoporous channel structure' being retained, which is what TEXT 2 claims.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "biomaterials_spi_o1_o10__biomaterials_M1_M3_M4_s2_2": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 supports only Co composition (Co/Ca) vs. Co2+ release ordering; it says nothing about pore/channel structure. TEXT 2 claims 2Co- and 5Co-MBG 'keep an ordered mesoporous channel structure (pores ~4-5 nm)', a structural quantity TEXT 1 never addresses.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "biomaterials_spi_o3_o20__biomaterials_M1_M3_M4_s2_2": {
+   "verdict": "supports only narrower",
+   "mismatch": "quantity",
+   "why": "TEXT 1 only confirms a 'low-angle reflection' (peak position, degrees) persists in 2Co/5Co, with no mention of pore size. TEXT 2 asserts a specific quantity, 'pores ~4-5 nm', which TEXT 1 never measures or states.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "biomaterials_M2_M4_s2_1__biomaterials_M1_M3_M4_s2_3": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 concerns HIF-1alpha protein level via western blot ('HIF-1alpha protein level is higher in 5Co-MBG'); TEXT 2 concerns structural pore characterization ('ordered mesoporous channel structure (pores ~4-5 nm)'). TEXT 1 says nothing about pore structure, so it cannot support TEXT 2.",
+   "premise_from": "previous_output",
+   "shared_obs": null
+  },
+  "bioactive_ma_com_o5_o10__bioactive_ma_spi_o5_o8": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states exactly: 'lower corrosion potential for Mg-Zn-Y-Nd (near -1.5 V) versus 317L SS (about -0.25 V), with current branches shifted 2-3 decades higher' -- identical to TEXT 2's claim; TEXT 2 is a direct restatement of TEXT 1's polarization component, same sample/scope/quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_spi_o1_o3__bioactive_ma_spi_o3_o4": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's Observation B states bands 'appear in NO-PPAm that are absent from the PPAm spectrum'; TEXT 2 states the same bands 'appear in NO-PPAm and are absent from the PPAm spectrum' -- identical sample, state, scope, and observation, with no further interpretive claim added.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_com_o5_o7__bioactive_ma_spi_o5_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states '-COOH ~3400 cm-1, -C=O ~1660 cm-1 on BVLD-PPAmF vs PPAmF'; TEXT 2 claims exactly this: 'labelled -COOH stretch (~3400 cm-1) and -C=O band (~1660 cm-1) over the PPAmF spectrum' \u2014 same samples, same peaks, no quantity claim added.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_spi_o5_o10__bioactive_ma_spi_o10_o11": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 2's numbers and sample groupings are lifted verbatim from TEXT 1's Observation B: 'surfaces bearing BVLD ... exhibit roughly half the thrombin specific activity (~0.65e-3 abs/ng/cm2) of BVLD-free surfaces ... ~1.3e-3 abs/ng/cm2 ... significant (***)' matches TEXT 2 exactly; no FTIR/combination claim is smuggled in.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_com_o11_o12_n18__bioactive_ma_spi_o11_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT1's SEM description \"many spread dendritic platelets\" on 316L SS/PPAmF, \"fewer spread platelets but still present\" on BVLD-PPAmF/NO-PPAmF, \"a few round, unspread platelets\" on BVLD/NO-PPAmF matches TEXT2 verbatim in substance; qualifications only concern morphology-count correspondence, not the morphology description itself.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_spi_o10_o11__bioactive_ma_spi_o11_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT1 states SEM shows 'fewer, less dendritic platelets on BVLD-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF' and its qualification adds NO-PPAmF alone 'shows... fewer spread platelets than on 316L SS/PPAmF' -- together matching TEXT2's full SEM description exactly.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_spi_o16_o11__bioactive_ma_spi_o11_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's own readout states 'many spread, dendritic (activated) platelets' on 316L SS, PPAmF, and 'fewer platelets and, where present, round unspread' on BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF \u2014 TEXT 2 restates this same platelet gradient verbatim across the same surfaces.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_spi_o16_o11_n25-n18__bioactive_ma_spi_o11_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states Obs B directly: '316L SS and PPAmF show ... many spread, dendritic platelets; BVLD-PPAmF and NO-PPAmF show ... fewer spread platelets; BVLD/NO-PPAmF shows ... only a few round unspread platelets' \u2014 matching TEXT 2 verbatim in content, same surfaces, same qualitative scope.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_spi_o10_o14__bioactive_ma_spi_o14_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's own numbers state fibrinogen '~0.10 to ~0.053-0.06' and gamma-chain '~0.13-0.15 to ~0.054-0.065' drop on all three functionalised coatings, and 'BVLD/NO is not even the lowest for fibrinogen' \u2014 matching TEXT 2's claim verbatim in quantity, scope, and sample.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_spi_o16_o14__bioactive_ma_spi_o14_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the exact same numbers ('total ~0.10 to ~0.053-0.06; gamma-chain ~0.13-0.15 to ~0.054-0.065') as shared across 'the same three coatings' and its own qualification states 'BVLD/NO is not the lowest in fibrinogen or gamma-chain among the three coatings' -- identical to TEXT 2's claims.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_com_o1_o2__bioactive_ma_spi_o1_o3": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's FTIR clause states bands 'N-H (3350/3210 cm-1)... -N=C=O/-C=N (2245/2180 cm-1)... C=O/C=N (1645 cm-1), C-N (1230 cm-1)' matching TEXT 2's 'N-H stretch 3350/3210... -N=C=O/-C=N 2245/2180... C=O/C=N 1645, C-N 1230' verbatim; TEXT 2 restates only the FTIR sub-claim, which TEXT 1 fully establishes.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_spi_o5_o10__bioactive_ma_spi_o10_o14": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's Observation B states verbatim the same figures: 'surfaces bearing BVLD ... exhibit roughly half the thrombin specific activity (~0.65e-3 abs/ng/cm2) of BVLD-free surfaces ... (~1.3e-3 abs/ng/cm2)' marked '(***)', matching TEXT 2's quantity, samples, and significance exactly.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o15_o16__journal_of_m_spi_o15_o9": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states as given: 'The SEM image separately shows that panel (d) contains much finer, uniform equiaxed features (about 0.3-0.8 um) than panels (b) and (c) imaged at the same 2 um scale' \u2014 matching TEXT 2's claim exactly; qualifications concern grain identity, not this SEM size observation.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o19_o15__journal_of_m_spi_o15_o9": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states verbatim 'SEM close-up of F10d showing fine, uniform ~0.3-0.8 um features (far finer than panels b,c at the same 2 um scale)', matching TEXT 2's 'fine uniform features ~0.3-0.8 um, far finer than (b),(c) at the same 2 um scale' exactly in sample, scale, and quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o14_o16_n10__journal_of_m_spi_o14_o20": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states EDS shows signals 'concentrated on surfaces, densest along edges and some faces'; TEXT 2 states 'C ... and Co ... signals lie on particle surfaces, densest along edges and on some faces' \u2014 identical claim, not touched by the HRTEM-pairing qualifications.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o7_o27__journal_of_m_spi_o27_o24": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's own basis is 'the Arrhenius comparison (panel F10)... two lines/two samples (C0 and C10)' yielding 'Ea (81.9 kJ/mol)... lower than... C0 sample (130.3 kJ/mol)' -- identical samples, quantity, and Ea values TEXT 2 states from the same Arrhenius lines/slopes for C0 and C10.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o10_o15__journal_of_m_spi_o10_o28": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's XRD result lists exactly 'CeMg12, Y5Mg24, Ce2Mg17, Mg from XRD' plus 'the weak extra XRD line at ~44.5 deg... corroborated as a distinct Co phase'; TEXT 2 states 'reproduces the C0 reflections... with only a weak extra Co line (5) at ~44.5 deg' -- same sample, state, phases, and quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o14_o16_n10__journal_of_m_spi_o14_o19": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states 'EDS establishes where C and Co signals sit at the particle scale (concentrated on surfaces, densest along edges and some faces)', matching TEXT 2's 'C (blue) and Co (red) signals lie on particle surfaces, densest along edges and on some faces' verbatim in substance.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o10_o15__journal_of_m_spi_o10_o22": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states XRD indexes 'CeMg12, Y5Mg24, Ce2Mg17, Mg' with 'the weak extra XRD line at ~44.5 deg' as 'a single, faint reflection' -- matching TEXT 2's 'reproduces the C0 reflections... with only a weak extra Co line (5) at ~44.5 deg' exactly in sample (milled C10), state, scope, and quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o14_o16_n10__journal_of_m_spi_o14_o26": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states EDS establishes signals 'concentrated on surfaces, densest along edges and some faces' -- TEXT 2 restates exactly this: 'C ... and Co ... signals lie on particle surfaces, densest along edges and on some faces.' The qualifications target the EDS+HRTEM pairing, not this EDS-only claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o1_o2__journal_of_m_spi_o1_o13": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states as established fact 'bulk XRD phase indexing (L12 superlattice peaks near 25/35 deg plus B2 peaks near 31/44.6 deg)'; TEXT 2 says 'XRD reflections indexed to L12 (incl. weak superlattice peaks near 25 and 35 deg) and B2 (near 31, 44.6 deg)' -- identical peaks, phases, and scope.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o3_o4__journal_of_m_spi_o3_o13": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states directly: 'TEM alone shows that at the fine ... scale the microstructure consists of straight, alternating A and B lamellae with sharp interfaces.' TEXT 2 states the same: 'parallel alternating straight lamellae A and B with sharp interfaces.' Same observation, same scope (TEM finding, not broader claim).",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o1_o13__journal_of_m_spi_o13_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1: 'one lamella remaining featureless while its neighbor develops mottled contrast plus line contrast along the interface' matches TEXT 2: 'one lamella is featureless while the neighbour shows mottled contrast and line contrast along the interface' -- same single strain-step pair, no added phase-ID, generality, or quantification claims.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o3_o13__journal_of_m_spi_o13_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states Observation B verbatim: 'one lamella type stays featureless while its neighbour develops mottled contrast and line contrast along the interface' at 'the first strain step'. TEXT 2 restates exactly this: 'one lamella is featureless while the neighbour shows mottled contrast and line contrast along the interface' at 'first strain step'. No qualification undercuts this raw observational claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o13_o15__journal_of_m_spi_o15_o16": {
+   "verdict": "supports only narrower",
+   "mismatch": "scope",
+   "why": "TEXT 1 only establishes a two-observation qualitative link (A: mottled/line contrast -> B: pile-up), explicitly not confirmed as same lamella/location ('not shown directly in a single field of view'). TEXT 2 asserts a three-stage rise 'from unresolved mottled contrast (F3a) to tangled lines (F4a) to dense walls (F5a)', a finer progression than TEXT 1 supports.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o15_o16__journal_of_m_spi_o16_o11": {
+   "verdict": "supports only narrower",
+   "mismatch": "quantity",
+   "why": "TEXT 1 qualifies that 'no rate or magnitude relationship... is established' and both observations are merely 'descriptive/categorical labels,' while TEXT 2 flatly asserts 'Dislocation content rises,' a quantity claim TEXT 1 only supports as an inferred qualitative panel-ordered progression, not a verified increase.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o16_o11__journal_of_m_spi_o11_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 itself states the observation as premise: 'SEM fracture-surface observation of small holes and microcracks at lamella ends and edges (F2d)', which matches TEXT 2's 'arrowed small holes and boxed microcracks at lamella ends and edges' verbatim in content, sample, and scope.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_com_o3_o5__advanced_ene_spi_o3_o6": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1: \"broad, high-background patterns for simple mixing versus narrower, better-separated peaks for co-precipitation\" matches TEXT 2's \"simple-mixing peaks broad with raised background; co-precipitated patterns show narrower, better separated peaks\" -- same XRD observation, same samples, no added claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_spi_o3_o6__advanced_ene_spi_o6_o7": {
+   "verdict": "supports only narrower",
+   "mismatch": "scope",
+   "why": "TEXT 1 states \"GCD values cited are for the initial cycle only; the combination does not by itself speak to capacity retention across cycles,\" but TEXT 2 claims the ranking holds \"at every cycle,\" extending beyond the initial-cycle scope TEXT 1 supports.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_spi_o5_o6__advanced_ene_spi_o6_o7": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 itself states 'the capacity ranking (w/ HCl > w/o HCl > simple mixing, ~91 > ~81 > ~61 mAh/g at every cycle)' as an established observation; TEXT 2 asserts the identical ranking, samples, and per-cycle values. None of TEXT 1's qualifications (about HRTEM scope or mechanism) contest this quantity itself.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_spi_o24_o25__advanced_ene_spi_o25_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states 'Rct to ~26 ohm, then ~24-28 ohm with large error bars, while Rfilm (~2-3 ohm) and Re (~0.5 ohm) stay flat' \u2014 TEXT 2 restates the same EIS figures ('Rct rises...~26 ohm...then ~24-28...Rfilm ~2-3 and Re ~0.5 ohm flat'). Same specimens, scope, and quantities.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_com_o25_o24__advanced_ene_spi_o25_o15_m5-f3": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 itself states 'Rct's rise-then-plateau' to '~24-28 ohm', 'Rct at the plateau carries large error bars', and 'flat Rfilm/Re' -- exactly the facts TEXT 2 restates ('Rct rises ~3 to ~26... then ~24-28 (large error bars); Rfilm ~2-3 and Re ~0.5 ohm flat').",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_com_o1_o20__advanced_ene_spi_o1_o22": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states DFT computes 'CoCrOOH the lowest Delta G for the Co2+->Co3+ step and CoFeOOH the lowest Delta G for the Co3+->Co4+ step (with CoFeCrOOH intermediate and Co(OH)2 highest for both)' -- TEXT 2 restates this identical ranking with matching sample set, quantity, and scope.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_com_o19_o20__bioactive_ma_spi_o19_o5": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 explicitly restates the same EDS data: \"EDS (Ti, O, dominant C, and small Er ~1.4 keV / Ce ~4.8 keV peaks)\" \u2014 this is verbatim identical in content, sample, and scope to TEXT 2's \"Ti, O and a dominant C peak, with small Er (~1.4 keV) and Ce (~4.8 keV) peaks.\"",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_com_o19_o20__bioactive_ma_spi_o19_o7": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 explicitly incorporates 'EDS (Ti, O, dominant C, and small Er ~1.4 keV / Ce ~4.8 keV peaks)' as its own evidentiary premise, which is verbatim what TEXT 2 states as given: 'Ti, O and a dominant C peak, with small Er (~1.4 keV) and Ce (~4.8 keV) peaks'. Same sample, scope, and quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_spi_o19_o5__bioactive_ma_spi_o5_o10_b13-b17": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states verbatim: 'absorption edge extended well past 420 nm compared to the sharp ~410 nm edge of TiO2, with the Ce0.2 composition absorbing most' \u2014 matching TEXT 2's claim exactly. TEXT 2 omits the EDS-linkage claim, so the qualifications (about EDS/oxidation state/dopant attribution) don't undercut this narrower UVVIS-only premise.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_com_o7_o8__bioactive_ma_spi_o7_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states verbatim: PL alone ranks 'strongest (worst...) for TiO2, about half for Er0.5Ti-O, and lowest...for Er0.5Ce0.2.' TEXT 2 restates exactly this PL ranking (390-420 nm band, TiO2 strongest, Er0.5Ti-O half, Er0.5Ce0.2 lowest) \u2014 same samples, same quantity, no added claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "bioactive_ma_com_o19_o20__bioactive_ma_spi_o19_o12": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 opens with 'EDS (Ti, O, dominant C, and small Er ~1.4 keV / Ce ~4.8 keV peaks)' which matches TEXT 2's 'Ti, O and a dominant C peak, with small Er (~1.4 keV) and Ce (~4.8 keV) peaks' verbatim; same sample, same EDS measurement, same quantities.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o13_o20__journal_of_a_spi_o20_o22": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 itself states 'voltage keeps climbing to 43.0 and 62.0 V' after '7.5, 12.5, 26.5, 32.0 V over 0-4 wt%', and its qualification confirms 'voltage is monotonic across the whole 0-10 wt% range' \u2014 matching TEXT 2's full six-point 0-10 wt% series exactly.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o25_o20__journal_of_a_spi_o20_o22": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states \"F7b's monotonic rise (7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V across 0-10 wt% PZT)\" verbatim matching TEXT 2's \"Peak voltage rises 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt% PZT\" \u2014 same quantity, scope, and range.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o2_o1__journal_of_a_spi_o1_o6": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states Observation B is 'the small (012) peak at ~43 deg and the split peaks at ~35, 60 and 74 deg -- present only in the YSZ pattern and absent in the Al2O3-YSZ pattern' -- which is exactly TEXT 2's claim; same samples, same F1 panel, same peaks.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o2_o1_n21-n4__journal_of_a_spi_o1_o6": {
+   "verdict": "supports only narrower",
+   "mismatch": "quantity",
+   "why": "TEXT 1 says Al2O3-YSZ 'shows none of that splitting' -- only negating the split peaks. TEXT 2 claims Al2O3-YSZ 'has neither', asserting absence of both the (012) peak and the splitting, which TEXT 1 does not explicitly establish for the (012) peak.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o5_o3__journal_of_a_spi_o3_o8": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's Observation B states 'Al2O3-YSZ, also has a coarser, more open crack network and larger pores than YSZ's fine short-crack network,' matching TEXT 2's 'longer, more open cracks and larger pores than the fine short-crack network of YSZ.' TEXT 2 makes no crystallinity claim, so the qualifications (which concern the crystallinity link) don't narrow it.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o1_o6__journal_of_a_spi_o6_o8": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the EBSD trend '~4.3-11 deg at 5 cycles ... YSZ (0.7-2.3 deg throughout), with Al2O3-YSZ falling to ~1 deg by 20 cycles' as established fact. TEXT 2 takes exactly this quantity as given, without invoking the phase/XRD causal claim that carried the qualifications.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o2_o1__journal_of_a_spi_o1_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the peaks '~43 deg' and 'split peaks at ~35, 60 and 74 deg -- present only in the YSZ pattern and absent in the Al2O3-YSZ pattern', which is exactly what TEXT 2 asserts. Same samples, same measurement, same peak-presence claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o2_o1_n21-n4__journal_of_a_spi_o1_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states YSZ shows 'the small (012) peak near 43 deg plus split peaks near 35, 60 and 74 deg' while 'Al2O3-YSZ shows none of that splitting' -- this directly matches TEXT 2's claim verbatim; none of TEXT 1's qualifications (about causes, Al2O3 absence, or grain-boundary phase) bear on this specific peak-position claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o3_o8__journal_of_a_spi_o8_o11": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's Observation B states YSZ crack network 'remains visually unchanged in the same imaged field across the two viewing instances' \u2014 this directly matches TEXT 2's claim that 'YSZ crack network in the same field looks unchanged between the two views.' No qualification undermines this specific YSZ-only claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o6_o8__journal_of_a_spi_o8_o11": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states YSZ's 'crack network appears unchanged between the two imaged views,' which is exactly TEXT 2's claim ('YSZ crack network ... looks unchanged between the two views'). Qualifications concern combining this with misorientation data, not the validity of the unchanged-crack observation itself.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o1_o10__journal_of_a_spi_o10_o11": {
+   "verdict": "supports only narrower",
+   "mismatch": "sample",
+   "why": "TEXT 1's Observation B establishes the 43deg and 73-74deg t-ZrO2 markers only for 'Al2O3-YSZ' after cycling, and its qualifications state the pair 'does not include an as-sprayed-vs-cycled YSZ contrast.' TEXT 2 generalizes to 'Cycled patterns' without restricting to Al2O3-YSZ, overreaching beyond the one specimen tested.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o10_o13__journal_of_m_spi_o10_o13": {
+   "verdict": "supports only narrower",
+   "mismatch": "sample",
+   "why": "TEXT 1 states 'Only five composition points are compared' (Ag0.25Pd0.75, Ag0.5Pd0.5, Ag0.75Pd0.25, Pd, Ag), but TEXT 2's premise table adds a sixth specimen, 'ZIS 1.5 umol/h', which TEXT 1 never discusses or includes in its rank correspondence.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o14_o16_pr2__journal_of_m_spi_o14_o10": {
+   "verdict": "supports only narrower",
+   "mismatch": "quantity",
+   "why": "TEXT 1 states agreement establishes 'only the relative order,' not 'the absolute magnitude,' but TEXT 2 asserts specific values ('~2.1 > ~1.5 > ~0.9 > ~0.4 uA/cm2'), exceeding what TEXT 1 licenses.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o7_o13__journal_of_m_spi_o13_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the identical figures verbatim: 'DFT-computed Delta G_H* series (Pd -0.31, Pd0.75Ag0.25 -0.08, Pd0.5Ag0.5 0.12, Pd0.25Ag0.75 0.28, Ag 0.49 eV)', matching TEXT 2 exactly. TEXT 1's qualifications concern its own XPS-DFT correlation claim, not the DFT series itself, which is taken as given in both.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o10_o13__journal_of_m_spi_o13_o10": {
+   "verdict": "supports only narrower",
+   "mismatch": "quantity",
+   "why": "TEXT 1 states only \"|Delta G_H*|\" (absolute values: 0.08, 0.12, 0.28, 0.31, 0.49) for ranking, with no sign specified. TEXT 2 asserts signed \"Delta G_H*\" values including negative entries (\"Pd -0.31, Pd0.75Ag0.25 -0.08\"), which TEXT 1 never establishes since it only compared magnitudes.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "materials_ch_com_o1_o7__materials_ch_spi_o1_o3": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 treats the same figures as established fact \u2014 \"1 and 5 wt% AlN, reaching ~100% relative density\" and \"the near-100% relative density figure\" \u2014 matching TEXT 2's \"~97.5% ... to ~100% at 1 and 5 wt% (~99.3% at 3 wt%)\"; qualifications limit only SEM-pairing claims, not the density trend itself.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "materials_ch_com_o15_o22__materials_ch_spi_o15_o3": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1: 'XRD establishes...ZrB2, SiC, C (graphite), and BN, with no AlN or Al2O3 detected' in the 'bulk HP5 specimen' matches TEXT 2: 'HP5 XRD: reflections marked ZrB2, SiC, C (graphite) and BN; none marked AlN or Al2O3' exactly in sample, phases, and scope.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "materials_ch_com_o2_o6__materials_ch_spi_o2_o4": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states 'PS relative density falling monotonically with AlN (~85.5, 78.4, 70.7, 70.0% at 0, 1, 3, 5 wt%)' verbatim; TEXT 2 asserts the identical series. Qualifications concern SEM's inability to extend microstructural confirmation across wt%, not the density series itself, which TEXT 1 asserts unhedged.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "nano_letters_com_o1_o2__nano_letters_spi_o1_o5": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's DLS claim \"microfluidic particles sit in the ~300-400 nm (DLS)... narrow/tight distribution, while hydrothermal particles sit near ~1000 nm (DLS)... broader spread\" matches TEXT 2's \"narrow mode near 300-400 nm... broader mode near 1000 nm\" exactly; same sample, state, quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "nano_letters_spi_o8_o9__nano_letters_spi_o9_o8": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT1's qualification states P appears as \"sparse, scattered dots rather than filling the outline the way C, Zn and N do\" while C/Zn/N do fill it; TEXT2 states exactly this: \"C, Zn and N fill the particle outline...while P appears only as sparse dots inside the same outline.\"",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "nano_letters_spi_o8_o9__nano_letters_spi_o9_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's qualification states P appears as \"sparse, scattered dots\" while \"C, Zn and N\" fill the outline; TEXT 2 states identically \"C, Zn and N fill the particle outline... while P appears only as sparse dots inside the same outline\" \u2014 same samples, same scope.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "nano_letters_spi_o8_o9__nano_letters_spi_o9_o12": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's qualification states 'the EDS map shows P only as sparse, scattered dots rather than filling the outline the way C, Zn and N do'; TEXT 2 states 'C, Zn and N fill the particle outline ... while P appears only as sparse dots inside the same outline' \u2014 identical claim, same samples/scope.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "nano_letters_spi_o8_o9__nano_letters_spi_o9_o14": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's qualification states P appears as 'sparse, scattered dots rather than filling the outline the way C, Zn and N do'; TEXT 2 states exactly this: 'C, Zn and N fill the particle outline... while P appears only as sparse dots inside the same outline.'",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_com_com_o1_o12a__advanced_com_spi_o1_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states 'new bands at 2930, 2864 and 1122 cm-1 only in BST-SH', and TEXT 2 states 'New bands at 2930, 2864 and 1122 cm-1 appear only in the BST-SH spectrum' -- identical bands, same sample scope, no added claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_com_spi_o1_o10__advanced_com_spi_o10_o9": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states directly: 'SEM of the modified-filler film (BST@Ag1%) shows particles wrapped tightly by matrix with blurred outlines and no interfacial gaps' -- identical sample (BST@Ag1%) and identical claim as TEXT 2's 'covered by matrix with blurred outlines, no gaps at interfaces.'",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_com_com_o5_o7__advanced_com_spi_o5_o13": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states as given fact 'bare BST ~70 nm, smooth, versus modified particles that are rough, coated, and larger' \u2014 identical to TEXT 2's premise. Qualifications only limit the broader color-trend correlation claim, not this basic SEM particle-state description.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_com_com_o1_o12a__advanced_com_spi_o1_o3": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states 'FTIR (new bands at 2930, 2864 and 1122 cm-1 only in BST-SH)'; TEXT 2 states 'New bands at 2930, 2864 and 1122 cm-1 appear only in the BST-SH spectrum' -- identical claim, same sample/scope, directly asserted in TEXT 1.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_com_com_o5_o7__advanced_com_spi_o5_o21": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states as fact 'bare BST ~70 nm, smooth, versus modified particles that are rough, coated, and larger' -- this is exactly what TEXT 2 asserts. TEXT 2 makes no claim about grading, scaling, or which variable drives color, so TEXT 1's qualifications (which bear on the trend claim) don't undercut it.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_com_spi_o1_o10__advanced_com_spi_o10_o20": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states SEM of BST@Ag1% 'shows particles wrapped tightly by matrix with blurred outlines and no interfacial gaps' which directly matches TEXT 2's claim of particles 'covered by matrix with blurred outlines, no gaps at interfaces' -- same sample, same observation.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_com_spi_o10_o9__advanced_com_spi_o9_o20": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 2 restates Observation B verbatim: 'particles are embedded and spread evenly without large agglomerates' for 'modified-filler composites' generally. TEXT 1's qualifications concern only the A-B pairing/correlation, not Observation B taken alone, which TEXT 1 directly asserts.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_com_com_o1_o12a__advanced_com_spi_o1_o11": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states 'FTIR (new bands at 2930, 2864 and 1122 cm-1 only in BST-SH)' as an established fact; TEXT 2 asserts the identical observation. None of the listed qualifications (bonding type, quantification, coverage) undercut the raw FTIR band observation itself.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_com_com_o5_o7__advanced_com_spi_o5_o11": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states SEM shows 'bare BST ~70 nm, smooth, versus modified particles that are rough, coated, and larger' -- this is exactly TEXT 2's claim ('smooth, ~70 nm' vs 'rough, coated and larger'). No qualification in TEXT 1 undercuts this basic SEM particle-level observation itself.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_com_o3_o4__advanced_ene_spi_o3_o15": {
+   "verdict": "supports only narrower",
+   "mismatch": "scope",
+   "why": "Text 1 qualifies that 'SEM alone cannot resolve... whether the draping material is a thin sheet or a thicker aggregate; that identification depends on the TEM image alone' (single sphere). Text 2 labels sheets in b and c (SEM, multi-sphere) as 'thin sheets,' extending the TEM-only thinness finding to SEM fields it can't establish.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_com_o3_o5_m8__advanced_ene_spi_o3_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT1's SEM clause \"shows local, image-based visual coverage of the Cu2S microspheres by RGO sheets increasing across the series, culminating in wrinkled sheets burying the spheres in panel d\" directly matches TEXT2's \"Thin sheets drape spheres in b... in d wrinkled sheets cover the field, burying spheres\" \u2014 same panels, same local SEM scope, no bulk claim smuggled in.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_com_o4_o5__advanced_ene_spi_o3_o15": {
+   "verdict": "supports only narrower",
+   "mismatch": "quantity",
+   "why": "TEXT 1 is qualified as \"a single image at one point in the sample\" showing sheets \"extending around\" one sphere, and states it \"does not quantify how much of the sphere surface is covered.\" TEXT 2 claims multiple panels (b, c, d) with wrinkled sheets that \"cover the field, burying spheres\" -- a stronger, multi-panel coverage claim TEXT 1 explicitly disclaims.",
+   "premise_from": "join-side observation",
+   "shared_obs": false
+  },
+  "advanced_ene_spi_o1_o14__advanced_ene_spi_o14_o18": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 2 restates verbatim the F3b finding TEXT 1 itself asserts: 'RGO-Cu2S adsorbs more N2 at all P/P0 (~53 vs ~32 cm3/g near 1) with a pore-size peak near 20 nm.' TEXT 1's qualifications concern SEM-to-sorption attribution/causality, not the sorption measurement itself, so TEXT 2's quantity, sample, and scope match exactly.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_spi_o3_o15__advanced_ene_spi_o15_o18": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states CV data (F6a-b): 'RGO-Cu2S shows a peak reduction current (~-43 mA/cm2) close to bare Cu2S (~-41 mA/cm2) but both are far above Pt (~-0.45 mA/cm2)'. TEXT 2 restates exactly these same values, samples, and scope with no added claims TEXT 1 didn't make.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_com_o11_o13_n12__advanced_ene_spi_o11_o14": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states directly: '~398 eV feature collapses, ~401 eV feature becomes dominant' upon zinc deposition, matching TEXT 2's '~398 eV N 1s feature collapses and the ~401 eV feature becomes the taller of the two' verbatim in substance; no qualification disputes this specific XAS observation.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_spi_o10_o11__advanced_ene_spi_o11_o14": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's own language states 'after zinc deposition the ~398 eV feature collapses while the ~401 eV feature becomes the taller of the two,' which TEXT 2 restates verbatim without adding chemical-state labels or sample specificity beyond what TEXT 1 already qualifies.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_spi_o11_o14__advanced_ene_spi_o14_o17": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the SEM evidence as 'zinc plates as a largely flat deposit with sparse protruding platelets on CnC HS, but as a dense mat of sharp platelets on C HS' \u2014 this is verbatim what TEXT 2 asserts. Qualifications target the XAS-SEM causal link, not this SEM observation itself.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_spi_o11_o14__advanced_ene_spi_o14_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's SEM evidence states verbatim: \"zinc plates as a largely flat deposit with sparse protruding platelets on CnC HS, but as a dense mat of sharp platelets on C HS\" -- matching TEXT 2 exactly. Qualifications address the XAS-SEM causal link, not this SEM observation itself.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_com_o1_o4__advanced_ene_spi_o1_o12b": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 directly asserts \"the calculated XRD pattern (flat difference curve) fits\" the measured trace, matching TEXT 2's \"calculated pattern overlies the measured XRD trace and the difference curve stays flat.\" Same measurement, same scope; none of TEXT 1's qualifications (coordination chemistry, single-crystal homogeneity, fringe interpretation) touch this specific XRD-fit fact.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_spi_o1_o12b__advanced_ene_spi_o12b_o20": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's own observation B states \"Zn content climbing from zero to about 50 at% by the 20th cycle and settling near 47 at%\", matching TEXT 2's \"rises from zero to about 50 at% by the 20th cycle and stays near 47 at% afterwards\" verbatim in scope and quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_ene_spi_o1_o12b__advanced_ene_spi_o12b_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's own observation B states Zn 'climbing from zero to about 50 at% by the 20th cycle and settling near 47 at%'; TEXT 2 states Zn 'rises from zero to about 50 at% by the 20th cycle and stays near 47 at% afterwards' -- same quantity, same ICP-AES scope, no framework claim added.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_com_o1_o2__advanced_fun_spi_o1_o9": {
+   "verdict": "supports only narrower",
+   "mismatch": "state",
+   "why": "TEXT 1's TEM claim gives 'thin, sheet-like/semi-transparent morphology' and '~100-200 nm' 'mostly' as a qualitative range, matching most of TEXT 2, but TEXT 1 never specifies a 'square' shape, which TEXT 2 adds unsupported.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_com_o3_o6__advanced_fun_spi_o3_o13": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1: 'TEM shows a new nanoparticle morphology appears after reduction (absent on bare sheets)' directly establishes TEXT 2's premise: 'After reduction the sheets are densely dotted with small dark nanoparticles, absent from the bare sheets.' Same TEM observation, same sample states, no qualification bears on this TEM-only claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_com_o3_o8__advanced_fun_spi_o3_o13": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states this exact fact: \"TEM's appearance of small dark nanoparticles after reduction (densely dotting the sheets, absent from the bare sheets)\" -- identical wording and scope to TEXT 2's premise, same sample/state, no narrowing or contradiction.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_com_o6_o8__advanced_fun_spi_o3_o13": {
+   "verdict": "incompatible",
+   "mismatch": "scope",
+   "why": "TEXT 1 concerns XRD/Raman phase identification of Bi vs Bi2O3 in a bismuthene sample; TEXT 2 concerns a post-reduction morphological/imaging observation of 'dark nanoparticles' on sheets. TEXT 1 explicitly disclaims morphology/imaging conclusions ('Neither technique gives morphology or size information'), so it cannot support TEXT 2's imaging-based claim.",
+   "premise_from": "join-side observation",
+   "shared_obs": false
+  },
+  "advanced_fun_spi_o1_o9__advanced_fun_spi_o9_o12": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states 'linear extrapolation intercepts zero near 0.69 eV' and 'depart from linearity below ~1.1 eV' \u2014 TEXT 2 restates exactly this: 'reaches zero at 0.69 eV; data leave the line below ~1.1 eV.' Same quantity, same measurement, same specimen.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_spi_o7_o9__advanced_fun_spi_o9_o12": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states \"the Tauc-plot finding that the linear region only extrapolates to zero at 0.69 eV after the data deviate from linearity below ~1.1 eV\" which is identical in sample, state, scope and quantity to TEXT 2's \"reaches zero at 0.69 eV; data leave the line below ~1.1 eV.\"",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_spi_o3_o13__advanced_fun_spi_o13_o14": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states UV-Vis (F3c) shows 'A/L scaling linearly with concentration (R2 = 0.9999) and yielding a specific extinction coefficient of 6.4 L g-1 cm-1 at 808 nm' for the reduced material -- this is exactly TEXT 2's premise, unqualified by the listed caveats which concern mechanism/causation, not this measurement.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_spi_o9_o12__advanced_fun_spi_o12_o20": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's Observation B states \"DPBF absorbance decay with bismuthene (~0.73 at 30 min) versus water alone (~0.93 at 30 min)\", identical in specimen, timepoint, and values to TEXT 2's \"falls to ~0.73 in 30 min with bismuthene vs ~0.93 in water\" \u2014 a direct restatement, not an extrapolation.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_spi_o13_o14__advanced_fun_spi_o14_o20": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's qualification states as established fact 'the IR-camera finding that the 6-minute spot temperature rises with both concentration (200 > 100 > 50 > 25 ug/mL, water staying cold) and laser power density (0.5 -> 1.5 W at 200 ug/mL)' -- this is verbatim what TEXT 2 takes as given.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_spi_o13_o14__advanced_fun_spi_o14_o19": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 itself states \"the IR-camera finding that the 6-minute spot temperature rises with both concentration (200 > 100 > 50 > 25 ug/mL, water staying cold) and laser power density (0.5 -> 1.5 W at 200 ug/mL)\" \u2014 this is verbatim the content of TEXT 2, so it is directly established, not merely implied.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_spi_o3_o13__advanced_fun_spi_o13_o26": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states UV-Vis shows 'A/L scaling linearly with concentration (R2 = 0.9999) and yielding a specific extinction coefficient of 6.4 L g-1 cm-1 at 808 nm,' and its own qualification confirms 'The linearity (R2 = 0.9999) demonstrates Beer-Lambert-law reproducibility of the coefficient measurement itself' \u2014 exactly matching TEXT 2's claim, which asserts only the measured linear relation and slope, not any mechanistic/structural link.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_spi_o26_o6__journal_of_a_spi_o6_o12": {
+   "verdict": "supports only narrower",
+   "mismatch": "scope",
+   "why": "TEXT 1 only attests \"emergence/composition-shift of a second dielectric maximum Tm2 (appearing for x>=0.02, moving ~200 to ~260C)\" at 1 kHz. TEXT 2 additionally asserts \"the Tm1 maximum drops from ~6750 (x=0) to ~2700 (x=0.08)\" \u2014 a quantity/claim TEXT 1 never mentions.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_com_o7_o16__journal_of_a_spi_o7_o9": {
+   "verdict": "supports only narrower",
+   "mismatch": "quantity",
+   "why": "TEXT1 only shows 'a few dark cavities' in one SEM snapshot 'consistent with a sample that still has measurable apparent porosity' \u2014 qualitatively, for one unidentified sample/temperature. TEXT2 claims the full quantitative trend 'S1 8.7 to 0.4%, S2 7.9 to 0.7%, S3 11.2 to 7.7%' across all three samples, which TEXT1's qualifications explicitly say cannot be matched or quantified.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_a_com_o7_o16__journal_of_a_spi_o7_o11": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 itself cites 'the measured apparent-porosity measurements' and gives '(8.7-0.4% for S1, 7.9-0.7% for S2, 11.2-7.7% for S3)', which matches TEXT 2's 'S1 8.7 to 0.4%, S2 7.9 to 0.7%, S3 11.2 to 7.7%' exactly in samples, quantity, and scope.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o2_o3__journal_of_m_spi_o2_o12": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the optical evidence spans 'panels F1b-F1f' showing particles 'broadly spread across the imaged field with occasional local clusters'; TEXT 2's premise 'spread across the whole field in panels b-f, with a few local clusters' matches this scope and description directly.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o2_o3__journal_of_m_spi_o2_o8": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states optical panels 'F1b-F1f' show 'SiCp particles are broadly spread across the imaged field with occasional local clusters,' which directly matches TEXT 2's 'spread across the whole field in panels b-f, with a few local clusters.'",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o2_o3__journal_of_m_spi_o2_o9": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states optical evidence spans \"panels (b-f)\" showing particles \"broadly spread across the imaged field with occasional local clusters\"; TEXT 2's premise \"spread across the whole field in panels b-f, with a few local clusters\" matches exactly this optical subset of TEXT 1's evidence.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_com_o2_o3__journal_of_m_spi_o2_o6": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's optical evidence already states 'panels F1b-F1f' show particles 'broadly spread across the imaged field with occasional local clusters' -- TEXT 2's 'spread across the whole field in panels b-f, with a few local clusters' directly restates this same qualitative visual impression, matching scope and quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o4_o6_n9-n10__journal_of_m_spi_o6_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 reports the same measured values verbatim: 'measured rise in Hall carrier concentration from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 (x=0.005-0.04) at 300 K', matching TEXT 2 exactly in specimens, condition (300K), doping range, and quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o6_o8__journal_of_m_spi_o8_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT1's qualification states 'Observation B only reports mu_H behavior for the ranges x=0.005-0.02 and x=0.04' with mu_H 'above every literature value ... at comparable n_H'; TEXT2 gives exactly this split (x=0.005-0.02 exceeds refs; x=0.04 'still tops refs at similar n_H'), matching scope and quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o7_o8__journal_of_m_spi_o8_o10": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's Observation B states 'x=0.005-0.02 at ~145-170 cm2/Vs, x=0.04 at ~125 cm2/Vs) exceed every literature mu_H value (max ~139)' matching TEXT 2's '~145-170) exceeds every literature point (max ~139); x=0.04 (~125) still tops refs'; TEXT 2 restates Observation B verbatim, unqualified further.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o6_o10__journal_of_m_spi_o10_o12": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states rho falls \"from ~650 to 12-23 micro-ohm m at 300 K\" and \"doped samples' resistivity rising with T ... versus x=0 falling with T\" -- exactly what TEXT 2 takes as given. Qualifications target the n_H-rho link and mobility, not this raw rho/T premise.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o8_o10__journal_of_m_spi_o10_o12": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the resistivity drop '(from ~650 down to ~12-23 micro-ohm m)' and notes 'The opposite temperature trends (doped rho rises with T, x=0 falls with T)' -- both facts TEXT 2 restates verbatim, with no additional claim about mobility or mechanism added.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o2_o10__journal_of_m_spi_o10_o12": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 itself states \"rho falling from ~650 at x=0 to ~12-23 micro-ohm m at 300 K\" and \"doped rho rising with T while x=0 falls with T\" \u2014 this is exactly TEXT 2's claim, restated verbatim as the given resistivity trend.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o10_o12__journal_of_m_spi_o12_o16": {
+   "verdict": "supports only narrower",
+   "mismatch": "sample",
+   "why": "TEXT 1 only discusses x=0.01 ('highest power factor ~29 at 300 K') and x=0 ('lowest power factor, at most ~5'); it says nothing about x=0.005. TEXT 2 adds 'x=0.005 lowest of doped', a specimen/comparison TEXT 1 never establishes.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o4_o12_n9-n13__journal_of_m_spi_o12_o16": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the identical PF figures in its main text (\"x=0.01 ~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, versus x=0 at most ~5\") and its qualifications (\"x=0.01 is highest while x=0.005 is the lowest of the doped samples\"), matching TEXT 2's premise exactly in sample, quantity, and conditions.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o10_o12__journal_of_m_spi_o12_o19": {
+   "verdict": "supports only narrower",
+   "mismatch": "scope",
+   "why": "TEXT 1 gives numbers only for x=0.01 ('~29 at 300 K'...'~22 at 623 K') and x=0 ('at most ~5'); it never mentions x=0.005. TEXT 2 asserts 'x=0.005 lowest of doped', a claim about a specimen TEXT 1 does not address at all.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o4_o12_n9-n13__journal_of_m_spi_o12_o19": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states \"x=0.01 ~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, versus x=0 at most ~5\" and its qualification confirms \"x=0.005 is the lowest of the doped samples\" -- exactly the values TEXT 2 takes as given, same samples/conditions/quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o4_o6_n9-n10__journal_of_m_spi_o6_o11": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's own content states 'the measured rise in Hall carrier concentration from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 (x=0.005-0.04) at 300 K' verbatim; TEXT 2 restates this exact figure and scope, so the premise is directly established, not merely implied or hedged.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o10_o12__journal_of_m_spi_o12_o17": {
+   "verdict": "supports only narrower",
+   "mismatch": "scope",
+   "why": "TEXT 1 only establishes 'x=0.01, ~29 at 300 K... falls...to ~22 at 623 K' and 'x=0...lowest power factor (at most ~5)'; it never mentions x=0.005. TEXT 2 additionally asserts 'x=0.005 lowest of doped,' a claim TEXT 1's comparison and qualifications do not address.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "journal_of_m_spi_o4_o12_n9-n13__journal_of_m_spi_o12_o17": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT1 states 'x=0.01 ~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, versus x=0 at most ~5' and its qualification adds 'x=0.005 lowest of the doped samples' \u2014 these exactly match TEXT2's 'x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5', with same samples, conditions, and quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "biomaterials_com_o3_o5__biomaterials_spi_o3_o20": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 explicitly incorporates \"the single low-angle XRD reflection\" for \"MBG, 2Co- and 5Co-MBG\" and its own qualification states the exact values \"1.37/1.47/1.35 deg,\" matching TEXT 2's \"one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)\" \u2014 same samples, same quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "biomaterials_com_o3_o6__biomaterials_spi_o3_o20": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the same observation verbatim: 'the single low-angle XRD reflection present in all three patterns (2theta ~1.37 MBG, ~1.47 2Co, ~1.35 5Co)' matches TEXT 2's 'one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)' exactly; same samples, same quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "biomaterials_com_o5_o6__biomaterials_spi_o3_o20": {
+   "verdict": "incompatible",
+   "mismatch": "quantity",
+   "why": "TEXT 1 concerns TEM channel/lattice imaging vs N2 sorption hysteresis step; TEXT 2 reports a distinct experiment, 'Small-angle XRD: one low-angle reflection ... at 2theta ~1.37 ... ~1.47 ... ~1.35 deg'. TEXT 1 never discusses XRD reflections, so it cannot establish this.",
+   "premise_from": "join-side observation",
+   "shared_obs": false
+  },
+  "biomaterials_spi_o1_o10__biomaterials_spi_o10_o15": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states 'Co2+ absent for 0Co, and higher at every timepoint for 5Co than 2Co: ~8.9/17.9/20.8 mg/L vs ~4.7/10.5/16.9 mg/L at 1/3/7 days,' which is exactly the premise TEXT 2 takes as given, with matching values and groups.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "advanced_fun_com_o5_o7__advanced_fun_spi_o5_o9": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 2 verbatim restates TEXT 1's own XRD clause: 'all traces step down near 150 K, with the PC (004) reflection showing the two structural branches coexisting over a band from ~150 to ~175 K.' Same sample, state, scope, and quantity; no qualification in TEXT 1 narrows this specific XRD description.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "nano_letters_com_o15_o18__nano_letters_spi_o15_o11": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states the XRD facts verbatim: 'Bragg reflections (~16.4, 19.2, 20.1 deg, fading to a weak broad bump by end of discharge, not regained on charge)'. TEXT 2 restates exactly this: 'reflections at ~16.4, 19.2, 20.1 deg fade to a weak broad bump by end of discharge; none regain on charge' -- same angles, same fade, same non-recovery on charge.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "nano_letters_com_o16_o19__nano_letters_spi_o16_o13": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1 states \"the persistence of the same SXRD reflections (with only modest intensity loss) through discharge/charge\" which is verbatim what TEXT 2 claims: \"same reflections persist through discharge/charge with only modest intensity loss.\" Same sample, state, scope, quantity.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  },
+  "nano_letters_com_o13_o24__nano_letters_spi_o13_o9": {
+   "verdict": "supports",
+   "mismatch": "none",
+   "why": "TEXT 1's clause 'near-flat Na SAXS contours and near-overlapping I(q) curves (only a small drop at q~0.03-0.1 A^-1 seen at 0.11 V and 0.02 V)' is restated verbatim as TEXT 2's premise; same sample, conditions, and quantity, with no broader claim added.",
+   "premise_from": "join-side observation",
+   "shared_obs": true
+  }
+ }
+}
