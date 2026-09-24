@@ -148,3 +148,122 @@ The original scope-limit wording is not in the repo; this is my reading of it, s
 All 50 panels resolve and are handed over whole and unaltered. No one-hop traces: a single hop has
 no step to warrant. Biomaterials and Nano Letters qualify only because the graph check confirmed
 their links, which were `stage_only` before.
+
+## The headline: reordered scores exactly like full
+
+The `reordered` arm gets the full evidence, but the steps are out of the paper's order and the link
+sentences ("linked to the previous step by: shared spine claim n5") are removed. If the chain's
+sequence carries information, this arm should lose some of it.
+
+It does not. **`reordered` scores +0.00 against `full`**, with identical per-step rulings on 13 of
+14 steps. The one chain that moves is Nano Letters, where the two rulings simply swap places with
+the reversal — which is the reversal, not a loss.
+
+**Said plainly: the sequence carries nothing, and on this evidence v3 adds no information over v2.**
+Presenting a paper's argument as an ordered chain of causal hops, rather than as a bag of
+claim-and-evidence pairs, did not change a single ruling that v2 could not already have produced.
+
+There is a limitation that has to be stated beside that conclusion rather than after it. The `full`
+arm says "warrants" on 13 of 14 steps — **93%, a near-constant scale**. With almost every step
+ruled the same way, there is very little room for any arm to differ from `full`, so the reordered
+result rests on a ceiling rather than standing free of it. The only arm that moves substantially is
+the one deliberately given the wrong pictures. A fair reading is: the sequence carries nothing *that
+this grading question can detect*, and this grading question detects very little.
+
+## Per-hop scores, all four arms and the control
+
+| trace | step | hop | full | floor | oracle_complete | reordered | permute_image |
+|---|---|---|---|---|---|---|---|
+| acta_materia_M1_M2_M3 | 1 | M1 | warrants | warrants | warrants | warrants | does not address |
+| acta_materia_M1_M2_M3 | 2 | M2 | warrants | warrants | warrants | warrants | warrants |
+| acta_materia_M1_M2_M3 | 3 | M3 | warrants | warrants | warrants | warrants | warrants |
+| advanced_fun_M1_M2 | 1 | M1 | warrants | does not address | warrants | warrants | does not address |
+| advanced_fun_M1_M2 | 2 | M2 | warrants | warrants | warrants | warrants | does not address |
+| biomaterials_M1_M3_M4 | 1 | M1 | warrants | warrants | warrants | warrants | does not address |
+| biomaterials_M1_M3_M4 | 2 | M3 | warrants | warrants | warrants | warrants | does not address |
+| biomaterials_M1_M3_M4 | 3 | M4 | warrants | warrants | warrants | warrants | does not address |
+| biomaterials_M2_M4 | 1 | M2 | warrants | warrants | warrants | warrants | does not address |
+| biomaterials_M2_M4 | 2 | M4 | warrants | does not address | warrants | warrants | does not address |
+| nano_letters_M1_M2 | 1 | M1 | warrants | warrants | warrants | **contradicts** | warrants |
+| nano_letters_M1_M2 | 2 | M2 | **contradicts** | warrants | **contradicts** | warrants | contradicts |
+| rare_metals_M1_M2 | 1 | M1 | warrants | warrants | warrants | warrants | does not address |
+| rare_metals_M1_M2 | 2 | M2 | warrants | warrants | warrants | warrants | does not address |
+
+Majority-class baseline, the share of each arm's rulings taking its single most common level. An arm
+that says one thing everywhere scores 100% here and carries no signal:
+
+| arm | majority class | baseline | mean delta vs full |
+|---|---|---|---|
+| full | warrants | 13/14 = **93%** | — |
+| floor | warrants | 12/14 = 86% | −0.08 |
+| oracle_complete | warrants | 13/14 = **93%** | +0.00 |
+| reordered | warrants | 13/14 = **93%** | +0.00 |
+| permute_image | does not address | 10/14 = 71% | **−1.44** |
+
+Three readings follow. `oracle_complete` ties `full`, so the measurement written out in words does
+everything the picture does — the same result v2 reached on these five papers, where its oracle stop
+rule fired on all five cases. `floor` is within a rounding error of `full`, so the captions alone
+carry nearly the whole ruling. And `permute_image` is clearly separated, so the arms can tell wrong
+pictures from right ones; the scale is not broken, it is simply not being exercised.
+
+Nano Letters is the only trace where `full` rules anything other than "warrants": step 2 comes back
+`contradicts`. That is the Li-versus-Na comparison, the chain whose third hop we dropped as a
+restatement, and it is the one place in the set where an arm disagrees with the paper.
+
+## The Biomaterials fork
+
+The two routes into M4 were judged independently, and they do not agree:
+
+| route | chain | full closing |
+|---|---|---|
+| through the structure | M1 → M3 → M4 | **warrants** |
+| direct from processing | M2 → M4 | **partly warrants** |
+
+The longer route, which goes through the mesoporous structure and the release it controls, is
+judged warranted. The direct processing-to-properties route is only partly warranted. Both reach
+the same performance hop, so the paper's conclusion is better supported through its structural
+argument than through the shortcut — which is an argument for keeping the fork rather than
+collapsing it to one path.
+
+## v3 against v2, same five papers
+
+| paper | v2 case | v2 steps | v3 traces | v3 steps |
+|---|---|---|---|---|
+| Acta Materialia | case5_drop | 5 | 1 | 3 |
+| Advanced Functional Materials | case3_contradicts | 4 | 1 | 2 |
+| Biomaterials | case2_annotated | 4 | 2 | 5 |
+| Nano Letters | case4_oracle | 5 | 1 | 2 |
+| Rare Metals | case1_three_techniques | 3 | 1 | 2 |
+| **total** | **5** | **21** | **6** | **14** |
+
+The two designs do not share a scale and this does not pretend they do. v2 graded each step against
+an expected support level taken from the graph, so it could report "steps correct"; v3 has no key,
+because "does this evidence warrant this step?" has no stored answer, so its arms are compared with
+each other and with the majority-class baseline.
+
+| | v2 | v3 |
+|---|---|---|
+| a step is | one evidence node under one claim | one MatMech causal hop |
+| the step asks | is that observation visible? | does the evidence warrant this move? |
+| steps | 21 over 5 cases | 14 over 6 traces |
+| key | expected support from the graph | none |
+| full arm | 14/21 steps correct | 93% one class |
+| text beats or ties picture | oracle 15/21 vs full 14/21, stop rule fired 5 of 5 | oracle +0.00 |
+| control separates | permute_image 0/7, unparsed on 3 of 5 | permute_image −1.44, parsed 6 of 6 |
+
+Two things v3 does better. Its control actually runs: v2's `permute_image` failed to parse on three
+of five cases and graded 0/7 where it did, so it never functioned as a control, while v3's parses
+everywhere and separates cleanly. And v3 uses more of each paper's argument — 16 hops with 14
+attachable, against v2's five hand-picked claims.
+
+One thing v2 did better, and it matters: v2 had a key, however weak. That key was degenerate —
+every one of the five expected closings was "partial" — but it at least let an arm be *wrong*. v3's
+arms can only be compared with each other, and when they nearly all say "warrants", that comparison
+has little to say.
+
+The conclusion for the design, stated without hedging: **the causal-hop framing did not buy
+information.** The sequence is not doing work, the pictures are not doing work over the text, and
+the grading question is too easily satisfied to separate the arms. v3's contribution is structural
+rather than evaluative — it shows where a paper's argument actually forks (Biomaterials), which of
+its hops restate rather than advance (Nano Letters M3), and which land on claims with no figure
+behind them (adfm M3, M4).
