@@ -22669,7 +22669,32 @@
    "matmech_hop": null,
    "rel": "explains",
    "series_len": null,
-   "key": null
+   "key": {
+    "drafted": true,
+    "combines": true,
+    "proposition": "Na SAXS contours staying nearly straight and I(q) profiles overlapping across cycling (only a minor, localized drop near q~0.03-0.1 A-1 at 0.11/0.02 V) indicate the electrode does not undergo substantial structural/volume change during Na cycling. Set against the severe capacity fade seen in GCD (discharge capacity falling from ~870 mAh/g at cycle 1 to ~480 at cycle 2 and ~70 mAh/g by cycle 40), the pair together supports ruling OUT volume change as the driver of the fade: if volumetric/structural collapse were responsible for the large capacity loss, the SAXS contours would be expected to evolve markedly with cycling rather than stay nearly straight. This licenses attributing the fade to a different, non-volumetric mechanism.",
+    "limits": [
+     "SAXS here is a structural/scattering readout (contour shape, I(q) overlap) at essentially fixed/limited voltage points (0.11 V, 0.02 V), not a cycle-resolved series matched one-to-one against the 40-cycle GCD window, so the two datasets are compared at different sampling resolutions",
+     "The combination positively rules out volume change as the cause of the capacity loss but does not itself positively demonstrate that 'poor sodiation activity/minor conversion' is the actual mechanism -- that attribution is reached by elimination, not by direct evidence of reduced conversion extent in these two panels",
+     "SAXS structural stability and electrochemical capacity are different kinds of quantities (a scattering/structural profile vs. a cumulative capacity amount), so their joint pattern shows correlation-by-exclusion rather than a mechanistic link established by a shared measurement"
+    ],
+    "not_identifiable": "poor sodiation activity (minor conversion reaction) cannot be distinguished from other non-volumetric degradation mechanisms (e.g., interfacial/SEI resistance growth, electronic disconnection) as the specific cause of the fade using only the SAXS structural-stability observation and the GCD capacity-fade curve",
+    "quantity": {
+     "a": {
+      "kind": "structural/scattering profile (qualitative contour shape and I(q) overlap)",
+      "what": "SAXS I(q) contours at 0.11 V and 0.02 V, with a localized drop at q~0.03-0.1 A-1"
+     },
+     "b": {
+      "kind": "cumulative/absolute capacity amount",
+      "what": "discharge capacity in mAh/g at cycle 1 (~870), cycle 2 (~480), and cycle 40 (~70)"
+     }
+    },
+    "labels": {
+     "dependency": "real",
+     "inference_validity": "follows, weakly",
+     "causal_strength": "discriminating"
+    }
+   }
   },
   {
    "item": "rare_metals_com_o2_o3",
@@ -22792,7 +22817,33 @@
    "matmech_hop": null,
    "rel": null,
    "series_len": null,
-   "key": null
+   "key": {
+    "drafted": true,
+    "combines": true,
+    "proposition": "Together, the two panels support that the La-containing alloy possesses a distinct compound not found in the Sm alloy: the extra XRD reflections (~21-37, 50, 67 deg) seen only in the Al-Cu-Mn-La pattern are matched by a separate DSC dissolution event (shoulder B, ~638 C) beyond the Al2Cu-related peak A (~605 C), while the Sm pattern shows neither the extra reflections nor (by the same logic) the extra thermal event. The convergence of a structural signal (XRD) and an independent thermal signal (DSC) both appearing only with La is stronger support for a La-specific compound than either alone.",
+    "limits": [
+     "Neither observation, nor their combination, independently proves the specific identity of the new phase (i.e., that it is Al6Cu6La with a cubic NaZn13-type structure); that assignment is stated as coming from comparison to known literature values for the DSC peak, not derived from indexing the XRD reflections against this pairing",
+     "The pairing does not quantify how much of the new phase forms, only that its signatures (extra reflections, a distinct dissolution event) are present",
+     "Absence of extra reflections and of a distinct second DSC event in the Sm alloy shows no detected new phase, not proof that Sm forms literally none - it could be below the detection limit of both methods",
+     "The two measurements are of different kinds (positional/categorical diffraction counts vs. thermal-event temperatures) and are linked only by co-occurrence in the same alloy, not by a derived quantitative relationship"
+    ],
+    "not_identifiable": "Whether the new phase is specifically Al6Cu6La (cubic NaZn13-type) versus some other unidentified La-containing intermetallic cannot be separated from the XRD+DSC comparison alone; both signatures are consistent with, but not uniquely diagnostic of, that specific compound",
+    "quantity": {
+     "a": {
+      "kind": "categorical/positional count of diffraction reflections (presence vs. absence, at given 2theta degrees), no amount or rate given",
+      "what": "extra XRD reflections at ~21-37, 50, 67 deg, present only in Al-Cu-Mn-La pattern"
+     },
+     "b": {
+      "kind": "point measurement of thermal-event temperatures (deg C), no enthalpy/heat-flow magnitude quantified",
+      "what": "DSC peak A (~605 C) and shoulder B (~638 C) in the La alloy, assigned to Al2Cu and Al6Cu6La dissolution respectively"
+     }
+    },
+    "labels": {
+     "dependency": "real",
+     "inference_validity": "follows, weakly",
+     "causal_strength": "discriminating"
+    }
+   }
   },
   {
    "item": "rare_metals_com_o3_o5",
@@ -22840,7 +22891,33 @@
    "matmech_hop": null,
    "rel": null,
    "series_len": null,
-   "key": null
+   "key": {
+    "drafted": true,
+    "combines": true,
+    "proposition": "Taken together, the SEM finding of a second, finer bright boundary phase beside the arrow-A particles (F1c) and the DSC finding of two distinct dissolution events -- weak peak A (~605 C) and shoulder B (~638 C), assigned to Al2Cu and Al6Cu6La respectively (F3) -- support that the La alloy contains two boundary phases rather than one: the coarser arrow-A particles (consistent with Al2Cu, peak A) and a morphologically distinct finer phase (consistent with the higher-temperature Al6Cu6La shoulder B). Neither panel alone supports two phases: SEM alone shows only a morphological distinction with no chemical/thermal identity, and DSC alone shows only two closely-spaced thermal events with no spatial picture of where they arise.",
+    "limits": [
+     "The DSC assignment of shoulder B to Al6Cu6La is a label already given with the observation, not something derived by combining it with SEM; the pairing does not itself prove that assignment.",
+     "SEM and DSC are not spatially or chemically cross-referenced here (no EDS/mapping tying the finer boundary phase to the shoulder-B event), so the correspondence between the two finer-phase observations is inferred, not directly linked.",
+     "Peak A (~605 C) and shoulder B (~638 C) are only ~33 C apart and B is described as a shoulder, not a fully resolved peak, so DSC alone only weakly resolves two separate events.",
+     "Neither observation establishes crystal structure (e.g., a cubic NaZn13-type lattice); that requires diffraction data not present in these two panels."
+    ],
+    "not_identifiable": "Whether the finer SEM boundary phase is specifically the source of the DSC shoulder-B event (as opposed to the shoulder arising from some other minor constituent) is not identifiable from these two panels alone, since there is no spatial/chemical link tying the SEM feature to the thermal event.",
+    "quantity": {
+     "a": {
+      "kind": "qualitative morphological feature (descriptive, not a measured quantity)",
+      "what": "presence/size of a second, finer bright boundary phase in micrograph F1c"
+     },
+     "b": {
+      "kind": "point measurement (peak/shoulder temperature, not a rate or amount)",
+      "what": "DSC dissolution temperatures, peak A ~605 C and shoulder B ~638 C, over a heating scan"
+     }
+    },
+    "labels": {
+     "dependency": "real",
+     "inference_validity": "follows, weakly",
+     "causal_strength": "associative"
+    }
+   }
   }
  ],
  "note": "Every verdict is model against model."

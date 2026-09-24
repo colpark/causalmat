@@ -12,10 +12,10 @@ observation answers the question alone. Depth 2 by construction.
 | | v5 | **v2.5** |
 |---|---|---|
 | papers yielding items | 16 / 32 | **32 / 32** |
-| items | 29 | **283** |
+| items | 29 | **286** |
 | depth | 1–4, and 1 for 22 of 29 | **2 by construction; chains to 6** |
 | FM lane | 7 (24%) | **167 (58%)** |
-| discriminating items | 3 | **31** |
+| discriminating items | 3 | **33** |
 
 ## The three generators do not behave alike
 
@@ -160,43 +160,50 @@ tested on figures.
 
 ## The join audit: composing a chain launders limits
 
-96 of 145 joins audited. The remaining 49 were cut off when the weekly API limit was reached; the
-figures below are final for what ran and will not be completed.
+All 145 joins audited, 144 parsed.
 
 | | single pairs | **joined** |
 |---|---|---|
-| propositions hold | 50% | **26/96 = 27%** |
+| propositions hold | 50% | **36/144 = 25%** |
+
+Of the 108 that do not hold, **every one overreaches and none is wrong**. Joining does not introduce
+false statements; it introduces unwarranted confidence.
 
 | upstream limits, across the handoff | |
 |---|---|
-| carried | 119/348 = 34% |
-| **dropped** | **78/348 = 22%** |
-| not applicable | 151/348 = 43% |
+| carried | 161/529 = 30% |
+| **dropped** | **123/529 = 23%** |
+| not applicable | 245/529 = 46% |
 
-**55 of 96 joins — 57% — launder a limit.** The upstream conclusion was true only within its
+**82 of 144 joins — 57% — launder a limit.** The upstream conclusion was true only within its
 limits; the downstream item uses it as if those limits did not apply. Every individual statement
-stays true while it happens, which is why a per-item audit cannot see it: it rules whether each
-*stated* limit is true, and each one is. What changes is that the next item stops carrying them.
+stays true while it happens, which is why a per-item audit cannot see it: that audit rules whether
+each *stated* limit is true, and each one is. What changes is that the next item stops carrying
+them.
 
-**Laundering does not grow with depth — it is flat near 55% per join — so it compounds.**
+**Laundering is flat per join, near 55% at every depth, so it compounds:**
 
 | chains preserving *every* limit | |
 |---|---|
-| depth 2 | 23/52 = 44% |
-| depth 3 | 2/13 = 15% |
-| depth 4 | 1/5 = 20% |
+| depth 2 | 30/64 = 47% |
+| depth 3 | 8/31 = 26% |
+| depth 4 | **1/26 = 4%** |
+| depth 5 | 0/3 = 0% |
 | depth 6 | 0/2 = 0% |
-| **all** | **26/72 = 36%** |
+| **all** | **39/126 = 31%** |
+
+Beyond depth 3 the chains essentially stop preserving their qualifications: one chain in 26 at depth
+4, none at all at 5 or 6.
 
 ### This corrects how I reported depth
 
-Chains reaching depth 6 was the headline I gave for composition, twice, before this audit existed
-to contradict it. If each join is roughly an even chance of shedding a caveat, **a deep chain is not
-a stronger item, it is a longer one**, carrying a conclusion whose qualifications were dropped a
-step at a time. Depth without limit survival is accumulation, not support.
+Chains reaching depth 6 was the headline I gave for composition, twice, before this audit existed to
+contradict it. If each join is roughly an even chance of shedding a caveat, **a deep chain is not a
+stronger item, it is a longer one**, carrying a conclusion whose qualifications were dropped a step
+at a time. Depth without limit survival is accumulation, not support.
 
-v2.5 still wins clearly on coverage (32 of 32 papers against 16) and on discriminating items (31
-against 3). "Chains to depth 6" should not be counted among its gains.
+v2.5's gains over v5 stand on coverage (32 of 32 papers against 16), item count (286 against 29) and
+discriminating items (33 against 3). **"Chains to depth 6" should not be counted among them.**
 
 ## What went wrong in the build, and what caught it
 
