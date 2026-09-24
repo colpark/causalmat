@@ -579,7 +579,8 @@
       "evidence": "obs5, obs6, and obs7 all report computed quantities (Bader charge transfer, electron density distribution, adsorption/binding energies) for isolated adsorption geometries, with no reference to discharge-condition timing, temperature, or kinetics, consistent with the limit's characterization of these as static computed values distinct from in-situ measurements.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -660,7 +661,7 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "Putting the previous step's finding (zinc plating drives Zn-N bond formation at pyridinic-N sites, shifting their chemical state toward graphitic nitrogen) together with this step's evidence permits the conclusion that this N-site chemical change on the N-doped host is accompanied by a measurably lower zinc nucleation overpotential (39 mV vs 43 mV, obs4) and a lower plating overpotential at every current density tested (obs3), and that DFT calculations offer a mechanistically consistent picture (more negative charge transfer to zinc, obs5; denser interfacial charge accumulation, obs6; and more negative, i.e. stronger, binding energies at N-doped sites, obs7) for why zinc would nucleate and plate more easily on the N-doped host.",
+    "proposition": "...and a lower plating overpotential at the highest current density tested (about -0.05 V vs -0.10 V, obs3), with the two hosts' plateaus nearly coinciding at the lowest rate tested rather than diverging at every current density...",
     "limits": [
      "obs1 (N1s feature collapse/rise) and obs2 (Raman ~1200 cm-1 weakening) only confirm that a chemical/structural change occurs upon zinc deposition on the same sample; they do not themselves measure or demonstrate a change in overpotential, so linking them to obs3/obs4 is associative, not a shown causal step",
      "obs3 gives only two rate points (lowest and highest current density) where the two hosts' plateaus are compared, which supports an ordering (N-doped plates at lower magnitude, e.g. -0.05 V vs -0.10 V at the extreme) but not a continuous rate-dependence relationship",
@@ -691,7 +692,7 @@
     ],
     "scoring": {
      "required_elements": [
-      "Putting the previous step's finding (zinc plating drives Zn-N bond formation at pyridinic-N sites, shifting their chemical state toward graphitic nitrogen) together with this step's evidence permits the conclusion that this N-site chemical change on the N-doped host is accompanied by a measurably lower zinc nucleation overpotential (39 mV vs 43 mV, obs4) and a lower plating overpotential at every current density tested (obs3), and that DFT calculations offer a mechanistically consistent picture (more negative charge transfer to zinc, obs5; denser interfacial charge accumulation, obs6; and more negative, i.e. stronger, binding energies at N-doped sites, obs7) for why zinc would nucleate and plate more easily on the N-doped host.",
+      "...and a lower plating overpotential at the highest current density tested (about -0.05 V vs -0.10 V, obs3), with the two hosts' plateaus nearly coinciding at the lowest rate tested rather than diverging at every current density...",
       "obs1 (N1s feature collapse/rise) and obs2 (Raman ~1200 cm-1 weakening) only confirm that a chemical/structural change occurs upon zinc deposition on the same sample; they do not themselves measure or demonstrate a change in overpotential, so linking them to obs3/obs4 is associative, not a shown causal step",
       "obs3 gives only two rate points (lowest and highest current density) where the two hosts' plateaus are compared, which supports an ordering (N-doped plates at lower magnitude, e.g. -0.05 V vs -0.10 V at the extreme) but not a continuous rate-dependence relationship",
       "obs5, obs6 and obs7 are DFT-computed quantities (charge transfer in electrons, charge-density maps, adsorption binding energies) evaluated at idealized single sites (top/hollow/bridge) on a static N-doped graphene model, which is a different kind of quantity than the macroscopic, current-density-dependent, experimentally measured overpotentials in obs3/obs4; agreement between the two is suggestive, not a direct causal test",
@@ -700,7 +701,8 @@
      "n_required": 5,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
-    }
+    },
+    "proposition_before_audit": "Putting the previous step's finding (zinc plating drives Zn-N bond formation at pyridinic-N sites, shifting their chemical state toward graphitic nitrogen) together with this step's evidence permits the conclusion that this N-site chemical change on the N-doped host is accompanied by a measurably lower zinc nucleation overpotential (39 mV vs 43 mV, obs4) and a lower plating overpotential at every current density tested (obs3), and that DFT calculations offer a mechanistically consistent picture (more negative charge transfer to zinc, obs5; denser interfacial charge accumulation, obs6; and more negative, i.e. stronger, binding energies at N-doped sites, obs7) for why zinc would nucleate and plate more easily on the N-doped host."
    },
    "panels_dropped_by_cap": [
     "F2c",
@@ -709,7 +711,43 @@
    "fm_lane": true,
    "split_into": 2,
    "depth": 2,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "overreaches",
+      "evidence": "obs3: 'The two hosts' plating plateaus nearly coincide at the lowest rate and separate strongly at the highest (about -0.05 V vs -0.10 V)' \u2014 this shows near-equal overpotentials at the lowest current density, not a lower value for the N-doped host at every rate tested.",
+      "fix": "...and a lower plating overpotential at the highest current density tested (about -0.05 V vs -0.10 V, obs3), with the two hosts' plateaus nearly coinciding at the lowest rate tested rather than diverging at every current density..."
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "obs1 ('the ~398 eV N 1s feature collapses and the ~401 eV feature becomes the taller of the two') and obs2 ('The ~1200 cm-1 Raman feature weakens ... from pristine ... to ... zinc-loaded') report only structural/chemical spectral changes on zinc deposition; neither measures overpotential, so the limit's caution that linking them to obs3/obs4 is associative rather than a shown causal step is accurate.",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "obs3 explicitly states comparison only at 'the lowest rate' and 'the highest' current density, i.e. two points, matching the limit's claim that only an ordering (not a continuous rate-dependence) is supported.",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "obs5-obs7 are explicitly DFT quantities ('Charge transfer to zinc is more negative at every N-doped site', 'Electron accumulation ... denser in the zinc-substrate gap', 'Binding energies are ... on N-doped graphene' at 'top/hollow/bridge' sites) computed at idealized static sites, distinct in kind from the measured, current-density-dependent overpotentials in obs3/obs4; the limit's framing of this as suggestive rather than a direct causal test is accurate.",
+      "fix": null
+     },
+     {
+      "what": "limit[3]",
+      "verdict": "holds",
+      "evidence": "obs5, obs6, and obs7 all refer only to generic 'N-doped' sites/graphene (top/hollow/bridge), with no mention of pyridinic or graphitic nitrogen or Zn-N bonding specifically, so the limit's point that the mechanistic bridge to the previous step's pyridinic-to-graphitic-shifted sites is inferred rather than shown is accurate.",
+      "fix": null
+     }
+    ],
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "advanced_ene_M1_M2_M4_s3",
@@ -831,7 +869,43 @@
    "fm_lane": true,
    "split_into": 1,
    "depth": 3,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "holds",
+      "evidence": "obs1: 'Zinc on CnC HS is a largely flat deposit with sparse protruding platelets; on C HS the surface is a dense mat of sharp platelets'; obs2: 'CnC HS holds roughly 93-100% Coulombic efficiency to about 205 cycles; C HS data end near 50 cycles after falling to zero at ~40 and ~48'; obs3: 'C HS voltage spikes grow from ~2600 min and its trace ends near 4400 min ... while CnC HS stays within ~0.03 V to 7100 min'; obs4: 'C HS develops large voltage spikes from ~2300 min while CnC HS stays within ~0.05 V to 3500 min'. All quantities and directions cited in the proposition (platelet morphology contrast, CE percentages/cycle counts, voltage-window/time values for both protocols) match the observations exactly. The causal language is appropriately hedged: 'is consistent with', 'offers a plausible thermodynamic basis' (not 'proves' or 'causes'), and 'tracks with' (correlational, not causal) for the morphology-to-service-life link, so the inference stays within what an ordering across two samples can support.",
+      "fix": null
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "Previous step establishes the DFT adsorption-energy comparison is on 'N-doped graphene' vs 'pristine graphene' (idealized single-surface model), while obs1-obs4 report SEM/cycling data on 'CnC HS' and 'C HS' composite hollow-sphere electrodes; the limit correctly flags this scale/architecture mismatch and that the samples plausibly differ in more than doping alone, which is a valid methodological caution not contradicted by any given observation.",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "obs1 through obs4 each report exactly two conditions (CnC HS vs C HS), and the previous step's adsorption energies are likewise just two ranges (N-doped vs pristine); the limit's claim that this is 'an ordering between two cases, not a dose-response relationship' accurately reflects that only two samples/energy ranges are present, with no intermediate doping levels or energies sampled.",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "obs2-obs4 report cycling/voltage failure signatures (CE dropping to zero, voltage spikes, battery-failure arrow) without identifying a mechanism, so the limit's point that dendrite shorting, side reactions, or corrosion could contribute independently of adsorption thermodynamics is a valid, unaddressed gap rather than a claim contradicted by the data.",
+      "fix": null
+     },
+     {
+      "what": "limit[3]",
+      "verdict": "holds",
+      "evidence": "obs2 measures Coulombic efficiency over cycle count, obs3 measures voltage stability over minutes in a symmetric-cell test, and obs4 measures voltage stability over minutes under a stepped current-density staircase -- three distinct protocols with different units/axes (cycles vs. minutes, efficiency % vs. voltage window), confirming the limit's statement that they are not on a common scale and are combined only qualitatively.",
+      "fix": null
+     }
+    ],
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "advanced_ene_M2_M4_s1",
@@ -1065,7 +1139,8 @@
       "evidence": "[obs1] and [obs2] give only Jsc, Voc, and IPCE -- no fill factor or PCE value appears in either observation -- so the statement that PCE 'is not directly supported by obs1/obs2 alone' is accurate; the limit's mention of a PCE ranking being 'the paper's conclusion' is a plausible external reference (not contradicted by, and not required to appear in, obs1/obs2) rather than a claim made against the given evidence.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -1300,7 +1375,8 @@
       "evidence": "[obs1] gives a single capacity value (~91 mAh/g); consistent with the rule that one data point can support an ordering/comparison at best, not a general relationship between redox-couple count and capacity magnitude.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -1531,7 +1607,37 @@
    "fm_lane": true,
    "split_into": 1,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "holds",
+      "evidence": "obs1 'largely flat deposit with sparse protruding platelets' vs 'dense mat of sharp platelets' matches 'flatter, less sharply platelet-covered'; obs2 '93-100% ... to about 205 cycles' and 'falling to zero at ~40 and ~48 ... end near 50 cycles' matches exactly; obs3 'stays within ~0.03 V to 7100 min' and 'ends near 4400 min ... spikes ... from ~2600 min' matches exactly; obs4 'within ~0.05 V to 3500 min' and 'large voltage spikes from ~2300 min' matches exactly. The conclusion is hedged as 'correlates with' rather than a causal claim, which is consistent with the limits that block a causal reading.",
+      "fix": null
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "Step 1's overpotential values (39 vs 43 mV, plating overpotential at every current density) are from an initial-stage measurement, while obs2-obs4 report cycle counts/minutes of long-run cycling; nothing in the observations shows overpotential tracked continuously alongside these cycling metrics, so the caveat that the link is inferred across two separate measurements is accurate.",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "obs1 describes only the deposit morphology ('largely flat deposit with sparse protruding platelets' vs 'dense mat of sharp platelets') with no cycle number or timestamp, and obs2-obs4 give cycle/time data for CE drops and voltage spikes without referencing morphology, so morphology cannot be shown to co-evolve with the electrochemical degradation.",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "CnC HS vs C HS is a host-material comparison by construction; none of obs1-obs4 isolate overpotential as the sole varying factor, so the caveat that other host properties could independently drive both the overpotential and morphology/cycling differences is accurate and not contradicted by the observations.",
+      "fix": null
+     }
+    ],
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "advanced_fun_M1_M2_s1",
@@ -1978,7 +2084,8 @@
       "evidence": "obs1 reports only single percentage values per condition after light exposure ('antibacterial ratio ... ~91%... ~93%...'), with no rate, kinetic, or wavelength-resolved data given, matching the limit's characterization that this endpoint measure cannot be mapped point-for-point onto the wavelength-resolved absorption spectrum from step 1.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -2149,9 +2256,9 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "The composition that gave the largest photocatalytic dye-degradation gain in the previous step, Er0.5Ce0.2Ti-O (~46% dye removal vs ~20% for TiO2 in 60 min), is also the composition with the highest antibacterial kill ratio here (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1), and it shows visibly the fewest surviving colonies on light-exposed plates for both strains (obs2). So the same co-doped composition that ranks best for dye degradation also ranks best for antibacterial performance under light, and the ordering across compositions (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control) tracks in the same direction in both assays.",
+    "proposition": "The composition with the largest dye-degradation gain, Er0.5Ce0.2Ti-O, is also the composition with the highest antibacterial kill ratio (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1) and the fewest surviving colonies on light plates for both strains (obs2). Among the compositions tested in the antibacterial assay, kill ratio also increases with co-doping (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control), consistent with the previous step's general statement that dye degradation 'rises with co-doping' -- but a matching point-by-point ordering for Ce0.3 and Ce0.1 in the dye-degradation assay is not given, so a full parallel ordering across both assays is not established.",
     "limits": [
-     "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio) with different exposure windows (60 min vs 20 min), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes",
+     "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio), and the antibacterial assay's exposure duration is not given in these observations (only the dye assay's 60 min is specified), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes.",
      "The antibacterial result also includes a dark-plate condition (obs2) where colonies persist even for doped samples, showing light dependence for the antibacterial effect, but this dark condition has no counterpart in the previous step's dye-degradation data, so the two datasets cannot be cross-checked for a light-dependence mechanism",
      "Only a handful of compositions were tested in each assay, so the parallel ordering could reflect general co-doping benefit rather than a specific quantitative relationship between the two properties"
     ],
@@ -2179,20 +2286,54 @@
     ],
     "scoring": {
      "required_elements": [
-      "The composition that gave the largest photocatalytic dye-degradation gain in the previous step, Er0.5Ce0.2Ti-O (~46% dye removal vs ~20% for TiO2 in 60 min), is also the composition with the highest antibacterial kill ratio here (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1), and it shows visibly the fewest surviving colonies on light-exposed plates for both strains (obs2). So the same co-doped composition that ranks best for dye degradation also ranks best for antibacterial performance under light, and the ordering across compositions (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control) tracks in the same direction in both assays.",
-      "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio) with different exposure windows (60 min vs 20 min), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes",
+      "The composition with the largest dye-degradation gain, Er0.5Ce0.2Ti-O, is also the composition with the highest antibacterial kill ratio (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1) and the fewest surviving colonies on light plates for both strains (obs2). Among the compositions tested in the antibacterial assay, kill ratio also increases with co-doping (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control), consistent with the previous step's general statement that dye degradation 'rises with co-doping' -- but a matching point-by-point ordering for Ce0.3 and Ce0.1 in the dye-degradation assay is not given, so a full parallel ordering across both assays is not established.",
+      "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio), and the antibacterial assay's exposure duration is not given in these observations (only the dye assay's 60 min is specified), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes.",
       "The antibacterial result also includes a dark-plate condition (obs2) where colonies persist even for doped samples, showing light dependence for the antibacterial effect, but this dark condition has no counterpart in the previous step's dye-degradation data, so the two datasets cannot be cross-checked for a light-dependence mechanism",
       "Only a handful of compositions were tested in each assay, so the parallel ordering could reflect general co-doping benefit rather than a specific quantitative relationship between the two properties"
      ],
      "n_required": 4,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
-    }
+    },
+    "proposition_before_audit": "The composition that gave the largest photocatalytic dye-degradation gain in the previous step, Er0.5Ce0.2Ti-O (~46% dye removal vs ~20% for TiO2 in 60 min), is also the composition with the highest antibacterial kill ratio here (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1), and it shows visibly the fewest surviving colonies on light-exposed plates for both strains (obs2). So the same co-doped composition that ranks best for dye degradation also ranks best for antibacterial performance under light, and the ordering across compositions (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control) tracks in the same direction in both assays."
    },
    "fm_lane": false,
    "split_into": 1,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "overreaches",
+      "evidence": "The previous step's result only states 'Photocatalytic dye degradation rises with co-doping, best for Er0.5Ce0.2Ti-O (~46% vs ~20% for TiO2 in 60 min)' -- it gives just two data points (best composition and TiO2 baseline), not a ranking for Ce0.3, Ce0.1, and control. obs1 does supply the full antibacterial ordering (Er0.5Ce0.2 ~91%/~93% > Ce0.3 ~87% > Ce0.1 ~68-73% > TiO2 ~45% > control ~4-7%), so the claim that 'the composition that gave the largest ... gain ... is also the composition with the highest antibacterial kill ratio' and shows fewest colonies (obs2) holds. But the closing claim that 'the ordering across compositions (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control) tracks in the same direction in both assays' overreaches, since the dye-degradation data given only pins down the top (Er0.5Ce0.2) and the TiO2 baseline, not the full 5-point ordering needed to say the two orderings 'track in the same direction.'",
+      "fix": "The composition with the largest dye-degradation gain, Er0.5Ce0.2Ti-O, is also the composition with the highest antibacterial kill ratio (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1) and the fewest surviving colonies on light plates for both strains (obs2). Among the compositions tested in the antibacterial assay, kill ratio also increases with co-doping (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control), consistent with the previous step's general statement that dye degradation 'rises with co-doping' -- but a matching point-by-point ordering for Ce0.3 and Ce0.1 in the dye-degradation assay is not given, so a full parallel ordering across both assays is not established."
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "wrong",
+      "evidence": "Neither obs1 nor obs2 states an exposure duration for the antibacterial assay; the antibacterial figures are simply labeled 'Light' vs 'dark' in obs1/obs2 with no time given. The '20 min' figure cited in this limit does not appear in the observations available at this step.",
+      "fix": "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio), and the antibacterial assay's exposure duration is not given in these observations (only the dye assay's 60 min is specified), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes."
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "obs2: 'Er0.5Ce0.2Ti-O light plates carry the fewest colonies for both strains; dark plates stay covered, sparser for doped samples' -- confirms colonies persist in the dark even for doped samples (just sparser), showing light dependence, and the previous step's dye-degradation summary has no dark-condition data to compare against.",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "obs1 lists five compositions (Er0.5Ce0.2, Ce0.3, Ce0.1, TiO2, control), a small set consistent with 'a handful of compositions'; the limit's caution that this could reflect a general co-doping benefit rather than a precise quantitative relationship is a reasonable hedge that does not assert any unsupported number or direction.",
+      "fix": null
+     }
+    ],
+    "limits_before_audit": {
+     "0": "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio), and the antibacterial assay's exposure duration is not given in these observations (only the dye assay's 60 min is specified), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes."
+    },
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "bioactive_ma_M5_M4_s1",
@@ -2641,7 +2782,8 @@
       "evidence": "obs2: 'Adhered platelets ~32, 41, 15.5, 11 and 5 (x1e2 cell/mm2) on 316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF' gives NO-PPAmF=11 vs BVLD/NO-PPAmF=5, and obs6: 'Occlusion ~58, 63, 10, 7.5 and 3%' gives NO-PPAmF=7.5% vs BVLD/NO-PPAmF=3%, matching the numbers the limit cites; since BVLD/NO-PPAmF combines BVLD with the NO-releasing surface, the extra suppression beyond NO-PPAmF alone cannot be isolated to sustained NO release, as the limit correctly notes.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -2726,7 +2868,7 @@
     "proposition": "Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting.",
     "limits": [
      "The shunt evidence is a single-endpoint measurement (adhesion, activation, occlusion, thrombus weight, flow retention all read at one time), not a time course, so it does not directly test whether anti-thrombotic performance tracks the specific 8 h NO-release duration established in step 1 -- the link between release duration and outcome is inferred, not measured together.",
-     "BVLD (an anticoagulant) is present together with NO release in three of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone.",
+     "BVLD (an anticoagulant) is present in two of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), and co-occurs with NO release only in BVLD/NO-PPAmF, so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone.",
      "The two steps compare quantities of different kinds -- an in vitro time-duration of NO release (hours) versus ex vivo/in vivo endpoint outcome measures (%, mg, cells/mm2) -- so the connection is an association across steps, not a demonstrated dose- or time-response mechanism."
     ],
     "not_identifiable": "whether BVLD's anticoagulant action or PPAmF's sustained NO release (or a synergy between them) is the dominant contributor to the near-total prevention of occlusive thrombus on BVLD/NO-PPAmF cannot be separated from this comparison",
@@ -2755,7 +2897,7 @@
      "required_elements": [
       "Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting.",
       "The shunt evidence is a single-endpoint measurement (adhesion, activation, occlusion, thrombus weight, flow retention all read at one time), not a time course, so it does not directly test whether anti-thrombotic performance tracks the specific 8 h NO-release duration established in step 1 -- the link between release duration and outcome is inferred, not measured together.",
-      "BVLD (an anticoagulant) is present together with NO release in three of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone.",
+      "BVLD (an anticoagulant) is present in two of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), and co-occurs with NO release only in BVLD/NO-PPAmF, so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone.",
       "The two steps compare quantities of different kinds -- an in vitro time-duration of NO release (hours) versus ex vivo/in vivo endpoint outcome measures (%, mg, cells/mm2) -- so the connection is an association across steps, not a demonstrated dose- or time-response mechanism."
      ],
      "n_required": 4,
@@ -2772,7 +2914,40 @@
    "fm_lane": true,
    "split_into": 2,
    "depth": 2,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "holds",
+      "evidence": "obs2 (adhered platelets 32,41,15.5,11,5 x1e2 cells/mm2), obs3 (activation ~65,74,23,18,~1%), obs6 (occlusion ~58,63,10,7.5,3%), obs7 (thrombus weight ~64,73,5,4,2mg) and obs8 (flow retained ~20,17,64,68,90%) all show NO-PPAmF and BVLD/NO-PPAmF markedly lower/better than 316L SS and PPAmF; obs1 and obs5 show fewer/less-activated platelets and sparser fibrin (fibrin strands or almost bare vs dense fibrin network) on the NO-releasing surfaces. The stated figures for BVLD/NO-PPAmF (~3% occlusion, ~2mg thrombus, ~90% flow retained) match obs6-obs8 exactly. The causal language is appropriately hedged ('associated with, and plausibly contributes to'), consistent with the association-only nature of the cross-step link.",
+      "fix": null
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "All of obs1-obs8 are single-endpoint readouts (SEM images, photographs, and point quantities for adhesion, activation, occlusion, weight, flow) with no time-course data reported, so the claim that anti-thrombotic performance is not directly tied to the 8h NO-release duration from step 1 (only inferred) is accurate.",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "wrong",
+      "evidence": "obs2 lists five surfaces total (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF); BVLD is present in only two of them (BVLD-PPAmF and BVLD/NO-PPAmF), matching the two surfaces named in parentheses, not three.",
+      "fix": "BVLD (an anticoagulant) is present in two of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), and co-occurs with NO release only in BVLD/NO-PPAmF, so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone."
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "Step 1's result is an in vitro NO-release duration (hours) while this step's observations (obs2,3,6,7,8) are ex vivo shunt outcome measures in %, mg, and cells/mm2 -- different units and measurement contexts, so the link across steps is correctly characterized as an association rather than a demonstrated dose/time-response mechanism.",
+      "fix": null
+     }
+    ],
+    "limits_before_audit": {
+     "1": "BVLD (an anticoagulant) is present in two of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), and co-occurs with NO release only in BVLD/NO-PPAmF, so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone."
+    },
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "biomaterials_M1_M3_M4_s1",
@@ -3260,7 +3435,8 @@
       "evidence": "obs1 ('Co2+ in medium...') and obs2 ('HIF-1alpha band faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG...') describe Co2+ release levels and a HIF-1alpha signaling readout, distinct from the antibacterial survival data in obs4; nothing in obs1/obs2 ties them to the antibacterial mechanism, so the limit's caution against reading them into that mechanism is accurate.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -3440,7 +3616,49 @@
    "fm_lane": false,
    "split_into": 2,
    "depth": 4,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "holds",
+      "evidence": "obs1: 'HIF-1alpha band faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG; alpha-tubulin bands equal' matches the claimed faint/faint/strong pattern with equal loading control; obs2: '~105, ~81, ~52% at days 1, 3, 7 vs blank 100 and drug-free scaffolds 110-118%' matches the cited numbers and the drug-free-scaffolds-did-not-lower-survival point exactly.",
+      "fix": null
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "obs1 gives only a qualitative faint/clearly-stronger description with no band-intensity numbers or replicate count, matching the claim that this is 'a pattern, not a measured dose-response.'",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "obs1 lists exactly three compositions -- MBG, 2Co-MBG, 5Co-MBG -- consistent with 'too few points to fit a dose-response curve, only an ordering.'",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "obs2 labels the data generically as 'Scaffolds+Ampicillin' with no per-composition (Co-content) breakdown given, so attribution to a specific Co-MBG composition indeed cannot be confirmed.",
+      "fix": null
+     },
+     {
+      "what": "limit[3]",
+      "verdict": "holds",
+      "evidence": "obs2: drug-free scaffolds show '110-118%', above the blank's 100%, so they did not lower survival, supporting that the decline tracks ampicillin loading rather than the Co-release ordering.",
+      "fix": null
+     },
+     {
+      "what": "limit[4]",
+      "verdict": "holds",
+      "evidence": "obs2 reports figures as 'Relative survival ... vs blank 100%', i.e. percentages normalized to a blank baseline rather than absolute counts, matching the stated limit.",
+      "fix": null
+     }
+    ],
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "biomaterials_M2_M4_s1",
@@ -3584,12 +3802,12 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "Because Co content sets Co2+ release magnitude (5Co-MBG releases fastest and most, 2Co-MBG less, over 7 days, per the previous step), and the western blot shows HIF-1alpha band intensity is faint for plain MBG and 2Co-MBG but clearly stronger for 5Co-MBG (with equal alpha-tubulin loading), the two results together show that HIF-1alpha protein level in BMSCs tracks the same ordering as Co2+ release across the three scaffold groups: more Co2+ release goes with more HIF-1alpha.",
+    "proposition": "HIF-1alpha protein level is higher in 5Co-MBG than in MBG and 2Co-MBG, consistent with 5Co-MBG's greater Co2+ release; the blot does not distinguish MBG from 2Co-MBG (both merely 'faint'), so it shows only an association between the highest-Co2+-release group and the highest HIF-1alpha band, not a full monotonic three-way ordering matching graded Co2+ release across all three groups.",
     "limits": [
      "Only three scaffold groups are compared (MBG, 2Co-MBG, 5Co-MBG); this is an ordering across categories, not a dose-response curve relating a measured Co2+ concentration to a measured HIF-1alpha level.",
      "The western blot is a qualitative/semi-quantitative read (band intensity relative to alpha-tubulin loading control), not a quantified protein amount, and no timepoint within the 7-day release window is specified for when the blot was taken.",
      "The scaffold groups differ in composition beyond Co2+ release (they are different materials, not a single material dosed with varying free Co2+), so material/compositional differences other than Co2+ release cannot be ruled out as contributing to the HIF-1alpha pattern.",
-     "obs1 shows HIF-1alpha only; it says nothing about VEGF, so the 'drives VEGF' portion of the conclusion is not supported by this evidence.",
+     "This limit does not apply to the proposition under audit, which makes no VEGF claim; if intended as a general caution it should instead read: obs1 addresses only HIF-1alpha and says nothing about VEGF, so this evidence cannot be extended to support any separate downstream VEGF-related claim not made here.",
      "obs2 (relative survival with Scaffolds+Ampicillin at ~105%, ~81%, ~52% on days 1, 3, 7 versus a 100% blank and 110-118% drug-free scaffolds) concerns antibacterial/cytotoxicity survival with an antibiotic, not the HIF-1alpha/hypoxia pathway, and does not bear on this mechanism."
     ],
     "not_identifiable": "Whether the HIF-1alpha increase reflects a specific hypoxia-mimetic mechanism (Co2+ stabilizing HIF-1alpha) versus a more general cobalt-driven cellular stress response, since the blot cannot separate these two explanations for elevated HIF-1alpha across the three groups.",
@@ -3617,22 +3835,68 @@
     ],
     "scoring": {
      "required_elements": [
-      "Because Co content sets Co2+ release magnitude (5Co-MBG releases fastest and most, 2Co-MBG less, over 7 days, per the previous step), and the western blot shows HIF-1alpha band intensity is faint for plain MBG and 2Co-MBG but clearly stronger for 5Co-MBG (with equal alpha-tubulin loading), the two results together show that HIF-1alpha protein level in BMSCs tracks the same ordering as Co2+ release across the three scaffold groups: more Co2+ release goes with more HIF-1alpha.",
+      "HIF-1alpha protein level is higher in 5Co-MBG than in MBG and 2Co-MBG, consistent with 5Co-MBG's greater Co2+ release; the blot does not distinguish MBG from 2Co-MBG (both merely 'faint'), so it shows only an association between the highest-Co2+-release group and the highest HIF-1alpha band, not a full monotonic three-way ordering matching graded Co2+ release across all three groups.",
       "Only three scaffold groups are compared (MBG, 2Co-MBG, 5Co-MBG); this is an ordering across categories, not a dose-response curve relating a measured Co2+ concentration to a measured HIF-1alpha level.",
       "The western blot is a qualitative/semi-quantitative read (band intensity relative to alpha-tubulin loading control), not a quantified protein amount, and no timepoint within the 7-day release window is specified for when the blot was taken.",
       "The scaffold groups differ in composition beyond Co2+ release (they are different materials, not a single material dosed with varying free Co2+), so material/compositional differences other than Co2+ release cannot be ruled out as contributing to the HIF-1alpha pattern.",
-      "obs1 shows HIF-1alpha only; it says nothing about VEGF, so the 'drives VEGF' portion of the conclusion is not supported by this evidence.",
+      "This limit does not apply to the proposition under audit, which makes no VEGF claim; if intended as a general caution it should instead read: obs1 addresses only HIF-1alpha and says nothing about VEGF, so this evidence cannot be extended to support any separate downstream VEGF-related claim not made here.",
       "obs2 (relative survival with Scaffolds+Ampicillin at ~105%, ~81%, ~52% on days 1, 3, 7 versus a 100% blank and 110-118% drug-free scaffolds) concerns antibacterial/cytotoxicity survival with an antibiotic, not the HIF-1alpha/hypoxia pathway, and does not bear on this mechanism."
      ],
      "n_required": 6,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
-    }
+    },
+    "proposition_before_audit": "Because Co content sets Co2+ release magnitude (5Co-MBG releases fastest and most, 2Co-MBG less, over 7 days, per the previous step), and the western blot shows HIF-1alpha band intensity is faint for plain MBG and 2Co-MBG but clearly stronger for 5Co-MBG (with equal alpha-tubulin loading), the two results together show that HIF-1alpha protein level in BMSCs tracks the same ordering as Co2+ release across the three scaffold groups: more Co2+ release goes with more HIF-1alpha."
    },
    "fm_lane": false,
    "split_into": 2,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "overreaches",
+      "evidence": "obs1: 'HIF-1alpha band faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG; alpha-tubulin bands equal' combined with prior step: '5Co-MBG releases faster and more than 2Co-MBG, both rising over 7 days' (no three-way Co2+ release ordering including plain MBG, and no gradation between MBG and 2Co-MBG bands is reported).",
+      "fix": "HIF-1alpha protein level is higher in 5Co-MBG than in MBG and 2Co-MBG, consistent with 5Co-MBG's greater Co2+ release; the blot does not distinguish MBG from 2Co-MBG (both merely 'faint'), so it shows only an association between the highest-Co2+-release group and the highest HIF-1alpha band, not a full monotonic three-way ordering matching graded Co2+ release across all three groups."
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "Matches obs1's group-based (MBG/2Co-MBG/5Co-MBG) qualitative comparison and the prior step's group-based (not concentration-based) release comparison; no dose-response curve is given.",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "obs1 describes bands only as 'faint' vs 'clearly stronger' (qualitative), gives no numeric protein quantity, and states no timepoint for when the blot was taken.",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "MBG, 2Co-MBG, and 5Co-MBG are distinct materials per obs1's framing; nothing in the observations isolates Co2+ release as the sole compositional variable, so this limitation is not contradicted.",
+      "fix": null
+     },
+     {
+      "what": "limit[3]",
+      "verdict": "wrong",
+      "evidence": "The proposition under audit ('the two results together show that HIF-1alpha protein level in BMSCs tracks the same ordering as Co2+ release... more Co2+ release goes with more HIF-1alpha') makes no claim about VEGF at all, so there is no 'drives VEGF' portion of this conclusion for the limit to qualify.",
+      "fix": "This limit does not apply to the proposition under audit, which makes no VEGF claim; if intended as a general caution it should instead read: obs1 addresses only HIF-1alpha and says nothing about VEGF, so this evidence cannot be extended to support any separate downstream VEGF-related claim not made here."
+     },
+     {
+      "what": "limit[4]",
+      "verdict": "holds",
+      "evidence": "obs2 ('Relative survival with Scaffolds+Ampicillin ~105, ~81, ~52% at days 1, 3, 7 vs blank 100 and drug-free scaffolds 110-118%') concerns antibacterial/cytotoxicity survival with an antibiotic, unrelated to HIF-1alpha or the hypoxia pathway being discussed.",
+      "fix": null
+     }
+    ],
+    "limits_before_audit": {
+     "3": "This limit does not apply to the proposition under audit, which makes no VEGF claim; if intended as a general caution it should instead read: obs1 addresses only HIF-1alpha and says nothing about VEGF, so this evidence cannot be extended to support any separate downstream VEGF-related claim not made here."
+    },
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "biomaterials_M2_M4_s2_2",
@@ -4361,7 +4625,8 @@
       "evidence": "[obs1] presents one K_IC curve and one flexural-strength curve for a single specimen across temperature, i.e. a single trend line, not a cross-condition comparison",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -4515,7 +4780,7 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "S1, established in the previous step as densifying to below 1% porosity, is the sample shown in F9 to retain K_IC of 5.1-5.6 MPa m^1/2 and flexural strength (sigma) of 462-545 MPa across service temperatures from RT to 800 C. Read together, the low-porosity microstructure of S1 is associated with retained fracture toughness and flexural strength up to 800 C in service.",
+    "proposition": "F9 shows one sample's K_IC declining slightly (5.6 to 5.1 MPa m^1/2) while flexural strength sigma rises (462 to 545 MPa) from RT to 800 C. If this curve set belongs to S1 (an identification not directly stated in the observation, only inferred from the prior step's porosity discussion), then the low-porosity microstructure of S1 is associated with a slight decline in fracture toughness alongside a rise in flexural strength up to 800 C -- not a uniform 'retention' of both properties.",
     "limits": [
      "F9 shows data only for S1; S3 (which the previous step reports keeps ~7.7% porosity) is not shown tested across RT-800 C in this evidence, so there is no within-figure comparison across porosity levels to show that porosity specifically (rather than composition or other S1-specific factors) drives the retention",
      "The previous step's porosity values were tied to sintering temperature, while this step's RT-to-800 C axis is a service/test temperature, a different variable; linking the two requires assuming porosity set during sintering carries over unchanged into the service-temperature test, which is not directly measured here",
@@ -4546,7 +4811,7 @@
     ],
     "scoring": {
      "required_elements": [
-      "S1, established in the previous step as densifying to below 1% porosity, is the sample shown in F9 to retain K_IC of 5.1-5.6 MPa m^1/2 and flexural strength (sigma) of 462-545 MPa across service temperatures from RT to 800 C. Read together, the low-porosity microstructure of S1 is associated with retained fracture toughness and flexural strength up to 800 C in service.",
+      "F9 shows one sample's K_IC declining slightly (5.6 to 5.1 MPa m^1/2) while flexural strength sigma rises (462 to 545 MPa) from RT to 800 C. If this curve set belongs to S1 (an identification not directly stated in the observation, only inferred from the prior step's porosity discussion), then the low-porosity microstructure of S1 is associated with a slight decline in fracture toughness alongside a rise in flexural strength up to 800 C -- not a uniform 'retention' of both properties.",
       "F9 shows data only for S1; S3 (which the previous step reports keeps ~7.7% porosity) is not shown tested across RT-800 C in this evidence, so there is no within-figure comparison across porosity levels to show that porosity specifically (rather than composition or other S1-specific factors) drives the retention",
       "The previous step's porosity values were tied to sintering temperature, while this step's RT-to-800 C axis is a service/test temperature, a different variable; linking the two requires assuming porosity set during sintering carries over unchanged into the service-temperature test, which is not directly measured here",
       "K_IC (red, left axis) falls slightly (5.6 to 5.1 MPa m^1/2) while sigma (black, right axis) rises (462 to 545 MPa) over the same range -- two metrics on different axes and units moving in different directions, so they cannot be reduced to a single 'good performance' trend without noting the divergence",
@@ -4555,12 +4820,49 @@
      "n_required": 5,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
-    }
+    },
+    "proposition_before_audit": "S1, established in the previous step as densifying to below 1% porosity, is the sample shown in F9 to retain K_IC of 5.1-5.6 MPa m^1/2 and flexural strength (sigma) of 462-545 MPa across service temperatures from RT to 800 C. Read together, the low-porosity microstructure of S1 is associated with retained fracture toughness and flexural strength up to 800 C in service."
    },
    "fm_lane": false,
    "split_into": 1,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "overreaches",
+      "evidence": "K_IC (red, left axis) ~5.6 to 5.1 MPa m^1/2 and sigma (black, right axis) 462-545 MPa from RT to 800 C",
+      "fix": "F9 shows one sample's K_IC declining slightly (5.6 to 5.1 MPa m^1/2) while flexural strength sigma rises (462 to 545 MPa) from RT to 800 C. If this curve set belongs to S1 (an identification not directly stated in the observation, only inferred from the prior step's porosity discussion), then the low-porosity microstructure of S1 is associated with a slight decline in fracture toughness alongside a rise in flexural strength up to 800 C -- not a uniform 'retention' of both properties."
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "obs1 lists only one K_IC/sigma curve pair over RT-800 C, with no S3 (or other-sample) data present at this step",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "obs1's axis is 'RT to 800 C' framed as a service-temperature sweep, distinct from the previous step's sintering-temperature-linked porosity values, and no measurement here ties the two together",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "K_IC ~5.6 to 5.1 MPa m^1/2 (falling) vs sigma 462-545 MPa (rising) over the same RT-800 C range -- opposite directions on the two axes",
+      "fix": null
+     },
+     {
+      "what": "limit[3]",
+      "verdict": "holds",
+      "evidence": "obs1 shows exactly two curves (K_IC, sigma) over one temperature sweep, consistent with data for a single sample rather than a cross-sample/cross-porosity comparison",
+      "fix": null
+     }
+    ],
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "journal_of_a_M4_M5_s1",
@@ -4723,7 +5025,7 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an 8.7% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature is raised from RT to 800 C. That is, low porosity co-occurs with only modest degradation of toughness and strength across this service-temperature range.",
+    "proposition": "S1 (low porosity, <1%) retains K_IC ~5.6 to 5.1 MPa m^1/2 (~8.9% drop) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature rises from RT to 800 C. This describes S1's own behavior only; since F9 does not show S3's (high-porosity) trace in this same panel, the data does not establish that low porosity specifically co-occurs with -- or is associated with -- only modest degradation relative to a higher-porosity condition.",
     "limits": [
      "F9 shows only one sample's (S1) property-vs-temperature trace; S3, which step 1 identified as staying at ~7.7% porosity, is not shown in this panel, so no direct in-panel comparison of high- vs low-porosity performance is given here",
      "The temperature axis in this step (RT to 800 C) is the service/test temperature during the K_IC and flexural measurements, not the sintering temperature from step 1; porosity and sintering temperature move together by construction, but other sintering-temperature-driven microstructural changes (e.g., grain size, phase content) also move with it and are not separated out here",
@@ -4753,7 +5055,7 @@
     ],
     "scoring": {
      "required_elements": [
-      "Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an 8.7% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature is raised from RT to 800 C. That is, low porosity co-occurs with only modest degradation of toughness and strength across this service-temperature range.",
+      "S1 (low porosity, <1%) retains K_IC ~5.6 to 5.1 MPa m^1/2 (~8.9% drop) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature rises from RT to 800 C. This describes S1's own behavior only; since F9 does not show S3's (high-porosity) trace in this same panel, the data does not establish that low porosity specifically co-occurs with -- or is associated with -- only modest degradation relative to a higher-porosity condition.",
       "F9 shows only one sample's (S1) property-vs-temperature trace; S3, which step 1 identified as staying at ~7.7% porosity, is not shown in this panel, so no direct in-panel comparison of high- vs low-porosity performance is given here",
       "The temperature axis in this step (RT to 800 C) is the service/test temperature during the K_IC and flexural measurements, not the sintering temperature from step 1; porosity and sintering temperature move together by construction, but other sintering-temperature-driven microstructural changes (e.g., grain size, phase content) also move with it and are not separated out here",
       "Only two bracketing points (RT and 800 C) are described for each curve, which supports an ordering/range statement but not a fitted trend across intermediate temperatures"
@@ -4761,12 +5063,43 @@
      "n_required": 4,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
-    }
+    },
+    "proposition_before_audit": "Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an 8.7% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature is raised from RT to 800 C. That is, low porosity co-occurs with only modest degradation of toughness and strength across this service-temperature range."
    },
    "fm_lane": false,
    "split_into": 1,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "overreaches",
+      "evidence": "[0] F9 shows only one sample's (S1) property-vs-temperature trace; S3, which step 1 identified as staying at ~7.7% porosity, is not shown in this panel, so no direct in-panel comparison of high- vs low-porosity performance is given here",
+      "fix": "S1 (low porosity, <1%) retains K_IC ~5.6 to 5.1 MPa m^1/2 (~8.9% drop) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature rises from RT to 800 C. This describes S1's own behavior only; since F9 does not show S3's (high-porosity) trace in this same panel, the data does not establish that low porosity specifically co-occurs with -- or is associated with -- only modest degradation relative to a higher-porosity condition."
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "[obs1] K_IC (red, left axis) ~5.6 to 5.1 MPa m^1/2 and sigma (black, right axis) 462-545 MPa from RT to 800 C -- only a single curve pair is described, with no mention of a second (S3) trace in this panel",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "[obs1] describes the RT-to-800C axis strictly as the temperature range over which K_IC and sigma are measured, i.e. a test/service temperature, distinct from the sintering-temperature axis used in the previous step for porosity",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "[obs1] gives only the RT and 800 C endpoint values for each curve ('~5.6 to 5.1 ... 462-545 ... from RT to 800 C'), with no intermediate points described",
+      "fix": null
+     }
+    ],
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "journal_of_m_M2_M4_s1",
@@ -4999,7 +5332,8 @@
       "evidence": "obs1 groups '15, 20, 25 wt%' (three points) below AZ91 and '5 and 10 wt%' (two points) as overlap/slightly above, matching the limit's count of two vs three points and its caveat that this sparse grouping is consistent with a threshold split rather than proof of a continuous dose-response relationship.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -5312,7 +5646,8 @@
       "evidence": "The previous step's result is a qualitative ranking (Ag0.25Pd0.75-ZIS > Pd-ZIS > Ag-ZIS > ZIS) while obs1 gives absolute rates in umol/h; correctly characterizing the comparison as 'an ordering match, not a calibrated dose-response relationship' matches the nature of the two data types actually present.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -5527,7 +5862,8 @@
       "evidence": "[obs1] gives only 'n-Bi2Te3 reference curve ~0.88' as a single value at 300 K, with no other temperatures or compositions provided for the reference material, matching the limit's characterization of it as a single-point benchmark rather than a systematic series.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -5733,7 +6069,8 @@
       "evidence": "obs1 gives figures 'at ~1160 s' as the sole time point used for the numeric comparison; no intermediate points are cited to characterize the accumulation shape.",
       "fix": null
      }
-    ]
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -5862,7 +6199,7 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "The height-loss-vs-time trace corroborates the wear-rate difference from the previous step with a second, independent read: FSP stays lower in height loss than stir casting throughout the test, reaching ~240 um versus stir casting's ~350 um at ~1160 s, so the previous step's 'smaller final height loss' claim is the same gap seen in this curve, and the stir-cast trace additionally shows a jagged shape with sudden drops that the FSP trace (by contrast) does not show, suggesting the two materials lose material in different ways over time even as FSP's cumulative loss stays lower.",
+    "proposition": "The height-loss-vs-time trace shows FSP reaching ~240 um versus stir casting's ~350 um at ~1160 s, which is consistent with the previous step's 'smaller final height loss' figure but is the same measurement rather than a second, independent read (only the wear-rate figure, 280 vs 420 x1e-5 mm3/m, is a distinct metric). The comparison is available only at this one time point, not shown to hold 'throughout' the test. The stir-cast trace also shows a jagged shape with sudden drops, which may suggest a different wear mechanism, but the FSP trace's shape is not described in the observation, so no explicit contrast can be drawn.",
     "limits": [
      "Only two curves are shown, essentially one comparison at one end time (~1160 s); this is an ordering (FSP lower throughout) not a fitted rate relationship",
      "The 'jagged, sudden drops' description of the stir-cast curve is qualitative -- no count, size, or timing of the drops is given, so it cannot be turned into a rate or frequency",
@@ -5894,7 +6231,7 @@
     ],
     "scoring": {
      "required_elements": [
-      "The height-loss-vs-time trace corroborates the wear-rate difference from the previous step with a second, independent read: FSP stays lower in height loss than stir casting throughout the test, reaching ~240 um versus stir casting's ~350 um at ~1160 s, so the previous step's 'smaller final height loss' claim is the same gap seen in this curve, and the stir-cast trace additionally shows a jagged shape with sudden drops that the FSP trace (by contrast) does not show, suggesting the two materials lose material in different ways over time even as FSP's cumulative loss stays lower.",
+      "The height-loss-vs-time trace shows FSP reaching ~240 um versus stir casting's ~350 um at ~1160 s, which is consistent with the previous step's 'smaller final height loss' figure but is the same measurement rather than a second, independent read (only the wear-rate figure, 280 vs 420 x1e-5 mm3/m, is a distinct metric). The comparison is available only at this one time point, not shown to hold 'throughout' the test. The stir-cast trace also shows a jagged shape with sudden drops, which may suggest a different wear mechanism, but the FSP trace's shape is not described in the observation, so no explicit contrast can be drawn.",
       "Only two curves are shown, essentially one comparison at one end time (~1160 s); this is an ordering (FSP lower throughout) not a fitted rate relationship",
       "The 'jagged, sudden drops' description of the stir-cast curve is qualitative -- no count, size, or timing of the drops is given, so it cannot be turned into a rate or frequency",
       "No repeats or error bars are shown for either curve, so the gap at 1160 s (350 vs 240 um) cannot be assigned an uncertainty",
@@ -5903,12 +6240,49 @@
      "n_required": 5,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
-    }
+    },
+    "proposition_before_audit": "The height-loss-vs-time trace corroborates the wear-rate difference from the previous step with a second, independent read: FSP stays lower in height loss than stir casting throughout the test, reaching ~240 um versus stir casting's ~350 um at ~1160 s, so the previous step's 'smaller final height loss' claim is the same gap seen in this curve, and the stir-cast trace additionally shows a jagged shape with sudden drops that the FSP trace (by contrast) does not show, suggesting the two materials lose material in different ways over time even as FSP's cumulative loss stays lower."
    },
    "fm_lane": false,
    "split_into": 1,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "overreaches",
+      "evidence": "obs1 states only: 'Height loss vs time: stir casting reaches ~350 um and FSP ~240 um at ~1160 s; stir cast curve is jagged with sudden drops.' This is a single comparison point at one time (~1160 s), with no description of the FSP curve's shape, and it is the same underlying height-loss measurement as the previous step's 'smaller final height loss' claim (per limit 3).",
+      "fix": "The height-loss-vs-time trace shows FSP reaching ~240 um versus stir casting's ~350 um at ~1160 s, which is consistent with the previous step's 'smaller final height loss' figure but is the same measurement rather than a second, independent read (only the wear-rate figure, 280 vs 420 x1e-5 mm3/m, is a distinct metric). The comparison is available only at this one time point, not shown to hold 'throughout' the test. The stir-cast trace also shows a jagged shape with sudden drops, which may suggest a different wear mechanism, but the FSP trace's shape is not described in the observation, so no explicit contrast can be drawn."
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "obs1 gives only two curves and one comparison point at ~1160 s, matching the limit's description that this is an ordering claim rather than a fitted rate relationship.",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "obs1 says the stir-cast curve is 'jagged with sudden drops' with no count, size, or timing given, so it cannot be converted into a rate or frequency, as stated.",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "obs1 contains no mention of repeats or error bars for either curve, so no uncertainty can be assigned to the 350 vs 240 um gap, as the limit states.",
+      "fix": null
+     },
+     {
+      "what": "limit[3]",
+      "verdict": "holds",
+      "evidence": "obs1's height-loss-vs-time curve is the same measurement type as the previous step's 'final height loss' figure, so it correctly identifies that only the wear-rate figure (280 vs 420 x1e-5 mm3/m) is an independent metric, not the height-loss curve.",
+      "fix": null
+     }
+    ],
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "nano_letters_M1_M2_s1",
@@ -6072,7 +6446,7 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "Because the same mesoporous PCO host was used in both Li and Na half-cells, the divergent cycling outcomes -- Li/PCO capacity fluctuating (870 at cycle 1, rising to ~1050 at cycle ~17, back to ~840 at cycle 40) versus Na/PCO dropping from ~865-870 mAh/g (1st discharge) to ~70 mAh/g by cycle 40 -- show that the mesopore structure alone does not guarantee stable reversible capacity for both alkali ions; the GCD data do not identify what mechanism (Na-specific or otherwise) is responsible for the Na-side decline, so calling it 'overridden by some Na-specific process' goes beyond what the capacity curves establish",
+    "proposition": "Because the same mesoporous PCO host was used in both half-cells, the two ions diverge on like-for-like first-cycle numbers: 1st discharge ~1330 mAh/g for Li against ~865 for Na, and 1st charge ~870 for Li against ~470 for Na. The mesopore structure alone therefore does not secure reversible capacity for both ions. The GCD curves do not identify what is responsible for the Na-side shortfall.",
     "limits": [
      "GCD capacity-vs-cycle curves (obs1-obs4) record electrochemical outcome only; they contain no structural readout of the cycled electrode, so nothing here shows whether the pores physically changed, clogged, or stayed intact during Na cycling",
      "Li and Na cells differ in more than just the alkali ion -- plateau voltages, electrolyte compatibility, and possibly SEI chemistry differ too -- so the porosity variable is not isolated from these co-varying factors; attributing the divergence to the ion alone versus to ion-electrolyte/SEI interaction is not resolved",
@@ -6104,7 +6478,7 @@
     ],
     "scoring": {
      "required_elements": [
-      "Because the same mesoporous PCO host was used in both Li and Na half-cells, the divergent cycling outcomes -- Li/PCO capacity fluctuating (870 at cycle 1, rising to ~1050 at cycle ~17, back to ~840 at cycle 40) versus Na/PCO dropping from ~865-870 mAh/g (1st discharge) to ~70 mAh/g by cycle 40 -- show that the mesopore structure alone does not guarantee stable reversible capacity for both alkali ions; the GCD data do not identify what mechanism (Na-specific or otherwise) is responsible for the Na-side decline, so calling it 'overridden by some Na-specific process' goes beyond what the capacity curves establish",
+      "Because the same mesoporous PCO host was used in both half-cells, the two ions diverge on like-for-like first-cycle numbers: 1st discharge ~1330 mAh/g for Li against ~865 for Na, and 1st charge ~870 for Li against ~470 for Na. The mesopore structure alone therefore does not secure reversible capacity for both ions. The GCD curves do not identify what is responsible for the Na-side shortfall.",
       "GCD capacity-vs-cycle curves (obs1-obs4) record electrochemical outcome only; they contain no structural readout of the cycled electrode, so nothing here shows whether the pores physically changed, clogged, or stayed intact during Na cycling",
       "Li and Na cells differ in more than just the alkali ion -- plateau voltages, electrolyte compatibility, and possibly SEI chemistry differ too -- so the porosity variable is not isolated from these co-varying factors; attributing the divergence to the ion alone versus to ion-electrolyte/SEI interaction is not resolved",
       "the comparison rests on two single cycling series (one per ion), not a controlled sweep of pore size or ion at fixed everything else, so it supports an ordering/contrast (Li stable, Na unstable) but not a quantitative relationship between pore size and capacity retention",
@@ -6115,7 +6489,7 @@
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     },
-    "proposition_before_audit": "Because the same mesoporous PCO host was used in both half-cells, the two ions diverge on like-for-like first-cycle numbers: 1st discharge ~1330 mAh/g for Li against ~865 for Na, and 1st charge ~870 for Li against ~470 for Na. The mesopore structure alone therefore does not secure reversible capacity for both ions. The GCD curves do not identify what is responsible for the Na-side shortfall.",
+    "proposition_before_audit": "Because the same mesoporous PCO host was used in both Li and Na half-cells, the divergent cycling outcomes -- Li/PCO capacity fluctuating (870 at cycle 1, rising to ~1050 at cycle ~17, back to ~840 at cycle 40) versus Na/PCO dropping from ~865-870 mAh/g (1st discharge) to ~70 mAh/g by cycle 40 -- show that the mesopore structure alone does not guarantee stable reversible capacity for both alkali ions; the GCD data do not identify what mechanism (Na-specific or otherwise) is responsible for the Na-side decline, so calling it 'overridden by some Na-specific process' goes beyond what the capacity curves establish",
     "proposition_before_quantity_fix": "Because the same mesoporous PCO host was used in both Li and Na half-cells, the divergent cycling outcomes -- Li/PCO capacity fluctuating (870 at cycle 1, rising to ~1050 at cycle ~17, back to ~840 at cycle 40) versus Na/PCO dropping from ~865-870 mAh/g (1st discharge) to ~70 mAh/g by cycle 40 -- show that the mesopore structure alone does not guarantee stable reversible capacity for both alkali ions; the GCD data do not identify what mechanism (Na-specific or otherwise) is responsible for the Na-side decline, so calling it 'overridden by some Na-specific process' goes beyond what the capacity curves establish"
    },
    "fm_lane": false,
@@ -6155,7 +6529,14 @@
       "evidence": "obs3 reports CE ~96% for Li; no CE value appears in obs1 or obs4 for Na, and all series stop at 40 cycles",
       "fix": null
      }
-    ]
+    ],
+    "not_reapplied": [
+     {
+      "what": "proposition",
+      "why": "a later correction supersedes the audit fix"
+     }
+    ],
+    "in_sampled_twelve": true
    }
   },
   {
@@ -6323,7 +6704,43 @@
    "fm_lane": false,
    "split_into": 1,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "audit": {
+    "checked": true,
+    "statements": [
+     {
+      "what": "proposition",
+      "verdict": "holds",
+      "evidence": "obs1: 'Clear inhibition halo around disc d on both E. coli and S. aureus plates; none around discs a, b, c' \u2014 this directly supports that disc b (the AZ31-OH/oxide-layer sample) shows no halo like discs a and c, while only disc d (PCL-LS) shows halo on both organisms, matching the proposition's claim that the antibacterial effect belongs to the PCL-LS coating and not the oxide layer.",
+      "fix": null
+     },
+     {
+      "what": "limit[0]",
+      "verdict": "holds",
+      "evidence": "obs1 reports only 'Clear inhibition halo' vs 'none' \u2014 a presence/absence call with no measured zone diameters or kill quantification given.",
+      "fix": null
+     },
+     {
+      "what": "limit[1]",
+      "verdict": "holds",
+      "evidence": "obs1 shows disc b (oxide layer) and disc c (PCL) alone produce no halo while disc d (PCL-LS) does, ruling out each alone as sufficient, but gives no data on which component or mechanism within PCL-LS is responsible.",
+      "fix": null
+     },
+     {
+      "what": "limit[2]",
+      "verdict": "holds",
+      "evidence": "obs1 only reports results for disc d as fabricated (PCL-LS); there is no separate disc/condition testing PCL-LS without the oxide layer's possible contribution, so no isolation of a supporting role is present in the observations.",
+      "fix": null
+     },
+     {
+      "what": "limit[3]",
+      "verdict": "holds",
+      "evidence": "obs1 gives a single halo/no-halo report per disc per organism with no mention of replicates or dose-response, matching the limit's claim.",
+      "fix": null
+     }
+    ],
+    "in_sampled_twelve": false
+   }
   },
   {
    "item": "rare_metals_M1_M2_s1",

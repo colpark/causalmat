@@ -215,6 +215,9 @@ def collect():
     D = json.load(open(os.path.join(ROOT, 'results/v5/items.json')))
     I = {i['item']: i for i in D['items']}
     jobs = json.load(open(os.path.join(ROOT, '.v07work/batch_v5check.json')))
+    b2 = os.path.join(ROOT, '.v07work/batch_v5check2.json')
+    sampled = {j['id'] for j in jobs}
+    if os.path.exists(b2): jobs = jobs + json.load(open(b2))
     tally = collections.Counter(); fixed = []
     for j in jobs:
         f = j['out']
@@ -227,10 +230,17 @@ def collect():
         audit['statements'].append({'what': 'proposition', 'verdict': pv,
                                     'evidence': (r.get('proposition') or {}).get('evidence'),
                                     'fix': (r.get('proposition') or {}).get('fix')})
-        if pv in ('overreaches', 'wrong') and (r.get('proposition') or {}).get('fix'):
-            k['proposition_before_audit'] = k['proposition']
+        later = 'proposition_before_quantity_fix' in k   # a correction made AFTER this audit
+        if pv in ('overreaches', 'wrong') and (r.get('proposition') or {}).get('fix') and not later:
+            k.setdefault('proposition_before_audit', k['proposition'])
             k['proposition'] = r['proposition']['fix']
             fixed.append((j['id'], 'proposition', pv))
+        elif later:
+            # collect() is re-run whenever a batch lands. Without this guard the second run
+            # re-applied the auditor's fix over the Nano Letters quantity-kind correction, silently
+            # restoring the charge-against-discharge comparison that correction existed to remove.
+            audit.setdefault('not_reapplied', []).append(
+                {'what': 'proposition', 'why': 'a later correction supersedes the audit fix'})
         lims = list(k.get('limits') or [])
         for L in (r.get('limits') or []):
             n = L.get('index')
@@ -246,6 +256,9 @@ def collect():
         req = [x for x in [k.get('proposition')] if x] + lims
         k['scoring']['required_elements'] = req
         k['scoring']['n_required'] = len(req)
+        audit['in_sampled_twelve'] = j['id'] in sampled
+        prev = it.get('audit') or {}
+        if prev.get('misses'): audit['misses'] = prev['misses']
         it['audit'] = audit
     json.dump(D, open(os.path.join(ROOT, 'results/v5/items.json'), 'w'), indent=1)
     tot = sum(v for kk, v in tally.items() if kk != 'unparsed')
@@ -253,6 +266,12 @@ def collect():
     print(f"{len(jobs)} keys checked, {tot} statements judged")
     for kk, v in sorted(tally.items()): print(f"   {kk:24s} {v}")
     print(f"\nhold rate: {holds}/{tot} = {holds/tot:.0%}")
+    pt = sum(v for kk, v in tally.items() if kk.startswith('proposition:'))
+    ph = tally['proposition:holds']
+    lt = sum(v for kk, v in tally.items() if kk.startswith('limit:'))
+    lh = tally['limit:holds']
+    print(f"  propositions hold {ph}/{pt} = {ph/pt:.0%}" if pt else '')
+    print(f"  limits       hold {lh}/{lt} = {lh/lt:.0%}" if lt else '')
     print(f"statements rewritten: {len(fixed)}")
     for a, b, c in fixed: print(f"   {a:32s} {b:12s} was {c}")
 
