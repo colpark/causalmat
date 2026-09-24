@@ -149,81 +149,145 @@ All 50 panels resolve and are handed over whole and unaltered. No one-hop traces
 no step to warrant. Biomaterials and Nano Letters qualify only because the graph check confirmed
 their links, which were `stage_only` before.
 
+## A scoring bug that corrupted the first reading of these results
+
+The level matcher tested `warrants` before `partly warrants`. Since "warrants" is a substring of
+"partly warrants" — and "warranted" of "partly warranted" — **every partial ruling was scored as a
+full one**. The arms looked far more confident than they were, and one reported finding (a
+difference between the two Biomaterials routes) was an artefact of it and does not survive. The
+matcher now tests most-specific-first, `does not address` and `contradicts` and `partly` before any
+bare warrant test, and the numbers below are from the corrected pass over the same verified replies.
+
+All 30 arm replies and 14 removal replies were verified byte-for-byte against their prompt files
+from the agents' own transcripts, so the replies themselves were never in question; only the
+scoring of them was.
+
 ## The headline: reordered scores exactly like full
 
 The `reordered` arm gets the full evidence, but the steps are out of the paper's order and the link
 sentences ("linked to the previous step by: shared spine claim n5") are removed. If the chain's
 sequence carries information, this arm should lose some of it.
 
-It does not. **`reordered` scores +0.00 against `full`**, with identical per-step rulings on 13 of
-14 steps. The one chain that moves is Nano Letters, where the two rulings simply swap places with
-the reversal — which is the reversal, not a loss.
+It does not. **`reordered` scores +0.00 against `full`**, with identical per-step rulings on 12 of
+14 steps. The only chain where they differ is Nano Letters, and there the two rulings swap with the
+reversal rather than degrade. This result survived the scoring fix unchanged, which is the one
+reassurance available: it is not an artefact of the bug above.
 
 **Said plainly: the sequence carries nothing, and on this evidence v3 adds no information over v2.**
 Presenting a paper's argument as an ordered chain of causal hops, rather than as a bag of
 claim-and-evidence pairs, did not change a single ruling that v2 could not already have produced.
 
-There is a limitation that has to be stated beside that conclusion rather than after it. The `full`
-arm says "warrants" on 13 of 14 steps — **93%, a near-constant scale**. With almost every step
-ruled the same way, there is very little room for any arm to differ from `full`, so the reordered
-result rests on a ceiling rather than standing free of it. The only arm that moves substantially is
-the one deliberately given the wrong pictures. A fair reading is: the sequence carries nothing *that
-this grading question can detect*, and this grading question detects very little.
+The limitation belongs beside that conclusion, not after it. `full` rules "partly warrants" on 12
+of 14 steps — **86%, a near-constant scale**. With almost every step ruled the same way there is
+little room for any arm to differ, so the reordered result rests on a ceiling rather than standing
+free of it. A fair reading: the sequence carries nothing *that this grading question can detect*,
+and this grading question detects very little.
 
 ## Per-hop scores, all four arms and the control
 
 | trace | step | hop | full | floor | oracle_complete | reordered | permute_image |
 |---|---|---|---|---|---|---|---|
-| acta_materia_M1_M2_M3 | 1 | M1 | warrants | warrants | warrants | warrants | does not address |
-| acta_materia_M1_M2_M3 | 2 | M2 | warrants | warrants | warrants | warrants | warrants |
-| acta_materia_M1_M2_M3 | 3 | M3 | warrants | warrants | warrants | warrants | warrants |
-| advanced_fun_M1_M2 | 1 | M1 | warrants | does not address | warrants | warrants | does not address |
-| advanced_fun_M1_M2 | 2 | M2 | warrants | warrants | warrants | warrants | does not address |
-| biomaterials_M1_M3_M4 | 1 | M1 | warrants | warrants | warrants | warrants | does not address |
-| biomaterials_M1_M3_M4 | 2 | M3 | warrants | warrants | warrants | warrants | does not address |
-| biomaterials_M1_M3_M4 | 3 | M4 | warrants | warrants | warrants | warrants | does not address |
-| biomaterials_M2_M4 | 1 | M2 | warrants | warrants | warrants | warrants | does not address |
-| biomaterials_M2_M4 | 2 | M4 | warrants | does not address | warrants | warrants | does not address |
-| nano_letters_M1_M2 | 1 | M1 | warrants | warrants | warrants | **contradicts** | warrants |
-| nano_letters_M1_M2 | 2 | M2 | **contradicts** | warrants | **contradicts** | warrants | contradicts |
-| rare_metals_M1_M2 | 1 | M1 | warrants | warrants | warrants | warrants | does not address |
-| rare_metals_M1_M2 | 2 | M2 | warrants | warrants | warrants | warrants | does not address |
+| acta_materia_M1_M2_M3 | 1 | M1 | partly | partly | partly | partly | does not address |
+| acta_materia_M1_M2_M3 | 2 | M2 | partly | partly | partly | partly | partly |
+| acta_materia_M1_M2_M3 | 3 | M3 | partly | partly | partly | partly | partly |
+| advanced_fun_M1_M2 | 1 | M1 | partly | does not address | **warrants** | **warrants** | does not address |
+| advanced_fun_M1_M2 | 2 | M2 | partly | partly | partly | partly | does not address |
+| biomaterials_M1_M3_M4 | 1 | M1 | partly | **warrants** | partly | partly | does not address |
+| biomaterials_M1_M3_M4 | 2 | M3 | partly | partly | **warrants** | partly | does not address |
+| biomaterials_M1_M3_M4 | 3 | M4 | partly | partly | partly | partly | does not address |
+| biomaterials_M2_M4 | 1 | M2 | partly | partly | partly | partly | does not address |
+| biomaterials_M2_M4 | 2 | M4 | partly | does not address | partly | partly | does not address |
+| nano_letters_M1_M2 | 1 | M1 | **warrants** | partly | **warrants** | **contradicts** | warrants |
+| nano_letters_M1_M2 | 2 | M2 | **contradicts** | partly | **contradicts** | partly | contradicts |
+| rare_metals_M1_M2 | 1 | M1 | partly | partly | **warrants** | partly | does not address |
+| rare_metals_M1_M2 | 2 | M2 | partly | partly | partly | partly | does not address |
 
 Majority-class baseline, the share of each arm's rulings taking its single most common level. An arm
 that says one thing everywhere scores 100% here and carries no signal:
 
 | arm | majority class | baseline | mean delta vs full |
 |---|---|---|---|
-| full | warrants | 13/14 = **93%** | — |
-| floor | warrants | 12/14 = 86% | −0.08 |
-| oracle_complete | warrants | 13/14 = **93%** | +0.00 |
-| reordered | warrants | 13/14 = **93%** | +0.00 |
-| permute_image | does not address | 10/14 = 71% | **−1.44** |
+| full | partly warrants | 12/14 = **86%** | — |
+| floor | partly warrants | 11/14 = 79% | −0.03 |
+| oracle_complete | partly warrants | 9/14 = 64% | **+0.22** |
+| reordered | partly warrants | 12/14 = **86%** | +0.00 |
+| permute_image | does not address | 10/14 = 71% | −0.72 |
 
-Three readings follow. `oracle_complete` ties `full`, so the measurement written out in words does
-everything the picture does — the same result v2 reached on these five papers, where its oracle stop
-rule fired on all five cases. `floor` is within a rounding error of `full`, so the captions alone
-carry nearly the whole ruling. And `permute_image` is clearly separated, so the arms can tell wrong
-pictures from right ones; the scale is not broken, it is simply not being exercised.
+`oracle_complete` does not merely tie `full` — it scores **higher**, +0.22, and is the least
+constant arm at 64%. Handing the measurement over in words produces more confident rulings than
+handing over the picture it came from. v2 reached the same conclusion on these same five papers,
+where its oracle stop rule fired on all five cases; v3 reproduces it and strengthens it. `floor`,
+captions with no images and no measurements, is within a rounding error of `full` at −0.03.
 
-Nano Letters is the only trace where `full` rules anything other than "warrants": step 2 comes back
-`contradicts`. That is the Li-versus-Na comparison, the chain whose third hop we dropped as a
-restatement, and it is the one place in the set where an arm disagrees with the paper.
+`permute_image` is the only arm that clearly separates, at −0.72 and ruling "does not address" on 10
+of 14 steps. The scale can detect wrong pictures. It is not detecting anything else.
+
+Nano Letters is the only trace where `full` departs from "partly warrants" at all, ruling step 1
+`warrants` and step 2 `contradicts` — the Li-versus-Na comparison whose third hop we dropped as a
+restatement. It is the one place in the set where an arm disagrees with the paper.
+
+## Hop-level necessity
+
+Evidence is withheld from one step, the step's own text is kept so the model knows what the paper
+concluded there, and the chain is judged again. Necessary means the closing comes back **strictly
+weaker**.
+
+| trace | step | hop | technique | panels | full | without | necessary |
+|---|---|---|---|---|---|---|---|
+| acta_materia_M1_M2_M3 | 1 | M1 | TEM | 5 | partly | partly | no |
+| acta_materia_M1_M2_M3 | 2 | M2 | MECH:compression | 3 | partly | partly | no |
+| acta_materia_M1_M2_M3 | 3 | M3 | MECH:tensile | 2 | partly | partly | no |
+| advanced_fun_M1_M2 | 1 | M1 | SEM | 1 | partly | partly | no |
+| advanced_fun_M1_M2 | 2 | M2 | PL | 1 | partly | partly | no |
+| biomaterials_M1_M3_M4 | 1 | M1 | XRD:small_angle | **6** | partly | partly | no *(size-limited)* |
+| biomaterials_M1_M3_M4 | 2 | M3 | CHEM:ion_concentration | 4 | partly | partly | no |
+| biomaterials_M1_M3_M4 | 3 | M4 | BIO:western_blot | 2 | partly | partly | no |
+| biomaterials_M2_M4 | 1 | M2 | CHEM:ion_concentration | 2 | partly | partly | no |
+| biomaterials_M2_M4 | 2 | M4 | BIO:western_blot | 2 | partly | partly | no |
+| nano_letters_M1_M2 | 1 | M1 | PHYS:N2_sorption | 3 | does not address | does not address | no |
+| nano_letters_M1_M2 | 2 | M2 | ECHEM:GCD | 4 | does not address | **partly (stronger)** | no |
+| rare_metals_M1_M2 | 1 | M1 | SEM | **12** | partly | partly | no *(size-limited)* |
+| rare_metals_M1_M2 | 2 | M2 | TEM | 3 | partly | *no answer* | — |
+
+**Not one hop's evidence is necessary.** Thirteen of fourteen removals were answered, and every one
+of them left the chain's closing exactly where it was. The chain reads "partly warrants" with the
+evidence and "partly warrants" without it.
+
+Two rows carry more than five panels and their results are **size-limited rather than
+content-based**: Rare Metals M1 hands over 12 SEM panels and Biomaterials M1 hands over 6
+small-angle XRD panels. Withholding that much at once is not a clean test of what those panels
+contribute; it changes how much the model is asked to hold at all. Rare Metals is the known case and
+behaves as expected.
+
+One removal is **non-monotonic**: Nano Letters M2 comes back *stronger* without its evidence, "does
+not address" rising to "partly warrants". That is the mechanism the design cannot escape — the step
+text still asserts what the paper concluded, so withholding the evidence leaves an unchallenged
+assertion, and the ECHEM data is the thing that was generating the doubt. v2 recorded and struck a
+non-monotonicity finding for the same reason; v3 reproduces it once in fourteen.
+
+One job produced **no answer at all**: Rare Metals M2. The agent wrote that it would disregard
+"MCP Server Instructions" and "Auto Mode" text that had appeared in its tool output stream, said it
+still needed to view the remaining TEM images, and stopped. Environment text leaked into a
+subagent's stream and derailed it. That row is a failed job and is not evidence of anything.
+
+Taken together, necessity by removal does not work in this design. The closing is immovable, the one
+row that does move goes the wrong way, and two of the rows that could have moved are too large to
+read.
 
 ## The Biomaterials fork
 
-The two routes into M4 were judged independently, and they do not agree:
+Biomaterials' two routes into M4 were judged independently:
 
 | route | chain | full closing |
 |---|---|---|
-| through the structure | M1 → M3 → M4 | **warrants** |
-| direct from processing | M2 → M4 | **partly warrants** |
+| through the structure | M1 → M3 → M4 | partly warrants |
+| direct from processing | M2 → M4 | partly warrants |
 
-The longer route, which goes through the mesoporous structure and the release it controls, is
-judged warranted. The direct processing-to-properties route is only partly warranted. Both reach
-the same performance hop, so the paper's conclusion is better supported through its structural
-argument than through the shortcut — which is an argument for keeping the fork rather than
-collapsing it to one path.
+**They agree, and both are partial.** An earlier pass reported the structural route as fully
+warranted and the direct route as only partly so; that difference was produced by the substring bug
+above and does not survive. On the corrected scoring the fork is not doing evaluative work either —
+the two routes are indistinguishable. What the fork still shows is structural: the paper's argument
+genuinely branches, and M4 is reached twice by evidence that shares no intermediate step.
 
 ## v3 against v2, same five papers
 
@@ -247,23 +311,30 @@ each other and with the majority-class baseline.
 | the step asks | is that observation visible? | does the evidence warrant this move? |
 | steps | 21 over 5 cases | 14 over 6 traces |
 | key | expected support from the graph | none |
-| full arm | 14/21 steps correct | 93% one class |
-| text beats or ties picture | oracle 15/21 vs full 14/21, stop rule fired 5 of 5 | oracle +0.00 |
-| control separates | permute_image 0/7, unparsed on 3 of 5 | permute_image −1.44, parsed 6 of 6 |
+| full arm | 14/21 steps correct | 86% one class |
+| text vs picture | oracle 15/21 vs full 14/21; stop rule fired 5 of 5 | oracle **+0.22 above full** |
+| control separates | permute_image 0/7, unparsed on 3 of 5 | permute_image −0.72, parsed 6 of 6 |
+| necessity | 11 of 14 channels necessary | **0 of 13 hops necessary** |
 
 Two things v3 does better. Its control actually runs: v2's `permute_image` failed to parse on three
 of five cases and graded 0/7 where it did, so it never functioned as a control, while v3's parses
 everywhere and separates cleanly. And v3 uses more of each paper's argument — 16 hops with 14
 attachable, against v2's five hand-picked claims.
 
-One thing v2 did better, and it matters: v2 had a key, however weak. That key was degenerate —
-every one of the five expected closings was "partial" — but it at least let an arm be *wrong*. v3's
-arms can only be compared with each other, and when they nearly all say "warrants", that comparison
-has little to say.
+One thing v2 did better, and it matters: v2 had a key, however weak. That key was degenerate — every
+one of the five expected closings was "partial" — but it at least let an arm be *wrong*. v3's arms
+can only be compared with each other, and when they nearly all say "partly warrants", that
+comparison has little to say.
+
+The sharpest divergence is necessity. v2 found 11 of 14 channels necessary; v3 finds **0 of 13
+hops**. The measures are not the same — v2 removed a whole technique channel from a claim, v3
+removes one hop's evidence from a chain — but the direction is unambiguous and the reason is
+visible in the prompts: a v3 step still states the paper's conclusion when its evidence is taken
+away, so there is nothing left to disagree with.
 
 The conclusion for the design, stated without hedging: **the causal-hop framing did not buy
-information.** The sequence is not doing work, the pictures are not doing work over the text, and
-the grading question is too easily satisfied to separate the arms. v3's contribution is structural
-rather than evaluative — it shows where a paper's argument actually forks (Biomaterials), which of
-its hops restate rather than advance (Nano Letters M3), and which land on claims with no figure
-behind them (adfm M3, M4).
+information.** The sequence is not doing work, the pictures are not doing work over the text, no
+hop's evidence is necessary, and the grading question is too easily satisfied to separate the arms.
+v3's contribution is structural rather than evaluative — it shows where a paper's argument forks
+(Biomaterials), which hops restate rather than advance (Nano Letters M3), and which land on claims
+with no figure behind them (adfm M3, M4).

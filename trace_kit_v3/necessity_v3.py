@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.join(ROOT, 'trace_kit_v2'))
 import leakguard as LG
 from cut_traces import store_for, fig_preamble, unmath
 from gate_v3 import ASK, caption
-from score_v3 import parse, RANK
+from score_v3 import parse, RANK, answered
 
 
 def prompt_without(ch, drop):
@@ -84,18 +84,25 @@ def score():
         for k in range(1, len(ch['steps']) + 1):
             f = os.path.join(d, 'necessity', f'drop{k}.out.txt')
             if not os.path.exists(f): continue
-            st, cl, how = parse(open(f).read(), len(ch['steps']))
+            raw = open(f).read()
+            ok = answered(raw)
+            st, cl, how = parse(raw, len(ch['steps']))
             weaker = (RANK.get(cl, 1) < RANK.get(fcl, 1)) if (cl and fcl) else None
+            stronger = (RANK.get(cl, 1) > RANK.get(fcl, 1)) if (cl and fcl) else None
             rows.append({'case': ch['case'], 'step': k, 'hop': ch['steps'][k - 1]['hop'],
                          'technique': ch['steps'][k - 1]['technique'],
                          'delivery': ch['steps'][k - 1]['delivery'],
                          'full_closing': fcl, 'without_closing': cl,
-                         'step_level_without': st.get(k), 'necessary': weaker, 'parsed': how})
+                         'step_level_without': st.get(k), 'necessary': weaker,
+                         'stronger_without': stronger, 'answered': ok, 'parsed': how,
+                         'n_panels': len(ch['steps'][k - 1]['panels'])})
     json.dump({'rows': rows, 'rule': 'necessary = the closing ruling is strictly weaker without it',
                'note': 'Every verdict is model against model.'},
               open(os.path.join(ROOT, 'results/v3/necessity.json'), 'w'), indent=1)
     n = sum(1 for r in rows if r['necessary'])
-    print(f"{len(rows)} removals, {n} necessary\n")
+    na = [r for r in rows if not r['answered']]
+    up = [r for r in rows if r.get('stronger_without')]
+    print(f"{len(rows)} removals, {len(rows)-len(na)} answered, {n} necessary\n")
     print(f"{'case':24s} {'step':>4s} {'hop':>4s} {'technique':22s} {'full':>16s} {'without':>16s}  nec")
     for r in rows:
         print(f"{r['case'][:24]:24s} {r['step']:4d} {r['hop']:>4s} {str(r['technique'])[:22]:22s} "
@@ -103,6 +110,20 @@ def score():
               f"{'YES' if r['necessary'] else ('no' if r['necessary'] is False else '?')}")
     by = collections.Counter(r['delivery'] for r in rows if r['necessary'])
     print(f"\nnecessary by delivery: {dict(by)}")
+    if na:
+        print("\nno answer (the job failed; not evidence of anything):")
+        for r in na: print(f"  {r['case']} step {r['step']} ({r['hop']})")
+    if up:
+        print("\nNON-MONOTONIC -- the ruling came back STRONGER without the evidence:")
+        for r in up:
+            print(f"  {r['case']} step {r['step']} ({r['hop']}): "
+                  f"{r['full_closing']} -> {r['without_closing']}")
+    big = [r for r in rows if r['n_panels'] > 5]
+    if big:
+        print("\nsteps with more than five panels -- read any result here as size-limited, not content-based:")
+        for r in big:
+            print(f"  {r['case']} step {r['step']} ({r['hop']}, {r['technique']}): "
+                  f"{r['n_panels']} panels, necessary={r['necessary']}")
 
 
 if __name__ == '__main__': {'prompts': prompts, 'score': score}[sys.argv[1]]()

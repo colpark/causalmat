@@ -20,15 +20,33 @@ ARMS = ['full', 'floor', 'oracle_complete', 'reordered', 'permute_image']
 RANK = {'warrants': 3, 'partly warrants': 2, 'does not address': 1, 'contradicts': 0}
 
 
-def norm(s):
+# Order matters and is the whole point: "warrants" is a substring of "partly warrants", and
+# "warranted" of "partly warranted", so a bare warrant test MUST come last. Testing it first scored
+# every partial ruling as a full one and silently inflated the arms.
+PATTERNS = [('does not address', ('does not address', 'not addressed', 'does not adress',
+                                  'unaddressed', 'not warranted', 'unwarranted', 'not supported')),
+            ('contradicts',      ('contradict',)),
+            ('partly warrants',  ('partly', 'partial')),
+            ('warrants',         ('warrant',))]
+
+
+def norm(s, seen=None):
     s = (s or '').strip().lower().rstrip('.')
-    for k in RANK:
-        if k in s: return k
-    if s.startswith('partly') or 'partial' in s: return 'partly warrants'
-    if 'not address' in s or 'unaddressed' in s: return 'does not address'
-    if 'contradict' in s: return 'contradicts'
-    if s.startswith('warrant'): return 'warrants'
+    if not s: return None
+    for level, pats in PATTERNS:
+        for pat in pats:
+            if pat in s:
+                if seen is not None and s != level: seen.append((s, level))
+                return level
     return None
+
+
+def answered(txt):
+    """did the agent actually answer? a reply with no JSON and no level is a failed job, not a '?'"""
+    t = (txt or '').strip()
+    if not t: return False
+    if re.search(r'\{.*\}', t, re.S): return True
+    return bool(norm(t) or re.search(r'step\s*\d', t, re.I))
 
 
 def parse(txt, nsteps):
