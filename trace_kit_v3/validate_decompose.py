@@ -26,9 +26,13 @@ BIO  = 'Biomaterials__j.biomaterials.2011.11.042'
 NL   = 'Nano_Letters__10.1021_acs.nanolett.6b04294'
 
 KNOWN = {
- (ADFM, 'M3'): (['n12', 'n14'], [],
-    'effect is "phase-transition characteristics"; n12/n14 are the transition, measured. '
-    'n2/n19 state the same link in the abstract and are allowed, but the specific claim is required.'),
+ (ADFM, 'M3'): (['n12', 'n14', 'n2', 'n19'], [],
+    'UNDERDETERMINED BY TEXT. The effect asserts a link, transition characteristics -> optoelectronic '
+    'performance. n2/n19 state the whole link; n12/n14 state the transition side only. On the effect '
+    'text alone n2/n19 is the better read, and the matcher argues exactly that. What picks n12/n14 out '
+    'is the hop citing F2, which the matcher is deliberately not shown -- showing it would rebuild the '
+    'figure-level trap this table exists to remove. So either is accepted here, and the thing that '
+    'matters, whether the hop reaches any evidence at all, is measured below instead.'),
  (ADFM, 'M4'): (['n2', 'n19'], ['n21'],
     'effect is domain structure -> transition + PL, which n2/n19 state. n21 is ageing: same figure, '
     'different fact.'),
@@ -62,6 +66,24 @@ def main():
         if v != 'PASS':
             ok = False
             print(f"     why this row: {why}")
+
+    print("\n=== attachment reach: do the matched claims carry any image support?")
+    reach = collections.Counter(); dead = []
+    for p in PAPERS:
+        d = json.load(open(os.path.join(ROOT, 'results/v3', p, 'decompose.json')))
+        st = json.load(open(os.path.join(ROOT, 'results/v3', p, 'stitch.json')))
+        g = json.load(open(os.path.join(ROOT, st['graph'])))
+        N = {n['id']: n for n in g['nodes']}
+        for h, v in d['hops'].items():
+            cs = v['effect']['claims']
+            ev = [c for c in cs if N.get(c, {}).get('image_support') in ('shown', 'partial')]
+            k = 'no match' if not cs else ('reaches evidence' if ev else 'text-only claims')
+            reach[k] += 1
+            if k == 'text-only claims': dead.append((p, h, cs))
+    for k, n in reach.most_common(): print(f"  {k:20s} {n}")
+    if dead:
+        print("  hops matching only claims with no image support (these can carry no trace):")
+        for p, h, cs in dead: print(f"    {p[:32]:32s} {h}  {cs}")
 
     print("\n=== agreement with the lexical matcher, per hop")
     both = only_model = only_lex = 0
