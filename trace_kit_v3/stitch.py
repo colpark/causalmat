@@ -50,12 +50,17 @@ def main(paper):
     # our spine claims: the things a hop's effect could decompose into
     claims = [n for n in g['nodes'] if n.get('spine') and not (n.get('type') or '').startswith('OBS')]
     if not claims: claims = [n for n in g['nodes'] if not (n.get('type') or '').startswith('OBS')]
-    ev_by_claim = {}
+    # support comes from support.py: a direct `evidences` edge out of an observation with panels.
+    # `qualifies` / `contrasts` / `rules_out` are caveats and are recorded separately, not counted.
+    ev_by_claim, caveat_by_claim = {}, {}
     for e in g['edges']:
         s, t, r = e.get('src'), e.get('dst'), e.get('rel')
-        if r in ('evidences', 'qualifies', 'contrasts', 'rules_out') and s in N and t in N:
-            if N[s].get('panel_ids') or N[s].get('figs'):
-                ev_by_claim.setdefault(t, []).append((s, r))
+        if s not in N or t not in N: continue
+        if not (N[s].get('panel_ids') or N[s].get('figs')): continue
+        if r == 'evidences':
+            ev_by_claim.setdefault(t, []).append((s, r))
+        elif r in ('qualifies', 'contrasts', 'rules_out'):
+            caveat_by_claim.setdefault(t, []).append((s, r))
 
     texts = [fold(c.get('label')) for c in claims]
     effects = [fold(h['_matmech_span_DO_NOT_PROMPT']['effect']) for h in hops['hops']]
@@ -83,8 +88,12 @@ def main(paper):
                             'read_from': n.get('attrs', {}).get('read_from'),
                             'delivery': 'oracle' if fam(tech) in ORACLE else 'crop',
                             'observation': n.get('label')})
+            cavs = [{'node': nid, 'relation': rel, 'observation': N[nid].get('label'),
+                     'panel_ids': N[nid].get('panel_ids') or []}
+                    for nid, rel in caveat_by_claim.get(c['id'], [])]
             subs.append({'claim': c['id'], 'claim_type': c.get('type'), 'claim_text': c.get('label'),
-                         'match_score': round(sc, 3), 'n_evidence': len(evs), 'evidence': evs})
+                         'match_score': round(sc, 3), 'n_evidence': len(evs), 'evidence': evs,
+                         'n_caveats': len(cavs), 'caveats': cavs})
         n_ev = sum(s['n_evidence'] for s in subs)
         mods = sorted({e['family'] for s in subs for e in s['evidence'] if e['family']})
         rows.append({'hop': h['id'], 'stage_type': h['stage_type'], 'next': h['next'],
@@ -95,7 +104,8 @@ def main(paper):
                      'modalities': mods})
         if n_ev == 0:
             ours = sorted({p.split('#')[1].split('a')[0] if '#' in p else p
-                           for c in claims for nid, _ in ev_by_claim.get(c['id'], [])
+                           for c in claims for nid, _ in (ev_by_claim.get(c['id'], [])
+                                                          + caveat_by_claim.get(c['id'], []))
                            for p in (N[nid].get('panel_ids') or N[nid].get('figs') or [])})
             kind = ('coverage gap: our graph cites figures, so the hop names figures we did not read'
                     if ours else 'no figure-backed evidence anywhere in our graph')
@@ -116,6 +126,10 @@ def main(paper):
                    'only and never reaches a solver prompt.'}
     json.dump(obj, open(os.path.join(out, 'stitch.json'), 'w'), indent=1)
     if unatt:
+        keep = [l for l in open(os.path.join(ROOT, 'results/v3/unattached.jsonl'))
+                if json.loads(l).get('paper') != paper] \
+            if os.path.exists(os.path.join(ROOT, 'results/v3/unattached.jsonl')) else []
+        open(os.path.join(ROOT, 'results/v3/unattached.jsonl'), 'w').writelines(keep)
         with open(os.path.join(ROOT, 'results/v3/unattached.jsonl'), 'a') as f:
             for u in unatt: f.write(json.dumps(u) + '\n')
     print(f"{paper[:44]:44s} {obj['counts']['hops_with_evidence']}/{len(rows)} hops with evidence, "

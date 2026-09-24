@@ -26,7 +26,37 @@ training case and is reported separately.
 - **Post-fix: 4 of the 5 clean pass, 6 of 7 counting Rare Metals.** Nano Letters M3 fails.
 - Nano Letters M1 (contaminated) passes; it is not counted in the above.
 
-## Finding 1 -- Nano Letters M3 is nondeterministic, and fails
+## Graph completion (deterministic, no model call) -- and what it did not fix
+
+`complete.py` replaces a matched claim that has no support with a supported claim one edge away
+that states the same fact. Results against the frozen test:
+
+| metric | before completion | after |
+|---|---|---|
+| claims per hop | 3.06 (**fails**, limit 3) | **2.75 (passes)** |
+| hop-claim pairs | 17.0% | 15.3% |
+| attachable | 13/16 | **14/16 (88%)** |
+| unreachable hops | Rare Metals M2, adfm M3, adfm M4 | adfm M3, adfm M4 |
+| clean positives | 4 of 5 | 4 of 5 (**unchanged**) |
+
+Six replacements were made. Claims per hop *fell* because replacement dedupes: two unsupported
+claims in a hop often have the same supported neighbour.
+
+**The first version of this step was dangerous and was not shipped.** With only the relative guard
+("match the effect at least as well as the claim you replace"), it proposed 11 replacements
+including `n17 -> n24` on Biomaterials M4 -- inserting "ALP activity of BMSCs does not differ",
+which is a `must_not` row on that very test -- and `n20 -> n12` on Nano Letters M2/M3, swapping the
+Li-vs-Na comparison for a lithiation mechanism. Both cleared the relative guard because the claim
+being replaced scored near zero (0.055, 0.009), so "better than" was measuring noise. An absolute
+floor at MATCH_MIN = 0.12, stitch.py's existing threshold, rejects all five bad ones.
+
+The floor also rejects `n19 -> n14` on adfm M3/M4 (0.027 -> 0.054), which would have been the
+*right* replacement -- n14 is the transition measurement this hop should land on. adfm's effect span
+is abstract enough that nothing in that graph clears the floor. The lexical signal cannot separate
+the good swap from the bad ones here, so adfm M3 and M4 remain the two unreachable hops. That is a
+limit of the method, recorded rather than tuned around.
+
+## Finding 1 -- Nano Letters M3 fails, and one edge cannot reach n17
 
 The row requires n17, "Co3O4 is far less Na-active than Li-active (degree of oxidation ~36% vs
 ~91% at 2 ps)", the same fact as the hop's effect measured spectroscopically.
@@ -50,6 +80,15 @@ data" (n7/n8) -- they apply the completeness rule, but to the electrochemical pa
 consider the XAFS statement as a third expression of the same fact.
 
 The row stands. The matcher fails it.
+
+**Graph completion does not rescue it, for a structural reason.** The step looks one edge from each
+unsupported matched claim. M3's matched set is n1, n7, n8, n20; n7 and n8 are already supported, so
+only n1 and n20 are candidates for completion. n17's only claim-neighbours are n9 (`realizes`, in)
+and n18, n21 (`supports`, out). So n17 sits **two** edges from the matched set -- it and n20 are
+both parents of n18, siblings rather than neighbours. No one-edge rule reaches it.
+
+Reaching n17 would need either a two-edge step, which the brief rules out, or a matcher run that
+returns it directly, which happens about a third of the time.
 
 ## Finding 2 -- three hops land on claims with no evidence, and two had somewhere better to go
 

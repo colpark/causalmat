@@ -8,7 +8,7 @@
    "hop": "M1",
    "stage_type": "Processing \u2192 Structure",
    "next": "M3",
-   "chain_strength": "stage",
+   "chain_strength": "stage_only",
    "matmech_figures": [
     "F1",
     "F2",
@@ -30,7 +30,7 @@
      "claim_type": "STR/phase/identity",
      "claim_text": "2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)",
      "match_score": 0.199,
-     "n_evidence": 4,
+     "n_evidence": 3,
      "evidence": [
       {
        "node": "o3",
@@ -47,22 +47,6 @@
        "read_from": "axis",
        "delivery": "crop",
        "observation": "Small-angle XRD: one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)"
-      },
-      {
-       "node": "o4",
-       "relation": "qualifies",
-       "technique": "XRD:small_angle",
-       "family": "XRD",
-       "panel_ids": [
-        "10.1016/j.biomaterials.2011.11.042#F2"
-       ],
-       "figs": [
-        "F2"
-       ],
-       "image_support": "shown",
-       "read_from": "axis",
-       "delivery": "crop",
-       "observation": "Low-angle peak height falls ~8-fold with Co: ~180000 (MBG), ~74000 (2Co), ~23000 (5Co), 5Co peak barely above the rising background"
       },
       {
        "node": "o5",
@@ -97,6 +81,17 @@
        "delivery": "oracle",
        "observation": "N2 isotherms of all three show a hysteresis step at P/P0 ~0.45-0.6 (type IV)"
       }
+     ],
+     "n_caveats": 1,
+     "caveats": [
+      {
+       "node": "o4",
+       "relation": "qualifies",
+       "observation": "Low-angle peak height falls ~8-fold with Co: ~180000 (MBG), ~74000 (2Co), ~23000 (5Co), 5Co peak barely above the rising background",
+       "panel_ids": [
+        "10.1016/j.biomaterials.2011.11.042#F2"
+       ]
+      }
      ]
     },
     {
@@ -105,7 +100,9 @@
      "claim_text": "Mesoporous bioactive glass (MBG) 3D scaffold as host, for its ordered mesopores and high surface area",
      "match_score": 0.187,
      "n_evidence": 0,
-     "evidence": []
+     "evidence": [],
+     "n_caveats": 0,
+     "caveats": []
     },
     {
      "claim": "n9",
@@ -146,11 +143,13 @@
        "delivery": "oracle",
        "observation": "Pore-size distribution peaks at ~5 nm for 0Co and 2Co (2Co lower) and at ~4.2 nm for 5Co"
       }
-     ]
+     ],
+     "n_caveats": 0,
+     "caveats": []
     }
    ],
    "n_sub_claims": 3,
-   "n_evidence": 6,
+   "n_evidence": 5,
    "modalities": [
     "PHYS",
     "TEM",
@@ -161,7 +160,7 @@
    "hop": "M2",
    "stage_type": "Processing \u2192 Properties",
    "next": "M4",
-   "chain_strength": "stage",
+   "chain_strength": "stage_only",
    "matmech_figures": [
     "F5",
     "F8",
@@ -197,31 +196,17 @@
        "delivery": "oracle",
        "observation": "VEGF relative expression: blank ~3.5, MBG ~3.2, 2Co ~17.5, 5Co ~21.9 (P<0.05 vs MBG)"
       }
-     ]
+     ],
+     "n_caveats": 0,
+     "caveats": []
     },
     {
      "claim": "n12",
      "claim_type": "MEC/pathway",
      "claim_text": "Released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF",
      "match_score": 0.192,
-     "n_evidence": 2,
+     "n_evidence": 1,
      "evidence": [
-      {
-       "node": "o16",
-       "relation": "qualifies",
-       "technique": "BIO:ELISA",
-       "family": "BIO",
-       "panel_ids": [
-        "10.1016/j.biomaterials.2011.11.042#F8"
-       ],
-       "figs": [
-        "F8"
-       ],
-       "image_support": "shown",
-       "read_from": "axis",
-       "delivery": "oracle",
-       "observation": "5Co-MBG VEGF secretion (~115 pg/mL) is not above MBG (~100), although 5Co releases the most Co2+"
-      },
       {
        "node": "o17",
        "relation": "evidences",
@@ -238,6 +223,17 @@
        "delivery": "oracle",
        "observation": "HIF-1alpha band faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG; alpha-tubulin bands equal"
       }
+     ],
+     "n_caveats": 1,
+     "caveats": [
+      {
+       "node": "o16",
+       "relation": "qualifies",
+       "observation": "5Co-MBG VEGF secretion (~115 pg/mL) is not above MBG (~100), although 5Co releases the most Co2+",
+       "panel_ids": [
+        "10.1016/j.biomaterials.2011.11.042#F8"
+       ]
+      }
      ]
     },
     {
@@ -246,11 +242,13 @@
      "claim_text": "Co-MBG scaffolds combine controllable Co2+ release, hypoxia-mimicking VEGF/HIF-1alpha induction in BMSCs and local antibiotic delivery for bone repair",
      "match_score": 0.165,
      "n_evidence": 0,
-     "evidence": []
+     "evidence": [],
+     "n_caveats": 0,
+     "caveats": []
     }
    ],
    "n_sub_claims": 3,
-   "n_evidence": 3,
+   "n_evidence": 2,
    "modalities": [
     "BIO"
    ]
@@ -259,7 +257,7 @@
    "hop": "M3",
    "stage_type": "Structure \u2192 Properties",
    "next": "M4",
-   "chain_strength": "stage",
+   "chain_strength": "stage_only",
    "matmech_figures": [
     "F11",
     "F4",
@@ -277,31 +275,17 @@
      "claim_text": "Co-MBG scaffolds combine controllable Co2+ release, hypoxia-mimicking VEGF/HIF-1alpha induction in BMSCs and local antibiotic delivery for bone repair",
      "match_score": 0.142,
      "n_evidence": 0,
-     "evidence": []
+     "evidence": [],
+     "n_caveats": 0,
+     "caveats": []
     },
     {
      "claim": "n12",
      "claim_type": "MEC/pathway",
      "claim_text": "Released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF",
      "match_score": 0.13,
-     "n_evidence": 2,
+     "n_evidence": 1,
      "evidence": [
-      {
-       "node": "o16",
-       "relation": "qualifies",
-       "technique": "BIO:ELISA",
-       "family": "BIO",
-       "panel_ids": [
-        "10.1016/j.biomaterials.2011.11.042#F8"
-       ],
-       "figs": [
-        "F8"
-       ],
-       "image_support": "shown",
-       "read_from": "axis",
-       "delivery": "oracle",
-       "observation": "5Co-MBG VEGF secretion (~115 pg/mL) is not above MBG (~100), although 5Co releases the most Co2+"
-      },
       {
        "node": "o17",
        "relation": "evidences",
@@ -318,11 +302,22 @@
        "delivery": "oracle",
        "observation": "HIF-1alpha band faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG; alpha-tubulin bands equal"
       }
+     ],
+     "n_caveats": 1,
+     "caveats": [
+      {
+       "node": "o16",
+       "relation": "qualifies",
+       "observation": "5Co-MBG VEGF secretion (~115 pg/mL) is not above MBG (~100), although 5Co releases the most Co2+",
+       "panel_ids": [
+        "10.1016/j.biomaterials.2011.11.042#F8"
+       ]
+      }
      ]
     }
    ],
    "n_sub_claims": 2,
-   "n_evidence": 2,
+   "n_evidence": 1,
    "modalities": [
     "BIO"
    ]
@@ -353,7 +348,7 @@
   "hops": 4,
   "hops_with_evidence": 3,
   "hops_without_evidence": 1,
-  "evidence_nodes": 11
+  "evidence_nodes": 8
  },
  "note": "Every verdict is model against model. The MatMech effect span was used for matching only and never reaches a solver prompt."
 }
