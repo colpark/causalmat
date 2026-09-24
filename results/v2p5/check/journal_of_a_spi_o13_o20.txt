@@ -1,0 +1,29 @@
+Question: Does the upstream evidence account for the downstream observation about STR/phase/fraction / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (FTIR): beta content: cast 76.1%, f-P0.00 76.3%, jumps to 81.8% (2 wt%) and 83.2% (4 wt%), then ~81% at 6-10 wt%
+Observation B (TRANSPORT:piezo_output): Peak voltage rises 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt% PZT
+
+Proposition: Overlaying the two series shows that the beta-phase rise (76.1-76.3% at 0 wt% up to a peak 81.8-83.2% at 2-4 wt%) tracks the early part of the voltage rise (7.5, 12.5, 26.5, 32.0 V over 0-4 wt%), consistent with beta-phase enhancement contributing to the initial output gain. But beyond 4 wt% the pairing decouples: beta content eases back to ~81% over 6-10 wt% while voltage keeps climbing to 43.0 and 62.0 V, so the combination only supports a beta-phase-mediated story for the low-loading regime, not for the full 0-10 wt% range.
+
+Limits:
+  [0] Beta content is non-monotonic (peaks at 4 wt%, then eases), while voltage is monotonic across the whole 0-10 wt% range, so the pair cannot establish beta-phase content as the operative driver at 6-10 wt%
+  [1] The two quantities are different kinds -- a normalized structural fraction (%) versus an absolute output amount (V) -- so the magnitude of the voltage gain cannot be read off the beta-phase change
+  [2] PZT wt% is a shared driver of both series by construction (it is varied to produce both the FTIR and the transport data), so the correlation at low loading does not by itself prove a beta-phase causal pathway rather than coincidence
+  [3] Only 5-6 discrete wt% points on each side, insufficient to fit a shared functional relationship, only to compare trend shapes
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

@@ -1,0 +1,42 @@
+The join: progress_in__cov_o15_o16  --->  progress_in__spi_o14_o18   on claim n14
+
+UPSTREAM ITEM
+v2.5 covariation item progress_in__cov_o15_o16
+  question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+  A (ECHEM:EIS): PCL-LS |Z| at 0.01 Hz drops only from ~10^6.25 to ~10^5.85 ohm cm2 over 7 days
+  B (ECHEM:EIS): Pure PCL high-frequency phase falls (~72 to ~24 deg at 10^4.8 Hz) and a 1-10 Hz time constant grows with immersion
+  key: Read together, the two EIS traces support a material-level contrast rather than a single-material trend: PCL-LS retains a high impedance floor at 0.01 Hz (only ~10^6.25 to ~10^5.85 ohm cm2 over 7 days, less than one decade of drop), while pure PCL shows independent signatures of coating degradation over the same immersion period -- a collapsing high-frequency phase angle (~72 to ~24 deg at 10^4.8 Hz) and a growing time constant in the 1-10 Hz range. Combining the two panels is what lets the paper say PCL-LS keeps its barrier impedance while pure PCL loses it: neither panel alone names both materials, so the contrast (not just a single trend) depends on both.
+  limits: The two sides are not the same EIS metric: A is a low-frequency impedance magnitude (|Z|, ohm cm2) and B is a high-frequency phase angle (degrees) plus a qualitative time-constant shift; the comparison is across quantity kinds, not a shared axis, so no quantitative ratio or matched threshold can be drawn between the ~0.4-decade |Z| drop and the ~48 deg phase drop.; The two observations come from different samples/panels (F7d for PCL-LS, F7a for pure PCL), so any difference in behavior is confounded with whatever else differs between the two coating preparations, not isolated to the LS additive alone.; Only endpoint-style values are given for A (day 0 vs day 7) and a general immersion trend for B; this supports an ordering/contrast between the two materials, not a fitted degradation rate or a common time course.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item progress_in__spi_o14_o18
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (ECHEM:EIS): Pure PCL |Z| at 0.01 Hz falls from ~10^5.5 (0 d) to ~10^5.05, 10^4.6 and 10^4.3 ohm cm2 after 1, 3, 7 days
+  B (SEM): After 7 days rows 1-2 are cracked mud-like with products, row 3 is covered by product particles, row 4 is nearly intact with fine cracks
+  key: Read together, the declining pure-PCL impedance over the 7-day immersion (0.01 Hz |Z| falling from ~10^5.5 to ~10^5.05, 10^4.6, then 10^4.3 ohm cm2 across days 0, 1, 3, 7) is qualitatively consistent with the range of day-7 surface states seen by SEM: cracked, mud-like, product-covered surfaces (rows 1-3) fit a sample whose barrier impedance has dropped by roughly an order of magnitude, whereas a nearly intact surface with only fine cracks (row 4) fits a sample that would retain higher impedance. The pairing thus supports a general correspondence between loss of EIS barrier impedance and visible surface breakdown/corrosion-product coverage, and between retained impedance and an intact surface.
+  limits: Observation A reports an EIS time series for pure PCL only; Observation B reports a single day-7 snapshot across four rows without stating in the observation itself which row is the pure PCL sample, so the specific row-to-EIS-curve correspondence must be assumed rather than read off the two observations directly; The two observations are different kinds of measurement (a multi-timepoint continuous electrochemical magnitude vs. a single-timepoint qualitative/categorical visual description), so they cannot be combined into a quantitative or dose-response relationship between amount of impedance loss and degree of cracking/product coverage; Only one sample (pure PCL) has an impedance trajectory; rows 2 through 4 in the SEM panel have no corresponding EIS data in Observation A, so the pairing cannot compare impedance trajectories across the different surface conditions shown
+
+The joined claim, as the chain now asserts it:
+  Read together, the declining pure-PCL impedance over the 7-day immersion (0.01 Hz |Z| falling from ~10^5.5 to ~10^5.05, 10^4.6, then 10^4.3 ohm cm2 across days 0, 1, 3, 7) is qualitatively consistent with the range of day-7 surface states seen by SEM: cracked, mud-like, product-covered surfaces (rows 1-3) fit a sample whose barrier impedance has dropped by roughly an order of magnitude, whereas a nearly intact surface with only fine cracks (row 4) fits a sample that would retain higher impedance. The pairing thus supports a general correspondence between loss of EIS barrier impedance and visible surface breakdown/corrosion-product coverage, and between retained impedance and an intact surface.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

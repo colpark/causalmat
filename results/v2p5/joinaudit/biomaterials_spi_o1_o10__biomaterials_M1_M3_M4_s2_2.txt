@@ -1,0 +1,39 @@
+The join: biomaterials_spi_o1_o10  --->  biomaterials_M1_M3_M4_s2_2   on claim n11
+
+UPSTREAM ITEM
+v2.5 spine_edge item biomaterials_spi_o1_o10
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
+  A (EDS): EDS: no Co peak with Co/Ca = 0 in b; Co peak near 6.9 keV in d and f, labelled Co/Ca = 0.14 and 0.49
+  B (CHEM:ion_concentration): Co2+ in medium: 5Co ~8.9/17.9/20.8 and 2Co ~4.7/10.5/16.9 mg/L at 1/3/7 days; 0Co stays at 0
+  key: Together, the EDS composition data (Co/Ca = 0 for MBG, 0.14 for 2Co-MBG, 0.49 for 5Co-MBG) and the medium ion-release data (Co2+ absent for 0Co, and higher at every timepoint for 5Co than 2Co: ~8.9/17.9/20.8 mg/L vs ~4.7/10.5/16.9 mg/L at 1/3/7 days) support that the amount of Co incorporated into the scaffold sets the amount of Co2+ that is subsequently released into the medium, with the ordering 5Co > 2Co > 0Co holding both for embedded content and for released concentration at every measured day.
+  limits: EDS Co/Ca is a single static compositional snapshot of the as-made scaffold, while release is a time course (days 1, 3, 7); pairing a fixed composition value against a rising time series only supports an ordering match (more embedded Co -> more released Co), not a quantitative dose-response or rate relationship; EDS Co/Ca is a normalized ratio (Co relative to Ca signal), whereas medium Co2+ is an absolute concentration (mg/L); these are different kinds of quantity and cannot be equated numerically, only rank-ordered; Only three scaffold groups (0Co, 2Co, 5Co) are compared, too few points to establish a continuous composition-release relationship beyond a monotonic ordering; Co content and group identity are set together by the synthesis design (0Co/2Co/5Co are defined by how much Co was added), so the match in ordering is partly a construction check rather than an independent test of a release mechanism
+
+DOWNSTREAM ITEM
+v5 backbone item biomaterials_M1_M3_M4_s2_2 -- Do the HIF-1alpha and VEGF results describe one dose response in cobalt content?
+  key: They do not. HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co. A single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response.
+  limits: The HIF-1alpha comparison is a band intensity against a loading control, not a calibrated concentration.; Non-monotonic VEGF may reflect cytotoxicity at 5Co, which is not measured here.
+
+The joined claim, as the chain now asserts it:
+  They do not. HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co. A single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

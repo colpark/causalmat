@@ -1,0 +1,42 @@
+The join: advanced_fun_com_o5_o7  --->  advanced_fun_spi_o5_o9   on claim n12
+
+UPSTREAM ITEM
+v2.5 complementary item advanced_fun_com_o5_o7
+  question: What does each of these two measurements establish on its own about STR/phase/fraction, and what does putting them together add that neither gives alone?
+  A (XRD:insitu): Every trace steps down near 150 K; for PC (004) the two branches coexist over a shaded band from ~150 to ~175 K
+  B (PL): Between 138 and 150 K the ~785 nm band grows against the ~745 nm band, earliest and strongest under the 325 nm laser, latest under 633 nm
+  key: Taken together, the XRD result (all traces step down near 150 K, with the PC (004) reflection showing the two structural branches coexisting over a band from ~150 to ~175 K) and the PL result (the ~785 nm band grows against the ~745 nm band between 138 and 150 K, earliest/strongest under the 325 nm laser and latest under 633 nm) support a depth-dependent reading of the same transition: since 325 nm and 633 nm probe different penetration depths, PL's ordering (shallow-probe signal first, deep-probe signal last) supplies a spatial/depth ordering that XRD alone cannot give, while XRD's coexistence band supplies bulk-averaged evidence that the two structural phases genuinely coexist rather than switching instantaneously. Combined, this is consistent with the transformation appearing near the domain surface before it appears deeper in the domain.
+  limits: The two observation windows do not overlap (PL: 138-150 K; XRD coexistence band: 150-175 K), so the pairing only yields a qualitative/ordinal linkage -- surface-sensitive signal precedes the bulk-averaged coexistence window -- not a merged quantitative transition profile; The 'surface vs. deep' reading rests on treating 325 nm vs 633 nm laser penetration as a depth proxy; neither observation directly measures depth or a spatial gradient; Neither observation reports a phase fraction: XRD shows two coexisting diffraction branches without stated fractions, and PL shows a band-intensity ratio change without a stated fraction conversion; Nothing in either observation gives a completion timescale (e.g., how narrow the finishing window is) -- that is not present in either observation as stated; The pairing does not distinguish a single continuous surface-to-core front from multiple independent, depth-graded transformation events
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item advanced_fun_spi_o5_o9
+  question: Does the upstream evidence account for the downstream observation about STR/phase/fraction / PRP/value? Say what the combination supports and what it leaves open.
+  A (XRD:insitu): Every trace steps down near 150 K; for PC (004) the two branches coexist over a shaded band from ~150 to ~175 K
+  B (PL): As grown: PC shows two emission branches plus an IR tail below 150 K and across 50-370 uW at 80 K; HOC is intermediate; SC shows one band
+  key: Taken together, the in-situ XRD showing a ~150-175 K band where two (004) branches coexist for PC, and the as-grown PL showing PC with two emission branches plus an IR tail below 150 K (with HOC intermediate and SC a single band), support that the double emission feature in PC tracks the presence of two coexisting structural fractions near the transition, and that the PL ranking PC>HOC>SC parallels a corresponding decrease in structural phase coexistence/domain complexity across the three samples.
+  limits: The XRD coexistence band (~150-175K) is reported explicitly only for PC's (004) reflection; the paper does not give the same in-situ XRD coexistence-band data for HOC or SC in these panels, so the PL ranking across all three samples is not independently confirmed by matched XRD windows for each sample; The temperature ranges do not align exactly: the XRD two-branch coexistence is placed at ~150-175K while the PL dual-branch/IR-tail is described as occurring below 150K, so the two windows are adjacent/overlapping rather than identical; The PL evidence also spans a power series (50-370 uW at fixed 80K), a different kind of variable (excitation intensity) than the XRD temperature sweep, and this power dependence is not linked to any XRD quantity; The link asserts a causal direction (structural coexistence causes optical splitting) but the two panels only show temporal/sample-level co-occurrence, not a demonstrated mechanism connecting a specific fraction value to a specific PL feature
+
+The joined claim, as the chain now asserts it:
+  Taken together, the in-situ XRD showing a ~150-175 K band where two (004) branches coexist for PC, and the as-grown PL showing PC with two emission branches plus an IR tail below 150 K (with HOC intermediate and SC a single band), support that the double emission feature in PC tracks the presence of two coexisting structural fractions near the transition, and that the PL ranking PC>HOC>SC parallels a corresponding decrease in structural phase coexistence/domain complexity across the three samples.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

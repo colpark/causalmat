@@ -1,0 +1,29 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (BIO:ex_vivo_shunt): Occlusion ~58, 63, 10, 7.5 and 3% (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF)
+Observation B (BIO:ex_vivo_shunt): Blood flow retained ~20, 17, 64, 68 and 90% of the initial value across the same surfaces
+
+Proposition: Across the same five ex vivo shunt surfaces (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF), occlusion and blood flow retained move inversely and consistently: occlusion ~58, 63, 10, 7.5, 3% pairs with blood flow retained ~20, 17, 64, 68, 90% in the same surface order, so as occlusion falls the retained flow rises, with BVLD/NO-PPAmF showing the lowest occlusion (~3%) and highest flow retention (~90%).
+
+Limits:
+  [0] Both readouts are taken on the same shunt runs at the same endpoint, so the inverse pattern reflects two correlated measures of the same occlusive event rather than two independent lines of causal evidence
+  [1] Only five surface conditions are compared, which supports a consistent ranking/inverse trend but not a quantitative dose-response relationship between the two variables
+  [2] Occlusion is a percent-of-lumen score while blood flow retained is a percent-of-initial-flow normalized rate, so the pairing crosses quantity kinds and cannot pin down the exact functional form of the relationship, only its direction
+  [3] The set mixes single-component surfaces (BVLD-PPAmF, NO-PPAmF) and the combined surface (BVLD/NO-PPAmF), so the pairing cannot attribute the inverse relationship to either component individually
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

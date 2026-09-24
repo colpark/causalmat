@@ -1,0 +1,42 @@
+The join: bioactive_ma_com_o19_o20  --->  bioactive_ma_spi_o19_o12   on claim b11
+
+UPSTREAM ITEM
+v2.5 complementary item bioactive_ma_com_o19_o20
+  question: What does each of these two measurements establish on its own about STR/chemistry/composition, and what does putting them together add that neither gives alone?
+  A (EDS:spectrum): EDS spectrum shows Ti, O and a dominant C peak, with small Er (~1.4 keV) and Ce (~4.8 keV) peaks
+  B (XPS:region): XPS: Ti 2p3/2 458.5 and 2p1/2 464.2 eV; O 1s components 529.0, 531.2, 533.0 eV; Er 4d at 168.8 eV
+  key: Together, EDS (Ti, O, dominant C, and small Er ~1.4 keV / Ce ~4.8 keV peaks) and XPS (Ti 2p3/2 458.5, 2p1/2 464.2 eV; O1s 529.0/531.2/533.0 eV; Er 4d 168.8 eV) establish that the Er detected in the particles is present as a specific oxidation-state species (Er3+, from the 168.8 eV binding energy) associated with a Ti-O oxide framework, rather than merely being an element whose presence is inferred from an unconfirmed EDS peak alone. EDS supplies elemental presence; XPS supplies the chemical/oxidation-state assignment for that same element; only together do they support 'Er present as Er3+' rather than just 'an Er-energy peak was seen'.
+  limits: Does not establish Ce's oxidation state (Ce3+ vs Ce4+ vs a mixture): Observation B (XPS) reports only Ti 2p, O1s and Er 4d regions, with no Ce binding-energy data, so Ce chemistry is outside what this pair covers; Does not establish that Er (or Ce) is incorporated into the TiO2 lattice rather than surface-adsorbed: XPS is surface-sensitive while EDS samples a larger interaction volume, so detection of Er by both techniques does not prove the signals come from the same spatial region/phase; The dominant C peak in EDS is not addressed by the XPS observation (no C1s region reported), so it is unclear whether carbon reflects sample chemistry or grid/support/residue contamination; EDS peaks for Er and Ce are described as small, limiting how strongly the 'elemental presence' side of the combination can be weighted
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o19_o12
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
+  A (EDS:spectrum): EDS spectrum shows Ti, O and a dominant C peak, with small Er (~1.4 keV) and Ce (~4.8 keV) peaks
+  B (ASSAY): Dark: antibacterial ratio rises Ce0.1 ~28-33% < Ce0.2 ~43% < Ce0.3 ~45-47%; TiO2 ~6%, control ~0
+  key: Taken together, EDS confirming that Er and Ce are chemically present as dopant peaks (Er ~1.4 keV, Ce ~4.8 keV) in the particles, combined with the dark-condition assay showing antibacterial ratio rising with nominal Ce loading (Ce0.1 ~28-33% < Ce0.2 ~43% < Ce0.3 ~45-47%, all above undoped TiO2 ~6% and control ~0), supports that Ce (and co-present Er) doping is associated with the observed non-photocatalytic antibacterial dose trend -- i.e., confirmed dopant incorporation accompanies a graded rise in dark antibacterial activity.
+  limits: The EDS spectrum is a single/representative measurement confirming elemental presence; it does not itself quantify Ce content separately across the Ce0.1, Ce0.2, Ce0.3 samples used in the assay, so the pairing cannot show that measured composition actually tracks the nominal dose labels; Because Er and Ce peaks appear together in the same spectrum, the combination cannot isolate whether the rising antibacterial ratio is driven by Ce content specifically or is confounded by co-varying Er content or other synthesis differences among the three doped samples; No mechanism for the dark (non-photocatalytic) antibacterial effect is established by elemental-presence data; EDS confirms identity of dopants, not a physical/chemical mechanism (e.g., surface Ce3+/Ce4+) linking dopant content to bacterial killing; The two measurements are different quantity kinds (a qualitative/semi-quantitative single spectrum vs. a normalized ratio across a compositional series), so this is not a matched, calibrated dose-response pairing
+
+The joined claim, as the chain now asserts it:
+  Taken together, EDS confirming that Er and Ce are chemically present as dopant peaks (Er ~1.4 keV, Ce ~4.8 keV) in the particles, combined with the dark-condition assay showing antibacterial ratio rising with nominal Ce loading (Ce0.1 ~28-33% < Ce0.2 ~43% < Ce0.3 ~45-47%, all above undoped TiO2 ~6% and control ~0), supports that Ce (and co-present Er) doping is associated with the observed non-photocatalytic antibacterial dose trend -- i.e., confirmed dopant incorporation accompanies a graded rise in dark antibacterial activity.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

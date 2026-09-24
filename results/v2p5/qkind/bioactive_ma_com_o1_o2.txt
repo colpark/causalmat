@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about STR/chemistry/bonding, and what does putting them together add that neither gives alone?
+
+Observation A (FTIR:GATR): PPAm IR bands assigned: N-H stretch 3350/3210, C-H stretch, -N=C=O/-C=N 2245/2180, -C=O/C=N 1645, C-N 1230 cm-1
+Observation B (SIMS:ToF): Positive ToF-SIMS spectrum shows labelled N-containing ions CH4N (m/z 30), C3H9N (m/z 59) and C4H10N (m/z 72) among CxHy ions
+
+Proposition: FTIR (GATR) assigns specific vibrational bands to bond types present in the PPAm film -- N-H (3350/3210 cm-1), aliphatic C-H, -N=C=O/-C=N (2245/2180 cm-1), C=O/C=N (1645 cm-1), C-N (1230 cm-1) -- while ToF-SIMS independently detects N-containing fragment ions (CH4N m/z 30, C3H9N m/z 59, C4H10N m/z 72) among the CxHy ion set at the surface. Put together, the two techniques give converging, independent confirmation that nitrogen is retained as part of the film's molecular structure and is detectable both as vibrational bonding signatures and as surface mass fragments -- a stronger basis for asserting N retention than either technique alone, since FTIR could in principle reflect subsurface/bulk species and SIMS fragment masses alone do not confirm a bonding assignment.
+
+Limits:
+  [0] ToF-SIMS fragment formulas (CH4N, C3H9N, C4H10N) are mass-only identifications and cannot by themselves specify which functional group (amine N-H vs nitrile/isocyanate vs C=O/C=N) the nitrogen belongs to, so they cannot confirm the specific bond assignments FTIR makes
+  [1] the FTIR bands attributed to plasma-fragmentation products (-N=C=O/-C=N at 2245/2180 cm-1, C=O/C=N at 1645 cm-1) have no corresponding fragment explicitly identified in the cited SIMS ion list, so the pairing does not show that SIMS detects those specific new groups
+  [2] neither observation gives a quantity (amount or rate) of any group, so the combination cannot establish how much N-H versus nitrile/isocyanate/C=O is present, only that N-containing species are present in both measurement modalities
+  [3] GATR-FTIR and ToF-SIMS probe different depths/mechanisms (vibrational absorption vs surface fragment ejection), so agreement on 'N is present' does not establish the two techniques are sampling the identical molecular species
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

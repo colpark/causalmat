@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about PRP/value, and what does putting them together add that neither gives alone?
+
+Observation A (ECHEM:polarization): Polarization curves: Mg-Zn-Y-Nd corrosion potential near -1.5 V vs about -0.25 V for 317L SS, its branches 2-3 decades to higher current
+Observation B (CORR:immersion): Immersion corrosion rate of Mg-Zn-Y-Nd (0.13-0.38 mm/y, peak at day 7) stays above 317L SS (<0.07 mm/y) at every time point
+
+Proposition: Taken together, the polarization data and the immersion data provide two independent lines of evidence that converge on the same ranking: Mg-Zn-Y-Nd degrades far faster than 317L SS. The electrochemical scan shows a much lower corrosion potential for Mg-Zn-Y-Nd (near -1.5 V) versus 317L SS (about -0.25 V), with current branches shifted 2-3 decades higher; separately, the immersion test shows Mg-Zn-Y-Nd's corrosion rate (0.13-0.38 mm/y, peaking at day 7) staying above 317L SS's rate (<0.07 mm/y) at every time point measured. Neither observation alone rules out that the apparent difference is an artifact of one particular test method; the pair together shows the faster degradation of Mg-Zn-Y-Nd holds across two different measurement approaches (electrochemical and immersion), which is stronger support for a real, method-independent material difference than either measurement gives on its own.
+
+Limits:
+  [0] Does not establish a quantitative correspondence between the electrochemical current-density gap (2-3 decades) and the immersion rate gap (0.13-0.38 mm/y vs <0.07 mm/y) -- these are different kinds of quantities and the pair does not let one be converted into or predict the other
+  [1] Does not establish the mechanism responsible for the faster degradation
+  [2] The polarization measurement is an instantaneous/single-scan quantity while the immersion measurement is a rate tracked over multiple days with a peak at day 7; combining them supports only the qualitative ordering (Mg-Zn-Y-Nd faster than 317L SS), not a shared quantitative time-dependence
+  [3] Whether the two tests were run under matched environmental/media conditions is not given, so the concordance cannot be assumed to reflect identical test conditions
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

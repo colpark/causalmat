@@ -1,0 +1,42 @@
+The join: journal_of_m_com_o14_o16_pr2  --->  journal_of_m_spi_o14_o10   on claim pr2
+
+UPSTREAM ITEM
+v2.5 complementary item journal_of_m_com_o14_o16_pr2
+  question: What does each of these two measurements establish on its own about PRP/value, and what does putting them together add that neither gives alone?
+  A (ECHEM:photocurrent): Steady photocurrent: Ag0.25Pd0.75-ZIS ~2.1 > Pd-ZIS ~1.5 > Ag-ZIS ~0.9 > ZIS ~0.4 uA/cm2
+  B (PL): PL peak at ~470 nm strongly quenched by metal loading: ZIS >> Ag-ZIS > Pd-ZIS > Ag0.25Pd0.75-ZIS
+  key: Photocurrent (Observation A) and PL quenching (Observation B) independently rank the same four samples in the identical order -- Ag0.25Pd0.75-ZIS best, then Pd-ZIS, then Ag-ZIS, then ZIS worst (least photocurrent, least quenched PL). Because two different measurement modalities, one electrochemical (charge extraction under illumination) and one optical (radiative recombination suppression), converge on the same relative ordering across all four samples, the pair together supports that this ordering reflects a real difference in photocarrier separation/recombination behavior among the samples, rather than being an artifact specific to either single technique.
+  limits: Neither measurement nor their agreement establishes the absolute magnitude or quantum yield of charge separation, only the relative order among these four samples.; The pair does not establish why Ag0.25Pd0.75-ZIS is optimal (i.e., does not identify the mechanism by which the Ag/Pd combination outperforms single-metal loading); it only shows the ranking is consistent across two proxy techniques.; Photocurrent is a rate-type electrochemical signal (current density under illumination) while PL is a steady-state optical emission intensity; agreement in ranking across two different quantity kinds strengthens confidence in the ordering but does not convert either into a direct measurement of photocatalytic charge-separation efficiency.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o14_o10
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (ECHEM:photocurrent): Steady photocurrent: Ag0.25Pd0.75-ZIS ~2.1 > Pd-ZIS ~1.5 > Ag-ZIS ~0.9 > ZIS ~0.4 uA/cm2
+  B (PHOTOCAT:H2evolution): H2 evolution rate: Ag0.25Pd0.75 125.4 > Ag0.5Pd0.5 57.3 > Ag0.75Pd0.25 43.5 > Pd 34.5 > Ag 3.2 > ZIS 1.5 umol/h
+  key: The four samples common to both observations show the same ranking: Ag0.25Pd0.75-ZIS highest, then Pd-ZIS, then Ag-ZIS, then ZIS lowest, both in steady photocurrent (~2.1 > ~1.5 > ~0.9 > ~0.4 uA/cm2) and in H2 evolution rate (125.4 > 34.5 > 3.2 > 1.5 umol/h). Together the two observations support that the composition ordering associated with higher steady photocurrent (taken as an indicator of charge-carrier separation) tracks the same ordering seen in H2 evolution performance across these four samples.
+  limits: Photocurrent (an electrochemical current density) and H2 evolution rate (a molar gas-evolution rate) are different kinds of quantity measured in different setups; matching rank order between them is not a quantitative or unit-comparable relationship.; Observation B includes two compositions, Ag0.5Pd0.5-ZIS (57.3 umol/h) and Ag0.75Pd0.25-ZIS (43.5 umol/h), that were not measured for photocurrent in Observation A, so the full Ag:Pd composition series is not covered on both sides.; Only four points overlap between the two observations, which is enough to show a matching order but not enough to establish a dose-response curve or the size of the relationship between photocurrent and H2 evolution rate.; Because Ag:Pd composition is varied together with both measurements, the pairing cannot rule out that composition drives photocurrent and H2 evolution independently rather than the photocurrent difference itself causing the H2 evolution difference.
+
+The joined claim, as the chain now asserts it:
+  The four samples common to both observations show the same ranking: Ag0.25Pd0.75-ZIS highest, then Pd-ZIS, then Ag-ZIS, then ZIS lowest, both in steady photocurrent (~2.1 > ~1.5 > ~0.9 > ~0.4 uA/cm2) and in H2 evolution rate (125.4 > 34.5 > 3.2 > 1.5 umol/h). Together the two observations support that the composition ordering associated with higher steady photocurrent (taken as an indicator of charge-carrier separation) tracks the same ordering seen in H2 evolution performance across these four samples.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

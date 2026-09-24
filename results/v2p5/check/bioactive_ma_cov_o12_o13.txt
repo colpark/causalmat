@@ -1,0 +1,29 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (BIO:platelet_count): Adhered platelets ~32, 41, 15.5, 11 and 5 (x1e2 cell/mm2) on 316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF
+Observation B (BIO:platelet_count): Platelet activation ~65, 74, 23, 18 and ~1% across the same five surfaces
+
+Proposition: Across the same five surfaces (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF), adhered platelet count and platelet activation percentage rank in the same order: both are highest on PPAmF (~41; ~74%), next-highest on 316L SS (~32; ~65%), then fall together through BVLD-PPAmF (~15.5; ~23%) and NO-PPAmF (~11; ~18%), and both reach their minimum on BVLD/NO-PPAmF (~5; ~1%). The two readouts co-vary (concordant ranking) across the surface series.
+
+Limits:
+  [0] Only 5 paired points (one per surface), so this shows a concordant ordering, not a fitted or statistically tested relationship
+  [1] Both quantities are measured on the same five surfaces/same assay conditions, so co-variation could reflect a shared underlying surface property (e.g., an anti-fouling/anti-thrombogenic effect of the BVLD/NO modification) driving both readouts independently, rather than one causing the other
+  [2] Adhered count and activation percentage are different kinds of quantity (an absolute areal density versus a normalized fraction), so their concordance in rank does not establish a quantitative or mechanistic link between them
+  [3] Neither panel alone establishes co-variation; the ordering match is only visible when both series are compared surface-by-surface
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

@@ -1,0 +1,42 @@
+The join: materials_ch_com_o1_o7  --->  materials_ch_spi_o1_o3   on claim s2
+
+UPSTREAM ITEM
+v2.5 complementary item materials_ch_com_o1_o7
+  question: What does each of these two measurements establish on its own about STR/microstructure/porosity, and what does putting them together add that neither gives alone?
+  A (PHYS:density): HP relative density rises from ~97.5% (0 wt% AlN) to ~100% at 1 and 5 wt% (~99.3% at 3 wt%)
+  B (SEM): Fracture surface is dense, without open pores, with large flat transgranular facets
+  key: Together, the density measurement and the SEM fracture image corroborate that the HP composites (especially 1 and 5 wt% AlN, reaching ~100% relative density) are genuinely fully dense: the bulk density number is confirmed by direct microstructural inspection showing no open pores and large flat transgranular fracture facets, i.e. the near-100% relative density figure is not an artifact of the measurement method but corresponds to an observably pore-free, well-consolidated microstructure with fracture running through grains rather than around residual porosity.
+  limits: Density is a single bulk average over the whole sample and cannot by itself confirm whether residual porosity, if any, is open or closed, or how pores are distributed; SEM supplies only a local, qualitative view of one fracture surface and cannot by itself quantify a density value or compare it across the 0/1/3/5 wt% AlN series; SEM as reported gives no wt%-resolved porosity data, so the pair does not establish a quantitative trend linking SEM pore appearance to the specific density values (~97.5%, ~99.3%, ~100%) at each composition, only a qualitative consistency; Neither observation establishes the mechanism by which AlN addition raises relative density (e.g., sintering-aid or grain-boundary effect); they only jointly confirm the resulting dense, pore-free state and transgranular fracture mode
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item materials_ch_spi_o1_o3
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/porosity / PRP/value? Say what the combination supports and what it leaves open.
+  A (PHYS:density): HP relative density rises from ~97.5% (0 wt% AlN) to ~100% at 1 and 5 wt% (~99.3% at 3 wt%)
+  B (MECH:hardness): HP hardness ~18.0 GPa at 0, ~20.3 GPa at 1 wt% AlN, then ~19.4 and ~19.2 GPa at 3 and 5 wt%
+  key: Together, the density and hardness series show that the density increase (97.5% at 0 wt% to ~100% at 1 wt%) coincides with the hardness rise from ~18.0 to ~20.3 GPa, but from 1 to 5 wt% relative density stays high (~99.3-100%) while hardness instead falls to ~19.4 and ~19.2 GPa. So the density/porosity mechanism (s2 -causes-> r1) can plausibly account for the initial 0->1 wt% hardness rise, but the pair together shows it cannot account for the hardness decline at 3-5 wt%, since density is not declining over that same range.
+  limits: Only 4 composition points (0, 1, 3, 5 wt% AlN) are available, too few to establish a continuous density-hardness relationship, only an ordering at those points; Density and hardness move together only over 0->1 wt%; beyond that they decouple (density flat/near-100% while hardness drops), so the pair cannot explain the mechanism behind the 3-5 wt% hardness decline; Relative density (%) and hardness (GPa) are different kinds of quantity (a normalized volumetric measure vs. a mechanical/indentation property), so the correlation is associative, not a derivation of one from the other; At 0->1 wt%, AlN content and density both change together by construction (adding AlN changes both composition and processing densification), so the evidence cannot separate whether the hardness rise comes from reduced porosity or from an intrinsic AlN reinforcement effect
+
+The joined claim, as the chain now asserts it:
+  Together, the density and hardness series show that the density increase (97.5% at 0 wt% to ~100% at 1 wt%) coincides with the hardness rise from ~18.0 to ~20.3 GPa, but from 1 to 5 wt% relative density stays high (~99.3-100%) while hardness instead falls to ~19.4 and ~19.2 GPa. So the density/porosity mechanism (s2 -causes-> r1) can plausibly account for the initial 0->1 wt% hardness rise, but the pair together shows it cannot account for the hardness decline at 3-5 wt%, since density is not declining over that same range.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

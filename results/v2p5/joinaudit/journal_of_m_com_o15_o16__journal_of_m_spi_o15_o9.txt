@@ -1,0 +1,42 @@
+The join: journal_of_m_com_o15_o16  --->  journal_of_m_spi_o15_o9   on claim n15
+
+UPSTREAM ITEM
+v2.5 complementary item journal_of_m_com_o15_o16
+  question: What does each of these two measurements establish on its own about STR/microstructure/feature_size, and what does putting them together add that neither gives alone?
+  A (SEM): (d) fine uniform features ~0.3-0.8 um, far finer than (b),(c) at the same 2 um scale
+  B (EBSD): IPF maps: (a) equiaxed grains mostly ~0.5-1.5 um; (c) equiaxed grains ~1.5-3 um
+  key: The EBSD IPF maps establish that the equiaxed features visible in panels (a) and (c) are genuine crystallographic grains, sized about 0.5-1.5 um in (a) and about 1.5-3 um in (c). The SEM image separately shows that panel (d) contains much finer, uniform equiaxed features (about 0.3-0.8 um) than panels (b) and (c) imaged at the same 2 um scale. Put together, the pair supports reading the finer SEM features in (d) as a continuation of the same equiaxed-grain trend down to a smaller size -- i.e., the grain/feature size decreases from the EBSD-confirmed ~1.5-3 um grains in (c) toward the ~0.3-0.8 um features seen by SEM in (d).
+  limits: No EBSD data is given for panel (d) itself, so its ~0.3-0.8 um features are not directly confirmed as true recrystallized grains rather than subgrains, deformation substructure, or SEM contrast artifacts -- the identification rests on morphological analogy to the EBSD-confirmed grains in (a) and (c), not direct crystallographic proof on the same panel.; SEM (topographic/secondary-electron contrast) and EBSD (crystallographic misorientation contrast) are different measurement kinds; their size readings are not guaranteed to coincide on the same features.; Only two EBSD panels (a, c) and one SEM panel (d) are available, with no shared panel between the two techniques, so the data support only a qualitative ordering of sizes across panels, not a quantitative size-vs-condition relationship.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o15_o9
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/feature_size / PRP/value? Say what the combination supports and what it leaves open.
+  A (SEM): (d) fine uniform features ~0.3-0.8 um, far finer than (b),(c) at the same 2 um scale
+  B (MECH:tensile): Curve with EPT (F13 blue) vs without (F12 navy): yield knee ~350 to ~330 MPa, max ~420 to ~447 MPa, end strain ~0.095 to ~0.15
+  key: Placing the SEM comparison next to the tensile curves supports only a qualitative, same-direction association: the EPT-treated sample (F10d) that shows a much finer, uniform feature size (~0.3-0.8 um, vs coarser features in F10b,c at the same 2 um scale) is the same condition whose tensile curve (F13) differs from the untreated one (F12) by a lower yield knee (~350 to ~330 MPa), a higher max stress (~420 to ~447 MPa), and a longer end strain (~0.095 to ~0.15). Together the two panels let you say the microstructural refinement and the property shift co-occur in the EPT vs non-EPT comparison.
+  limits: Only one before/after pair is compared (EPT vs no-EPT); there is no series linking intermediate feature sizes to intermediate property values, so no quantitative feature_size-to-PRP relationship can be drawn, only a paired co-occurrence; SEM feature size is a static geometric length measured on a micrograph while the tensile response is a bulk mechanical curve (stress-strain, MPa and strain) - the two are different kinds of quantity and the panels do not show the specimens were sampled from the same location/volume; The finer, more uniform feature size is associated with a LOWER yield knee (~350 to ~330 MPa) alongside a HIGHER UTS and elongation, which runs against a simple refinement-strengthens-yield reading; the SEM panels alone cannot explain this split outcome; EPT plausibly drives several concurrent microstructural changes (recrystallization/grain refinement, dislocation density reduction, possible texture change) besides the feature size shown in F10d, and the tensile shift could reflect any combination of these, not feature size alone
+
+The joined claim, as the chain now asserts it:
+  Placing the SEM comparison next to the tensile curves supports only a qualitative, same-direction association: the EPT-treated sample (F10d) that shows a much finer, uniform feature size (~0.3-0.8 um, vs coarser features in F10b,c at the same 2 um scale) is the same condition whose tensile curve (F13) differs from the untreated one (F12) by a lower yield knee (~350 to ~330 MPa), a higher max stress (~420 to ~447 MPa), and a longer end strain (~0.095 to ~0.15). Together the two panels let you say the microstructural refinement and the property shift co-occur in the EPT vs non-EPT comparison.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

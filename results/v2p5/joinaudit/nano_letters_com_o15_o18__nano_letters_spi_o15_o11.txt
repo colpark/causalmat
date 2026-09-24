@@ -1,0 +1,42 @@
+The join: nano_letters_com_o15_o18  --->  nano_letters_spi_o15_o11   on claim n12
+
+UPSTREAM ITEM
+v2.5 complementary item nano_letters_com_o15_o18
+  question: What does each of these two measurements establish on its own about STR/phase/identity, and what does putting them together add that neither gives alone?
+  A (XRD:synchrotron): Li SXRD: reflections at ~16.4, 19.2, 20.1 deg fade to a weak broad bump by end of discharge; none regain on charge
+  B (XAS:XANES): Li XANES: discharged spectra lose the white line (~0.97) and match the Co foil shape; charged spectra differ from OCV
+  key: Put together, the disappearance of the oxide's Bragg reflections (~16.4, 19.2, 20.1 deg, fading to a weak broad bump by end of discharge, not regained on charge) and the collapse of the Co XANES white line (~0.97) to a shape matching the Co foil at discharge jointly identify the discharge product as a phase that has lost the oxide's long-range crystalline order AND has Co reduced to the metallic (Co0) oxidation state -- i.e., conversion of the oxide to an amorphous/metallic-Co-like product by 0.01 V. XRD alone only shows that the original oxide's crystallinity is lost, without saying what chemical state replaces it; XANES alone only shows that Co's local oxidation state matches metallic Co, without saying whether any long-range order survives. Neither alone supports the amorphous-and-metallic identification; together they do.
+  limits: Neither observation quantifies the fraction of material converted -- both are presence/absence (XRD reflections) or shape-matching (XANES white line, spectral shape) statements, not phase-fraction amounts.; The XRD broad bump does not by itself distinguish true amorphization from nanocrystalline Co domains too small to diffract coherently, and XANES (a local probe) cannot resolve long-range order either, so this pairing cannot separate 'amorphous' from 'nanocrystalline but XRD-invisible' Co.; On charge, XRD shows the oxide reflections are not regained and XANES shows the charged spectra differ from the OCV spectra; together these only establish incomplete reversibility of both structure and oxidation state -- they do not establish what phase forms on charge, only that it differs from both the discharged Co-metal state and the original OCV oxide state.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item nano_letters_spi_o15_o11
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / STR/microstructure/porosity? Say what the combination supports and what it leaves open.
+  A (XRD:synchrotron): Li SXRD: reflections at ~16.4, 19.2, 20.1 deg fade to a weak broad bump by end of discharge; none regain on charge
+  B (SAXS): Li SAXS contours at low q bend to lower q during discharge (~6-11 h) and do not return on charge
+  key: Together, Observation A (XRD showing the PCO reflections at ~16.4, 19.2, 20.1 deg fading to a weak broad bump by end of discharge, not regained on charge) and Observation B (SAXS low-q contours bending to lower q during discharge, ~6-11 h, not returning on charge) show that a loss of crystalline phase identity and a change in pore/length-scale structure occur over the same discharge window and are both irreversible on charge. This co-occurrence is consistent with the graph's claim that the phase/identity change (n12) is linked to the porosity/microstructure change (n13).
+  limits: The two signals are temporally coincident during discharge and both fail to reverse on charge, but coincidence within the same discharge window does not by itself demonstrate that the amorphization event drives the pore-structure change rather than the two being separate, parallel consequences of the same lithiation reaction; XRD reports phase/crystallinity state (peak fading) while SAXS reports a structural length-scale shift (q position); these are different kinds of measurement and are not cross-calibrated against a shared time axis in the cited panels, so a point-by-point (e.g., which precedes which) causal ordering cannot be read off; No panel isolates the pore/porosity change from the phase change to test whether porosity would still change if the crystalline-to-amorphous conversion were absent or slowed
+
+The joined claim, as the chain now asserts it:
+  Together, Observation A (XRD showing the PCO reflections at ~16.4, 19.2, 20.1 deg fading to a weak broad bump by end of discharge, not regained on charge) and Observation B (SAXS low-q contours bending to lower q during discharge, ~6-11 h, not returning on charge) show that a loss of crystalline phase identity and a change in pore/length-scale structure occur over the same discharge window and are both irreversible on charge. This co-occurrence is consistent with the graph's claim that the phase/identity change (n12) is linked to the porosity/microstructure change (n13).
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

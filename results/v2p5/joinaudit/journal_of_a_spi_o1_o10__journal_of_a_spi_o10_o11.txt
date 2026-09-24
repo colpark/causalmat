@@ -1,0 +1,42 @@
+The join: journal_of_a_spi_o1_o10  --->  journal_of_a_spi_o10_o11   on claim n15
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o1_o10
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / STR/phase/fraction? Say what the combination supports and what it leaves open.
+  A (XRD): YSZ pattern has a small (012) peak at ~43 deg and split peaks at ~35, 60 and 74 deg; Al2O3-YSZ pattern has neither
+  B (XRD): Cycled patterns show a t-ZrO2-marked peak near 43 deg and a split peak near 73-74 deg matching the t-ZrO2 reference sticks
+  key: Observation A establishes the diagnostic XRD markers for tetragonal vs cubic ZrO2: as-sprayed YSZ shows a small (012) peak near 43 deg plus split peaks near 35, 60 and 74 deg, while as-sprayed Al2O3-YSZ shows none of these. Observation B shows that after cycling, the Al2O3-YSZ pattern develops a t-ZrO2-marked peak near 43 deg and a split peak near 73-74 deg matching the t-ZrO2 reference sticks. Put together, the pair supports that Al2O3-YSZ, which lacked the tetragonal markers as-sprayed, acquires them after cycling -- i.e. its ZrO2 phase identity shifts from cubic-like toward tetragonal with thermal cycling, using the YSZ as-sprayed pattern and the t-ZrO2 reference sticks as the identity reference.
+  limits: The comparison identifies which phase markers are present or absent (phase identity) but does not quantify how much of the material converted (phase fraction) -- no peak-area or Rietveld-type fraction data appear in either observation.; Observation A compares two different as-sprayed coatings (YSZ vs Al2O3-YSZ); Observation B compares Al2O3-YSZ before and after cycling. The pair does not include an as-sprayed-vs-cycled YSZ contrast, so it cannot rule out that YSZ's own phase mixture also shifted with cycling.; The two peak positions used (~43 deg and ~73-74 deg) are matched to reference sticks by position only in the text given; this supports identity assignment but not resolution of any residual cubic content coexisting with the new tetragonal peaks.; No intermediate cycle counts are described in A or B, so the pair shows an endpoint contrast (as-sprayed vs cycled) rather than a trajectory.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o10_o11
+  question: Does the upstream evidence account for the downstream observation about STR/phase/fraction / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (XRD): Cycled patterns show a t-ZrO2-marked peak near 43 deg and a split peak near 73-74 deg matching the t-ZrO2 reference sticks
+  B (OPTICAL:photograph): Coupon intact at 5 cycles; corners spalled at 10 cycles; spalled corners persist and grow slightly to 40 cycles
+  key: Read together, the XRD trace and the photographic record show a temporal co-occurrence: cycled coatings develop the tetragonal-ZrO2 diffraction signature (peak near 43 deg, split peak near 73-74 deg matching t-ZrO2 reference sticks) while the same cycling regime produces coating spallation that is absent at 5 cycles, appears at 10 cycles, and persists/grows slightly to 40 cycles. This supports an association between the phase change to tetragonal ZrO2 and the onset/persistence of corner spallation over the cycling schedule.
+  limits: Observation A only reports that 'cycled' patterns carry the t-ZrO2 markers; it does not break the XRD result out by cycle count (5 vs 10 vs 40), so the pairing with the 5-to-10-cycle spallation window is inferred, not directly shown by the two panels together; Cycle count is a common driver of both observations by construction: more thermal cycling could independently produce both further phase evolution and further mechanical damage without the phase change mechanically causing the spallation; The two observations are different kinds of measurement (a qualitative peak-presence/phase identification vs. a qualitative intact/spalled visual state), so no rate or magnitude comparison across them is possible; No mechanism (e.g., transformation-associated volume or stress change) linking the phase signature to spall initiation is shown by these panels
+
+The joined claim, as the chain now asserts it:
+  Read together, the XRD trace and the photographic record show a temporal co-occurrence: cycled coatings develop the tetragonal-ZrO2 diffraction signature (peak near 43 deg, split peak near 73-74 deg matching t-ZrO2 reference sticks) while the same cycling regime produces coating spallation that is absent at 5 cycles, appears at 10 cycles, and persists/grows slightly to 40 cycles. This supports an association between the phase change to tetragonal ZrO2 and the onset/persistence of corner spallation over the cycling schedule.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

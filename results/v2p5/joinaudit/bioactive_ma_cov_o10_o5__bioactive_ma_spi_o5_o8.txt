@@ -1,0 +1,42 @@
+The join: bioactive_ma_cov_o10_o5  --->  bioactive_ma_spi_o5_o8   on claim n7
+
+UPSTREAM ITEM
+v2.5 covariation item bioactive_ma_cov_o10_o5
+  question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+  A (CORR:immersion): Immersion corrosion rate of Mg-Zn-Y-Nd (0.13-0.38 mm/y, peak at day 7) stays above 317L SS (<0.07 mm/y) at every time point
+  B (ECHEM:polarization): Polarization curves: Mg-Zn-Y-Nd corrosion potential near -1.5 V vs about -0.25 V for 317L SS, its branches 2-3 decades to higher current
+  key: The immersion weight-loss/rate data and the electrochemical polarization data agree directionally: across two independent test methods, Mg-Zn-Y-Nd is consistently the faster-corroding/more electrochemically active material relative to 317L SS (higher immersion rate at every timepoint measured in mm/y; lower corrosion potential and 2-3 decades higher current in the polarization branches). Combining the two shows the ranking is not an artifact of one technique, since two different measurement principles converge on the same ordering.
+  limits: The two sides are different kinds of quantities: A is a time-averaged immersion corrosion rate (mm/y) measured over a multi-day immersion series (peak reported at day 7), while B is an instantaneous electrochemical reading (corrosion potential and current density) taken from a single potentiodynamic scan under controlled electrochemical conditions; Agreement in direction/ranking does not establish a quantitative correspondence between the polarization current density and the immersion mass-loss rate (no conversion or overlay is given, so the ~2-3 decade current gap cannot be equated to the immersion rate gap); Neither observation nor their combination establishes the underlying corrosion mechanism responsible for the difference (e.g., pitting vs. uniform loss, film breakdown), only that both methods rank the two materials the same way
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o5_o8
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (ECHEM:polarization): Polarization curves: Mg-Zn-Y-Nd corrosion potential near -1.5 V vs about -0.25 V for 317L SS, its branches 2-3 decades to higher current
+  B (PHYS:pH): pH with Mg-Zn-Y-Nd climbs from 7.4 to ~10 by day 22 and plateaus; blank control peaks ~8.4 then falls to ~7.5; 317L SS falls to ~6.1 at day 20
+  key: The polarization data showing Mg-Zn-Y-Nd's much less noble corrosion potential (near -1.5 V vs ~-0.25 V for 317L SS) and its 2-3 decades higher corrosion current is qualitatively consistent with, and offers a mechanistic rationale for, the pronounced and sustained pH rise (7.4 to ~10 by day 22, then plateau) seen when Mg-Zn-Y-Nd is immersed, in contrast to 317L SS, whose much more corrosion-resistant/noble electrochemical signature is consistent with it not driving pH upward (its pH instead falls, to ~6.1 by day 20).
+  limits: Polarization is a single-point/instantaneous electrochemical measurement (a potentiodynamic scan of potential vs current) while pH is tracked as a cumulative time-course over 22 days of immersion; the two cannot be superimposed to derive a quantitative dose-response between corrosion current magnitude and pH rise magnitude or rate.; It is not established that the polarization test medium/duration matches the 22-day immersion conditions used for the pH measurement, so a test-condition mismatch cannot be ruled out.; The blank control's own pH trajectory (rises to ~8.4, then falls to ~7.5) shows non-metal-driven solution buffering occurs; the combination does not isolate how much of Mg-Zn-Y-Nd's pH rise above the blank, or of 317L SS's pH fall below the blank, is attributable specifically to the corrosion activity measured in F3 versus other solution chemistry.; Neither observation directly measures the chemical species (e.g., hydroxide release or Mg corrosion products) that would mechanistically connect corrosion current to pH change; the connection is inferred, not measured.; 317L SS's pH decline to ~6.1, which falls below both its own baseline and the blank control, is not explained by the polarization data, which shows only greater corrosion resistance/a nobler potential for SS, not a mechanism producing acidification.
+
+The joined claim, as the chain now asserts it:
+  The polarization data showing Mg-Zn-Y-Nd's much less noble corrosion potential (near -1.5 V vs ~-0.25 V for 317L SS) and its 2-3 decades higher corrosion current is qualitatively consistent with, and offers a mechanistic rationale for, the pronounced and sustained pH rise (7.4 to ~10 by day 22, then plateau) seen when Mg-Zn-Y-Nd is immersed, in contrast to 317L SS, whose much more corrosion-resistant/noble electrochemical signature is consistent with it not driving pH upward (its pH instead falls, to ~6.1 by day 20).
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

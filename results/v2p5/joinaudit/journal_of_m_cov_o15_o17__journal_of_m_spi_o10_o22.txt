@@ -1,0 +1,42 @@
+The join: journal_of_m_cov_o15_o17  --->  journal_of_m_spi_o10_o22   on claim n9
+
+UPSTREAM ITEM
+v2.5 covariation item journal_of_m_cov_o15_o17
+  question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+  A (TEM:SAED): SAED of milled C10: rings indexed Ce2Mg17 (306), Co (111), Y5Mg24 (330), CeMg12 (202)
+  B (TEM:SAED): SAED of dehydrogenated C10: rings indexed Co (111), Mg (101), CeH2.73 (111), CeO2 (111)
+  key: The Co (111) ring appears in both the milled-C10 SAED pattern (with Ce2Mg17 (306), Y5Mg24 (330), CeMg12 (202)) and the dehydrogenated-C10 SAED pattern (with Mg (101), CeH2.73 (111), CeO2 (111)), while every other indexed phase changes identity between the two states. Only by comparing both patterns can one see that Co is the one phase that does not transform, supporting that C@Co persists unreacted with the alloy through milling and de/hydrogenation.
+  limits: This is two single snapshots (milled state, dehydrogenated state), not a continuous series across cycling -- it supports an ordering/comparison, not a trend.; SAED ring indexing is a qualitative presence/absence read, not a quantitative measure of how much Co is present or how much (if any) reacted; a small reacted fraction below SAED's detection limit would look identical to zero reaction.; The comparison is specific to sample C10; it does not by itself establish the conclusion for other samples in the series.; Ring indexing at (111) for Co could in principle also coincide with reflections from another phase of similar d-spacing; the panels alone do not rule this out.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o10_o22
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+  A (XRD): Milled C10 pattern reproduces the C0 reflections (CeMg12, Y5Mg24, Ce2Mg17, Mg), with only a weak extra Co line (5) at ~44.5 deg
+  B (PHYS:sieverts): Plateau capacity at 250 C is ~5.1 wt% for C0 and ~4.56 wt% for C10
+  key: Putting the XRD result together with the Sieverts capacity result supports that the capacity drop from ~5.1 wt% (C0) to ~4.56 wt% (C10) at 250 C is not caused by C@Co reacting with the alloy to form a new deleterious phase: the milled C10 pattern reproduces only the same C0 phases (CeMg12, Y5Mg24, Ce2Mg17, Mg) plus a weak, separate Co line, so the alloy's own phase composition is essentially unchanged. Since the underlying phase set is preserved yet capacity still falls, the lower reversible capacity of C10 must be attributable to something other than a bulk chemical reaction/new-phase mechanism -- i.e., to the presence of the added C@Co itself rather than to alteration of the alloy.
+  limits: Does not identify the actual mechanism behind the capacity loss (e.g., dilution of the active alloy by inert C@Co mass, versus a catalytic/kinetic/surface effect of Co) -- only rules out a new-bulk-phase reaction as the cause.; The wt% capacity values are normalized to total sample mass, which now includes the added C@Co; a drop of this size could arise simply from diluting the active alloy with an inactive additive, independent of any chemical or kinetic effect, and the pair of observations cannot separate this from an intrinsic effect.; XRD only resolves bulk crystalline phases at its detection limit; it cannot rule out minor, amorphous, or surface-level interactions between C@Co and the alloy that fall below detection (consistent with only a weak extra Co line being seen), so 'no reaction' is a bulk-scale conclusion only.; Observation A is a qualitative/categorical phase-identity read on the as-milled powder while Observation B is a quantitative single-point capacity comparison from cycling/Sieverts testing; there is no shared quantitative axis (e.g., dose or amount of Co) linking the two, so no dose-response or magnitude relationship is established, only a qualitative-plus-quantitative pairing.
+
+The joined claim, as the chain now asserts it:
+  Putting the XRD result together with the Sieverts capacity result supports that the capacity drop from ~5.1 wt% (C0) to ~4.56 wt% (C10) at 250 C is not caused by C@Co reacting with the alloy to form a new deleterious phase: the milled C10 pattern reproduces only the same C0 phases (CeMg12, Y5Mg24, Ce2Mg17, Mg) plus a weak, separate Co line, so the alloy's own phase composition is essentially unchanged. Since the underlying phase set is preserved yet capacity still falls, the lower reversible capacity of C10 must be attributable to something other than a bulk chemical reaction/new-phase mechanism -- i.e., to the presence of the added C@Co itself rather than to alteration of the alloy.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

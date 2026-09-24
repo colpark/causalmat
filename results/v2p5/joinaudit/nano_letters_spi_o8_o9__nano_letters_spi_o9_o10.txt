@@ -1,0 +1,42 @@
+The join: nano_letters_spi_o8_o9  --->  nano_letters_spi_o9_o10   on claim n14
+
+UPSTREAM ITEM
+v2.5 spine_edge item nano_letters_spi_o8_o9
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / STR/microstructure/distribution? Say what the combination supports and what it leaves open.
+  A (PHYS:particlesize): Zeta potential reads +25 mV for BSA@ZIF-8 and -16 and -14.5 mV for the DNA- and RNA-aptamer samples
+  B (EDS:mapping): EDS maps: C, Zn and N fill the particle outline for both aptamer samples, while P appears only as sparse dots inside the same outline
+  key: The zeta-potential reversal (from +25 mV for BSA@ZIF-8 to -16 mV and -14.5 mV for the DNA- and RNA-aptamer samples) shows that a net-anionic species now coats the particle surface, and the EDS map shows phosphorus (the aptamer backbone's signature element) present inside the same C/Zn/N-filled particle outline in both aptamer samples. Together these support that the anionic, phosphorus-bearing aptamer is associated with/adsorbed onto the cationic BSA@ZIF-8 particle, consistent with electrostatic attachment of the polyanionic backbone to the cationic surface.
+  limits: Zeta potential is a single bulk-average charge value per sample; it cannot by itself show where the anionic species sits or whether it forms a coating at all; The EDS map shows P only as sparse, scattered dots rather than filling the outline the way C, Zn and N do, which argues against a continuous, surface-spanning 'layer' -- the combination does not establish a uniform phosphorus-bearing shell over the surface; Neither measurement distinguishes electrostatic adsorption from a partial covalent or coordination contribution; the charge reversal and elemental presence are consistent with, but do not prove, a purely electrostatic mechanism; No quantitative amount or density of bound aptamer is given, so surface coverage extent cannot be determined
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item nano_letters_spi_o9_o10
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/distribution / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (EDS:mapping): EDS maps: C, Zn and N fill the particle outline for both aptamer samples, while P appears only as sparse dots inside the same outline
+  B (OPTICAL:fluorescence): Ex vivo fluorescence: both lymph nodes glow brighter (green) for the aptamer MOF than for the neat MOF (cyan) on the shared 0-2500 scale
+  key: The EDS elemental maps establish that the aptamer-coated BSA@ZIF-8 particles (both aptamer samples) have a distinct compositional/structural signature (C, Zn, N filling the outline, P present as sparse dots) compared to what would be expected of the neat MOF, and the ex vivo fluorescence shows that this aptamer-modified particle accumulates more brightly in draining lymph nodes than the neat MOF. Combined, the two observations support an association between the aptamer surface modification (as evidenced structurally) and enhanced lymph-node accumulation (as evidenced functionally) for the aptamer MOF relative to the neat MOF.
+  limits: EDS mapping is a static, ex situ compositional readout on the particle itself, not a measurement made in the lymph node tissue, so it cannot show that the same elemental pattern persists or drives uptake in vivo; The sparse, dot-like P signal is much weaker evidence than a continuous elemental fill; the mapping alone does not establish a complete phosphorus layer, only a compositional difference associated with the aptamer samples; The fluorescence readout is a brightness comparison on a shared 0-2500 scale between two different particle types, and any of several aptamer-associated properties (surface charge, size, active CCL21 targeting, or bulk elemental coating) could independently explain greater lymph-node brightness; Two samples/two lymph node sites are not enough to establish a dose-response or mechanistic relationship, only an ordering (aptamer brighter than neat MOF)
+
+The joined claim, as the chain now asserts it:
+  The EDS elemental maps establish that the aptamer-coated BSA@ZIF-8 particles (both aptamer samples) have a distinct compositional/structural signature (C, Zn, N filling the outline, P present as sparse dots) compared to what would be expected of the neat MOF, and the ex vivo fluorescence shows that this aptamer-modified particle accumulates more brightly in draining lymph nodes than the neat MOF. Combined, the two observations support an association between the aptamer surface modification (as evidenced structurally) and enhanced lymph-node accumulation (as evidenced functionally) for the aptamer MOF relative to the neat MOF.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

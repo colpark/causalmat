@@ -1,0 +1,42 @@
+The join: bioactive_ma_spi_o16_o11_n25-n18  --->  bioactive_ma_spi_o11_o15   on claim n18
+
+UPSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o16_o11_n25-n18
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/value? Say what the combination supports and what it leaves open.
+  A (SEM): SEM: dense fibrin network with trapped cells on 316L SS and PPAmF; platelets with little fibrin on BVLD-PPAmF; fibrin strands on NO-PPAmF; almost bare BVLD/NO-PPAmF
+  B (SEM): Many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF
+  key: Across the same set of surfaces, the SEM readout of fibrin network density/cell trapping (Obs A) and the SEM readout of platelet count/spreading morphology (Obs B) track the same ranking: 316L SS and PPAmF show dense fibrin plus many spread, dendritic platelets; BVLD-PPAmF and NO-PPAmF show an intermediate reduction (platelets with little fibrin, or fibrin strands, with fewer spread platelets); BVLD/NO-PPAmF shows the least of both (almost bare surface, only a few round unspread platelets). The two independent morphological signatures corroborate each other, so together they support that the surface treatment suppressing fibrin formation is the same one showing reduced platelet adhesion/activation, with BVLD/NO-PPAmF showing the strongest joint suppression of the two.
+  limits: Both observations are qualitative SEM descriptions (dense/sparse, spread/round, bare/strands) with no counts, areas, or statistics given, so the magnitude or significance of the ranking cannot be assessed from these panels alone.; Fibrin network formation and platelet activation are mechanistically coupled (activated platelets promote fibrin formation; fibrin traps platelets), so the co-occurring reduction in both cannot be resolved into which change is upstream and which is downstream from morphology alone.; Neither panel shows a biochemical or enzymatic readout, so the pair does not itself demonstrate that BVLD acts via thrombin inactivation; that mechanism is asserted elsewhere, not shown by these two SEM comparisons.; The comparison is across surface types (a fixed small set of conditions: 316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF), not a dose-response or time series, so it supports an ordering across conditions, not a quantitative relationship.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o11_o15
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (SEM): Many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF
+  B (PHOTO:macro): Photographs: 316L SS and PPAmF tubes are filled by dark thrombus; BVLD-PPAmF and NO-PPAmF partly open; BVLD/NO-PPAmF lumen and foil nearly clean
+  key: Across the same set of surfaces, the SEM platelet pattern (many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; only a few round, unspread platelets on BVLD/NO-PPAmF) tracks the same ranking seen in the tube photographs (dark thrombus filling 316L SS and PPAmF tubes; BVLD-PPAmF and NO-PPAmF tubes only partly open; BVLD/NO-PPAmF lumen and foil nearly clean). Put together, the two panels support that the surface ordering for platelet adhesion/activation matches the surface ordering for macroscopic thrombus occlusion, consistent with platelet spreading/activation being the mechanism behind the visible difference in thrombus formation, with the combination BVLD/NO-PPAmF showing the least of both.
+  limits: Both readouts are qualitative/visual categories (spread-dendritic vs few-round-unspread on SEM; filled vs partly-open vs nearly-clean on photos), not counted or quantified, so only an ordering across this small set of surfaces is supported, not a dose-response or magnitude relationship.; The correspondence is observed across the same experiment/surfaces by construction, so it cannot rule out that both readouts are parallel consequences of the same underlying anti-thrombogenic surface property rather than the platelet-adhesion pattern (A) driving the macroscopic thrombus outcome (B).; Neither panel supplies the quantitative endpoints (occlusion percentage, thrombus mass, flow retained) that would be needed to move from an ordering to a magnitude claim; those figures are not part of A or B.
+
+The joined claim, as the chain now asserts it:
+  Across the same set of surfaces, the SEM platelet pattern (many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; only a few round, unspread platelets on BVLD/NO-PPAmF) tracks the same ranking seen in the tube photographs (dark thrombus filling 316L SS and PPAmF tubes; BVLD-PPAmF and NO-PPAmF tubes only partly open; BVLD/NO-PPAmF lumen and foil nearly clean). Put together, the two panels support that the surface ordering for platelet adhesion/activation matches the surface ordering for macroscopic thrombus occlusion, consistent with platelet spreading/activation being the mechanism behind the visible difference in thrombus formation, with the combination BVLD/NO-PPAmF showing the least of both.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

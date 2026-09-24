@@ -1,0 +1,42 @@
+The join: bioactive_ma_com_o7_o8  --->  bioactive_ma_spi_o7_o10   on claim b15
+
+UPSTREAM ITEM
+v2.5 complementary item bioactive_ma_com_o7_o8
+  question: What does each of these two measurements establish on its own about PRP/value, and what does putting them together add that neither gives alone?
+  A (PL): PL band at 390-420 nm is strongest for TiO2, about half for Er0.5Ti-O and lowest for Er0.5Ce0.2
+  B (ECHEM:EIS): Nyquist plot: Er0.5Ce0.2Ti-O shows a small arc (~1.5 kOhm) then a sloped tail; TiO2 rises almost vertically with no closed arc
+  key: PL alone ranks radiative recombination across the three samples: strongest (worst, most recombination) for TiO2, about half for Er0.5Ti-O, and lowest (least recombination) for Er0.5Ce0.2. EIS alone ranks charge-transfer resistance for the two samples it covers: Er0.5Ce0.2Ti-O shows a small arc (~1.5 kOhm) with a sloped tail (low, well-defined charge-transfer resistance), while TiO2 rises almost vertically with no closed arc (very poor charge transfer, no resolvable resistance). Put together, the two independently-obtained rankings point the same direction for the two samples they share: TiO2 is worst on both the optical (highest PL) and electrochemical (no arc) measures, and Er0.5Ce0.2Ti-O is best on both (lowest PL, smallest arc). This convergence across two different measurement types is what neither observation gives alone -- PL says nothing about charge-transfer resistance, and EIS says nothing about radiative recombination.
+  limits: PL and EIS probe different physical quantities (radiative recombination via optical emission vs. charge-transfer resistance via electrochemical impedance); agreement in ranking is a consistency between two proxies, not a demonstrated mechanistic link between them; EIS as given covers only TiO2 and Er0.5Ce0.2Ti-O; Er0.5Ti-O's charge-transfer resistance is not reported, so the full three-way ordering seen in PL is not matched by a full three-way ordering in EIS; the pair does not establish that lower recombination causes lower charge-transfer resistance (or vice versa), only that the two move together across the two samples both were measured on
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o7_o10
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (PL): PL band at 390-420 nm is strongest for TiO2, about half for Er0.5Ti-O and lowest for Er0.5Ce0.2
+  B (ASSAY:catalysis): Degradation at 60 min: Er0.5Ce0.2 ~46% > Ce0.3 ~41% > Ce0.1 ~31% > TiO2 ~20%, same order at 20 and 40 min
+  key: For the two samples common to both panels, the pattern is consistent with the paper's causal claim: TiO2 has the strongest 390-420 nm PL (highest recombination) and the lowest degradation (~20% at 60 min), while Er0.5Ce0.2 has the lowest PL (least recombination) and the highest degradation (~46% at 60 min, same rank at 20 and 40 min). Together the two panels show that the sample with the least recombination signature is also the sample with the most photocatalytic activity, and vice versa.
+  limits: The sample sets only partially overlap: PL (F7) was measured for TiO2, Er0.5Ti-O, and Er0.5Ce0.2, while degradation (F8) was measured for TiO2, Ce0.1, Ce0.3, and Er0.5Ce0.2 - only TiO2 and Er0.5Ce0.2 appear in both panels.; Because Er0.5Ti-O has no matching degradation measurement and Ce0.1/Ce0.3 have no matching PL measurement, the monotonic recombination-to-activity relationship cannot be confirmed across the full co-doping series, only at the two shared endpoints.; PL intensity is a proxy indicator of recombination (a steady-state spectroscopic amount, arbitrary units) while degradation is a cumulative percentage removed over a time window; the pairing shows a consistent endpoint correlation, not a quantitative dose-response link between the two quantities.
+
+The joined claim, as the chain now asserts it:
+  For the two samples common to both panels, the pattern is consistent with the paper's causal claim: TiO2 has the strongest 390-420 nm PL (highest recombination) and the lowest degradation (~20% at 60 min), while Er0.5Ce0.2 has the lowest PL (least recombination) and the highest degradation (~46% at 60 min, same rank at 20 and 40 min). Together the two panels show that the sample with the least recombination signature is also the sample with the most photocatalytic activity, and vice versa.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

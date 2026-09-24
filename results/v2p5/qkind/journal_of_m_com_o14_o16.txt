@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about STR/microstructure/feature_size, and what does putting them together add that neither gives alone?
+
+Observation A (SEM): (a) deformed, elongated relief without clear boundaries; (b),(c) equiaxed grains ~2-4 um with grooved boundaries
+Observation B (EBSD): IPF maps: (a) equiaxed grains mostly ~0.5-1.5 um; (c) equiaxed grains ~1.5-3 um
+
+Proposition: Because the electrochemical photocurrent ranking (Ag0.25Pd0.75-ZIS ~2.1 > Pd-ZIS ~1.5 > Ag-ZIS ~0.9 > ZIS ~0.4 uA/cm2) and the independent PL-quenching ranking (quenching order ZIS << Ag-ZIS < Pd-ZIS < Ag0.25Pd0.75-ZIS, i.e. PL intensity falls most for Ag0.25Pd0.75-ZIS) agree on the same sample order, the pair together supports that Ag0.25Pd0.75-ZIS has the most efficient photocarrier separation among the four samples, with the same order for the rest (Pd-ZIS > Ag-ZIS > ZIS). The agreement rules out that the photocurrent order is an artifact peculiar to the electrode/interface measurement and that the PL order is an artifact peculiar to non-radiative pathways unrelated to charge extraction, since two physically distinct probes converge on one ranking.
+
+Limits:
+  [0] Neither measurement, nor their combination, identifies the mechanism by which Ag0.25Pd0.75-ZIS separates charge better (e.g. band alignment, Ag-Pd synergy, trap-state suppression) -- only that the same rank order shows up twice.
+  [1] Photocurrent (an electrode/interfacial, steady-state response) and PL quenching (a bulk, contact-free spectroscopic response) are different kinds of quantity -- a current density versus a relative emission intensity -- so agreement in rank order is qualitative convergence, not a quantitative cross-check.
+  [2] Only four samples are compared, so this is an ordering across a small composition series, not a dose-response or mechanistic relationship.
+  [3] The combination does not quantify how much better the separation is, nor does it establish that the improvement is caused specifically by charge separation rather than a correlated change in conductivity or catalytic activity that also varies with metal loading across the same series.
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

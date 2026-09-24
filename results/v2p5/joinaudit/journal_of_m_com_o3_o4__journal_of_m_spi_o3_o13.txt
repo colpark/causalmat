@@ -1,0 +1,42 @@
+The join: journal_of_m_com_o3_o4  --->  journal_of_m_spi_o3_o13   on claim n6
+
+UPSTREAM ITEM
+v2.5 complementary item journal_of_m_com_o3_o4
+  question: What does each of these two measurements establish on its own about STR/microstructure/shape, and what does putting them together add that neither gives alone?
+  A (TEM): TEM bright-field: parallel alternating straight lamellae A and B with sharp interfaces
+  B (EBSD): EBSD phase map: lamellar colonies of two phases radiating from colony boundaries, no single-phase regions
+  key: TEM alone shows that at the fine (nanoscale/sub-micron field-of-view) scale the microstructure consists of straight, alternating A and B lamellae with sharp interfaces -- a lamellar, two-phase morphology, but only at one local site. EBSD alone shows that at the broader (colony-scale) field of view the material consists of lamellar colonies of two phases radiating from colony boundaries with no single-phase regions -- i.e., the two-phase lamellar arrangement is pervasive across colonies, but EBSD's resolution does not by itself confirm that the lamellae are straight with sharp interfaces at fine scale. Put together, the two observations establish that the fine-scale alternating-lamellae morphology seen in TEM is not a local artifact: the same two-phase lamellar character persists from the nanoscale (TEM) up through the colony scale (EBSD), with no single-phase regions found anywhere in the broader field of view. This joint scale-consistency is what supports describing the structure as a fully lamellar two-phase (eutectic-type) microstructure rather than one that is only locally lamellar or only partially two-phase.
+  limits: Does not establish which of lamella A or B corresponds to which named phase (FCC(L12) vs B2) -- that identification is not given by combining these two morphological/phase-distribution observations alone; Does not establish volume fraction, lamellar spacing, or interface width quantitatively -- both observations are qualitative/morphological; Does not establish representativity across the whole sample/casting, only across the fields of view captured in the TEM and EBSD panels cited (F1c, F1b); TEM (local, high resolution) and EBSD (broader field, lower resolution) are different kinds of observation (point/local micrograph vs. areal phase map), so agreement between them is a scale-consistency check, not an independent quantitative corroboration
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o3_o13
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/shape / STR/defect/extended? Say what the combination supports and what it leaves open.
+  A (TEM): TEM bright-field: parallel alternating straight lamellae A and B with sharp interfaces
+  B (TEM): At first strain step one lamella is featureless while the neighbour shows mottled contrast and line contrast along the interface
+  key: Taken together, the baseline two-phase lamellar architecture with sharp A/B interfaces (Observation A) and the asymmetric contrast that appears at the first strain step (Observation B) support that the alternating lamellar structure is the substrate on which strain is partitioned unequally between the two lamella types: one lamella type stays featureless while its neighbour develops mottled contrast and line contrast along the interface, i.e. the onset of plastic deformation is phase-selective and interface-localized rather than uniform across the microstructure.
+  limits: The pair does not by itself identify which of the two lamellae (A or B) corresponds to which phase, i.e. it does not establish from imaging alone that the featureless lamella is B2 and the mottled one is FCC; Does not establish the mechanism behind the asymmetry (intrinsic phase slip resistance versus interface/constraint effects); Only two states are compared -- the undeformed baseline (F1c) and the first strain step (F3a) -- too few points to support a strain-dependent trend or rate of defect accumulation, only an ordering (before vs after first increment); Does not establish whether the asymmetric pattern persists, intensifies, or reverses at higher strains beyond the first step
+
+The joined claim, as the chain now asserts it:
+  Taken together, the baseline two-phase lamellar architecture with sharp A/B interfaces (Observation A) and the asymmetric contrast that appears at the first strain step (Observation B) support that the alternating lamellar structure is the substrate on which strain is partitioned unequally between the two lamella types: one lamella type stays featureless while its neighbour develops mottled contrast and line contrast along the interface, i.e. the onset of plastic deformation is phase-selective and interface-localized rather than uniform across the microstructure.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

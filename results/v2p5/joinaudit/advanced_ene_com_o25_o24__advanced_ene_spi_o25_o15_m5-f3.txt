@@ -1,0 +1,42 @@
+The join: advanced_ene_com_o25_o24  --->  advanced_ene_spi_o25_o15_m5-f3   on claim m5
+
+UPSTREAM ITEM
+v2.5 complementary item advanced_ene_com_o25_o24
+  question: What does each of these two measurements establish on its own about MEC/pathway, and what does putting them together add that neither gives alone?
+  A (ECHEM:EIS): Fitted Rct rises ~3 to ~26 ohm by cycle 150 then ~24-28 (large error bars); Rfilm ~2-3 and Re ~0.5 ohm flat
+  B (ICP:OES): Dissolved V rises to ~3.7 mg/L by cycle 150 then flattens; Fe reaches only ~1.1 mg/L
+  key: The two measurements, taken together, show that the growth of interfacial charge-transfer resistance (Rct, EIS) and the growth of dissolved vanadium (ICP-OES) trace the same temporal pattern: both rise over early cycling and both saturate by around cycle 150 (Rct to ~24-28 ohm, V to ~3.7 mg/L), while the much lower Fe dissolution (~1.1 mg/L) and the flat Rfilm/Re make film growth or Fe dissolution unlikely as the dominant contributor. This joint timing match is what supports associating V-site dissolution with the buildup of polarization resistance captured by Rct; neither series alone (Rct's rise-then-plateau, or V's rise-then-plateau) identifies what the other is responding to.
+  limits: Matching saturation timing across two separately measured series is a temporal correlation, not a mechanistic proof that dissolved V is what raises Rct rather than some other cycling-linked process; Rct at the plateau carries large error bars, so the precision of the 'both saturate around cycle 150' match is weak; Rct (ohm, an interfacial impedance state) and dissolved V (mg/L, a cumulative amount in electrolyte) are different kinds of quantities; their co-saturation is a qualitative parallel in trend shape, not a quantitative dose-response link between amount of V dissolved and ohms of Rct gained; Low Fe dissolution (~1.1 mg/L) argues against Fe as a major contributor but does not by itself establish V as causally sufficient for the Rct rise
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o25_o15_m5-f3
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (ECHEM:EIS): Fitted Rct rises ~3 to ~26 ohm by cycle 150 then ~24-28 (large error bars); Rfilm ~2-3 and Re ~0.5 ohm flat
+  B (ECHEM:GCD): w/ HCl capacity drops steeply over the first ~20-50 cycles, then slowly to ~55 mAh/g at 250; CE ~100%
+  key: Placed side by side, the EIS trend (Rct rising from ~3 to ~26 ohm by cycle 150, then plateauing ~24-28 ohm with large error bars, while Rfilm ~2-3 ohm and Re ~0.5 ohm stay flat) and the GCD trend (capacity dropping steeply over the first ~20-50 cycles, then declining slowly to ~55 mAh/g by cycle 250, at ~100% CE) show the same qualitative shape: a sharp early-cycle change followed by saturation. This co-occurrence is consistent with rising charge-transfer resistance tracking, and thus being associated with, the capacity fade pattern, and supports that the resistance change is interfacial/charge-transfer in nature (since Rfilm and Re stay flat) rather than a bulk ohmic effect.
+  limits: The two measurements are different kinds of quantity (an interfacial resistance in ohm vs. a cumulative discharge capacity in mAh/g), so the pairing shows parallel temporal shape, not a quantitative or mechanistic causal link.; The 'saturation' points are not precisely synchronized: Rct plateaus by ~cycle 150, whereas the steep capacity drop occurs earlier (~20-50 cycles) with only slow decline continuing to 250; the two curves are not aligned on the same cycle window.; Large error bars on the plateaued Rct values (~24-28 ohm) limit confidence in exactly when/whether it has truly saturated.; CE ~100% indicates no coulombic (charge-loss) mechanism, but this pairing cannot show whether the Rct rise mechanistically causes the capacity fade via polarization accumulation, versus both being independent, parallel consequences of the same underlying degradation.; Neither observation contains compositional or structural evidence (e.g., dissolution measurements), so the pairing cannot confirm the specific dissolution mechanism named in the paper's conclusion -- it only shows the two electrochemical trends co-varying in time.
+
+The joined claim, as the chain now asserts it:
+  Placed side by side, the EIS trend (Rct rising from ~3 to ~26 ohm by cycle 150, then plateauing ~24-28 ohm with large error bars, while Rfilm ~2-3 ohm and Re ~0.5 ohm stay flat) and the GCD trend (capacity dropping steeply over the first ~20-50 cycles, then declining slowly to ~55 mAh/g by cycle 250, at ~100% CE) show the same qualitative shape: a sharp early-cycle change followed by saturation. This co-occurrence is consistent with rising charge-transfer resistance tracking, and thus being associated with, the capacity fade pattern, and supports that the resistance change is interfacial/charge-transfer in nature (since Rfilm and Re stay flat) rather than a bulk ohmic effect.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

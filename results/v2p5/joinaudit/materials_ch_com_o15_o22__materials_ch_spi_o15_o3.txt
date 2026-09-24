@@ -1,0 +1,42 @@
+The join: materials_ch_com_o15_o22  --->  materials_ch_spi_o15_o3   on claim s6
+
+UPSTREAM ITEM
+v2.5 complementary item materials_ch_com_o15_o22
+  question: What does each of these two measurements establish on its own about STR/phase/identity, and what does putting them together add that neither gives alone?
+  A (XRD): HP5 XRD: reflections marked ZrB2, SiC, C (graphite) and BN; none marked AlN or Al2O3
+  B (TEM): A band of parallel dark fringes of even width follows the grain boundaries at a triple junction
+  key: XRD establishes, on its own, only that certain crystalline phases are present somewhere in the bulk HP5 specimen: ZrB2, SiC, C (graphite), and BN, with no AlN or Al2O3 detected. It is a bulk, spatially-averaged measurement and says nothing about where in the microstructure any given phase sits. TEM establishes, on its own, only a real-space microstructural feature: a band of parallel dark fringes of even width running along grain boundaries at a triple junction. Imaging alone does not by itself identify the chemical/crystallographic identity of that band. Put together, the two observations let one propose that the layered fringe band seen by TEM corresponds to one of the layered crystalline phases XRD confirms is present in the bulk (graphite or BN), because the fringe morphology (parallel, evenly spaced layers) is consistent with a layered-lattice phase, and XRD confirms such phases exist in the sample.
+  limits: XRD is a bulk, spatially-averaged measurement; it cannot localize any phase to the grain-boundary triple junction seen in TEM.; TEM imaging alone does not give chemical/crystallographic identity for the fringe band; no spot diffraction (SAED) or spectroscopic (EDS/EELS) data on that specific band is reported here.; The XRD phase list contains two layered phases -- C (graphite) and BN -- either of which could plausibly produce parallel, evenly spaced fringes at a grain boundary, so the combination cannot by itself assign the TEM band to one rather than the other.; No co-located chemical analysis ties the specific triple-junction band to a specific one of the XRD-confirmed phases.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item materials_ch_spi_o15_o3
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+  A (XRD): HP5 XRD: reflections marked ZrB2, SiC, C (graphite) and BN; none marked AlN or Al2O3
+  B (MECH:hardness): HP hardness ~18.0 GPa at 0, ~20.3 GPa at 1 wt% AlN, then ~19.4 and ~19.2 GPa at 3 and 5 wt%
+  key: At the 5 wt% AlN composition (HP5), XRD identifies ZrB2, SiC, graphite (C), and BN as the phases present, with no AlN or Al2O3 reflections detected, indicating that added AlN does not persist as a discrete phase but is consumed in reaction/processing. Set against the hardness series (~18.0 GPa at 0 wt%, peaking at ~20.3 GPa at 1 wt%, then falling to ~19.4 and ~19.2 GPa at 3 and 5 wt%), the two together are consistent with the graphite/BN phases seen at the highest-AlN sample coinciding with the softer, post-peak hardness relative to the 1 wt% optimum.
+  limits: XRD was run only on HP5 (5 wt% AlN); no phase data are given for the 0, 1, or 3 wt% samples, so no phase-versus-composition trend can be matched against the four-point hardness series.; XRD gives phase identity (reflections present or absent), not phase amount, so no quantity of graphite or BN can be related numerically to the roughly 1 GPa drop in hardness from the 1 wt% peak to HP5.; Both graphite and BN reflections appear together in the HP5 pattern, so the pairing cannot attribute the hardness decline to one phase rather than the other.; Absence of AlN/Al2O3 reflections at 5 wt% shows they are not present as discrete phases there, but does not by itself explain why hardness peaks specifically at 1 wt% rather than rising further.
+
+The joined claim, as the chain now asserts it:
+  At the 5 wt% AlN composition (HP5), XRD identifies ZrB2, SiC, graphite (C), and BN as the phases present, with no AlN or Al2O3 reflections detected, indicating that added AlN does not persist as a discrete phase but is consumed in reaction/processing. Set against the hardness series (~18.0 GPa at 0 wt%, peaking at ~20.3 GPa at 1 wt%, then falling to ~19.4 and ~19.2 GPa at 3 and 5 wt%), the two together are consistent with the graphite/BN phases seen at the highest-AlN sample coinciding with the softer, post-peak hardness relative to the 1 wt% optimum.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

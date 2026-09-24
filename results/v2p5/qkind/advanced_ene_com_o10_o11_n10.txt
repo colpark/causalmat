@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about STR/chemistry/composition, and what does putting them together add that neither gives alone?
+
+Observation A (XPS): Deconvolved Co3+ component of Co 2p is larger in Co5Fe5 and Co5Fe3Cr2 than in Co and Co5Cr5
+Observation B (EELS): Co L3 edge of Co5Fe3Cr2 and Co5Fe5 blue-shifted by 1.35 eV relative to Co and Co5Cr5
+
+Proposition: XPS (Co3+ fraction of Co 2p) and EELS (Co L3 edge position) are two independent spectroscopic signatures of Co oxidation state, measured on the same four samples. Their agreement -- both show Co5Fe5 and Co5Fe3Cr2 elevated (larger Co3+ component; L3 edge blue-shifted 1.35 eV) relative to Co and Co5Cr5 -- cross-validates that the Fe-containing samples genuinely have a higher Co valence/oxidation state, rather than one technique's reading being a method-specific artifact (e.g., XPS peak-fitting/charging bias, or an EELS edge shift arising from a non-valence cause such as coordination or thickness effects).
+
+Limits:
+  [0] Neither observation, alone or combined, gives an absolute oxidation-state value (e.g., a Co2+/Co3+ ratio or formal valence number) -- only a relative ordering across the four samples.
+  [1] The two measurements are different kinds of quantity (a normalized peak-area fraction from XPS vs. an edge-position energy shift in eV from EELS), so they cannot be combined into a single quantitative correlation -- only compared as concordant/discordant directional evidence on the same sample set.
+  [2] The pair does not establish the electronic mechanism (e.g., charge transfer from Fe) by which Fe incorporation would raise Co valence; it only shows two independent measurements point the same way.
+  [3] Because Co5Fe3Cr2 contains both Fe and Cr, the combined evidence does not by itself isolate Fe as the sole compositional driver versus a Fe-Cr combined effect; that discrimination, if it exists, comes from comparison with Co5Cr5, not from combining XPS with EELS.
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

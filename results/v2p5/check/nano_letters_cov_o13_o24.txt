@@ -1,0 +1,30 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (SAXS): Na SAXS contours stay nearly straight; I(q) curves overlap except a small drop at ~0.03-0.1 A-1 at 0.11/0.02 V
+Observation B (ATOM:AIMD): Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps
+
+Proposition: Taken together, the SAXS data show that Na-Co3O4 samples keep essentially unchanged scattering profiles across cycling (I(q) curves overlap, with only a small drop at ~0.03-0.1 A^-1 near 0.11/0.02 V), while the AIMD data show that the conversion (oxidation) reaction for Na-Co3O4 reaches only ~36% by 2 ps and plateaus after 0.8 ps, well below Li-Co3O4's ~91% and Na-Co3S4's ~59%. Combined, the SAXS observation argues against a volume/structural-change mechanism for Na capacity fading, while the AIMD observation identifies a restricted, early-saturating conversion extent for Na-Co3O4. Put together they support attributing Na capacity fading to limited sodiation (conversion) activity rather than to volume change.
+
+Limits:
+  [0] SAXS alone shows the absence of structural change but does not by itself identify what limits capacity, so it cannot support the 'poor sodiation activity' half of the claim without the AIMD data
+  [1] AIMD alone shows a low, early-plateauing oxidation extent for Na-Co3O4 but does not by itself rule out volume change as a contributing mechanism, so it cannot support the 'not volume change' half of the claim without the SAXS data
+  [2] the two observations come from different domains indexed differently: SAXS is an experimental measurement indexed by applied voltage (0.11 V, 0.02 V), while AIMD is a computational simulation indexed by simulated time (up to 2 ps, plateau at 0.8 ps); no direct correspondence between these voltage points and time points is established
+  [3] the AIMD comparison spans three different material systems (Li-Co3O4, Na-Co3S4, Na-Co3O4) on a picosecond simulation timescale, which is not the same timescale as the electrochemical cycling probed by SAXS
+  [4] both observations are indirect proxies (scattering-curve shape; simulated oxidation fraction) rather than direct measurements of capacity fade, so the link to actual capacity loss is inferential
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

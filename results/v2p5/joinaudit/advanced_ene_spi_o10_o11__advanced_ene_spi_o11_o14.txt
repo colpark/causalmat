@@ -1,0 +1,42 @@
+The join: advanced_ene_spi_o10_o11  --->  advanced_ene_spi_o11_o14   on claim n12
+
+UPSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o10_o11
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / STR/chemistry/bonding? Say what the combination supports and what it leaves open.
+  A (XAS:NEXAFS): N 1s NEXAFS shows sharp features near 398 and 401 eV for CnC HS and none for C HS
+  B (XAS:NEXAFS): After zinc deposition the ~398 eV N 1s feature collapses and the ~401 eV feature becomes the taller of the two
+  key: Taken together, A and B show that the two nitrogen-specific N 1s NEXAFS features (near 398 and 401 eV) that distinguish CnC HS from C HS are not static: after zinc deposition the ~398 eV feature collapses while the ~401 eV feature becomes the taller of the two. This links the nitrogen species identified by A (present only in CnC HS, absent in C HS) to a spectral response that occurs specifically upon zinc deposition (B), i.e. the nitrogen's local chemical environment changes in a way that tracks the zinc-plating step, in the material that contains nitrogen at all.
+  limits: The panels report peak presence/absence and relative intensity ranking only; they do not themselves establish the paper's specific chemical-state labels (pyridinic-N at 398 eV, graphitic-N at 401 eV) or that the shift represents a move from one named state to the other -- that assignment is the paper's interpretation, not something read directly off the two observations.; Observation B does not state which sample the zinc-plated spectrum belongs to; it is inferable only via A that C HS has no N features to begin with, so B's change must pertain to CnC HS, but the pairing does not confirm this explicitly.; A collapsing/growing peak-height correlation with the zinc-deposition step does not by itself demonstrate a direct Zn-N bond as the cause of the shift; it does not rule out other surface or electronic changes co-occurring with zinc plating.; No amount or coverage of nitrogen or zinc is quantified; both observations are qualitative descriptions of spectral shape (sharp feature presence, relative peak height) rather than measured quantities.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o11_o14
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/bonding / STR/microstructure/shape? Say what the combination supports and what it leaves open.
+  A (XAS:NEXAFS): After zinc deposition the ~398 eV N 1s feature collapses and the ~401 eV feature becomes the taller of the two
+  B (SEM): Zinc on CnC HS is a largely flat deposit with sparse protruding platelets; on C HS the surface is a dense mat of sharp platelets
+  key: Taken together, the XAS evidence (after zinc deposition the ~398 eV N 1s feature collapses while the ~401 eV feature becomes dominant, indicating Zn-N bond formation at pyridinic-N sites and a shift toward graphitic-like nitrogen character) and the SEM evidence (zinc plates as a largely flat deposit with sparse protruding platelets on CnC HS, but as a dense mat of sharp platelets on C HS) are consistent with a picture in which Zn-N bonding sites present on CnC HS favor a planar, non-dendritic zinc deposit, whereas their absence or difference on C HS is associated with dense, sharp dendritic platelet growth.
+  limits: Observation A is reported as a single 'after zinc deposition' spectral change; it is not explicitly presented as a paired CnC HS-vs-C HS NEXAFS comparison, so the data given do not directly confirm that C HS lacks the same Zn-N bonding shift seen on CnC HS.; CnC HS and C HS differ by construction in more than nitrogen content (they are different host structures), so a correlation between the N 1s bonding shift and the flat-vs-dense-platelet contrast cannot rule out other structural differences between the two substrates as contributing causes of the morphology difference.; Both observations are qualitative, single-condition snapshots (a relative two-peak intensity comparison and a qualitative SEM appearance) rather than quantitative measurements across a range of conditions, so at most a co-occurrence is established, not a dose-response or direct mechanistic test linking bonding strength to platelet density/shape.
+
+The joined claim, as the chain now asserts it:
+  Taken together, the XAS evidence (after zinc deposition the ~398 eV N 1s feature collapses while the ~401 eV feature becomes dominant, indicating Zn-N bond formation at pyridinic-N sites and a shift toward graphitic-like nitrogen character) and the SEM evidence (zinc plates as a largely flat deposit with sparse protruding platelets on CnC HS, but as a dense mat of sharp platelets on C HS) are consistent with a picture in which Zn-N bonding sites present on CnC HS favor a planar, non-dendritic zinc deposit, whereas their absence or difference on C HS is associated with dense, sharp dendritic platelet growth.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

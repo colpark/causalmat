@@ -1,0 +1,42 @@
+The join: journal_of_a_spi_o25_o20  --->  journal_of_a_spi_o20_o22   on claim n13
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o25_o20
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/value? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:piezo_output): Voltage pulse train inverts sign when the electrode connection is reversed
+  B (TRANSPORT:piezo_output): Peak voltage rises 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt% PZT
+  key: Together, the two panels support that the peak-voltage signal reported in F7b is genuinely a piezoelectric response (not an electrical artifact) and that this piezoelectric output scales monotonically with PZT loading: F7f's sign inversion on electrode reversal confirms the pulses originate from a polarity-dependent charge-generation process, and F7b's monotonic rise (7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V across 0-10 wt% PZT) shows that process's output magnitude increases with PZT content. The pair jointly supports that a piezoelectric mechanism, rather than noise or a fixed artifact, underlies the dose-dependent voltage trend.
+  limits: The polarity-reversal test (F7f) is a qualitative check performed on the piezoelectric signal in general; it is not stated to have been repeated at every PZT wt% point on the F7b curve, so it does not itself verify that each individual data point along the 0-10 wt% series is piezoelectric in origin.; F7b's monotonic voltage trend alone cannot rule out artifact or measurement drift as a contributor to the rise; only F7f's sign-flip test rules that out, and only for the composition(s) it was actually run on.; The combination does not establish or quantify the underlying molecular mechanism (dipole rotation under compression) directly -- neither panel visualizes or measures dipole alignment; that mechanism is inferred, not observed, from these two output measurements.; The two panels together do not separate how much of the rising voltage trend is due to PVDF chain-dipole alignment versus PZT domain-dipole alignment, since both are invoked as contributing to net polarization change and both vary together as PZT wt% is increased by construction of the composite.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o20_o22
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:piezo_output): Peak voltage rises 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt% PZT
+  B (TRANSPORT:piezo_output): Power peaks at 136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film
+  key: Taken together, A and B support a qualitative two-factor picture of the fiber PENG's piezoelectric output: within the fiber architecture, open-circuit peak voltage rises monotonically with PZT content (7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V across 0-10 wt% PZT), and, separately, the fiber-format device delivers far more peak power under a matched external load than a cast-film device (136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film). The pair is consistent with the graph's stated n13-causes->n15 link in the sense that both composition and architecture appear to move piezoelectric output in the same (upward) direction.
+  limits: A only varies PZT content within the fiber architecture; it gives no information on how a cast film's voltage (or power) would scale with PZT content, so the pair cannot show that the fiber's power advantage over the cast film in B is due to composition rather than to fabrication/morphology (e.g., poling or dipole alignment from electrospinning).; A reports open-circuit peak voltage (V, unloaded) while B reports peak power delivered into a specific 10 MOhm load; these are different electrical quantities and cannot be combined into a single dose-response curve for power vs. composition.; B compares only two architectures (fiber vs. cast) at what appears to be a single, fixed composition point, so it supplies an ordering (fiber > cast) rather than a trend across PZT content; only A supplies a multi-point composition series, and only for voltage.; Combining the two observations supports a qualitative statement that both composition and architecture correlate with higher output, not a quantified or mechanistic causal contribution of composition versus architecture to the power gain seen in B.
+
+The joined claim, as the chain now asserts it:
+  Taken together, A and B support a qualitative two-factor picture of the fiber PENG's piezoelectric output: within the fiber architecture, open-circuit peak voltage rises monotonically with PZT content (7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V across 0-10 wt% PZT), and, separately, the fiber-format device delivers far more peak power under a matched external load than a cast-film device (136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film). The pair is consistent with the graph's stated n13-causes->n15 link in the sense that both composition and architecture appear to move piezoelectric output in the same (upward) direction.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

@@ -1,0 +1,35 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (FTIR:GATR): BVLD-PPAmF spectrum carries a labelled -COOH stretch (~3400 cm-1) and -C=O band (~1660 cm-1) over the PPAmF spectrum
+Observation B (QCM:dissipation): QCM-D: BVLD mass rises after BVLD injection to ~0.78 ug/cm2 and settles near 0.71 after PBS rinse; 0.74 +/- 0.05 ug/cm2 annotated
+
+Proposition: Together, the FTIR spectrum (labelled -COOH ~3400 cm-1 and -C=O ~1660 cm-1 bands appearing on BVLD-PPAmF but not on PPAmF) and the QCM-D mass trace (mass rising to ~0.78 ug/cm2 on BVLD injection and settling near 0.71 ug/cm2, annotated 0.74 +/- 0.05 ug/cm2, after PBS rinse) jointly support that BVLD is immobilised on the coating surface at approximately 0.74 ug/cm2 and remains after PBS rinsing: FTIR supplies the chemical identity of what is on the surface, and QCM-D supplies the quantified, rinse-surviving amount of it.
+
+Limits:
+  [0] FTIR alone is a static, single-spectrum comparison of BVLD-PPAmF versus PPAmF; it shows characteristic bands are present but gives no areal quantity and no information about whether anything survives a PBS rinse
+  [1] QCM-D alone quantifies total adsorbed/retained mass (~0.78 ug/cm2 rising to ~0.71-0.74 ug/cm2 after rinse) but does not identify the chemical nature of that mass; the retained mass could in principle include material other than BVLD
+  [2] the two measurements are on different bases (qualitative spectral band presence vs. gravimetric mass from frequency shift) and are not a matched time-course or dose series on the same samples, so the pairing establishes co-occurrence of identity and quantity rather than a mechanistic or causal link between the two readouts
+  [3] neither panel, alone or combined, distinguishes the mode of attachment (e.g., covalent linkage through the -COOH/-C=O groups versus non-specific physical adsorption of comparable mass)
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

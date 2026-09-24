@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about STR/phase/identity, and what does putting them together add that neither gives alone?
+
+Observation A (XRD:small_angle): Small-angle XRD: one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)
+Observation B (TEM): TEM: parallel channel stripes over ~200 nm in a and a regular pore lattice in b, period ~5-6 nm
+
+Proposition: Together, the single low-angle XRD reflection (a reciprocal-space signature of a periodic repeat distance) and the TEM images (direct real-space views of parallel channel stripes and a regular pore lattice with period ~5-6 nm) cross-confirm that MBG, 2Co- and 5Co-MBG each contain a genuine periodic mesostructure rather than just an XRD artifact or a locally imaged feature: the reciprocal-space peak corresponds to the real-space repeat pattern actually seen in TEM, and this periodic channel/pore structure is present in all three samples.
+
+Limits:
+  [0] A single low-angle XRD reflection per pattern cannot by itself fix which mesophase symmetry is present (no higher-order reflections are reported to index a specific space group), so the pair does not establish the structural symmetry type beyond 'periodic'
+  [1] TEM was imaged over a local field (~200 nm for the stripe view), so the pair does not establish that the ordered arrangement extends uniformly through the bulk of each sample
+  [2] TEM 'period' (~5-6 nm, center-to-center repeat spacing) is a different quantity from pore diameter; combining the two observations does not by itself yield a pore-size value
+  [3] The small shifts in 2theta (1.37/1.47/1.35 deg) across MBG/2Co/5Co are not tied by this evidence to a quantitative trend with Co content
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

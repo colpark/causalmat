@@ -1,0 +1,34 @@
+Question: What does each of these two measurements establish on its own about STR/microstructure/shape, and what does putting them together add that neither gives alone?
+
+Observation A (PHYS:yield): Ionic-strength boundary near ~0.75 M: gelation below, particle formation above
+Observation B (OPTICAL): Light-microscopy inset at high ionic strength shows separate spheres ~1 um
+
+Proposition: Observation A alone establishes that there is an ionic-strength boundary near ~0.75 M potassium phosphate separating two macroscopic outcomes: gelation below the boundary and particle formation above it, but it does not say what physical form the 'particle' regime takes. Observation B alone shows that at high ionic strength the material appears in a light-microscopy inset as separate spheres ~1 um in size, but on its own does not establish that this shape is specific to, or bounded by, the ~0.75 M threshold rather than being a general feature of the preparation. Put together, the two let you assign the spherical ~1 um morphology specifically to the above-threshold (particle-forming) side of the ~0.75 M boundary identified by A: what forms above ~0.75 M is not merely 'particles' in a generic yield sense but discrete spheres of about 1 um, as imaged in B.
+
+Limits:
+  [0] B is a single inset at high ionic strength, not a survey across the ionic-strength range, so the pair does not establish shape/microstructure in the gel regime (below ~0.75 M) or how shape changes with distance from the threshold
+  [1] The ~1 um figure is a visual read from one microscopy image, not a quantified size distribution, so the pair does not establish particle-size statistics or sphericity uniformity
+  [2] A defines a bulk/macroscopic phase boundary (gel vs particle yield) while B is a local microstructural snapshot; the combination does not establish that the transition itself is sharp or that spheres form immediately at 0.75 M rather than somewhere further above it
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

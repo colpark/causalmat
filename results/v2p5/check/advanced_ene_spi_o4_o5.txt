@@ -1,0 +1,29 @@
+Question: Does the upstream evidence account for the downstream observation about STR/defect/point / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (ATOM:DFT): The N-doped cell shows a localised charge hotspot at the nitrogen, absent at the equivalent site of the pristine cell
+Observation B (ATOM:DFT): Charge transfer to zinc is more negative at every N-doped site (-0.032 to -0.037 e) than at the pristine sites (-0.023 to -0.027 e)
+
+Proposition: Together, the two DFT observations support that the localized negative-charge feature at the substitutional nitrogen site co-occurs with a systematically more negative (larger-magnitude) charge transfer to the adsorbed zinc atom: every N-doped site shows both the charge hotspot (Obs A) and a more negative Zn charge transfer (-0.032 to -0.037 e) than the pristine sites (-0.023 to -0.027 e, Obs B), so the presence of the N-localized charge tracks with enhanced electron donation to Zn across the doped structure.
+
+Limits:
+  [0] Obs A is a qualitative presence/absence read of a charge-density feature at one site type, while Obs B is a quantitative range of charge-transfer values; the pairing shows co-occurrence, not a calibrated dose-response relationship between hotspot magnitude and transfer amount
+  [1] Both quantities are derived from the same DFT charge-partitioning scheme, so part of their association may reflect how the charge is computed/attributed rather than an independent physical link between the N site and the Zn adsorbate
+  [2] Neither observation reports the adsorption energetics, so the pair does not by itself establish that the extra charge transfer has any energetic consequence for zinc binding
+  [3] The range given for each condition (multiple site values collapsed into a span) does not indicate how many distinct sites underlie each bound, limiting how strong an ordering claim can be drawn
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

@@ -1,0 +1,42 @@
+The join: journal_of_m_com_o14_o16_n10  --->  journal_of_m_spi_o14_o26   on claim n10
+
+UPSTREAM ITEM
+v2.5 complementary item journal_of_m_com_o14_o16_n10
+  question: What does each of these two measurements establish on its own about STR/microstructure/distribution, and what does putting them together add that neither gives alone?
+  A (SEM:EDS): EDS map: C (blue) and Co (red) signals lie on particle surfaces, densest along edges and on some faces
+  B (TEM:HRTEM): HRTEM of milled C10: CeMg12 (202) 0.258 nm and Y5Mg24 (330) 0.265 nm fringes next to an amorphous band and curved carbon layers (0.386 nm) at the edge
+  key: EDS establishes where C and Co signals sit at the particle scale (concentrated on surfaces, densest along edges and some faces), while HRTEM establishes what is locally present at one such edge region at atomic resolution: crystalline alloy fringes (CeMg12 0.258 nm, Y5Mg24 0.265 nm) sitting next to an amorphous band and curved carbon layers (0.386 nm). Together they corroborate that the C-rich surface signal in the EDS map corresponds to an actual carbon phase (curved carbon layers) located at particle edges next to the alloy grains, i.e. carbon coats/sits on the alloy particle surface.
+  limits: The HRTEM field of view is a single local edge region of one milled C10 particle; it is not shown to be representative of every surface/edge/face location where the EDS map shows C and Co signal; EDS spatial resolution (areal map over the SEM field of view) is far coarser than HRTEM's atomic/lattice-fringe resolution, so pairing them gives only qualitative corroboration of location, not a quantified or statistically representative distribution at the fine scale; The cited HRTEM observation lists only CeMg12 and Y5Mg24 alloy fringes plus amorphous band and carbon layers -- no Co-containing lattice fringe is reported, so the combination does not itself demonstrate that Co is dispersed inside the carbon at atomic scale, only that C and Co signals co-locate at the coarser EDS map scale
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o14_o26
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/distribution / PRP/diagnostic? Say what the combination supports and what it leaves open.
+  A (SEM:EDS): EDS map: C (blue) and Co (red) signals lie on particle surfaces, densest along edges and on some faces
+  B (PHYS:sieverts): JMAK plots of desorption are linear (R2 > 0.98) with eta = 1.59 (C0) and 1.32 (C10)
+  key: Taken together, the EDS map (C and Co signals concentrated at particle edges/faces, i.e. carbon on the alloy particle surface with Co grains dispersed in it) and the JMAK desorption fits (eta = 1.59 for C0, eta = 1.32 for C10, both R2 > 0.98) support a proposed structure-kinetics link: the surface-carbon/dispersed-Co microstructure seen in the milled C10 particles co-occurs with a lower Avrami exponent for dehydrogenation, consistent with the carbon layer altering the nucleation-growth geometry of the desorption reaction relative to C0.
+  limits: The EDS map (panels F9a/F9b) characterizes only the C10 particle surface; there is no corresponding EDS image of C0 to confirm the surface layer is absent there, so the microstructure side of the comparison is one-sided.; The eta comparison spans two different milled compositions (C0 vs C10), which differ by more than the presence/absence of surface carbon (e.g., possible differences in particle size or Co dispersion introduced during milling), so the surface-carbon feature is confounded with other milling-induced changes.; The EDS map is a static, qualitative spatial distribution of elemental signal, not a kinetic or quantitative measurement, so its connection to a change in a fitted kinetic exponent is inferential rather than directly measured.; High linearity (R2 > 0.98) of each JMAK plot establishes the quality of the eta fit within a sample, not a relationship between the two samples' microstructures and kinetics.
+
+The joined claim, as the chain now asserts it:
+  Taken together, the EDS map (C and Co signals concentrated at particle edges/faces, i.e. carbon on the alloy particle surface with Co grains dispersed in it) and the JMAK desorption fits (eta = 1.59 for C0, eta = 1.32 for C10, both R2 > 0.98) support a proposed structure-kinetics link: the surface-carbon/dispersed-Co microstructure seen in the milled C10 particles co-occurs with a lower Avrami exponent for dehydrogenation, consistent with the carbon layer altering the nucleation-growth geometry of the desorption reaction relative to C0.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

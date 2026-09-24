@@ -1,0 +1,36 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (SAXS): Na SAXS contours stay nearly straight; I(q) curves overlap except a small drop at ~0.03-0.1 A-1 at 0.11/0.02 V
+Observation B (ATOM:AIMD): Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps
+
+Proposition: Taken together, the SAXS data show that Na-Co3O4 samples keep essentially unchanged scattering profiles across cycling (I(q) curves overlap, with only a small drop at ~0.03-0.1 A^-1 near 0.11/0.02 V), while the AIMD data show that the conversion (oxidation) reaction for Na-Co3O4 reaches only ~36% by 2 ps and plateaus after 0.8 ps, well below Li-Co3O4's ~91% and Na-Co3S4's ~59%. Combined, the SAXS observation argues against a volume/structural-change mechanism for Na capacity fading, while the AIMD observation identifies a restricted, early-saturating conversion extent for Na-Co3O4. Put together they support attributing Na capacity fading to limited sodiation (conversion) activity rather than to volume change.
+
+Limits:
+  [0] SAXS alone shows the absence of structural change but does not by itself identify what limits capacity, so it cannot support the 'poor sodiation activity' half of the claim without the AIMD data
+  [1] AIMD alone shows a low, early-plateauing oxidation extent for Na-Co3O4 but does not by itself rule out volume change as a contributing mechanism, so it cannot support the 'not volume change' half of the claim without the SAXS data
+  [2] the two observations come from different domains indexed differently: SAXS is an experimental measurement indexed by applied voltage (0.11 V, 0.02 V), while AIMD is a computational simulation indexed by simulated time (up to 2 ps, plateau at 0.8 ps); no direct correspondence between these voltage points and time points is established
+  [3] the AIMD comparison spans three different material systems (Li-Co3O4, Na-Co3S4, Na-Co3O4) on a picosecond simulation timescale, which is not the same timescale as the electrochemical cycling probed by SAXS
+  [4] both observations are indirect proxies (scattering-curve shape; simulated oxidation fraction) rather than direct measurements of capacity fade, so the link to actual capacity loss is inferential
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

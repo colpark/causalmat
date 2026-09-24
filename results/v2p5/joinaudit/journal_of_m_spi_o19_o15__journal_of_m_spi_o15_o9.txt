@@ -1,0 +1,42 @@
+The join: journal_of_m_spi_o19_o15  --->  journal_of_m_spi_o15_o9   on claim n15
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o19_o15
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / STR/microstructure/feature_size? Say what the combination supports and what it leaves open.
+  A (['OM', 'SEM']): After full recrystallization grain size ranks F10d (~1 um) < F7c (~5-8 um) < F9c (~15-30 um, with twinned remnants)
+  B (SEM): (d) fine uniform features ~0.3-0.8 um, far finer than (b),(c) at the same 2 um scale
+  key: Taken together, the OM/SEM grain-size ranking (F10d ~1 um < F7c ~5-8 um < F9c ~15-30 um with twinned remnants) and the SEM close-up of F10d showing fine, uniform ~0.3-0.8 um features (far finer than panels b,c at the same 2 um scale) jointly show that the F10d condition produces the smallest and most uniform grain/feature size of the three, while F9c retains the coarsest, least-uniform structure with twin remnants. This pattern is consistent with F10d having achieved a complete, fine, uniform recrystallized structure that F7c and F9c did not.
+  limits: The two observations are image-based size/uniformity comparisons only; they contain no energetic or kinetic data (stored energy, dislocation density, time-resolved measurements) and so cannot by themselves establish the proposed mechanism of high stored energy plus an instantaneous pulse completing recrystallization before grain growth; They cannot establish the specific time window (25 us-10 min) or confirm that the process was static rather than dynamic recrystallization; Observation A measures full-recrystallization grain size across three separate samples/conditions (F10d, F7c, F9c) while Observation B measures a finer-scale feature within a single sample (F10d) at a different magnification against other panels (b,c) in that same figure - these characterize different structural scales/units, so combining them conflates two not-strictly-comparable size quantities rather than a single consistent measurement; F9c's twinned remnants could reflect either incomplete recrystallization or a distinct grain-growth-pinning effect; the images alone do not distinguish which
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o15_o9
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/feature_size / PRP/value? Say what the combination supports and what it leaves open.
+  A (SEM): (d) fine uniform features ~0.3-0.8 um, far finer than (b),(c) at the same 2 um scale
+  B (MECH:tensile): Curve with EPT (F13 blue) vs without (F12 navy): yield knee ~350 to ~330 MPa, max ~420 to ~447 MPa, end strain ~0.095 to ~0.15
+  key: Placing the SEM comparison next to the tensile curves supports only a qualitative, same-direction association: the EPT-treated sample (F10d) that shows a much finer, uniform feature size (~0.3-0.8 um, vs coarser features in F10b,c at the same 2 um scale) is the same condition whose tensile curve (F13) differs from the untreated one (F12) by a lower yield knee (~350 to ~330 MPa), a higher max stress (~420 to ~447 MPa), and a longer end strain (~0.095 to ~0.15). Together the two panels let you say the microstructural refinement and the property shift co-occur in the EPT vs non-EPT comparison.
+  limits: Only one before/after pair is compared (EPT vs no-EPT); there is no series linking intermediate feature sizes to intermediate property values, so no quantitative feature_size-to-PRP relationship can be drawn, only a paired co-occurrence; SEM feature size is a static geometric length measured on a micrograph while the tensile response is a bulk mechanical curve (stress-strain, MPa and strain) - the two are different kinds of quantity and the panels do not show the specimens were sampled from the same location/volume; The finer, more uniform feature size is associated with a LOWER yield knee (~350 to ~330 MPa) alongside a HIGHER UTS and elongation, which runs against a simple refinement-strengthens-yield reading; the SEM panels alone cannot explain this split outcome; EPT plausibly drives several concurrent microstructural changes (recrystallization/grain refinement, dislocation density reduction, possible texture change) besides the feature size shown in F10d, and the tensile shift could reflect any combination of these, not feature size alone
+
+The joined claim, as the chain now asserts it:
+  Placing the SEM comparison next to the tensile curves supports only a qualitative, same-direction association: the EPT-treated sample (F10d) that shows a much finer, uniform feature size (~0.3-0.8 um, vs coarser features in F10b,c at the same 2 um scale) is the same condition whose tensile curve (F13) differs from the untreated one (F12) by a lower yield knee (~350 to ~330 MPa), a higher max stress (~420 to ~447 MPa), and a longer end strain (~0.095 to ~0.15). Together the two panels let you say the microstructural refinement and the property shift co-occur in the EPT vs non-EPT comparison.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

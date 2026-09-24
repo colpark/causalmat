@@ -1,0 +1,42 @@
+The join: biomaterials_com_o5_o6  --->  biomaterials_spi_o3_o20   on claim n8
+
+UPSTREAM ITEM
+v2.5 complementary item biomaterials_com_o5_o6
+  question: What does each of these two measurements establish on its own about STR/phase/identity, and what does putting them together add that neither gives alone?
+  A (TEM): TEM: parallel channel stripes over ~200 nm in a and a regular pore lattice in b, period ~5-6 nm
+  B (PHYS:N2_sorption): N2 isotherms of all three show a hysteresis step at P/P0 ~0.45-0.6 (type IV)
+  key: TEM (F4a: parallel channel stripes over a ~200 nm field of view; F4b: a regular pore lattice with ~5-6 nm periodicity) shows that, at the local scale imaged, the mesopores are arranged in an ordered, periodic channel/lattice pattern. N2 sorption (F3a) shows that all three samples display a type IV hysteresis step at P/P0 ~0.45-0.6, i.e., mesopores are present when the material is probed in bulk by gas adsorption. Put together, the two support that the periodic ~5-6 nm channel structure seen locally by TEM is consistent with (not merely a local imaging artifact against) the mesoporosity detected by the bulk-averaged N2 measurement - the local order and the bulk mesopore signature are compatible with describing the same pore population.
+  limits: N2 sorption's type IV hysteresis step alone cannot establish long-range order or periodicity: the same hysteresis signature is also produced by disordered or worm-like mesopore networks, so it cannot by itself show the pores form an ordered channel/lattice.; TEM alone is local: F4a and F4b cover only a ~200 nm field of view in what appear to be at most two of the samples, so imaging alone cannot show that the ordered channel structure is representative of the bulk material or present throughout the whole sample volume.; The N2 hysteresis step is reported for all three samples, but the ordered-lattice TEM images (F4a, F4b) do not clearly cover all three, so the pair together cannot establish whether every sample that shows the hysteresis step also has the periodic channel structure, or whether some instead have non-periodic mesoporosity that produces the same isotherm feature.; The two observations are different kinds of quantities (a local real-space length scale from imaging vs. a bulk relative-pressure hysteresis position from gas adsorption), so their agreement is a qualitative consistency, not a quantitative cross-check of one measured value against another.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item biomaterials_spi_o3_o20
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+  A (XRD:small_angle): Small-angle XRD: one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)
+  B (CHEM:release_assay): Cumulative drug release ~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h (plateau)
+  key: Small-angle XRD (n8) showing a single low-angle reflection in all three patterns (~1.37 deg MBG, ~1.47 deg 2Co, ~1.35 deg 5Co) confirms an ordered mesoporous channel structure persists in the cobalt-doped glasses, and the release assay (n15) shows ampicillin is released gradually and cumulatively (~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h, plateauing). Together the two observations are consistent with an ordered mesoporous channel structure being present alongside a gradual, plateauing release profile -- i.e., the material that retains long-range pore ordering is the same material that shows sustained rather than burst release.
+  limits: The XRD reflection is reported across three compositions (MBG, 2Co, 5Co) but the release curve corresponds to a single material (2Co-MBG per the stated conclusion), so there is no matched comparison showing that samples with stronger/weaker or shifted low-angle reflections (1.37 vs 1.47 vs 1.35 deg) release drug faster or slower -- no dose-response between degree of structural order and release kinetics is established.; The two measurements are different kinds of quantity: a static structural signature (peak position/presence, a single snapshot, non-kinetic) versus a cumulative mass-released-over-time curve (ug, 8-168 h window); pairing a structural presence/absence result with a kinetic cumulative curve cannot by itself demonstrate that the pores are the transport pathway responsible for the release rate or the plateau.; Only one low-angle peak and four release time points are given; this is too sparse to support a rate law or diffusion model linking pore geometry to release kinetics, only that both an ordered structure and a plateauing release exist in the same/related material.
+
+The joined claim, as the chain now asserts it:
+  Small-angle XRD (n8) showing a single low-angle reflection in all three patterns (~1.37 deg MBG, ~1.47 deg 2Co, ~1.35 deg 5Co) confirms an ordered mesoporous channel structure persists in the cobalt-doped glasses, and the release assay (n15) shows ampicillin is released gradually and cumulatively (~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h, plateauing). Together the two observations are consistent with an ordered mesoporous channel structure being present alongside a gradual, plateauing release profile -- i.e., the material that retains long-range pore ordering is the same material that shows sustained rather than burst release.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

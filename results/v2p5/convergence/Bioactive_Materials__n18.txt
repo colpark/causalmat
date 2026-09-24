@@ -1,0 +1,30 @@
+Both routes conclude about claim n18 in Bioactive_Materials__j.bioactmat.2019.12.006
+
+ROUTE A
+v5 backbone item bioactive_ma_M5_M7_s2_1 -- the measured property value
+  key: Read together, the sustained NO delivery from PPAmF established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm) is consistent with, and offers a mechanistic candidate for, the markedly lower platelet adhesion/activation and thrombus formation seen here on the NO-loaded surfaces (NO-PPAmF, BVLD/NO-PPAmF) versus the non-NO surfaces (316L SS, PPAmF): fewer/rounder platelets (obs1); lower adhered-platelet density (~11 and ~5 x1e2 cells/mm2 for NO-PPAmF and BVLD/NO-PPAmF vs ~32-41 x1e2 cells/mm2 for 316L SS/PPAmF; obs2) together with lower activation (~18% and ~1% vs ~65-74%; obs3); less fibrin/thrombus and cleaner lumens (obs4, obs5); lower occlusion (obs6); lower thrombus weight (obs7); and higher retained flow (obs8). A NO source that keeps releasing rather than exhausting itself quickly is a plausible reason the antithrombotic benefit persists across these endpoint measurements rather than being confined to a brief early window.
+  limits: The evidence given does not state the duration of the platelet-adhesion, thrombosis, or flow assays, so it is not confirmed that these tests were run within the >8 h sustained-release window rather than at a single early timepoint that a mere burst (as in PPAm) could also have covered.; obs2-obs8 are single-timepoint endpoint amounts (cell counts/mm2, % activation, % occlusion, mg thrombus weight, % flow retained), not a time course of NO release or of antithrombotic effect, so they cannot themselves verify that release continued throughout the test.; BVLD/NO-PPAmF carries both the NO-releasing component and BVLD together, so its superior suppression relative to NO-PPAmF alone (e.g., adhered platelets ~5 vs ~11 x1e2 cells/mm2, occlusion ~3% vs ~7.5%) cannot be attributed to sustained NO release specifically; BVLD's own antiplatelet/anticoagulant action is confounded with NO release in that combined surface.; obs2 (adhered-platelet density, x1e2 cells/mm2) and obs3 (platelet activation, %) are quantities of different kinds — one an absolute area-normalized count, the other a relative percentage — and must not be reported together under a single '%' figure as the proposition does (e.g. '~11%/18%', '~32-41 and ~65-74%'); the observations offer no percentage version of adhesion density or count version of activation, so the two series should be stated separately with their own units rather than merged.
+
+ROUTE B
+v2.5 covariation item bioactive_ma_cov_o12_o13
+  question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+  A (BIO:platelet_count): Adhered platelets ~32, 41, 15.5, 11 and 5 (x1e2 cell/mm2) on 316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF
+  B (BIO:platelet_count): Platelet activation ~65, 74, 23, 18 and ~1% across the same five surfaces
+  key: Across the same five surfaces (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF), adhered platelet count and platelet activation percentage rank in the same order: both are highest on PPAmF (~41; ~74%), next-highest on 316L SS (~32; ~65%), then fall together through BVLD-PPAmF (~15.5; ~23%) and NO-PPAmF (~11; ~18%), and both reach their minimum on BVLD/NO-PPAmF (~5; ~1%). The two readouts co-vary (concordant ranking) across the surface series.
+  limits: Only 5 paired points (one per surface), so this shows a concordant ordering, not a fitted or statistically tested relationship; Both quantities are measured on the same five surfaces/same assay conditions, so co-variation could reflect a shared underlying surface property (e.g., an anti-fouling/anti-thrombogenic effect of the BVLD/NO modification) driving both readouts independently, rather than one causing the other; Adhered count and activation percentage are different kinds of quantity (an absolute areal density versus a normalized fraction), so their concordance in rank does not establish a quantitative or mechanistic link between them; Neither panel alone establishes co-variation; the ordering match is only visible when both series are compared surface-by-surface
+
+Two routes, with disjoint evidence, reach the same conclusion.
+
+Say, for EACH route separately, whether its evidence warrants the conclusion on its own. Then say
+whether the two routes agree -- not merely whether both point the same way, but whether what each
+establishes is consistent with what the other establishes, including their limits.
+
+Two routes that both only weakly support a conclusion do not add up to strong support. Say so if
+that is the case.
+
+Reply as JSON only:
+{"route_a": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "route_b": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "agree": "yes|partly|no", "why_agree": "...",
+ "combined_strength": "descriptive|associative|conditional mechanism|discriminating",
+ "caution": "what a reader should not conclude from having two routes"}

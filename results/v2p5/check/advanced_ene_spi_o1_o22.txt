@@ -1,0 +1,28 @@
+Question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Observation A (ATOM:DFT): Computed Delta G: CoCrOOH lowest for Co2+->Co3+, CoFeOOH lowest for Co3+->Co4+, CoFeCrOOH between, Co(OH)2 highest
+Observation B (ECHEM:LSV): Neutral LSV: Co5Fe3Cr2 crosses 10 mA cm-2 first, eta10 = 452 mV; IrO2 later
+
+Proposition: The DFT ordering of Delta G for the Co2+->Co3+ and Co3+->Co4+ redox transitions (CoCrOOH lowest for the first step, CoFeOOH lowest for the second, CoFeCrOOH intermediate between the two binaries, Co(OH)2 highest for both) is consistent with, and offered as the mechanistic reason for, the LSV finding that the Fe-Cr-containing catalyst Co5Fe3Cr2 reaches eta10 = 452 mV before any other catalyst tested in neutral 0.5 M KHCO3, outperforming IrO2. Together the two observations support the qualitative claim that adding Fe and Cr to Co(OH)2 lowers the energy needed to advance through the Co2+->Co3+->Co4+ sequence relative to the unmodified Co(OH)2 baseline, and that this correlates with the ternary catalyst reaching the 10 mA cm-2 benchmark at lower overpotential than IrO2.
+
+Limits:
+  [0] CoFeCrOOH is computed as intermediate between the two binaries (CoCrOOH lowest for step 1, CoFeOOH lowest for step 2), not the lowest for either individual step, so the DFT ordering alone shows a compromise rather than a uniquely optimal ternary pathway; the paper's mechanistic claim of a clean 'Fe-Cr synergy lowering both steps' is stronger than the raw four-way ordering by itself.
+  [1] The DFT panel (F1a) computes Delta G for CoCrOOH, CoFeOOH, CoFeCrOOH and Co(OH)2, while the LSV panel (F5c) reports eta10 for Co5Fe3Cr2 against IrO2 and other catalysts; the pair does not establish that the specific stoichiometry Co5Fe3Cr2 tested electrochemically is the same material as the CoFeCrOOH structure used in the DFT calculation.
+  [2] Delta G is a computed thermodynamic quantity for a single redox step; eta10 is an experimentally measured kinetic overpotential at a fixed current density that also reflects conductivity, active-site density, and mass transport -- the pair cannot show that the thermodynamic ordering is what determines the measured kinetic ranking, only that the two are directionally compatible.
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

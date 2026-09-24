@@ -1,0 +1,35 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (PHYS:N2_sorption): N2 isotherm: adsorption/desorption hysteresis from P/P0 ~0.5 to 1.0, uptake ~110 cm3/g
+Observation B (PHYS:N2_sorption): Pore size distribution (inset) peaks at ~5.5 and ~6.9 nm, tail below 4 nm
+
+Proposition: The type IV adsorption/desorption hysteresis (P/P0 ~0.5 to 1.0, uptake ~110 cm3/g) together with the pore-size-distribution peaks at ~5.5 and ~6.9 nm (with a tail below 4 nm) jointly support that PCO is mesoporous with pores mostly in the 5-7 nm range: the hysteresis shape signals that mesopores are present, and the PSD peaks locate where in the size range those pores actually fall.
+
+Limits:
+  [0] The pore-size distribution shown in the inset is conventionally computed from the same adsorption/desorption isotherm (e.g. via BJH-type analysis), so B is not an independent confirmation of A -- both come from one measurement on one panel (F1c), and the observed peaks are numerically derived from the same curve that produced the hysteresis.
+  [1] Together they characterize a single sample's pore structure; they do not establish a trend or comparison across a series, since no second condition or sample is described here.
+  [2] The tail below 4 nm hints at some smaller mesopores/micropores but the isotherm shape and the two cited peak values do not quantify or separate that contribution.
+  [3] Neither observation gives surface area, total pore volume, or particle-level structure -- only the qualitative isotherm type and the two headline PSD peak positions are available.
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

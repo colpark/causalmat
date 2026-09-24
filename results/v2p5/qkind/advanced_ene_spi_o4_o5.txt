@@ -1,0 +1,35 @@
+Question: Does the upstream evidence account for the downstream observation about STR/defect/point / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (ATOM:DFT): The N-doped cell shows a localised charge hotspot at the nitrogen, absent at the equivalent site of the pristine cell
+Observation B (ATOM:DFT): Charge transfer to zinc is more negative at every N-doped site (-0.032 to -0.037 e) than at the pristine sites (-0.023 to -0.027 e)
+
+Proposition: Together, the two DFT observations support that the localized negative-charge feature at the substitutional nitrogen site co-occurs with a systematically more negative (larger-magnitude) charge transfer to the adsorbed zinc atom: every N-doped site shows both the charge hotspot (Obs A) and a more negative Zn charge transfer (-0.032 to -0.037 e) than the pristine sites (-0.023 to -0.027 e, Obs B), so the presence of the N-localized charge tracks with enhanced electron donation to Zn across the doped structure.
+
+Limits:
+  [0] Obs A is a qualitative presence/absence read of a charge-density feature at one site type, while Obs B is a quantitative range of charge-transfer values; the pairing shows co-occurrence, not a calibrated dose-response relationship between hotspot magnitude and transfer amount
+  [1] Both quantities are derived from the same DFT charge-partitioning scheme, so part of their association may reflect how the charge is computed/attributed rather than an independent physical link between the N site and the Zn adsorbate
+  [2] Neither observation reports the adsorption energetics, so the pair does not by itself establish that the extra charge transfer has any energetic consequence for zinc binding
+  [3] The range given for each condition (multiple site values collapsed into a span) does not indicate how many distinct sites underlie each bound, limiting how strong an ordering claim can be drawn
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

@@ -1,0 +1,42 @@
+The join: journal_of_m_com_o10_o15  --->  journal_of_m_spi_o10_o28   on claim n9
+
+UPSTREAM ITEM
+v2.5 complementary item journal_of_m_com_o10_o15
+  question: What does each of these two measurements establish on its own about STR/phase/identity, and what does putting them together add that neither gives alone?
+  A (XRD): Milled C10 pattern reproduces the C0 reflections (CeMg12, Y5Mg24, Ce2Mg17, Mg), with only a weak extra Co line (5) at ~44.5 deg
+  B (TEM:SAED): SAED of milled C10: rings indexed Ce2Mg17 (306), Co (111), Y5Mg24 (330), CeMg12 (202)
+  key: XRD (bulk powder pattern) and TEM/SAED (local nanoscale diffraction) independently index the same set of phases in milled C10 -- CeMg12, Y5Mg24, Ce2Mg17, Mg from XRD, and Ce2Mg17, Co, Y5Mg24, CeMg12 from SAED rings -- and the weak extra XRD line at ~44.5 deg is corroborated as a distinct Co phase by the separate Co (111) SAED ring. Together, a bulk-averaged technique and a local, spatially-resolved technique agree that Co appears only as its own separate crystalline phase alongside the unchanged C0 alloy phases, with no new reflections or rings indicating a Co-alloy reaction product. Cross-validation across the two techniques makes the 'Co stays a distinct phase, no new phase formed' reading more secure than either pattern would support alone.
+  limits: Neither technique nor their combination reports on chemical bonding, interdiffusion below diffraction detectability, or amorphous/interfacial reaction layers that would not produce a distinct new reflection or ring; SAED is from a small selected area and is not shown to be representative of the whole milled powder, while XRD is bulk-averaged and may not detect a highly dispersed or minor reaction product; combining them does not by itself prove the whole sample is free of any localized reaction, only that neither method finds evidence of one; The weak Co XRD line (5) is a single, faint reflection near 44.5 deg; the pairing corroborates its assignment to Co but does not by itself quantify the amount, distribution, or particle size of Co; This pair covers only the milled C10 state; it says nothing about phase/identity behavior after de/hydrogenation cycling
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o10_o28
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+  A (XRD): Milled C10 pattern reproduces the C0 reflections (CeMg12, Y5Mg24, Ce2Mg17, Mg), with only a weak extra Co line (5) at ~44.5 deg
+  B (PHYS:PCT): PCT at 320-360 C: one flat plateau per temperature; C10 plateaus lie at nearly the same pressures as C0 (~0.15, 0.27, 0.45 MPa)
+  key: Together, the XRD identity of the milled C10 sample (same phases as C0 -- CeMg12, Y5Mg24, Ce2Mg17, Mg -- plus only a weak extra Co line) and the PCT plateau pressures of C10 sitting at nearly the same values as C0 across 320-360 C support that the Co addition does not chemically react with the alloy and leaves its hydrogen-storage thermodynamics essentially unaltered: the structural read (no new compound phase formed) is corroborated by the thermodynamic read (no shift in equilibrium plateau pressure), each independently pointing to the same conclusion of inertness.
+  limits: XRD only resolves crystalline phases at its detection limit; the weak Co line confirms Co's presence but cannot rule out a trace or amorphous reaction product below that limit; the PCT comparison is a qualitative read of plateau pressures being 'nearly the same' at only three temperature points (320-360 C), not a full quantitative thermodynamic determination, and does not by itself cover enthalpy or cycling behavior; neither observation addresses whether inertness persists over repeated hydrogenation/dehydrogenation cycling or at temperatures/pressures outside the tested PCT window
+
+The joined claim, as the chain now asserts it:
+  Together, the XRD identity of the milled C10 sample (same phases as C0 -- CeMg12, Y5Mg24, Ce2Mg17, Mg -- plus only a weak extra Co line) and the PCT plateau pressures of C10 sitting at nearly the same values as C0 across 320-360 C support that the Co addition does not chemically react with the alloy and leaves its hydrogen-storage thermodynamics essentially unaltered: the structural read (no new compound phase formed) is corroborated by the thermodynamic read (no shift in equilibrium plateau pressure), each independently pointing to the same conclusion of inertness.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

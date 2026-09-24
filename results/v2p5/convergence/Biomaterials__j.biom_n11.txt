@@ -1,0 +1,30 @@
+Both routes conclude about claim n11 in Biomaterials__j.biomaterials.2011.11.042
+
+ROUTE A
+v5 backbone item biomaterials_M1_M3_M4_s2_1 -- Order the three scaffolds by the cobalt released here and compare that order with the pore structure from step 1. What can be concluded about what sets the release?
+  key: Release rises as surface area and pore volume fall -- 0 -> 16.9 -> 20.8 mg/L at 7 days against 290 -> 180 -> 127 m2/g -- so a texture-driven mechanism predicts the opposite order and is ruled out in that direction. It does NOT follow that cobalt content sets the release: **cobalt inventory and texture cannot be separated here**, because adding cobalt both lowers the texture and raises the inventory. The identifiable answer is that the two candidate causes are confounded by construction.
+  limits: Three scaffolds, one varying composition: inventory and texture are collinear.; Ruling out a direction is not ruling out a cause.; The proposition orders two different kinds of quantity side by side — a cumulative solution concentration (mg/L, from obs1) versus a specific surface area (m2/g, not contained in obs1–obs4 or in the cited previous-step pore-size result, which only gives pore diameter ~4-5 nm, not m2/g or cm3/g). Because no same-kind (e.g., concentration-vs-concentration, or area-vs-area) observation pair is available to test the texture-driven mechanism, the inverse-order argument rests on an unverified cross-kind comparison rather than on data given here; this should be flagged as a sourcing/kind limit rather than resolved by substituting different numbers, since none are available in the given observations.
+
+ROUTE B
+v2.5 spine_edge item biomaterials_spi_o1_o10
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
+  A (EDS): EDS: no Co peak with Co/Ca = 0 in b; Co peak near 6.9 keV in d and f, labelled Co/Ca = 0.14 and 0.49
+  B (CHEM:ion_concentration): Co2+ in medium: 5Co ~8.9/17.9/20.8 and 2Co ~4.7/10.5/16.9 mg/L at 1/3/7 days; 0Co stays at 0
+  key: Together, the EDS composition data (Co/Ca = 0 for MBG, 0.14 for 2Co-MBG, 0.49 for 5Co-MBG) and the medium ion-release data (Co2+ absent for 0Co, and higher at every timepoint for 5Co than 2Co: ~8.9/17.9/20.8 mg/L vs ~4.7/10.5/16.9 mg/L at 1/3/7 days) support that the amount of Co incorporated into the scaffold sets the amount of Co2+ that is subsequently released into the medium, with the ordering 5Co > 2Co > 0Co holding both for embedded content and for released concentration at every measured day.
+  limits: EDS Co/Ca is a single static compositional snapshot of the as-made scaffold, while release is a time course (days 1, 3, 7); pairing a fixed composition value against a rising time series only supports an ordering match (more embedded Co -> more released Co), not a quantitative dose-response or rate relationship; EDS Co/Ca is a normalized ratio (Co relative to Ca signal), whereas medium Co2+ is an absolute concentration (mg/L); these are different kinds of quantity and cannot be equated numerically, only rank-ordered; Only three scaffold groups (0Co, 2Co, 5Co) are compared, too few points to establish a continuous composition-release relationship beyond a monotonic ordering; Co content and group identity are set together by the synthesis design (0Co/2Co/5Co are defined by how much Co was added), so the match in ordering is partly a construction check rather than an independent test of a release mechanism
+
+Two routes, with disjoint evidence, reach the same conclusion.
+
+Say, for EACH route separately, whether its evidence warrants the conclusion on its own. Then say
+whether the two routes agree -- not merely whether both point the same way, but whether what each
+establishes is consistent with what the other establishes, including their limits.
+
+Two routes that both only weakly support a conclusion do not add up to strong support. Say so if
+that is the case.
+
+Reply as JSON only:
+{"route_a": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "route_b": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "agree": "yes|partly|no", "why_agree": "...",
+ "combined_strength": "descriptive|associative|conditional mechanism|discriminating",
+ "caution": "what a reader should not conclude from having two routes"}

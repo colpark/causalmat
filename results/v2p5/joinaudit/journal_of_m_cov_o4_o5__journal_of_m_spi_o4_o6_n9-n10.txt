@@ -1,0 +1,42 @@
+The join: journal_of_m_cov_o4_o5  --->  journal_of_m_spi_o4_o6_n9-n10   on claim n9
+
+UPSTREAM ITEM
+v2.5 covariation item journal_of_m_cov_o4_o5
+  question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+  A (ATOM:DFT): With Se (panel d vs c), conduction-band minima at M, K and L drop from ~0.15 eV above E_F to E_F; Gamma CB stays ~0.35-0.4 eV up
+  B (ATOM:DFT): In the Se-containing cell, conduction-band valleys at M, K and L lie at E_F (within ~0.05 eV); the Gamma CB minimum sits ~0.35-0.4 eV higher
+  key: In the Se-containing cell, the M, K and L conduction-band valleys sit at E_F (within ~0.05 eV) while the Gamma conduction-band minimum remains ~0.35-0.4 eV higher; this is the same DFT finding described twice, once (Observation A) as a shift from ~0.15 eV above E_F (host, panel c) to E_F (Se cell, panel d), and once (Observation B) as the resulting energetics of panel d alone. Together they say only that, for this one Se-doped structure, the M/K/L valleys and Gamma minimum sit at those two distinct energies relative to E_F -- they do not establish that this valley/Gamma spacing moves across a series of compositions.
+  limits: Only one comparison point exists (host cell, panel c, vs Se-containing cell, panel d); there is no multi-point series over which a trend or co-movement of the M/K/L level and the Gamma level can be tracked; Observation B is drawn from the same panel (F2d) as the second half of Observation A, so it is not an independent replication -- it restates rather than corroborates across a different condition; Both values are static DFT band-energy positions relative to E_F for a single modeled structure, not measurements across a doping or composition series, so 'does it move with' cannot be answered beyond this one pair of states (host vs Se-doped)
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o4_o6_n9-n10
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/descriptor? Say what the combination supports and what it leaves open.
+  A (ATOM:DFT): With Se (panel d vs c), conduction-band minima at M, K and L drop from ~0.15 eV above E_F to E_F; Gamma CB stays ~0.35-0.4 eV up
+  B (TRANSPORT:Hall): n_H rises from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 at 300 K for x=0.005-0.04
+  key: Together, the DFT band-structure calculation and the Hall measurement support a mechanistic account: Se substitution donates electrons that raise E_F until the M, K and L conduction-band minima (initially ~0.15 eV above E_F) reach E_F while the Gamma minimum stays ~0.35-0.4 eV higher, and this band-edge alignment is consistent with the measured rise in Hall carrier concentration from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 (x=0.005-0.04) at 300 K -- i.e., Se acts as an n-type donor whose effect on the electronic structure plausibly underlies the observed increase in carrier density with x.
+  limits: The DFT comparison (F2c vs F2d) appears to be a two-state snapshot (undoped vs one Se-doped case), while the Hall data (F4a) span five x values (0, 0.005, 0.01, 0.02, 0.04); the pairing cannot establish a quantitative, point-by-point correspondence between band-edge position and n_H across the full doping series, only a qualitative directional match.; DFT gives a 0 K electronic-structure energy level (eV relative to E_F); Hall gives a 300 K measured carrier density (cm^-3); the two are different kinds of quantity connected only through band theory, not through a shared measurement or a direct calculation of n_H from the DFT bands.; The combination does not rule out other contributions to the Hall-measured carrier density (e.g., temperature-dependent scattering or additional defect states) beyond the M/K/L band-edge alignment shown in the DFT panels.
+
+The joined claim, as the chain now asserts it:
+  Together, the DFT band-structure calculation and the Hall measurement support a mechanistic account: Se substitution donates electrons that raise E_F until the M, K and L conduction-band minima (initially ~0.15 eV above E_F) reach E_F while the Gamma minimum stays ~0.35-0.4 eV higher, and this band-edge alignment is consistent with the measured rise in Hall carrier concentration from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 (x=0.005-0.04) at 300 K -- i.e., Se acts as an n-type donor whose effect on the electronic structure plausibly underlies the observed increase in carrier density with x.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

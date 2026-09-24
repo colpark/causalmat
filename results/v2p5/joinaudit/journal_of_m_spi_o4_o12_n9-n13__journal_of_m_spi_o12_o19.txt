@@ -1,0 +1,42 @@
+The join: journal_of_m_spi_o4_o12_n9-n13  --->  journal_of_m_spi_o12_o19   on claim n13
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o4_o12_n9-n13
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/value? Say what the combination supports and what it leaves open.
+  A (ATOM:DFT): With Se (panel d vs c), conduction-band minima at M, K and L drop from ~0.15 eV above E_F to E_F; Gamma CB stays ~0.35-0.4 eV up
+  B (TRANSPORT:power_factor): PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+  key: Together, the DFT band structure (Se doping pulling the M, K, L conduction-band minima from ~0.15 eV above E_F down to E_F while the Gamma minimum stays ~0.35-0.4 eV up) gives a plausible electronic-structure mechanism -- multi-valley convergence at E_F -- for why doped samples show much higher power factor than the undoped sample (x=0.01 ~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, versus x=0 at most ~5). The pairing supports that Se doping's effect on the band edges is consistent with, and offered as the explanation for, the step-up in PF from undoped to doped.
+  limits: The DFT panels (F2c vs F2d) contrast only undoped and Se-doped band structures; they do not resolve different Se fractions x=0.005 vs x=0.01, so the pair cannot explain why x=0.01 is highest while x=0.005 is the lowest of the doped samples; DFT band positions are a zero-temperature electronic-structure calculation while the power factor is a transport coefficient measured across 300-623 K, so the two are different kinds of quantity and no temperature-resolved mechanism is established; The combination shows the band picture is consistent with enhanced PF upon doping but does not quantify how much of the PF gain is attributable to the multi-valley convergence itself versus other transport factors (mobility, scattering) not covered by either panel
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o12_o19
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:power_factor): PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+  B (TRANSPORT:efficiency_model): eta at Th=623 K: ~11.8% for x=0.01 vs ~9.5-10.6% for other x
+  key: Taken together, the composition with the highest power factor (x=0.01, ~29 uW cm^-1 K^-2 at 300 K, ~22 at 623 K, versus x=0 at most ~5 and x=0.005 the lowest of the doped set) is also the composition with the highest calculated efficiency (~11.8% at Th=623 K for x=0.01, versus ~9.5-10.6% for the other x values). The two rankings agree: x=0.01 tops both the power-factor observation and the efficiency observation, consistent with power factor being a contributing input to the modeled leg conversion efficiency.
+  limits: Efficiency here is a calculated, temperature-range device metric (Th=623 K, Tc=300 K), while power factor is a local transport property reported at discrete points (300 K and 623 K); the pair shows matching rank order, not that the PF values quantitatively determine the efficiency values.; Efficiency/ZT-type calculations conventionally also depend on thermal conductivity, which is not reported in either cited observation, so the combination cannot isolate power factor's contribution from that of unreported transport properties feeding the same efficiency model.; Only two power-factor temperatures (300 K, 623 K) are given against a single efficiency figure per composition (at Th=623 K), which supports an ordering across compositions but not a dose-response or functional relationship between PF and efficiency.
+
+The joined claim, as the chain now asserts it:
+  Taken together, the composition with the highest power factor (x=0.01, ~29 uW cm^-1 K^-2 at 300 K, ~22 at 623 K, versus x=0 at most ~5 and x=0.005 the lowest of the doped set) is also the composition with the highest calculated efficiency (~11.8% at Th=623 K for x=0.01, versus ~9.5-10.6% for the other x values). The two rankings agree: x=0.01 tops both the power-factor observation and the efficiency observation, consistent with power factor being a contributing input to the modeled leg conversion efficiency.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

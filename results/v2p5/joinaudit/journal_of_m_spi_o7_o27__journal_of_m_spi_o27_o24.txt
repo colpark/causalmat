@@ -1,0 +1,42 @@
+The join: journal_of_m_spi_o7_o27  --->  journal_of_m_spi_o27_o24   on claim n18
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o7_o27
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/distribution / PRP/value? Say what the combination supports and what it leaves open.
+  A (TEM): TEM: dark particles about 5-30 nm, a few up to ~40 nm, densely and evenly spread
+  B (PHYS:sieverts): Arrhenius lines: slope -15.674 (C0) and -9.852 (C10) give Ea = 130.3 and 81.9 kJ/mol
+  key: Together, the TEM image and the Arrhenius comparison support that C@Co, in which Co particles of about 5-30 nm (a few up to ~40 nm) are densely and evenly dispersed on the carbon nanosheets, is the same material (C10) whose dehydrogenation activation energy (81.9 kJ/mol) is lower than that of the undoped C0 sample (130.3 kJ/mol). This associates the presence of a dense, uniform, nanoscale Co particle dispersion with a lowered dehydrogenation activation energy, consistent with the Co particles acting as catalytic/nucleation sites.
+  limits: TEM (panel F2c) is reported only for the doped material (C@Co); there is no matching TEM image of C0, so the two microstructures are not compared side by side to show that dispersion, rather than some other compositional difference between C0 and C10, tracks with the Ea change.; The Arrhenius comparison (panel F10) rests on only two lines/two samples (C0 and C10), which is enough to order the two Ea values but not enough to establish a dose-response or continuous relationship between particle dispersion/size and activation energy.; TEM gives a static, structural snapshot of particle size and spacing; Ea is a kinetic quantity extracted from temperature-dependent absorption/desorption rates over a separate temperature series, so the two measurements are not taken on the same axis and the link between them is inferred, not directly measured.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o27_o24
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (PHYS:sieverts): Arrhenius lines: slope -15.674 (C0) and -9.852 (C10) give Ea = 130.3 and 81.9 kJ/mol
+  B (PHYS:sieverts): Complete desorption at 300 C takes ~150 min for C0 but ~11 min for C10; C10 finishes in <40 min even at 280 C vs ~450 min for C0
+  key: Putting the two together shows that the direction of the desorption-kinetics change tracks the direction of the activation-energy change: C10's lower Ea (81.9 vs 130.3 kJ/mol for C0) is consistent with, and offers a mechanistic (Arrhenius-type) basis for, C10's much faster desorption completion times (~11 min vs ~150 min at 300 C; <40 min vs ~450 min at 280 C). Neither observation alone would establish this link: A gives only a derived energy-barrier number with no bearing on actual desorption duration, and B gives only observed times with no stated reason why they differ.
+  limits: Only two temperatures (280 C, 300 C) are reported for the completion-time comparison, too few to reconstruct an independent Arrhenius relation from B and check it quantitatively against the Ea difference derived in A; A is a derived kinetic parameter (activation energy, from an Arrhenius-plot slope) while B is a cumulative time-to-completion at fixed temperatures - different kinds of quantity, so the pairing supports agreement in direction only, not a verified magnitude match; No rate constants or pre-exponential (Arrhenius A-factor) values are given, so it cannot be checked whether the full size of the observed time reduction is accounted for by the lower Ea alone or partly by some other kinetic change
+
+The joined claim, as the chain now asserts it:
+  Putting the two together shows that the direction of the desorption-kinetics change tracks the direction of the activation-energy change: C10's lower Ea (81.9 vs 130.3 kJ/mol for C0) is consistent with, and offers a mechanistic (Arrhenius-type) basis for, C10's much faster desorption completion times (~11 min vs ~150 min at 300 C; <40 min vs ~450 min at 280 C). Neither observation alone would establish this link: A gives only a derived energy-barrier number with no bearing on actual desorption duration, and B gives only observed times with no stated reason why they differ.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

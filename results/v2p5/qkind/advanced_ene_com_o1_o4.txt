@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about STR/phase/identity, and what does putting them together add that neither gives alone?
+
+Observation A (XRD): The calculated pattern overlies the measured XRD trace and the difference curve stays flat
+Observation B (TEM:HRTEM): HRTEM fringes spaced 0.36 nm, labelled (220) on the panel, run unbroken across the particle
+
+Proposition: Together, the Rietveld XRD fit and the HRTEM lattice-fringe image establish that the same monoclinic P21/n phase model describes the material both as a bulk, ensemble-averaged structure (XRD) and as the local, single-particle lattice order (HRTEM): the (220) fringe spacing of 0.36 nm running unbroken across the particle is consistent with the same unit cell that the calculated XRD pattern (flat difference curve) fits, so the phase identification is corroborated at two independent scales rather than resting on one.
+
+Limits:
+  [0] Neither observation, nor the pair, establishes the coordination chemistry (N-coordinated Mn, C-coordinated Fe) claimed for the framework -- that identity comes from other evidence, not from XRD fit or fringe spacing alone
+  [1] The XRD fit is a bulk average over the whole sample and cannot confirm that any single particle is a homogeneous single crystal of that phase
+  [2] The HRTEM image is from one particle/field of view and cannot confirm bulk phase purity or that the same order holds across the whole sample
+  [3] The unbroken fringes across one particle do not, by themselves, prove full 3D framework connectivity or rule out stacking defects outside the imaged zone axis
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

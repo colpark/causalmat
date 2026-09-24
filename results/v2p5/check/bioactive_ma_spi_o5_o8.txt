@@ -1,0 +1,30 @@
+Question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (ECHEM:polarization): Polarization curves: Mg-Zn-Y-Nd corrosion potential near -1.5 V vs about -0.25 V for 317L SS, its branches 2-3 decades to higher current
+Observation B (PHYS:pH): pH with Mg-Zn-Y-Nd climbs from 7.4 to ~10 by day 22 and plateaus; blank control peaks ~8.4 then falls to ~7.5; 317L SS falls to ~6.1 at day 20
+
+Proposition: The polarization data showing Mg-Zn-Y-Nd's much less noble corrosion potential (near -1.5 V vs ~-0.25 V for 317L SS) and its 2-3 decades higher corrosion current is qualitatively consistent with, and offers a mechanistic rationale for, the pronounced and sustained pH rise (7.4 to ~10 by day 22, then plateau) seen when Mg-Zn-Y-Nd is immersed, in contrast to 317L SS, whose much more corrosion-resistant/noble electrochemical signature is consistent with it not driving pH upward (its pH instead falls, to ~6.1 by day 20).
+
+Limits:
+  [0] Polarization is a single-point/instantaneous electrochemical measurement (a potentiodynamic scan of potential vs current) while pH is tracked as a cumulative time-course over 22 days of immersion; the two cannot be superimposed to derive a quantitative dose-response between corrosion current magnitude and pH rise magnitude or rate.
+  [1] It is not established that the polarization test medium/duration matches the 22-day immersion conditions used for the pH measurement, so a test-condition mismatch cannot be ruled out.
+  [2] The blank control's own pH trajectory (rises to ~8.4, then falls to ~7.5) shows non-metal-driven solution buffering occurs; the combination does not isolate how much of Mg-Zn-Y-Nd's pH rise above the blank, or of 317L SS's pH fall below the blank, is attributable specifically to the corrosion activity measured in F3 versus other solution chemistry.
+  [3] Neither observation directly measures the chemical species (e.g., hydroxide release or Mg corrosion products) that would mechanistically connect corrosion current to pH change; the connection is inferred, not measured.
+  [4] 317L SS's pH decline to ~6.1, which falls below both its own baseline and the blank control, is not explained by the polarization data, which shows only greater corrosion resistance/a nobler potential for SS, not a mechanism producing acidification.
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

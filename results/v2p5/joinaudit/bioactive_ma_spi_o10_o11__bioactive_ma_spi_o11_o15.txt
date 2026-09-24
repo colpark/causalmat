@@ -1,0 +1,42 @@
+The join: bioactive_ma_spi_o10_o11  --->  bioactive_ma_spi_o11_o15   on claim n18
+
+UPSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o10_o11
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (UVVIS:chromogenic_assay): Thrombin specific activity ~0.65e-3 abs/ng/cm2 on BVLD-PPAmF and BVLD/NO-PPAmF vs ~1.3e-3 on 316L SS, PPAmF and NO-PPAmF (***)
+  B (SEM): Many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF
+  key: Together, the thrombin-activity assay and the SEM morphology survey support that BVLD-bearing coatings (BVLD-PPAmF and BVLD/NO-PPAmF) both retain reduced thrombin specific activity (~0.65e-3 abs/ng/cm2, versus ~1.3e-3 on 316L SS, PPAmF, NO-PPAmF) and show reduced platelet spreading/activation on SEM (fewer, less dendritic platelets on BVLD-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF), consistent with retained anti-thrombin bioactivity accompanying suppressed platelet activation on BVLD-grafted surfaces.
+  limits: NO-PPAmF alone shows thrombin specific activity at the high, unaltered level (~1.3e-3, grouped with 316L SS and PPAmF) yet SEM still shows fewer spread platelets than on 316L SS/PPAmF, so the pairing does not show that thrombin-activity change tracks platelet suppression consistently across all four surfaces; the chromogenic assay is a single normalized enzymatic readout (activity per ng protein per cm2) while the SEM evidence is a qualitative/categorical description of platelet number and morphology, not a matched quantitative platelet count or activation score, so no dose-response or magnitude correlation between the two can be established; the greatest platelet suppression (round, unspread platelets) occurs on BVLD/NO-PPAmF, which has the same thrombin specific activity as BVLD-PPAmF alone, so the extra suppression seen with NO added cannot be attributed to a further change in thrombin activity from this pairing
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o11_o15
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (SEM): Many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF
+  B (PHOTO:macro): Photographs: 316L SS and PPAmF tubes are filled by dark thrombus; BVLD-PPAmF and NO-PPAmF partly open; BVLD/NO-PPAmF lumen and foil nearly clean
+  key: Across the same set of surfaces, the SEM platelet pattern (many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; only a few round, unspread platelets on BVLD/NO-PPAmF) tracks the same ranking seen in the tube photographs (dark thrombus filling 316L SS and PPAmF tubes; BVLD-PPAmF and NO-PPAmF tubes only partly open; BVLD/NO-PPAmF lumen and foil nearly clean). Put together, the two panels support that the surface ordering for platelet adhesion/activation matches the surface ordering for macroscopic thrombus occlusion, consistent with platelet spreading/activation being the mechanism behind the visible difference in thrombus formation, with the combination BVLD/NO-PPAmF showing the least of both.
+  limits: Both readouts are qualitative/visual categories (spread-dendritic vs few-round-unspread on SEM; filled vs partly-open vs nearly-clean on photos), not counted or quantified, so only an ordering across this small set of surfaces is supported, not a dose-response or magnitude relationship.; The correspondence is observed across the same experiment/surfaces by construction, so it cannot rule out that both readouts are parallel consequences of the same underlying anti-thrombogenic surface property rather than the platelet-adhesion pattern (A) driving the macroscopic thrombus outcome (B).; Neither panel supplies the quantitative endpoints (occlusion percentage, thrombus mass, flow retained) that would be needed to move from an ordering to a magnitude claim; those figures are not part of A or B.
+
+The joined claim, as the chain now asserts it:
+  Across the same set of surfaces, the SEM platelet pattern (many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; only a few round, unspread platelets on BVLD/NO-PPAmF) tracks the same ranking seen in the tube photographs (dark thrombus filling 316L SS and PPAmF tubes; BVLD-PPAmF and NO-PPAmF tubes only partly open; BVLD/NO-PPAmF lumen and foil nearly clean). Put together, the two panels support that the surface ordering for platelet adhesion/activation matches the surface ordering for macroscopic thrombus occlusion, consistent with platelet spreading/activation being the mechanism behind the visible difference in thrombus formation, with the combination BVLD/NO-PPAmF showing the least of both.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

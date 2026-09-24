@@ -1,0 +1,35 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (BIO:ex_vivo_shunt): Occlusion ~58, 63, 10, 7.5 and 3% (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF)
+Observation B (BIO:ex_vivo_shunt): Blood flow retained ~20, 17, 64, 68 and 90% of the initial value across the same surfaces
+
+Proposition: Across the same five ex vivo shunt surfaces (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF), occlusion and blood flow retained move inversely and consistently: occlusion ~58, 63, 10, 7.5, 3% pairs with blood flow retained ~20, 17, 64, 68, 90% in the same surface order, so as occlusion falls the retained flow rises, with BVLD/NO-PPAmF showing the lowest occlusion (~3%) and highest flow retention (~90%).
+
+Limits:
+  [0] Both readouts are taken on the same shunt runs at the same endpoint, so the inverse pattern reflects two correlated measures of the same occlusive event rather than two independent lines of causal evidence
+  [1] Only five surface conditions are compared, which supports a consistent ranking/inverse trend but not a quantitative dose-response relationship between the two variables
+  [2] Occlusion is a percent-of-lumen score while blood flow retained is a percent-of-initial-flow normalized rate, so the pairing crosses quantity kinds and cannot pin down the exact functional form of the relationship, only its direction
+  [3] The set mixes single-component surfaces (BVLD-PPAmF, NO-PPAmF) and the combined surface (BVLD/NO-PPAmF), so the pairing cannot attribute the inverse relationship to either component individually
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

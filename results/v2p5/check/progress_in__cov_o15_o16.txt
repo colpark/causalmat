@@ -1,0 +1,28 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (ECHEM:EIS): PCL-LS |Z| at 0.01 Hz drops only from ~10^6.25 to ~10^5.85 ohm cm2 over 7 days
+Observation B (ECHEM:EIS): Pure PCL high-frequency phase falls (~72 to ~24 deg at 10^4.8 Hz) and a 1-10 Hz time constant grows with immersion
+
+Proposition: Read together, the two EIS traces support a material-level contrast rather than a single-material trend: PCL-LS retains a high impedance floor at 0.01 Hz (only ~10^6.25 to ~10^5.85 ohm cm2 over 7 days, less than one decade of drop), while pure PCL shows independent signatures of coating degradation over the same immersion period -- a collapsing high-frequency phase angle (~72 to ~24 deg at 10^4.8 Hz) and a growing time constant in the 1-10 Hz range. Combining the two panels is what lets the paper say PCL-LS keeps its barrier impedance while pure PCL loses it: neither panel alone names both materials, so the contrast (not just a single trend) depends on both.
+
+Limits:
+  [0] The two sides are not the same EIS metric: A is a low-frequency impedance magnitude (|Z|, ohm cm2) and B is a high-frequency phase angle (degrees) plus a qualitative time-constant shift; the comparison is across quantity kinds, not a shared axis, so no quantitative ratio or matched threshold can be drawn between the ~0.4-decade |Z| drop and the ~48 deg phase drop.
+  [1] The two observations come from different samples/panels (F7d for PCL-LS, F7a for pure PCL), so any difference in behavior is confounded with whatever else differs between the two coating preparations, not isolated to the LS additive alone.
+  [2] Only endpoint-style values are given for A (day 0 vs day 7) and a general immersion trend for B; this supports an ordering/contrast between the two materials, not a fitted degradation rate or a common time course.
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

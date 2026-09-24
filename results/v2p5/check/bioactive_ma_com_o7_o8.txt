@@ -1,0 +1,28 @@
+Question: What does each of these two measurements establish on its own about PRP/value, and what does putting them together add that neither gives alone?
+
+Observation A (PL): PL band at 390-420 nm is strongest for TiO2, about half for Er0.5Ti-O and lowest for Er0.5Ce0.2
+Observation B (ECHEM:EIS): Nyquist plot: Er0.5Ce0.2Ti-O shows a small arc (~1.5 kOhm) then a sloped tail; TiO2 rises almost vertically with no closed arc
+
+Proposition: PL alone ranks radiative recombination across the three samples: strongest (worst, most recombination) for TiO2, about half for Er0.5Ti-O, and lowest (least recombination) for Er0.5Ce0.2. EIS alone ranks charge-transfer resistance for the two samples it covers: Er0.5Ce0.2Ti-O shows a small arc (~1.5 kOhm) with a sloped tail (low, well-defined charge-transfer resistance), while TiO2 rises almost vertically with no closed arc (very poor charge transfer, no resolvable resistance). Put together, the two independently-obtained rankings point the same direction for the two samples they share: TiO2 is worst on both the optical (highest PL) and electrochemical (no arc) measures, and Er0.5Ce0.2Ti-O is best on both (lowest PL, smallest arc). This convergence across two different measurement types is what neither observation gives alone -- PL says nothing about charge-transfer resistance, and EIS says nothing about radiative recombination.
+
+Limits:
+  [0] PL and EIS probe different physical quantities (radiative recombination via optical emission vs. charge-transfer resistance via electrochemical impedance); agreement in ranking is a consistency between two proxies, not a demonstrated mechanistic link between them
+  [1] EIS as given covers only TiO2 and Er0.5Ce0.2Ti-O; Er0.5Ti-O's charge-transfer resistance is not reported, so the full three-way ordering seen in PL is not matched by a full three-way ordering in EIS
+  [2] the pair does not establish that lower recombination causes lower charge-transfer resistance (or vice versa), only that the two move together across the two samples both were measured on
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

@@ -1,0 +1,28 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (ATOM:DFT): With Se (panel d vs c), conduction-band minima at M, K and L drop from ~0.15 eV above E_F to E_F; Gamma CB stays ~0.35-0.4 eV up
+Observation B (ATOM:DFT): In the Se-containing cell, conduction-band valleys at M, K and L lie at E_F (within ~0.05 eV); the Gamma CB minimum sits ~0.35-0.4 eV higher
+
+Proposition: In the Se-containing cell, the M, K and L conduction-band valleys sit at E_F (within ~0.05 eV) while the Gamma conduction-band minimum remains ~0.35-0.4 eV higher; this is the same DFT finding described twice, once (Observation A) as a shift from ~0.15 eV above E_F (host, panel c) to E_F (Se cell, panel d), and once (Observation B) as the resulting energetics of panel d alone. Together they say only that, for this one Se-doped structure, the M/K/L valleys and Gamma minimum sit at those two distinct energies relative to E_F -- they do not establish that this valley/Gamma spacing moves across a series of compositions.
+
+Limits:
+  [0] Only one comparison point exists (host cell, panel c, vs Se-containing cell, panel d); there is no multi-point series over which a trend or co-movement of the M/K/L level and the Gamma level can be tracked
+  [1] Observation B is drawn from the same panel (F2d) as the second half of Observation A, so it is not an independent replication -- it restates rather than corroborates across a different condition
+  [2] Both values are static DFT band-energy positions relative to E_F for a single modeled structure, not measurements across a doping or composition series, so 'does it move with' cannot be answered beyond this one pair of states (host vs Se-doped)
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

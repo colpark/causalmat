@@ -1,0 +1,39 @@
+The join: biomaterials_spi_o3_o20  --->  biomaterials_M1_M3_M4_s2_2   on claim n15
+
+UPSTREAM ITEM
+v2.5 spine_edge item biomaterials_spi_o3_o20
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+  A (XRD:small_angle): Small-angle XRD: one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)
+  B (CHEM:release_assay): Cumulative drug release ~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h (plateau)
+  key: Small-angle XRD (n8) showing a single low-angle reflection in all three patterns (~1.37 deg MBG, ~1.47 deg 2Co, ~1.35 deg 5Co) confirms an ordered mesoporous channel structure persists in the cobalt-doped glasses, and the release assay (n15) shows ampicillin is released gradually and cumulatively (~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h, plateauing). Together the two observations are consistent with an ordered mesoporous channel structure being present alongside a gradual, plateauing release profile -- i.e., the material that retains long-range pore ordering is the same material that shows sustained rather than burst release.
+  limits: The XRD reflection is reported across three compositions (MBG, 2Co, 5Co) but the release curve corresponds to a single material (2Co-MBG per the stated conclusion), so there is no matched comparison showing that samples with stronger/weaker or shifted low-angle reflections (1.37 vs 1.47 vs 1.35 deg) release drug faster or slower -- no dose-response between degree of structural order and release kinetics is established.; The two measurements are different kinds of quantity: a static structural signature (peak position/presence, a single snapshot, non-kinetic) versus a cumulative mass-released-over-time curve (ug, 8-168 h window); pairing a structural presence/absence result with a kinetic cumulative curve cannot by itself demonstrate that the pores are the transport pathway responsible for the release rate or the plateau.; Only one low-angle peak and four release time points are given; this is too sparse to support a rate law or diffusion model linking pore geometry to release kinetics, only that both an ordered structure and a plateauing release exist in the same/related material.
+
+DOWNSTREAM ITEM
+v5 backbone item biomaterials_M1_M3_M4_s2_2 -- Do the HIF-1alpha and VEGF results describe one dose response in cobalt content?
+  key: They do not. HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co. A single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response.
+  limits: The HIF-1alpha comparison is a band intensity against a loading control, not a calibrated concentration.; Non-monotonic VEGF may reflect cytotoxicity at 5Co, which is not measured here.
+
+The joined claim, as the chain now asserts it:
+  They do not. HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co. A single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

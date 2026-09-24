@@ -1,0 +1,39 @@
+The join: bioactive_ma_spi_o10_o11  --->  bioactive_ma_M5_M7_s2_2   on claim n18
+
+UPSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o10_o11
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (UVVIS:chromogenic_assay): Thrombin specific activity ~0.65e-3 abs/ng/cm2 on BVLD-PPAmF and BVLD/NO-PPAmF vs ~1.3e-3 on 316L SS, PPAmF and NO-PPAmF (***)
+  B (SEM): Many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF
+  key: Together, the thrombin-activity assay and the SEM morphology survey support that BVLD-bearing coatings (BVLD-PPAmF and BVLD/NO-PPAmF) both retain reduced thrombin specific activity (~0.65e-3 abs/ng/cm2, versus ~1.3e-3 on 316L SS, PPAmF, NO-PPAmF) and show reduced platelet spreading/activation on SEM (fewer, less dendritic platelets on BVLD-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF), consistent with retained anti-thrombin bioactivity accompanying suppressed platelet activation on BVLD-grafted surfaces.
+  limits: NO-PPAmF alone shows thrombin specific activity at the high, unaltered level (~1.3e-3, grouped with 316L SS and PPAmF) yet SEM still shows fewer spread platelets than on 316L SS/PPAmF, so the pairing does not show that thrombin-activity change tracks platelet suppression consistently across all four surfaces; the chromogenic assay is a single normalized enzymatic readout (activity per ng protein per cm2) while the SEM evidence is a qualitative/categorical description of platelet number and morphology, not a matched quantitative platelet count or activation score, so no dose-response or magnitude correlation between the two can be established; the greatest platelet suppression (round, unspread platelets) occurs on BVLD/NO-PPAmF, which has the same thrombin specific activity as BVLD-PPAmF alone, so the extra suppression seen with NO added cannot be attributed to a further change in thrombin activity from this pairing
+
+DOWNSTREAM ITEM
+v5 backbone item bioactive_ma_M5_M7_s2_2 -- how the material performs in service
+  key: Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting.
+  limits: The shunt evidence is a single-endpoint measurement (adhesion, activation, occlusion, thrombus weight, flow retention all read at one time), not a time course, so it does not directly test whether anti-thrombotic performance tracks the specific 8 h NO-release duration established in step 1 -- the link between release duration and outcome is inferred, not measured together.; BVLD (an anticoagulant) is present in two of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), and co-occurs with NO release only in BVLD/NO-PPAmF, so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone.; The two steps compare quantities of different kinds -- an in vitro time-duration of NO release (hours) versus ex vivo/in vivo endpoint outcome measures (%, mg, cells/mm2) -- so the connection is an association across steps, not a demonstrated dose- or time-response mechanism.
+
+The joined claim, as the chain now asserts it:
+  Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

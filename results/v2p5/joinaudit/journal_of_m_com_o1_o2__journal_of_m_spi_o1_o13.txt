@@ -1,0 +1,42 @@
+The join: journal_of_m_com_o1_o2  --->  journal_of_m_spi_o1_o13   on claim n5
+
+UPSTREAM ITEM
+v2.5 complementary item journal_of_m_com_o1_o2
+  question: What does each of these two measurements establish on its own about STR/phase/identity, and what does putting them together add that neither gives alone?
+  A (XRD): XRD reflections indexed to L12 (incl. weak superlattice peaks near 25 and 35 deg) and B2 (near 31, 44.6 deg)
+  B (TEM:SAED): SAED of lamella A indexed FCC [011], lamella B BCC [011], each with circled superlattice spots
+  key: Together, bulk XRD phase indexing (L12 superlattice peaks near 25/35 deg plus B2 peaks near 31/44.6 deg) and local SAED zone-axis indexing on two separate lamellae (lamella A = FCC [011], lamella B = BCC [011], each with circled superlattice spots) establish that the as-cast alloy's dual ordered-phase signature seen in the ensemble diffraction pattern corresponds to two spatially distinct, real microstructural regions (lamella A and lamella B) that are each individually ordered (superlattice spots present) and crystallographically consistent with the FCC/BCC fundamental lattices matched by XRD. XRD alone gives only an ensemble-averaged phase inventory and cannot show whether the L12 and B2 signals come from spatially separated regions, a single complex structure, or a minority/trace phase. SAED alone shows two lamellae with different crystal systems and each ordered, but from just two local diffraction patterns cannot establish that this is the bulk-representative phase assemblage, nor independently pin the specific ordering type (as opposed to matching indexed FCC/BCC positions against the XRD-established L12/B2 reflections). Combining them ties the bulk phase identification to an observed lamellar morphology, supporting a genuine spatially-resolved dual-phase ordered (L12 + B2) structure rather than a single averaged or artifactual signal.
+  limits: Does not establish relative phase fractions or volume ratios of L12 vs B2; Does not establish that the two imaged lamellae (A and B) are representative of the whole bulk sample; TEM samples a very small local volume compared to bulk XRD; Does not establish compositional partitioning or chemistry of each phase; The specific L12/B2 superstructure assignment on the SAED patterns is not fully independent of the XRD result -- SAED zone-axis indexing gives FCC/BCC fundamental symmetry and superlattice-spot presence (ordering exists), but tying that ordering specifically to the L12/B2 designations relies on matching to the XRD-indexed reflections, so the two are not wholly separate confirmations of the ordering type; Does not establish the degree of long-range order (order parameter) or thermal/kinetic stability of the phases
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o1_o13
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / STR/defect/extended? Say what the combination supports and what it leaves open.
+  A (XRD): XRD reflections indexed to L12 (incl. weak superlattice peaks near 25 and 35 deg) and B2 (near 31, 44.6 deg)
+  B (TEM): At first strain step one lamella is featureless while the neighbour shows mottled contrast and line contrast along the interface
+  key: The as-cast alloy is confirmed (by XRD) to contain two ordered phases (L12 and B2), and at the first strain step the TEM pair shows one lamella remaining featureless while its neighbor develops mottled contrast plus line contrast along the interface -- together indicating that the two-phase system responds asymmetrically to strain, with one lamella type acquiring visible internal contrast and the other not.
+  limits: XRD is a bulk, spatially unresolved measurement of phase content across the as-cast sample; it does not identify which specific TEM lamella is which phase; The TEM observation as given is a morphological/contrast description (featureless vs mottled/line contrast), not a phase-indexed (e.g., diffraction-pattern-confirmed) identification of each lamella; Only one strain step and one lamella pair are described, so the asymmetry is not shown to be general across the microstructure; No count or areal fraction of dislocations/planar slip is given, so the comparison is qualitative contrast only, not a quantified defect density
+
+The joined claim, as the chain now asserts it:
+  The as-cast alloy is confirmed (by XRD) to contain two ordered phases (L12 and B2), and at the first strain step the TEM pair shows one lamella remaining featureless while its neighbor develops mottled contrast plus line contrast along the interface -- together indicating that the two-phase system responds asymmetrically to strain, with one lamella type acquiring visible internal contrast and the other not.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

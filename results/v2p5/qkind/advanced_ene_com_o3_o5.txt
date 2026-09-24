@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about STR/phase/fraction, and what does putting them together add that neither gives alone?
+
+Observation A (XRD): XRD: simple-mixing peaks broad with raised background; co-precipitated patterns show narrower, better separated peaks
+Observation B (TEM:HRTEM): HRTEM (w/ HCl): crystalline patches (red arrows) coexist with amorphous-like regions (white arrows)
+
+Proposition: XRD (peak broadening/background across the simple-mixing, co-precipitation-without-HCl, and co-precipitation-with-HCl samples) establishes a bulk-scale ordering of crystallinity/structural order among the three synthesis conditions -- broad, high-background patterns for simple mixing versus narrower, better-separated peaks for co-precipitation. HRTEM (shown for the w/HCl sample) establishes, at the local real-space scale, that crystalline patches and amorphous-like regions physically coexist within the same material rather than the sample being a single phase of uniform intermediate order. Put together, the two support reading the XRD peak broadening/background as reflecting a genuine mixed-phase (crystalline + amorphous) character of the material, i.e., that STR/phase differences across conditions correspond to a real spatial coexistence of two distinct phases rather than merely a shift in some single homogeneous order parameter.
+
+Limits:
+  [0] Does not give a quantitative crystalline/amorphous phase fraction for any sample -- both observations are qualitative/descriptive (peak shape and background level; patch identification by eye), not measured fractions.
+  [1] TEM coexistence is documented only for the w/HCl sample (F1f); it does not directly confirm that the simple-mixing or co-precipitation-without-HCl samples also contain physically distinct crystalline/amorphous patches versus some other structural difference.
+  [2] TEM images a small, local field of view, so it cannot establish that the crystalline/amorphous coexistence it shows is representative of the bulk material that XRD (F1d) is averaging over.
+  [3] The pair does not separate whether XRD peak narrowing/sharpening reflects a rising amorphous-to-crystalline phase fraction versus a change in crystallite size (a classic ambiguity of diffraction peak broadening) -- HRTEM here reports patch coexistence, not a crystallite-size distribution.
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

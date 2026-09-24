@@ -1,0 +1,42 @@
+The join: bioactive_ma_spi_o1_o3  --->  bioactive_ma_spi_o3_o4   on claim n8
+
+UPSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o1_o3
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/bonding / STR/chemistry/bonding? Say what the combination supports and what it leaves open.
+  A (FTIR:GATR): PPAm IR bands assigned: N-H stretch 3350/3210, C-H stretch, -N=C=O/-C=N 2245/2180, -C=O/C=N 1645, C-N 1230 cm-1
+  B (FTIR:GATR): Starred NO vibration, N=N, N-N and N-O stretch bands appear in NO-PPAm and are absent from the PPAm spectrum
+  key: Observation A establishes the baseline FTIR fingerprint of unmodified PPAm (N-H stretch 3350/3210, aliphatic C-H, isocyanate/nitrile 2245/2180, C=O/C=N 1645, C-N 1230 cm-1), showing PPAm retains amine and nitrogen-containing groups from plasma polymerization. Observation B shows that after NO exposure, new bands (starred NO vibration, N=N, N-N, N-O stretches) appear in NO-PPAm that are absent from the PPAm spectrum. Together these two spectra support that NO exposure produces new nitrogen-oxygen-containing chemical species in the coating, over and above the nitrogen-containing functional groups (amine, nitrile/isocyanate, C=N) already present in the unreacted PPAm baseline -- i.e., NO becomes chemically incorporated into the PPAm film rather than merely physisorbed.
+  limits: The generic labels 'NO vibration,' 'N=N,' 'N-N,' and 'N-O stretch' do not carry the wavenumber specificity needed to fix which nitrogen-oxygen linkage is present; The comparison is a presence/absence spectral difference between two samples (PPAm vs NO-PPAm), not a quantitative measure of how much NO is incorporated or of reaction stoichiometry; Observation A characterizes PPAm alone and Observation B characterizes a PPAm-vs-NO-PPAm difference; neither alone, nor their pairing, includes a control ruling out other N-O-containing byproducts or side reactions
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o3_o4
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/bonding / PRP/value? Say what the combination supports and what it leaves open.
+  A (FTIR:GATR): Starred NO vibration, N=N, N-N and N-O stretch bands appear in NO-PPAm and are absent from the PPAm spectrum
+  B (CHEM:chemiluminescence): NO-PPAm NO flux peaks at ~35e-10 mol cm-2 min-1 about 5 min in and decays to ~0 by 60 min
+  key: Taken together, the FTIR result (starred NO-vibration bands: N=N, N-N and N-O stretches present in NO-PPAm and absent in PPAm) and the chemiluminescence result (NO-PPAm releases NO with a flux peaking at about 35e-10 mol cm-2 min-1 around 5 min and decaying to about 0 by 60 min) support that the same NO-PPAm material that carries these distinctive nitrogen-oxide bonding signatures is the one that generates a transient NO flux with a burst-then-decay time course. This supports associating the bonding evidence with the release behavior in the same loaded material.
+  limits: The FTIR spectrum is a single, presumably pre-release comparison of NO-PPAm versus PPAm; it is not tracked across the 0-60 min release window, so the pairing does not show the N=N/N-N/N-O bands actually diminishing in step with the flux decay; FTIR gives a qualitative presence/absence readout of bands while chemiluminescence gives a quantitative time-resolved rate; these are different kinds of quantities and cannot be combined into a single kinetic or stoichiometric relationship; Only two conditions (PPAm, NO-PPAm) are compared spectrally, and flux is reported for NO-PPAm alone, which is too limited a comparison to establish a general dose- or structure-response relationship between bonding and release magnitude
+
+The joined claim, as the chain now asserts it:
+  Taken together, the FTIR result (starred NO-vibration bands: N=N, N-N and N-O stretches present in NO-PPAm and absent in PPAm) and the chemiluminescence result (NO-PPAm releases NO with a flux peaking at about 35e-10 mol cm-2 min-1 around 5 min and decaying to about 0 by 60 min) support that the same NO-PPAm material that carries these distinctive nitrogen-oxide bonding signatures is the one that generates a transient NO flux with a burst-then-decay time course. This supports associating the bonding evidence with the release behavior in the same loaded material.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

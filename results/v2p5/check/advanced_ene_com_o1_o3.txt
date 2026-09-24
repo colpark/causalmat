@@ -1,0 +1,29 @@
+Question: What does each of these two measurements establish on its own about STR/phase/identity, and what does putting them together add that neither gives alone?
+
+Observation A (XRD): All strong reflections of the post-plating foil are marked as zinc (#04-0831); two weak ones as titanium (#89-3725)
+Observation B (STEM:HAADF): Lattice fringes of the porous-network region are annotated as Zn(002) = 0.25 nm
+
+Proposition: Together, the bulk-averaged XRD phase match (all strong reflections indexed to zinc #04-0831, two weak ones to titanium #89-3725) and the local STEM-HAADF lattice-fringe measurement (d = 0.25 nm assigned to Zn(002) in the porous-network region) let the paper tie a specific morphological feature -- the porous network -- to the same crystalline phase identified across the whole foil: metallic zinc. XRD alone only says the bulk foil's dominant crystalline phase is zinc (plus a minor Ti signal, presumably substrate) without saying which morphology that phase belongs to; STEM alone only says one local region has a lattice spacing consistent with Zn(002) without saying this generalizes beyond that spot or that no oxide/salt phase exists elsewhere. Combined, they support that the plated product, including the porous-network structure specifically, is metallic zinc rather than an oxide or salt.
+
+Limits:
+  [0] Neither observation nor their combination establishes that the porous network is uniformly zinc throughout: STEM sampled a single lattice-fringe region, and XRD gives a bulk average that is not spatially resolved to that region
+  [1] The combination cannot establish quantitative phase purity or fraction, only phase identity/absence of detectable competing phases
+  [2] A thin, amorphous, or trace-level surface oxide/salt layer could escape both techniques -- XRD peak detection has a minor-phase sensitivity limit, and a lattice-fringe image only registers crystalline planes that are imaged, not amorphous or non-crystalline surface layers
+  [3] A single d-spacing value (0.25 nm) is not by itself a unique fingerprint for Zn(002); its identification relies on being read together with the XRD phase match rather than standing alone as proof
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

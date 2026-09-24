@@ -1,0 +1,42 @@
+The join: journal_of_a_spi_o26_o6  --->  journal_of_a_spi_o6_o12   on claim n14
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o26_o6
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/value? Say what the combination supports and what it leaves open.
+  A (RAMAN): All eight Raman wavenumbers of x=0.06 soften gradually from RT to 275 C
+  B (TRANSPORT:dielectric): At 1 kHz the Tm1 maximum drops from ~6750 (x=0) to ~2700 (x=0.08); a second maximum appears for x>=0.02 and moves ~200 -> ~260 C
+  key: Taken together, the gradual, discontinuity-free softening of all eight Raman modes for x=0.06 from RT to 275C and the emergence/composition-shift of a second dielectric maximum Tm2 (appearing for x>=0.02, moving ~200 to ~260C) support treating Tm2 as arising without an abrupt structural change at that composition: the smooth phonon evolution at x=0.06 (a composition within the Tm2-bearing range) is consistent with a continuous/diffuse origin for the Tm2 anomaly rather than a discrete structural phase transition.
+  limits: Raman was measured only at x=0.06; the pair does not establish the same conclusion across the full x=0-0.08 series or at other compositions where Tm2 also appears (x>=0.02 more broadly); The absence of a Raman discontinuity is negative evidence against an abrupt transition; it does not positively demonstrate that Sr-vacancy-affected polar nanoregions (PNRs) specifically are the cause of Tm2 - no vacancy- or PNR-specific signature is reported in either observation; Dielectric data are shown only at 1 kHz, so no frequency-dispersion evidence (the usual hallmark for identifying relaxor/PNR behavior) is combined with the Raman data here; The two observations compare different kinds of quantities (phonon frequency shift vs. permittivity extremum position/magnitude), so the link rests on temperature/composition co-occurrence rather than a shared measured quantity
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o6_o12
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/qualification? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:dielectric): At 1 kHz the Tm1 maximum drops from ~6750 (x=0) to ~2700 (x=0.08); a second maximum appears for x>=0.02 and moves ~200 -> ~260 C
+  B (TRANSPORT:dielectric): TCC curve of x=0.06 stays between the +/-15% dashed limits from ~40 to ~340-350 C; x=0.08 overshoots +15% near 230-290 C
+  key: Together, A and B support that the composition-driven broadening of the dielectric response - the drop in the Tm1 maximum (~6750 to ~2700) and the emergence/shift of a second maximum (Tm2, ~200 to ~260 C) with increasing x - is what produces the flattened, near-temperature-independent capacitance behind the TCC qualification result: for x=0.06 the flattened response keeps TCC within the +/-15% envelope over ~40-350 C, whereas for x=0.08 the TCC curve breaches +15% specifically in the 230-290 C window, a range that brackets where that composition's second maximum sits (~260 C). The pairing thus links the compositional shift of the dielectric maxima to where and whether the TCC spec is met.
+  limits: No quantitative or mechanistic bridge is given between the magnitude/position of the dielectric maxima and the numeric TCC value at a given temperature; the co-location of the x=0.08 overshoot window with its Tm2 position is suggestive, not demonstrated; Only two compositions carry TCC data (x=0.06 pass, x=0.08 fail) against a five-point (or more) composition series for the dielectric maxima, so the pairing supports a pass/fail contrast at two points, not a continuous relationship across x; The dielectric data (A) is an absolute permittivity magnitude and peak temperature at a single fixed frequency (1 kHz), while the TCC data (B) is a normalized percentage deviation from a reference capacitance (base 150 C) - different kinds of quantity are being set against each other, so their numeric values cannot be compared directly, only their temperature locations
+
+The joined claim, as the chain now asserts it:
+  Together, A and B support that the composition-driven broadening of the dielectric response - the drop in the Tm1 maximum (~6750 to ~2700) and the emergence/shift of a second maximum (Tm2, ~200 to ~260 C) with increasing x - is what produces the flattened, near-temperature-independent capacitance behind the TCC qualification result: for x=0.06 the flattened response keeps TCC within the +/-15% envelope over ~40-350 C, whereas for x=0.08 the TCC curve breaches +15% specifically in the 230-290 C window, a range that brackets where that composition's second maximum sits (~260 C). The pairing thus links the compositional shift of the dielectric maxima to where and whether the TCC spec is met.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

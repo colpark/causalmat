@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about STR/microstructure/distribution, and what does putting them together add that neither gives alone?
+
+Observation A (XRD): SiO2 reflections at ~26.5 and ~58 deg are clearly taller in pattern b than in pattern a
+Observation B (OM): Dark particles are evenly scattered over all four fields with no particle-free areas
+
+Proposition: XRD (Obs A) alone establishes only that the SiO2 phase is present/greater in amount in pattern b than in pattern a (taller reflections at ~26.5 and ~58 deg), a single bulk-averaged compositional signal with no spatial information. OM (Obs B) alone establishes only that dark particles are spatially uniform, evenly scattered over all four fields with no particle-free areas, but OM cannot chemically identify what those dark particles are. Combining the two lets the dark particles OM shows spread evenly across the stir zone be attributed to the SiO2-bearing phase XRD shows is present/enriched in pattern b -- i.e., it is specifically the SiO2 (FA) phase, not just some unidentified particulate, that is evenly dispersed with no particle-free zones.
+
+Limits:
+  [0] XRD is a single bulk pattern, not tied to the four separate OM fields, so it cannot by itself show the phase increase is spatially uniform
+  [1] OM's 'dark particle' is a morphological/optical descriptor only; it does not chemically confirm the particles are SiO2
+  [2] Even distribution is only demonstrated over the four fields examined, not over the whole stir zone volume/cross-section
+  [3] The XRD comparison is a qualitative 'taller' peak-height read, not a quantified/calibrated phase amount
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

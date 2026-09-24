@@ -1,0 +1,28 @@
+Question: Does the upstream evidence account for the downstream observation about STR/microstructure/feature_size / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (PHYS:particlesize): DLS: the microfluidic sample is one narrow mode near 300-400 nm, the hydrothermal sample a broader mode near 1000 nm
+Observation B (['OPTICAL:fluorescence', 'UVVIS']): Encapsulation is higher for the microfluidic route in all three cargos (siRNA ~53 vs ~37%, DOX ~47 vs ~34%, BSA ~59 vs ~43%), each starred
+
+Proposition: The microfluidic route yields both a smaller, more narrowly distributed particle size (DLS mode ~300-400 nm vs. a broader ~1000 nm mode for hydrothermal) and a higher encapsulation efficiency for every cargo tested (siRNA ~53 vs ~37%, DOX ~47 vs ~34%, BSA ~59 vs ~43%, each starred), so the two observations co-vary in the same direction across the two synthesis routes -- consistent with smaller/more uniform particle size being associated with higher encapsulation.
+
+Limits:
+  [0] Particle size and encapsulation efficiency are both compared only across the same two synthesis routes (microfluidic vs hydrothermal), so route is a common cause of both readouts; the pair does not isolate particle size itself as the driver of encapsulation apart from other route-specific differences (e.g., nucleation/growth kinetics, crystal defect density, mixing conditions) that could independently raise encapsulation.
+  [1] Only two conditions (two routes, two size regimes) are compared -- too few points to support a dose-response relationship between size and encapsulation efficiency, only an ordering under one confounded comparison.
+  [2] The size read (DLS mode, nm, single snapshot per sample) and the encapsulation read (%, per cargo, three different cargo types) are different kinds of quantities measured by different techniques, so no direct quantitative size-to-efficiency mapping is given.
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

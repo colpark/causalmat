@@ -1,0 +1,42 @@
+The join: advanced_ene_spi_o1_o12b  --->  advanced_ene_spi_o12b_o10   on claim n8a
+
+UPSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o1_o12b
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / STR/chemistry/composition? Say what the combination supports and what it leaves open.
+  A (XRD): The calculated pattern overlies the measured XRD trace and the difference curve stays flat
+  B (ICP:AES): Zn content rises from zero to about 50 at% by the 20th cycle and stays near 47 at% afterwards
+  key: Taken together, the XRD confirmation that the as-prepared KMnHCF is a single, well-matched monoclinic P21/n phase (3D open framework of N-coordinated Mn and C-coordinated Fe) and the ICP-AES trend showing Zn content climbing from zero to about 50 at% by the 20th cycle and settling near 47 at% support a picture in which an open, well-defined host framework is present at the outset and, over cycling, comes to contain a large, roughly stable share of Zn among the cathode metals -- consistent with Zn2+ becoming the dominant inserted cation.
+  limits: Observation A is a single, as-prepared time point; it says nothing about the framework's state at cycle 20 or later, so it cannot show that the structure identified initially is the same host that is present when the Zn plateau is reached; Observation B is a bulk elemental at% from ICP-AES; it reports how much Zn is in the cathode overall, not where the Zn resides, so it cannot show that the Zn sits in the framework sites described by observation A rather than elsewhere in the electrode; the two observations are of different kinds (a static phase-match snapshot versus a cycle-indexed compositional amount), so comparing them supports co-occurrence in the same material, not a mechanistic link between the framework and the uptake; no site-resolved or post-cycling structural data are given, so the plateau at ~47 at% cannot be tied to saturation of framework sites specifically versus some other limit
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o12b_o10
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / STR/phase/identity? Say what the combination supports and what it leaves open.
+  A (ICP:AES): Zn content rises from zero to about 50 at% by the 20th cycle and stays near 47 at% afterwards
+  B (XRD): After 4 cycles two new peaks near 16.5 and 21.9 degrees appear and the original main peaks weaken
+  key: Composition (ICP-AES) and structure (XRD) evolve together over cycling in a manner consistent with the paper's claim that Zn2+ insertion accompanies conversion of the cathode from monoclinic KMnHCF to rhombohedral KZnHCF: new XRD peaks near 16.5 and 21.9 degrees emerge and the original main peaks weaken by cycle 4, while the Zn content climbs from zero toward about 50 at% by cycle 20 and then holds near 47 at% -- i.e., a new crystalline phase appears early in cycling and continues to develop while Zn keeps accumulating, so the two data series track the same progressive transformation of the electrode over the same cycling window.
+  limits: The two observations are two time series indexed to cycle number (composition at% vs. XRD peak identity); their co-occurrence over cycling does not by itself establish that Zn insertion is the cause of the new phase rather than a coincident or consequent process; XRD only reports peak positions/intensities (phase identity), not the cation content of the new phase, so it cannot itself confirm the new phase is K2Zn3[Fe(CN)6]2*9H2O -- that identification is asserted, not shown by these two panels alone; The new peaks are already present by cycle 4, well before Zn content approaches its ~50 at% plateau near cycle 20, so the panels show the phase change starting while composition is still far from its endpoint -- a timing offset the pair does not resolve into a mechanism; Only two time points bracket the structural comparison (before cycling vs. after 4 cycles) and the composition curve is reported at coarser intervals up to cycle 20, too sparse to support a continuous causal/kinetic relationship between at% Zn and phase fraction, only a rough ordering in cycle number
+
+The joined claim, as the chain now asserts it:
+  Composition (ICP-AES) and structure (XRD) evolve together over cycling in a manner consistent with the paper's claim that Zn2+ insertion accompanies conversion of the cathode from monoclinic KMnHCF to rhombohedral KZnHCF: new XRD peaks near 16.5 and 21.9 degrees emerge and the original main peaks weaken by cycle 4, while the Zn content climbs from zero toward about 50 at% by cycle 20 and then holds near 47 at% -- i.e., a new crystalline phase appears early in cycling and continues to develop while Zn keeps accumulating, so the two data series track the same progressive transformation of the electrode over the same cycling window.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

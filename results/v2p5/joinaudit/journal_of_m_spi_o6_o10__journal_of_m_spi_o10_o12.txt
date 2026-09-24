@@ -1,0 +1,42 @@
+The join: journal_of_m_spi_o6_o10  --->  journal_of_m_spi_o10_o12   on claim n12
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o6_o10
+  question: Does the upstream evidence account for the downstream observation about PRP/descriptor / PRP/value? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:Hall): n_H rises from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 at 300 K for x=0.005-0.04
+  B (TRANSPORT:resistivity): rho drops from ~650 (x=0) to ~12-23 micro-ohm m at 300 K; doped rho rises with T, x=0 falls
+  key: Across the Se-doping series, Hall carrier concentration n_H rises monotonically with x (from ~0.5e19 at x=0 up to 1.7-3.3e19 cm-3 for x=0.005-0.04 at 300 K) while resistivity falls sharply over the same series (from ~650 to 12-23 micro-ohm m at 300 K), so the two panels together support an inverse association between carrier concentration and resistivity consistent with doping-induced carrier addition lowering resistivity, and the doped samples' resistivity rising with T (metallic-like) versus x=0 falling with T is consistent with the doped samples being carrier-dominated conductors.
+  limits: rho does not track n_H monotonically across the whole series: the paper notes rho is lowest near x=0.01 even though n_H keeps increasing up to x=0.04, so carrier concentration alone does not account for the resistivity trend at higher x; resistivity depends on both carrier concentration and mobility (rho ~ 1/(n*e*mu)); mobility is not reported in either panel, so the magnitude and non-monotonic shape of the resistivity drop cannot be attributed to carrier concentration alone; only 4-5 doping points are given, too few to establish a quantitative relationship (e.g., a power law) between n_H and rho, only a qualitative co-trend; the T-dependence contrast (doped rho rising with T, x=0 falling) is a separate observation not decomposed into a carrier-concentration versus mobility contribution
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o10_o12
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:resistivity): rho drops from ~650 (x=0) to ~12-23 micro-ohm m at 300 K; doped rho rises with T, x=0 falls
+  B (TRANSPORT:power_factor): PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+  key: Putting resistivity and power factor together shows the two trends move consistently in the direction expected if PF is driven by the resistivity change: the composition with the lowest resistivity (x=0.01, ~12-23 micro-ohm m at 300 K) is also the composition with the highest power factor (~29 at 300 K), while x=0, which has by far the highest resistivity (~650), has the lowest power factor (at most ~5). Likewise, for doped samples resistivity rises with T while the x=0.01 power factor falls from ~29 at 300 K to ~22 at 623 K, again consistent with PF tracking the inverse of resistivity as T increases.
+  limits: This is a co-variation across composition and two temperatures, not a demonstrated mechanism: no Seebeck-coefficient values are given in either observation, and power factor is a composite quantity (Seebeck squared over resistivity) so the resistivity trend alone cannot account for the full power-factor trend; The x=0 case breaks the simple picture: its resistivity falls with T (unlike doped samples, whose resistivity rises with T) yet its power factor stays low throughout, showing something besides resistivity (i.e. Seebeck coefficient) must also be governing the power factor there; Only two temperatures (300 K and 623 K) are given for the power-factor comparison, which is enough to support an ordering/direction but not a continuous temperature relationship; The pairing shows association/consistency between the two panels, not that resistivity alone causes the power-factor level or ranking
+
+The joined claim, as the chain now asserts it:
+  Putting resistivity and power factor together shows the two trends move consistently in the direction expected if PF is driven by the resistivity change: the composition with the lowest resistivity (x=0.01, ~12-23 micro-ohm m at 300 K) is also the composition with the highest power factor (~29 at 300 K), while x=0, which has by far the highest resistivity (~650), has the lowest power factor (at most ~5). Likewise, for doped samples resistivity rises with T while the x=0.01 power factor falls from ~29 at 300 K to ~22 at 623 K, again consistent with PF tracking the inverse of resistivity as T increases.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

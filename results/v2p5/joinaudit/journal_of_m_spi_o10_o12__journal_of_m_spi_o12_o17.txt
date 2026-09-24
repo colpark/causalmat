@@ -1,0 +1,42 @@
+The join: journal_of_m_spi_o10_o12  --->  journal_of_m_spi_o12_o17   on claim n13
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o10_o12
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:resistivity): rho drops from ~650 (x=0) to ~12-23 micro-ohm m at 300 K; doped rho rises with T, x=0 falls
+  B (TRANSPORT:power_factor): PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+  key: Putting resistivity and power factor together shows the two trends move consistently in the direction expected if PF is driven by the resistivity change: the composition with the lowest resistivity (x=0.01, ~12-23 micro-ohm m at 300 K) is also the composition with the highest power factor (~29 at 300 K), while x=0, which has by far the highest resistivity (~650), has the lowest power factor (at most ~5). Likewise, for doped samples resistivity rises with T while the x=0.01 power factor falls from ~29 at 300 K to ~22 at 623 K, again consistent with PF tracking the inverse of resistivity as T increases.
+  limits: This is a co-variation across composition and two temperatures, not a demonstrated mechanism: no Seebeck-coefficient values are given in either observation, and power factor is a composite quantity (Seebeck squared over resistivity) so the resistivity trend alone cannot account for the full power-factor trend; The x=0 case breaks the simple picture: its resistivity falls with T (unlike doped samples, whose resistivity rises with T) yet its power factor stays low throughout, showing something besides resistivity (i.e. Seebeck coefficient) must also be governing the power factor there; Only two temperatures (300 K and 623 K) are given for the power-factor comparison, which is enough to support an ordering/direction but not a continuous temperature relationship; The pairing shows association/consistency between the two panels, not that resistivity alone causes the power-factor level or ranking
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o12_o17
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/figure_of_merit? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:power_factor): PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+  B (TRANSPORT:ZT): x=0.01 ZT peaks at ~1.25 near 500-525 K
+  key: Across the two panels, the same composition (x=0.01) that has the highest power factor over the measured temperature range (~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, versus x=0.005 lowest among doped and x=0 at most ~5) is also the composition showing the peak ZT (~1.25 near 500-525 K). Together this supports that the doping level giving the largest power factor is the same one giving the best overall figure of merit, consistent with power factor being a contributor to ZT.
+  limits: Observation A reports PF values at 300 K and 623 K, not at the ~500-525 K temperature where the ZT peak in Observation B occurs, so the pair shows compositional correspondence (same x=0.01) rather than a value-matched relationship at the peak temperature; ZT depends on more than power factor (thermal conductivity is the other main factor implied by the figure-of-merit definition), and no thermal-conductivity evidence is given here, so the pair cannot show that power factor alone accounts for the location or magnitude of the ZT peak; Only two compositions are characterized in detail (x=0.01 as highest PF, x=0.005 as lowest doped, x=0 near zero) alongside one ZT peak value, which is enough to support an ordering/correspondence claim but not a dose-response or quantitative causal relationship
+
+The joined claim, as the chain now asserts it:
+  Across the two panels, the same composition (x=0.01) that has the highest power factor over the measured temperature range (~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, versus x=0.005 lowest among doped and x=0 at most ~5) is also the composition showing the peak ZT (~1.25 near 500-525 K). Together this supports that the doping level giving the largest power factor is the same one giving the best overall figure of merit, consistent with power factor being a contributor to ZT.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

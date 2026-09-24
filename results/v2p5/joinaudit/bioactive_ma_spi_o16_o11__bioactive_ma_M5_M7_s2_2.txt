@@ -1,0 +1,39 @@
+The join: bioactive_ma_spi_o16_o11  --->  bioactive_ma_M5_M7_s2_2   on claim n18
+
+UPSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o16_o11
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/value? Say what the combination supports and what it leaves open.
+  A (SEM): SEM: dense fibrin network with trapped cells on 316L SS and PPAmF; platelets with little fibrin on BVLD-PPAmF; fibrin strands on NO-PPAmF; almost bare BVLD/NO-PPAmF
+  B (SEM): Many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF
+  key: Taken together, the two SEM readouts show a consistent parallel gradient across the same surface series (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF): surfaces with denser fibrin networks and trapped cells (316L SS, PPAmF) also show many spread, dendritic (activated) platelets, while surfaces with sparse or absent fibrin (BVLD-PPAmF, NO-PPAmF, and especially the almost-bare BVLD/NO-PPAmF) also show fewer platelets and, where present, round unspread (unactivated) morphology. The co-occurrence of suppressed fibrin deposition and suppressed platelet spreading/activation on the same modified surfaces is consistent with a shared upstream cause acting on both processes.
+  limits: Both observations are qualitative SEM morphology/coverage assessments on the same fixed samples, not a mechanistic or biochemical readout, so they cannot themselves identify thrombin inactivation (or any specific molecular mechanism) as the shared upstream cause.; Fibrin formation and platelet activation are known to be mutually reinforcing in the coagulation cascade (thrombin both activates platelets and cleaves fibrinogen to fibrin), so the parallel reduction seen in A and B could reflect one process driving the other rather than both being independently suppressed by a common upstream cause.; Only an ordering/qualitative gradient across surface types is shown, not a quantitative dose-response or rate relationship, and no independent (non-SEM) marker of thrombin activity is included in these two panels to anchor the mechanism.
+
+DOWNSTREAM ITEM
+v5 backbone item bioactive_ma_M5_M7_s2_2 -- how the material performs in service
+  key: Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting.
+  limits: The shunt evidence is a single-endpoint measurement (adhesion, activation, occlusion, thrombus weight, flow retention all read at one time), not a time course, so it does not directly test whether anti-thrombotic performance tracks the specific 8 h NO-release duration established in step 1 -- the link between release duration and outcome is inferred, not measured together.; BVLD (an anticoagulant) is present in two of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), and co-occurs with NO release only in BVLD/NO-PPAmF, so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone.; The two steps compare quantities of different kinds -- an in vitro time-duration of NO release (hours) versus ex vivo/in vivo endpoint outcome measures (%, mg, cells/mm2) -- so the connection is an association across steps, not a demonstrated dose- or time-response mechanism.
+
+The joined claim, as the chain now asserts it:
+  Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

@@ -1,0 +1,42 @@
+The join: journal_of_a_spi_o6_o8  --->  journal_of_a_spi_o8_o11   on claim n12
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o6_o8
+  question: Does the upstream evidence account for the downstream observation about PRP/value / STR/microstructure/damage? Say what the combination supports and what it leaves open.
+  A (EBSD:misorientation): Orientation change per interval is ~4.3-11 deg at 5 cycles in Al2O3-YSZ, falling to ~1 deg by 20 cycles, versus 0.7-2.3 deg throughout for YSZ
+  B (SEM): YSZ crack network in the same field looks unchanged between the two views
+  key: Putting the EBSD and SEM readings together shows that YSZ, the material with the smaller and more stable per-interval misorientation (0.7-2.3 deg across all cycles, versus Al2O3-YSZ's 4.3-11 deg at 5 cycles falling to ~1 deg by 20 cycles), is also the material whose crack network appears unchanged between the two imaged views. The pair therefore supports a co-occurrence: low, stable orientation change tracks with an unchanged crack network in YSZ over this cycling range.
+  limits: Observation B is a qualitative visual comparison (crack network 'looks unchanged') rather than a measured crack-length, crack-density, or connectivity value, so it cannot be matched quantitatively against the degree-valued misorientation numbers in Observation A.; The crack-network reading (Observation B) is reported only for YSZ; no matched SEM crack-network comparison for Al2O3-YSZ is included in this pair, so the data given cannot show whether the much larger misorientation seen in Al2O3-YSZ actually accompanies a change in its crack network.; Only two materials are compared, and material composition (presence of Al2O3) covaries by construction with misorientation magnitude, so any relationship between strain and crack behavior cannot be separated from other composition-linked differences between the two materials.; A single qualitative observation (unchanged vs. not) at one pair of time points is too little to establish a dose-response or mechanistic relationship between misorientation magnitude and crack-network state, even for YSZ alone.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o8_o11
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/damage / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (SEM): YSZ crack network in the same field looks unchanged between the two views
+  B (OPTICAL:photograph): Coupon intact at 5 cycles; corners spalled at 10 cycles; spalled corners persist and grow slightly to 40 cycles
+  key: Observation A shows the YSZ crack network looking visually unchanged between the two SEM views, while Observation B independently shows the coupon intact at 5 cycles, developing spalled corners by 10 cycles, with that spalling persisting and growing only slightly out to 40 cycles. Put together, the pair shows a stable/unchanged microstructural crack-network reading (A) co-existing with the onset of macroscopic corner spalling somewhere between 5 and 10 cycles (B); the SEM field-of-view record does not itself register or track the spalling event that the photographs document.
+  limits: No indication that the SEM field imaged in A is the same location as the corners that spall in B, so a microstructural crack-network view and a macroscopic corner-spalling view may not be spatially comparable; No indication that the two SEM views in A are taken at cycle counts bracketing the 5-to-10-cycle window that B identifies as when spalling occurs, so the timing of A cannot be aligned with the timing of B; A is a purely qualitative 'unchanged' visual read with no crack-length, crack-density, or connectivity metric, while B is a staged qualitative read (intact / corners spalled / spalled and slightly grown); neither side offers a measured quantity, so no rate or magnitude relationship can be drawn between them; The two observations describe different kinds of state - a microstructural crack-network appearance versus a macroscopic coating-loss/service outcome - so the pairing juxtaposes rather than mechanistically links them
+
+The joined claim, as the chain now asserts it:
+  Observation A shows the YSZ crack network looking visually unchanged between the two SEM views, while Observation B independently shows the coupon intact at 5 cycles, developing spalled corners by 10 cycles, with that spalling persisting and growing only slightly out to 40 cycles. Put together, the pair shows a stable/unchanged microstructural crack-network reading (A) co-existing with the onset of macroscopic corner spalling somewhere between 5 and 10 cycles (B); the SEM field-of-view record does not itself register or track the spalling event that the photographs document.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

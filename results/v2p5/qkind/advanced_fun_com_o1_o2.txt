@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about STR/microstructure/feature_size, and what does putting them together add that neither gives alone?
+
+Observation A (TEM): Thin semi-transparent square sheets, mostly ~100-200 nm across, scattered on the grid
+Observation B (AFM): AFM height profile across one flake: ~14 nm; flakes ~100-200 nm across
+
+Proposition: TEM alone establishes lateral extent (~100-200 nm) and a thin, sheet-like/semi-transparent morphology across many particles on the grid, but gives no direct thickness value. AFM alone establishes a thickness (~14 nm) from a height profile across one flake and separately reports lateral size (~100-200 nm) consistent with TEM, but as a single-flake measurement it cannot on its own confirm that this lateral extent is representative of the population. Put together, the two observations jointly fix both in-plane dimensions (from TEM's survey of many sheets) and the out-of-plane dimension (from AFM's height profile), yielding a single consistent picture of thin, flat, lamellar sheets roughly 100-200 nm across and about 14 nm thick -- i.e., a high-aspect-ratio nanosheet morphology that neither technique's numbers alone would justify (TEM cannot give thickness; AFM's single profile cannot establish lateral extent across the sample).
+
+Limits:
+  [0] AFM thickness (~14 nm) comes from a height profile across one flake, so it is a single-particle measurement, not a population statistic, and could be affected by tip or substrate artifacts
+  [1] TEM lateral sizes (~100-200 nm) are described only as 'mostly' in that range -- an approximate qualitative range from visual inspection, not a measured size distribution
+  [2] combining the two assumes the flake measured by AFM is representative of the population imaged by TEM; the pair does not itself demonstrate this correspondence, it is inferred from the overlapping size range reported in both
+  [3] neither observation nor their combination addresses count, yield, or the proportion of material in this morphology versus other shapes
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

@@ -1,0 +1,42 @@
+The join: bioactive_ma_spi_o19_o5  --->  bioactive_ma_spi_o5_o10_b13-b17   on claim b13
+
+UPSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o19_o5
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
+  A (EDS:spectrum): EDS spectrum shows Ti, O and a dominant C peak, with small Er (~1.4 keV) and Ce (~4.8 keV) peaks
+  B (UVVIS): Co-doped absorption edges extend well past 420 nm into the visible vs a sharp TiO2 edge near 410 nm; Ce0.2 absorbs most
+  key: EDS confirms that the co-doped particles actually contain Er and Ce (small peaks at ~1.4 keV and ~4.8 keV alongside Ti, O, C), and UVVIS shows that these same particles have their absorption edge extended well past 420 nm compared to the sharp ~410 nm edge of TiO2, with the Ce0.2 composition absorbing most. Taken together, the two panels support that the elements detected by EDS are associated with the observed red-shift in optical absorption.
+  limits: EDS is a compositional presence check (peak identification at given keV) and does not report oxidation state, so it cannot by itself distinguish Er3+ from a Ce3+/Ce4+ surface mixture; The dominant C peak in the EDS spectrum is not addressed by or linked to the UVVIS observation, so its relevance to the optical shift is undetermined; UVVIS as described here is a qualitative edge-position comparison (where the edge extends to), not a computed band-gap value, so the pairing does not itself establish the specific band-gap narrowing figures; Because Er and Ce are both present together in the same co-doped particles per the EDS spectrum, the UVVIS edge shift cannot be attributed to one dopant over the other from these two panels alone
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o5_o10_b13-b17
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (UVVIS): Co-doped absorption edges extend well past 420 nm into the visible vs a sharp TiO2 edge near 410 nm; Ce0.2 absorbs most
+  B (ASSAY:catalysis): Degradation at 60 min: Er0.5Ce0.2 ~46% > Ce0.3 ~41% > Ce0.1 ~31% > TiO2 ~20%, same order at 20 and 40 min
+  key: Taken together, the two panels show that co-doped samples with red-shifted/broadened visible-light absorption (edges extending past 420 nm vs TiO2's ~410 nm) also show higher photocatalytic degradation than undoped TiO2, and this ordering (co-doped > TiO2) holds consistently across all three measured time points (20, 40, 60 min). This supports a link (b13->b17) in which enhanced visible-light absorption in co-doped TiO2 is associated with improved photocatalytic degradation performance relative to undoped TiO2.
+  limits: Only 3-4 doping conditions are compared (Ce0.1, Ce0.3, Er0.5Ce0.2, TiO2), too few points to establish a dose-response relationship between absorption edge position and degradation rate, only an ordering among a handful of samples.; The sample with the strongest absorption (Ce0.2, absorbs most per Observation A) is not the same sample with the highest degradation (Er0.5Ce0.2, per Observation B) - the two rankings are not built on identical compositions, so the pairing does not cleanly show that more absorption within the co-doped set tracks with more degradation.; Observation A is a spectral/optical property (edge wavelength) and Observation B is a functional performance measure (% dye degraded over time); no measurement here connects them through an intermediate mechanism (e.g., charge separation, surface area, reactive species) - the link is inferred, not measured directly.
+
+The joined claim, as the chain now asserts it:
+  Taken together, the two panels show that co-doped samples with red-shifted/broadened visible-light absorption (edges extending past 420 nm vs TiO2's ~410 nm) also show higher photocatalytic degradation than undoped TiO2, and this ordering (co-doped > TiO2) holds consistently across all three measured time points (20, 40, 60 min). This supports a link (b13->b17) in which enhanced visible-light absorption in co-doped TiO2 is associated with improved photocatalytic degradation performance relative to undoped TiO2.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

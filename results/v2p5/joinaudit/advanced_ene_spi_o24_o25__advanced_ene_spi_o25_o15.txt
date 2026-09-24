@@ -1,0 +1,42 @@
+The join: advanced_ene_spi_o24_o25  --->  advanced_ene_spi_o25_o15   on claim r4
+
+UPSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o24_o25
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
+  A (ICP:OES): Dissolved V rises to ~3.7 mg/L by cycle 150 then flattens; Fe reaches only ~1.1 mg/L
+  B (ECHEM:EIS): Fitted Rct rises ~3 to ~26 ohm by cycle 150 then ~24-28 (large error bars); Rfilm ~2-3 and Re ~0.5 ohm flat
+  key: Together, F5e (ICP-OES) and F5d (EIS) show that dissolved-metal concentration and charge-transfer resistance both rise with cycling and both plateau around cycle 150 (V to ~3.7 mg/L, Fe to only ~1.1 mg/L; Rct to ~26 ohm, then ~24-28 ohm with large error bars), while Rfilm (~2-3 ohm) and Re (~0.5 ohm) stay flat over the same window. The pairing supports that the same ~150-cycle window marks a transition from active change to a saturated/plateaued state for both the dissolved-ion population and the interfacial charge-transfer resistance, and that whatever is driving Rct growth is distinct from film/ohmic resistance (which do not track cycling).
+  limits: Both quantities are only shown as functions of cycle number; the pairing establishes co-occurrence in timing (both plateau near cycle 150), not a demonstrated mechanistic pathway from ion dissolution to Rct rise.; V rises far more than Fe (~3.7 vs ~1.1 mg/L), but Rct is a single lumped fitted parameter not decomposed by ion source, so the combination cannot attribute the Rct increase specifically to V versus Fe.; Both series could instead be independent downstream consequences of a common upstream degradation process tied to cycling, rather than one causing the other.; Rct's post-150-cycle values carry large error bars, so the 'flattening' on the electrochemical side is less firmly established than the ICP-OES plateau.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o25_o15
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (ECHEM:EIS): Fitted Rct rises ~3 to ~26 ohm by cycle 150 then ~24-28 (large error bars); Rfilm ~2-3 and Re ~0.5 ohm flat
+  B (ECHEM:GCD): w/ HCl capacity drops steeply over the first ~20-50 cycles, then slowly to ~55 mAh/g at 250; CE ~100%
+  key: Together, the two panels show that rising charge-transfer resistance (Rct) and capacity fade both follow an early-rapid-then-saturating pattern over cycling, supporting the claim that impedance growth (Rct) and capacity loss track together as parts of the same degradation process, consistent with a shared cause rather than either curve alone establishing this.
+  limits: Rct rises steeply then plateaus by ~cycle 150 (~24-28 ohm), while capacity keeps slowly declining out to cycle 250 (~55 mAh/g), so the two 'saturation' windows do not align on the same cycle count; Rfilm (~2-3 ohm) and Re (~0.5 ohm) stay flat, meaning only one EIS component (Rct) tracks the capacity trend, not the whole impedance spectrum; EIS gives discrete, large-error-bar snapshots (periodic) while GCD gives continuous cycling data, so the correspondence is a coarse temporal parallel, not a point-by-point relationship; ~100% CE alongside capacity fade does not by itself connect resistance growth to the fade mechanism; other loss processes could contribute in parallel; No direct measurement links Rct increase mechanistically to capacity loss within these two panels; the pairing is temporal co-occurrence
+
+The joined claim, as the chain now asserts it:
+  Together, the two panels show that rising charge-transfer resistance (Rct) and capacity fade both follow an early-rapid-then-saturating pattern over cycling, supporting the claim that impedance growth (Rct) and capacity loss track together as parts of the same degradation process, consistent with a shared cause rather than either curve alone establishing this.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

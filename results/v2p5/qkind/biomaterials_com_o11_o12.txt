@@ -1,0 +1,35 @@
+Question: What does each of these two measurements establish on its own about PRF/service_capability, and what does putting them together add that neither gives alone?
+
+Observation A (INVIVO:tumor_volume): Relative tumor volume of SWNT+Laser drops to ~0.2 and stays <1 for 14 days while the three control groups grow to ~5-8x (p<0.0001)
+Observation B (PHOTO): Irradiated tumor site on the SWNT-injected mouse appears as a flat dark mark; tumors in the other three groups look raised
+
+Proposition: Together, the volumetric time-course (A) and the photographic appearance of the irradiated site (B) show that the reduction in tumor volume seen in the SWNT+Laser group over 14 days corresponds to a visibly flat, dark (ablated) tumor site, whereas the control groups that grew to ~5-8x their starting volume also appear visibly raised (unresolved) in the photo. The photo corroborates that the numeric suppression in A reflects actual physical tumor ablation at the treated site rather than a measurement artifact, and the volume curve shows that this visible flattening is accompanied by a statistically significant (p<0.0001), sustained (14-day) suppression rather than a transient effect.
+
+Limits:
+  [0] The photograph (B) is a qualitative, apparently single-snapshot/representative image per group, not a quantified or statistically powered measurement, so it cannot by itself confirm the p<0.0001 group-level effect reported in A
+  [1] Neither observation establishes the cellular or histological mechanism of ablation (e.g., photothermal cell death vs. other tissue damage)
+  [2] The pairing does not extend the evidence beyond the 14-day window of A or beyond whatever single timepoint the photo in B was taken at
+  [3] The photo gives only a visual/appearance descriptor (flat dark mark vs raised) and cannot substitute for or add a numeric magnitude to the volume data
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

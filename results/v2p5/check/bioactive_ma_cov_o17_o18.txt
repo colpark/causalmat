@@ -1,0 +1,29 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (BIO:ex_vivo_shunt): Occlusion ~58, 63, 10, 7.5 and 3% (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF)
+Observation B (BIO:ex_vivo_shunt): Thrombus weight ~64, 73, 5, 4 and 2 mg across the same surfaces
+
+Proposition: Occlusion (%) and thrombus weight (mg) move together across the same five surfaces: both are high on 316L SS and PPAmF (~58-63% occlusion, ~64-73 mg) and both fall together on the BVLD/NO-PPAmF-family surfaces (~3-10% occlusion, ~2-5 mg), so low occlusion co-occurs with low thrombus mass and high occlusion co-occurs with high thrombus mass on a given surface.
+
+Limits:
+  [0] Only five surface types are compared, so this is a rank/ordering concordance, not a dose-response or continuous relationship
+  [1] Occlusion (a normalized percentage of lumen blocked) and thrombus weight (an absolute cumulative mass in mg) are different kinds of quantities; their parallel ranking does not mean one scales linearly with the other
+  [2] Both measures are simultaneous readouts of the same clot on the same surface, so covariation could arise by construction (a bigger clot is both heavier and more occlusive) rather than one causing the other
+  [3] The pairing does not establish blood-flow retention (~90% for BVLD/NO-PPAmF) or any mechanism for why the treated surfaces resist thrombosis
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

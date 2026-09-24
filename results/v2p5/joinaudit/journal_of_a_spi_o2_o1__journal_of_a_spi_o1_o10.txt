@@ -1,0 +1,42 @@
+The join: journal_of_a_spi_o2_o1  --->  journal_of_a_spi_o1_o10   on claim n4
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o2_o1
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / STR/phase/identity? Say what the combination supports and what it leaves open.
+  A (XRD): YSZ reflections are marked t-ZrO2, Al2O3-YSZ reflections c-ZrO2; no Al2O3 reflection is marked or visible
+  B (XRD): YSZ pattern has a small (012) peak at ~43 deg and split peaks at ~35, 60 and 74 deg; Al2O3-YSZ pattern has neither
+  key: Together, the two XRD observations support that YSZ retains a predominantly tetragonal zirconia structure and Al2O3-YSZ shows a cubic zirconia structure: Observation A's phase labels (t-ZrO2 for YSZ, c-ZrO2 for Al2O3-YSZ) are corroborated by Observation B's diagnostic peak-shape evidence, since the small (012) peak at ~43 deg and the split peaks at ~35, 60 and 74 deg -- present only in the YSZ pattern and absent in the Al2O3-YSZ pattern -- are the specific features that distinguish a lower-symmetry (tetragonal) reflection pattern from a higher-symmetry (cubic) one. B thus supplies the diagnostic detail that explains why A's phase call is made. Both patterns also lack any marked or visible Al2O3 reflection.
+  limits: Does not establish why the two coatings end up with different zirconia phases (no mechanism for tetragonal vs cubic phase stabilization is given by these two observations); Does not quantify the fraction of tetragonal vs cubic phase present in either sample; The absence of an Al2O3 reflection in both patterns does not by itself indicate where the Al went (e.g., amorphous aggregation at grain boundaries) -- neither observation addresses Al distribution, only that no Al2O3 peak appears; Both observations are drawn from the same XRD panel (F1) on the same samples, so they are two levels of description (label vs. peak detail) of one measurement rather than independent lines of evidence
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o1_o10
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / STR/phase/fraction? Say what the combination supports and what it leaves open.
+  A (XRD): YSZ pattern has a small (012) peak at ~43 deg and split peaks at ~35, 60 and 74 deg; Al2O3-YSZ pattern has neither
+  B (XRD): Cycled patterns show a t-ZrO2-marked peak near 43 deg and a split peak near 73-74 deg matching the t-ZrO2 reference sticks
+  key: Observation A establishes the diagnostic XRD markers for tetragonal vs cubic ZrO2: as-sprayed YSZ shows a small (012) peak near 43 deg plus split peaks near 35, 60 and 74 deg, while as-sprayed Al2O3-YSZ shows none of these. Observation B shows that after cycling, the Al2O3-YSZ pattern develops a t-ZrO2-marked peak near 43 deg and a split peak near 73-74 deg matching the t-ZrO2 reference sticks. Put together, the pair supports that Al2O3-YSZ, which lacked the tetragonal markers as-sprayed, acquires them after cycling -- i.e. its ZrO2 phase identity shifts from cubic-like toward tetragonal with thermal cycling, using the YSZ as-sprayed pattern and the t-ZrO2 reference sticks as the identity reference.
+  limits: The comparison identifies which phase markers are present or absent (phase identity) but does not quantify how much of the material converted (phase fraction) -- no peak-area or Rietveld-type fraction data appear in either observation.; Observation A compares two different as-sprayed coatings (YSZ vs Al2O3-YSZ); Observation B compares Al2O3-YSZ before and after cycling. The pair does not include an as-sprayed-vs-cycled YSZ contrast, so it cannot rule out that YSZ's own phase mixture also shifted with cycling.; The two peak positions used (~43 deg and ~73-74 deg) are matched to reference sticks by position only in the text given; this supports identity assignment but not resolution of any residual cubic content coexisting with the new tetragonal peaks.; No intermediate cycle counts are described in A or B, so the pair shows an endpoint contrast (as-sprayed vs cycled) rather than a trajectory.
+
+The joined claim, as the chain now asserts it:
+  Observation A establishes the diagnostic XRD markers for tetragonal vs cubic ZrO2: as-sprayed YSZ shows a small (012) peak near 43 deg plus split peaks near 35, 60 and 74 deg, while as-sprayed Al2O3-YSZ shows none of these. Observation B shows that after cycling, the Al2O3-YSZ pattern develops a t-ZrO2-marked peak near 43 deg and a split peak near 73-74 deg matching the t-ZrO2 reference sticks. Put together, the pair supports that Al2O3-YSZ, which lacked the tetragonal markers as-sprayed, acquires them after cycling -- i.e. its ZrO2 phase identity shifts from cubic-like toward tetragonal with thermal cycling, using the YSZ as-sprayed pattern and the t-ZrO2 reference sticks as the identity reference.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

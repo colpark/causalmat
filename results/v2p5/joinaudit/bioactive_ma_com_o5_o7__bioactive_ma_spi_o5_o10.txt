@@ -1,0 +1,42 @@
+The join: bioactive_ma_com_o5_o7  --->  bioactive_ma_spi_o5_o10   on claim n14
+
+UPSTREAM ITEM
+v2.5 complementary item bioactive_ma_com_o5_o7
+  question: What does each of these two measurements establish on its own about STR/chemistry/composition, and what does putting them together add that neither gives alone?
+  A (FTIR:GATR): BVLD-PPAmF spectrum carries a labelled -COOH stretch (~3400 cm-1) and -C=O band (~1660 cm-1) over the PPAmF spectrum
+  B (QCM:dissipation): QCM-D: BVLD mass rises after BVLD injection to ~0.78 ug/cm2 and settles near 0.71 after PBS rinse; 0.74 +/- 0.05 ug/cm2 annotated
+  key: Together, the FTIR chemical signature (-COOH ~3400 cm-1, -C=O ~1660 cm-1 on BVLD-PPAmF vs PPAmF) and the QCM-D areal mass trace (rise to ~0.78 ug/cm2 after BVLD injection, settling to ~0.71 after PBS rinse, 0.74 +/- 0.05 ug/cm2 annotated) support that BVLD is chemically immobilised on the coating surface and remains at ~0.74 ug/cm2 after PBS rinsing.
+  limits: FTIR alone gives no quantity and no information about whether the material survives rinsing; QCM-D alone quantifies retained areal mass but cannot confirm the retained mass is chemically BVLD rather than nonspecific adsorbate, buffer residue, or hydration/dissipation-associated mass; the pair does not establish the immobilisation mechanism (covalent bonding vs physical adsorption/entrapment); QCM-D mass may include hydrated/coupled water rather than pure dry BVLD mass, a different quantity kind than the FTIR chemical-identity signal
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o5_o10
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
+  A (FTIR:GATR): BVLD-PPAmF spectrum carries a labelled -COOH stretch (~3400 cm-1) and -C=O band (~1660 cm-1) over the PPAmF spectrum
+  B (UVVIS:chromogenic_assay): Thrombin specific activity ~0.65e-3 abs/ng/cm2 on BVLD-PPAmF and BVLD/NO-PPAmF vs ~1.3e-3 on 316L SS, PPAmF and NO-PPAmF (***)
+  key: Together, the two panels support only a broad, qualitative association: co-doping TiO2 with Ce (and Er) both red-shifts/extends the absorption edge past 420 nm relative to undoped TiO2's ~410 nm edge, and separately raises dye degradation at 60 min (and at 20, 40 min) above the ~20% seen for undoped TiO2. This is consistent with visible-light absorption contributing to the improved photocatalytic activity of doped samples as a class, relative to TiO2.
+  limits: The composition singled out as absorbing most in observation A is Ce0.2, but the composition with the highest degradation in observation B is Er0.5Ce0.2 -- a different, co-doped sample -- so the top absorber and the top degrader are not the same material and no direct per-sample correspondence is shown.; Observation A gives no absorbance value tied individually to Ce0.1, Ce0.3, or Er0.5Ce0.2 (the specific compositions ranked in B); it reports only that Co-doped edges extend past 420 nm generally and that Ce0.2 absorbs most.; The two observations are different quantity kinds (an optical property vs a catalytic performance outcome) with no wavelength-resolved action spectrum or quantum-yield measurement linking them mechanistically.; Only a handful of compositions and three time points are available, which is enough to support an ordering among the tested samples but not a dose-response relationship between degree of absorption extension and degradation rate.
+
+The joined claim, as the chain now asserts it:
+  Together, the two panels support only a broad, qualitative association: co-doping TiO2 with Ce (and Er) both red-shifts/extends the absorption edge past 420 nm relative to undoped TiO2's ~410 nm edge, and separately raises dye degradation at 60 min (and at 20, 40 min) above the ~20% seen for undoped TiO2. This is consistent with visible-light absorption contributing to the improved photocatalytic activity of doped samples as a class, relative to TiO2.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

@@ -1,0 +1,42 @@
+The join: bioactive_ma_com_o1_o2  --->  bioactive_ma_spi_o1_o3   on claim n5
+
+UPSTREAM ITEM
+v2.5 complementary item bioactive_ma_com_o1_o2
+  question: What does each of these two measurements establish on its own about STR/chemistry/bonding, and what does putting them together add that neither gives alone?
+  A (FTIR:GATR): PPAm IR bands assigned: N-H stretch 3350/3210, C-H stretch, -N=C=O/-C=N 2245/2180, -C=O/C=N 1645, C-N 1230 cm-1
+  B (SIMS:ToF): Positive ToF-SIMS spectrum shows labelled N-containing ions CH4N (m/z 30), C3H9N (m/z 59) and C4H10N (m/z 72) among CxHy ions
+  key: FTIR (GATR) assigns specific vibrational bands to bond types present in the PPAm film -- N-H (3350/3210 cm-1), aliphatic C-H, -N=C=O/-C=N (2245/2180 cm-1), C=O/C=N (1645 cm-1), C-N (1230 cm-1) -- while ToF-SIMS independently detects N-containing fragment ions (CH4N m/z 30, C3H9N m/z 59, C4H10N m/z 72) among the CxHy ion set at the surface. Put together, the two techniques give converging, independent confirmation that nitrogen is retained as part of the film's molecular structure and is detectable both as vibrational bonding signatures and as surface mass fragments -- a stronger basis for asserting N retention than either technique alone, since FTIR could in principle reflect subsurface/bulk species and SIMS fragment masses alone do not confirm a bonding assignment.
+  limits: ToF-SIMS fragment formulas (CH4N, C3H9N, C4H10N) are mass-only identifications and cannot by themselves specify which functional group (amine N-H vs nitrile/isocyanate vs C=O/C=N) the nitrogen belongs to, so they cannot confirm the specific bond assignments FTIR makes; the FTIR bands attributed to plasma-fragmentation products (-N=C=O/-C=N at 2245/2180 cm-1, C=O/C=N at 1645 cm-1) have no corresponding fragment explicitly identified in the cited SIMS ion list, so the pairing does not show that SIMS detects those specific new groups; neither observation gives a quantity (amount or rate) of any group, so the combination cannot establish how much N-H versus nitrile/isocyanate/C=O is present, only that N-containing species are present in both measurement modalities; GATR-FTIR and ToF-SIMS probe different depths/mechanisms (vibrational absorption vs surface fragment ejection), so agreement on 'N is present' does not establish the two techniques are sampling the identical molecular species
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o1_o3
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/bonding / STR/chemistry/bonding? Say what the combination supports and what it leaves open.
+  A (FTIR:GATR): PPAm IR bands assigned: N-H stretch 3350/3210, C-H stretch, -N=C=O/-C=N 2245/2180, -C=O/C=N 1645, C-N 1230 cm-1
+  B (FTIR:GATR): Starred NO vibration, N=N, N-N and N-O stretch bands appear in NO-PPAm and are absent from the PPAm spectrum
+  key: Observation A establishes the baseline FTIR fingerprint of unmodified PPAm (N-H stretch 3350/3210, aliphatic C-H, isocyanate/nitrile 2245/2180, C=O/C=N 1645, C-N 1230 cm-1), showing PPAm retains amine and nitrogen-containing groups from plasma polymerization. Observation B shows that after NO exposure, new bands (starred NO vibration, N=N, N-N, N-O stretches) appear in NO-PPAm that are absent from the PPAm spectrum. Together these two spectra support that NO exposure produces new nitrogen-oxygen-containing chemical species in the coating, over and above the nitrogen-containing functional groups (amine, nitrile/isocyanate, C=N) already present in the unreacted PPAm baseline -- i.e., NO becomes chemically incorporated into the PPAm film rather than merely physisorbed.
+  limits: The generic labels 'NO vibration,' 'N=N,' 'N-N,' and 'N-O stretch' do not carry the wavenumber specificity needed to fix which nitrogen-oxygen linkage is present; The comparison is a presence/absence spectral difference between two samples (PPAm vs NO-PPAm), not a quantitative measure of how much NO is incorporated or of reaction stoichiometry; Observation A characterizes PPAm alone and Observation B characterizes a PPAm-vs-NO-PPAm difference; neither alone, nor their pairing, includes a control ruling out other N-O-containing byproducts or side reactions
+
+The joined claim, as the chain now asserts it:
+  Observation A establishes the baseline FTIR fingerprint of unmodified PPAm (N-H stretch 3350/3210, aliphatic C-H, isocyanate/nitrile 2245/2180, C=O/C=N 1645, C-N 1230 cm-1), showing PPAm retains amine and nitrogen-containing groups from plasma polymerization. Observation B shows that after NO exposure, new bands (starred NO vibration, N=N, N-N, N-O stretches) appear in NO-PPAm that are absent from the PPAm spectrum. Together these two spectra support that NO exposure produces new nitrogen-oxygen-containing chemical species in the coating, over and above the nitrogen-containing functional groups (amine, nitrile/isocyanate, C=N) already present in the unreacted PPAm baseline -- i.e., NO becomes chemically incorporated into the PPAm film rather than merely physisorbed.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

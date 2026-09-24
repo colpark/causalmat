@@ -1,0 +1,36 @@
+The join: advanced_ene_M1_M2_M4_s2_1  --->  advanced_ene_M1_M2_M4_s2_2   on claim n9
+
+UPSTREAM ITEM
+v5 backbone item advanced_ene_M1_M2_M4_s2_1 -- the measured property value
+  key: Combined with the prior step's finding that Zn-N bonds form at pyridinic-N sites, the DFT results at this step are consistent with, but do not specifically isolate, a thermodynamic driving force for that bond formation: charge transfer to zinc is more negative at N-doped sites (-0.032 to -0.037 e) than at pristine sites (-0.023 to -0.027 e, obs5); the transferred electron density sits in the zinc-substrate gap on N-doped graphene rather than as a detached lobe above pristine graphene (obs6); and computed adsorption energies are negative at top/hollow/bridge sites on N-doped graphene (-0.072/-0.089/-0.077 eV) versus positive on pristine graphene (+0.030/+0.014/+0.029 eV, obs7). Together these show nitrogen doping generically converts zinc adsorption from unfavorable to favorable at all three site geometries, giving an energetic driving force generally consistent with -- though not proof specific to -- the experimentally observed Zn-N bonding and pyridinic-to-graphitic nitrogen shift.
+  limits: The DFT calculations model generic 'N-doped graphene' at top/hollow/bridge sites; they do not specify or isolate a pyridinic-N configuration, so they cannot confirm that the exothermicity is attributable specifically to pyridinic-N sites rather than N-doping in general (including graphitic-N already present); The previous step's evidence is a spectroscopic chemical-state assignment (N 1s peak positions/intensities) while this step's evidence is a computed, static adsorption energy and Bader charge transfer; these are different kinds of quantities that can only be shown qualitatively consistent, not quantitatively cross-validated; obs2 (Raman ~1200 cm-1 feature), obs3 (plating-plateau separation) and obs4 (39 mV vs 43 mV nucleation overpotentials) are electrochemical/structural observations that are not tied into this binding-energy comparison and do not bear on the exothermic-vs-endothermic conclusion; The DFT values are single-point, 0 K computed energies for isolated adsorption geometries, not measurements under the discharge conditions used elsewhere in the evidence
+
+DOWNSTREAM ITEM
+v5 backbone item advanced_ene_M1_M2_M4_s2_2 -- the electrochemical property
+  key: ...and a lower plating overpotential at the highest current density tested (about -0.05 V vs -0.10 V, obs3), with the two hosts' plateaus nearly coinciding at the lowest rate tested rather than diverging at every current density...
+  limits: obs1 (N1s feature collapse/rise) and obs2 (Raman ~1200 cm-1 weakening) only confirm that a chemical/structural change occurs upon zinc deposition on the same sample; they do not themselves measure or demonstrate a change in overpotential, so linking them to obs3/obs4 is associative, not a shown causal step; obs3 gives only two rate points (lowest and highest current density) where the two hosts' plateaus are compared, which supports an ordering (N-doped plates at lower magnitude, e.g. -0.05 V vs -0.10 V at the extreme) but not a continuous rate-dependence relationship; obs5, obs6 and obs7 are DFT-computed quantities (charge transfer in electrons, charge-density maps, adsorption binding energies) evaluated at idealized single sites (top/hollow/bridge) on a static N-doped graphene model, which is a different kind of quantity than the macroscopic, current-density-dependent, experimentally measured overpotentials in obs3/obs4; agreement between the two is suggestive, not a direct causal test; the DFT sites are described only as being on 'N-doped graphene' generically, not specifically identified as the pyridinic-to-graphitic-shifted Zn-N sites established in the previous step, so the mechanistic bridge from previous step to this step's DFT evidence is inferred rather than shown
+
+The joined claim, as the chain now asserts it:
+  ...and a lower plating overpotential at the highest current density tested (about -0.05 V vs -0.10 V, obs3), with the two hosts' plateaus nearly coinciding at the lowest rate tested rather than diverging at every current density...
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

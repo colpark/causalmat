@@ -1,0 +1,35 @@
+Question: Does the upstream evidence account for the downstream observation about STR/phase/lattice / PRP/behavior_class? Say what the combination supports and what it leaves open.
+
+Observation A (RAMAN): nu2 (161->192 cm-1) and nu3 (238->272 cm-1) rise with x; nu5 falls 540->525 while nu6 stays ~613, widening the nu5-nu6 gap
+Observation B (TRANSPORT:dielectric): Diffuseness gamma rises 1.71, 1.94, 1.96, 1.97, 2.00 for x = 0 to 0.08
+
+Proposition: Across the same composition series (x = 0 to 0.08), the Raman signatures of TiO6 octahedral distortion (nu2 161->192 cm-1, nu3 238->272 cm-1 rising; nu5 540->525 falling while nu6 stays ~613, widening the nu5-nu6 gap) and the dielectric diffuseness parameter gamma (1.71 -> 1.94 -> 1.96 -> 1.97 -> 2.00) both trend monotonically in the direction consistent with n10 (octahedral distortion) causing/accompanying n13 (relaxor character): local distortion and macroscopic diffuseness strengthen together as x increases, with gamma approaching the ideal-relaxor value of 2.
+
+Limits:
+  [0] Both trends are indexed to the same composition variable x; the pairing shows co-variation with x, not a direct causal test linking distortion magnitude to dielectric diffuseness through any intermediate mechanism or shared measurement
+  [1] The two observations are different kinds of quantity (local phonon-mode frequency shifts in cm-1 vs. a dimensionless diffuseness exponent from a macroscopic permittivity fit) connected only by the shared x-axis, not by a common probe or model
+  [2] Other composition-driven mechanisms (e.g., cation/site disorder or compositional heterogeneity) could independently produce both the Raman shifts and the rising gamma without octahedral distortion being the mediating cause
+  [3] At higher x the gamma values are closely spaced (1.96, 1.97, 2.00), limiting how well the trend is resolved near the ideal-relaxor limit
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

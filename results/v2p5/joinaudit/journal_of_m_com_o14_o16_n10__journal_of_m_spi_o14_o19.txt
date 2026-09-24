@@ -1,0 +1,42 @@
+The join: journal_of_m_com_o14_o16_n10  --->  journal_of_m_spi_o14_o19   on claim n10
+
+UPSTREAM ITEM
+v2.5 complementary item journal_of_m_com_o14_o16_n10
+  question: What does each of these two measurements establish on its own about STR/microstructure/distribution, and what does putting them together add that neither gives alone?
+  A (SEM:EDS): EDS map: C (blue) and Co (red) signals lie on particle surfaces, densest along edges and on some faces
+  B (TEM:HRTEM): HRTEM of milled C10: CeMg12 (202) 0.258 nm and Y5Mg24 (330) 0.265 nm fringes next to an amorphous band and curved carbon layers (0.386 nm) at the edge
+  key: EDS establishes where C and Co signals sit at the particle scale (concentrated on surfaces, densest along edges and some faces), while HRTEM establishes what is locally present at one such edge region at atomic resolution: crystalline alloy fringes (CeMg12 0.258 nm, Y5Mg24 0.265 nm) sitting next to an amorphous band and curved carbon layers (0.386 nm). Together they corroborate that the C-rich surface signal in the EDS map corresponds to an actual carbon phase (curved carbon layers) located at particle edges next to the alloy grains, i.e. carbon coats/sits on the alloy particle surface.
+  limits: The HRTEM field of view is a single local edge region of one milled C10 particle; it is not shown to be representative of every surface/edge/face location where the EDS map shows C and Co signal; EDS spatial resolution (areal map over the SEM field of view) is far coarser than HRTEM's atomic/lattice-fringe resolution, so pairing them gives only qualitative corroboration of location, not a quantified or statistically representative distribution at the fine scale; The cited HRTEM observation lists only CeMg12 and Y5Mg24 alloy fringes plus amorphous band and carbon layers -- no Co-containing lattice fringe is reported, so the combination does not itself demonstrate that Co is dispersed inside the carbon at atomic scale, only that C and Co signals co-locate at the coarser EDS map scale
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o14_o19
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/distribution / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (SEM:EDS): EDS map: C (blue) and Co (red) signals lie on particle surfaces, densest along edges and on some faces
+  B (PHYS:sieverts): At 360 C, C0's first hydrogenation reaches only ~3.2 wt% in 180 min while cycles 2-3 saturate; C10's first cycle saturates within ~5 min like cycles 2-3
+  key: Together, the EDS map showing carbon (with Co grains) concentrated densest along particle edges and on some faces (Obs A) and the sharply different first-cycle hydrogenation kinetics -- C0 reaching only ~3.2 wt% in 180 min on its first hydrogenation while its cycles 2-3 saturate, versus C10 saturating within ~5 min already on its first cycle (Obs B) -- together support the idea that the surface carbon/Co distribution formed during milling is associated with C10's immediate, single-cycle activation, in contrast to the multi-cycle activation needed when that surface layer is absent (C0).
+  limits: The EDS map is only shown for the carbon-containing (C10) particles; there is no matching surface characterization of C0 confirming it lacks this layer -- the comparison relies on carbon's definitional absence in C0 rather than an independent structural measurement of C0's surface.; Milling that produces the surface C/Co distribution in C10 also differs from C0 in other ways (e.g., milling-induced particle size or strain changes) that are not characterized here and could independently affect activation kinetics, so the two observations do not isolate the surface layer as the sole cause.; Obs A is a static, qualitative spatial map of element location, while Obs B is a kinetic amount-vs-time measurement; no direct measurement links the specific surface features (edge/face density) to the hydrogenation rate mechanism (e.g., no diffusion or catalytic-activity data bridging the two).
+
+The joined claim, as the chain now asserts it:
+  Together, the EDS map showing carbon (with Co grains) concentrated densest along particle edges and on some faces (Obs A) and the sharply different first-cycle hydrogenation kinetics -- C0 reaching only ~3.2 wt% in 180 min on its first hydrogenation while its cycles 2-3 saturate, versus C10 saturating within ~5 min already on its first cycle (Obs B) -- together support the idea that the surface carbon/Co distribution formed during milling is associated with C10's immediate, single-cycle activation, in contrast to the multi-cycle activation needed when that surface layer is absent (C0).
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

@@ -1,0 +1,42 @@
+The join: advanced_fun_spi_o13_o14  --->  advanced_fun_spi_o14_o19   on claim a13
+
+UPSTREAM ITEM
+v2.5 spine_edge item advanced_fun_spi_o13_o14
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (UVVIS): A/L at 808 nm is linear in concentration (R2 = 0.9999) with slope alpha = 6.4 L g-1 cm-1
+  B (THERMAL:IRcamera): IR images: the 6-min spot temperature rises with concentration (200 > 100 > 50 > 25 ug/mL; water stays cold) and, at 200 ug/mL, with power density 0.5 -> 1.5 W
+  key: Taken together, the linear rise of NIR absorbance (A/L) with concentration at 808 nm (alpha = 6.4 L g-1 cm-1, R2 = 0.9999) and the IR-camera finding that the 6-minute spot temperature rises with both concentration (200 > 100 > 50 > 25 ug/mL, water staying cold) and laser power density (0.5 -> 1.5 W at 200 ug/mL) jointly support that the material's absorption at 808 nm underlies its photothermal heating behavior: more absorbing material (higher concentration) and more incident energy (higher power) both produce more heat, consistent with absorption-mediated photothermal conversion rather than the laser simply heating the solvent.
+  limits: A/L is a static, concentration-normalized optical property (an extinction-coefficient slope) measured with no laser irradiation or heat readout, while the IR-camera data are a time-point temperature (at 6 min) taken under irradiation -- the two are not directly commensurable, so the pairing shows qualitative consistency (both track concentration in the same direction) and not a quantitative conversion relationship between absorbed light and heat.; The paper's ~19.4% photothermal conversion efficiency is not derivable from these two observations; that figure requires an additional energy-balance/calorimetric calculation not present in panels F3e, F3c, F3g.; The concentration series (4 points: 25/50/100/200 ug/mL) and the power series (0.5 to 1.5 W at one fixed concentration) are separate, sparse comparisons that establish an ordering/trend in each variable, not a fitted quantitative rate law linking absorption to temperature rise.; The water-stays-cold control rules out the laser heating solvent alone, but the pairing does not rule out non-absorptive contributions to the observed heating (e.g., scattering or convective effects) with certainty.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item advanced_fun_spi_o14_o19
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (THERMAL:IRcamera): IR images: the 6-min spot temperature rises with concentration (200 > 100 > 50 > 25 ug/mL; water stays cold) and, at 200 ug/mL, with power density 0.5 -> 1.5 W
+  B (THERMAL:IRcamera): Tumour temperature rises to ~49 C by 5 min with BNs-BSA vs ~41 C with PBS
+  key: Taken together, the solution-phase photothermal data (Obs A: 6-min spot temperature rising with concentration 25->200 ug/mL and with power density 0.5->1.5 W at 200 ug/mL, ~19.4% conversion efficiency) and the in vivo tumour data (Obs B: BNs-BSA drives tumour temperature to ~49 C by 5 min vs ~41 C for PBS) jointly support that the photothermal conversion capacity documented in solution is the basis for the therapeutic heating seen in the tumour under 808 nm light -- i.e., the concentration/power-responsive heating property established in A is consistent with, and offered as the mechanism behind, the BNs-BSA vs PBS temperature gap in B.
+  limits: Obs A varies concentration and power density in a controlled solution/cuvette setting; Obs B is a single in vivo comparison (BNs-BSA present vs absent as PBS) with no variation of concentration or power density in the tumour, so the dose/power dependence shown in A is not directly verified to hold inside tumour tissue.; The two panels compare different things: A compares graded doses/power of the same material against each other, while B compares a fixed formulation against a vehicle control (PBS) -- not a dose-response series in vivo.; The in vivo temperature difference in B could partly reflect factors not measured in either panel (blood perfusion/heat dissipation, tissue optical absorption, biodistribution or tumour accumulation of the nanomaterial) rather than the photothermal conversion property alone.; The two measurements are taken at slightly different windows (6 min in A vs 5 min in B), so they are not read from matched timepoints.
+
+The joined claim, as the chain now asserts it:
+  Taken together, the solution-phase photothermal data (Obs A: 6-min spot temperature rising with concentration 25->200 ug/mL and with power density 0.5->1.5 W at 200 ug/mL, ~19.4% conversion efficiency) and the in vivo tumour data (Obs B: BNs-BSA drives tumour temperature to ~49 C by 5 min vs ~41 C for PBS) jointly support that the photothermal conversion capacity documented in solution is the basis for the therapeutic heating seen in the tumour under 808 nm light -- i.e., the concentration/power-responsive heating property established in A is consistent with, and offered as the mechanism behind, the BNs-BSA vs PBS temperature gap in B.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

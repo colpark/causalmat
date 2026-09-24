@@ -1,0 +1,29 @@
+Question: Does the upstream evidence account for the downstream observation about STR/microstructure/porosity / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (PHYS:density): HP relative density rises from ~97.5% (0 wt% AlN) to ~100% at 1 and 5 wt% (~99.3% at 3 wt%)
+Observation B (MECH:hardness): HP hardness ~18.0 GPa at 0, ~20.3 GPa at 1 wt% AlN, then ~19.4 and ~19.2 GPa at 3 and 5 wt%
+
+Proposition: Together, the density and hardness series show that the density increase (97.5% at 0 wt% to ~100% at 1 wt%) coincides with the hardness rise from ~18.0 to ~20.3 GPa, but from 1 to 5 wt% relative density stays high (~99.3-100%) while hardness instead falls to ~19.4 and ~19.2 GPa. So the density/porosity mechanism (s2 -causes-> r1) can plausibly account for the initial 0->1 wt% hardness rise, but the pair together shows it cannot account for the hardness decline at 3-5 wt%, since density is not declining over that same range.
+
+Limits:
+  [0] Only 4 composition points (0, 1, 3, 5 wt% AlN) are available, too few to establish a continuous density-hardness relationship, only an ordering at those points
+  [1] Density and hardness move together only over 0->1 wt%; beyond that they decouple (density flat/near-100% while hardness drops), so the pair cannot explain the mechanism behind the 3-5 wt% hardness decline
+  [2] Relative density (%) and hardness (GPa) are different kinds of quantity (a normalized volumetric measure vs. a mechanical/indentation property), so the correlation is associative, not a derivation of one from the other
+  [3] At 0->1 wt%, AlN content and density both change together by construction (adding AlN changes both composition and processing densification), so the evidence cannot separate whether the hardness rise comes from reduced porosity or from an intrinsic AlN reinforcement effect
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

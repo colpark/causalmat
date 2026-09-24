@@ -1,0 +1,42 @@
+The join: advanced_fun_spi_o7_o9  --->  advanced_fun_spi_o9_o12   on claim a10
+
+UPSTREAM ITEM
+v2.5 spine_edge item advanced_fun_spi_o7_o9
+  question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
+  A (XPS): Bismuthene Bi 4f: Bi0 doublet (~156.8/162.1 eV) grown vs the oxide, but the Bi3+ (Bi2O3) doublet still has the larger area
+  B (UVVIS:Tauc): Linear extrapolation of (F(inf)hv)^2 reaches zero at 0.69 eV; data leave the line below ~1.1 eV
+  key: Together, the XPS finding that the surface remains majority Bi3+/Bi2O3 by peak area (Bi0 doublet grown but Bi3+ doublet still larger) and the Tauc-plot finding that the linear region only extrapolates to zero at 0.69 eV after the data deviate from linearity below ~1.1 eV support that the material probed optically is a mixed oxide/Bi0 phase system, and that the reported 0.69 eV value is an extrapolated intercept taken from the linear high-energy portion of a spectrum that is non-linear (sub-gap tailing) below ~1.1 eV -- consistent with, but not proof of, that tailing arising from the oxide-majority composition.
+  limits: Does not establish that the 0.69 eV intercept is the intrinsic band gap of pure/single-phase bismuthene rather than a value influenced by the coexisting, larger-area Bi2O3 phase seen by XPS; Does not quantify any relationship between the Bi3+:Bi0 area ratio and the size or shape of the sub-linear region below 1.1 eV -- no dose-response or magnitude link is given, only two separate snapshots; Compares a compositional ratio (dimensionless XPS peak-area ratio) against an optical energy value (eV band-gap intercept) -- different kinds of quantity, so no mechanistic pathway from 'how much oxide' to 'how much gap shift' is shown; Both measurements come from the same sample/state, so composition and optical response move together by construction rather than being independently varied to test a causal claim
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item advanced_fun_spi_o9_o12
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+  A (UVVIS:Tauc): Linear extrapolation of (F(inf)hv)^2 reaches zero at 0.69 eV; data leave the line below ~1.1 eV
+  B (UVVIS): Relative DPBF absorbance falls to ~0.73 in 30 min with bismuthene vs ~0.93 in water
+  key: Taken together, the Tauc-plot band gap of ~0.69 eV (Observation A) shows bismuthene's absorption edge lies well below the ~1.88 eV photon energy of the 660 nm excitation used in the assay, so it is electronically capable of absorbing that light; the faster DPBF absorbance decay with bismuthene (~0.73 at 30 min) versus water alone (~0.93 at 30 min) (Observation B) shows a light-associated loss of DPBF signal specific to the bismuthene sample. Combined, this is consistent with bismuthene's narrow-band-gap semiconducting character being compatible with photo-driven singlet-oxygen generation under the applied illumination.
+  limits: The Tauc extrapolation alone gives only an inferred band-gap value (with data deviating from linearity below ~1.1 eV) and carries no measurement of photocatalytic or singlet-oxygen activity; The DPBF comparison alone shows a bismuthene-vs-water difference in relative absorbance but does not by itself identify the ~0.69 eV gap as the property responsible for it; No wavelength-dependent action spectrum or dose-response data link the specific 0.69 eV value to the magnitude or rate of DPBF decay; The DPBF comparison is only two conditions at a single 30-min timepoint, too sparse to establish a quantitative relationship between band gap and singlet-oxygen yield, only an ordering (bismuthene lower than water)
+
+The joined claim, as the chain now asserts it:
+  Taken together, the Tauc-plot band gap of ~0.69 eV (Observation A) shows bismuthene's absorption edge lies well below the ~1.88 eV photon energy of the 660 nm excitation used in the assay, so it is electronically capable of absorbing that light; the faster DPBF absorbance decay with bismuthene (~0.73 at 30 min) versus water alone (~0.93 at 30 min) (Observation B) shows a light-associated loss of DPBF signal specific to the bismuthene sample. Combined, this is consistent with bismuthene's narrow-band-gap semiconducting character being compatible with photo-driven singlet-oxygen generation under the applied illumination.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

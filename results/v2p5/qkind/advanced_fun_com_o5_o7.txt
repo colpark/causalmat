@@ -1,0 +1,36 @@
+Question: What does each of these two measurements establish on its own about STR/phase/fraction, and what does putting them together add that neither gives alone?
+
+Observation A (XRD:insitu): Every trace steps down near 150 K; for PC (004) the two branches coexist over a shaded band from ~150 to ~175 K
+Observation B (PL): Between 138 and 150 K the ~785 nm band grows against the ~745 nm band, earliest and strongest under the 325 nm laser, latest under 633 nm
+
+Proposition: Taken together, the XRD result (all traces step down near 150 K, with the PC (004) reflection showing the two structural branches coexisting over a band from ~150 to ~175 K) and the PL result (the ~785 nm band grows against the ~745 nm band between 138 and 150 K, earliest/strongest under the 325 nm laser and latest under 633 nm) support a depth-dependent reading of the same transition: since 325 nm and 633 nm probe different penetration depths, PL's ordering (shallow-probe signal first, deep-probe signal last) supplies a spatial/depth ordering that XRD alone cannot give, while XRD's coexistence band supplies bulk-averaged evidence that the two structural phases genuinely coexist rather than switching instantaneously. Combined, this is consistent with the transformation appearing near the domain surface before it appears deeper in the domain.
+
+Limits:
+  [0] The two observation windows do not overlap (PL: 138-150 K; XRD coexistence band: 150-175 K), so the pairing only yields a qualitative/ordinal linkage -- surface-sensitive signal precedes the bulk-averaged coexistence window -- not a merged quantitative transition profile
+  [1] The 'surface vs. deep' reading rests on treating 325 nm vs 633 nm laser penetration as a depth proxy; neither observation directly measures depth or a spatial gradient
+  [2] Neither observation reports a phase fraction: XRD shows two coexisting diffraction branches without stated fractions, and PL shows a band-intensity ratio change without a stated fraction conversion
+  [3] Nothing in either observation gives a completion timescale (e.g., how narrow the finishing window is) -- that is not present in either observation as stated
+  [4] The pairing does not distinguish a single continuous surface-to-core front from multiple independent, depth-graded transformation events
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

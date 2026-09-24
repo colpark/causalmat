@@ -1,0 +1,42 @@
+The join: journal_of_m_spi_o4_o6_n9-n10  --->  journal_of_m_spi_o6_o11   on claim n10
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o4_o6_n9-n10
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/descriptor? Say what the combination supports and what it leaves open.
+  A (ATOM:DFT): With Se (panel d vs c), conduction-band minima at M, K and L drop from ~0.15 eV above E_F to E_F; Gamma CB stays ~0.35-0.4 eV up
+  B (TRANSPORT:Hall): n_H rises from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 at 300 K for x=0.005-0.04
+  key: Together, the DFT band-structure calculation and the Hall measurement support a mechanistic account: Se substitution donates electrons that raise E_F until the M, K and L conduction-band minima (initially ~0.15 eV above E_F) reach E_F while the Gamma minimum stays ~0.35-0.4 eV higher, and this band-edge alignment is consistent with the measured rise in Hall carrier concentration from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 (x=0.005-0.04) at 300 K -- i.e., Se acts as an n-type donor whose effect on the electronic structure plausibly underlies the observed increase in carrier density with x.
+  limits: The DFT comparison (F2c vs F2d) appears to be a two-state snapshot (undoped vs one Se-doped case), while the Hall data (F4a) span five x values (0, 0.005, 0.01, 0.02, 0.04); the pairing cannot establish a quantitative, point-by-point correspondence between band-edge position and n_H across the full doping series, only a qualitative directional match.; DFT gives a 0 K electronic-structure energy level (eV relative to E_F); Hall gives a 300 K measured carrier density (cm^-3); the two are different kinds of quantity connected only through band theory, not through a shared measurement or a direct calculation of n_H from the DFT bands.; The combination does not rule out other contributions to the Hall-measured carrier density (e.g., temperature-dependent scattering or additional defect states) beyond the M/K/L band-edge alignment shown in the DFT panels.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o6_o11
+  question: Does the upstream evidence account for the downstream observation about PRP/descriptor / PRP/value? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:Hall): n_H rises from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 at 300 K for x=0.005-0.04
+  B (TRANSPORT:Seebeck): S at 300 K: ~-350 (x=0), -241 (0.005), -189 (0.01), ~-183 (0.02), ~-173 uV/K (0.04)
+  key: Across the same x series (x=0, 0.005, 0.01, 0.02, 0.04) at 300 K, the Hall carrier concentration rise (~0.5e19 to 1.7-3.3e19 cm-3) tracks together with the Seebeck magnitude fall (~350 to ~175-240 uV/K): as x increases n_H goes up and |S| goes down, so the two panels together support an inverse (anti-correlated) trend between carrier concentration and Seebeck magnitude over this doping series.
+  limits: Both quantities are indexed by the same doping parameter x, so n_H and x (and hence any other x-driven change) move together by construction -- the pairing shows n_H and S co-vary with x, not that n_H is the sole or direct driver of the S decrease; Only 5 x-points are given; this supports a monotonic ordering/trend, not a fitted quantitative (e.g. Pisarenko-type) relationship between n_H and S; Both series are reported only at 300 K, so no temperature dependence of the n_H-S relationship is established; No mobility, effective-mass, or band-structure data are given here to rule out other x-driven mechanisms contributing to the S drop
+
+The joined claim, as the chain now asserts it:
+  Across the same x series (x=0, 0.005, 0.01, 0.02, 0.04) at 300 K, the Hall carrier concentration rise (~0.5e19 to 1.7-3.3e19 cm-3) tracks together with the Seebeck magnitude fall (~350 to ~175-240 uV/K): as x increases n_H goes up and |S| goes down, so the two panels together support an inverse (anti-correlated) trend between carrier concentration and Seebeck magnitude over this doping series.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

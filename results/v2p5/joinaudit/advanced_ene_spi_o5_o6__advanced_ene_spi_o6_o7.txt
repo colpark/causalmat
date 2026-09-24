@@ -1,0 +1,42 @@
+The join: advanced_ene_spi_o5_o6  --->  advanced_ene_spi_o6_o7   on claim r1
+
+UPSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o5_o6
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/value? Say what the combination supports and what it leaves open.
+  A (TEM:HRTEM): HRTEM (w/ HCl): crystalline patches (red arrows) coexist with amorphous-like regions (white arrows)
+  B (ECHEM:GCD): Discharge capacity ranks w/ HCl > w/o HCl > simple mixing at every cycle (initial ~91, ~81, ~61 mAh/g)
+  key: Together, the two observations are consistent with the paper's explanatory claim: the HRTEM image shows that even the highest-capacity sample (w/ HCl, initial ~91 mAh/g) still contains amorphous-like regions coexisting with crystalline patches rather than being fully crystalline, and the capacity ranking (w/ HCl > w/o HCl > simple mixing, ~91 > ~81 > ~61 mAh/g at every cycle) shows a monotonic ordering across synthesis routes. This co-occurrence is compatible with residual amorphous content acting as an interfacial resistance that limits capacity, i.e., that greater crystallinity associates with higher discharge capacity.
+  limits: Observation A (HRTEM) is reported only for the w/ HCl sample; no HRTEM/crystallinity comparison for the w/o HCl or simple-mixing samples is included in the cited panels, so the assumed amorphous-content ordering across the three synthesis routes that would track the capacity ranking is not directly shown; The mechanism itself (amorphous region as film resistance hindering electrochemical process) is asserted, not measured here -- no impedance, resistance, or quantitative crystallinity-fraction data accompany the capacity data in these panels, so the link is a plausible co-occurrence rather than a demonstrated causal pathway; Observation A is a qualitative morphological classification (presence of crystalline vs amorphous patches in one sample) while Observation B is a quantitative, multi-sample, per-cycle capacity series; the two are different kinds of measurement and cannot support a dose-response or magnitude relationship between amorphous fraction and capacity
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o6_o7
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (ECHEM:GCD): Discharge capacity ranks w/ HCl > w/o HCl > simple mixing at every cycle (initial ~91, ~81, ~61 mAh/g)
+  B (ECHEM:GCD): First discharge capacity of the w/ HCl cathode ~91 mAh/g
+  key: Observation B (first discharge capacity of the w/HCl cathode is ~91 mAh/g) is not independent evidence added to Observation A; it is the same leading data point already reported as the initial value of the w/HCl curve in Observation A's ranking (w/HCl > w/o HCl > simple mixing at every cycle, initial ~91/~81/~61 mAh/g). Both come from the same panel (F2a, F2a). So the pair together only confirms, at higher precision, what A alone already states: the w/HCl route gives the highest initial capacity (~91 mAh/g) and stays highest across cycling.
+  limits: B adds no independent confirmation because it is numerically and observationally subsumed within A (same panel, same first-cycle value for the same sample) -- the two are not separable evidence streams; The ranking across the three synthesis conditions is associative: HCl treatment could alter multiple structural properties at once (crystallinity, defect density, particle morphology, phase purity), so the capacity ordering does not by itself isolate crystallinity as the mechanism; Only three discrete synthesis conditions are compared, which supports an ordering, not a continuous or dose-dependent relationship between degree of crystallinity and capacity; Neither observation compares this material to the earlier aqueous PBAs (50-65 mAh/g) benchmark; that external comparison is not supported by these two panels
+
+The joined claim, as the chain now asserts it:
+  Observation B (first discharge capacity of the w/HCl cathode is ~91 mAh/g) is not independent evidence added to Observation A; it is the same leading data point already reported as the initial value of the w/HCl curve in Observation A's ranking (w/HCl > w/o HCl > simple mixing at every cycle, initial ~91/~81/~61 mAh/g). Both come from the same panel (F2a, F2a). So the pair together only confirms, at higher precision, what A alone already states: the w/HCl route gives the highest initial capacity (~91 mAh/g) and stays highest across cycling.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

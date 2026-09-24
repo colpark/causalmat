@@ -1,0 +1,30 @@
+Both routes conclude about claim n13 in Advanced_Functional_Materials__10.1002_adfm.202008088
+
+ROUTE A
+v5 backbone item advanced_fun_M1_M2_s2 -- Rank the three samples by emission complexity below 150 K, and compare that ranking with the domain sizes from step 1.
+  key: The orderings correspond inversely across the same three samples: ~0.1 um PC shows two bands plus an IR tail, 1e2-1e3 um SC shows one band, HOC lies between on both axes.
+  limits: Three samples made by three different growth routes, so domain size is confounded with synthesis route.; Emission complexity is an ordinal count, not a continuous measure, so "inversely ranks" is the strongest form available -- no slope can be fitted.; Domain size (a spatial length scale in um) and emission complexity (the number/character of PL bands, e.g. 'two bands plus an IR tail' vs 'one band') are quantities of different kinds; the observations give no same-kind numeric measure of spectral complexity (e.g., bandwidth or peak spacing in energy/wavelength units) that could be substituted. The correspondence between the size ranking and the band-count ranking should be stated as a qualitative co-variation across the three samples, not as a validated inverse relationship between commensurate quantities.
+
+ROUTE B
+v2.5 spine_edge item advanced_fun_spi_o5_o9
+  question: Does the upstream evidence account for the downstream observation about STR/phase/fraction / PRP/value? Say what the combination supports and what it leaves open.
+  A (XRD:insitu): Every trace steps down near 150 K; for PC (004) the two branches coexist over a shaded band from ~150 to ~175 K
+  B (PL): As grown: PC shows two emission branches plus an IR tail below 150 K and across 50-370 uW at 80 K; HOC is intermediate; SC shows one band
+  key: Taken together, the in-situ XRD showing a ~150-175 K band where two (004) branches coexist for PC, and the as-grown PL showing PC with two emission branches plus an IR tail below 150 K (with HOC intermediate and SC a single band), support that the double emission feature in PC tracks the presence of two coexisting structural fractions near the transition, and that the PL ranking PC>HOC>SC parallels a corresponding decrease in structural phase coexistence/domain complexity across the three samples.
+  limits: The XRD coexistence band (~150-175K) is reported explicitly only for PC's (004) reflection; the paper does not give the same in-situ XRD coexistence-band data for HOC or SC in these panels, so the PL ranking across all three samples is not independently confirmed by matched XRD windows for each sample; The temperature ranges do not align exactly: the XRD two-branch coexistence is placed at ~150-175K while the PL dual-branch/IR-tail is described as occurring below 150K, so the two windows are adjacent/overlapping rather than identical; The PL evidence also spans a power series (50-370 uW at fixed 80K), a different kind of variable (excitation intensity) than the XRD temperature sweep, and this power dependence is not linked to any XRD quantity; The link asserts a causal direction (structural coexistence causes optical splitting) but the two panels only show temporal/sample-level co-occurrence, not a demonstrated mechanism connecting a specific fraction value to a specific PL feature
+
+Two routes, with disjoint evidence, reach the same conclusion.
+
+Say, for EACH route separately, whether its evidence warrants the conclusion on its own. Then say
+whether the two routes agree -- not merely whether both point the same way, but whether what each
+establishes is consistent with what the other establishes, including their limits.
+
+Two routes that both only weakly support a conclusion do not add up to strong support. Say so if
+that is the case.
+
+Reply as JSON only:
+{"route_a": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "route_b": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "agree": "yes|partly|no", "why_agree": "...",
+ "combined_strength": "descriptive|associative|conditional mechanism|discriminating",
+ "caution": "what a reader should not conclude from having two routes"}

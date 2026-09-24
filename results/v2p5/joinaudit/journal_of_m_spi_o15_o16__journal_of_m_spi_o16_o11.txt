@@ -1,0 +1,42 @@
+The join: journal_of_m_spi_o15_o16  --->  journal_of_m_spi_o16_o11   on claim n10
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o15_o16
+  question: Does the upstream evidence account for the downstream observation about STR/defect/extended / STR/defect/extended? Say what the combination supports and what it leaves open.
+  A (TEM): Dense dislocation band labelled as pile-up along a lamella boundary
+  B (TEM): Dislocation content rises from unresolved mottled contrast (F3a) to tangled lines (F4a) to dense walls (F5a)
+  key: Across the Se-doped series, low lattice-plus-bipolar thermal conductivity (kappa_L+kappa_b ~0.69 W/mK at 300 K for x=0.01, falling to ~0.60 at 400-450 K, then rising above ~475 K for all doped samples) co-occurs with elevated room-temperature ZT in the doped series (0.84 for x=0.005, 0.78 for x=0.01, 0.63-0.69 for x=0.02-0.04), approaching but not surpassing the n-Bi2Te3 reference (~0.88). Together the two panels support a general association: suppressed thermal transport accompanies enhanced figure of merit across the doped composition series.
+  limits: kappa_L+kappa_b is reported only for x=0.01, while the highest ZT (~0.84) occurs at x=0.005; the pairing cannot establish that low kappa_L specifically at x=0.005 produced that peak ZT because no kappa value is given for that composition -- a composition mismatch between the two panels; the temperature windows differ: kappa_L+kappa_b spans 300-450 K (with rise above ~475 K), while the ZT values compared are all at 300 K only, so the combination cannot show how any kappa_L-ZT relationship behaves outside room temperature; ZT is a composite figure of merit that depends on additional transport parameters not given in these two observations, so the co-occurring trend does not isolate lattice thermal conductivity as the sole or dominant contributor to the ZT differences across x
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o16_o11
+  question: Does the upstream evidence account for the downstream observation about STR/defect/extended / STR/microstructure/damage? Say what the combination supports and what it leaves open.
+  A (TEM): Dislocation content rises from unresolved mottled contrast (F3a) to tangled lines (F4a) to dense walls (F5a)
+  B (SEM): High-magnification fracture: arrowed small holes and boxed microcracks at lamella ends and edges
+  key: Putting the TEM dislocation-content progression (F3a to F4a to F5a: unresolved mottled contrast, then tangled dislocation lines, then dense dislocation walls) together with the SEM fracture-surface observation of small holes and microcracks at lamella ends and edges (F2d) is consistent with dislocation accumulation at phase/lamella boundaries co-occurring with the locations where damage (voids, microcracks) appears.
+  limits: The TEM series (F3a, F4a, F5a) and the SEM fracture image (F2d) are not spatially co-registered - the dislocation-content images do not show the same fracture-surface sites where the holes and microcracks in F2d were found; The pairing shows a progression in dislocation structure and a separate observation of damage location, not a direct link between a specific dislocation density and a specific crack/void site; Cannot establish that dislocation wall buildup specifically drives crack/void nucleation as opposed to the lamella end/edge (phase boundary) geometry itself being the nucleation site
+
+The joined claim, as the chain now asserts it:
+  Putting the TEM dislocation-content progression (F3a to F4a to F5a: unresolved mottled contrast, then tangled dislocation lines, then dense dislocation walls) together with the SEM fracture-surface observation of small holes and microcracks at lamella ends and edges (F2d) is consistent with dislocation accumulation at phase/lamella boundaries co-occurring with the locations where damage (voids, microcracks) appears.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

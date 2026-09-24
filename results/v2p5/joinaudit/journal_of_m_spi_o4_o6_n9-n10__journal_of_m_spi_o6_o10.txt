@@ -1,0 +1,42 @@
+The join: journal_of_m_spi_o4_o6_n9-n10  --->  journal_of_m_spi_o6_o10   on claim n10
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o4_o6_n9-n10
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/descriptor? Say what the combination supports and what it leaves open.
+  A (ATOM:DFT): With Se (panel d vs c), conduction-band minima at M, K and L drop from ~0.15 eV above E_F to E_F; Gamma CB stays ~0.35-0.4 eV up
+  B (TRANSPORT:Hall): n_H rises from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 at 300 K for x=0.005-0.04
+  key: Together, the DFT band-structure calculation and the Hall measurement support a mechanistic account: Se substitution donates electrons that raise E_F until the M, K and L conduction-band minima (initially ~0.15 eV above E_F) reach E_F while the Gamma minimum stays ~0.35-0.4 eV higher, and this band-edge alignment is consistent with the measured rise in Hall carrier concentration from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 (x=0.005-0.04) at 300 K -- i.e., Se acts as an n-type donor whose effect on the electronic structure plausibly underlies the observed increase in carrier density with x.
+  limits: The DFT comparison (F2c vs F2d) appears to be a two-state snapshot (undoped vs one Se-doped case), while the Hall data (F4a) span five x values (0, 0.005, 0.01, 0.02, 0.04); the pairing cannot establish a quantitative, point-by-point correspondence between band-edge position and n_H across the full doping series, only a qualitative directional match.; DFT gives a 0 K electronic-structure energy level (eV relative to E_F); Hall gives a 300 K measured carrier density (cm^-3); the two are different kinds of quantity connected only through band theory, not through a shared measurement or a direct calculation of n_H from the DFT bands.; The combination does not rule out other contributions to the Hall-measured carrier density (e.g., temperature-dependent scattering or additional defect states) beyond the M/K/L band-edge alignment shown in the DFT panels.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o6_o10
+  question: Does the upstream evidence account for the downstream observation about PRP/descriptor / PRP/value? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:Hall): n_H rises from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 at 300 K for x=0.005-0.04
+  B (TRANSPORT:resistivity): rho drops from ~650 (x=0) to ~12-23 micro-ohm m at 300 K; doped rho rises with T, x=0 falls
+  key: Across the Se-doping series, Hall carrier concentration n_H rises monotonically with x (from ~0.5e19 at x=0 up to 1.7-3.3e19 cm-3 for x=0.005-0.04 at 300 K) while resistivity falls sharply over the same series (from ~650 to 12-23 micro-ohm m at 300 K), so the two panels together support an inverse association between carrier concentration and resistivity consistent with doping-induced carrier addition lowering resistivity, and the doped samples' resistivity rising with T (metallic-like) versus x=0 falling with T is consistent with the doped samples being carrier-dominated conductors.
+  limits: rho does not track n_H monotonically across the whole series: the paper notes rho is lowest near x=0.01 even though n_H keeps increasing up to x=0.04, so carrier concentration alone does not account for the resistivity trend at higher x; resistivity depends on both carrier concentration and mobility (rho ~ 1/(n*e*mu)); mobility is not reported in either panel, so the magnitude and non-monotonic shape of the resistivity drop cannot be attributed to carrier concentration alone; only 4-5 doping points are given, too few to establish a quantitative relationship (e.g., a power law) between n_H and rho, only a qualitative co-trend; the T-dependence contrast (doped rho rising with T, x=0 falling) is a separate observation not decomposed into a carrier-concentration versus mobility contribution
+
+The joined claim, as the chain now asserts it:
+  Across the Se-doping series, Hall carrier concentration n_H rises monotonically with x (from ~0.5e19 at x=0 up to 1.7-3.3e19 cm-3 for x=0.005-0.04 at 300 K) while resistivity falls sharply over the same series (from ~650 to 12-23 micro-ohm m at 300 K), so the two panels together support an inverse association between carrier concentration and resistivity consistent with doping-induced carrier addition lowering resistivity, and the doped samples' resistivity rising with T (metallic-like) versus x=0 falling with T is consistent with the doped samples being carrier-dominated conductors.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

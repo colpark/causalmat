@@ -1,0 +1,34 @@
+Question: What does each of these two measurements establish on its own about STR/microstructure/porosity, and what does putting them together add that neither gives alone?
+
+Observation A (PHYS:density): HP relative density rises from ~97.5% (0 wt% AlN) to ~100% at 1 and 5 wt% (~99.3% at 3 wt%)
+Observation B (SEM): Fracture surface is dense, without open pores, with large flat transgranular facets
+
+Proposition: Together, the density measurement and the SEM fracture image corroborate that the HP composites (especially 1 and 5 wt% AlN, reaching ~100% relative density) are genuinely fully dense: the bulk density number is confirmed by direct microstructural inspection showing no open pores and large flat transgranular fracture facets, i.e. the near-100% relative density figure is not an artifact of the measurement method but corresponds to an observably pore-free, well-consolidated microstructure with fracture running through grains rather than around residual porosity.
+
+Limits:
+  [0] Density is a single bulk average over the whole sample and cannot by itself confirm whether residual porosity, if any, is open or closed, or how pores are distributed; SEM supplies only a local, qualitative view of one fracture surface and cannot by itself quantify a density value or compare it across the 0/1/3/5 wt% AlN series
+  [1] SEM as reported gives no wt%-resolved porosity data, so the pair does not establish a quantitative trend linking SEM pore appearance to the specific density values (~97.5%, ~99.3%, ~100%) at each composition, only a qualitative consistency
+  [2] Neither observation establishes the mechanism by which AlN addition raises relative density (e.g., sintering-aid or grain-boundary effect); they only jointly confirm the resulting dense, pore-free state and transgranular fracture mode
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

@@ -1,0 +1,42 @@
+The join: bioactive_ma_spi_o16_o14  --->  bioactive_ma_spi_o14_o15   on claim n19
+
+UPSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o16_o14
+  question: Does the upstream evidence account for the downstream observation about MEC/pathway / PRP/value? Say what the combination supports and what it leaves open.
+  A (SEM): SEM: dense fibrin network with trapped cells on 316L SS and PPAmF; platelets with little fibrin on BVLD-PPAmF; fibrin strands on NO-PPAmF; almost bare BVLD/NO-PPAmF
+  B (BIO:ELISA): Total fibrinogen (~0.10 -> ~0.053-0.06) and gamma-chain (~0.13-0.15 -> ~0.054-0.065) halve on all three functionalised coatings; BVLD/NO is not the lowest
+  key: Together, SEM and ELISA show that all three functionalised surfaces (BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF) present visibly less platelet/fibrin coverage than 316L SS and plain PPAmF, and this qualitative reduction co-occurs with total fibrinogen and gamma-chain levels roughly halving (total ~0.10 to ~0.053-0.06; gamma-chain ~0.13-0.15 to ~0.054-0.065) on the same three coatings. This supports a general link between the functionalised coatings and reduced fibrin/fibrinogen deposition consistent with curbed thrombin-mediated platelet activation.
+  limits: SEM is a qualitative/visual read (fibrin network density, cell trapping, 'almost bare' appearance) on a small number of imaged fields, not a quantitative count, so it cannot itself confirm the ELISA-measured magnitude or ranking.; ELISA shows the halving is shared by all three coatings including NO-PPAmF, which does not carry BVLD; the pair therefore cannot attribute the fibrinogen/gamma-chain drop specifically to BVLD-driven thrombin inactivation rather than an NO-associated or general PPAmF-functionalisation effect.; SEM's 'almost bare' description of BVLD/NO does not match ELISA's finding that BVLD/NO is not the lowest in fibrinogen or gamma-chain among the three coatings, so the two readouts disagree on fine ordering even though both indicate a reduction relative to controls.; Coating chemistry (PPAmF base layer) is common to all functionalised surfaces, so the two observations do not separate a coating-generic surface effect from a BVLD-specific thrombin-inactivation effect.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item bioactive_ma_spi_o14_o15
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (BIO:ELISA): Total fibrinogen (~0.10 -> ~0.053-0.06) and gamma-chain (~0.13-0.15 -> ~0.054-0.065) halve on all three functionalised coatings; BVLD/NO is not the lowest
+  B (PHOTO:macro): Photographs: 316L SS and PPAmF tubes are filled by dark thrombus; BVLD-PPAmF and NO-PPAmF partly open; BVLD/NO-PPAmF lumen and foil nearly clean
+  key: Together, the ELISA and photographic panels show that fibrinogen/gamma-chain adsorption reduction does not, by itself, track with macroscopic thrombus prevention: all three functionalised coatings (BVLD, NO, BVLD/NO) roughly halve fibrinogen and gamma-chain adsorption with BVLD/NO not being the lowest of the three, yet BVLD/NO-PPAmF is the standout performer macroscopically, with lumen and foil left nearly clean while BVLD-PPAmF and NO-PPAmF are only partly open and bare 316L/PPAmF are filled with dark thrombus. The pairing therefore supports that reduced fibrinogen/gamma-chain adsorption is associated with reduced macroscopic thrombus formation across coatings in general, but the rank mismatch for BVLD/NO shows this molecular-level readout alone does not fully account for which coating performs best macroscopically.
+  limits: ELISA reports a molecular-level adsorption amount (protein signal on the coating) while the photographs give only a qualitative/categorical macroscopic assessment of thrombus occlusion in the tubing -- these are different kinds of evidence that cannot be equated point-for-point.; The fact that BVLD/NO is not the lowest in fibrinogen/gamma-chain reduction but is the best macroscopically means fibrinogen/gamma-chain adsorption level is not sufficient to explain the macroscopic ranking; some additional contribution is needed but is not identified by these two panels.; The macroscopic comparison is descriptive (filled/partly open/nearly clean), not a quantified occlusion or thrombus-mass measurement, limiting how precisely the two readouts can be compared.; Only three functionalised coatings are compared, too few points to establish a dose-response or firm rank-order relationship between adsorption level and macroscopic resistance.
+
+The joined claim, as the chain now asserts it:
+  Together, the ELISA and photographic panels show that fibrinogen/gamma-chain adsorption reduction does not, by itself, track with macroscopic thrombus prevention: all three functionalised coatings (BVLD, NO, BVLD/NO) roughly halve fibrinogen and gamma-chain adsorption with BVLD/NO not being the lowest of the three, yet BVLD/NO-PPAmF is the standout performer macroscopically, with lumen and foil left nearly clean while BVLD-PPAmF and NO-PPAmF are only partly open and bare 316L/PPAmF are filled with dark thrombus. The pairing therefore supports that reduced fibrinogen/gamma-chain adsorption is associated with reduced macroscopic thrombus formation across coatings in general, but the rank mismatch for BVLD/NO shows this molecular-level readout alone does not fully account for which coating performs best macroscopically.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

@@ -1,0 +1,42 @@
+The join: journal_of_m_com_o14_o16_n10  --->  journal_of_m_spi_o14_o20   on claim n10
+
+UPSTREAM ITEM
+v2.5 complementary item journal_of_m_com_o14_o16_n10
+  question: What does each of these two measurements establish on its own about STR/microstructure/distribution, and what does putting them together add that neither gives alone?
+  A (SEM:EDS): EDS map: C (blue) and Co (red) signals lie on particle surfaces, densest along edges and on some faces
+  B (TEM:HRTEM): HRTEM of milled C10: CeMg12 (202) 0.258 nm and Y5Mg24 (330) 0.265 nm fringes next to an amorphous band and curved carbon layers (0.386 nm) at the edge
+  key: EDS establishes where C and Co signals sit at the particle scale (concentrated on surfaces, densest along edges and some faces), while HRTEM establishes what is locally present at one such edge region at atomic resolution: crystalline alloy fringes (CeMg12 0.258 nm, Y5Mg24 0.265 nm) sitting next to an amorphous band and curved carbon layers (0.386 nm). Together they corroborate that the C-rich surface signal in the EDS map corresponds to an actual carbon phase (curved carbon layers) located at particle edges next to the alloy grains, i.e. carbon coats/sits on the alloy particle surface.
+  limits: The HRTEM field of view is a single local edge region of one milled C10 particle; it is not shown to be representative of every surface/edge/face location where the EDS map shows C and Co signal; EDS spatial resolution (areal map over the SEM field of view) is far coarser than HRTEM's atomic/lattice-fringe resolution, so pairing them gives only qualitative corroboration of location, not a quantified or statistically representative distribution at the fine scale; The cited HRTEM observation lists only CeMg12 and Y5Mg24 alloy fringes plus amorphous band and carbon layers -- no Co-containing lattice fringe is reported, so the combination does not itself demonstrate that Co is dispersed inside the carbon at atomic scale, only that C and Co signals co-locate at the coarser EDS map scale
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_m_spi_o14_o20
+  question: Does the upstream evidence account for the downstream observation about STR/microstructure/distribution / PRP/value? Say what the combination supports and what it leaves open.
+  A (SEM:EDS): EDS map: C (blue) and Co (red) signals lie on particle surfaces, densest along edges and on some faces
+  B (PHYS:sieverts): Second (diffusion-controlled) absorption stage lasts 66 min for C0 and 11 min for C10 at 360 C
+  key: Together, the EDS map and the absorption-kinetics measurement support that the surface-localized C@Co distribution found in C10 (carbon coating on the alloy particles with Co grains dispersed in that carbon, densest along edges and on some faces) co-occurs with markedly faster diffusion-controlled hydrogen uptake in C10: the second (diffusion-controlled) absorption stage shrinks from 66 min in C0 to 11 min in C10 at 360 C. This is consistent with the surface C@Co layer shortening the diffusion-controlled stage, i.e. structure and kinetics track each other across the same C0/C10 comparison.
+  limits: Only two samples (C0 vs C10) are compared, a single two-point contrast rather than a graded series, so no dose-response relationship between amount of surface C@Co and stage duration is established; Observation B is a single-temperature (360 C) measurement of one specific stage (diffusion-controlled second-stage duration); by itself it does not show that the surface structure changes the earlier absorption rate or behavior at other temperatures; Observation A is a static, qualitative spatial map (no numeric amount of C or Co), so it cannot be regressed against the numeric 66 min vs 11 min difference; the link is associative co-occurrence, not a demonstrated causal pathway; Both observations come from the same two samples, so the surface-distribution difference and the kinetic difference are confounded with any other change introduced by the same carbon-addition/milling process that is not captured by either observation
+
+The joined claim, as the chain now asserts it:
+  Together, the EDS map and the absorption-kinetics measurement support that the surface-localized C@Co distribution found in C10 (carbon coating on the alloy particles with Co grains dispersed in that carbon, densest along edges and on some faces) co-occurs with markedly faster diffusion-controlled hydrogen uptake in C10: the second (diffusion-controlled) absorption stage shrinks from 66 min in C0 to 11 min in C10 at 360 C. This is consistent with the surface C@Co layer shortening the diffusion-controlled stage, i.e. structure and kinetics track each other across the same C0/C10 comparison.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

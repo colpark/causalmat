@@ -1,0 +1,35 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (EBSD): EBSD orientation maps: lenticular bands take one uniform colour distinct from the matrix, whereas the wavy bands shade continuously with position; in the [01-10] specimen uniformly red {10-12} twins and shade-varying purple kink bands coexist
+Observation B (TEM:SAED): SAED taken at the four marked points A-D across successive kink bands: the c-axis direction differs strongly between neighbouring bands (about 60, 180, 40 and 10 deg from horizontal)
+
+Proposition: The EBSD orientation-map pattern (uniform single colour in lenticular {10-12} twin bands vs. continuously shading colour in the wavy bands, with both types coexisting in the [01-10] specimen) co-occurs with the SAED result that c-axis direction differs strongly and non-monotonically between neighbouring points across a run of wavy (kink) bands (about 60, 180, 40 and 10 deg from horizontal at points A-D). Together the two observations support treating the wavy bands as bands whose internal crystal orientation varies from point to point, in contrast to the twin bands, whose EBSD colour is uniform.
+
+Limits:
+  [0] SAED was sampled at only four points (A-D) along one run of kink bands, not densely enough by itself to distinguish a smoothly continuous rotation from a series of discrete stepped reorientations
+  [1] SAED angles are reported relative to a fixed horizontal reference direction, not as a rotation angle relative to the surrounding matrix, so the two panels are not on a directly calibrated common scale
+  [2] No SAED measurement is reported on the {10-12} twin bands in the same field for direct point-by-point comparison; the twin-vs-kink contrast rests on the EBSD colour uniformity alone, not on a matched SAED reading
+  [3] EBSD colour mapping is a qualitative visualization of orientation, not itself a numeric angle, so the correspondence between 'continuous shading' and the SAED angle spread is established by spatial co-location rather than a direct overlay of the same quantity
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

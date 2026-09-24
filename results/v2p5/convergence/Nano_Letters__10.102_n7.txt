@@ -1,0 +1,30 @@
+Both routes conclude about claim n7 in Nano_Letters__10.1021_acs.nanolett.6b04294
+
+ROUTE A
+v5 backbone item nano_letters_M1_M2_s2 -- how the material performs in service
+  key: Because the same mesoporous PCO host was used in both half-cells, the two ions diverge on like-for-like first-cycle numbers: 1st discharge ~1330 mAh/g for Li against ~865 for Na, and 1st charge ~870 for Li against ~470 for Na. The mesopore structure alone therefore does not secure reversible capacity for both ions. The GCD curves do not identify what is responsible for the Na-side shortfall.
+  limits: GCD capacity-vs-cycle curves (obs1-obs4) record electrochemical outcome only; they contain no structural readout of the cycled electrode, so nothing here shows whether the pores physically changed, clogged, or stayed intact during Na cycling; Li and Na cells differ in more than just the alkali ion -- plateau voltages, electrolyte compatibility, and possibly SEI chemistry differ too -- so the porosity variable is not isolated from these co-varying factors; attributing the divergence to the ion alone versus to ion-electrolyte/SEI interaction is not resolved; the comparison rests on two single cycling series (one per ion), not a controlled sweep of pore size or ion at fixed everything else, so it supports an ordering/contrast (Li stable, Na unstable) but not a quantitative relationship between pore size and capacity retention; the 40-cycle window is short for durability claims and CE is only reported for Li (~96%), not Na, limiting what can be said about Na-side reversibility mechanisms; The 40-cycle comparison cannot be made like with like: at cycle 40 the data report Li CHARGE capacity (~840 mAh/g, obs3) and Na DISCHARGE capacity (~70 mAh/g, obs4), and neither Li discharge nor Na charge is given at that cycle. Only the first cycle supports a same-kind comparison.
+
+ROUTE B
+v2.5 spine_edge item nano_letters_spi_o1_o7
+  question: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (XRD:synchrotron): Rietveld calculation with Co3O4 and CoO phases overlays the HEXRD pattern; difference curve nearly flat
+  B (ECHEM:GCD): Li 1st discharge: long plateau ~1.05 V to ~1330 mAh/g; 1st charge ~870 mAh/g with plateau ~2.0 V
+  key: Taken together, the XRD Rietveld fit (Observation A) identifies the as-prepared PCO material as a two-phase Co3O4+CoO mixture (flat difference curve indicates good fit to this phase model), and the GCD trace (Observation B) shows this same material's 1st discharge exhibits a long plateau near 1.05 V reaching ~1330 mAh/g with a 1st charge plateau near 2.0 V reaching ~870 mAh/g. The pair supports that the electrochemical plateaus observed are consistent with lithiation/delithiation behavior of a Co3O4+CoO phase mixture, i.e., the voltage/capacity signature in Observation B is attributable to the phase identity established in Observation A rather than to some undetermined or single-phase material.
+  limits: The combination does not establish which phase, Co3O4 or CoO, is responsible for which plateau (the ~1.05 V discharge plateau vs the ~2.0 V charge plateau); it only shows that a two-phase mixture as a whole produces this profile.; It does not establish a quantitative causal mechanism linking phase fraction to capacity magnitude -- no phase-fraction-vs-capacity relationship is given, only a single paired observation.; It does not extend to cycling stability or capacity retention; Observation B is limited to the 1st discharge/charge cycle only, not the 40-cycle retention behavior.; It does not rule out contributions from morphology, surface area, or other unreported material features to the observed capacities and plateau shapes.
+
+Two routes, with disjoint evidence, reach the same conclusion.
+
+Say, for EACH route separately, whether its evidence warrants the conclusion on its own. Then say
+whether the two routes agree -- not merely whether both point the same way, but whether what each
+establishes is consistent with what the other establishes, including their limits.
+
+Two routes that both only weakly support a conclusion do not add up to strong support. Say so if
+that is the case.
+
+Reply as JSON only:
+{"route_a": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "route_b": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "agree": "yes|partly|no", "why_agree": "...",
+ "combined_strength": "descriptive|associative|conditional mechanism|discriminating",
+ "caution": "what a reader should not conclude from having two routes"}

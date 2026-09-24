@@ -1,0 +1,29 @@
+Question: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (EDS:spectrum): EDS spectrum shows Ti, O and a dominant C peak, with small Er (~1.4 keV) and Ce (~4.8 keV) peaks
+Observation B (UVVIS): Co-doped absorption edges extend well past 420 nm into the visible vs a sharp TiO2 edge near 410 nm; Ce0.2 absorbs most
+
+Proposition: EDS confirms that the co-doped particles actually contain Er and Ce (small peaks at ~1.4 keV and ~4.8 keV alongside Ti, O, C), and UVVIS shows that these same particles have their absorption edge extended well past 420 nm compared to the sharp ~410 nm edge of TiO2, with the Ce0.2 composition absorbing most. Taken together, the two panels support that the elements detected by EDS are associated with the observed red-shift in optical absorption.
+
+Limits:
+  [0] EDS is a compositional presence check (peak identification at given keV) and does not report oxidation state, so it cannot by itself distinguish Er3+ from a Ce3+/Ce4+ surface mixture
+  [1] The dominant C peak in the EDS spectrum is not addressed by or linked to the UVVIS observation, so its relevance to the optical shift is undetermined
+  [2] UVVIS as described here is a qualitative edge-position comparison (where the edge extends to), not a computed band-gap value, so the pairing does not itself establish the specific band-gap narrowing figures
+  [3] Because Er and Ce are both present together in the same co-doped particles per the EDS spectrum, the UVVIS edge shift cannot be attributed to one dopant over the other from these two panels alone
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

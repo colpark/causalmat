@@ -1,0 +1,42 @@
+The join: journal_of_a_spi_o13_o20  --->  journal_of_a_spi_o20_o22   on claim n13
+
+UPSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o13_o20
+  question: Does the upstream evidence account for the downstream observation about STR/phase/fraction / PRP/value? Say what the combination supports and what it leaves open.
+  A (FTIR): beta content: cast 76.1%, f-P0.00 76.3%, jumps to 81.8% (2 wt%) and 83.2% (4 wt%), then ~81% at 6-10 wt%
+  B (TRANSPORT:piezo_output): Peak voltage rises 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt% PZT
+  key: Overlaying the two series shows that the beta-phase rise (76.1-76.3% at 0 wt% up to a peak 81.8-83.2% at 2-4 wt%) tracks the early part of the voltage rise (7.5, 12.5, 26.5, 32.0 V over 0-4 wt%), consistent with beta-phase enhancement contributing to the initial output gain. But beyond 4 wt% the pairing decouples: beta content eases back to ~81% over 6-10 wt% while voltage keeps climbing to 43.0 and 62.0 V, so the combination only supports a beta-phase-mediated story for the low-loading regime, not for the full 0-10 wt% range.
+  limits: Beta content is non-monotonic (peaks at 4 wt%, then eases), while voltage is monotonic across the whole 0-10 wt% range, so the pair cannot establish beta-phase content as the operative driver at 6-10 wt%; The two quantities are different kinds -- a normalized structural fraction (%) versus an absolute output amount (V) -- so the magnitude of the voltage gain cannot be read off the beta-phase change; PZT wt% is a shared driver of both series by construction (it is varied to produce both the FTIR and the transport data), so the correlation at low loading does not by itself prove a beta-phase causal pathway rather than coincidence; Only 5-6 discrete wt% points on each side, insufficient to fit a shared functional relationship, only to compare trend shapes
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item journal_of_a_spi_o20_o22
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:piezo_output): Peak voltage rises 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt% PZT
+  B (TRANSPORT:piezo_output): Power peaks at 136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film
+  key: Taken together, A and B support a qualitative two-factor picture of the fiber PENG's piezoelectric output: within the fiber architecture, open-circuit peak voltage rises monotonically with PZT content (7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V across 0-10 wt% PZT), and, separately, the fiber-format device delivers far more peak power under a matched external load than a cast-film device (136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film). The pair is consistent with the graph's stated n13-causes->n15 link in the sense that both composition and architecture appear to move piezoelectric output in the same (upward) direction.
+  limits: A only varies PZT content within the fiber architecture; it gives no information on how a cast film's voltage (or power) would scale with PZT content, so the pair cannot show that the fiber's power advantage over the cast film in B is due to composition rather than to fabrication/morphology (e.g., poling or dipole alignment from electrospinning).; A reports open-circuit peak voltage (V, unloaded) while B reports peak power delivered into a specific 10 MOhm load; these are different electrical quantities and cannot be combined into a single dose-response curve for power vs. composition.; B compares only two architectures (fiber vs. cast) at what appears to be a single, fixed composition point, so it supplies an ordering (fiber > cast) rather than a trend across PZT content; only A supplies a multi-point composition series, and only for voltage.; Combining the two observations supports a qualitative statement that both composition and architecture correlate with higher output, not a quantified or mechanistic causal contribution of composition versus architecture to the power gain seen in B.
+
+The joined claim, as the chain now asserts it:
+  Taken together, A and B support a qualitative two-factor picture of the fiber PENG's piezoelectric output: within the fiber architecture, open-circuit peak voltage rises monotonically with PZT content (7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V across 0-10 wt% PZT), and, separately, the fiber-format device delivers far more peak power under a matched external load than a cast-film device (136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film). The pair is consistent with the graph's stated n13-causes->n15 link in the sense that both composition and architecture appear to move piezoelectric output in the same (upward) direction.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}

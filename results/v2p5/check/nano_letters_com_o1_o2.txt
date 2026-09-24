@@ -1,0 +1,28 @@
+Question: What does each of these two measurements establish on its own about STR/microstructure/feature_size, and what does putting them together add that neither gives alone?
+
+Observation A (PHYS:particlesize): DLS: the microfluidic sample is one narrow mode near 300-400 nm, the hydrothermal sample a broader mode near 1000 nm
+Observation B (SEM:imageanalysis): Average SEM core size clusters at ~350-400 nm for the microfluidic batches and ~900-950 nm for the hydrothermal ones
+
+Proposition: DLS (solution-phase, ensemble) and SEM (dry-state, direct imaging) agree on both the magnitude and the ordering: microfluidic particles sit in the ~300-400 nm (DLS) / ~350-400 nm (SEM) range with a narrow/tight distribution, while hydrothermal particles sit near ~1000 nm (DLS) / ~900-950 nm (SEM) with a broader spread. Because two independent measurement modalities converge on the same size scale and the same narrow-vs-broad contrast, the size difference between the two synthesis routes is corroborated rather than being an artifact of a single technique.
+
+Limits:
+  [0] DLS reports an intensity-weighted hydrodynamic diameter from particles in suspension (ensemble average, sensitive to aggregation and larger particles skewing the mode upward), while SEM reports a directly measured dry-state core size from individual imaged particles (subject to which particles happen to be imaged/segmented) -- the two numbers are not identical measurement quantities even though both are length scales, so the pair does not establish an exact absolute size, only that the two methods agree on scale and ordering
+  [1] the values are close but not numerically identical (DLS ~300-400 nm vs SEM ~350-400 nm for microfluidic; DLS ~1000 nm vs SEM ~900-950 nm for hydrothermal), consistent with the known solvation/hydrodynamic offset of DLS versus dry SEM core measurement
+  [2] neither observation nor their combination speaks to why the two synthesis routes differ in size or distribution width -- that mechanism is outside these two panels
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

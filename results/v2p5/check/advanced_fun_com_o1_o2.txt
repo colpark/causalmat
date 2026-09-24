@@ -1,0 +1,29 @@
+Question: What does each of these two measurements establish on its own about STR/microstructure/feature_size, and what does putting them together add that neither gives alone?
+
+Observation A (TEM): Thin semi-transparent square sheets, mostly ~100-200 nm across, scattered on the grid
+Observation B (AFM): AFM height profile across one flake: ~14 nm; flakes ~100-200 nm across
+
+Proposition: TEM alone establishes lateral extent (~100-200 nm) and a thin, sheet-like/semi-transparent morphology across many particles on the grid, but gives no direct thickness value. AFM alone establishes a thickness (~14 nm) from a height profile across one flake and separately reports lateral size (~100-200 nm) consistent with TEM, but as a single-flake measurement it cannot on its own confirm that this lateral extent is representative of the population. Put together, the two observations jointly fix both in-plane dimensions (from TEM's survey of many sheets) and the out-of-plane dimension (from AFM's height profile), yielding a single consistent picture of thin, flat, lamellar sheets roughly 100-200 nm across and about 14 nm thick -- i.e., a high-aspect-ratio nanosheet morphology that neither technique's numbers alone would justify (TEM cannot give thickness; AFM's single profile cannot establish lateral extent across the sample).
+
+Limits:
+  [0] AFM thickness (~14 nm) comes from a height profile across one flake, so it is a single-particle measurement, not a population statistic, and could be affected by tip or substrate artifacts
+  [1] TEM lateral sizes (~100-200 nm) are described only as 'mostly' in that range -- an approximate qualitative range from visual inspection, not a measured size distribution
+  [2] combining the two assumes the flake measured by AFM is representative of the population imaged by TEM; the pair does not itself demonstrate this correspondence, it is inferred from the overlapping size range reported in both
+  [3] neither observation nor their combination addresses count, yield, or the proportion of material in this morphology versus other shapes
+
+You are auditing an answer key against the two observations it was written from.
+
+For the proposition and for EACH limit separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations, and the inference it
+              draws is available from them
+  overreaches states something the observations support only weakly or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you rule against. Where a statement fails, give corrected wording as close to
+the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

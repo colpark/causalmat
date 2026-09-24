@@ -1,0 +1,30 @@
+Both routes conclude about claim s6 in Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023
+
+ROUTE A
+v5 backbone item journal_of_m_M3_M4_s2 -- what the sample is like
+  key: Putting the previous step's low kappa_L+kappa_b values together with the ZT data only weakly suggests that suppressed lattice-plus-bipolar thermal conductivity may be part of what allows the Se-doped samples to sustain appreciable ZT (including the x=0.01 peak of ~1.25 near 500-525 K); it does not establish that this suppression accounts for the observed ZT magnitudes or for how they compare to the n-Bi2Te3 reference (~0.88), since most 300 K ZT values for doped samples are in fact below the reference, the lowest-kappa composition is not the highest-ZT composition, the ZT peak falls outside the kappa data's temperature window, and kappa_e and power factor are not given.
+  limits: ZT = S^2*sigma*T/kappa_total depends on the full thermal conductivity (including an electronic component kappa_e) and on the power factor S^2*sigma, neither of which is given at this step, so the low kappa_L+kappa_b value cannot by itself account for the magnitude or ordering of ZT; The composition with the lowest reported kappa_L+kappa_b (x=0.01, ~0.69 at 300 K) is not the composition with the highest room-temperature ZT (x=0.005, ~0.84); the two best-supported values are for different samples, so no direct within-sample link between the lowest thermal conductivity and the highest ZT is established; The previous step's kappa_L+kappa_b data span only 300-450 K, while the ZT peak of ~1.25 occurs near 500-525 K for x=0.01 -- outside the temperature window covered by the cited thermal-conductivity evidence; Comparison to the n-Bi2Te3 reference ZT (~0.88) is a single-point benchmark, not a systematic composition or temperature series, so it cannot establish a general trend
+
+ROUTE B
+v2.5 spine_edge item journal_of_m_spi_o12_o17
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/figure_of_merit? Say what the combination supports and what it leaves open.
+  A (TRANSPORT:power_factor): PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+  B (TRANSPORT:ZT): x=0.01 ZT peaks at ~1.25 near 500-525 K
+  key: Across the two panels, the same composition (x=0.01) that has the highest power factor over the measured temperature range (~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, versus x=0.005 lowest among doped and x=0 at most ~5) is also the composition showing the peak ZT (~1.25 near 500-525 K). Together this supports that the doping level giving the largest power factor is the same one giving the best overall figure of merit, consistent with power factor being a contributor to ZT.
+  limits: Observation A reports PF values at 300 K and 623 K, not at the ~500-525 K temperature where the ZT peak in Observation B occurs, so the pair shows compositional correspondence (same x=0.01) rather than a value-matched relationship at the peak temperature; ZT depends on more than power factor (thermal conductivity is the other main factor implied by the figure-of-merit definition), and no thermal-conductivity evidence is given here, so the pair cannot show that power factor alone accounts for the location or magnitude of the ZT peak; Only two compositions are characterized in detail (x=0.01 as highest PF, x=0.005 as lowest doped, x=0 near zero) alongside one ZT peak value, which is enough to support an ordering/correspondence claim but not a dose-response or quantitative causal relationship
+
+Two routes, with disjoint evidence, reach the same conclusion.
+
+Say, for EACH route separately, whether its evidence warrants the conclusion on its own. Then say
+whether the two routes agree -- not merely whether both point the same way, but whether what each
+establishes is consistent with what the other establishes, including their limits.
+
+Two routes that both only weakly support a conclusion do not add up to strong support. Say so if
+that is the case.
+
+Reply as JSON only:
+{"route_a": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "route_b": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "agree": "yes|partly|no", "why_agree": "...",
+ "combined_strength": "descriptive|associative|conditional mechanism|discriminating",
+ "caution": "what a reader should not conclude from having two routes"}

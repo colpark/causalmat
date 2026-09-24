@@ -1,0 +1,34 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (BIO:ex_vivo_shunt): Thrombus weight ~64, 73, 5, 4 and 2 mg across the same surfaces
+Observation B (BIO:ex_vivo_shunt): Blood flow retained ~20, 17, 64, 68 and 90% of the initial value across the same surfaces
+
+Proposition: Across the five surfaces, thrombus weight and blood flow retained move inversely: the surfaces with high thrombus weight (~64, ~73 mg) show low flow retained (~20%, ~17%), and the surfaces with low thrombus weight (~5, ~4, ~2 mg) show high flow retained (~64%, ~68%, ~90%). The two series, reported together as the same across-surface comparison, thus co-vary in opposite directions.
+
+Limits:
+  [0] Only five paired surface points; this establishes a consistent ordering/covariation across surfaces, not a quantified dose-response curve or statistical relationship
+  [1] Thrombus weight (A) is an absolute cumulative mass and blood flow retained (B) is a percentage normalized to each surface's own initial flow value -- a different kind of quantity, so the pairing shows co-movement across surfaces, not a common-scale mechanistic link
+  [2] The two panels are both outcome measurements taken on the same shunt runs; they do not by themselves show that thrombus mass mechanically causes flow reduction rather than both being independently set by surface thrombogenicity
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

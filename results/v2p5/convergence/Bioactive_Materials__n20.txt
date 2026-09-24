@@ -1,0 +1,30 @@
+Both routes conclude about claim n20 in Bioactive_Materials__j.bioactmat.2019.12.006
+
+ROUTE A
+v5 backbone item bioactive_ma_M5_M7_s2_2 -- how the material performs in service
+  key: Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting.
+  limits: The shunt evidence is a single-endpoint measurement (adhesion, activation, occlusion, thrombus weight, flow retention all read at one time), not a time course, so it does not directly test whether anti-thrombotic performance tracks the specific 8 h NO-release duration established in step 1 -- the link between release duration and outcome is inferred, not measured together.; BVLD (an anticoagulant) is present in two of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), and co-occurs with NO release only in BVLD/NO-PPAmF, so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone.; The two steps compare quantities of different kinds -- an in vitro time-duration of NO release (hours) versus ex vivo/in vivo endpoint outcome measures (%, mg, cells/mm2) -- so the connection is an association across steps, not a demonstrated dose- or time-response mechanism.
+
+ROUTE B
+v2.5 covariation item bioactive_ma_cov_o17_o18
+  question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+  A (BIO:ex_vivo_shunt): Occlusion ~58, 63, 10, 7.5 and 3% (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF)
+  B (BIO:ex_vivo_shunt): Thrombus weight ~64, 73, 5, 4 and 2 mg across the same surfaces
+  key: Occlusion (%) and thrombus weight (mg) move together across the same five surfaces: both are high on 316L SS and PPAmF (~58-63% occlusion, ~64-73 mg) and both fall together on the BVLD/NO-PPAmF-family surfaces (~3-10% occlusion, ~2-5 mg), so low occlusion co-occurs with low thrombus mass and high occlusion co-occurs with high thrombus mass on a given surface.
+  limits: Only five surface types are compared, so this is a rank/ordering concordance, not a dose-response or continuous relationship; Occlusion (a normalized percentage of lumen blocked) and thrombus weight (an absolute cumulative mass in mg) are different kinds of quantities; their parallel ranking does not mean one scales linearly with the other; Both measures are simultaneous readouts of the same clot on the same surface, so covariation could arise by construction (a bigger clot is both heavier and more occlusive) rather than one causing the other; The pairing does not establish blood-flow retention (~90% for BVLD/NO-PPAmF) or any mechanism for why the treated surfaces resist thrombosis
+
+Two routes, with disjoint evidence, reach the same conclusion.
+
+Say, for EACH route separately, whether its evidence warrants the conclusion on its own. Then say
+whether the two routes agree -- not merely whether both point the same way, but whether what each
+establishes is consistent with what the other establishes, including their limits.
+
+Two routes that both only weakly support a conclusion do not add up to strong support. Say so if
+that is the case.
+
+Reply as JSON only:
+{"route_a": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "route_b": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "agree": "yes|partly|no", "why_agree": "...",
+ "combined_strength": "descriptive|associative|conditional mechanism|discriminating",
+ "caution": "what a reader should not conclude from having two routes"}

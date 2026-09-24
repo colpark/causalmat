@@ -1,0 +1,36 @@
+Question: What does each of these two measurements establish on its own about STR/phase/identity, and what does putting them together add that neither gives alone?
+
+Observation A (XRD): XRD reflections indexed to L12 (incl. weak superlattice peaks near 25 and 35 deg) and B2 (near 31, 44.6 deg)
+Observation B (TEM:SAED): SAED of lamella A indexed FCC [011], lamella B BCC [011], each with circled superlattice spots
+
+Proposition: Together, bulk XRD phase indexing (L12 superlattice peaks near 25/35 deg plus B2 peaks near 31/44.6 deg) and local SAED zone-axis indexing on two separate lamellae (lamella A = FCC [011], lamella B = BCC [011], each with circled superlattice spots) establish that the as-cast alloy's dual ordered-phase signature seen in the ensemble diffraction pattern corresponds to two spatially distinct, real microstructural regions (lamella A and lamella B) that are each individually ordered (superlattice spots present) and crystallographically consistent with the FCC/BCC fundamental lattices matched by XRD. XRD alone gives only an ensemble-averaged phase inventory and cannot show whether the L12 and B2 signals come from spatially separated regions, a single complex structure, or a minority/trace phase. SAED alone shows two lamellae with different crystal systems and each ordered, but from just two local diffraction patterns cannot establish that this is the bulk-representative phase assemblage, nor independently pin the specific ordering type (as opposed to matching indexed FCC/BCC positions against the XRD-established L12/B2 reflections). Combining them ties the bulk phase identification to an observed lamellar morphology, supporting a genuine spatially-resolved dual-phase ordered (L12 + B2) structure rather than a single averaged or artifactual signal.
+
+Limits:
+  [0] Does not establish relative phase fractions or volume ratios of L12 vs B2
+  [1] Does not establish that the two imaged lamellae (A and B) are representative of the whole bulk sample; TEM samples a very small local volume compared to bulk XRD
+  [2] Does not establish compositional partitioning or chemistry of each phase
+  [3] The specific L12/B2 superstructure assignment on the SAED patterns is not fully independent of the XRD result -- SAED zone-axis indexing gives FCC/BCC fundamental symmetry and superlattice-spot presence (ordering exists), but tying that ordering specifically to the L12/B2 designations relies on matching to the XRD-indexed reflections, so the two are not wholly separate confirmations of the ordering type
+  [4] Does not establish the degree of long-range order (order parameter) or thermal/kinetic stability of the phases
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

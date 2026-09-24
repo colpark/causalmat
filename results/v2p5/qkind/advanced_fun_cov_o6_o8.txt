@@ -1,0 +1,35 @@
+Question: Across the series reported here, does the first quantity below move with the second quantity below? Give the comparison and say what it implies.
+
+Observation A (XRD): Bismuthene reflections index to hexagonal Bi (PDF#05-0519) plus one Bi2O3 (321) peak near 33 deg; the oxide indexes to PDF#45-1344
+Observation B (RAMAN): Bismuthene shows only the two low-shift modes (~69, ~95 cm-1) of bulk Bi; the oxide bands at ~120-500 cm-1 are absent
+
+Proposition: Read together, XRD (hexagonal Bi indexed to PDF#05-0519, plus a single weak Bi2O3 (321) reflection near 33 deg matched to PDF#45-1344) and Raman (only the two bulk-Bi low-shift modes at ~69 and ~95 cm-1, with the ~120-500 cm-1 oxide bands absent) jointly indicate that Bi is the overwhelmingly dominant crystalline phase in the sample, with Bi2O3 present, if at all, only as a minor/trace component whose signature XRD can just catch as one line but whose vibrational modes fall below what Raman can resolve.
+
+Limits:
+  [0] The two techniques disagree on whether Bi2O3 is detectable at all (one XRD line vs. zero Raman bands), and nothing in the pair explains that disagreement -- it could reflect a truly trace oxide amount, an oxide phase too disordered/nanoscale for coherent phonon modes, or a Raman cross-section too weak relative to Bi
+  [1] Neither observation is spatial: peak indexing and mode counting establish which phases are present, not how they are arranged, so the pair cannot show that Bi sits as nanoflakes on top of a separate Bi2O3 nanosheet (i.e., they cannot establish the claimed heterojunction architecture)
+  [2] Neither observation carries a size dimension, so the 5-25 nm Bi nanoflake scale cannot be read from XRD phase indexing or Raman mode counting
+  [3] Both are single-sample qualitative presence/absence reads (one pattern, one spectrum), not a series or trend, so no relationship or progression is supported beyond a one-time phase comparison
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

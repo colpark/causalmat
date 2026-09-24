@@ -1,0 +1,36 @@
+Question: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+
+Observation A (ECHEM:polarization): Polarization curves: Mg-Zn-Y-Nd corrosion potential near -1.5 V vs about -0.25 V for 317L SS, its branches 2-3 decades to higher current
+Observation B (PHYS:pH): pH with Mg-Zn-Y-Nd climbs from 7.4 to ~10 by day 22 and plateaus; blank control peaks ~8.4 then falls to ~7.5; 317L SS falls to ~6.1 at day 20
+
+Proposition: The polarization data showing Mg-Zn-Y-Nd's much less noble corrosion potential (near -1.5 V vs ~-0.25 V for 317L SS) and its 2-3 decades higher corrosion current is qualitatively consistent with, and offers a mechanistic rationale for, the pronounced and sustained pH rise (7.4 to ~10 by day 22, then plateau) seen when Mg-Zn-Y-Nd is immersed, in contrast to 317L SS, whose much more corrosion-resistant/noble electrochemical signature is consistent with it not driving pH upward (its pH instead falls, to ~6.1 by day 20).
+
+Limits:
+  [0] Polarization is a single-point/instantaneous electrochemical measurement (a potentiodynamic scan of potential vs current) while pH is tracked as a cumulative time-course over 22 days of immersion; the two cannot be superimposed to derive a quantitative dose-response between corrosion current magnitude and pH rise magnitude or rate.
+  [1] It is not established that the polarization test medium/duration matches the 22-day immersion conditions used for the pH measurement, so a test-condition mismatch cannot be ruled out.
+  [2] The blank control's own pH trajectory (rises to ~8.4, then falls to ~7.5) shows non-metal-driven solution buffering occurs; the combination does not isolate how much of Mg-Zn-Y-Nd's pH rise above the blank, or of 317L SS's pH fall below the blank, is attributable specifically to the corrosion activity measured in F3 versus other solution chemistry.
+  [3] Neither observation directly measures the chemical species (e.g., hydroxide release or Mg corrosion products) that would mechanistically connect corrosion current to pH change; the connection is inferred, not measured.
+  [4] 317L SS's pH decline to ~6.1, which falls below both its own baseline and the blank control, is not explained by the polarization data, which shows only greater corrosion resistance/a nobler potential for SS, not a mechanism producing acidification.
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

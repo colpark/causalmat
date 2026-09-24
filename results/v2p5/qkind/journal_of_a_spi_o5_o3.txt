@@ -1,0 +1,36 @@
+Question: Does the upstream evidence account for the downstream observation about STR/phase/fraction / STR/microstructure/feature_size? Say what the combination supports and what it leaves open.
+
+Observation A (EBSD): EBSD map of the same field has white non-indexed bands along the crack paths, much wider than the SEM cracks, with fine grains beside them
+Observation B (SEM:BSE): Al2O3-YSZ cross-section shows longer, more open cracks and larger pores than the fine short-crack network of YSZ
+
+Proposition: Taken together, the EBSD field (Observation A) shows that non-indexed (poor-crystallinity) material forms wide bands along crack paths with fine grains beside them, i.e. reduced crystallinity co-locates spatially with cracking; the SEM cross-sections (Observation B) show that the coating with lower bulk crystallinity, Al2O3-YSZ, also has a coarser, more open crack network and larger pores than YSZ's fine short-crack network. The pair together supports an association: lower crystallinity co-occurs with larger, more open crack/pore features, both locally (within a field, via non-indexed bands at cracks) and across compositions (Al2O3-YSZ vs YSZ).
+
+Limits:
+  [0] Observation A is a within-field spatial correlation between non-indexed bands and crack paths in what appears to be a single sample/location, not a controlled cross-material comparison, so it does not by itself show that crystallinity differences between coatings produce the different absolute crack sizes seen in B
+  [1] Observation B is a qualitative cross-section comparison of crack length/openness and pore size between the two coatings and does not itself reference crystallinity or phase indexing, so it does not independently tie the size difference to crystallinity
+  [2] Al2O3-YSZ differs from YSZ in composition (feedstock, splat behavior, porosity) at the same time its crystallinity differs, so the pair cannot separate crystallinity/phase fraction as the cause of crack/pore size from other composition-driven effects that change together with it
+  [3] The observations are qualitative (wider/narrower bands, longer/more open cracks, larger pores) with no paired quantitative relationship (e.g., crack size plotted against crystallinity percentage) offered across enough points to support a dose-response link, only an ordering between two coatings
+  [4] Fine grains beside the non-indexed bands in A could reflect localized strain or recrystallization at crack edges rather than direct confirmation of the bulk crystallinity fraction implicated in B
+
+Does this proposition compare quantities of different KINDS?
+
+Be careful about one distinction, because getting it wrong is the common failure here:
+
+  NOT a mismatch: a proposition that RELATES two different quantities -- a yield stress against a
+  particle density, a domain size against a spectral feature count, a release rate against a surface
+  area. Relating two different quantities across the same samples is what a covariation or a
+  mechanism check IS. That is the item working, not an error.
+
+  A mismatch: two quantities SET AGAINST EACH OTHER as if they were the same kind -- a charge
+  capacity against a discharge capacity, a rate against an accumulated amount, a test temperature
+  against a service temperature, a yield stress against a fracture or flow stress, an instantaneous
+  value against a time-averaged one, a value at one cycle against a value at another.
+
+Rule `same_kind` or `mixed`. If mixed, quote both quantities, name each kind, and say whether the
+observations contain a same-kind pair that could be used instead. If they do not, the repair is to
+state the mismatch as a limit, not to substitute numbers that are not there.
+
+Reply as JSON only:
+{"ruling": "same_kind" or "mixed", "quantity_a": "...", "kind_a": "...",
+ "quantity_b": "...", "kind_b": "...", "same_kind_pair_available": true or false,
+ "limit_to_add": "..." or null}

@@ -1,0 +1,42 @@
+The join: advanced_ene_spi_o3_o6  --->  advanced_ene_spi_o6_o7   on claim r1
+
+UPSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o3_o6
+  question: Does the upstream evidence account for the downstream observation about STR/phase/fraction / PRP/value? Say what the combination supports and what it leaves open.
+  A (XRD): XRD: simple-mixing peaks broad with raised background; co-precipitated patterns show narrower, better separated peaks
+  B (ECHEM:GCD): Discharge capacity ranks w/ HCl > w/o HCl > simple mixing at every cycle (initial ~91, ~81, ~61 mAh/g)
+  key: Taken together, the XRD contrast (simple-mixing peaks broad with raised background vs. co-precipitated patterns narrower and better separated) and the GCD ranking (capacity w/ HCl > w/o HCl > simple mixing, ~91 > ~81 > ~61 mAh/g) support a coarse structure-performance correspondence: the least-ordered material (simple mixing) shows both the broadest/most background-raised XRD pattern and the lowest capacity, while the more-ordered co-precipitated material shows sharper XRD peaks and higher capacity.
+  limits: The XRD observation as given only splits samples into two groups -- simple mixing vs co-precipitated -- and does not report distinguishable peak sharpness/background between the w/ HCl and w/o HCl co-precipitated conditions, so it cannot account for the capacity gap between those two (~91 vs ~81 mAh/g); The XRD-capacity correspondence is a cross-method correlation, not a mechanism test: synthesis method (mixing vs co-precipitation, HCl vs no HCl) covaries with crystallinity and with other unmeasured properties (composition, morphology), so the pairing does not establish that structural order is what drives the capacity difference; GCD values cited are for the initial cycle only; the combination does not by itself speak to capacity retention across cycles
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item advanced_ene_spi_o6_o7
+  question: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (ECHEM:GCD): Discharge capacity ranks w/ HCl > w/o HCl > simple mixing at every cycle (initial ~91, ~81, ~61 mAh/g)
+  B (ECHEM:GCD): First discharge capacity of the w/ HCl cathode ~91 mAh/g
+  key: Observation B (first discharge capacity of the w/HCl cathode is ~91 mAh/g) is not independent evidence added to Observation A; it is the same leading data point already reported as the initial value of the w/HCl curve in Observation A's ranking (w/HCl > w/o HCl > simple mixing at every cycle, initial ~91/~81/~61 mAh/g). Both come from the same panel (F2a, F2a). So the pair together only confirms, at higher precision, what A alone already states: the w/HCl route gives the highest initial capacity (~91 mAh/g) and stays highest across cycling.
+  limits: B adds no independent confirmation because it is numerically and observationally subsumed within A (same panel, same first-cycle value for the same sample) -- the two are not separable evidence streams; The ranking across the three synthesis conditions is associative: HCl treatment could alter multiple structural properties at once (crystallinity, defect density, particle morphology, phase purity), so the capacity ordering does not by itself isolate crystallinity as the mechanism; Only three discrete synthesis conditions are compared, which supports an ordering, not a continuous or dose-dependent relationship between degree of crystallinity and capacity; Neither observation compares this material to the earlier aqueous PBAs (50-65 mAh/g) benchmark; that external comparison is not supported by these two panels
+
+The joined claim, as the chain now asserts it:
+  Observation B (first discharge capacity of the w/HCl cathode is ~91 mAh/g) is not independent evidence added to Observation A; it is the same leading data point already reported as the initial value of the w/HCl curve in Observation A's ranking (w/HCl > w/o HCl > simple mixing at every cycle, initial ~91/~81/~61 mAh/g). Both come from the same panel (F2a, F2a). So the pair together only confirms, at higher precision, what A alone already states: the w/HCl route gives the highest initial capacity (~91 mAh/g) and stays highest across cycling.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}
