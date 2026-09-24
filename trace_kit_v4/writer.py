@@ -65,7 +65,11 @@ def step_block(t, s, N, prev):
               f"  {c['proposition']}",
               f"  from step {prev['step'] if prev else '-'}: {c['from_previous']}",
               f"  from this step: {c['from_this']}",
-              "Your reasoning must actually perform that combination, using both sets of numbers."]
+              "Your reasoning must actually perform that combination, using both sets of numbers.",
+              "The `proposition` field itself must carry the combination: it has to quote a quantity "
+              "from the previous step AND a quantity from this step and state what their comparison "
+              "implies. A proposition that restates only this step's finding is wrong, even if the "
+              "combination appears elsewhere in your answer."]
     L.append(f"The claim this step lands on:")
     for c in s['claims']:
         L.append(f"  [{c}] {(N.get(c) or {}).get('label')}")

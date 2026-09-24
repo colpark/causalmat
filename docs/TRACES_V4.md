@@ -107,3 +107,92 @@ would have put the stop rule at 5 of 8 and fired it. Both plainly contained thei
 reply held two JSON objects, so a greedy match spanned both; the other was malformed mid-string. The
 parser now walks balanced objects and, failing that, recovers the decision by regex. A judgement the
 model made should not be lost to a bracket.
+
+
+---
+
+# v4b: the dependency judged on the data
+
+v4 called a step `real` when its question said "taking step 1 as given". That is wording, not
+dependency. Acta step 2 exposed it: the question referred back, but its key is read entirely off
+F8a and F2a and needs nothing from step 1 — while the actual cross-step link sat unused in the data.
+
+**New criterion.** A step is `real` only when a proposition exists that *combines* the previous
+step's output with this step's evidence: a covariation, a mechanism check, or a quantity needing
+both. Wording counts for nothing.
+
+Still 4 of 8 — but that total is a coincidence. **Membership changed on 2 of 8, in opposite
+directions.**
+
+| trace | step | v4 | v4b | |
+|---|---|---|---|---|
+| Acta Materialia | 2 | real | **real** | covariation |
+| Acta Materialia | 3 | none | **real** | quantity needing both — *changed* |
+| Advanced Functional Materials | 2 | real | **real** | covariation |
+| Biomaterials M1→M3→M4 | 2 | real | **real** | mechanism check |
+| Biomaterials M1→M3→M4 | 3 | none | none | restatement |
+| Biomaterials M2→M4 | 2 | real | **none** | *changed* |
+| Nano Letters | 2 | none | none | one material, two cells |
+| Rare Metals | 2 | none | none | restatement |
+
+**Biomaterials M2→M4 step 2 is the false positive the criterion was built to catch.** Its only new
+content is `n16`, the ampicillin antibacterial result — a separate arm of the paper from step 1's
+Co²⁺ release dose. The HIF-1α observation it appears to share with step 1 *is already step 1's
+evidence*. Antibacterial survival does not combine with Co²⁺ dose.
+
+**Acta step 3 is a false negative.** The link is real and quantitative; v4 missed it because the
+question never asked for it.
+
+## The four real steps
+
+**Acta Materialia step 2 — covariation.**
+Nanoplate count 9.8 → 0.3 → 9.0 per µm and thickness 28 → 84 → 14 nm [n9] against yield stress
+167 → 113 → 160 MPa [n12], across the same three heat treatments. Both dip after the 520 °C anneal
+and recover after the further 400 °C anneal, so strength follows plate density rather than the
+anneal itself. *A strong answer must rule out:* that the 520 °C anneal changes strength by some
+route other than plate density — solute redistribution or grain change — since only three points
+are available and the treatments differ in more than one respect.
+
+**Acta Materialia step 3 — a quantity needing both.**
+[0001] fractures at ~355 MPa in compression without yielding [n12]; the same orientation flows in
+tension at ~72 MPa, serrated ~52–80 MPa, to ~45% plastic strain [n18]. A four- to five-fold
+asymmetry that a single slip mechanism cannot produce. *A strong answer must rule out:* that the
+asymmetry comes from a specimen or loading-train artefact rather than a different deformation
+route, and must point at the kink bands in F10b as the positive evidence.
+
+**Advanced Functional Materials step 2 — covariation.**
+Domain size ~0.1 µm (PC), 10–100 µm (HOC), 10²–10³ µm (SC) [n7] against emission complexity: PC
+dual peak plus IR tail, HOC intermediate, SC one band [n13]. The two orderings correspond inversely
+across the same three samples. *A strong answer must rule out:* that PC, HOC and SC differ in
+something else that also scales with the ranking — the three were made by three different growth
+routes, so domain size is confounded with route.
+
+**Biomaterials M1→M3→M4 step 2 — mechanism check, the strongest of the four.**
+Surface area 290 → 180 → 127 m²/g and pore volume 0.30 → 0.19 → 0.15 cm³/g for 0Co/2Co/5Co [n9]
+against Co²⁺ release at 7 days of 0 → 16.9 → 20.8 mg/L [n11]. Release *rises* as texture *falls*,
+so the scaffold with the least mesoporous texture releases the most and a texture-driven mechanism
+predicts the opposite order. *A strong answer must rule out:* nothing can fully separate the two
+here — Co content and texture co-vary by construction, since adding Co both lowers surface area and
+supplies more Co. The comparison rules out texture acting in the direction a texture mechanism
+predicts; it does not establish dose as the cause.
+
+## Did the reasoning perform the combination?
+
+Each `real` step's reasoning was checked for whether it cites quantities from *both* steps and
+states what their comparison implies.
+
+| step | first attempt | |
+|---|---|---|
+| Acta 2 | **passed** | proposition quotes both series and the implication |
+| Acta 3 | **passed** | 355 MPa against ~72 MPa, with the ratio named |
+| Biomaterials M1→M3→M4 2 | **passed** | full mechanism check in the proposition |
+| Advanced Functional Materials 2 | **failed, rewritten once** | the combination was present in `handoff` and `assumption`, but the `proposition` field restated only this step's finding |
+
+**Three of four passed on the first attempt.** The adfm failure was partial rather than absent — the
+reasoning did perform the combination, in the wrong field. The writer instruction now states that
+the `proposition` field itself must carry a quantity from each side; the rewrite passed.
+
+One edit was made by audit rather than by the writer, and is marked as such in the trace. The
+Biomaterials step-2 reasoning named the dose-versus-texture alternative as its *conclusion* but not
+as a residual confound, so a line was appended to its `open` field, sourced `writer inference`,
+recording that Co content and texture co-vary and the comparison cannot fully separate them.

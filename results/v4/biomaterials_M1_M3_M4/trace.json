@@ -90,20 +90,19 @@
    },
    "reference_reasoning": {
     "observations": [
-     "Small-angle XRD (panel F2) shows one low-angle reflection in all three patterns, at 2theta ~1.37 deg for MBG, ~1.47 deg for 2Co and ~1.35 deg for 5Co [obs1]",
-     "TEM (panel F4a) shows parallel channel stripes extending over ~200 nm [obs2]",
-     "TEM (panel F4b) shows a regular pore lattice with a period of ~5-6 nm [obs2]",
+     "Small-angle XRD (panel F2) shows one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co) [obs1]",
+     "TEM (panels F4a, F4b) shows parallel channel stripes over ~200 nm in a and a regular pore lattice in b, with a period of ~5-6 nm [obs2]",
      "N2 isotherms (panel F3a) show a hysteresis step at P/P0 ~0.45-0.6, type IV, in all three samples [obs3]",
-     "N2 uptake at P/P0 ~1 (panel F3a) falls with Co content: ~8.7 mmol/g (0Co), ~5.6 mmol/g (2Co), ~4.35 mmol/g (5Co) [obs4]",
-     "Pore-size distribution (panel F3b) peaks at ~5 nm for 0Co and 2Co (2Co lower in magnitude) and shifts to ~4.2 nm for 5Co [obs5]"
+     "N2 uptake at P/P0 ~1 (panel F3a) falls with Co content: ~8.7 (0Co), ~5.6 (2Co), ~4.35 mmol/g (5Co) [obs4]",
+     "Pore-size distribution (panel F3b) peaks at ~5 nm for 0Co and 2Co (2Co lower) and shifts to ~4.2 nm for 5Co [obs5]"
     ],
-    "proposition": "The single low-angle XRD reflection together with the TEM channel stripes and regular pore lattice show that 2Co- and 5Co-MBG retain an ordered mesoporous channel structure with pores ~4-5 nm [n8], while the type IV hysteresis, the fall in N2 uptake, and the reduced pore-size-distribution peaks show that Co lowers mesoporosity, dropping surface area from 290 to 180 and 127 m2/g and pore volume from 0.30 to 0.19 and 0.15 cm3/g [n9]",
-    "assumption": "The XRD reflection and the TEM fields imaged are taken as representative of the bulk ordered structure, and the N2 sorption-derived surface area, pore volume and pore-size distribution are taken as reliable quantitative measures of mesoporosity across the three compositions [writer inference]",
-    "open": "Whether or how this Co-driven change in mesoporous structure and surface area/pore volume relates to a hypoxia-like pro-angiogenic cue is not addressed by these structural and sorption observations [writer inference]",
-    "handoff": "The next step carries forward that ordered mesoporous channels with ~4-5 nm pores persist with Co doping [n8] and that Co nonetheless lowers mesoporosity, reducing surface area from 290 to 180 and 127 m2/g and pore volume from 0.30 to 0.19 and 0.15 cm3/g [n9]",
+    "proposition": "2Co- and 5Co-MBG keep an ordered mesoporous channel structure with pores ~4-5 nm [n8], while Co addition lowers mesoporosity, dropping surface area from 290 to 180 and 127 m2/g and pore volume from 0.30 to 0.19 and 0.15 cm3/g [n9]",
+    "assumption": "the single low-angle XRD reflection together with the TEM channel/lattice imaging and the type IV hysteresis loop are taken as jointly diagnostic of a retained ordered mesoporous architecture across all three compositions, and the BET-derived surface area, pore volume and pore-size distribution are taken as reliable measures of how that mesoporosity changes with Co content [writer inference]",
+    "open": "whether the reduced surface area, pore volume and pore diameter at higher Co content alter the ordered channel arrangement itself, or leave only pore filling/blocking effects, is not addressed by these observations [writer inference]",
+    "handoff": "an ordered mesoporous channel structure with pores ~4-5 nm persists in 2Co- and 5Co-MBG [n8], but Co doping progressively lowers mesoporosity, reducing surface area from 290 to 180 and 127 m2/g and pore volume from 0.30 to 0.19 and 0.15 cm3/g [n9]",
     "dependency": {
      "needs_previous": false,
-     "why": "This step evaluates phase identity and pore structure directly from the XRD, TEM and N2 sorption observations themselves, without needing any conclusion carried in from a prior step"
+     "why": "this step reads phase and pore-structure evidence (XRD, TEM, N2 physisorption) directly from panels F2, F4a, F4b, F3a, F3b without relying on any prior step's conclusion, so it stands alone as a material-characterization finding"
     }
    },
    "combining": null
@@ -179,10 +178,19 @@
     "chain_strength": "stage+graph"
    },
    "reference_reasoning": {
-    "_recovered_by_regex": true,
+    "observations": [
+     "F5a shows Co2+ in the soak medium rising over 7 days, reaching ~20.8 mg/L for 5Co, ~16.9 mg/L for 2Co, and staying at 0 for 0Co [obs1]",
+     "F9 shows the HIF-1alpha band faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with equal alpha-tubulin loading controls [obs2]",
+     "F11a shows cumulative ampicillin release climbing from ~340 ug at 8 h to ~780 ug at 72 h and then plateauing near ~795 ug by 168 h [obs3]",
+     "F11b shows relative bacterial survival with ampicillin-loaded scaffolds falling to ~105, ~81, ~52% at days 1, 3, 7, below the blank (100%) and drug-free scaffolds (110-118%) [obs4]"
+    ],
+    "proposition": "Ranking the scaffolds by Co2+ release rate gives 5Co fastest and highest (~20.8 mg/L at 7 days), then 2Co (~16.9 mg/L), then 0Co (0 mg/L) [n11]; but step 1 found surface area and pore volume fall in the same order, 290->180->127 m2/g and 0.30->0.19->0.15 cm3/g from 0Co to 2Co to 5Co [n9], so the scaffold with the least mesoporous texture (5Co) is the one that releases most, meaning release rises as texture falls and must instead track Co content [n11]",
+    "assumption": "the inference assumes that if pore volume and surface area were the controlling variable, release would scale with them so that the most mesoporous scaffold (0Co, highest surface area and pore volume) would show the fastest or largest ion release, making a texture-driven mechanism testable against the observed order [writer inference]",
+    "open": "how Co2+ crossing the framework interacts with the residual mesopore channels, and whether HIF-1alpha induction (F9) scales quantitatively with the 2Co versus 5Co release levels rather than just showing a qualitative band difference, is not resolved here [writer inference]. Co content and mesoporous texture are not independent across these three scaffolds: adding Co both lowers surface area and supplies more Co to release, so the two candidate causes co-vary and this comparison cannot fully separate a dose effect from a texture effect -- it only rules out texture acting in the direction a texture-driven mechanism predicts [writer inference]",
+    "handoff": "the released Co2+, set by Co content rather than texture, is carried forward as a hypoxia-mimetic signal raising HIF-1alpha and driving VEGF [n12], while the separate ampicillin release from 2Co-MBG plateauing near 72 h [n15] is linked to the lowered bacterial survival over 7 days [n16]",
     "dependency": {
      "needs_previous": true,
-     "why": "the release rate and antibacterial/HIF findings are read as expressions of the mesoporous pore structure and surface area characterised in step 1, so the mechanism linking phase to release rate cannot be stated without that structural input"
+     "why": "answering whether texture or Co content controls the release rate requires comparing the F5a ion-release order against the surface-area and pore-volume order from step 1; without that prior characterization there is nothing to test the texture hypothesis against"
     }
    },
    "combining": {
@@ -192,7 +200,12 @@
     "from_this": "Co2+ in medium at 7 days: 0 (0Co), ~16.9 (2Co), ~20.8 mg/L (5Co) [n11]",
     "question": "Order the three scaffolds by the rate measured here, and compare that order with the pore structure you characterised in step 1. If the texture were controlling this rate, which scaffold would lead? Say what the comparison implies about the mechanism."
    },
-   "question_v4": "Taking the phase you identified and the pore structure you characterised in step 1 as given, what does the evidence below show about the rate at which it happens and the mechanism connecting the two and how the material performs in service?"
+   "question_v4": "Taking the phase you identified and the pore structure you characterised in step 1 as given, what does the evidence below show about the rate at which it happens and the mechanism connecting the two and how the material performs in service?",
+   "open_appended_by_audit": {
+    "what": "the cobalt-content confound, as a co-variation caveat",
+    "why": "the reasoning named the dose-vs-texture alternative as its conclusion but not the residual confound that the two co-vary across the scaffold series",
+    "source": "writer inference"
+   }
   },
   {
    "step": 3,
@@ -249,16 +262,16 @@
    "restatement": true,
    "reference_reasoning": {
     "observations": [
-     "Panel F9 shows the HIF-1alpha band is faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, while alpha-tubulin loading control bands are equal across groups [obs1].",
-     "Panel F11b shows relative bacterial survival with Scaffolds+Ampicillin declining to ~105%, ~81%, and ~52% at days 1, 3, and 7, compared to ~100% for blank and 110-118% for drug-free scaffolds [obs2]."
+     "Panel F9 shows the HIF-1alpha band faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with equal alpha-tubulin loading bands across samples [obs1]",
+     "Panel F11b shows relative bacterial survival with Scaffolds+Ampicillin at ~105%, ~81%, ~52% on days 1, 3, 7, compared with ~100% for blank and 110-118% for drug-free scaffolds [obs2]"
     ],
-    "proposition": "This confirms that Co2+ release, being higher for 5Co-MBG, produces a correspondingly stronger HIF-1alpha stabilization consistent with a hypoxia-mimetic mechanism driving VEGF [n12], and confirms that ampicillin-loaded 2Co-MBG progressively lowers bacterial survival relative to blank and drug-free scaffolds [n16].",
-    "assumption": "The comparison assumes equal alpha-tubulin loading validates the HIF-1alpha band differences as true protein-level changes rather than loading artifacts, and assumes the declining survival reflects ampicillin's antibacterial action rather than other scaffold properties [writer inference].",
-    "open": "What remains open is whether the stronger HIF-1alpha signal in 5Co-MBG translates into measurably higher VEGF output, and whether the antibacterial effect persists or bacteria recover after day 7 [writer inference].",
-    "handoff": "Handed to the next step is a Co2+-driven hypoxia-mimetic mechanism dose-dependently activating HIF-1alpha and a bactericidal profile of ampicillin-loaded 2Co-MBG that declines bacterial survival over 7 days [n12][n16].",
+    "proposition": "The stepwise rise in HIF-1alpha with 5Co-MBG over MBG and 2Co-MBG confirms that released Co2+ acts as a hypoxia mimic driving HIF-1alpha in BMSCs [n12], and the progressive drop in survival with Scaffolds+Ampicillin versus blank and drug-free scaffolds confirms that ampicillin-loaded 2Co-MBG lowers bacterial survival [n16]",
+    "assumption": "Western blot band intensity under equal tubulin loading is taken to track HIF-1alpha protein level, so the visual staircase from MBG to 2Co-MBG to 5Co-MBG is read as a dose-dependent response to Co2+ release [writer inference]; the day-by-day decline in relative survival is taken to reflect ongoing antibacterial action of the released ampicillin rather than assay drift [writer inference]",
+    "open": "Panel F9 shows HIF-1alpha protein accumulation but not whether VEGF is correspondingly elevated downstream in these same samples [writer inference]; Panel F11b shows survival falling to ~52% by day 7 but does not show whether survival continues to fall or plateaus beyond day 7 [writer inference]",
+    "handoff": "The mechanism that Co2+ raises HIF-1alpha [n12] and the performance finding that ampicillin-loaded 2Co-MBG reduces bacterial survival [n16] are both now evidence-backed and carried forward as established links between scaffold composition, hypoxia signaling, and antibacterial performance",
     "dependency": {
      "needs_previous": true,
-     "why": "Step 2's Co2+ release kinetics and hypothesized HIF-1alpha/VEGF mechanism and ampicillin release performance provide the property, mechanism, and performance baseline that the blot and survival evidence here directly test and extend."
+     "why": "Reading obs1 as confirming dose-dependent hypoxia mimicry requires already knowing from step 2 that 5Co-MBG releases more Co2+ than 2Co-MBG, and reading obs2's day 1/3/7 trend as an antibacterial effect requires already knowing from step 2 that 2Co-MBG releases ampicillin over the first ~72 h before plateauing"
     }
    },
    "combining": null,
@@ -268,26 +281,30 @@
  "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model.",
  "end_to_end": {
   "reasoning": [
-   "Small-angle XRD shows a single low-angle reflection in all three samples (MBG, 2Co-MBG, 5Co-MBG), at 2theta ~1.37, ~1.47 and ~1.35 degrees respectively [obs1].",
-   "TEM images show parallel channel stripes over ~200 nm and a regular pore lattice with a period of ~5-6 nm [obs2].",
-   "N2 adsorption isotherms for all three samples show a type IV hysteresis step at P/P0 ~0.45-0.6, consistent with a mesoporous solid [obs3].",
-   "Together this diffraction, imaging and isotherm evidence establishes that 2Co- and 5Co-MBG keep an ordered mesoporous channel structure with pores of about 4-5 nm [n8].",
-   "N2 uptake at P/P0 ~1 falls with cobalt content, from ~8.7 mmol/g (0Co) to ~5.6 mmol/g (2Co) to ~4.35 mmol/g (5Co) [obs4].",
-   "The pore-size distribution peaks at ~5 nm for 0Co and 2Co (with the 2Co peak lower) and shifts to ~4.2 nm for 5Co [obs5].",
-   "These reductions in gas uptake and pore-size peak, together with surface area falling from 290 to 180 to 127 m2/g and pore volume from 0.30 to 0.19 to 0.15 cm3/g, establish that adding cobalt lowers the mesoporosity of the glass even while the ordered channel architecture from step 1 is retained [n9].",
-   "Taking the retained ordered mesoporous structure and reduced mesoporosity as given, the Co2+ concentration measured in the release medium rises with time for both doped scaffolds, reaching ~8.9/17.9/20.8 mg/L for 5Co and ~4.7/10.5/16.9 mg/L for 2Co at 1/3/7 days, while 0Co stays at 0 [obs1].",
-   "This dose- and time-dependent release establishes that Co2+ release is set by cobalt content, with 5Co-MBG releasing faster and more than 2Co-MBG, both rising over 7 days [n11].",
-   "A western blot shows the HIF-1alpha band faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with equal alpha-tubulin loading controls across lanes [obs2].",
-   "This blot establishes that the released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which in turn drives VEGF [n12].",
-   "Separately, cumulative ampicillin release from 2Co-MBG is measured at ~340 ug at 8 h, ~670 ug at 24 h, ~780 ug at 72 h, and ~795 ug at 168 h where it plateaus [obs3].",
-   "This release curve establishes that 2Co-MBG releases ampicillin over roughly the first 72 hours before the release plateaus [n15].",
-   "Relative bacterial survival with ampicillin-loaded scaffolds falls to about 105%, 81% and 52% at days 1, 3 and 7, compared with the blank scaffold held at 100% and drug-free scaffolds at 110-118% [obs4].",
-   "This survival data establishes that ampicillin-loaded 2Co-MBG lowers bacterial survival relative to both the blank and the drug-free scaffolds [n16].",
-   "Taking the Co2+ release rate, the hypoxia-mimic mechanism and the antibacterial performance from step 2 as given, the same HIF-1alpha blot (faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG, equal alpha-tubulin) is reused to reaffirm that released Co2+ raises HIF-1alpha in BMSCs and drives VEGF [n12].",
-   "The same bacterial-survival series (~105%, ~81%, ~52% at days 1, 3, 7 versus blank at 100% and drug-free scaffolds at 110-118%) is reused to reaffirm that ampicillin-loaded 2Co-MBG lowers bacterial survival versus the blank and drug-free scaffolds [n16].",
-   "No panel in this step supplies a new mechanism directly linking the hypoxia-mimic pathway to the antibacterial pathway; the step restates the two established effects side by side rather than connecting them [writer inference]."
+   "Small-angle XRD shows a single low-angle reflection in all three patterns, at 2theta ~1.37 deg for MBG, ~1.47 deg for 2Co, and ~1.35 deg for 5Co, indicating a periodic mesostructure persists across compositions [obs1].",
+   "TEM confirms this with parallel channel stripes over ~200 nm and a regular pore lattice with period ~5-6 nm [obs2].",
+   "Together these establish that 2Co- and 5Co-MBG keep an ordered mesoporous channel structure with pores of about 4-5 nm [n8].",
+   "N2 isotherms of all three show a type IV hysteresis step at P/P0 ~0.45-0.6, consistent with retained mesoporosity [obs3].",
+   "N2 uptake at P/P0~1 falls with Co content, from ~8.7 mmol/g (0Co) to ~5.6 (2Co) to ~4.35 (5Co) [obs4].",
+   "Pore-size distribution peaks stay near ~5 nm for 0Co and 2Co (2Co lower amplitude) and shift to ~4.2 nm for 5Co [obs5].",
+   "Combined with surface area falling 290 to 180 to 127 m2/g and pore volume falling 0.30 to 0.19 to 0.15 cm3/g, this establishes that Co doping progressively lowers mesoporosity while the ordered channel architecture is preserved [n9].",
+   "Co2+ concentration in the medium rises over 7 days for the doped scaffolds, reaching ~8.9/17.9/20.8 mg/L for 5Co and ~4.7/10.5/16.9 mg/L for 2Co at 1/3/7 days, while 0Co stays at 0 [obs1].",
+   "This establishes that Co2+ release rate and cumulative amount are set by Co content, with 5Co-MBG releasing faster and more than 2Co-MBG [n11].",
+   "Ranking the scaffolds by this release rate places 5Co above 2Co above 0Co [writer inference].",
+   "If the mesoporous texture from step 1 controlled this release rate, the highest-surface-area, highest-pore-volume scaffold would be expected to release fastest, yet 5Co has the lowest surface area (127 m2/g) and smallest pore volume (0.15 cm3/g) of the three [writer inference from n9].",
+   "Since 5Co nonetheless releases Co2+ fastest, the release rate tracks Co content rather than the mesoporous texture, so texture is not the controlling factor [writer inference].",
+   "Western blot shows the HIF-1alpha band is faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with equal alpha-tubulin loading [obs2].",
+   "This establishes that released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF, and that this effect scales with Co2+ release rather than with pore texture [n12].",
+   "Separately, cumulative ampicillin release from 2Co-MBG reaches ~340 ug at 8h, ~670 at 24h, ~780 at 72h, and plateaus near ~795 ug at 168h [obs3].",
+   "This establishes that 2Co-MBG releases ampicillin over the first ~72 h, after which release plateaus [n15].",
+   "Relative bacterial survival with ampicillin-loaded scaffolds falls to ~105%, ~81%, ~52% at days 1, 3, 7, versus ~100% for blank and 110-118% for drug-free scaffolds [obs4].",
+   "This establishes that ampicillin-loaded 2Co-MBG lowers bacterial survival compared with blank and drug-free scaffolds [n16].",
+   "Taking the Co2+ release property (n11) and the texture-versus-release mismatch as given, the HIF-1alpha blot (faint for MBG/2Co-MBG, clearly stronger for 5Co-MBG, equal tubulin) shows dose-dependent activation of the hypoxia pathway [obs1].",
+   "This confirms the mechanism that released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF, linking the release property to a pro-angiogenic cellular response [n12].",
+   "The bacterial survival data (~105/81/52% at days 1/3/7 with scaffold+ampicillin versus 100% blank and 110-118% drug-free scaffolds) shows the antibacterial performance delivered in service [obs2].",
+   "This establishes that ampicillin-loaded 2Co-MBG lowers bacterial survival versus blank and drug-free scaffolds, so the scaffold concurrently delivers a hypoxia-mimicking angiogenic cue and antibacterial performance [n16]."
   ],
-  "weakest_step": 3,
-  "why_weakest": "Step 3's own question asks for the mechanism connecting the property/rate to performance, but its cited evidence (obs1, obs2) is the same HIF-1alpha blot and survival data already used in step 2 for n12 and n16, so it reaffirms rather than newly establishes anything, leaving the two mechanisms unconnected."
+  "weakest_step": 2,
+  "why_weakest": "Step 2 folds together two mechanistically separate release systems (Co2+ driving HIF-1alpha/VEGF versus ampicillin driving antibacterial killing) with no node linking them, and its central texture-versus-release comparison rests on writer inference from combining n9 and n11 rather than on a stated node."
  }
 }

@@ -39,7 +39,13 @@ padding:1px 6px;border-radius:5px;margin-left:5px}
 .hid{border:1px dashed var(--hide);border-radius:9px;padding:9px 12px;margin:10px 0}
 .hid b{color:var(--hide);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;display:block}
 .arrow{text-align:center;color:var(--mut);font-size:12.5px;padding:6px 0 10px}
-.arrow .lbl{display:inline-block;border:1px solid var(--line);border-radius:20px;padding:5px 13px;background:var(--card)}
+.arrow .lbl{display:inline-block;border:1px solid var(--line);border-radius:14px;padding:8px 15px;
+background:var(--card);max-width:760px;text-align:left}
+.comb{margin-top:7px;border-top:1px dashed var(--line);padding-top:7px;font-size:12.5px}
+.comb b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--acc);margin-bottom:2px}
+.comb.none b{color:var(--warn)}
+.comb .from{color:var(--mut);font-size:11.5px;margin-top:3px}
+.comb .from span{font-weight:600}
 .dep{font-weight:600}.dep.real{color:var(--acc)}.dep.none{color:var(--warn)}
 table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
 th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
@@ -85,23 +91,27 @@ th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.04
 <div class="rr">
 <h4>what each observation shows</h4><ul>
 <li>F1a shows the bright interdendritic phase forming a continuous network <span class="chip">obs1</span></li>
-<li>F1b shows the interdendritic phase broken into isolated particles <span class="chip">obs1</span></li>
-<li>F1c shows the interdendritic phase as thin broken strings, with arrow B marking a second, finer bright boundary phase beside the arrow-A particles <span class="chip">obs1</span><span class="chip">obs3</span></li>
-<li>F2 shows extra reflections at about 21-37, 50, and 67 degrees appearing only in the Al-Cu-Mn-La pattern, while the Sm pattern matches the RE-free one <span class="chip">obs2</span></li>
-<li>F3 shows a weak peak A near 605 C and a shoulder B near 638 C in the La alloy, assigned to Al2Cu and Al6Cu6La dissolution <span class="chip">obs4</span></li>
-<li>F4a shows precipitate plate length of about 20-40 nm <span class="chip">obs5</span></li>
-<li>F4b shows precipitate plate length of about 10 nm <span class="chip">obs5</span></li>
-<li>F4c shows precipitate plate length of about 5-10 nm <span class="chip">obs5</span></li>
-<li>F4a, F4b, and F4c together show the precipitate number density visibly rising from (a) to (b) to (c) <span class="chip">obs6</span></li>
+<li>F1b shows the same phase broken into isolated particles <span class="chip">obs1</span></li>
+<li>F1c shows the phase reduced to thin broken strings, with arrow B marking a second, finer bright boundary phase beside the arrow-A particles <span class="chip">obs1</span><span class="chip">obs3</span></li>
+<li>F2 shows extra diffraction reflections (stars, ~21-37, 50, 67 deg) appearing only in the Al-Cu-Mn-La pattern, while the Sm pattern matches the RE-free one <span class="chip">obs2</span></li>
+<li>F3 shows the La alloy exhibiting a weak peak A (~605 C) and a shoulder B (~638 C), assigned to dissolution of Al2Cu and Al6Cu6La <span class="chip">obs4</span></li>
+<li>F4a shows precipitate plates roughly 20-40 nm long <span class="chip">obs5</span></li>
+<li>F4b shows precipitate plates roughly 10 nm long <span class="chip">obs5</span></li>
+<li>F4c shows precipitate plates roughly 5-10 nm long <span class="chip">obs5</span></li>
+<li>F4a, F4b, and F4c together show precipitate number density visibly rising across the series <span class="chip">obs6</span></li>
 </ul>
-<h4>the proposition it supports</h4><p>These observations support that RE addition changes the segregated interdendritic phase from a continuous coarse network into discontinuous, finer particles, with La more effective than Sm <span class="chip">s1</span>, that La forms a new Al6Cu6La phase of cubic NaZn13 type at dendrite boundaries while Sm forms no new phase <span class="chip">s2</span>, that RE addition refines the theta&#x27; platelets on {001}Al with La refining more than Sm <span class="chip">s5</span>, and that RE addition raises the number density of theta&#x27; precipitates, again more with La than Sm <span class="chip">s6</span>.</p>
-<h4>the assumption the inference needs</h4><p>This inference assumes that panels (a), (b), and (c) correspond to the RE-free, Sm-containing, and La-containing conditions respectively, so that the progression in morphology and precipitate size across the panels tracks the RE addition and RE type <span class="chip inf">writer inference</span>; it also assumes the extra XRD reflections in F2 and the DSC peak B in F3 reflect a genuine new equilibrium phase rather than an artifact of scan noise or overlapping peaks <span class="chip inf">writer inference</span>.</p>
-<h4>what remains open</h4><p>It remains open whether the finer boundary phase marked by arrow B in F1c is the same Al6Cu6La phase identified by XRD in F2, or a separate constituent, and whether Sm forms any new phase below the detection limit of XRD <span class="chip inf">writer inference</span>.</p>
-<h4>what is handed to the next step</h4><p>The next step carries forward that RE addition, especially La, produces a finer, more discontinuous interdendritic phase, a new Al6Cu6La boundary phase, and a denser, finer theta&#x27; precipitate population <span class="chip">s1</span><span class="chip">s2</span><span class="chip">s5</span><span class="chip">s6</span>.</p>
+<h4>the proposition it supports</h4><p>Across the base, Sm, and La panels the interdendritic phase goes from a continuous network to isolated particles to thin broken strings with an extra finer boundary phase <span class="chip">obs1</span><span class="chip">obs3</span>, the La sample alone shows new diffraction reflections and a distinct thermal dissolution signal pointing to a separate phase <span class="chip">obs2</span><span class="chip">obs4</span>, and the theta&#x27; plates shrink while their number density rises across the same a-b-c series <span class="chip">obs5</span><span class="chip">obs6</span>.</p>
+<h4>the assumption the inference needs</h4><p>The step assumes panels a, b, c in each figure correspond consistently to the same three alloy conditions (base, Sm-added, La-added) so that morphology, diffraction, thermal, and precipitate-size trends read across figures can be attributed to the same alloy-to-alloy comparison <span class="chip inf">writer inference</span>.</p>
+<h4>what remains open</h4><p>The observations do not by themselves establish why La forms a new phase while Sm does not, nor the physical mechanism linking phase refinement and precipitate size/density changes to any resulting strength change <span class="chip inf">writer inference</span>.</p>
+<h4>what is handed to the next step</h4><p>The next step receives the joint reading that RE addition breaks up the coarse interdendritic network into finer, discontinuous features with La forming an additional Al6Cu6La-type phase not seen with Sm, and that RE addition shrinks theta&#x27; plates while increasing their number density, with La&#x27;s effect exceeding Sm&#x27;s throughout <span class="chip">s1</span><span class="chip">s2</span><span class="chip">s5</span><span class="chip">s6</span>.</p>
 </div>
 <div class="hid"><b>hidden effect &mdash; not shown to the solver</b>RE turns the continuous coarse netlike interdendritic phase into discontinuous, finer particles; La more than Sm ; La forms a new Al6Cu6La phase (cubic NaZn13 type) at dendrite boundaries; Sm forms no new phase ; RE addition refines the theta&#x27; platelets on {001}Al; La refines more than Sm ; RE addition raises the number density of theta&#x27; precipitates; La more than Sm</div>
 </div>
-<div class="arrow"><span class="lbl">&darr; passes on: The next step carries forward that RE addition, especially La, produces a finer, more discontinuous interdendritic phase, a new Al6Cu6La boundary phas &middot; <span class="dep none">dependency: none</span></span></div>
+<div class="arrow"><div class="lbl">
+&darr; passes on: The next step receives the joint reading that RE addition breaks up the coarse interdendritic network into finer, discontinuous features with La formi
+<br><span class="dep none">dependency: none</span>
+<div class="comb none"><b>no combining proposition</b>restatement: this step lands only on claims step 1 already established (s6)</div>
+</div></div>
 <div class="step">
 <div class="sh"><span class="sn">step 2</span><span class="prop">how the microstructural features are distributed</span></div>
 <div class="q"><b>question, as the solver sees it</b>Taking the distribution you described and the phase you identified and the feature sizes you measured in step 1 as given, what does the evidence below show about how the microstructural features are distributed?</div>
@@ -112,27 +122,27 @@ th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.04
 </div>
 <div class="rr">
 <h4>what each observation shows</h4><ul>
-<li>Panel F4a shows the precipitate number density at its lowest point in the three-panel series <span class="chip">obs1</span>.</li>
-<li>Panel F4b shows the precipitate number density visibly higher than in F4a <span class="chip">obs1</span>.</li>
-<li>Panel F4c shows the precipitate number density visibly highest, exceeding both F4a and F4b <span class="chip">obs1</span>.</li>
+<li>Panel F4a shows the theta&#x27; precipitate number density at its lowest level among the three <span class="chip">obs1</span></li>
+<li>Panel F4b shows the theta&#x27; precipitate number density visibly higher than in F4a <span class="chip">obs1</span></li>
+<li>Panel F4c shows the theta&#x27; precipitate number density visibly higher than in both F4a and F4b <span class="chip">obs1</span></li>
 </ul>
-<h4>the proposition it supports</h4><p>RE addition raises the number density of theta&#x27; precipitates, with La raising it more than Sm <span class="chip">s6</span>.</p>
-<h4>the assumption the inference needs</h4><p>The assumption needed is that panels (a), (b), (c) represent a progression across alloy conditions such that the visible rise in density from (a) to (b) to (c) can be attributed to RE addition and, further, to a stronger effect from La than from Sm <span class="chip inf">writer inference</span>.</p>
-<h4>what remains open</h4><p>What remains open is that the comparison is a qualitative visual read across three TEM panels rather than a reported quantitative density count, so the magnitude of the rise from (a) to (b) to (c) is not itself given <span class="chip inf">writer inference</span>.</p>
-<h4>what is handed to the next step</h4><p>What is handed to the next step is the established claim that RE addition raises theta&#x27; precipitate number density, with La&#x27;s effect exceeding Sm&#x27;s <span class="chip">s6</span>.</p>
+<h4>the proposition it supports</h4><p>RE addition raises the number density of theta&#x27; precipitates; La more than Sm <span class="chip">s6</span></p>
+<h4>the assumption the inference needs</h4><p>The reasoning assumes panels F4a, F4b, F4c represent a consistent progression (base, then Sm-added, then La-added, or an equivalent ordering) so that the visible rise across the three images can be read as an effect of increasing RE addition rather than incidental field-of-view variation <span class="chip inf">writer inference</span></p>
+<h4>what remains open</h4><p>The panels are described only as showing a visible rise in density from (a) to (b) to (c); no quantitative number-density values are given, so the exact magnitude of the increase for Sm versus La is not established <span class="chip inf">writer inference</span></p>
+<h4>what is handed to the next step</h4><p>The rise in theta&#x27; number density with RE addition, greater for La than Sm, is carried forward as the established claim for subsequent steps <span class="chip">s6</span></p>
 </div>
 <div class="hid"><b>hidden effect &mdash; not shown to the solver</b>RE addition raises the number density of theta&#x27; precipitates; La more than Sm</div>
 </div>
 <div class="step"><div class="sh"><span class="sn">end to end</span></div><ul>
-<li>The bright interdendritic phase changes from a continuous network in the RE-free alloy to isolated particles with La and to thin broken strings with Sm, so RE addition converts the continuous coarse netlike interdendritic phase into discontinuous, finer particles, with La producing more refinement than Sm <span class="chip">obs1</span><span class="chip">s1</span>.</li>
-<li>Diffraction shows extra reflections (stars, ~21-37, 50, 67 deg) only in the La-containing pattern, while the Sm pattern matches the RE-free one, so La forms a new Al6Cu6La phase (cubic NaZn13 type) at dendrite boundaries and Sm forms no new phase <span class="chip">obs2</span><span class="chip">s2</span>.</li>
-<li>A second, finer bright boundary phase appears beside the arrow-A particles in the La micrograph, consistent with a distinct second phase forming with La addition <span class="chip">obs3</span><span class="chip">s2</span>.</li>
-<li>A DSC trace for the La alloy shows a weak peak A (~605 C) and a shoulder B (~638 C) assigned to Al2Cu and Al6Cu6La dissolution respectively, corroborating that a separate Al6Cu6La phase is present with La <span class="chip">obs4</span><span class="chip">s2</span>.</li>
-<li>Precipitate plate length measurements of ~20-40 nm in the RE-free alloy, ~10 nm with Sm, and ~5-10 nm with La show that RE addition refines the theta&#x27; platelets on {001}Al, with La refining more than Sm <span class="chip">obs5</span><span class="chip">s5</span>.</li>
-<li>Precipitate number density visibly rises across the RE-free, Sm, and La micrographs in that order, showing that RE addition raises the number density of theta&#x27; precipitates, with La raising it more than Sm <span class="chip">obs6</span><span class="chip">s6</span>.</li>
-<li>Taking the distribution, the identified phase, and the measured feature sizes from step 1 as given, the same rise in precipitate number density across the micrographs is read again to reaffirm that RE addition raises the number density of theta&#x27; precipitates, with La more than Sm <span class="chip">obs1</span><span class="chip">s6</span><span class="chip inf">writer inference</span>.</li>
+<li>The bright interdendritic phase appears as a continuous network in (a), as isolated particles in (b), and as thin broken strings in (c), showing that RE addition turns the continuous coarse netlike interdendritic phase into discontinuous, finer particles, with La refining it more than Sm <span class="chip">obs1</span><span class="chip">s1</span>.</li>
+<li>Extra reflections at roughly 21-37, 50, and 67 degrees appear only in the Al-Cu-Mn-La diffraction pattern while the Sm pattern matches the RE-free one, showing that La forms a new Al6Cu6La phase of cubic NaZn13 type at dendrite boundaries while Sm forms no new phase <span class="chip">obs2</span><span class="chip">s2</span>.</li>
+<li>Arrow B in (c) marks a second, finer bright boundary phase beside the arrow-A particles, consistent with this distinct La-associated phase sitting alongside the coarser boundary particles <span class="chip">obs3</span><span class="chip">s2</span>.</li>
+<li>The La alloy shows a weak peak A near 605 C and a shoulder B near 638 C, assigned to dissolution of Al2Cu and of the Al6Cu6La phase respectively, corroborating that La introduces this new phase with its own dissolution signature <span class="chip">obs4</span><span class="chip">s2</span>.</li>
+<li>Precipitate plate lengths of about 20-40 nm in (a), about 10 nm in (b), and about 5-10 nm in (c) show that RE addition refines the theta&#x27; platelets on {001}Al, with La refining them more than Sm <span class="chip">obs5</span><span class="chip">s5</span>.</li>
+<li>Precipitate number density visibly rises from (a) to (b) to (c), showing that RE addition raises the number density of theta&#x27; precipitates, with La raising it more than Sm <span class="chip">obs6</span><span class="chip">s6</span>.</li>
+<li>Taking the distribution, the new phase identity, and the feature sizes from step 1 as given, the same rise in precipitate number density from (a) to (b) to (c) is used in step 2 to again establish that RE addition raises theta&#x27; precipitate number density, with La more than Sm <span class="chip">obs1</span><span class="chip">s6</span>.</li>
 </ul>
-<p><b>weakest step:</b> step 2 &mdash; Step 2 re-derives s6 from obs1, the same claim and overlapping evidence already established in step 1, so it adds no new information and is essentially circular restatement rather than a further inferential step.</p>
+<p><b>weakest step:</b> step 2 &mdash; Step 2 restates s6 using the identical number-density observation already used in step 1, so it adds no new evidence and mainly re-asserts a prior conclusion under a relabeled node id.</p>
 </div>
 </div>
 <div class="panel" role="tabpanel" id="panel-graph" aria-labelledby="tab-graph" hidden>

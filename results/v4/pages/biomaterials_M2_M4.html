@@ -39,7 +39,13 @@ padding:1px 6px;border-radius:5px;margin-left:5px}
 .hid{border:1px dashed var(--hide);border-radius:9px;padding:9px 12px;margin:10px 0}
 .hid b{color:var(--hide);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;display:block}
 .arrow{text-align:center;color:var(--mut);font-size:12.5px;padding:6px 0 10px}
-.arrow .lbl{display:inline-block;border:1px solid var(--line);border-radius:20px;padding:5px 13px;background:var(--card)}
+.arrow .lbl{display:inline-block;border:1px solid var(--line);border-radius:14px;padding:8px 15px;
+background:var(--card);max-width:760px;text-align:left}
+.comb{margin-top:7px;border-top:1px dashed var(--line);padding-top:7px;font-size:12.5px}
+.comb b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--acc);margin-bottom:2px}
+.comb.none b{color:var(--warn)}
+.comb .from{color:var(--mut);font-size:11.5px;margin-top:3px}
+.comb .from span{font-weight:600}
 .dep{font-weight:600}.dep.real{color:var(--acc)}.dep.none{color:var(--warn)}
 table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
 th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
@@ -74,17 +80,21 @@ th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.04
 </div>
 <div class="rr">
 <h4>what each observation shows</h4><ul>
-<li>In panel F5a, Co2+ concentration in the medium rises over time for both cobalt-doped groups, reaching about 8.9/17.9/20.8 mg/L for 5Co and about 4.7/10.5/16.9 mg/L for 2Co at 1/3/7 days, while 0Co stays at 0 <span class="chip">obs1</span>.</li>
-<li>In panel F9, the HIF-1alpha band is faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with alpha-tubulin loading-control bands equal across all groups <span class="chip">obs2</span>.</li>
+<li>Panel F5a shows Co2+ concentration in the medium rising with time and with Co content: 5Co reaches ~8.9/17.9/20.8 mg/L and 2Co reaches ~4.7/10.5/16.9 mg/L at 1/3/7 days, while 0Co stays at 0 <span class="chip">obs1</span></li>
+<li>Panel F9 shows the HIF-1alpha western blot band is faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with the alpha-tubulin loading-control bands equal across lanes <span class="chip">obs2</span></li>
 </ul>
-<h4>the proposition it supports</h4><p>Together these show that Co2+ release is set by Co content, with 5Co-MBG releasing faster and more than 2Co-MBG and both rising over 7 days <span class="chip">n11</span>, and that the released Co2+ acts as a hypoxia mimic that raises HIF-1alpha in BMSCs, which drives VEGF <span class="chip">n12</span>.</p>
-<h4>the assumption the inference needs</h4><p>The HIF-1alpha band intensity in the western blot reflects intracellular HIF-1alpha protein level, and this level is assumed to track with the amount of Co2+ ion exposure the BMSCs received from each scaffold group <span class="chip inf">writer inference</span>.</p>
-<h4>what remains open</h4><p>Whether the HIF-1alpha increase seen at the protein level translates proportionally into VEGF output, and whether the release and induction pattern continues beyond the 7-day window shown, remains open <span class="chip inf">writer inference</span>.</p>
-<h4>what is handed to the next step</h4><p>The dose- and time-dependent Co2+ release paired with the corresponding rise in HIF-1alpha is handed to the next step as the basis for Co2+ acting as a hypoxia mimic that raises HIF-1alpha in BMSCs and drives VEGF <span class="chip">n12</span>.</p>
+<h4>the proposition it supports</h4><p>Co2+ release is set by Co content, with 5Co-MBG releasing faster and more than 2Co-MBG, both increasing over the 7-day period <span class="chip">n11</span></p>
+<h4>the assumption the inference needs</h4><p>The equal alpha-tubulin bands validate that the differing HIF-1alpha band intensities reflect real differences in HIF-1alpha protein level rather than unequal loading, so the dose-dependent Co2+ release can be read as driving a matched dose-dependent rise in HIF-1alpha as a hypoxia mimic <span class="chip inf">writer inference</span></p>
+<h4>what remains open</h4><p>Whether VEGF protein or gene expression was directly measured to confirm the step from HIF-1alpha to VEGF, and whether the intermediate 2Co-MBG dose produces any detectable HIF-1alpha or VEGF response beyond the faint band shown, remain open <span class="chip inf">writer inference</span></p>
+<h4>what is handed to the next step</h4><p>Released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF <span class="chip">n12</span></p>
 </div>
 <div class="hid"><b>hidden effect &mdash; not shown to the solver</b>Released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF ; Co2+ release is set by Co content: 5Co-MBG releases faster and more than 2Co-MBG, both rising over 7 days</div>
 </div>
-<div class="arrow"><span class="lbl">&darr; passes on: The dose- and time-dependent Co2+ release paired with the corresponding rise in HIF-1alpha is handed to the next step as the basis for Co2+ acting as  &middot; <span class="dep real">dependency: real</span></span></div>
+<div class="arrow"><div class="lbl">
+&darr; passes on: Released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF [n12]
+<br><span class="dep none">dependency: none</span>
+<div class="comb none"><b>no combining proposition</b>the only content this step adds is n16, the ampicillin antibacterial result. That is a separate arm of the paper from step 1&#x27;s Co2+ release dose, and the HIF-1alpha observation it shares with step 1 is already step 1 evidence. Antibacterial survival does not combine with Co2+ dose. Under v4 this sco</div>
+</div></div>
 <div class="step">
 <div class="sh"><span class="sn">step 2</span><span class="prop">the mechanism connecting the two and how the material performs in service</span></div>
 <div class="q"><b>question, as the solver sees it</b>Taking the mechanism you identified and the property value you measured in step 1 as given, what does the evidence below show about the mechanism connecting the two and how the material performs in service?</div>
@@ -94,28 +104,27 @@ th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.04
 </div>
 <div class="rr">
 <h4>what each observation shows</h4><ul>
-<li>F9: HIF-1alpha band is faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, while alpha-tubulin bands are equal across samples <span class="chip">obs1</span></li>
-<li>F11b: relative bacterial survival with Scaffolds+Ampicillin falls to ~105%, ~81%, ~52% at days 1, 3, 7, versus ~100% for blank and 110-118% for drug-free scaffolds <span class="chip">obs2</span></li>
+<li>Panel F9 shows the HIF-1alpha band faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with equal alpha-tubulin loading controls across all samples <span class="chip">obs1</span>.</li>
+<li>Panel F11b shows relative bacterial survival with Scaffolds+Ampicillin falling to roughly 105%, 81%, and 52% at days 1, 3, and 7, versus blank scaffolds at 100% and drug-free scaffolds at 110-118% <span class="chip">obs2</span>.</li>
 </ul>
-<h4>the proposition it supports</h4><p>The hypoxia-mimic mechanism scales with Co content, since 5Co-MBG produces markedly stronger HIF-1alpha induction than 2Co-MBG under equal loading <span class="chip">n12</span>; separately, ampicillin-loaded 2Co-MBG lowers bacterial survival progressively over 7 days relative to blank and drug-free scaffolds <span class="chip">n16</span></p>
-<h4>the assumption the inference needs</h4><p>Equal alpha-tubulin loading means the HIF-1alpha band intensity differences reflect true differences in HIF-1alpha protein level rather than loading artifacts, and the declining survival curve reflects the scaffold&#x27;s drug-loaded antibacterial action in service rather than a confound <span class="chip inf">writer inference</span></p>
-<h4>what remains open</h4><p>Whether 2Co-MBG&#x27;s weaker HIF-1alpha induction still delivers an adequate pro-angiogenic VEGF cue in vivo, and whether the antibacterial performance and the hypoxia-mimic angiogenic mechanism can be delivered together in a single scaffold formulation <span class="chip inf">writer inference</span></p>
-<h4>what is handed to the next step</h4><p>5Co-MBG&#x27;s stronger HIF-1alpha band confirms the Co-dose-dependent hypoxia-mimic mechanism <span class="chip">n12</span>, while 2Co-MBG loaded with ampicillin separately demonstrates antibacterial performance in service <span class="chip">n16</span>, leaving both properties available for combination or comparison in the next step <span class="chip inf">writer inference</span></p>
+<h4>the proposition it supports</h4><p>Together these confirm that the Co2+-driven HIF-1alpha rise scales with Co content, with 5Co-MBG producing the stronger signal as the mechanism predicts <span class="chip">n12</span>, and separately establish that ampicillin-loaded 2Co-MBG progressively lowers bacterial survival relative to blank and drug-free scaffolds <span class="chip">n16</span>.</p>
+<h4>the assumption the inference needs</h4><p>This reading assumes the equal alpha-tubulin bands validate the HIF-1alpha comparison as loading-independent, and that the survival assay measures scaffold-associated antibacterial efficacy independently of the Co2+/HIF-1alpha angiogenic pathway <span class="chip inf">writer inference</span>.</p>
+<h4>what remains open</h4><p>It remains open whether the antibacterial effect in n16 is mechanistically connected to the Co2+ release/hypoxia-mimic pathway of n12 or is an independent, additive function of the ampicillin-loaded scaffold <span class="chip inf">writer inference</span>.</p>
+<h4>what is handed to the next step</h4><p>Passed forward is confirmation that the Co2+/HIF-1alpha/VEGF mechanism holds with Co-dose-dependence, 5Co-MBG giving the stronger HIF-1alpha signal <span class="chip">n12</span>, alongside a demonstrated antibacterial benefit of ampicillin-loaded 2Co-MBG for the next step to build on <span class="chip">n16</span>.</p>
 </div>
 <div class="hid"><b>hidden effect &mdash; not shown to the solver</b>Released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF ; Ampicillin-loaded 2Co-MBG lowers bacterial survival versus blank and drug-free scaffolds</div>
 </div>
 <div class="step"><div class="sh"><span class="sn">end to end</span></div><ul>
-<li>Co2+ release from the scaffolds is dose- and time-dependent: 5Co-MBG releases faster and to a higher level than 2Co-MBG, and both rise over the 7-day period <span class="chip">n11</span>.</li>
-<li>This dose/time pattern rests on measured Co2+ concentrations in the culture medium of about 8.9/17.9/20.8 mg/L for 5Co and about 4.7/10.5/16.9 mg/L for 2Co at 1/3/7 days, while 0Co stays at 0 <span class="chip">obs1</span>.</li>
-<li>The released Co2+ acts as a hypoxia mimic in BMSCs, raising HIF-1alpha, which in turn drives VEGF <span class="chip">n12</span>.</li>
-<li>This mechanistic claim rests on western blot data in which the HIF-1alpha band is faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with equal alpha-tubulin loading controls ruling out a loading artifact <span class="chip">obs2</span>.</li>
-<li>Carrying the same hypoxia-mimic/HIF-1alpha/VEGF mechanism forward as established, the trace treats it as the basis for a second, separate claim about scaffold performance <span class="chip">n12</span>.</li>
-<li>That second claim is that ampicillin-loaded 2Co-MBG lowers bacterial survival relative to a blank control and to drug-free scaffolds <span class="chip">n16</span>.</li>
-<li>The antibacterial claim rests on relative survival values of about 105%, 81%, and 52% at days 1, 3, and 7 for scaffolds plus ampicillin, versus 100% for the blank and 110-118% for drug-free scaffolds <span class="chip">obs2</span>.</li>
-<li>However, the HIF-1alpha western blot data <span class="chip">obs1</span> cited alongside the antibacterial result speaks only to the angiogenic mechanism (n12) and has no bearing on bacterial survival, so the antibacterial finding (n16) is not actually derived from the hypoxia-mimic mechanism carried over from step 1 <span class="chip inf">writer inference</span>.</li>
-<li>As a result, step 2 bundles two unrelated performance mechanisms, an angiogenic HIF-1alpha/VEGF pathway and an antibiotic-elution antibacterial effect, under a single question about &#x27;how the material performs in service&#x27; without a causal link joining them <span class="chip inf">writer inference</span>.</li>
+<li>Co2+ release from the scaffolds is dose-dependent on Co content: 5Co-MBG releases faster and reaches a higher level than 2Co-MBG, and both continue rising over the 7-day window <span class="chip">n11</span>.</li>
+<li>This ranking rests directly on the measured medium concentrations of roughly 8.9/17.9/20.8 mg/L for 5Co and 4.7/10.5/16.9 mg/L for 2Co at 1/3/7 days, with 0Co remaining at 0 throughout <span class="chip">obs1</span>.</li>
+<li>The released Co2+ then acts as a hypoxia mimic in BMSCs, raising HIF-1alpha and thereby driving VEGF expression <span class="chip">n12</span>.</li>
+<li>This mechanism is read from the HIF-1alpha western blot, where the band is faint for plain MBG and for 2Co-MBG but clearly stronger for 5Co-MBG, while the alpha-tubulin loading-control bands are equal across groups <span class="chip">obs2</span>.</li>
+<li>Carrying the hypoxia-mimic/HIF-1alpha mechanism and the corresponding HIF-1alpha band pattern forward as given inputs <span class="chip">n12, obs1 of step 2</span>, the chain turns to a second, independent performance property of the scaffold <span class="chip inf">writer inference</span>.</li>
+<li>Ampicillin-loaded 2Co-MBG lowers bacterial survival relative to a blank control and to drug-free scaffolds <span class="chip">n16</span>.</li>
+<li>This is read from relative survival values of about 105%, 81%, and 52% at days 1, 3, and 7 for scaffolds plus ampicillin, versus 100% for the blank and 110-118% for drug-free scaffolds <span class="chip">obs2 of step 2</span>.</li>
+<li>Overall the trace links Co-dose to Co2+ release kinetics, release to a HIF-1alpha-mediated hypoxia-mimic mechanism, and then treats that same mechanism as the basis for reporting an unrelated antibacterial efficacy result for ampicillin-loaded 2Co-MBG <span class="chip inf">writer inference</span>.</li>
 </ul>
-<p><b>weakest step:</b> step 2 &mdash; Step 2 asks for the mechanism connecting the Co2+/HIF-1alpha pathway (n12) to in-service performance, but the evidence it cites (obs1 HIF-1alpha blot, obs2 bacterial survival) actually supports an unrelated antibacterial claim (n16) about ampicillin elution, so the angiogenic mechanism from step 1 is never actually shown to connect to the outcome step 2 reports.</p>
+<p><b>weakest step:</b> step 2 &mdash; Step 2 carries forward the Co2+/HIF-1alpha hypoxia-mimic mechanism [n12] as if it underlies the antibacterial result, but the bacterial-survival drop with ampicillin-loaded 2Co-MBG [n16, obs2 of step 2] is attributable to the loaded drug, not to Co2+-driven HIF-1alpha signaling, so the two nodes in that step are not causally connected.</p>
 </div>
 </div>
 <div class="panel" role="tabpanel" id="panel-graph" aria-labelledby="tab-graph" hidden>
@@ -262,7 +271,7 @@ th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.04
 <p class="sub">The same claims, as the three designs put them. v2 asked whether evidence supports a claim. v3b hid the effect and asked what the evidence establishes. v4 adds the dependency between steps.</p>
 <table><thead><tr><th>step</th><th>v2</th><th>v3b</th><th>v4</th></tr></thead><tbody>
 <tr><td>1</td><td>n8: 4 evidence steps &rarr; partial</td><td><i>the mechanism connecting the two and the rate at which it happens</i><br>F5a is a time-course of Co2+ concentration released into soaking medium from 0Co-, 2Co-, and 5Co-MBG scaffolds over 7 days. 0Co-MBG releases no detectable Co2+ at any time point, while 2Co-MBG and 5Co-MBG both release increasing a<br><b>partly correct</b></td><td>What does the evidence below show about the mechanism connecting the two and the rate at which it happens?<br><b>dependency: first step</b><br>no predecessor</td></tr>
-<tr><td>2</td><td>n8: 4 evidence steps &rarr; partial</td><td><i>the mechanism connecting the two and how the material performs in service</i><br>The western blot shows HIF-1alpha protein bands that are faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with equal alpha-tubulin loading-control bands across all three lanes. This establishes a Co-dose-dependent stabi<br><b>partly correct</b></td><td>Taking the mechanism you identified and the property value you measured in step 1 as given, what does the evidence below show about the mechanism connecting the two and how the material performs in se<br><b>dependency: real</b><br>Panel F9&#x27;s HIF-1alpha band differences and panel F11b&#x27;s survival curve are only interpretable as confirming/extending the mechanism because step 1 already established that Co2+ release raises HIF-1alp</td></tr>
+<tr><td>2</td><td>n8: 4 evidence steps &rarr; partial</td><td><i>the mechanism connecting the two and how the material performs in service</i><br>The western blot shows HIF-1alpha protein bands that are faint for MBG and 2Co-MBG but clearly stronger for 5Co-MBG, with equal alpha-tubulin loading-control bands across all three lanes. This establishes a Co-dose-dependent stabi<br><b>partly correct</b></td><td>Taking the mechanism you identified and the property value you measured in step 1 as given, what does the evidence below show about the mechanism connecting the two and how the material performs in se<br><b>dependency: none</b><br><i>v4 said real; re-judged on the data</i><br>the only content this step adds is n16, the ampicillin antibacterial result. That is a separate arm of the paper from step 1&#x27;s Co2+ release dose, and the HIF-1alpha observation it shares with step 1 is already step 1 evi</td></tr>
 </tbody></table></div>
 <div class="panel" role="tabpanel" id="panel-prov" aria-labelledby="tab-prov" hidden>
 <div class="audit"><b>Audit only &mdash; none of this is ever shown to a solver.</b><p class="sub">MatMech supplied which stretches of the spine are causal steps. Every word a solver sees comes from our graph.</p>

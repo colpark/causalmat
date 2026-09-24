@@ -60,18 +60,10 @@
     "chain_strength": null
    },
    "reference_reasoning": {
-    "observations": [
-     "N2 isotherm shows adsorption/desorption hysteresis from P/P0 ~0.5 to 1.0 with uptake ~110 cm3/g, in panel F1c [obs1]",
-     "The pore size distribution inset in panel F1c peaks at ~5.5 and ~6.9 nm with a tail below 4 nm [obs2]",
-     "SEM in panel F1d shows agglomerated faceted particles ~250-500 nm with open gaps, but does not resolve internal mesopores [obs3]"
-    ],
-    "proposition": "PCO is mesoporous, showing a hysteretic type IV isotherm with pores mostly 5-7 nm [n5]",
-    "assumption": "The hysteresis loop shape and the 5.5-6.9 nm distribution peaks are read as indicating a genuine internal mesopore network rather than artifacts of interparticle gaps between the ~250-500 nm SEM particles [writer inference]",
-    "open": "The SEM images cannot resolve the internal mesopores directly, so the link between the sorption-derived pore sizes and the particle-level open gaps seen in F1d is not confirmed, and the sub-4 nm tail in the pore size distribution is not characterized [writer inference]",
-    "handoff": "The mesoporous character with 5-7 nm pores established in n5 is carried forward as the structural basis for the anode's transport/volume-accommodation behavior [n5]",
+    "_recovered_by_regex": true,
     "dependency": {
      "needs_previous": false,
-     "why": "The mesoporosity claim is derived directly from this step's own N2 sorption and SEM observations (obs1-obs3) without needing any prior step's conclusion as an input"
+     "why": "This step's question is answered entirely from the N2 sorption isotherm, pore size distribution, and SEM observations given here (obs1-obs3); it does not require any prior step's conclusion."
     }
    },
    "combining": null
@@ -141,18 +133,18 @@
    },
    "reference_reasoning": {
     "observations": [
-     "F2c shows Na 1st discharge reaching ~865 mAh/g with a plateau near ~0.15 V, 1st charge ~470 mAh/g, and 40th-cycle capacity down to ~60 mAh/g [obs1].",
-     "F2a shows Li 1st discharge with a long plateau near ~1.05 V reaching ~1330 mAh/g, and 1st charge ~870 mAh/g with a plateau near ~2.0 V [obs2].",
-     "F2b shows Li cycling charge capacity starting at ~870 (cycle 1), rising to ~1050 (cycle ~17), and settling to ~840 by cycle 40, with CE ~96% [obs3].",
-     "F2d shows Na cycling discharge capacity collapsing from ~870 (cycle 1) to ~480 (cycle 2) and further to ~70 mAh/g by cycle 40 [obs4]."
+     "F2a (Li galvanostatic profile) shows a first discharge plateau at ~1.05 V reaching ~1330 mAh/g and a first charge of ~870 mAh/g with a plateau near ~2.0 V [obs2]",
+     "F2b (Na galvanostatic profile) shows a first discharge of ~865 mAh/g with a plateau near ~0.15 V, a first charge of only ~470 mAh/g, and just ~60 mAh/g remaining by the 40th cycle [obs1]",
+     "F2c (Li cycling data) shows charge capacity of ~870 mAh/g at cycle 1 rising to ~1050 mAh/g around cycle ~17 and settling back to ~840 mAh/g by cycle 40, with coulombic efficiency ~96% [obs3]",
+     "F2d (Na cycling data) shows discharge capacity falling from ~870 mAh/g at cycle 1 to ~480 mAh/g at cycle 2 and further to ~70 mAh/g by cycle 40 [obs4]"
     ],
-    "proposition": "Across 40 cycles at 0.1 C, Li/PCO holds roughly 840-870 mAh/g of its initial reversible capacity while Na/PCO fades from an initial ~870 mAh/g toward only ~70 mAh/g [n7][n8].",
-    "assumption": "The reported charge/discharge and cycling curves for each cell are taken to reflect the intrinsic response of the PCO electrode to Li versus Na insertion rather than cell-specific artifacts [writer inference].",
-    "open": "The observations do not explain why the same PCO electrode sustains capacity under Li cycling but collapses under Na cycling, since no mechanism distinguishing the two alkali ions is given here [writer inference].",
-    "handoff": "The next step inherits the established performance gap: Li/PCO retains ~840-870 mAh/g after 40 cycles while Na/PCO fades to ~70 mAh/g after 40 cycles [n7][n8].",
+    "proposition": "Li/PCO holds onto ~840-870 mAh/g after 40 cycles at 0.1 C, essentially matching its initial reversible capacity of ~870 mAh/g [n7], whereas Na/PCO collapses from ~870 mAh/g on the first discharge to only ~70 mAh/g after 40 cycles at 0.1 C [n8]",
+    "assumption": "The cycling conditions (0.1 C, 40 cycles, half-cell format) applied to the Li and Na cells are comparable enough that the sharply different capacity retention reflects how each ion interacts with the PCO electrode rather than a difference in test setup [writer inference]",
+    "open": "These galvanostatic and cycling panels show that Li/PCO is stable and Na/PCO fades badly, but they do not by themselves identify why the same electrode material behaves so differently for the two ions [writer inference]",
+    "handoff": "The next step inherits the established performance contrast: Li/PCO retains ~840-870 mAh/g over 40 cycles [n7] while Na/PCO fades to ~70 mAh/g over 40 cycles [n8], as the outcome requiring explanation",
     "dependency": {
      "needs_previous": false,
-     "why": "The cycling and voltage-profile data in F2a-F2d are read and compared directly without needing the pore-size/isotherm characterization from step 1; the capacity-retention contrast stands as an independent electrochemical finding."
+     "why": "The capacity-retention and fade figures read from F2a-F2d come directly from the electrochemical data (obs1-obs4) and can be reported without invoking the pore-size/isotherm characterisation from step 1, which is only offered as background framing, not as an input the performance reading depends on"
     }
    },
    "combining": null,
@@ -162,19 +154,9 @@
  "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model.",
  "end_to_end": {
   "reasoning": [
-   "The N2 isotherm shows adsorption/desorption hysteresis from P/P0 ~0.5 to 1.0 with an uptake of ~110 cm3/g [obs1].",
-   "The pore size distribution inset peaks at ~5.5 and ~6.9 nm with a tail below 4 nm [obs2].",
-   "SEM shows agglomerated faceted particles of ~250-500 nm with open gaps between them, though the internal mesopores are not resolved at this length scale [obs3].",
-   "Together these observations establish that PCO is mesoporous, giving a hysteretic type IV isotherm and pores mostly 5-7 nm [n5].",
-   "Taking this mesoporous pore structure as given, the Li cell shows a first discharge with a long plateau at ~1.05 V reaching ~1330 mAh/g, and a first charge of ~870 mAh/g with a plateau near ~2.0 V [obs2].",
-   "Across subsequent Li cycling, charge capacity rises from ~870 mAh/g at cycle 1 to ~1050 mAh/g near cycle 17 and settles back to ~840 mAh/g by cycle 40, with coulombic efficiency ~96% [obs3].",
-   "This cycling record establishes that Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C, starting from an initial reversible capacity of ~870 mAh/g [n7].",
-   "The Na cell shows a first discharge of ~865 mAh/g with a plateau near ~0.15 V, a first charge of only ~470 mAh/g, and just ~60 mAh/g remaining by cycle 40 [obs1].",
-   "Na cycling further shows discharge capacity collapsing from ~870 mAh/g at cycle 1 to ~480 mAh/g at cycle 2 and down to ~70 mAh/g by cycle 40 [obs4].",
-   "This record establishes that Na/PCO fades from ~870 mAh/g on first discharge to ~70 mAh/g after 40 cycles at 0.1 C, a sharp contrast to the stable Li behavior even though both electrodes were built on the same mesoporous, 5-7 nm pore architecture characterised in step 1 [n8].",
-   "Because the pore structure from step 1 was held as the common starting point for both alkali systems, the divergence in fade behavior implies that the mesoporosity alone does not account for cycling stability, and some other Na-specific mechanism must be responsible, though the packet does not characterise it directly [writer inference]."
+   "Step 1 shows the N2 adsorption/desorption isotherm has a hysteresis loop running from P/P0 ~0.5 to 1.0 with an uptake of ~110 cm3/g, which is the signature of a type IV isotherm [obs1]. The pore size distribution inset peaks at ~5.5 nm and ~6.9 nm with a tail below 4 nm, pinning the dominant pore population in the mesopore range [obs2]. SEM shows agglomerated faceted particles of ~250-500 nm with open gaps between them, though the internal mesopores themselves are not resolved at that magnification [obs3]. Together these establish that PCO is mesoporous, showing a hysteretic type IV isotherm with pores mostly 5-7 nm [n5]. Step 2 takes this pore structure as given and turns to how the material performs in service [writer inference]. For the Li cell, the 1st discharge shows a long plateau near ~1.05 V reaching ~1330 mAh/g, and the 1st charge reaches ~870 mAh/g with a plateau near ~2.0 V [obs2]. Over subsequent cycling the Li charge capacity starts at ~870 mAh/g (cycle 1), rises to ~1050 mAh/g by about cycle 17, and settles back to ~840 mAh/g by cycle 40, with coulombic efficiency around 96% [obs3]. These data establish that Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C, with an initial reversible capacity of ~870 mAh/g [n7]. For the Na cell, the 1st discharge reaches ~865 mAh/g with a plateau near ~0.15 V, but the 1st charge only reaches ~470 mAh/g, and by the 40th cycle capacity has fallen to ~60 mAh/g [obs1]. The cycling curve confirms this collapse, dropping from ~870 mAh/g (cycle 1) to ~480 mAh/g (cycle 2) and down to ~70 mAh/g by cycle 40 [obs4]. These data establish that Na/PCO fades from ~870 mAh/g (1st discharge) to ~70 mAh/g after 40 cycles at 0.1 C [n8]."
   ],
   "weakest_step": 2,
-  "why_weakest": "Step 2 links the step-1 pore structure to the Li/Na performance contrast, but the porosity data (obs1-obs3 of step 1) describe the pristine electrode, not a post-cycling structural state, so the claim that the same mesoporous architecture underlies both the stable Li result and the failed Na result rests on an unverified continuity assumption rather than direct post-mortem evidence."
+  "why_weakest": "Step 2 is framed as building on the pore structure established in step 1, but none of its cited observations (obs1-obs4, all voltage/capacity cycling data) reference porosity, pore size, or the isotherm at all, so the link between the mesoporous structure and the Li-vs-Na performance divergence is asserted rather than shown by the cited evidence."
  }
 }
