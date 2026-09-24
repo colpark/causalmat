@@ -117,6 +117,14 @@ def main():
     W(tbl(['depth', 'necessity yes', 'necessity no'],
           [[d, v.get('yes', 0), v.get('no', 0)] for d, v in sorted(NE['by_depth'].items())]))
     W('')
+    W('Two limitations of this test, both of them consequences of the brief\'s design and worth '
+      'stating plainly. First, **necessity probes only the last hop of a chain.** A depth-4 chain '
+      'and a depth-3 chain that end with the same merge get a byte-identical pair of arms and so '
+      'the same verdict: 17 of the 164 arm prompts are duplicates of another chain\'s for exactly '
+      'this reason. "Compositional" is therefore a verdict on a chain\'s final merge, not on every '
+      'merge along it. Second, arm B hands the upstream result over as settled, so a comparer '
+      'ruling "no" is saying the last step reaches the same place without it -- not that the '
+      'upstream result is wrong.\n')
     pv = [c for c in CT['chains_out'] if c.get('predecessor_varies')]
     if pv:
         W(f'{len(pv)} depth-2 chains were left with more than one opener by the dedup, so the '
