@@ -1,0 +1,451 @@
+{
+ "paper": "Acta_Materialia__10.1016_j.actamat.2021.116797",
+ "graph": "taxonomy/graphs_v07/Acta_Materialia__10.1016_j.actamat.2021.116797.json",
+ "spine_claims": 19,
+ "match": "TF-IDF cosine, mean of word 1-2 grams and char_wb 3-5 grams, over text normalised for Unicode subscripts and Greek; MATCH_MIN 0.12",
+ "hops": [
+  {
+   "hop": "M1",
+   "stage_type": "Processing \u2192 Structure",
+   "next": "M2",
+   "chain_strength": "stage",
+   "matmech_figures": [
+    "F1"
+   ],
+   "matmech_techniques": [
+    "Transmission Electron Microscopy (TEM)",
+    "High-Angle Annular Dark-Field Scanning Transmission Electron Microscopy (HAADF-STEM)"
+   ],
+   "knowledge_imported": 2,
+   "sub_claims": [
+    {
+     "claim": "n8",
+     "claim_type": "STR/phase/identity",
+     "claim_text": "The dense basal planar defects are LPSO nanoplates: aggregates of four-layer Zn/Y-segregated fcc-type stacking faults, not conventional stacking faults",
+     "match_score": 0.212,
+     "n_evidence": 2,
+     "evidence": [
+      {
+       "node": "o2",
+       "relation": "evidences",
+       "technique": "TEM",
+       "family": "TEM",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F1b"
+       ],
+       "figs": [
+        "F1"
+       ],
+       "image_support": "shown",
+       "read_from": "pixels",
+       "delivery": "crop",
+       "observation": "Bright-field TEM taken with g=0002 shows strong planar fault-like contrast lying on (0001), roughly ten plates per um"
+      },
+      {
+       "node": "o3",
+       "relation": "evidences",
+       "technique": "STEM:HAADF",
+       "family": "STEM",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F1c"
+       ],
+       "figs": [
+        "F1"
+       ],
+       "image_support": "partial",
+       "read_from": "pixels",
+       "delivery": "crop",
+       "observation": "HAADF-STEM: the plates appear as bright, heavy-atom-rich bands only a few atomic layers wide; the 1 nm inset resolves one such bright band"
+      }
+     ]
+    },
+    {
+     "claim": "n15",
+     "claim_type": "MEC/pathway",
+     "claim_text": "Twinning and non-basal slip must cut the (0001) LPSO nanoplates, so their CRSS is raised selectively, while basal slip glides parallel to the plates and is left easy",
+     "match_score": 0.18,
+     "n_evidence": 1,
+     "evidence": [
+      {
+       "node": "o19",
+       "relation": "qualifies",
+       "technique": "MECH:compression",
+       "family": "MECH",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F7a",
+        "10.1016/j.actamat.2021.116797#F7b"
+       ],
+       "figs": [
+        "F7"
+       ],
+       "image_support": "shown",
+       "read_from": "annotation",
+       "delivery": "oracle",
+       "observation": "Basal-slip CRSS is itself raised, from ~0.5 MPa in pure Mg to ~4.3 MPa in the alloy, an ~8x increase"
+      }
+     ]
+    },
+    {
+     "claim": "n4",
+     "claim_type": "DES/modification",
+     "claim_text": "Co-add 0.2 at% Zn and 0.6 at% Y to Mg (Mg99.2Zn0.2Y0.6), a dilute composition that contains no perfect LPSO phase",
+     "match_score": 0.165,
+     "n_evidence": 0,
+     "evidence": []
+    },
+    {
+     "claim": "n2",
+     "claim_type": "HYP/hypothesis",
+     "claim_text": "Minute co-addition of Zn and Y, forming LPSO-related nanoplates rather than a perfect LPSO phase, should strongly raise the yield stress of an Mg single crystal",
+     "match_score": 0.136,
+     "n_evidence": 0,
+     "evidence": []
+    }
+   ],
+   "n_sub_claims": 4,
+   "n_evidence": 3,
+   "modalities": [
+    "MECH",
+    "STEM",
+    "TEM"
+   ]
+  },
+  {
+   "hop": "M2",
+   "stage_type": "Structure \u2192 Property",
+   "next": "M3",
+   "chain_strength": "stage",
+   "matmech_figures": [
+    "F2"
+   ],
+   "matmech_techniques": [
+    "Mechanical compression testing"
+   ],
+   "knowledge_imported": 2,
+   "sub_claims": [
+    {
+     "claim": "n4",
+     "claim_type": "DES/modification",
+     "claim_text": "Co-add 0.2 at% Zn and 0.6 at% Y to Mg (Mg99.2Zn0.2Y0.6), a dilute composition that contains no perfect LPSO phase",
+     "match_score": 0.203,
+     "n_evidence": 0,
+     "evidence": []
+    },
+    {
+     "claim": "n12",
+     "claim_type": "PRP/value",
+     "claim_text": "Yield stress is strongly orientation dependent and, in [11-20] and [01-10], reaches ~145-165 MPa at RT, about 11x the pure-Mg single crystal",
+     "match_score": 0.182,
+     "n_evidence": 3,
+     "evidence": [
+      {
+       "node": "o6",
+       "relation": "evidences",
+       "technique": "MECH:compression",
+       "family": "MECH",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F2a"
+       ],
+       "figs": [
+        "F2"
+       ],
+       "image_support": "shown",
+       "read_from": "annotation",
+       "delivery": "oracle",
+       "observation": "RT yield stress by orientation: ~9 MPa for [1 1 -2 1.85], ~148-165 MPa for [11-20], ~143 MPa for [01-10]; [0001] fractures at ~355 MPa without yielding"
+      },
+      {
+       "node": "o7",
+       "relation": "evidences",
+       "technique": "MECH:compression",
+       "family": "MECH",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F2a"
+       ],
+       "figs": [
+        "F2"
+       ],
+       "image_support": "partial",
+       "read_from": "annotation",
+       "delivery": "oracle",
+       "observation": "Between RT and 400 C the alloy's [11-20]/[01-10] yield stress falls only from ~165 to ~105 MPa, while the gray pure-Mg reference falls from ~270 to ~15 MPa and sits near 10 MPa in the soft orientations"
+      },
+      {
+       "node": "o20",
+       "relation": "evidences",
+       "technique": "MECH:compression",
+       "family": "MECH",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F8a"
+       ],
+       "figs": [
+        "F8"
+       ],
+       "image_support": "shown",
+       "read_from": "axis",
+       "delivery": "oracle",
+       "observation": "Yield stress in [11-20] at RT: 167 MPa as-grown, 113 MPa after the 520 C anneal, 160 MPa after the further 400 C anneal"
+      }
+     ]
+    },
+    {
+     "claim": "n2",
+     "claim_type": "HYP/hypothesis",
+     "claim_text": "Minute co-addition of Zn and Y, forming LPSO-related nanoplates rather than a perfect LPSO phase, should strongly raise the yield stress of an Mg single crystal",
+     "match_score": 0.158,
+     "n_evidence": 0,
+     "evidence": []
+    },
+    {
+     "claim": "n17",
+     "claim_type": "PRF/service_capability",
+     "claim_text": "The crystal keeps a yield stress above 100 MPa with more than 5% compressive plastic strain in [11-20] and [01-10] from RT to 400 C",
+     "match_score": 0.15,
+     "n_evidence": 2,
+     "evidence": [
+      {
+       "node": "o8",
+       "relation": "evidences",
+       "technique": "MECH:compression",
+       "family": "MECH",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F2b",
+        "10.1016/j.actamat.2021.116797#F2c"
+       ],
+       "figs": [
+        "F2"
+       ],
+       "image_support": "partial",
+       "read_from": "annotation",
+       "delivery": "oracle",
+       "observation": "Stress-strain curves: [11-20], [01-10] and [1 1 -2 1.85] all pass 5% plastic strain at RT and 300 C, [0001] fractures without yielding (x at ~355 and ~255 MPa), and only [01-10] at RT work-hardens, 165 -> 205 MPa"
+      },
+      {
+       "node": "o7",
+       "relation": "evidences",
+       "technique": "MECH:compression",
+       "family": "MECH",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F2a"
+       ],
+       "figs": [
+        "F2"
+       ],
+       "image_support": "partial",
+       "read_from": "annotation",
+       "delivery": "oracle",
+       "observation": "Between RT and 400 C the alloy's [11-20]/[01-10] yield stress falls only from ~165 to ~105 MPa, while the gray pure-Mg reference falls from ~270 to ~15 MPa and sits near 10 MPa in the soft orientations"
+      }
+     ]
+    },
+    {
+     "claim": "n10",
+     "claim_type": "PRC/stimulus",
+     "claim_text": "Compress the single crystals to ~5% plastic strain in each of the four orientations at RT to 400 C",
+     "match_score": 0.148,
+     "n_evidence": 0,
+     "evidence": []
+    }
+   ],
+   "n_sub_claims": 5,
+   "n_evidence": 5,
+   "modalities": [
+    "MECH"
+   ]
+  },
+  {
+   "hop": "M3",
+   "stage_type": "Property \u2192 Performance",
+   "next": null,
+   "chain_strength": null,
+   "matmech_figures": [
+    "F5"
+   ],
+   "matmech_techniques": [
+    "Scanning Electron Microscopy with Electron Backscatter Diffraction (SEM-EBSD)",
+    "Transmission Electron Microscopy (TEM)"
+   ],
+   "knowledge_imported": 2,
+   "sub_claims": [
+    {
+     "claim": "n18",
+     "claim_type": "PRF/service_capability",
+     "claim_text": "In tension along [0001] the crystal elongates ~45% at 65-80 MPa by kink-band formation, the first bulk demonstration of tensile ductility by kinking",
+     "match_score": 0.216,
+     "n_evidence": 2,
+     "evidence": [
+      {
+       "node": "o23",
+       "relation": "evidences",
+       "technique": "MECH:tensile",
+       "family": "MECH",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F10a"
+       ],
+       "figs": [
+        "F10"
+       ],
+       "image_support": "partial",
+       "read_from": "axis",
+       "delivery": "oracle",
+       "observation": "Tensile [0001] test at RT: the flow stress starts at ~72 MPa, is serrated between ~52 and ~80 MPa, and the specimen reaches ~45% plastic strain before fracture"
+      },
+      {
+       "node": "o24",
+       "relation": "evidences",
+       "technique": "OM",
+       "family": "OM",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F10b"
+       ],
+       "figs": [
+        "F10"
+       ],
+       "image_support": "shown",
+       "read_from": "pixels",
+       "delivery": "crop",
+       "observation": "The tensile gauge is filled with fine bands inclined to the [0001] tensile direction, across which the marked basal-plane trace kinks"
+      }
+     ]
+    },
+    {
+     "claim": "n19",
+     "claim_type": "DSC/conclusion",
+     "claim_text": "Dilute LPSO nanoplates, with no perfect LPSO phase, deliver LPSO-phase-level yield stress plus tensile kink-band ductility: a route to kink-strengthened dilute Mg alloys",
+     "match_score": 0.185,
+     "n_evidence": 0,
+     "evidence": []
+    },
+    {
+     "claim": "n11",
+     "claim_type": "STR/microstructure/orientation",
+     "claim_text": "The wavy deformation bands are deformation kink bands: their crystal rotation angle varies continuously from ~5 to ~55 deg instead of taking the fixed ~85 deg of {10-12} twins",
+     "match_score": 0.132,
+     "n_evidence": 6,
+     "evidence": [
+      {
+       "node": "o10",
+       "relation": "evidences",
+       "technique": "OM",
+       "family": "OM",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F3c",
+        "10.1016/j.actamat.2021.116797#F3d",
+        "10.1016/j.actamat.2021.116797#F3e",
+        "10.1016/j.actamat.2021.116797#F3f"
+       ],
+       "figs": [
+        "F3"
+       ],
+       "image_support": "shown",
+       "read_from": "pixels",
+       "delivery": "crop",
+       "observation": "OM of the [11-20] and [01-10] specimens: straight {10-12}/{01-12} band traces plus wavy bands whose contrast is strong on the (0001) side surface and faint on (1-100)/(-2110)"
+      },
+      {
+       "node": "o13",
+       "relation": "evidences",
+       "technique": "OM",
+       "family": "OM",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F4a",
+        "10.1016/j.actamat.2021.116797#F4b"
+       ],
+       "figs": [
+        "F4"
+       ],
+       "image_support": "partial",
+       "read_from": "pixels",
+       "delivery": "crop",
+       "observation": "Where wavy bands form, the (1-100)/(-2110) side surface develops a step-like ridge (red arrows) while the (0001) surface stays straight, so the band shear direction is parallel to [0001]"
+      },
+      {
+       "node": "o14",
+       "relation": "evidences",
+       "technique": "EBSD",
+       "family": "EBSD",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F5a",
+        "10.1016/j.actamat.2021.116797#F5b",
+        "10.1016/j.actamat.2021.116797#F5e",
+        "10.1016/j.actamat.2021.116797#F5f"
+       ],
+       "figs": [
+        "F5"
+       ],
+       "image_support": "shown",
+       "read_from": "annotation",
+       "delivery": "crop",
+       "observation": "EBSD orientation maps: lenticular bands take one uniform colour distinct from the matrix, whereas the wavy bands shade continuously with position; in the [01-10] specimen uniformly red {10-12} twins and shade-varying purple kink bands coexist"
+      },
+      {
+       "node": "o15",
+       "relation": "evidences",
+       "technique": "EBSD",
+       "family": "EBSD",
+       "panel_ids": [],
+       "figs": [
+        "F5"
+       ],
+       "image_support": "shown",
+       "read_from": "axis",
+       "delivery": "crop",
+       "observation": "Rotation-angle histograms: the lenticular bands all sit at 80-90 deg, the wavy bands spread continuously from ~5 to ~55 deg, and the [01-10] specimen shows both populations (broad ~25 deg peak and sharp ~85 deg peak)"
+      },
+      {
+       "node": "o16",
+       "relation": "evidences",
+       "technique": "TEM",
+       "family": "TEM",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F6a"
+       ],
+       "figs": [
+        "F6"
+       ],
+       "image_support": "shown",
+       "read_from": "pixels",
+       "delivery": "crop",
+       "observation": "Bright-field TEM of the kink bands: the marked basal-plane trace bends by a large, non-constant angle at each band boundary, and many low-angle (<15 deg) boundaries coexist"
+      },
+      {
+       "node": "o17",
+       "relation": "evidences",
+       "technique": "TEM:SAED",
+       "family": "TEM",
+       "panel_ids": [
+        "10.1016/j.actamat.2021.116797#F6b",
+        "10.1016/j.actamat.2021.116797#F6c",
+        "10.1016/j.actamat.2021.116797#F6d",
+        "10.1016/j.actamat.2021.116797#F6e",
+        "10.1016/j.actamat.2021.116797#F6f"
+       ],
+       "figs": [
+        "F6"
+       ],
+       "image_support": "shown",
+       "read_from": "annotation",
+       "delivery": "crop",
+       "observation": "SAED taken at the four marked points A-D across successive kink bands: the c-axis direction differs strongly between neighbouring bands (about 60, 180, 40 and 10 deg from horizontal)"
+      }
+     ]
+    }
+   ],
+   "n_sub_claims": 3,
+   "n_evidence": 8,
+   "modalities": [
+    "EBSD",
+    "MECH",
+    "OM",
+    "TEM"
+   ]
+  }
+ ],
+ "counts": {
+  "hops": 3,
+  "hops_with_evidence": 3,
+  "hops_without_evidence": 0,
+  "evidence_nodes": 16
+ },
+ "note": "Every verdict is model against model. The MatMech effect span was used for matching only and never reaches a solver prompt."
+}
