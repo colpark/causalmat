@@ -12,8 +12,13 @@ Writes results/v3/<paper>/stitch.json and appends to results/v3/unattached.jsonl
 import json, os, re, sys, glob
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, os.path.join(ROOT, 'trace_kit'))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from normalize import fold
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+
+ORACLE = {'ECHEM', 'THERMAL', 'MECH', 'TRANSPORT', 'ASSAY', 'BIO', 'PHYS', 'CHROM', 'PROFILOMETRY', 'TGA'}
+MATCH_MIN = 0.12          # below this a claim is not treated as part of the hop's effect
 
 ORACLE = {'ECHEM', 'THERMAL', 'MECH', 'TRANSPORT', 'ASSAY', 'BIO', 'PHYS', 'CHROM', 'PROFILOMETRY', 'TGA'}
 MATCH_MIN = 0.12          # below this a claim is not treated as part of the hop's effect
@@ -23,16 +28,6 @@ SUP = str.maketrans('⁰¹²³⁴⁵⁶⁷⁸⁹', '0123456789')
 GREEK = {'α': 'alpha', 'β': 'beta', 'γ': 'gamma', 'δ': 'delta', 'ε': 'epsilon', 'θ': 'theta',
          'λ': 'lambda', 'μ': 'mu', 'σ': 'sigma', 'τ': 'tau', 'ω': 'omega', 'Α': 'alpha',
          'Β': 'beta', 'Γ': 'gamma', 'Δ': 'delta', 'Θ': 'theta', 'Σ': 'sigma', 'Ω': 'omega'}
-
-
-def norm_text(t):
-    """MatMech writes formulae with Unicode subscripts (Al6Cu6La) and Greek letters where our graph
-    writes ASCII. Without this the strongest shared token in a pair is invisible to the matcher."""
-    t = (t or '').translate(SUB).translate(SUP)
-    for k, v in GREEK.items(): t = t.replace(k, v)
-    t = t.replace('\u2032', "'").replace('\u2019', "'").replace('\u2212', '-')
-    t = re.sub(r"[\u00b4\u2018\u201c\u201d']", ' ', t)
-    return re.sub(r'\s+', ' ', t).strip().lower()
 
 
 def fam(t):
@@ -62,8 +57,8 @@ def main(paper):
             if N[s].get('panel_ids') or N[s].get('figs'):
                 ev_by_claim.setdefault(t, []).append((s, r))
 
-    texts = [norm_text(c.get('label')) for c in claims]
-    effects = [norm_text(h['_matmech_span_DO_NOT_PROMPT']['effect']) for h in hops['hops']]
+    texts = [fold(c.get('label')) for c in claims]
+    effects = [fold(h['_matmech_span_DO_NOT_PROMPT']['effect']) for h in hops['hops']]
     vw = TfidfVectorizer(analyzer='word', ngram_range=(1, 2), sublinear_tf=True, min_df=1)
     vc = TfidfVectorizer(analyzer='char_wb', ngram_range=(3, 5), sublinear_tf=True, min_df=1)
     Mw = vw.fit_transform(texts + effects); Mc = vc.fit_transform(texts + effects)

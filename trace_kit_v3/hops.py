@@ -9,10 +9,13 @@ so a leak into a solver prompt is greppable, and the reasoning-chain sentences a
 """
 import json, os, re, sys, difflib
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from normalize import fold
 
 
 def norm(s):
-    return re.sub(r'[^a-z0-9]+', ' ', (s or '').lower()).strip()
+    """chaining match: the shared folder, then punctuation stripped to bare tokens"""
+    return re.sub(r'[^a-z0-9]+', ' ', fold(s)).strip()
 
 
 def paraphrase(text, n=14):
@@ -74,8 +77,8 @@ def main(paper):
     # span-chained link is never confused with a stage-chained one.
     STAGE = {'processing': 0, 'structure': 1, 'property': 2, 'properties': 2, 'performance': 3}
     def ends(h):
-        t = (h.get('stage_type') or '').replace('->', '\u2192')
-        parts = [x.strip().lower() for x in t.split('\u2192')]
+        t = fold(h.get('stage_type')).replace('->', '\u2192')
+        parts = [x.strip() for x in t.split('\u2192')]
         return (parts[0], parts[-1]) if len(parts) >= 2 else (None, None)
     for a in hops:
         if a['next']: continue
