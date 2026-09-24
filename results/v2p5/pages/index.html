@@ -102,42 +102,70 @@ font:600 11px ui-monospace,Menlo,monospace}
 .nochain{border:1px dashed var(--warn);border-radius:10px;padding:11px 13px;margin:10px 0;font-size:13px}
 .idx td,.idx th{font-size:12px;padding:5px 7px}
 .idx tr:hover{background:var(--chip)}
+
+.gsvg .me{stroke-width:2.2}
+.me.good{stroke:var(--acc)} .me.bad{stroke:var(--warn)} .me.na{stroke:var(--line);stroke-dasharray:4 3}
+.jn rect{fill:var(--chip);stroke:var(--line)}
+.jn text{font:600 10px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.jlbl{font:9.5px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.mb rect{fill:var(--card);stroke-width:2}
+.mb text{font:600 10px ui-monospace,Menlo,monospace;fill:var(--ink);text-anchor:middle}
+.mb.bb rect{stroke-dasharray:5 3;stroke-width:3}
+.trace{border:1px solid var(--acc);border-radius:13px;padding:0;margin:18px 0;overflow:hidden;background:var(--card)}
+.thead{background:var(--chip);padding:11px 15px;font-size:13.5px;border-bottom:1px solid var(--line)}
+.trace .card{margin:12px 15px;border-radius:10px}
+.seam{margin:0;padding:13px 16px;background:linear-gradient(var(--chip),var(--chip));
+border-top:2px dashed var(--acc);border-bottom:2px dashed var(--acc)}
+.seamhead{font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;
+color:var(--acc);margin-bottom:7px}
+.seam .lims{font-size:13px}
+.seam .lims b{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.lrow{margin:6px 0}
+.lrow.drop{background:rgba(224,163,58,.13);border-left:3px solid var(--warn);padding:5px 9px;border-radius:0 6px 6px 0}
+.dropnote{color:var(--warn);font-weight:600;font-size:12px;margin-top:3px}
+.launderbar{background:var(--warn);color:#fff;padding:7px 11px;border-radius:7px;font-size:12.5px;margin:9px 0 0}
+.closing{margin:0;padding:13px 16px;border-top:2px solid var(--acc);background:var(--bg)}
+.closing b{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.ref{margin:12px 15px;padding:9px 12px;border:1px dashed var(--line);border-radius:9px;
+font-size:12.5px;color:var(--mut)}
+.nomerge{border:1px dashed var(--warn);border-radius:10px;padding:12px 14px;margin:10px 0;font-size:13px}
+.tt td,.tt th{font-size:12px}
 </style><body><div class="wrap">
-<h1>Traces v2.5 — pairwise items from the graph</h1>
+<h1>Traces v2.5 — two-step items, merged into traces</h1>
 <p class="mvm">Every verdict is model against model.</p>
-<p class="lead">One page per paper. Every item is two steps; chains are items joined end to end. Numbers agree with docs/TRACES_V2P5.md and trace_kit_v2p5/doc_numbers.py.</p>
-<table class="idx"><thead><tr><th>paper</th><th>items</th><th>comp</th><th>edge</th><th>cov</th><th>disc</th><th>FM</th><th>chains</th><th>depth</th><th>joins</th><th>rej</th><th>launder</th><th>conv</th><th>size</th></tr></thead><tbody>
-<tr><td><a href="Bioactive_Materials__j.bioactmat.2020.01.002.html">Bioactive Materials</a></td><td>5</td><td>2</td><td>2</td><td>1</td><td>1</td><td>0</td><td>2</td><td>2</td><td>2</td><td>0</td><td>2</td><td>0</td><td>748 KB</td></tr>
-<tr><td><a href="Bioactive_Materials__j.bioactmat.2019.12.006.html">Bioactive Materials</a></td><td>26</td><td>6</td><td>15</td><td>5</td><td>2</td><td>11</td><td>18</td><td>4</td><td>20</td><td>5</td><td>11</td><td>0</td><td>2299 KB</td></tr>
-<tr><td><a href="Biomaterials__j.biomaterials.2010.02.024.html">Biomaterials</a></td><td>5</td><td>3</td><td>2</td><td>0</td><td>1</td><td>2</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>433 KB</td></tr>
-<tr><td><a href="Biomaterials__j.biomaterials.2010.08.096.html">Biomaterials</a></td><td>2</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>278 KB</td></tr>
-<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2020.02.028.html">Journal of Magnesium and Alloys</a></td><td>5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td><td>2</td><td>2</td><td>2</td><td>0</td><td>0</td><td>0</td><td>909 KB</td></tr>
-<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2020.09.027.html">Journal of Magnesium and Alloys</a></td><td>14</td><td>6</td><td>7</td><td>1</td><td>2</td><td>11</td><td>8</td><td>2</td><td>8</td><td>0</td><td>6</td><td>0</td><td>1448 KB</td></tr>
-<tr><td><a href="Journal_of_Materials_Science_&amp;_Technology__j.jmst.2020.05.053.html">Journal of Materials Science &amp; Technol</a></td><td>9</td><td>2</td><td>7</td><td>0</td><td>1</td><td>9</td><td>2</td><td>6</td><td>7</td><td>0</td><td>5</td><td>0</td><td>1200 KB</td></tr>
-<tr><td><a href="Advanced_Energy_Materials__aenm.201601491.html">Advanced Energy Materials</a></td><td>13</td><td>5</td><td>8</td><td>0</td><td>1</td><td>5</td><td>4</td><td>3</td><td>5</td><td>0</td><td>1</td><td>0</td><td>988 KB</td></tr>
-<tr><td><a href="Advanced_Energy_Materials__aenm.202003412.html">Advanced Energy Materials</a></td><td>3</td><td>2</td><td>1</td><td>0</td><td>0</td><td>2</td><td>1</td><td>2</td><td>1</td><td>0</td><td>1</td><td>0</td><td>191 KB</td></tr>
-<tr><td><a href="Bioactive_Materials__j.bioactmat.2020.02.005.html">Bioactive Materials</a></td><td>13</td><td>6</td><td>6</td><td>1</td><td>3</td><td>4</td><td>4</td><td>3</td><td>5</td><td>1</td><td>3</td><td>0</td><td>1098 KB</td></tr>
-<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0537-3.html">Journal of Advanced Ceramics</a></td><td>5</td><td>1</td><td>4</td><td>0</td><td>1</td><td>2</td><td>2</td><td>2</td><td>2</td><td>0</td><td>1</td><td>0</td><td>383 KB</td></tr>
-<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0538-2.html">Journal of Advanced Ceramics</a></td><td>10</td><td>1</td><td>9</td><td>0</td><td>3</td><td>10</td><td>5</td><td>4</td><td>9</td><td>0</td><td>2</td><td>0</td><td>987 KB</td></tr>
-<tr><td><a href="Journal_of_Materials_Science_&amp;_Technology__j.jmst.2021.12.003.html">Journal of Materials Science &amp; Technol</a></td><td>7</td><td>3</td><td>4</td><td>0</td><td>1</td><td>4</td><td>3</td><td>3</td><td>4</td><td>0</td><td>2</td><td>0</td><td>593 KB</td></tr>
-<tr><td><a href="Materials_Characterization__j.matchar.2015.10.016.html">Materials Characterization</a></td><td>10</td><td>7</td><td>3</td><td>0</td><td>0</td><td>8</td><td>3</td><td>2</td><td>3</td><td>0</td><td>1</td><td>0</td><td>1053 KB</td></tr>
-<tr><td><a href="Nano_Letters__10.1021_acs.nanolett.0c04053.html">Nano Letters</a></td><td>7</td><td>1</td><td>6</td><td>0</td><td>1</td><td>1</td><td>5</td><td>2</td><td>5</td><td>0</td><td>3</td><td>0</td><td>732 KB</td></tr>
-<tr><td><a href="Progress_in_Organic_Coatings__j.porgcoat.2021.106157.html">Progress in Organic Coatings</a></td><td>4</td><td>0</td><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td><td>2</td><td>1</td><td>0</td><td>1</td><td>0</td><td>588 KB</td></tr>
-<tr><td><a href="Advanced_Composites_and_Hybrid_Materials__s42114-021-00366-2.html">Advanced Composites and Hybrid Materia</a></td><td>13</td><td>3</td><td>9</td><td>1</td><td>0</td><td>8</td><td>7</td><td>4</td><td>9</td><td>0</td><td>6</td><td>0</td><td>1456 KB</td></tr>
-<tr><td><a href="Advanced_Energy_Materials__aenm.201301564.html">Advanced Energy Materials</a></td><td>12</td><td>7</td><td>4</td><td>1</td><td>1</td><td>6</td><td>4</td><td>3</td><td>5</td><td>0</td><td>5</td><td>0</td><td>1361 KB</td></tr>
-<tr><td><a href="Advanced_Energy_Materials__aenm.202003419.html">Advanced Energy Materials</a></td><td>9</td><td>3</td><td>6</td><td>0</td><td>1</td><td>7</td><td>6</td><td>4</td><td>7</td><td>3</td><td>5</td><td>0</td><td>645 KB</td></tr>
-<tr><td><a href="Advanced_Energy_Materials__aenm.202003639.html">Advanced Energy Materials</a></td><td>8</td><td>2</td><td>6</td><td>0</td><td>1</td><td>8</td><td>2</td><td>3</td><td>3</td><td>0</td><td>3</td><td>0</td><td>554 KB</td></tr>
-<tr><td><a href="Advanced_Functional_Materials__10.1002_adfm.202005093.html">Advanced Functional Materials</a></td><td>16</td><td>6</td><td>9</td><td>1</td><td>1</td><td>8</td><td>14</td><td>4</td><td>12</td><td>0</td><td>9</td><td>0</td><td>1214 KB</td></tr>
-<tr><td><a href="Advanced_Materials__10.1002_adma.202005449.html">Advanced Materials</a></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>106 KB</td></tr>
-<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0532-8.html">Journal of Advanced Ceramics</a></td><td>4</td><td>0</td><td>4</td><td>0</td><td>0</td><td>0</td><td>1</td><td>2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>687 KB</td></tr>
-<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0536-4.html">Journal of Advanced Ceramics</a></td><td>10</td><td>1</td><td>9</td><td>0</td><td>1</td><td>8</td><td>2</td><td>2</td><td>2</td><td>0</td><td>0</td><td>0</td><td>597 KB</td></tr>
-<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2015.01.001.html">Journal of Magnesium and Alloys</a></td><td>7</td><td>1</td><td>6</td><td>0</td><td>0</td><td>3</td><td>4</td><td>2</td><td>4</td><td>0</td><td>3</td><td>2</td><td>1971 KB</td></tr>
-<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2019.01.003.html">Journal of Magnesium and Alloys</a></td><td>6</td><td>2</td><td>3</td><td>1</td><td>0</td><td>5</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1354 KB</td></tr>
-<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023.html">Journal of Magnesium and Alloys</a></td><td>16</td><td>0</td><td>15</td><td>1</td><td>0</td><td>4</td><td>16</td><td>5</td><td>15</td><td>0</td><td>5</td><td>0</td><td>1852 KB</td></tr>
-<tr><td><a href="Biomaterials__j.biomaterials.2011.11.042.html">Biomaterials</a></td><td>13</td><td>3</td><td>9</td><td>1</td><td>1</td><td>7</td><td>8</td><td>3</td><td>9</td><td>13</td><td>5</td><td>0</td><td>1386 KB</td></tr>
-<tr><td><a href="Advanced_Functional_Materials__10.1002_adfm.202008088.html">Advanced Functional Materials</a></td><td>7</td><td>2</td><td>5</td><td>0</td><td>0</td><td>7</td><td>1</td><td>2</td><td>1</td><td>0</td><td>1</td><td>0</td><td>552 KB</td></tr>
-<tr><td><a href="Acta_Materialia__10.1016_j.actamat.2021.116797.html">Acta Materialia</a></td><td>12</td><td>7</td><td>3</td><td>2</td><td>4</td><td>7</td><td>1</td><td>2</td><td>1</td><td>2</td><td>0</td><td>1</td><td>1308 KB</td></tr>
-<tr><td><a href="Nano_Letters__10.1021_acs.nanolett.6b04294.html">Nano Letters</a></td><td>11</td><td>4</td><td>5</td><td>2</td><td>4</td><td>10</td><td>4</td><td>2</td><td>4</td><td>0</td><td>1</td><td>0</td><td>1277 KB</td></tr>
-<tr><td><a href="Rare_Metals__s12598-012-0515-6.html">Rare Metals</a></td><td>3</td><td>3</td><td>0</td><td>0</td><td>1</td><td>3</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>146 KB</td></tr>
-<tr><td><b>total</b></td><td><b>286</b></td><td><b>92</b></td><td><b>175</b></td><td><b>19</b></td><td><b>33</b></td><td><b>167</b></td><td><b>130</b></td><td>&mdash;</td><td><b>147</b></td><td><b>24</b></td><td><b>82</b></td><td><b>3</b></td><td></td></tr>
+<p class="lead">Every item holds two steps. Composition merges them back into longer traces wherever one item&rsquo;s conclusion claim is the next item&rsquo;s input. The merged trace is the product. Numbers agree with docs/TRACES_V2P5.md.</p>
+<table class="idx"><thead><tr><th>paper</th><th>items</th><th>comp</th><th>edge</th><th>cov</th><th>disc</th><th>FM</th><th>traces</th><th>depth</th><th>seams</th><th>launder</th><th>all&nbsp;limits</th><th>rej</th><th>conv</th><th>size</th></tr></thead><tbody>
+<tr><td><a href="Bioactive_Materials__j.bioactmat.2020.01.002.html">Bioactive Materials</a></td><td>5</td><td>2</td><td>2</td><td>1</td><td>1</td><td>0</td><td>2</td><td>2</td><td>2</td><td>2</td><td>0</td><td>0</td><td>0</td><td>742 KB</td></tr>
+<tr><td><a href="Bioactive_Materials__j.bioactmat.2019.12.006.html">Bioactive Materials</a></td><td>26</td><td>6</td><td>15</td><td>5</td><td>2</td><td>11</td><td>18</td><td>4</td><td>20</td><td>11</td><td>5</td><td>5</td><td>0</td><td>2150 KB</td></tr>
+<tr><td><a href="Biomaterials__j.biomaterials.2010.02.024.html">Biomaterials</a></td><td>5</td><td>3</td><td>2</td><td>0</td><td>1</td><td>2</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>435 KB</td></tr>
+<tr><td><a href="Biomaterials__j.biomaterials.2010.08.096.html">Biomaterials</a></td><td>2</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>280 KB</td></tr>
+<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2020.02.028.html">Journal of Magnesium and Alloys</a></td><td>5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td><td>2</td><td>2</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>893 KB</td></tr>
+<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2020.09.027.html">Journal of Magnesium and Alloys</a></td><td>14</td><td>6</td><td>7</td><td>1</td><td>2</td><td>11</td><td>8</td><td>2</td><td>8</td><td>6</td><td>1</td><td>0</td><td>0</td><td>1333 KB</td></tr>
+<tr><td><a href="Journal_of_Materials_Science_&amp;_Technology__j.jmst.2020.05.053.html">Journal of Materials Science &amp; Techn</a></td><td>9</td><td>2</td><td>7</td><td>0</td><td>1</td><td>9</td><td>2</td><td>6</td><td>7</td><td>5</td><td>0</td><td>0</td><td>0</td><td>1204 KB</td></tr>
+<tr><td><a href="Advanced_Energy_Materials__aenm.201601491.html">Advanced Energy Materials</a></td><td>13</td><td>5</td><td>8</td><td>0</td><td>1</td><td>5</td><td>4</td><td>3</td><td>5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>958 KB</td></tr>
+<tr><td><a href="Advanced_Energy_Materials__aenm.202003412.html">Advanced Energy Materials</a></td><td>3</td><td>2</td><td>1</td><td>0</td><td>0</td><td>2</td><td>1</td><td>2</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>185 KB</td></tr>
+<tr><td><a href="Bioactive_Materials__j.bioactmat.2020.02.005.html">Bioactive Materials</a></td><td>13</td><td>6</td><td>6</td><td>1</td><td>3</td><td>4</td><td>4</td><td>3</td><td>5</td><td>3</td><td>1</td><td>1</td><td>0</td><td>1062 KB</td></tr>
+<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0537-3.html">Journal of Advanced Ceramics</a></td><td>5</td><td>1</td><td>4</td><td>0</td><td>1</td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td>1</td><td>0</td><td>0</td><td>371 KB</td></tr>
+<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0538-2.html">Journal of Advanced Ceramics</a></td><td>10</td><td>1</td><td>9</td><td>0</td><td>3</td><td>10</td><td>5</td><td>4</td><td>9</td><td>2</td><td>2</td><td>0</td><td>0</td><td>965 KB</td></tr>
+<tr><td><a href="Journal_of_Materials_Science_&amp;_Technology__j.jmst.2021.12.003.html">Journal of Materials Science &amp; Techn</a></td><td>7</td><td>3</td><td>4</td><td>0</td><td>1</td><td>4</td><td>3</td><td>3</td><td>4</td><td>2</td><td>1</td><td>0</td><td>0</td><td>576 KB</td></tr>
+<tr><td><a href="Materials_Characterization__j.matchar.2015.10.016.html">Materials Characterization</a></td><td>10</td><td>7</td><td>3</td><td>0</td><td>0</td><td>8</td><td>3</td><td>2</td><td>3</td><td>1</td><td>2</td><td>0</td><td>0</td><td>1035 KB</td></tr>
+<tr><td><a href="Nano_Letters__10.1021_acs.nanolett.0c04053.html">Nano Letters</a></td><td>7</td><td>1</td><td>6</td><td>0</td><td>1</td><td>1</td><td>5</td><td>2</td><td>5</td><td>3</td><td>2</td><td>0</td><td>0</td><td>693 KB</td></tr>
+<tr><td><a href="Progress_in_Organic_Coatings__j.porgcoat.2021.106157.html">Progress in Organic Coatings</a></td><td>4</td><td>0</td><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td><td>2</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>582 KB</td></tr>
+<tr><td><a href="Advanced_Composites_and_Hybrid_Materials__s42114-021-00366-2.html">Advanced Composites and Hybrid Mater</a></td><td>13</td><td>3</td><td>9</td><td>1</td><td>0</td><td>8</td><td>7</td><td>4</td><td>9</td><td>6</td><td>2</td><td>0</td><td>0</td><td>1416 KB</td></tr>
+<tr><td><a href="Advanced_Energy_Materials__aenm.201301564.html">Advanced Energy Materials</a></td><td>12</td><td>7</td><td>4</td><td>1</td><td>1</td><td>6</td><td>4</td><td>3</td><td>5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>1343 KB</td></tr>
+<tr><td><a href="Advanced_Energy_Materials__aenm.202003419.html">Advanced Energy Materials</a></td><td>9</td><td>3</td><td>6</td><td>0</td><td>1</td><td>7</td><td>6</td><td>4</td><td>7</td><td>5</td><td>1</td><td>3</td><td>0</td><td>598 KB</td></tr>
+<tr><td><a href="Advanced_Energy_Materials__aenm.202003639.html">Advanced Energy Materials</a></td><td>8</td><td>2</td><td>6</td><td>0</td><td>1</td><td>8</td><td>2</td><td>3</td><td>3</td><td>3</td><td>0</td><td>0</td><td>0</td><td>544 KB</td></tr>
+<tr><td><a href="Advanced_Functional_Materials__10.1002_adfm.202005093.html">Advanced Functional Materials</a></td><td>16</td><td>6</td><td>9</td><td>1</td><td>1</td><td>8</td><td>14</td><td>4</td><td>12</td><td>9</td><td>0</td><td>0</td><td>0</td><td>1094 KB</td></tr>
+<tr><td><a href="Advanced_Materials__10.1002_adma.202005449.html">Advanced Materials</a></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>109 KB</td></tr>
+<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0532-8.html">Journal of Advanced Ceramics</a></td><td>4</td><td>0</td><td>4</td><td>0</td><td>0</td><td>0</td><td>1</td><td>2</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>676 KB</td></tr>
+<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0536-4.html">Journal of Advanced Ceramics</a></td><td>10</td><td>1</td><td>9</td><td>0</td><td>1</td><td>8</td><td>2</td><td>2</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>585 KB</td></tr>
+<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2015.01.001.html">Journal of Magnesium and Alloys</a></td><td>7</td><td>1</td><td>6</td><td>0</td><td>0</td><td>3</td><td>4</td><td>2</td><td>4</td><td>3</td><td>1</td><td>0</td><td>2</td><td>1951 KB</td></tr>
+<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2019.01.003.html">Journal of Magnesium and Alloys</a></td><td>6</td><td>2</td><td>3</td><td>1</td><td>0</td><td>5</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1357 KB</td></tr>
+<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023.html">Journal of Magnesium and Alloys</a></td><td>16</td><td>0</td><td>15</td><td>1</td><td>0</td><td>4</td><td>16</td><td>5</td><td>15</td><td>5</td><td>6</td><td>0</td><td>0</td><td>1693 KB</td></tr>
+<tr><td><a href="Biomaterials__j.biomaterials.2011.11.042.html">Biomaterials</a></td><td>13</td><td>3</td><td>9</td><td>1</td><td>1</td><td>7</td><td>8</td><td>3</td><td>9</td><td>5</td><td>4</td><td>13</td><td>0</td><td>1318 KB</td></tr>
+<tr><td><a href="Advanced_Functional_Materials__10.1002_adfm.202008088.html">Advanced Functional Materials</a></td><td>7</td><td>2</td><td>5</td><td>0</td><td>0</td><td>7</td><td>1</td><td>2</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>549 KB</td></tr>
+<tr><td><a href="Acta_Materialia__10.1016_j.actamat.2021.116797.html">Acta Materialia</a></td><td>12</td><td>7</td><td>3</td><td>2</td><td>4</td><td>7</td><td>1</td><td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>1</td><td>1300 KB</td></tr>
+<tr><td><a href="Nano_Letters__10.1021_acs.nanolett.6b04294.html">Nano Letters</a></td><td>11</td><td>4</td><td>5</td><td>2</td><td>4</td><td>10</td><td>4</td><td>2</td><td>4</td><td>1</td><td>3</td><td>0</td><td>0</td><td>1240 KB</td></tr>
+<tr><td><a href="Rare_Metals__s12598-012-0515-6.html">Rare Metals</a></td><td>3</td><td>3</td><td>0</td><td>0</td><td>1</td><td>3</td><td>0</td><td>&mdash;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>149 KB</td></tr>
+<tr><td><b>total</b></td><td><b>286</b></td><td><b>92</b></td><td><b>175</b></td><td><b>19</b></td><td><b>33</b></td><td><b>167</b></td><td><b>130</b></td><td>&mdash;</td><td><b>147</b></td><td><b>82</b></td><td><b>41</b></td><td><b>24</b></td><td><b>3</b></td><td></td></tr>
 </tbody></table></div></body></html>

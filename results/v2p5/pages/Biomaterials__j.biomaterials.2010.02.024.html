@@ -102,12 +102,40 @@ font:600 11px ui-monospace,Menlo,monospace}
 .nochain{border:1px dashed var(--warn);border-radius:10px;padding:11px 13px;margin:10px 0;font-size:13px}
 .idx td,.idx th{font-size:12px;padding:5px 7px}
 .idx tr:hover{background:var(--chip)}
+
+.gsvg .me{stroke-width:2.2}
+.me.good{stroke:var(--acc)} .me.bad{stroke:var(--warn)} .me.na{stroke:var(--line);stroke-dasharray:4 3}
+.jn rect{fill:var(--chip);stroke:var(--line)}
+.jn text{font:600 10px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.jlbl{font:9.5px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.mb rect{fill:var(--card);stroke-width:2}
+.mb text{font:600 10px ui-monospace,Menlo,monospace;fill:var(--ink);text-anchor:middle}
+.mb.bb rect{stroke-dasharray:5 3;stroke-width:3}
+.trace{border:1px solid var(--acc);border-radius:13px;padding:0;margin:18px 0;overflow:hidden;background:var(--card)}
+.thead{background:var(--chip);padding:11px 15px;font-size:13.5px;border-bottom:1px solid var(--line)}
+.trace .card{margin:12px 15px;border-radius:10px}
+.seam{margin:0;padding:13px 16px;background:linear-gradient(var(--chip),var(--chip));
+border-top:2px dashed var(--acc);border-bottom:2px dashed var(--acc)}
+.seamhead{font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;
+color:var(--acc);margin-bottom:7px}
+.seam .lims{font-size:13px}
+.seam .lims b{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.lrow{margin:6px 0}
+.lrow.drop{background:rgba(224,163,58,.13);border-left:3px solid var(--warn);padding:5px 9px;border-radius:0 6px 6px 0}
+.dropnote{color:var(--warn);font-weight:600;font-size:12px;margin-top:3px}
+.launderbar{background:var(--warn);color:#fff;padding:7px 11px;border-radius:7px;font-size:12.5px;margin:9px 0 0}
+.closing{margin:0;padding:13px 16px;border-top:2px solid var(--acc);background:var(--bg)}
+.closing b{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.ref{margin:12px 15px;padding:9px 12px;border:1px dashed var(--line);border-radius:9px;
+font-size:12.5px;color:var(--mut)}
+.nomerge{border:1px dashed var(--warn);border-radius:10px;padding:12px 14px;margin:10px 0;font-size:13px}
+.tt td,.tt th{font-size:12px}
 </style><body><div class="wrap">
 <h1>Biomaterials</h1><p class="sub">Biomaterials__j.biomaterials.2010.02.024</p>
 <p class="mvm">Every verdict is model against model.</p>
-<p class="lead"><b>5 two-step items</b> &mdash; 3 complementary, 2 spine edge, 0 covariation &middot; 1 discriminating &middot; 2 FM lane &middot; 0 chains &middot; 0 joins kept, 0 rejected, 0 dropping a limit</p>
-<h2><span class="n">2</span>The original graph</h2>
-<p class="lead">Drawn from <code>taxonomy/graphs_v07/Biomaterials__j.biomaterials.2010.02.024.json</code>, the graph these items were built on. Every node any v2.5 item uses is highlighted.</p>
+<p class="lead"><b>5 two-step items</b> &mdash; 3 complementary, 2 spine edge, 0 covariation &middot; 1 discriminating &middot; 2 FM lane &middot; <b>0 merged traces</b> &middot; 0 seams, 0 laundering a limit, 0 trace(s) keeping every limit &middot; 0 joins rejected</p>
+<h2><span class="n">1</span>The original graph</h2>
+<p class="lead">Drawn from <code>taxonomy/graphs_v07/Biomaterials__j.biomaterials.2010.02.024.json</code>, the graph these items were built on.</p>
 <svg viewBox="0 0 1402 880" class="gsvg" role="img" aria-label="argument graph">
 <text x="52" y="26" class="gcol">HYP</text>
 <text x="180" y="26" class="gcol">DES</text>
@@ -225,20 +253,26 @@ font:600 11px ui-monospace,Menlo,monospace}
 <g class="gn"><title>Domain table: pI 4.6 (N-term), 3.80 (repetitive), 10.5 (C-term), 5.1 (light chain); repetitive part charge ratio 34/5</title><rect x="1201" y="758" width="52" height="24" rx="6"/><text x="1227" y="774">o19</text></g>
 <g class="gn"><title>Rhodamine B loading efficiency only 68% falling to 48% at all molar ratios, never near 100%</title><rect x="1201" y="798" width="52" height="24" rx="6"/><text x="1227" y="814">a1</text></g>
 </svg>
-<h2><span class="n">3</span>How the pairs formed</h2>
-<h3>complementary &mdash; two technique families evidencing one claim, so each carries part of the support and neither carries all of it</h3>
-<table><thead><tr><th>item</th><th>A</th><th>B</th><th>how the graph links them</th></tr></thead><tbody>
-<tr><td>biomaterials_com_o1_o2</td><td>o1 PHYS:yield</td><td>o2 OPTICAL</td><td>both evidence x1: PHYS and OPTICAL</td></tr>
-<tr><td>biomaterials_com_o3_o4</td><td>o3 OPTICAL</td><td>o4 SEM</td><td>both evidence x2: OPTICAL and SEM</td></tr>
-<tr><td>biomaterials_com_o7_o9</td><td>o7 DLS</td><td>o9 SEM</td><td>both evidence s8: DLS and SEM</td></tr>
+
+<h2><span class="n">3</span>How the two-step items were cut</h2>
+<p class="lead">Each item is two observations the graph already links. Section 5 carries the content; this is the inventory.</p>
+<h3>complementary &mdash; 3 items &mdash; two technique families evidencing one claim</h3>
+<table class="tt"><thead><tr><th>item</th><th>observation A</th><th>observation B</th><th>concludes</th><th>merges?</th></tr></thead><tbody>
+<tr><td>biomaterials_com_o1_o2</td><td>Ionic-strength boundary near ~0.75 M: gelation below, particle formati</td><td>Light-microscopy inset at high ionic strength shows separate spheres ~</td><td>x1</td><td>&mdash;</td></tr>
+<tr><td>biomaterials_com_o3_o4</td><td>Light-microscopy insets: irregular clustered particles at pH 4, discre</td><td>SEM: small spheres embedded in a web-like film in c; discrete, larger </td><td>x2</td><td>&mdash;</td></tr>
+<tr><td>biomaterials_com_o7_o9</td><td>Size distributions are narrow and sub-um at low concentration and broa</td><td>SEM: particle size increases from c to d to e; e shows large fused, ir</td><td>s8</td><td>&mdash;</td></tr>
 </tbody></table>
-<h3>spine_edge &mdash; two figure-backed claims joined by a `causes` or `explains` edge in our graph</h3>
-<table><thead><tr><th>item</th><th>A</th><th>B</th><th>how the graph links them</th></tr></thead><tbody>
-<tr><td>biomaterials_spi_o15_o13</td><td>o15 PHYS:zeta_potential</td><td>o13 PHYS:loading_assay</td><td>s13 -explains-&gt; s12</td></tr>
-<tr><td>biomaterials_spi_o16_o13</td><td>o16 CLSM</td><td>o13 PHYS:loading_assay</td><td>x5 -explains-&gt; s12</td></tr>
+<h3>spine_edge &mdash; 2 items &mdash; two figure-backed claims joined by a causes or explains edge</h3>
+<table class="tt"><thead><tr><th>item</th><th>observation A</th><th>observation B</th><th>concludes</th><th>merges?</th></tr></thead><tbody>
+<tr><td>biomaterials_spi_o15_o13</td><td>Zeta potential rises with loading; alcian blue crosses zero between 6.</td><td>Loading efficiency ~100% for crystal violet to ratio 60 and alcian blu</td><td>s12</td><td>&mdash;</td></tr>
+<tr><td>biomaterials_spi_o16_o13</td><td>Confocal: rhodamine B fluorescence fills each ~1-2 um particle uniform</td><td>Loading efficiency ~100% for crystal violet to ratio 60 and alcian blu</td><td>s12</td><td>&mdash;</td></tr>
 </tbody></table>
-<h2><span class="n">4</span>The two-step items</h2>
-<p class="lead">Every item is exactly two steps: two observations the graph already links, asked so neither answers alone. Chains are these items joined end to end, in section 5 &mdash; never one long trace.</p>
+<h2><span class="n">4</span>How the items merge</h2>
+<div class="nomerge"><b>Nothing merged.</b> This paper's two-step items share no claim in the direction a join needs — no item's conclusion is another's input — so nothing merged. Every item is in section 6.</div>
+<h2><span class="n">5</span>The merged traces</h2>
+<div class="nomerge">This paper's two-step items share no claim in the direction a join needs — no item's conclusion is another's input — so nothing merged. Every item is in section 6.</div>
+<h2><span class="n">6</span>Items outside any merged trace</h2>
+<p class="lead">5 item(s) did not merge.</p>
 <div class="gen">complementary &mdash; 3 items</div>
 <div class="card"><div class="sh"><span class="sn">biomaterials_com_o1_o2</span>
 </div>
@@ -360,7 +394,5 @@ font:600 11px ui-monospace,Menlo,monospace}
 <li>Adsorbed small-molecule drugs diffuse from the surface into the protein matrix</li>
 <li>Cationic drug loading is near-complete (~100% efficiency) up to ~6% matrix loading, then efficiency falls as the matrix saturates</li>
 </ul><p class="sub">claims x5, s12 &middot; graph relation explains</p></div></div>
-<h2><span class="n">5</span>How the items stitch</h2>
-<div class="nochain"><b>No chain for this paper.</b> This paper's pairs share no claim in the direction a join needs, so no chain was built. The pairs themselves are above; what is missing is a claim that is one item's conclusion and another's input.</div>
 
 </div></body></html>

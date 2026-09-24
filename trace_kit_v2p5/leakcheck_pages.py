@@ -26,6 +26,28 @@ def words(t):
     return {w for w in re.findall(r'[a-z][a-z0-9\-]{2,}', fold(t)) if w not in STOP}
 
 
+def strip_audit(h):
+    """Cut every audit-only box, counting div depth.
+
+    The first version cut with a non-greedy `<div class="audit-only">.*?</div>\\s*</div>`, which
+    assumed the box held exactly one nested div. The merged-trace layout puts one <div class="hop">
+    per hop inside it, so the regex stopped at the first hop's close and left the rest of the box
+    on the page -- reported as 9 leaks that were the audit box itself.
+    """
+    out, i = [], 0
+    for m in re.finditer(r'<div class="audit-only">', h):
+        if m.start() < i: continue
+        out.append(h[i:m.start()])
+        d, j = 0, m.start()
+        for t in re.finditer(r'<div\b|</div>', h[m.start():]):
+            d += 1 if t.group().startswith('<div') else -1
+            if d == 0:
+                j = m.start() + t.end(); break
+        i = j
+    out.append(h[i:])
+    return ''.join(out)
+
+
 def main():
     papers = [x['paper'] for x in json.load(open(os.path.join(ROOT, 'results/v5_papers.json')))]
     leaks, coincid, n = [], [], 0
@@ -33,7 +55,7 @@ def main():
         f = os.path.join(ROOT, 'results/v2p5/pages', p + '.html')
         if not os.path.exists(f): continue
         h = re.sub(r'data:image/[^"]+', '', open(f).read())
-        outside = re.sub(r'<div class="audit-only">.*?</div>\s*</div>', '', h, flags=re.S)
+        outside = strip_audit(h)
         fo = fold(outside)
         gp = json.load(open(os.path.join(ROOT, 'results/v3', p, 'stitch.json')))['graph']
         g = json.load(open(os.path.join(ROOT, gp)))

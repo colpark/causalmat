@@ -102,12 +102,40 @@ font:600 11px ui-monospace,Menlo,monospace}
 .nochain{border:1px dashed var(--warn);border-radius:10px;padding:11px 13px;margin:10px 0;font-size:13px}
 .idx td,.idx th{font-size:12px;padding:5px 7px}
 .idx tr:hover{background:var(--chip)}
+
+.gsvg .me{stroke-width:2.2}
+.me.good{stroke:var(--acc)} .me.bad{stroke:var(--warn)} .me.na{stroke:var(--line);stroke-dasharray:4 3}
+.jn rect{fill:var(--chip);stroke:var(--line)}
+.jn text{font:600 10px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.jlbl{font:9.5px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.mb rect{fill:var(--card);stroke-width:2}
+.mb text{font:600 10px ui-monospace,Menlo,monospace;fill:var(--ink);text-anchor:middle}
+.mb.bb rect{stroke-dasharray:5 3;stroke-width:3}
+.trace{border:1px solid var(--acc);border-radius:13px;padding:0;margin:18px 0;overflow:hidden;background:var(--card)}
+.thead{background:var(--chip);padding:11px 15px;font-size:13.5px;border-bottom:1px solid var(--line)}
+.trace .card{margin:12px 15px;border-radius:10px}
+.seam{margin:0;padding:13px 16px;background:linear-gradient(var(--chip),var(--chip));
+border-top:2px dashed var(--acc);border-bottom:2px dashed var(--acc)}
+.seamhead{font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;
+color:var(--acc);margin-bottom:7px}
+.seam .lims{font-size:13px}
+.seam .lims b{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.lrow{margin:6px 0}
+.lrow.drop{background:rgba(224,163,58,.13);border-left:3px solid var(--warn);padding:5px 9px;border-radius:0 6px 6px 0}
+.dropnote{color:var(--warn);font-weight:600;font-size:12px;margin-top:3px}
+.launderbar{background:var(--warn);color:#fff;padding:7px 11px;border-radius:7px;font-size:12.5px;margin:9px 0 0}
+.closing{margin:0;padding:13px 16px;border-top:2px solid var(--acc);background:var(--bg)}
+.closing b{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.ref{margin:12px 15px;padding:9px 12px;border:1px dashed var(--line);border-radius:9px;
+font-size:12.5px;color:var(--mut)}
+.nomerge{border:1px dashed var(--warn);border-radius:10px;padding:12px 14px;margin:10px 0;font-size:13px}
+.tt td,.tt th{font-size:12px}
 </style><body><div class="wrap">
 <h1>Advanced Materials</h1><p class="sub">Advanced_Materials__10.1002_adma.202005449</p>
 <p class="mvm">Every verdict is model against model.</p>
-<p class="lead"><b>1 two-step items</b> &mdash; 0 complementary, 1 spine edge, 0 covariation &middot; 0 discriminating &middot; 1 FM lane &middot; 0 chains &middot; 0 joins kept, 0 rejected, 0 dropping a limit</p>
-<h2><span class="n">2</span>The original graph</h2>
-<p class="lead">Drawn from <code>taxonomy/graphs_v07/Advanced_Materials__10.1002_adma.202005449.json</code>, the graph these items were built on. Every node any v2.5 item uses is highlighted.</p>
+<p class="lead"><b>1 two-step items</b> &mdash; 0 complementary, 1 spine edge, 0 covariation &middot; 0 discriminating &middot; 1 FM lane &middot; <b>0 merged traces</b> &middot; 0 seams, 0 laundering a limit, 0 trace(s) keeping every limit &middot; 0 joins rejected</p>
+<h2><span class="n">1</span>The original graph</h2>
+<p class="lead">Drawn from <code>taxonomy/graphs_v07/Advanced_Materials__10.1002_adma.202005449.json</code>, the graph these items were built on.</p>
 <svg viewBox="0 0 1402 1200" class="gsvg" role="img" aria-label="argument graph">
 <text x="52" y="26" class="gcol">HYP</text>
 <text x="180" y="26" class="gcol">DES</text>
@@ -246,13 +274,19 @@ font:600 11px ui-monospace,Menlo,monospace}
 <g class="gn"><title>After the 60 s charge marked in the panel the cell discharges for ~390 s at 50 uA cm-2 and ~180 s at 100 uA cm-2</title><rect x="1201" y="1078" width="52" height="24" rx="6"/><text x="1227" y="1094">o25</text></g>
 <g class="gn"><title>Sensor current swings reproducibly and reversibly with finger bending (~12-15%), elbow bending (-85 to +40%) and vertical presses</title><rect x="1201" y="1118" width="52" height="24" rx="6"/><text x="1227" y="1134">o26</text></g>
 </svg>
-<h2><span class="n">3</span>How the pairs formed</h2>
-<h3>spine_edge &mdash; two figure-backed claims joined by a `causes` or `explains` edge in our graph</h3>
-<table><thead><tr><th>item</th><th>A</th><th>B</th><th>how the graph links them</th></tr></thead><tbody>
-<tr><td>advanced_mat_spi_o18_o20</td><td>o18 SEM</td><td>o20 ECHEM:GCD</td><td>n15 -causes-&gt; n16</td></tr>
+
+<h2><span class="n">3</span>How the two-step items were cut</h2>
+<p class="lead">Each item is two observations the graph already links. Section 5 carries the content; this is the inventory.</p>
+<h3>spine_edge &mdash; 1 items &mdash; two figure-backed claims joined by a causes or explains edge</h3>
+<table class="tt"><thead><tr><th>item</th><th>observation A</th><th>observation B</th><th>concludes</th><th>merges?</th></tr></thead><tbody>
+<tr><td>advanced_mat_spi_o18_o20</td><td>Each cross-section is one continuous layer, a laminated base passing i</td><td>Discharge capacity reads ~88 uAh cm-2 at 20 uA cm-2 and ~25 uAh cm-2 a</td><td>n16</td><td>&mdash;</td></tr>
 </tbody></table>
-<h2><span class="n">4</span>The two-step items</h2>
-<p class="lead">Every item is exactly two steps: two observations the graph already links, asked so neither answers alone. Chains are these items joined end to end, in section 5 &mdash; never one long trace.</p>
+<h2><span class="n">4</span>How the items merge</h2>
+<div class="nomerge"><b>Nothing merged.</b> This paper's two-step items share no claim in the direction a join needs — no item's conclusion is another's input — so nothing merged. Every item is in section 6.</div>
+<h2><span class="n">5</span>The merged traces</h2>
+<div class="nomerge">This paper's two-step items share no claim in the direction a join needs — no item's conclusion is another's input — so nothing merged. Every item is in section 6.</div>
+<h2><span class="n">6</span>Items outside any merged trace</h2>
+<p class="lead">1 item(s) did not merge.</p>
 <div class="gen">spine_edge &mdash; 1 items</div>
 <div class="card"><div class="sh"><span class="sn">advanced_mat_spi_o18_o20</span>
 </div>
@@ -284,7 +318,5 @@ font:600 11px ui-monospace,Menlo,monospace}
 <li>LTO and LFP particles sit embedded in a crumpled MXene sheet network that merges continuously into the printed collector</li>
 <li>MX-LIMBs deliver ~88 uAh cm-2 at 20 uA cm-2 on a plateau near 1.8 V, falling to ~25 uAh cm-2 at 200 uA cm-2</li>
 </ul><p class="sub">claims n15, n16 &middot; graph relation causes</p></div></div>
-<h2><span class="n">5</span>How the items stitch</h2>
-<div class="nochain"><b>No chain for this paper.</b> This paper's pairs share no claim in the direction a join needs, so no chain was built. The pairs themselves are above; what is missing is a claim that is one item's conclusion and another's input.</div>
 
 </div></body></html>
