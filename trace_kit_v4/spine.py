@@ -15,6 +15,8 @@ Every verdict is model against model.
 """
 import json, os, sys, glob, collections
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+SRC = os.environ.get('TRACES_OUT', 'results/v3/traces')
+DST = os.environ.get('V4_OUT', 'results/v4')
 sys.path.insert(0, os.path.join(ROOT, 'trace_kit_v3'))
 from support import claim_support, supported
 from v3b import prop_of
@@ -46,7 +48,7 @@ def refer(claims, N, step_no):
 
 def main():
     traces = []
-    for cj in sorted(glob.glob(os.path.join(ROOT, 'results/v3/traces/*/case.json'))):
+    for cj in sorted(glob.glob(os.path.join(ROOT, SRC, '*/case.json'))):
         ch = json.load(open(cj))
         g = json.load(open(os.path.join(ROOT, ch['graph'])))
         N = {n['id']: n for n in g['nodes']}
@@ -99,7 +101,7 @@ def main():
              'chain': ch['chain'], 'setup': ch['setup'], 'steps': steps,
              'note': 'MatMech supplies which stretches are causal; our graph supplies the content. '
                      'Every verdict is model against model.'}
-        d = os.path.join(ROOT, 'results/v4', ch['case']); os.makedirs(d, exist_ok=True)
+        d = os.path.join(ROOT, DST, ch['case']); os.makedirs(d, exist_ok=True)
         json.dump(t, open(os.path.join(d, 'trace.json'), 'w'), indent=1)
         traces.append(t)
 

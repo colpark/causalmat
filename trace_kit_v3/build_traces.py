@@ -17,6 +17,7 @@ Every verdict is model against model.
 """
 import json, os, sys, collections
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+OUT = os.environ.get('TRACES_OUT', 'results/v3/traces')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'trace_kit'))
 from support import claim_support, supported
@@ -24,10 +25,7 @@ from cut_traces import store_for, panel_record, unmath
 
 ORACLE = {'ECHEM', 'THERMAL', 'MECH', 'TRANSPORT', 'ASSAY', 'BIO', 'PHYS', 'CHROM', 'PROFILOMETRY', 'TGA'}
 FM_LANE = {'SEM', 'TEM', 'STEM', 'XRD', 'XAS', 'ATOM', 'EBSD', 'AFM', 'CT', 'SAXS', 'LEED'}
-PAPERS = ['Acta_Materialia__10.1016_j.actamat.2021.116797', 'Rare_Metals__s12598-012-0515-6',
-          'Advanced_Functional_Materials__10.1002_adfm.202008088',
-          'Biomaterials__j.biomaterials.2011.11.042',
-          'Nano_Letters__10.1021_acs.nanolett.6b04294']
+PAPERS = [x['paper'] for x in json.load(open(os.path.join(ROOT,'results/v5_papers.json')))]
 
 
 def fam(t):
@@ -113,7 +111,7 @@ def main():
                     'steps': steps, 'dropped': drop,
                     'note': 'One step per MatMech hop. MatMech spans never enter a prompt. '
                             'Every verdict is model against model.'}
-            out = os.path.join(ROOT, 'results/v3/traces', case['case'])
+            out = os.path.join(ROOT, OUT, case['case'])
             os.makedirs(out, exist_ok=True)
             json.dump(case, open(os.path.join(out, 'case.json'), 'w'), indent=1)
             made.append((case['case'], P, path, len(steps), sum(len(s['panels']) for s in steps)))
