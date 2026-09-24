@@ -244,14 +244,48 @@ def parse_draft(t):
     return None
 
 
+def _belongs(it, key):
+    """Does this key talk about THIS item's observations?
+
+    Byte-for-byte prompt verification catches a relay that never dispatched a job. It cannot catch a
+    correct reply filed against the wrong question. Eleven keys in this run were attached to items
+    from other papers -- a magnesium grain-size item carried a photocatalysis key -- because
+    correcting the colliding ids did not remove the reply files the collision had already written.
+    A subagent noticed; none of my checks could have.
+
+    So: a key must share some vocabulary with its own two observations. The threshold is
+    deliberately low, because a good key paraphrases heavily; it is there to catch a key that is
+    about a different material entirely.
+    """
+    import re as _re
+    def w(t): return {x for x in _re.findall(r'[a-z][a-z0-9\-]{3,}', (t or '').lower())}
+    stop = w("the and that this with from which they there their been have into over under about "
+             "alone both these those does not only same different between across than more less "
+             "would could should observation observations evidence measurement measurements panel "
+             "panels limit limits proposition combining together neither either")
+    obs = (w(it['observation_a']['text']) | w(it['observation_b']['text'])) - stop
+    key = w((key or {}).get('proposition')) - stop
+    if not obs or not key: return True, 1.0
+    ov = len(obs & key) / max(1, len(key))
+    return ov >= 0.06, round(ov, 3)
+
+
 def collect():
     D = json.load(open(os.path.join(ROOT, 'results/v2p5/items.json')))
-    ok = miss = 0
+    ok = miss = quar = 0
     for it in D['items']:
         f = os.path.join(ROOT, 'results/v2p5/draft', it['item'] + '.out.txt')
         k = parse_draft(open(f).read()) if os.path.exists(f) else None
         if k:
-            it['key'] = {'drafted': True, **k}; ok += 1
+            belongs, ov = _belongs(it, k)
+            if not belongs:
+                it['key'] = None
+                it['key_quarantined'] = {'why': 'the key shares almost no vocabulary with this '
+                                                'item\'s own observations', 'overlap': ov,
+                                         'discarded_proposition': (k.get('proposition') or '')[:300]}
+                miss += 1; quar += 1
+            else:
+                it['key'] = {'drafted': True, **k}; ok += 1
         else:
             it['key'] = None; miss += 1
     json.dump(D, open(os.path.join(ROOT, 'results/v2p5/items.json'), 'w'), indent=1)
@@ -259,7 +293,8 @@ def collect():
                               for i in D['items'] if i.get('key'))
     comb = sum(1 for i in D['items'] if (i.get('key') or {}).get('combines'))
     ni = sum(1 for i in D['items'] if (i.get('key') or {}).get('not_identifiable'))
-    print(f"{ok} keys collected, {miss} still missing")
+    print(f"{ok} keys collected, {miss} still missing"
+          + (f", {quar} quarantined as not belonging to their item" if quar else ""))
     if ok:
         print(f"  combines: {comb}/{ok}   names something not identifiable: {ni}/{ok} = {ni/ok:.0%}")
         print(f"  causal strength: {dict(lab)}")
