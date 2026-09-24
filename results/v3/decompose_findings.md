@@ -15,6 +15,16 @@ matcher disagrees with a row, the disagreement is logged here and the test still
 
 Every verdict is model against model.
 
+## Validation result: accepted
+
+**4 of 5 clean positives pass.** Nano Letters M3 is accepted as a **logged structural miss**, not
+fixed: n17 is a sibling two edges from the matched set (n17 and n20 are both parents of n18), and a
+two-edge completion step would readmit must-not risks -- the same widening that proposed n20 -> n21
+and n17 -> n24 in the unshipped first version. No two-edge step. The test stays frozen.
+
+The matcher of record is `net-decompose` + `complete.py` with the absolute floor MATCH_MIN = 0.12
+and the one-edge replace step. adfm M3 and M4 stay unreachable and logged.
+
 ## Honest positive count
 
 Six known-positive rows, of which **one is contaminated**: Nano Letters M1 is the mesopores case,

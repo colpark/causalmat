@@ -1,6 +1,10 @@
 """confirm_links.py: a stage match is a candidate, not a link.
 
-  python3 trace_kit_v3/confirm_links.py <paper>
+  python3 trace_kit_v3/confirm_links.py <paper> [--lexical]
+
+Claims come from the matcher of record: net-decompose, then complete.py's one-edge replace step
+(decompose.json). `--lexical` runs the old TF-IDF sub_claims from stitch.json instead, so the two
+can be compared. Hop A contributes its **effect** claims, hop B its **cause** claims.
 
 Two unrelated findings that happen to share Processing->Structure and Structure->Performance will
 chain by stage type and produce a causal story the paper never told. So a stage link is accepted only
@@ -10,25 +14,44 @@ spine edge in our graph. The joining claim or edge is recorded.
   span        text identity between A's effect and B's cause
   stage+graph stage match, confirmed through our graph
   stage_only  stage match, not confirmed -- kept for the record, excluded from traces
+
+A claim that appears in EVERY hop of the paper cannot confirm a link on its own. Acta Materialia's
+n2 ("minute co-addition of Zn and Y...") is in all three hops, so sharing it says only that both
+hops are about the paper's subject. Such claims are dropped from the confirming set; a link that
+has nothing left falls through to the edge test and then to stage_only. No link in the five papers
+currently depends on one -- Acta M2->M3 also shares n12 -- but without the guard the test would
+confirm on a generic anchor as soon as one appeared.
 """
 import json, os, sys, collections
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 
-def main(paper):
+def main(paper, lexical=False):
     d = os.path.join(ROOT, 'results/v3', paper)
     hops = json.load(open(os.path.join(d, 'hops.json')))
     st = json.load(open(os.path.join(d, 'stitch.json')))
     g = json.load(open(os.path.join(ROOT, st['graph'])))
     N = {n['id']: n for n in g['nodes']}
-    subs = {h['hop']: [s['claim'] for s in h['sub_claims']] for h in st['hops']}
+    if lexical:
+        eff = {h['hop']: [s['claim'] for s in h['sub_claims']] for h in st['hops']}
+        cau = eff
+    else:
+        dec = json.load(open(os.path.join(d, 'decompose.json')))
+        eff = {k: v.get('effect', {}).get('claims', []) for k, v in dec['hops'].items()}
+        cau = {k: v.get('cause', {}).get('claims', []) for k, v in dec['hops'].items()}
     # spine edges, both directions, for the "joined by an edge" test
     adj = collections.defaultdict(set)
     for e in g['edges']:
         s, t = e.get('src'), e.get('dst')
         if s in N and t in N:
             adj[s].add((t, e.get('rel'), 'forward')); adj[t].add((s, e.get('rel'), 'back'))
+    # claims present in every hop: too generic to confirm anything
+    nh = len(hops['hops'])
+    appear = collections.Counter()
+    for hid in {h['id'] for h in hops['hops']}:
+        for c in set(eff.get(hid, [])) | set(cau.get(hid, [])): appear[c] += 1
+    universal = {c for c, k in appear.items() if nh > 1 and k == nh}
     out = []
     for h in hops['hops']:
         nxt = h.get('next')
@@ -36,8 +59,8 @@ def main(paper):
         if h.get('chain_strength') == 'span':
             h['link_confirmed_by'] = 'text identity between the two spans'
             out.append(h); continue
-        A, B = set(subs.get(h['id'], [])), set(subs.get(nxt, []))
-        shared = sorted(A & B)
+        A, B = set(eff.get(h['id'], [])), set(cau.get(nxt, []))
+        shared = sorted((A & B) - universal)
         joined = []
         for a in A:
             for b in B:
@@ -59,7 +82,11 @@ def main(paper):
     by = collections.Counter(h.get('chain_strength') for h in out if h.get('next'))
     hops['counts']['by_strength'] = {k: v for k, v in by.items() if k}
     hops['counts']['usable_links'] = by['span'] + by['stage+graph']
-    json.dump(hops, open(os.path.join(d, 'hops.json'), 'w'), indent=1)
+    hops['counts']['universal_claims_excluded'] = sorted(universal)
+    hops['counts']['link_claims_from'] = 'lexical sub_claims' if lexical else \
+        'net-decompose + complete.py (matcher of record)'
+    if not lexical:
+        json.dump(hops, open(os.path.join(d, 'hops.json'), 'w'), indent=1)
     print(f"{paper[:44]:44s} span={by['span']} stage+graph={by['stage+graph']} stage_only={by['stage_only']}")
     for h in out:
         if not h.get('next'): continue
@@ -67,4 +94,4 @@ def main(paper):
     return hops
 
 
-if __name__ == '__main__': main(sys.argv[1])
+if __name__ == '__main__': main(sys.argv[1], '--lexical' in sys.argv)

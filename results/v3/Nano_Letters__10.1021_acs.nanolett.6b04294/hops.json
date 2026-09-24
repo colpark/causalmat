@@ -28,8 +28,8 @@
     "cause": "Thermal decomposition of Co-based MOF under air atmosphere",
     "effect": "Porous structure with interconnected nano-sized particles and mesopores formed in cobalt oxide"
    },
-   "chain_strength": "stage_only",
-   "link_confirmed_by": null,
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claim: n5",
    "excluded_from_traces": true
   },
   {
@@ -81,7 +81,9 @@
     "cause": "Thermal decomposition of Co-based MOF under air atmosphere",
     "effect": "Inferior sodium storage performance compared to lithium storage"
    },
-   "chain_strength": null
+   "chain_strength": null,
+   "excluded_from_traces": true,
+   "exclusion_reason": "scope framing dropped: not independently supported. M3's effect ('inferior sodium storage vs lithium') is M2's effect inverted, and the claims it lands on (n7, n8) are evidenced by F2 panels only -- the identical panel set as M2 -- so it adds no evidence. M3 cites F6, where the XAFS claim n17 lives, but the matcher never reaches n17 (logged structural miss), so M3's own evidence is never picked up and it borrows M2's. It is a Processing->Performance shortcut spanning M1's cause to M2's effect, not a third step."
   }
  ],
  "counts": {
@@ -94,9 +96,12 @@
    "M3"
   ],
   "by_strength": {
-   "stage_only": 1
+   "stage+graph": 1
   },
-  "usable_links": 0
+  "usable_links": 1,
+  "link_claims_from": "net-decompose + complete.py (matcher of record)",
+  "universal_claims_excluded": [],
+  "nano_letters_recompute": "M3 dropped; chain is M1 -> M2"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }
