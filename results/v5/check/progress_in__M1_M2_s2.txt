@@ -1,0 +1,35 @@
+Property under test: the measured property value
+
+Previous step established: Alkali treatment leaves a hydroxyl-rich Mg(OH)2 oxide layer on the AZ31 surface
+
+Observations available at this step (BIO:disc_diffusion):
+  [obs1] Clear inhibition halo around disc d on both E. coli and S. aureus plates; none around discs a, b, c
+
+THE KEY UNDER AUDIT
+
+Proposition: Putting the previous step's result together with this evidence shows that the hydroxyl-rich Mg(OH)2 oxide layer that alkali treatment leaves on AZ31 (present in the AZ31-OH sample) is not itself antibacterial: disc b (AZ31-OH) shows no inhibition halo on either E. coli or S. aureus plates, matching untreated AZ31 (disc a) and PCL (disc c). Only disc d (PCL-LS coating) produces a clear halo on both organisms. So the antibacterial effect belongs specifically to the PCL-LS coating, not to the alkali-formed oxide layer.
+
+Limits:
+  [0] The halo readout (obs1) is a qualitative presence/absence call, not a quantified measure of bacterial kill or potency
+  [1] The evidence rules out the oxide layer alone and PCL alone as sufficient causes, but does not identify what within the PCL-LS coating produces the effect
+  [2] No test isolates whether the oxide layer plays any supporting role in combination with the PCL-LS coating, since PCL-LS is only tested as fabricated
+  [3] Single halo observation per disc/organism with no replicate or dose-response data given to weigh the reliability of the 'none' calls for discs a, b, c
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

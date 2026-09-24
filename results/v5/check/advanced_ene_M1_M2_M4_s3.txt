@@ -1,0 +1,38 @@
+Property under test: how the material performs in service
+
+Previous step established: Zinc adsorption is exothermic on N-doped graphene (-0.072 to -0.089 eV) but endothermic on pristine graphene (+0.014 to +0.030 eV)
+
+Observations available at this step (SEM):
+  [obs1] Zinc on CnC HS is a largely flat deposit with sparse protruding platelets; on C HS the surface is a dense mat of sharp platelets
+  [obs2] CnC HS holds roughly 93-100% Coulombic efficiency to about 205 cycles; C HS data end near 50 cycles after falling to zero at ~40 and ~48
+  [obs3] C HS voltage spikes grow from ~2600 min and its trace ends near 4400 min at the 'C HS battery failure' arrow, while CnC HS stays within ~0.03 V to 7100 min
+  [obs4] Under a stepped current-density staircase C HS develops large voltage spikes from ~2300 min while CnC HS stays within ~0.05 V to 3500 min
+
+THE KEY UNDER AUDIT
+
+Proposition: The more favorable (exothermic, -0.072 to -0.089 eV) zinc adsorption on N-doped graphene, versus unfavorable (endothermic, +0.014 to +0.030 eV) adsorption on pristine graphene, is consistent with the morphological and cycling contrasts observed: CnC HS deposits zinc as a largely flat layer with only sparse protruding platelets (obs1), sustains 93-100% Coulombic efficiency to about 205 cycles (obs2), stays within ~0.03 V to 7100 min in symmetric cycling (obs3) and within ~0.05 V to 3500 min under a stepped current-density staircase (obs4); C HS instead grows a dense mat of sharp platelets (obs1), fails (drops to zero Coulombic efficiency) by ~40-48 cycles (obs2), develops large voltage spikes and ends near 4400 min in symmetric cycling (obs3), and spikes from ~2300 min under the staircase test (obs4). The energetics-morphology link offers a plausible thermodynamic basis for the uniform-versus-dendritic deposition, which in turn tracks with markedly longer service life on CnC HS.
+
+Limits:
+  [0] The adsorption-energy calculation (step 2) is a single-atom/idealized DFT comparison on graphene surfaces, while the SEM and cycling data are macroscopic electrode-level observations on composite hollow-sphere (HS) architectures (CnC HS vs C HS); the two samples differ in more than doping alone (e.g., overall hollow-sphere construction, any structural or compositional differences bundled with N-doping), so the adsorption-energy sign cannot by itself be isolated as the sole driver of the morphology or cycling outcomes.
+  [1] obs1-obs4 are drawn from only two samples, so what looks like a mechanism-consistent trend is an ordering between two cases, not a dose-response relationship over a range of adsorption energies.
+  [2] Cycling failure (obs2-obs4) could involve additional processes not captured by adsorption thermodynamics alone, such as dendrite-induced shorting, side reactions, or corrosion, which are not separated out here.
+  [3] obs2, obs3, and obs4 are three different measurement protocols (cycling efficiency, symmetric-cell voltage trace, stepped-current voltage trace) that are not on a common scale and are being combined only as converging qualitative evidence of stability, not as a single quantitative measure.
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

@@ -1,0 +1,34 @@
+Property under test: how the material performs in service
+
+Previous step established: Porosity falls with sintering temperature; S1 and S2 densify below 1%, S3 keeps ~7.7%
+
+Observations available at this step (['MECH:toughness', 'MECH:flexural']):
+  [obs1] K_IC (red, left axis) ~5.6 to 5.1 MPa m^1/2 and sigma (black, right axis) 462-545 MPa from RT to 800 C
+
+THE KEY UNDER AUDIT
+
+Proposition: Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an 8.7% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature is raised from RT to 800 C. That is, low porosity co-occurs with only modest degradation of toughness and strength across this service-temperature range.
+
+Limits:
+  [0] F9 shows only one sample's (S1) property-vs-temperature trace; S3, which step 1 identified as staying at ~7.7% porosity, is not shown in this panel, so no direct in-panel comparison of high- vs low-porosity performance is given here
+  [1] The temperature axis in this step (RT to 800 C) is the service/test temperature during the K_IC and flexural measurements, not the sintering temperature from step 1; porosity and sintering temperature move together by construction, but other sintering-temperature-driven microstructural changes (e.g., grain size, phase content) also move with it and are not separated out here
+  [2] Only two bracketing points (RT and 800 C) are described for each curve, which supports an ordering/range statement but not a fitted trend across intermediate temperatures
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

@@ -1,0 +1,37 @@
+Property under test: how the material performs in service
+
+Previous step established: CnC HS lowers the zinc nucleation overpotential (39 vs 43 mV) and the plating overpotential at every current density
+
+Observations available at this step (SEM):
+  [obs1] Zinc on CnC HS is a largely flat deposit with sparse protruding platelets; on C HS the surface is a dense mat of sharp platelets
+  [obs2] CnC HS holds roughly 93-100% Coulombic efficiency to about 205 cycles; C HS data end near 50 cycles after falling to zero at ~40 and ~48
+  [obs3] C HS voltage spikes grow from ~2600 min and its trace ends near 4400 min at the 'C HS battery failure' arrow, while CnC HS stays within ~0.03 V to 7100 min
+  [obs4] Under a stepped current-density staircase C HS develops large voltage spikes from ~2300 min while CnC HS stays within ~0.05 V to 3500 min
+
+THE KEY UNDER AUDIT
+
+Proposition: Building on step 1's finding that CnC HS shows a lower zinc nucleation overpotential (39 vs 43 mV) and lower plating overpotential at every current density, the SEM and cycling evidence at this step shows CnC HS also forms a flatter, less sharply platelet-covered zinc deposit (obs1), retains ~93-100% Coulombic efficiency to about 205 cycles versus C HS collapsing to zero by ~40-48 cycles and ending near 50 cycles (obs2), survives symmetric cycling to ~7100 min within ~0.03 V versus C HS failing near 4400 min with spikes from ~2600 min (obs3), and tolerates a stepped current-density staircase to 3500 min within ~0.05 V versus C HS developing large spikes from ~2300 min (obs4). Together these permit the conclusion that the lower-overpotential CnC HS material correlates with a smoother deposit morphology and with much longer, more stable cycling and Coulombic-efficiency retention than C HS.
+
+Limits:
+  [0] The overpotential values from step 1 were measured at an early/initial stage of plating, not continuously through the ~200+ cycles or ~7000+ minutes of cycling reported here, so the link between overpotential and long-run stability is inferred across two separate measurements rather than tracked together over time
+  [1] The SEM morphology in obs1 is a single-timepoint snapshot; it is not tied to a specific cycle number or time relative to when CE drops or voltage spikes appear in obs2-obs4, so morphology cannot be shown to change in step with the electrochemical degradation
+  [2] CnC HS and C HS differ in host material by construction, so any number of other host properties (surface structure, composition, conductivity) could independently drive both the lower overpotential and the better morphology/cycling behavior, making this a correlation between co-varying host differences rather than an isolated causal test of overpotential
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

@@ -1,0 +1,35 @@
+Property under test: how the material performs in service
+
+Previous step established: Photocatalytic dye degradation rises with co-doping, best for Er0.5Ce0.2Ti-O (~46% vs ~20% for TiO2 in 60 min)
+
+Observations available at this step (ASSAY):
+  [obs1] Light: antibacterial ratio Er0.5Ce0.2 ~91% (c) and ~93% (d) > Ce0.3 ~87% > Ce0.1 ~68-73% > TiO2 ~45% > control ~4-7%
+  [obs2] Er0.5Ce0.2Ti-O light plates carry the fewest colonies for both strains; dark plates stay covered, sparser for doped samples
+
+THE KEY UNDER AUDIT
+
+Proposition: The composition that gave the largest photocatalytic dye-degradation gain in the previous step, Er0.5Ce0.2Ti-O (~46% dye removal vs ~20% for TiO2 in 60 min), is also the composition with the highest antibacterial kill ratio here (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1), and it shows visibly the fewest surviving colonies on light-exposed plates for both strains (obs2). So the same co-doped composition that ranks best for dye degradation also ranks best for antibacterial performance under light, and the ordering across compositions (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control) tracks in the same direction in both assays.
+
+Limits:
+  [0] Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio) with different exposure windows (60 min vs 20 min), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes
+  [1] The antibacterial result also includes a dark-plate condition (obs2) where colonies persist even for doped samples, showing light dependence for the antibacterial effect, but this dark condition has no counterpart in the previous step's dye-degradation data, so the two datasets cannot be cross-checked for a light-dependence mechanism
+  [2] Only a handful of compositions were tested in each assay, so the parallel ordering could reflect general co-doping benefit rather than a specific quantitative relationship between the two properties
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

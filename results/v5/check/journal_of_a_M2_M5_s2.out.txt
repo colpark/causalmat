@@ -1,0 +1,8 @@
+{"proposition": {"verdict": "overreach", "evidence": "[obs1] K_IC (red, left axis) ~5.6 to 5.1 MPa m^1/2 and sigma (black, right axis) 462-545 MPa from RT to 800 C", "fix": "K_IC only falls from 5.6 to 5.1 MPa m^1/2 (a ~8.9% drop, not 8.7%) and flexural strength stays within 462-545 MPa over that range; the rest of the identification (S1 as the F9 specimen) and the flexural-strength range are consistent with the observation, but the computed percentage drop is off (0.5/5.6 = 8.9%, not 8.7%)."},
+ "limits": [
+   {"index": 0, "verdict": "holds", "evidence": "[obs1] shows a single K_IC/flexural-strength trend line across RT-800 C with no second specimen's data present, consistent with only S1 having been swept over this range", "fix": null},
+   {"index": 1, "verdict": "holds", "evidence": "Previous step's variable is sintering temperature (processing, ~1600 C for S1) while [obs1] reports a test-temperature sweep (RT to 800 C); these are distinct axes and the limit correctly flags that treating one as explaining the other conflates them", "fix": null},
+   {"index": 2, "verdict": "holds", "evidence": "[obs1] presents one K_IC curve and one flexural-strength curve for a single specimen across temperature, i.e. a single trend line, not a cross-condition comparison", "fix": null}
+ ]}
+
+Notes: I flagged the proposition as overreach specifically because the arithmetic for the K_IC percentage drop (5.6 to 5.1 MPa·m^1/2) works out to ~8.9%, not the 8.7% stated -- a minor but real numeric mismatch against obs1. All three limits are well-supported by obs1 and the previous-step framing and were judged to hold as written. No files were modified; this was a pure reasoning/audit task with no codebase changes.

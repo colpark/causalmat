@@ -183,4 +183,78 @@ def checks():
     for j in jobs: print(f"   {j['id']}")
 
 
-if __name__ == '__main__': {'apply': apply, 'checks': checks}[sys.argv[1]]()
+def _obj(txt):
+    out, depth, start = [], 0, None
+    for i, c in enumerate(txt or ''):
+        if c == '{':
+            if depth == 0: start = i
+            depth += 1
+        elif c == '}' and depth:
+            depth -= 1
+            if not depth: out.append(txt[start:i + 1])
+    for o in sorted(out, key=len, reverse=True):
+        for cand in (o, re.sub(r',(\s*[}\]])', r'\1', o)):
+            try:
+                j = json.loads(cand)
+                if 'proposition' in j: return j
+            except Exception: continue
+    return None
+
+
+VOK = {'holds', 'overreaches', 'wrong'}
+
+
+def vnorm(v):
+    v = (v or '').strip().lower()
+    for k in ('overreach', 'wrong', 'holds'):
+        if k in v: return {'overreach': 'overreaches'}.get(k, k)
+    return None
+
+
+def collect():
+    D = json.load(open(os.path.join(ROOT, 'results/v5/items.json')))
+    I = {i['item']: i for i in D['items']}
+    jobs = json.load(open(os.path.join(ROOT, '.v07work/batch_v5check.json')))
+    tally = collections.Counter(); fixed = []
+    for j in jobs:
+        f = j['out']
+        r = _obj(open(f).read()) if os.path.exists(f) else None
+        if not r: tally['unparsed'] += 1; continue
+        it = I[j['id']]; k = it['key']
+        audit = {'checked': True, 'statements': []}
+        pv = vnorm((r.get('proposition') or {}).get('verdict'))
+        tally[f'proposition:{pv}'] += 1
+        audit['statements'].append({'what': 'proposition', 'verdict': pv,
+                                    'evidence': (r.get('proposition') or {}).get('evidence'),
+                                    'fix': (r.get('proposition') or {}).get('fix')})
+        if pv in ('overreaches', 'wrong') and (r.get('proposition') or {}).get('fix'):
+            k['proposition_before_audit'] = k['proposition']
+            k['proposition'] = r['proposition']['fix']
+            fixed.append((j['id'], 'proposition', pv))
+        lims = list(k.get('limits') or [])
+        for L in (r.get('limits') or []):
+            n = L.get('index')
+            lv = vnorm(L.get('verdict'))
+            tally[f'limit:{lv}'] += 1
+            audit['statements'].append({'what': f'limit[{n}]', 'verdict': lv,
+                                        'evidence': L.get('evidence'), 'fix': L.get('fix')})
+            if lv in ('overreaches', 'wrong') and L.get('fix') and isinstance(n, int) and 0 <= n < len(lims):
+                audit.setdefault('limits_before_audit', {})[str(n)] = lims[n]
+                lims[n] = L['fix']
+                fixed.append((j['id'], f'limit[{n}]', lv))
+        k['limits'] = lims
+        req = [x for x in [k.get('proposition')] if x] + lims
+        k['scoring']['required_elements'] = req
+        k['scoring']['n_required'] = len(req)
+        it['audit'] = audit
+    json.dump(D, open(os.path.join(ROOT, 'results/v5/items.json'), 'w'), indent=1)
+    tot = sum(v for kk, v in tally.items() if kk != 'unparsed')
+    holds = sum(v for kk, v in tally.items() if kk.endswith(':holds'))
+    print(f"{len(jobs)} keys checked, {tot} statements judged")
+    for kk, v in sorted(tally.items()): print(f"   {kk:24s} {v}")
+    print(f"\nhold rate: {holds}/{tot} = {holds/tot:.0%}")
+    print(f"statements rewritten: {len(fixed)}")
+    for a, b, c in fixed: print(f"   {a:32s} {b:12s} was {c}")
+
+
+if __name__ == '__main__': {'apply': apply, 'checks': checks, 'collect': collect}[sys.argv[1]]()

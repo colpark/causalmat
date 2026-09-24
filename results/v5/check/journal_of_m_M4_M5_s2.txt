@@ -1,0 +1,35 @@
+Property under test: how the material performs in service
+
+Previous step established: FSP composite wears less in sliding: wear rate 280 vs 420 x1e-5 mm3/m (33% lower) and smaller final height loss
+
+Observations available at this step (MECH:wear):
+  [obs1] Height loss vs time: stir casting reaches ~350 um and FSP ~240 um at ~1160 s; stir cast curve is jagged with sudden drops
+
+THE KEY UNDER AUDIT
+
+Proposition: The height-loss-vs-time trace corroborates the wear-rate difference from the previous step with a second, independent read: FSP stays lower in height loss than stir casting throughout the test, reaching ~240 um versus stir casting's ~350 um at ~1160 s, so the previous step's 'smaller final height loss' claim is the same gap seen in this curve, and the stir-cast trace additionally shows a jagged shape with sudden drops that the FSP trace (by contrast) does not show, suggesting the two materials lose material in different ways over time even as FSP's cumulative loss stays lower.
+
+Limits:
+  [0] Only two curves are shown, essentially one comparison at one end time (~1160 s); this is an ordering (FSP lower throughout) not a fitted rate relationship
+  [1] The 'jagged, sudden drops' description of the stir-cast curve is qualitative -- no count, size, or timing of the drops is given, so it cannot be turned into a rate or frequency
+  [2] No repeats or error bars are shown for either curve, so the gap at 1160 s (350 vs 240 um) cannot be assigned an uncertainty
+  [3] This obs1 curve is the same underlying measurement that produced the previous step's 'final height loss' figure, so it is not an independent confirmation of that part of the previous claim -- only the wear-rate figure (280 vs 420 x1e-5 mm3/m) is a distinct metric
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}
