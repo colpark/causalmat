@@ -1,0 +1,34 @@
+Property under test: how the material performs in service
+
+Previous step established: Flexural strength generally rises with sintering temperature; S1 at 1600 C is highest at ~465 MPa
+
+Observations available at this step (['MECH:toughness', 'MECH:flexural']):
+  [obs1] K_IC (red, left axis) ~5.6 to 5.1 MPa m^1/2 and sigma (black, right axis) 462-545 MPa from RT to 800 C
+
+THE KEY UNDER AUDIT
+
+Proposition: Putting the two steps together: S1 (the sintering condition, ~1600 C, already identified as giving the highest flexural strength, ~465 MPa) is also the specimen shown in F9 to retain high toughness and strength across the RT-to-800 C service-temperature range -- K_IC only falls from 5.6 to 5.1 MPa m^1/2 (an 8.7% drop) and flexural strength stays within 462-545 MPa over that range. So the sintering condition that gave the best room-temperature strength also shows only modest degradation in K_IC and flexural strength when tested up to 800 C.
+
+Limits:
+  [0] F9's temperature sweep (RT to 800 C) was run only on S1; no other sintering-temperature specimen was tested across this service-temperature range, so there is no comparison to know whether this retention is special to the 1600 C condition or would occur regardless of sintering temperature.
+  [1] The previous step's variable (sintering temperature, a processing variable) and this step's variable (test/service temperature, RT to 800 C) are different axes; treating S1's good high-temperature behavior as a consequence of its sintering temperature conflates the two.
+  [2] Only one specimen composition/condition is represented in F9, so this is a single trend line, not an ordering across conditions.
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

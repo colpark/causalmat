@@ -1,0 +1,36 @@
+Property under test: the mechanical property
+
+Previous step established: Tensile yield strength rises from ~93 to ~142 MPa with SiCp, largest gains at 5 and 10 wt%
+
+Observations available at this step (MECH:creep):
+  [obs1] Minimum creep rate vs applied stress: 15, 20, 25 wt% lie below AZ91; 5 and 10 wt% overlap or lie slightly above
+  [obs2] YS bars rise ~93, 113, 124, 127, 136, 142 MPa for 0-25 wt% SiCp
+
+THE KEY UNDER AUDIT
+
+Proposition: The SiCp loading that gives the largest yield-strength gains (5 and 10 wt%, raising YS from ~93 MPa to ~113-127 MPa) is not the loading that improves creep resistance: minimum creep rate at 175 C is pushed below AZ91 only at 15, 20 and 25 wt% SiCp, while 5 and 10 wt% curves overlap or sit slightly above AZ91. So the two mechanical responses to SiCp content diverge - the composition that helps yield strength most is not the one that helps creep resistance.
+
+Limits:
+  [0] Yield strength (a single stress value per wt%) is compared against creep behavior expressed as a curve of minimum creep rate versus applied stress at 175 C; these are not the same kind of quantity, so the 'gain' at 5-10 wt% in YS cannot be equated in size to the 'benefit' at 15-25 wt% in creep.
+  [1] obs1 reports only qualitative curve position (below/overlap/above AZ91), not a numeric reduction in creep rate, so the magnitude of the 15-25 wt% creep improvement is not quantified and cannot be ranked against the quantified YS gains from step 1.
+  [2] Creep is evaluated at an elevated temperature (175 C) while the YS values (obs2/step 1) carry no stated test temperature; if YS was measured at a different (e.g., room) temperature, the two properties are being compared across different test conditions, not just different compositions.
+  [3] Only two points (5, 10 wt%) are described for creep as overlapping or slightly above AZ91 and three (15, 20, 25 wt%) as below - this supports a threshold-like split at 15 wt%, not a continuous dose-response curve.
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

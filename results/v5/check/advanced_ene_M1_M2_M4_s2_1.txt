@@ -1,0 +1,41 @@
+Property under test: the measured property value
+
+Previous step established: On zinc plating Zn-N bonds form at pyridinic-nitrogen sites, moving their chemical state toward graphitic nitrogen
+
+Observations available at this step (XAS:NEXAFS):
+  [obs1] After zinc deposition the ~398 eV N 1s feature collapses and the ~401 eV feature becomes the taller of the two
+  [obs2] The ~1200 cm-1 Raman feature weakens from the pristine trace at the top of the stack to the zinc-loaded trace at the bottom
+  [obs3] The two hosts' plating plateaus nearly coincide at the lowest rate and separate strongly at the highest (about -0.05 V vs -0.10 V)
+  [obs4] Nucleation overpotentials of 39 mV and 43 mV are marked on the two initial discharge profiles
+  [obs5] Charge transfer to zinc is more negative at every N-doped site (-0.032 to -0.037 e) than at the pristine sites (-0.023 to -0.027 e)
+  [obs6] Electron accumulation sits as a detached lobe above zinc on pristine graphene but is denser in the zinc-substrate gap on N-doped graphene
+  [obs7] Binding energies are +0.030/+0.014/+0.029 eV at top/hollow/bridge on pristine graphene and -0.072/-0.089/-0.077 eV on N-doped graphene
+
+THE KEY UNDER AUDIT
+
+Proposition: Combined with the prior step's finding that Zn-N bonds form at pyridinic-N sites (with the N 1s state shifting toward graphitic nitrogen), the DFT results at this step give a thermodynamic reason for that bond formation: charge transfer to zinc is more negative at every N-doped site (-0.032 to -0.037 e) than at pristine sites (-0.023 to -0.027 e, obs5), the transferred electron density sits in the zinc-substrate gap on N-doped graphene rather than as a detached lobe above pristine graphene (obs6), and the computed adsorption energies are negative at top/hollow/bridge sites on N-doped graphene (-0.072/-0.089/-0.077 eV) versus positive on pristine graphene (+0.030/+0.014/+0.029 eV, obs7). Together these permit concluding that nitrogen doping converts zinc adsorption from an unfavorable (endothermic) to a favorable (exothermic) process at all three site geometries, giving an energetic driving force consistent with the experimentally observed Zn-N bonding and pyridinic-to-graphitic nitrogen shift.
+
+Limits:
+  [0] The DFT calculations model generic 'N-doped graphene' at top/hollow/bridge sites; they do not specify or isolate a pyridinic-N configuration, so they cannot confirm that the exothermicity is attributable specifically to pyridinic-N sites rather than N-doping in general (including graphitic-N already present)
+  [1] The previous step's evidence is a spectroscopic chemical-state assignment (N 1s peak positions/intensities) while this step's evidence is a computed, static adsorption energy and Bader charge transfer; these are different kinds of quantities that can only be shown qualitatively consistent, not quantitatively cross-validated
+  [2] obs2 (Raman ~1200 cm-1 feature), obs3 (plating-plateau separation) and obs4 (39 mV vs 43 mV nucleation overpotentials) are electrochemical/structural observations that are not tied into this binding-energy comparison and do not bear on the exothermic-vs-endothermic conclusion
+  [3] The DFT values are single-point, 0 K computed energies for isolated adsorption geometries, not measurements under the discharge conditions used elsewhere in the evidence
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

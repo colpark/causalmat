@@ -1,0 +1,36 @@
+Property under test: what the sample is like
+
+Previous step established: Polysulfide-reduction activity ranks RGO-Cu2S-2 above Cu2S and far above Pt
+
+Observations available at this step (PV:J-V):
+  [obs1] J-V: Jsc ~16.0, ~15.0, ~13.0 mA/cm2 and Voc ~0.555, ~0.535, ~0.525 V for RGO-Cu2S, Cu2S, Pt
+  [obs2] IPCE higher for RGO-Cu2S than Cu2S than Pt over 320-620 nm (peaks ~95, ~88, ~65% near 340 nm)
+
+THE KEY UNDER AUDIT
+
+Proposition: The photovoltaic device data at this step reproduce the same rank order as the previous step's polysulfide-reduction activity: RGO-Cu2S counter electrodes give the highest Jsc (~16.0 mA/cm2), highest Voc (~0.555 V), and highest IPCE (peak ~95%, 320-620 nm), followed by Cu2S (Jsc ~15.0 mA/cm2, Voc ~0.535 V, IPCE peak ~88%), with Pt lowest (Jsc ~13.0 mA/cm2, Voc ~0.525 V, IPCE peak ~65%). Together the two steps establish that counter-electrode catalytic activity for polysulfide reduction and whole-cell photovoltaic output (current, voltage, and photon-to-current conversion) rank in the same order across these three electrodes.
+
+Limits:
+  [0] Only three electrode samples are compared, so this is an ordinal match, not a dose-response relationship between catalytic activity and device output.
+  [1] Catalytic activity (previous step) and Jsc/Voc/IPCE (this step) are different kinds of quantities measured in different test configurations (electrochemical activity of the isolated electrode vs. full-device illuminated output), so agreement in rank order is associative, not a direct measurement of the same mechanism.
+  [2] Other electrode-dependent properties that differ across RGO-Cu2S, Cu2S, and Pt (e.g., electrical conductivity contributed by RGO, surface area, electrolyte wetting) are not controlled for and could also track this same rank order.
+  [3] This step's evidence (Jsc, Voc, IPCE) does not by itself give overall power conversion efficiency, which also depends on fill factor, so the PCE ranking mentioned as the paper's conclusion is not directly supported by obs1/obs2 alone.
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

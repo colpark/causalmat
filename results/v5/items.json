@@ -135,7 +135,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M2",
     "stage_type": "Structure \u2192 Property",
@@ -165,8 +164,22 @@
      "inference_validity": "follows, weakly",
      "causal_strength": "associative"
     },
-    "combines": true
-   }
+    "combines": true,
+    "scoring": {
+     "required_elements": [
+      "Yield stress and nanoplate number density move together across the three heat treatments: 167 -> 113 -> 160 MPa against 9.8 -> 0.3 -> 9.0 per um, both dipping after the 520 C anneal and recovering after the further 400 C anneal. This is consistent with a strengthening contribution from the nanoplates.",
+      "Nanoplate THICKNESS moves the opposite way, 28 -> 84 -> 14 nm, so the two plate descriptors do not covary with each other and the comparison does not isolate which of them, if either, carries the strength.",
+      "Three points, and the heat treatments differ in more than plate density, so a contribution is the most the data supports -- not that density is the cause."
+     ],
+     "n_required": 3,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "acta_materia_M1_M2_M3_s3",
@@ -233,7 +246,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M3",
     "stage_type": "Property \u2192 Performance",
@@ -263,8 +275,22 @@
      "inference_validity": "follows",
      "causal_strength": "discriminating"
     },
-    "combines": true
-   }
+    "combines": true,
+    "scoring": {
+     "required_elements": [
+      "The [0001] orientation fractures in compression at ~355 MPa without yielding, and flows in tension at ~72 MPa (serrated ~52-80) to ~45% plastic strain. The two numbers are a fracture stress and a flow stress, not two yield stresses, so they are not a yield ratio; what they show is that the orientation has a deformation route available in tension that is absent in compression, and the kink bands in F10b are what identifies it.",
+      "A fracture stress and a flow stress are different quantities; dividing them gives a number with no mechanical meaning.",
+      "Whether kinking is also available in compression and merely pre-empted by fracture is not established here."
+     ],
+     "n_required": 3,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 2,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "advanced_ene_M1_M2_M4_s1",
@@ -428,25 +454,11 @@
      "caption_span": "Nitrogen 1s NEXAFS and"
     },
     {
-     "panel_id": "10.1002/aenm.202003419#F3c",
-     "suffix": "F3c",
-     "png": "images/F3c.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4ca5495d1b829234622b5ff0f531f3a8016c0baaec591d2ac1d91e1da7d3584d.jpg",
-     "caption_span": "In situ Raman spectra during Zn plating. ex situ SEM images of"
-    },
-    {
      "panel_id": "10.1002/aenm.202003419#F4c",
      "suffix": "F4c",
      "png": "images/F4c.png",
      "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4d64f67d179dca61b4b5ff2a68e94e3244c51835917bcaadeac62fd4ceb0fe1e.jpg",
      "caption_span": "Typical charge\u2013discharge curves of CnCHS and C HS at various current densities"
-    },
-    {
-     "panel_id": "10.1002/aenm.202003419#F4d",
-     "suffix": "F4d",
-     "png": "images/F4d.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4d64f67d179dca61b4b5ff2a68e94e3244c51835917bcaadeac62fd4ceb0fe1e.jpg",
-     "caption_span": "Initial-section of discharge profiles for C HS and CnC HS"
     },
     {
      "panel_id": "10.1002/aenm.202003419#F2b",
@@ -456,22 +468,21 @@
      "caption_span": "Charge Transfer from graphene/N-doped graphene to zinc"
     },
     {
-     "panel_id": "10.1002/aenm.202003419#F2c",
-     "suffix": "F2c",
-     "png": "images/F2c.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/f318b17ad1954d32c4a0279c3ea9c7dba87884a86abc899fa1a9fdb4fb09000f.jpg",
-     "caption_span": "3D charge difference between graphene (red)/N-doped graphene (blue) and zinc of different adsorption sites"
+     "panel_id": "10.1002/aenm.202003419#F3c",
+     "suffix": "F3c",
+     "png": "images/F3c.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4ca5495d1b829234622b5ff0f531f3a8016c0baaec591d2ac1d91e1da7d3584d.jpg",
+     "caption_span": "In situ Raman spectra during Zn plating. ex situ SEM images of"
     },
     {
-     "panel_id": "10.1002/aenm.202003419#F2d",
-     "suffix": "F2d",
-     "png": "images/F2d.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/f318b17ad1954d32c4a0279c3ea9c7dba87884a86abc899fa1a9fdb4fb09000f.jpg",
-     "caption_span": "Binding energies between graphene/N-doped graphene and zinc"
+     "panel_id": "10.1002/aenm.202003419#F4d",
+     "suffix": "F4d",
+     "png": "images/F4d.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4d64f67d179dca61b4b5ff2a68e94e3244c51835917bcaadeac62fd4ceb0fe1e.jpg",
+     "caption_span": "Initial-section of discharge profiles for C HS and CnC HS"
     }
    ],
    "withheld_panels": [],
-   "depth": 2,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M2",
     "stage_type": "Structure \u2192 Property",
@@ -512,8 +523,28 @@
      "The DFT model does not distinguish pyridinic-N from other nitrogen configurations, so the specific site responsible for the exothermicity is not confirmed",
      "The energetic comparison is theoretical/static and has not been cross-validated quantitatively against the spectroscopic chemical-state shift",
      "Electrochemical/structural evidence (Raman, nucleation overpotentials, plating-plateau separation) remains unintegrated with this binding-energy result"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Combined with the prior step's finding that Zn-N bonds form at pyridinic-N sites (with the N 1s state shifting toward graphitic nitrogen), the DFT results at this step give a thermodynamic reason for that bond formation: charge transfer to zinc is more negative at every N-doped site (-0.032 to -0.037 e) than at pristine sites (-0.023 to -0.027 e, obs5), the transferred electron density sits in the zinc-substrate gap on N-doped graphene rather than as a detached lobe above pristine graphene (obs6), and the computed adsorption energies are negative at top/hollow/bridge sites on N-doped graphene (-0.072/-0.089/-0.077 eV) versus positive on pristine graphene (+0.030/+0.014/+0.029 eV, obs7). Together these permit concluding that nitrogen doping converts zinc adsorption from an unfavorable (endothermic) to a favorable (exothermic) process at all three site geometries, giving an energetic driving force consistent with the experimentally observed Zn-N bonding and pyridinic-to-graphitic nitrogen shift.",
+      "The DFT calculations model generic 'N-doped graphene' at top/hollow/bridge sites; they do not specify or isolate a pyridinic-N configuration, so they cannot confirm that the exothermicity is attributable specifically to pyridinic-N sites rather than N-doping in general (including graphitic-N already present)",
+      "The previous step's evidence is a spectroscopic chemical-state assignment (N 1s peak positions/intensities) while this step's evidence is a computed, static adsorption energy and Bader charge transfer; these are different kinds of quantities that can only be shown qualitatively consistent, not quantitatively cross-validated",
+      "obs2 (Raman ~1200 cm-1 feature), obs3 (plating-plateau separation) and obs4 (39 mV vs 43 mV nucleation overpotentials) are electrochemical/structural observations that are not tied into this binding-energy comparison and do not bear on the exothermic-vs-endothermic conclusion",
+      "The DFT values are single-point, 0 K computed energies for isolated adsorption geometries, not measurements under the discharge conditions used elsewhere in the evidence"
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "panels_dropped_by_cap": [
+    "F2c",
+    "F2d"
+   ],
+   "fm_lane": true,
+   "split_into": 2,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "advanced_ene_M1_M2_M4_s2_2",
@@ -552,25 +583,11 @@
      "caption_span": "Nitrogen 1s NEXAFS and"
     },
     {
-     "panel_id": "10.1002/aenm.202003419#F3c",
-     "suffix": "F3c",
-     "png": "images/F3c.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4ca5495d1b829234622b5ff0f531f3a8016c0baaec591d2ac1d91e1da7d3584d.jpg",
-     "caption_span": "In situ Raman spectra during Zn plating. ex situ SEM images of"
-    },
-    {
      "panel_id": "10.1002/aenm.202003419#F4c",
      "suffix": "F4c",
      "png": "images/F4c.png",
      "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4d64f67d179dca61b4b5ff2a68e94e3244c51835917bcaadeac62fd4ceb0fe1e.jpg",
      "caption_span": "Typical charge\u2013discharge curves of CnCHS and C HS at various current densities"
-    },
-    {
-     "panel_id": "10.1002/aenm.202003419#F4d",
-     "suffix": "F4d",
-     "png": "images/F4d.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4d64f67d179dca61b4b5ff2a68e94e3244c51835917bcaadeac62fd4ceb0fe1e.jpg",
-     "caption_span": "Initial-section of discharge profiles for C HS and CnC HS"
     },
     {
      "panel_id": "10.1002/aenm.202003419#F2b",
@@ -580,22 +597,21 @@
      "caption_span": "Charge Transfer from graphene/N-doped graphene to zinc"
     },
     {
-     "panel_id": "10.1002/aenm.202003419#F2c",
-     "suffix": "F2c",
-     "png": "images/F2c.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/f318b17ad1954d32c4a0279c3ea9c7dba87884a86abc899fa1a9fdb4fb09000f.jpg",
-     "caption_span": "3D charge difference between graphene (red)/N-doped graphene (blue) and zinc of different adsorption sites"
+     "panel_id": "10.1002/aenm.202003419#F3c",
+     "suffix": "F3c",
+     "png": "images/F3c.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4ca5495d1b829234622b5ff0f531f3a8016c0baaec591d2ac1d91e1da7d3584d.jpg",
+     "caption_span": "In situ Raman spectra during Zn plating. ex situ SEM images of"
     },
     {
-     "panel_id": "10.1002/aenm.202003419#F2d",
-     "suffix": "F2d",
-     "png": "images/F2d.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/f318b17ad1954d32c4a0279c3ea9c7dba87884a86abc899fa1a9fdb4fb09000f.jpg",
-     "caption_span": "Binding energies between graphene/N-doped graphene and zinc"
+     "panel_id": "10.1002/aenm.202003419#F4d",
+     "suffix": "F4d",
+     "png": "images/F4d.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Energy_Materials/aenm.202003419/images/4d64f67d179dca61b4b5ff2a68e94e3244c51835917bcaadeac62fd4ceb0fe1e.jpg",
+     "caption_span": "Initial-section of discharge profiles for C HS and CnC HS"
     }
    ],
    "withheld_panels": [],
-   "depth": 2,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M2",
     "stage_type": "Structure \u2192 Property",
@@ -636,8 +652,28 @@
      "the DFT binding/charge-transfer evidence is computed on idealized static sites and is not shown to correspond specifically to the pyridinic-to-graphitic-shifted sites from the previous step",
      "the overpotential comparison across current density (obs3) rests on only two rate points, so it establishes an ordering, not a full rate relationship",
      "which nitrogen species (pyridinic vs graphitic) is mechanistically responsible for the overpotential reduction is not identifiable from this evidence"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Putting the previous step's finding (zinc plating drives Zn-N bond formation at pyridinic-N sites, shifting their chemical state toward graphitic nitrogen) together with this step's evidence permits the conclusion that this N-site chemical change on the N-doped host is accompanied by a measurably lower zinc nucleation overpotential (39 mV vs 43 mV, obs4) and a lower plating overpotential at every current density tested (obs3), and that DFT calculations offer a mechanistically consistent picture (more negative charge transfer to zinc, obs5; denser interfacial charge accumulation, obs6; and more negative, i.e. stronger, binding energies at N-doped sites, obs7) for why zinc would nucleate and plate more easily on the N-doped host.",
+      "obs1 (N1s feature collapse/rise) and obs2 (Raman ~1200 cm-1 weakening) only confirm that a chemical/structural change occurs upon zinc deposition on the same sample; they do not themselves measure or demonstrate a change in overpotential, so linking them to obs3/obs4 is associative, not a shown causal step",
+      "obs3 gives only two rate points (lowest and highest current density) where the two hosts' plateaus are compared, which supports an ordering (N-doped plates at lower magnitude, e.g. -0.05 V vs -0.10 V at the extreme) but not a continuous rate-dependence relationship",
+      "obs5, obs6 and obs7 are DFT-computed quantities (charge transfer in electrons, charge-density maps, adsorption binding energies) evaluated at idealized single sites (top/hollow/bridge) on a static N-doped graphene model, which is a different kind of quantity than the macroscopic, current-density-dependent, experimentally measured overpotentials in obs3/obs4; agreement between the two is suggestive, not a direct causal test",
+      "the DFT sites are described only as being on 'N-doped graphene' generically, not specifically identified as the pyridinic-to-graphitic-shifted Zn-N sites established in the previous step, so the mechanistic bridge from previous step to this step's DFT evidence is inferred rather than shown"
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "panels_dropped_by_cap": [
+    "F2c",
+    "F2d"
+   ],
+   "fm_lane": true,
+   "split_into": 2,
+   "depth": 2,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "advanced_ene_M1_M2_M4_s3",
@@ -702,7 +738,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M4",
     "stage_type": "Property \u2192 Performance",
@@ -743,8 +778,24 @@
      "The link is between two composite hollow-sphere samples that differ in doping and possibly other structural features bundled together, so the specific causal contribution of adsorption energetics to service life is not isolated from other confounds",
      "The DFT adsorption-energy comparison is atomic-scale/idealized and the cycling/SEM evidence is electrode-scale; the two do not share a common quantitative scale, only a directional consistency",
      "Only two samples are compared, so this establishes an ordering, not a quantitative relationship between adsorption energy and cycle life"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "The more favorable (exothermic, -0.072 to -0.089 eV) zinc adsorption on N-doped graphene, versus unfavorable (endothermic, +0.014 to +0.030 eV) adsorption on pristine graphene, is consistent with the morphological and cycling contrasts observed: CnC HS deposits zinc as a largely flat layer with only sparse protruding platelets (obs1), sustains 93-100% Coulombic efficiency to about 205 cycles (obs2), stays within ~0.03 V to 7100 min in symmetric cycling (obs3) and within ~0.05 V to 3500 min under a stepped current-density staircase (obs4); C HS instead grows a dense mat of sharp platelets (obs1), fails (drops to zero Coulombic efficiency) by ~40-48 cycles (obs2), develops large voltage spikes and ends near 4400 min in symmetric cycling (obs3), and spikes from ~2300 min under the staircase test (obs4). The energetics-morphology link offers a plausible thermodynamic basis for the uniform-versus-dendritic deposition, which in turn tracks with markedly longer service life on CnC HS.",
+      "The adsorption-energy calculation (step 2) is a single-atom/idealized DFT comparison on graphene surfaces, while the SEM and cycling data are macroscopic electrode-level observations on composite hollow-sphere (HS) architectures (CnC HS vs C HS); the two samples differ in more than doping alone (e.g., overall hollow-sphere construction, any structural or compositional differences bundled with N-doping), so the adsorption-energy sign cannot by itself be isolated as the sole driver of the morphology or cycling outcomes.",
+      "obs1-obs4 are drawn from only two samples, so what looks like a mechanism-consistent trend is an ordering between two cases, not a dose-response relationship over a range of adsorption energies.",
+      "Cycling failure (obs2-obs4) could involve additional processes not captured by adsorption thermodynamics alone, such as dendrite-induced shorting, side reactions, or corrosion, which are not separated out here.",
+      "obs2, obs3, and obs4 are three different measurement protocols (cycling efficiency, symmetric-cell voltage trace, stepped-current voltage trace) that are not on a common scale and are being combined only as converging qualitative evidence of stability, not as a single quantitative measure."
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": true,
+   "split_into": 1,
+   "depth": 3,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "advanced_ene_M2_M4_s1",
@@ -886,7 +937,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M4",
     "stage_type": "Properties \u2192 Performance",
@@ -928,8 +978,24 @@
      "The Jsc/Voc/IPCE agreement with the activity ranking is associative across only three samples and cannot rule out other co-varying electrode properties.",
      "Any next-step claim about overall PCE requires fill factor, which is not part of obs1/obs2.",
      "The mechanism linking catalytic activity specifically (as opposed to conductivity or other RGO-Cu2S properties) to the device output remains unresolved by this evidence."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "The photovoltaic device data at this step reproduce the same rank order as the previous step's polysulfide-reduction activity: RGO-Cu2S counter electrodes give the highest Jsc (~16.0 mA/cm2), highest Voc (~0.555 V), and highest IPCE (peak ~95%, 320-620 nm), followed by Cu2S (Jsc ~15.0 mA/cm2, Voc ~0.535 V, IPCE peak ~88%), with Pt lowest (Jsc ~13.0 mA/cm2, Voc ~0.525 V, IPCE peak ~65%). Together the two steps establish that counter-electrode catalytic activity for polysulfide reduction and whole-cell photovoltaic output (current, voltage, and photon-to-current conversion) rank in the same order across these three electrodes.",
+      "Only three electrode samples are compared, so this is an ordinal match, not a dose-response relationship between catalytic activity and device output.",
+      "Catalytic activity (previous step) and Jsc/Voc/IPCE (this step) are different kinds of quantities measured in different test configurations (electrochemical activity of the isolated electrode vs. full-device illuminated output), so agreement in rank order is associative, not a direct measurement of the same mechanism.",
+      "Other electrode-dependent properties that differ across RGO-Cu2S, Cu2S, and Pt (e.g., electrical conductivity contributed by RGO, surface area, electrolyte wetting) are not controlled for and could also track this same rank order.",
+      "This step's evidence (Jsc, Voc, IPCE) does not by itself give overall power conversion efficiency, which also depends on fill factor, so the PCE ranking mentioned as the paper's conclusion is not directly supported by obs1/obs2 alone."
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "advanced_ene_M2_M6_s1",
@@ -1071,7 +1137,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M6",
     "stage_type": "Property \u2192 Performance",
@@ -1112,8 +1177,24 @@
      "Single-composition, single-rate (110 mA/g) measurement; not shown to hold across rates or cycles.",
      "Comparison to earlier PBAs is cross-study and not compositionally or experimentally matched.",
      "Relative contribution of V versus Fe redox to the measured capacity remains unresolved."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Because charge is compensated by both V (V3+ to V4+ to V5+) and Fe (Fe2+ to Fe3+) valence changes, the w/ HCl cathode can draw on more than one redox couple, consistent with it delivering a first discharge capacity of ~91 mAh/g at 110 mA/g -- higher than the 50-65 mAh/g reported for earlier aqueous PBAs.",
+      "The 91 mAh/g figure is a single first-discharge measurement on one composition (w/ HCl cathode); it does not partition how much capacity comes from the V-based versus the Fe-based redox couple.",
+      "The 50-65 mAh/g benchmark is drawn from earlier, different studies/materials rather than a controlled comparison run under the same conditions and rate, so the comparison is cross-study, not a matched experiment.",
+      "Capacity alone does not confirm that both valence changes are electrochemically active during this specific discharge at 110 mA/g; step 1's evidence for dual valence compensation came from separate characterization, not from this GCD trace.",
+      "One capacity value cannot establish a general relationship between number of active redox couples and capacity magnitude -- it supports an ordering/comparison at best."
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "advanced_ene_M3_M4_s1",
@@ -1287,7 +1368,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M4",
     "stage_type": "Property \u2192 Performance",
@@ -1328,8 +1408,23 @@
      "The morphology snapshot (obs1) is not time-matched to the electrochemical failure data (obs2-obs4)",
      "Host-material differences other than overpotential cannot be ruled out as co-drivers of the observed morphology and cycling advantages",
      "The quantities combined (mV overpotential, qualitative morphology, % Coulombic efficiency, minutes/cycles to failure) are of different kinds and cannot be merged into a single continuous causal relationship, only an ordering/association"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Building on step 1's finding that CnC HS shows a lower zinc nucleation overpotential (39 vs 43 mV) and lower plating overpotential at every current density, the SEM and cycling evidence at this step shows CnC HS also forms a flatter, less sharply platelet-covered zinc deposit (obs1), retains ~93-100% Coulombic efficiency to about 205 cycles versus C HS collapsing to zero by ~40-48 cycles and ending near 50 cycles (obs2), survives symmetric cycling to ~7100 min within ~0.03 V versus C HS failing near 4400 min with spikes from ~2600 min (obs3), and tolerates a stepped current-density staircase to 3500 min within ~0.05 V versus C HS developing large spikes from ~2300 min (obs4). Together these permit the conclusion that the lower-overpotential CnC HS material correlates with a smoother deposit morphology and with much longer, more stable cycling and Coulombic-efficiency retention than C HS.",
+      "The overpotential values from step 1 were measured at an early/initial stage of plating, not continuously through the ~200+ cycles or ~7000+ minutes of cycling reported here, so the link between overpotential and long-run stability is inferred across two separate measurements rather than tracked together over time",
+      "The SEM morphology in obs1 is a single-timepoint snapshot; it is not tied to a specific cycle number or time relative to when CE drops or voltage spikes appear in obs2-obs4, so morphology cannot be shown to change in step with the electrochemical degradation",
+      "CnC HS and C HS differ in host material by construction, so any number of other host properties (surface structure, composition, conductivity) could independently drive both the lower overpotential and the better morphology/cycling behavior, making this a correlation between co-varying host differences rather than an isolated causal test of overpotential"
+     ],
+     "n_required": 4,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": true,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "advanced_fun_M1_M2_s1",
@@ -1437,7 +1532,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M2",
     "stage_type": "Structure \u2192 Property",
@@ -1467,8 +1561,22 @@
      "inference_validity": "follows, weakly",
      "causal_strength": "associative"
     },
-    "combines": true
-   }
+    "combines": true,
+    "scoring": {
+     "required_elements": [
+      "The orderings correspond inversely across the same three samples: ~0.1 um PC shows two bands plus an IR tail, 1e2-1e3 um SC shows one band, HOC lies between on both axes.",
+      "Three samples made by three different growth routes, so domain size is confounded with synthesis route.",
+      "Emission complexity is an ordinal count, not a continuous measure, so \"inversely ranks\" is the strongest form available -- no slope can be fitted."
+     ],
+     "n_required": 3,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "bioactive_ma_M2_M4_s1",
@@ -1672,7 +1780,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M4",
     "stage_type": "Properties \u2192 Performance",
@@ -1713,8 +1820,24 @@
      "The composition giving peak absorption (Er0.5Ti-O, no Ce) differs from the composition giving peak antibacterial activity (Er0.5Ce0.2Ti-O), so Ce's independent contribution is unresolved",
      "Band edge is unchanged, so bandgap narrowing must not be invoked as the mechanism for any light-response gain",
      "A light-independent (dark) contribution to antibacterial activity is present in the doped samples per obs2 and must be accounted for separately from any photocatalytic mechanism"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Putting Er0.5Ti-O's peak visible-light absorption (Er 4f lines, 488-654 nm, band edge unchanged) together with the light-driven antibacterial results is consistent with visible-light-sensitized photocatalysis contributing to the ~91% (S. aureus) and ~93% (E. coli) kill ratios of Er0.5Ce0.2Ti-O under simulated sunlight, versus ~45% for undoped TiO2, with intermediate values for Ce0.1 (~68-73%) and Ce0.3 (~87%) [obs1], and fewer surviving colonies on Er0.5Ce0.2Ti-O light plates for both strains [obs2].",
+      "The antibacterial series varies Ce content (0.1, 0.2, 0.3) at fixed Er0.5, while the absorption peak in step 1 was identified for Er0.5Ti-O without Ce; the sample showing peak visible absorption is not the same composition as the sample showing peak antibacterial performance",
+      "Since band edge is unchanged (step 1), any gain in light-driven killing cannot be attributed to bandgap narrowing extending absorption into longer wavelengths - only to the Er 4f line absorption itself or to some Ce-related effect",
+      "obs2 shows dark plates also remain sparser for doped samples, indicating a light-independent contribution to antibacterial activity that this comparison does not separate from the light-driven component",
+      "Antibacterial ratio is measured as a single-endpoint percentage after a fixed exposure window, not as a rate or spectrum, so it cannot be mapped point-for-point onto the wavelength-resolved absorption data"
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "bioactive_ma_M3_M4_s1",
@@ -1872,7 +1995,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M4",
     "stage_type": "Properties \u2192 Performance",
@@ -1912,8 +2034,23 @@
      "the two properties were measured with different quantities and different exposure windows and cannot be treated as evidence of one shared mechanism",
      "the specific mechanism linking antibacterial killing to photocatalysis (versus dopant-ion toxicity) remains unresolved by this comparison",
      "only a small set of compositions was tested in each assay, limiting how far the parallel ranking can be generalized"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "The composition that gave the largest photocatalytic dye-degradation gain in the previous step, Er0.5Ce0.2Ti-O (~46% dye removal vs ~20% for TiO2 in 60 min), is also the composition with the highest antibacterial kill ratio here (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1), and it shows visibly the fewest surviving colonies on light-exposed plates for both strains (obs2). So the same co-doped composition that ranks best for dye degradation also ranks best for antibacterial performance under light, and the ordering across compositions (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control) tracks in the same direction in both assays.",
+      "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio) with different exposure windows (60 min vs 20 min), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes",
+      "The antibacterial result also includes a dark-plate condition (obs2) where colonies persist even for doped samples, showing light dependence for the antibacterial effect, but this dark condition has no counterpart in the previous step's dye-degradation data, so the two datasets cannot be cross-checked for a light-dependence mechanism",
+      "Only a handful of compositions were tested in each assay, so the parallel ordering could reflect general co-doping benefit rather than a specific quantitative relationship between the two properties"
+     ],
+     "n_required": 4,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "bioactive_ma_M5_M4_s1",
@@ -2244,25 +2381,18 @@
      "caption_span": "SEM images of platelets on various substrates after being incubated in PRP for 2h"
     },
     {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F5b",
-     "suffix": "F5b",
-     "png": "images/F5b.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/4310eb52cb12b3e72b0ee7ceb1e3e6e7d8f920cb1172e89e97ce5c9abb82fd39.jpg",
-     "caption_span": "The number and"
-    },
-    {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F5c",
-     "suffix": "F5c",
-     "png": "images/F5c.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/4310eb52cb12b3e72b0ee7ceb1e3e6e7d8f920cb1172e89e97ce5c9abb82fd39.jpg",
-     "caption_span": "the activated rate of adhered platelets"
-    },
-    {
      "panel_id": "10.1016/j.bioactmat.2019.12.006#F6b",
      "suffix": "F6b",
      "png": "images/F6b.png",
      "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
      "caption_span": "Cross sectional images of various samples after 2 h of blood circulation"
+    },
+    {
+     "panel_id": "10.1016/j.bioactmat.2019.12.006#F5b",
+     "suffix": "F5b",
+     "png": "images/F5b.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/4310eb52cb12b3e72b0ee7ceb1e3e6e7d8f920cb1172e89e97ce5c9abb82fd39.jpg",
+     "caption_span": "The number and"
     },
     {
      "panel_id": "10.1016/j.bioactmat.2019.12.006#F6c",
@@ -2272,36 +2402,14 @@
      "caption_span": "Photographes of the formed thrombus"
     },
     {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F6d",
-     "suffix": "F6d",
-     "png": "images/F6d.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
-     "caption_span": "The thrombus components evaluated by SEM"
-    },
-    {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F6e",
-     "suffix": "F6e",
-     "png": "images/F6e.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
-     "caption_span": "Occlusion rates"
-    },
-    {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F6f",
-     "suffix": "F6f",
-     "png": "images/F6f.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
-     "caption_span": "Weight of thrombus"
-    },
-    {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F6g",
-     "suffix": "F6g",
-     "png": "images/F6g.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
-     "caption_span": "Retention of blood flow rate. Data are expressed as mean SD i=4 ) and analyzed using a one-way ANOVA, *p\\<\\0.05 , p\\<\\0.01 , p<0.001"
+     "panel_id": "10.1016/j.bioactmat.2019.12.006#F5c",
+     "suffix": "F5c",
+     "png": "images/F5c.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/4310eb52cb12b3e72b0ee7ceb1e3e6e7d8f920cb1172e89e97ce5c9abb82fd39.jpg",
+     "caption_span": "the activated rate of adhered platelets"
     }
    ],
    "withheld_panels": [],
-   "depth": 2,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M7",
     "stage_type": "Properties \u2192 Performance",
@@ -2341,8 +2449,29 @@
      "Assay duration relative to the >8 h NO release window is not given, so duration-matching between the release kinetics and these endpoint measures is assumed rather than demonstrated.",
      "BVLD and NO release are combined by construction in BVLD/NO-PPAmF, so their separate contributions to the observed suppression cannot be distinguished from this data.",
      "The endpoint measures (obs2-obs8) are single-timepoint amounts, not a release time-course, so they cannot independently confirm continued NO output during the test."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Read together, the sustained NO delivery from PPAmF established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm) is consistent with, and offers a mechanistic candidate for, the markedly lower platelet adhesion/activation and thrombus formation seen here on the NO-loaded surfaces (NO-PPAmF, BVLD/NO-PPAmF) versus the non-NO surfaces (316L SS, PPAmF): fewer/rounder platelets (obs1), lower adhered-platelet counts and activation (~11%/18% for NO-PPAmF and ~5%/~1% for BVLD/NO-PPAmF vs ~32-41 and ~65-74% for 316L SS/PPAmF; obs2, obs3), less fibrin/thrombus and cleaner lumens (obs4, obs5), lower occlusion (obs6), lower thrombus weight (obs7), and higher retained flow (obs8). A NO source that keeps releasing rather than exhausting itself quickly is a plausible reason the antithrombotic benefit persists across these endpoint measurements rather than being confined to a brief early window.",
+      "The evidence given does not state the duration of the platelet-adhesion, thrombosis, or flow assays, so it is not confirmed that these tests were run within the >8 h sustained-release window rather than at a single early timepoint that a mere burst (as in PPAm) could also have covered.",
+      "obs2-obs8 are single-timepoint endpoint amounts (cell counts/mm2, % activation, % occlusion, mg thrombus weight, % flow retained), not a time course of NO release or of antithrombotic effect, so they cannot themselves verify that release continued throughout the test.",
+      "BVLD/NO-PPAmF carries both the NO-releasing component and BVLD together, so its superior suppression relative to NO-PPAmF alone (e.g., adhered platelets ~5 vs ~11 x1e2 cells/mm2, occlusion ~3% vs ~7.5%) cannot be attributed to sustained NO release specifically; BVLD's own antiplatelet/anticoagulant action is confounded with NO release in that combined surface."
+     ],
+     "n_required": 4,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "panels_dropped_by_cap": [
+    "F6d",
+    "F6e",
+    "F6f",
+    "F6g"
+   ],
+   "fm_lane": true,
+   "split_into": 2,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "bioactive_ma_M5_M7_s2_2",
@@ -2382,25 +2511,18 @@
      "caption_span": "SEM images of platelets on various substrates after being incubated in PRP for 2h"
     },
     {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F5b",
-     "suffix": "F5b",
-     "png": "images/F5b.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/4310eb52cb12b3e72b0ee7ceb1e3e6e7d8f920cb1172e89e97ce5c9abb82fd39.jpg",
-     "caption_span": "The number and"
-    },
-    {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F5c",
-     "suffix": "F5c",
-     "png": "images/F5c.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/4310eb52cb12b3e72b0ee7ceb1e3e6e7d8f920cb1172e89e97ce5c9abb82fd39.jpg",
-     "caption_span": "the activated rate of adhered platelets"
-    },
-    {
      "panel_id": "10.1016/j.bioactmat.2019.12.006#F6b",
      "suffix": "F6b",
      "png": "images/F6b.png",
      "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
      "caption_span": "Cross sectional images of various samples after 2 h of blood circulation"
+    },
+    {
+     "panel_id": "10.1016/j.bioactmat.2019.12.006#F5b",
+     "suffix": "F5b",
+     "png": "images/F5b.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/4310eb52cb12b3e72b0ee7ceb1e3e6e7d8f920cb1172e89e97ce5c9abb82fd39.jpg",
+     "caption_span": "The number and"
     },
     {
      "panel_id": "10.1016/j.bioactmat.2019.12.006#F6c",
@@ -2410,36 +2532,14 @@
      "caption_span": "Photographes of the formed thrombus"
     },
     {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F6d",
-     "suffix": "F6d",
-     "png": "images/F6d.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
-     "caption_span": "The thrombus components evaluated by SEM"
-    },
-    {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F6e",
-     "suffix": "F6e",
-     "png": "images/F6e.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
-     "caption_span": "Occlusion rates"
-    },
-    {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F6f",
-     "suffix": "F6f",
-     "png": "images/F6f.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
-     "caption_span": "Weight of thrombus"
-    },
-    {
-     "panel_id": "10.1016/j.bioactmat.2019.12.006#F6g",
-     "suffix": "F6g",
-     "png": "images/F6g.png",
-     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/3402c934ea954f06d29bd702123cc9da5fad4c76589f92e3d40208d4d73fe895.jpg",
-     "caption_span": "Retention of blood flow rate. Data are expressed as mean SD i=4 ) and analyzed using a one-way ANOVA, *p\\<\\0.05 , p\\<\\0.01 , p<0.001"
+     "panel_id": "10.1016/j.bioactmat.2019.12.006#F5c",
+     "suffix": "F5c",
+     "png": "images/F5c.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Bioactive_Materials/j.bioactmat.2019.12.006/images/4310eb52cb12b3e72b0ee7ceb1e3e6e7d8f920cb1172e89e97ce5c9abb82fd39.jpg",
+     "caption_span": "the activated rate of adhered platelets"
     }
    ],
    "withheld_panels": [],
-   "depth": 2,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M7",
     "stage_type": "Properties \u2192 Performance",
@@ -2479,8 +2579,29 @@
      "Cannot attribute the combined surface's near-total thrombus prevention specifically to NO release versus BVLD's anticoagulant action versus a synergy of both.",
      "The shunt data is a single endpoint, not matched in time to the 8 h NO-release window from step 1, so a time/dose-response relationship between release duration and thrombosis outcome is not demonstrated, only an association across surfaces.",
      "The two steps combine different quantity kinds (in vitro release duration vs. ex vivo endpoint thrombosis measures), limiting the strength of the causal claim to associative rather than mechanistic."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting.",
+      "The shunt evidence is a single-endpoint measurement (adhesion, activation, occlusion, thrombus weight, flow retention all read at one time), not a time course, so it does not directly test whether anti-thrombotic performance tracks the specific 8 h NO-release duration established in step 1 -- the link between release duration and outcome is inferred, not measured together.",
+      "BVLD (an anticoagulant) is present together with NO release in three of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone.",
+      "The two steps compare quantities of different kinds -- an in vitro time-duration of NO release (hours) versus ex vivo/in vivo endpoint outcome measures (%, mg, cells/mm2) -- so the connection is an association across steps, not a demonstrated dose- or time-response mechanism."
+     ],
+     "n_required": 4,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "panels_dropped_by_cap": [
+    "F6d",
+    "F6e",
+    "F6f",
+    "F6g"
+   ],
+   "fm_lane": true,
+   "split_into": 2,
+   "depth": 2,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "biomaterials_M1_M3_M4_s1",
@@ -2658,7 +2779,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 3,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M3",
     "stage_type": "Structure \u2192 Properties",
@@ -2690,8 +2810,22 @@
      "inference_validity": "follows",
      "causal_strength": "conditional mechanism"
     },
-    "combines": true
-   }
+    "combines": true,
+    "scoring": {
+     "required_elements": [
+      "Release rises as surface area and pore volume fall -- 0 -> 16.9 -> 20.8 mg/L at 7 days against 290 -> 180 -> 127 m2/g -- so a texture-driven mechanism predicts the opposite order and is ruled out in that direction. It does NOT follow that cobalt content sets the release: **cobalt inventory and texture cannot be separated here**, because adding cobalt both lowers the texture and raises the inventory. The identifiable answer is that the two candidate causes are confounded by construction.",
+      "Three scaffolds, one varying composition: inventory and texture are collinear.",
+      "Ruling out a direction is not ruling out a cause."
+     ],
+     "n_required": 3,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 3,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "biomaterials_M1_M3_M4_s2_2",
@@ -2749,7 +2883,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 3,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M3",
     "stage_type": "Structure \u2192 Properties",
@@ -2781,8 +2914,22 @@
      "inference_validity": "follows",
      "causal_strength": "discriminating"
     },
-    "combines": true
-   }
+    "combines": true,
+    "scoring": {
+     "required_elements": [
+      "They do not. HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co. A single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response.",
+      "The HIF-1alpha comparison is a band intensity against a loading control, not a calibrated concentration.",
+      "Non-monotonic VEGF may reflect cytotoxicity at 5Co, which is not measured here."
+     ],
+     "n_required": 3,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 3,
+   "depth": 2,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "biomaterials_M1_M3_M4_s2_3",
@@ -2840,7 +2987,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 3,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M3",
     "stage_type": "Structure \u2192 Properties",
@@ -2884,8 +3030,25 @@
      "The antibacterial effect is documented only for the 2Co-MBG series; no comparable release/survival series for 5Co-MBG or undoped MBG is given to check generalization",
      "The structural link between retained 4-5 nm porosity and this release/kill profile is inferential, since no experiment here varies pore size while holding drug load constant",
      "Co2+ ion release (obs1) and HIF-1alpha induction (obs2) reflect a separate dose-dependent signaling pathway and must not be conflated with the ampicillin/bacterial-survival mechanism when this result is carried forward"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Because 2Co-MBG's ordered mesoporous channels (~4-5 nm pores) survive cobalt doping (previous step), the scaffold retains the physical capacity to load and progressively release a drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3), and over that same multi-day window ampicillin-loaded scaffolds drive relative bacterial survival down to ~105/81/52% at days 1/3/7, while drug-free scaffolds instead raise survival to 110-118% versus the 100% blank (obs4). Because the drug-free (still Co2+-releasing) scaffold does not lower survival, the antibacterial decline tracks the sustained ampicillin release rather than Co2+ release alone, consistent with the retained porosity still functioning as a drug reservoir.",
+      "The pore-size measurement itself includes no drug-loading or release data, so the link from retained 4-5 nm porosity to the observed release/kill kinetics is structural plausibility, not a directly measured dependency",
+      "obs3's release curve is not broken out by Co-doping level in the evidence given, so it cannot be confirmed that this particular release profile reflects the pore geometry specifically rather than some other scaffold property",
+      "obs3 (cumulative mass, ug) and obs4 (normalized relative survival, %) are different quantity kinds compared only by overlapping time windows (8-168 h vs 1-7 days), giving a temporal parallel, not a calibrated dose-response",
+      "Only one antibacterial series is given (matching the 2Co-MBG claim); there is no 5Co-MBG antibacterial comparison, so whether the pore-retention benefit for drug delivery generalizes or scales with Co content is unaddressed",
+      "obs1 (Co2+ concentration) and obs2 (HIF-1alpha induction) belong to a separate, Co-dose-dependent signaling readout and should not be read as part of the antibacterial mechanism"
+     ],
+     "n_required": 6,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 3,
+   "depth": 3,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "biomaterials_M1_M3_M4_s3_1",
@@ -3002,7 +3165,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 2,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M4",
     "stage_type": "Properties \u2192 Performance",
@@ -3047,8 +3209,25 @@
      "The antibacterial reduction's attribution specifically to 2Co-MBG (versus another composition or a Co2+ contribution) is not distinguishable from the data given, since drug-free scaffolds that also release Co2+ did not lower survival.",
      "Percent survival is normalized to a blank baseline, not an absolute microbial kill measurement.",
      "Only two Co-doped compositions were compared for HIF-1alpha, insufficient to establish a true dose-response curve beyond the ordering already known from the previous step."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Putting the previous step's finding (Co content sets Co2+ release, with 5Co-MBG releasing faster and more than 2Co-MBG, both rising over 7 days) together with obs1 explains the western-blot pattern: HIF-1alpha protein tracks Co content, staying faint for MBG and 2Co-MBG (the lower/no-release group) and becoming clearly stronger only for 5Co-MBG (the higher-release group), with equal alpha-tubulin loading ruling out a general loading artifact. Separately, obs2 shows that ampicillin-loaded scaffolds progressively lower bacterial survival relative to a blank (100%) and to drug-free scaffolds (110-118%), falling to about 105%, 81%, and 52% at days 1, 3, and 7 -- but this decline tracks with ampicillin loading, not with the Co-release ordering from the previous step, since the drug-free (still Co-releasing) scaffolds did not themselves lower survival.",
+      "The HIF-1alpha readout is a single qualitative blot (faint vs. clearly stronger by eye), with no band quantification or replicate statistics, so the Co-content link is a pattern, not a measured dose-response.",
+      "Only three compositions (MBG, 2Co-MBG, 5Co-MBG) are compared for HIF-1alpha, too few points to fit a dose-response curve, only an ordering consistent with the previous step's release ordering.",
+      "The bacterial-survival data are reported generically as 'Scaffolds+Ampicillin' rather than broken out by Co content, so attributing the specific survival decline to 2Co-MBG (as opposed to any Co-MBG composition) cannot be confirmed from this evidence alone.",
+      "Because drug-free scaffolds (which also release Co2+ per the previous step) did not lower survival (110-118%, above blank), the antibacterial decline appears tied to ampicillin loading rather than to the Co2+ release ordering established previously; the release-ordering result is therefore not needed to explain the antibacterial effect.",
+      "Percent survival is a normalized measure relative to a blank baseline, not an absolute bacterial count or kill rate, so the absolute magnitude of killing is not given."
+     ],
+     "n_required": 6,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 2,
+   "depth": 4,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "biomaterials_M2_M4_s1",
@@ -3178,7 +3357,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 2,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M4",
     "stage_type": "Properties \u2192 Performance",
@@ -3223,8 +3401,25 @@
      "Compositional differences between MBG, 2Co-MBG, and 5Co-MBG besides Co2+ release remain an unexcluded confound.",
      "VEGF has not been measured at this step; the 'drives VEGF' link is unestablished here and must be evidenced separately.",
      "obs2's antibacterial survival data must not be carried forward as support for the HIF-1alpha/VEGF mechanism."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Because Co content sets Co2+ release magnitude (5Co-MBG releases fastest and most, 2Co-MBG less, over 7 days, per the previous step), and the western blot shows HIF-1alpha band intensity is faint for plain MBG and 2Co-MBG but clearly stronger for 5Co-MBG (with equal alpha-tubulin loading), the two results together show that HIF-1alpha protein level in BMSCs tracks the same ordering as Co2+ release across the three scaffold groups: more Co2+ release goes with more HIF-1alpha.",
+      "Only three scaffold groups are compared (MBG, 2Co-MBG, 5Co-MBG); this is an ordering across categories, not a dose-response curve relating a measured Co2+ concentration to a measured HIF-1alpha level.",
+      "The western blot is a qualitative/semi-quantitative read (band intensity relative to alpha-tubulin loading control), not a quantified protein amount, and no timepoint within the 7-day release window is specified for when the blot was taken.",
+      "The scaffold groups differ in composition beyond Co2+ release (they are different materials, not a single material dosed with varying free Co2+), so material/compositional differences other than Co2+ release cannot be ruled out as contributing to the HIF-1alpha pattern.",
+      "obs1 shows HIF-1alpha only; it says nothing about VEGF, so the 'drives VEGF' portion of the conclusion is not supported by this evidence.",
+      "obs2 (relative survival with Scaffolds+Ampicillin at ~105%, ~81%, ~52% on days 1, 3, 7 versus a 100% blank and 110-118% drug-free scaffolds) concerns antibacterial/cytotoxicity survival with an antibiotic, not the HIF-1alpha/hypoxia pathway, and does not bear on this mechanism."
+     ],
+     "n_required": 6,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 2,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "biomaterials_M2_M4_s2_2",
@@ -3868,7 +4063,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M5",
     "stage_type": "Properties \u2192 Performance",
@@ -3909,8 +4103,23 @@
     "handoff_caveats": [
      "This retention is documented only for S1; other sintering-temperature conditions have not been shown to behave the same or differently at elevated temperature.",
      "Sintering temperature and service temperature are separate variables; the handoff should not imply that sintering at 1600 C causes better high-temperature retention, only that the specimen sintered at 1600 C happens to show this retention."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Putting the two steps together: S1 (the sintering condition, ~1600 C, already identified as giving the highest flexural strength, ~465 MPa) is also the specimen shown in F9 to retain high toughness and strength across the RT-to-800 C service-temperature range -- K_IC only falls from 5.6 to 5.1 MPa m^1/2 (an 8.7% drop) and flexural strength stays within 462-545 MPa over that range. So the sintering condition that gave the best room-temperature strength also shows only modest degradation in K_IC and flexural strength when tested up to 800 C.",
+      "F9's temperature sweep (RT to 800 C) was run only on S1; no other sintering-temperature specimen was tested across this service-temperature range, so there is no comparison to know whether this retention is special to the 1600 C condition or would occur regardless of sintering temperature.",
+      "The previous step's variable (sintering temperature, a processing variable) and this step's variable (test/service temperature, RT to 800 C) are different axes; treating S1's good high-temperature behavior as a consequence of its sintering temperature conflates the two.",
+      "Only one specimen composition/condition is represented in F9, so this is a single trend line, not an ordering across conditions."
+     ],
+     "n_required": 4,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "journal_of_a_M3_M5_s1",
@@ -4049,7 +4258,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M5",
     "stage_type": "Properties \u2192 Performance",
@@ -4092,8 +4300,24 @@
      "This retention has only been shown for S1; it must not be generalized to S2 or S3 without their own RT-800 C data",
      "The sintering-temperature-driven porosity value and the service-temperature property sweep are different temperature axes; treating low porosity as the cause of retained properties at service temperature is an inference, not a direct measurement",
      "K_IC and flexural strength move in opposite directions (K_IC down, sigma up) across RT-800 C, so 'retention' summarizes two distinct, oppositely-trending metrics"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "S1, established in the previous step as densifying to below 1% porosity, is the sample shown in F9 to retain K_IC of 5.1-5.6 MPa m^1/2 and flexural strength (sigma) of 462-545 MPa across service temperatures from RT to 800 C. Read together, the low-porosity microstructure of S1 is associated with retained fracture toughness and flexural strength up to 800 C in service.",
+      "F9 shows data only for S1; S3 (which the previous step reports keeps ~7.7% porosity) is not shown tested across RT-800 C in this evidence, so there is no within-figure comparison across porosity levels to show that porosity specifically (rather than composition or other S1-specific factors) drives the retention",
+      "The previous step's porosity values were tied to sintering temperature, while this step's RT-to-800 C axis is a service/test temperature, a different variable; linking the two requires assuming porosity set during sintering carries over unchanged into the service-temperature test, which is not directly measured here",
+      "K_IC (red, left axis) falls slightly (5.6 to 5.1 MPa m^1/2) while sigma (black, right axis) rises (462 to 545 MPa) over the same range -- two metrics on different axes and units moving in different directions, so they cannot be reduced to a single 'good performance' trend without noting the divergence",
+      "Only two axis-based curves over one temperature sweep for one sample; this supports an ordering/retention statement for S1, not a general relationship between porosity level and property retention"
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "journal_of_a_M4_M5_s1",
@@ -4242,7 +4466,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M5",
     "stage_type": "Properties \u2192 Performance",
@@ -4284,8 +4507,23 @@
      "No S3 (7.7% porosity) data appear in this panel, so a porosity-performance comparison across samples is not established here",
      "The association between low porosity and retained performance is confounded with other sintering-temperature-driven microstructural changes",
      "Only RT and 800 C endpoints are characterized; intermediate-temperature behavior is not established"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an 8.7% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature is raised from RT to 800 C. That is, low porosity co-occurs with only modest degradation of toughness and strength across this service-temperature range.",
+      "F9 shows only one sample's (S1) property-vs-temperature trace; S3, which step 1 identified as staying at ~7.7% porosity, is not shown in this panel, so no direct in-panel comparison of high- vs low-porosity performance is given here",
+      "The temperature axis in this step (RT to 800 C) is the service/test temperature during the K_IC and flexural measurements, not the sintering temperature from step 1; porosity and sintering temperature move together by construction, but other sintering-temperature-driven microstructural changes (e.g., grain size, phase content) also move with it and are not separated out here",
+      "Only two bracketing points (RT and 800 C) are described for each curve, which supports an ordering/range statement but not a fitted trend across intermediate temperatures"
+     ],
+     "n_required": 4,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "journal_of_m_M2_M4_s1",
@@ -4384,7 +4622,8 @@
    "property": "the mechanical property",
    "claims": [
     "n13",
-    "n16"
+    "n16",
+    "n20"
    ],
    "claims_pinned": false,
    "hidden_key_claims": [
@@ -4416,7 +4655,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 2,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M4",
     "stage_type": "Property \u2192 Performance",
@@ -4457,8 +4695,33 @@
      "The creep comparison is only a qualitative curve position (above/overlap/below AZ91), not a quantified rate value, so its size cannot be weighed against the quantified YS gains.",
      "Creep was assessed at 175 C; the temperature at which YS was measured is not confirmed to match, so part of the divergence could reflect different test conditions rather than composition alone.",
      "Only five composition points are available for each property, and the creep split (15 wt% threshold) rests on qualitative curve position, not a fitted trend."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "The SiCp loading that gives the largest yield-strength gains (5 and 10 wt%, raising YS from ~93 MPa to ~113-127 MPa) is not the loading that improves creep resistance: minimum creep rate at 175 C is pushed below AZ91 only at 15, 20 and 25 wt% SiCp, while 5 and 10 wt% curves overlap or sit slightly above AZ91. So the two mechanical responses to SiCp content diverge - the composition that helps yield strength most is not the one that helps creep resistance.",
+      "Yield strength (a single stress value per wt%) is compared against creep behavior expressed as a curve of minimum creep rate versus applied stress at 175 C; these are not the same kind of quantity, so the 'gain' at 5-10 wt% in YS cannot be equated in size to the 'benefit' at 15-25 wt% in creep.",
+      "obs1 reports only qualitative curve position (below/overlap/above AZ91), not a numeric reduction in creep rate, so the magnitude of the 15-25 wt% creep improvement is not quantified and cannot be ranked against the quantified YS gains from step 1.",
+      "Creep is evaluated at an elevated temperature (175 C) while the YS values (obs2/step 1) carry no stated test temperature; if YS was measured at a different (e.g., room) temperature, the two properties are being compared across different test conditions, not just different compositions.",
+      "Only two points (5, 10 wt%) are described for creep as overlapping or slightly above AZ91 and three (15, 20, 25 wt%) as below - this supports a threshold-like split at 15 wt%, not a continuous dose-response curve."
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "absorbed": [
+    {
+     "item": "journal_of_m_M2_M4_s2_2",
+     "why": "lands on n20, \"improved creep resistance at >=15 wt% SiCp\", which restates n16 already carried by s2_1 alongside the yield-strength claim n13",
+     "claims": [
+      "n20"
+     ]
+    }
+   ],
+   "fm_lane": false,
+   "split_into": 2,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "journal_of_m_M2_M4_s2_2",
@@ -4542,7 +4805,9 @@
      "based on discrete wt% points and a single test window shown in F7a; no interpolation or extrapolation is supported",
      "the divergence between YS-optimal and creep-optimal composition is established, but its mechanistic cause is not identified by this evidence alone"
     ]
-   }
+   },
+   "merged_into": "journal_of_m_M2_M4_s2_1",
+   "merge_why": "lands on n20, \"improved creep resistance at >=15 wt% SiCp\", which restates n16 already carried by s2_1 alongside the yield-strength claim n13"
   },
   {
    "item": "journal_of_m_M2_M5_s1",
@@ -4677,7 +4942,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M5",
     "stage_type": "Properties \u2192 Performance",
@@ -4718,8 +4982,24 @@
      "Correlational only, based on matching a 4-point ranking to rate values, not a controlled or mechanistic test.",
      "Two intermediate Ag:Pd compositions in the H2 data are unmatched to any separation measurement, so the relationship is not confirmed across the full composition range.",
      "Cannot rule out that alloy cocatalyst activity or other composition-dependent factors, rather than charge separation alone, contribute to the rate differences."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "The photocarrier separation ranking from step 1 (Ag0.25Pd0.75-ZIS > Pd-ZIS > Ag-ZIS > ZIS) matches the H2 evolution rate ranking for the same four samples (125.4 > 34.5 > 3.2 > 1.5 umol/h), so the sample with the most efficient photocarrier separation is also the sample with the highest H2 evolution rate. This supports an association between photocarrier separation efficiency and H2 evolution activity across this series, with Ag0.25Pd0.75-ZIS's rate (125.4 umol/h, 83.6x ZIS, 3.6x Pd-ZIS) consistent with its top separation ranking.",
+      "This is a rank-order correspondence over only the four matched compositions (ZIS, Ag-ZIS, Pd-ZIS, Ag0.25Pd0.75-ZIS); it does not establish a quantitative or mechanistic relationship between degree of separation and rate magnitude.",
+      "The two additional H2-evolution compositions (Ag0.5Pd0.5-ZIS 57.3, Ag0.75Pd0.25-ZIS 43.5 umol/h) have no paired photocarrier-separation measurement, so the trend cannot be confirmed to extend continuously across the full Ag:Pd composition range.",
+      "Other unmeasured factors that could co-vary with composition (light absorption/bandgap, surface active-site density, intrinsic proton-reduction activity of the Ag-Pd alloy as a cocatalyst) are not controlled for, so the correspondence could partly reflect these rather than charge separation alone.",
+      "The comparison links a qualitative/relative ranking (step 1) to an absolute rate measurement (step 2, umol/h); it is an ordering match, not a calibrated dose-response relationship."
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "journal_of_m_M3_M4_s1",
@@ -4840,7 +5120,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M4",
     "stage_type": "Properties \u2192 Performance",
@@ -4882,8 +5161,24 @@
      "Power factor (S^2*sigma) and total kappa including the electronic component are not established here and are needed to decompose the ZT result",
      "The composition (x=0.01) with the lowest documented kappa_L+kappa_b is not the composition (x=0.005) with the highest 300 K ZT",
      "The kappa_L+kappa_b evidence covers 300-450 K only, not the 500-525 K window where ZT peaks"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Putting the previous step's finding (kappa_L+kappa_b as low as ~0.6-0.9 W/mK across 300-450 K, with x=0.01 at ~0.69 W/mK at 300 K) together with the ZT data permits the conclusion that the suppressed lattice-plus-bipolar thermal conductivity is consistent with, and plausibly contributes to, the observed ZT levels (~0.84 at x=0.005, ~0.78 at x=0.01, 0.63-0.69 at x=0.02-0.04 at 300 K, and the x=0.01 peak of ~1.25 near 500-525 K) being as high as they are relative to the n-Bi2Te3 reference (~0.88).",
+      "ZT = S^2*sigma*T/kappa_total depends on the full thermal conductivity (including an electronic component kappa_e) and on the power factor S^2*sigma, neither of which is given at this step, so the low kappa_L+kappa_b value cannot by itself account for the magnitude or ordering of ZT",
+      "The composition with the lowest reported kappa_L+kappa_b (x=0.01, ~0.69 at 300 K) is not the composition with the highest room-temperature ZT (x=0.005, ~0.84); the two best-supported values are for different samples, so no direct within-sample link between the lowest thermal conductivity and the highest ZT is established",
+      "The previous step's kappa_L+kappa_b data span only 300-450 K, while the ZT peak of ~1.25 occurs near 500-525 K for x=0.01 -- outside the temperature window covered by the cited thermal-conductivity evidence",
+      "Comparison to the n-Bi2Te3 reference ZT (~0.88) is a single-point benchmark, not a systematic composition or temperature series, so it cannot establish a general trend"
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "journal_of_m_M3_M5_s1",
@@ -4994,7 +5289,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M5",
     "stage_type": "Property \u2192 Performance",
@@ -5037,8 +5331,24 @@
      "The cause of the jagged/sudden-drop pattern in stir-cast is not established by this curve alone and needs mechanism-level evidence (e.g., worn-surface imaging) to attribute to a specific process.",
      "Only one sliding condition and one time endpoint are compared; broader time- or condition-dependence is not shown.",
      "Height loss is a cumulative amount tracked over time, not a directly measured rate, so its agreement with the wear-rate figure is supportive but not a separate confirmation of rate."
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "The height-loss-vs-time trace (obs1) is consistent with and reinforces the prior wear-rate finding: FSP composite accumulates less height loss (~240 um) than stir-cast (~350 um) by ~1160 s, matching the direction of the 280 vs 420 x1e-5 mm3/m wear-rate result and the smaller final height loss already established. In addition, the stir-cast curve's jagged, sudden-drop shape (vs FSP's presumably smoother trace) indicates that stir-cast material loses height in an intermittent, uneven manner rather than steadily.",
+      "Height loss vs time is a single-condition time series, not a repeated or varied-condition dataset, so it cannot establish a general relationship, only confirm an ordering at the tested condition.",
+      "Height loss is a cumulative amount (um over time), not a rate measurement in itself; its consistency with the wear-rate number is corroborative, not an independent derivation of rate.",
+      "The jaggedness/sudden-drop pattern is a qualitative shape observation from the curve; no wear-surface or debris analysis is cited at this step to explain what physically produces the sudden drops.",
+      "Only one time endpoint (~1160 s) is used for the numeric comparison, which is too sparse to characterize the shape of accumulation (e.g., linear vs accelerating) beyond the endpoint difference."
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "journal_of_m_M4_M5_s1",
@@ -5152,7 +5462,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M5",
     "stage_type": "Property \u2192 Performance",
@@ -5196,8 +5505,24 @@
      "The sudden-drop pattern in stir casting is described qualitatively only; no magnitude, count, or mechanism is established",
      "No replicate runs or error bars are available for either material's curve",
      "The comparison covers only sliding wear at the single test duration/condition shown (~1160 s); it does not extend to other service conditions"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "The height-loss-vs-time trace corroborates the wear-rate difference from the previous step with a second, independent read: FSP stays lower in height loss than stir casting throughout the test, reaching ~240 um versus stir casting's ~350 um at ~1160 s, so the previous step's 'smaller final height loss' claim is the same gap seen in this curve, and the stir-cast trace additionally shows a jagged shape with sudden drops that the FSP trace (by contrast) does not show, suggesting the two materials lose material in different ways over time even as FSP's cumulative loss stays lower.",
+      "Only two curves are shown, essentially one comparison at one end time (~1160 s); this is an ordering (FSP lower throughout) not a fitted rate relationship",
+      "The 'jagged, sudden drops' description of the stir-cast curve is qualitative -- no count, size, or timing of the drops is given, so it cannot be turned into a rate or frequency",
+      "No repeats or error bars are shown for either curve, so the gap at 1160 s (350 vs 240 um) cannot be assigned an uncertainty",
+      "This obs1 curve is the same underlying measurement that produced the previous step's 'final height loss' figure, so it is not an independent confirmation of that part of the previous claim -- only the wear-rate figure (280 vs 420 x1e-5 mm3/m) is a distinct metric"
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "nano_letters_M1_M2_s1",
@@ -5349,7 +5674,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M2",
     "stage_type": "Structure \u2192 Performance",
@@ -5390,8 +5714,24 @@
      "do not treat the Li/Na contrast as proof that pore size specifically causes the Na fade -- the mechanism is undetermined from GCD data alone",
      "any claim about pore-ion size compatibility for Na still needs direct structural evidence (not present here) before being asserted",
      "the two cycling series are not a controlled comparison isolating porosity from other cell-level differences between Li and Na half-cells"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Because the same mesoporous PCO host (5-7 nm pores, hysteretic type IV isotherm) was used in both the Li and Na half-cells, the sharp contrast in cycling outcome -- Li/PCO retaining ~840-870 mAh/g through 40 cycles (initial reversible ~870) versus Na/PCO collapsing from ~870 mAh/g (1st discharge) to ~70 mAh/g by cycle 40 -- shows that the mesopore structure by itself is not sufficient to produce stable reversible capacity for both alkali ions. The identical pore architecture yields durable performance with Li but not with Na, so whatever the pores contribute (buffering, ion access) is evidently adequate for Li but is being overridden by some Na-specific process.",
+      "GCD capacity-vs-cycle curves (obs1-obs4) record electrochemical outcome only; they contain no structural readout of the cycled electrode, so nothing here shows whether the pores physically changed, clogged, or stayed intact during Na cycling",
+      "Li and Na cells differ in more than just the alkali ion -- plateau voltages, electrolyte compatibility, and possibly SEI chemistry differ too -- so the porosity variable is not isolated from these co-varying factors; attributing the divergence to the ion alone versus to ion-electrolyte/SEI interaction is not resolved",
+      "the comparison rests on two single cycling series (one per ion), not a controlled sweep of pore size or ion at fixed everything else, so it supports an ordering/contrast (Li stable, Na unstable) but not a quantitative relationship between pore size and capacity retention",
+      "the 40-cycle window is short for durability claims and CE is only reported for Li (~96%), not Na, limiting what can be said about Na-side reversibility mechanisms"
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "progress_in__M1_M2_s1",
@@ -5499,7 +5839,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M2",
     "stage_type": "Structure \u2192 Property",
@@ -5542,8 +5881,24 @@
      "The result rests on a qualitative halo call, not a quantified potency or kill measure",
      "The specific agent or mechanism within PCL-LS responsible for the effect is not established here",
      "Any synergistic contribution of the oxide layer combined with the PCL-LS coating is untested"
-    ]
-   }
+    ],
+    "scoring": {
+     "required_elements": [
+      "Putting the previous step's result together with this evidence shows that the hydroxyl-rich Mg(OH)2 oxide layer that alkali treatment leaves on AZ31 (present in the AZ31-OH sample) is not itself antibacterial: disc b (AZ31-OH) shows no inhibition halo on either E. coli or S. aureus plates, matching untreated AZ31 (disc a) and PCL (disc c). Only disc d (PCL-LS coating) produces a clear halo on both organisms. So the antibacterial effect belongs specifically to the PCL-LS coating, not to the alkali-formed oxide layer.",
+      "The halo readout (obs1) is a qualitative presence/absence call, not a quantified measure of bacterial kill or potency",
+      "The evidence rules out the oxide layer alone and PCL alone as sufficient causes, but does not identify what within the PCL-LS coating produces the effect",
+      "No test isolates whether the oxide layer plays any supporting role in combination with the PCL-LS coating, since PCL-LS is only tested as fabricated",
+      "Single halo observation per disc/organism with no replicate or dose-response data given to weigh the reliability of the 'none' calls for discs a, b, c"
+     ],
+     "n_required": 5,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": false,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   },
   {
    "item": "rare_metals_M1_M2_s1",
@@ -5754,7 +6109,6 @@
     }
    ],
    "withheld_panels": [],
-   "depth": 1,
    "provenance_NOT_SOLVER_VISIBLE": {
     "matmech_hop": "M2",
     "stage_type": "Structure \u2192 Properties",
@@ -5785,8 +6139,22 @@
      "inference_validity": "follows, weakly",
      "causal_strength": "associative"
     },
-    "combines": true
-   }
+    "combines": true,
+    "scoring": {
+     "required_elements": [
+      "Tensile strength rises 311 -> 376 -> 406 MPa across RE-free, Sm and La, in the same order as the refinement and number density of the theta-prime precipitates from step 1.",
+      "The three alloys differ in copper content as well as in rare-earth addition, so the strength ordering is confounded with Cu.",
+      "Three alloys, one point each: an ordering, not a relationship."
+     ],
+     "n_required": 3,
+     "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
+     "target": "the combining proposition together with each named limit"
+    }
+   },
+   "fm_lane": true,
+   "split_into": 1,
+   "depth": 1,
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
   }
  ],
  "note": "Every verdict is model against model."

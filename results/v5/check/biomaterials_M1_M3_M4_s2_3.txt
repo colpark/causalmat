@@ -1,0 +1,39 @@
+Property under test: how the material performs in service
+
+Previous step established: 2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)
+
+Observations available at this step (CHEM:ion_concentration):
+  [obs1] Co2+ in medium: 5Co ~8.9/17.9/20.8 and 2Co ~4.7/10.5/16.9 mg/L at 1/3/7 days; 0Co stays at 0
+  [obs2] HIF-1alpha band faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG; alpha-tubulin bands equal
+  [obs3] Cumulative drug release ~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h (plateau)
+  [obs4] Relative survival with Scaffolds+Ampicillin ~105, ~81, ~52% at days 1, 3, 7 vs blank 100 and drug-free scaffolds 110-118%
+
+THE KEY UNDER AUDIT
+
+Proposition: Because 2Co-MBG's ordered mesoporous channels (~4-5 nm pores) survive cobalt doping (previous step), the scaffold retains the physical capacity to load and progressively release a drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3), and over that same multi-day window ampicillin-loaded scaffolds drive relative bacterial survival down to ~105/81/52% at days 1/3/7, while drug-free scaffolds instead raise survival to 110-118% versus the 100% blank (obs4). Because the drug-free (still Co2+-releasing) scaffold does not lower survival, the antibacterial decline tracks the sustained ampicillin release rather than Co2+ release alone, consistent with the retained porosity still functioning as a drug reservoir.
+
+Limits:
+  [0] The pore-size measurement itself includes no drug-loading or release data, so the link from retained 4-5 nm porosity to the observed release/kill kinetics is structural plausibility, not a directly measured dependency
+  [1] obs3's release curve is not broken out by Co-doping level in the evidence given, so it cannot be confirmed that this particular release profile reflects the pore geometry specifically rather than some other scaffold property
+  [2] obs3 (cumulative mass, ug) and obs4 (normalized relative survival, %) are different quantity kinds compared only by overlapping time windows (8-168 h vs 1-7 days), giving a temporal parallel, not a calibrated dose-response
+  [3] Only one antibacterial series is given (matching the 2Co-MBG claim); there is no 5Co-MBG antibacterial comparison, so whether the pore-retention benefit for drug delivery generalizes or scales with Co content is unaddressed
+  [4] obs1 (Co2+ concentration) and obs2 (HIF-1alpha induction) belong to a separate, Co-dose-dependent signaling readout and should not be read as part of the antibacterial mechanism
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

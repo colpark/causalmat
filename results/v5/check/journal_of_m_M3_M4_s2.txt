@@ -1,0 +1,36 @@
+Property under test: what the sample is like
+
+Previous step established: Se-doped samples have low kappa_L+kappa_b ~0.6-0.9 W/mK at 300-450 K (x=0.01: ~0.69 at 300 K)
+
+Observations available at this step (TRANSPORT:ZT):
+  [obs1] ZT at 300 K: ~0.84 (x=0.005), ~0.78 (0.01), 0.63-0.69 (0.02-0.04); n-Bi2Te3 reference curve ~0.88
+  [obs2] x=0.01 ZT peaks at ~1.25 near 500-525 K
+
+THE KEY UNDER AUDIT
+
+Proposition: Putting the previous step's finding (kappa_L+kappa_b as low as ~0.6-0.9 W/mK across 300-450 K, with x=0.01 at ~0.69 W/mK at 300 K) together with the ZT data permits the conclusion that the suppressed lattice-plus-bipolar thermal conductivity is consistent with, and plausibly contributes to, the observed ZT levels (~0.84 at x=0.005, ~0.78 at x=0.01, 0.63-0.69 at x=0.02-0.04 at 300 K, and the x=0.01 peak of ~1.25 near 500-525 K) being as high as they are relative to the n-Bi2Te3 reference (~0.88).
+
+Limits:
+  [0] ZT = S^2*sigma*T/kappa_total depends on the full thermal conductivity (including an electronic component kappa_e) and on the power factor S^2*sigma, neither of which is given at this step, so the low kappa_L+kappa_b value cannot by itself account for the magnitude or ordering of ZT
+  [1] The composition with the lowest reported kappa_L+kappa_b (x=0.01, ~0.69 at 300 K) is not the composition with the highest room-temperature ZT (x=0.005, ~0.84); the two best-supported values are for different samples, so no direct within-sample link between the lowest thermal conductivity and the highest ZT is established
+  [2] The previous step's kappa_L+kappa_b data span only 300-450 K, while the ZT peak of ~1.25 occurs near 500-525 K for x=0.01 -- outside the temperature window covered by the cited thermal-conductivity evidence
+  [3] Comparison to the n-Bi2Te3 reference ZT (~0.88) is a single-point benchmark, not a systematic composition or temperature series, so it cannot establish a general trend
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}

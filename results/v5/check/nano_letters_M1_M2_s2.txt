@@ -1,0 +1,38 @@
+Property under test: how the material performs in service
+
+Previous step established: PCO is mesoporous: hysteretic type IV isotherm, pores mostly 5-7 nm
+
+Observations available at this step (ECHEM:GCD):
+  [obs1] Na 1st discharge reaches ~865 mAh/g (plateau ~0.15 V); 1st charge ~470; 40th cycle ~60 mAh/g
+  [obs2] Li 1st discharge: long plateau ~1.05 V to ~1330 mAh/g; 1st charge ~870 mAh/g with plateau ~2.0 V
+  [obs3] Li cycling: charge capacity ~870 (cycle 1) rising to ~1050 (cycle ~17) and back to ~840 at cycle 40; CE ~96%
+  [obs4] Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40
+
+THE KEY UNDER AUDIT
+
+Proposition: Because the same mesoporous PCO host (5-7 nm pores, hysteretic type IV isotherm) was used in both the Li and Na half-cells, the sharp contrast in cycling outcome -- Li/PCO retaining ~840-870 mAh/g through 40 cycles (initial reversible ~870) versus Na/PCO collapsing from ~870 mAh/g (1st discharge) to ~70 mAh/g by cycle 40 -- shows that the mesopore structure by itself is not sufficient to produce stable reversible capacity for both alkali ions. The identical pore architecture yields durable performance with Li but not with Na, so whatever the pores contribute (buffering, ion access) is evidently adequate for Li but is being overridden by some Na-specific process.
+
+Limits:
+  [0] GCD capacity-vs-cycle curves (obs1-obs4) record electrochemical outcome only; they contain no structural readout of the cycled electrode, so nothing here shows whether the pores physically changed, clogged, or stayed intact during Na cycling
+  [1] Li and Na cells differ in more than just the alkali ion -- plateau voltages, electrolyte compatibility, and possibly SEI chemistry differ too -- so the porosity variable is not isolated from these co-varying factors; attributing the divergence to the ion alone versus to ion-electrolyte/SEI interaction is not resolved
+  [2] the comparison rests on two single cycling series (one per ion), not a controlled sweep of pore size or ion at fixed everything else, so it supports an ordering/contrast (Li stable, Na unstable) but not a quantitative relationship between pore size and capacity retention
+  [3] the 40-cycle window is short for durability claims and CE is only reported for Li (~96%), not Na, limiting what can be said about Na-side reversibility mechanisms
+
+You are auditing an answer key against the evidence it was written from.
+
+You are given the step's observations, the previous step's result, and a key: one combining
+proposition and a list of limits. For EACH of them separately, rule one of:
+
+  holds       every quantity and direction it states is in the observations above, and the
+              inference it draws is available from them
+  overreaches states something the observations support only weakly, or in a weaker form -- a cause
+              where only an association is available, a relationship where only an ordering is,
+              a magnitude the numbers do not pin down
+  wrong       contradicts the observations, or cites a number or direction that is not there
+
+Quote the observation you are ruling against. If a statement overreaches or is wrong, give the
+corrected wording, keeping it as close to the original as the evidence allows.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "...", "fix": "..." or null},
+ "limits": [{"index": 0, "verdict": "...", "evidence": "...", "fix": "..." or null}]}
