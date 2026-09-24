@@ -1,0 +1,282 @@
+{
+ "paper": "Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023",
+ "graph": "taxonomy/graphs_v07/Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023.json",
+ "spine_claims": 18,
+ "match": "TF-IDF cosine, mean of word 1-2 grams and char_wb 3-5 grams, over text normalised for Unicode subscripts and Greek; MATCH_MIN 0.12",
+ "hops": [
+  {
+   "hop": "M1",
+   "stage_type": "Processing \u2192 Structure",
+   "next": null,
+   "chain_strength": null,
+   "matmech_figures": [
+    "F3",
+    "F1"
+   ],
+   "matmech_techniques": [
+    "Hot pressing"
+   ],
+   "knowledge_imported": 2,
+   "sub_claims": [
+    {
+     "claim": "n7",
+     "claim_type": "STR/phase/identity",
+     "claim_text": "All x are single-phase Mg3Sb2-type (P-3m1) with no impurity reflections detected by XRD",
+     "match_score": 0.145,
+     "n_evidence": 1,
+     "evidence": [
+      {
+       "node": "o1",
+       "relation": "evidences",
+       "technique": "XRD",
+       "family": "XRD",
+       "panel_ids": [
+        "10.1016/j.jma.2020.11.023#F1b"
+       ],
+       "figs": [
+        "F1"
+       ],
+       "image_support": "shown",
+       "read_from": "pixels",
+       "delivery": "crop",
+       "observation": "XRD patterns of all x match the Mg3Sb2 reference reflections with no extra peaks"
+      }
+     ],
+     "n_caveats": 0,
+     "caveats": []
+    }
+   ],
+   "n_sub_claims": 1,
+   "n_evidence": 1,
+   "modalities": [
+    "XRD"
+   ]
+  },
+  {
+   "hop": "M2",
+   "stage_type": "Structure \u2192 Properties",
+   "next": "M4",
+   "chain_strength": "stage",
+   "matmech_figures": [
+    "F2",
+    "F4"
+   ],
+   "matmech_techniques": [
+    "Hall coefficient measurement"
+   ],
+   "knowledge_imported": 4,
+   "sub_claims": [
+    {
+     "claim": "n11",
+     "claim_type": "PRP/descriptor",
+     "claim_text": "Se-doped samples keep high 300 K Hall mobility ~125-170 cm2/Vs, highest at x=0.01",
+     "match_score": 0.226,
+     "n_evidence": 1,
+     "evidence": [
+      {
+       "node": "o8",
+       "relation": "evidences",
+       "technique": "TRANSPORT:Hall",
+       "family": "TRANSPORT",
+       "panel_ids": [
+        "10.1016/j.jma.2020.11.023#F4c"
+       ],
+       "figs": [
+        "F4"
+       ],
+       "image_support": "shown",
+       "read_from": "annotation",
+       "delivery": "oracle",
+       "observation": "At 300 K, x=0.005-0.02 mu_H (~145-170) exceeds every literature point (max ~139); x=0.04 (~125) still tops refs at similar n_H"
+      }
+     ],
+     "n_caveats": 0,
+     "caveats": []
+    },
+    {
+     "claim": "n10",
+     "claim_type": "PRP/descriptor",
+     "claim_text": "Hall carrier concentration rises from ~0.5e19 (x=0) to ~1.7-3.3e19 cm-3 at 300 K, increasing with x",
+     "match_score": 0.202,
+     "n_evidence": 1,
+     "evidence": [
+      {
+       "node": "o6",
+       "relation": "evidences",
+       "technique": "TRANSPORT:Hall",
+       "family": "TRANSPORT",
+       "panel_ids": [
+        "10.1016/j.jma.2020.11.023#F4a"
+       ],
+       "figs": [
+        "F4"
+       ],
+       "image_support": "shown",
+       "read_from": "axis",
+       "delivery": "oracle",
+       "observation": "n_H rises from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 at 300 K for x=0.005-0.04"
+      }
+     ],
+     "n_caveats": 0,
+     "caveats": []
+    }
+   ],
+   "n_sub_claims": 2,
+   "n_evidence": 2,
+   "modalities": [
+    "TRANSPORT"
+   ]
+  },
+  {
+   "hop": "M3",
+   "stage_type": "Structure \u2192 Properties",
+   "next": "M4",
+   "chain_strength": "stage",
+   "matmech_figures": [
+    "F5"
+   ],
+   "matmech_techniques": [
+    "Laser flash analysis",
+    "DSC"
+   ],
+   "knowledge_imported": 2,
+   "sub_claims": [
+    {
+     "claim": "n14",
+     "claim_type": "PRP/value",
+     "claim_text": "Se-doped samples have low kappa_L+kappa_b ~0.6-0.9 W/mK at 300-450 K (x=0.01: ~0.69 at 300 K)",
+     "match_score": 0.121,
+     "n_evidence": 1,
+     "evidence": [
+      {
+       "node": "o15",
+       "relation": "evidences",
+       "technique": "THERMAL:lattice",
+       "family": "THERMAL",
+       "panel_ids": [
+        "10.1016/j.jma.2020.11.023#F5f"
+       ],
+       "figs": [
+        "F5"
+       ],
+       "image_support": "shown",
+       "read_from": "axis",
+       "delivery": "oracle",
+       "observation": "kappa_L+kappa_b of x=0.01 is ~0.69 at 300 K and ~0.60 at 400-450 K; all doped rise above ~475 K"
+      }
+     ],
+     "n_caveats": 0,
+     "caveats": []
+    }
+   ],
+   "n_sub_claims": 1,
+   "n_evidence": 1,
+   "modalities": [
+    "THERMAL"
+   ]
+  },
+  {
+   "hop": "M4",
+   "stage_type": "Properties \u2192 Performance",
+   "next": null,
+   "chain_strength": null,
+   "matmech_figures": [
+    "F6",
+    "F7"
+   ],
+   "matmech_techniques": [
+    "Thermoelectric property measurement"
+   ],
+   "knowledge_imported": 2,
+   "sub_claims": [
+    {
+     "claim": "n18",
+     "claim_type": "DSC/conclusion",
+     "claim_text": "Se is an effective n-type dopant for Mg3.2Bi1.4Sb0.6, giving RT ZT ~0.82, peak ZT ~1.24 and ~12% efficiency",
+     "match_score": 0.161,
+     "n_evidence": 0,
+     "evidence": [],
+     "n_caveats": 0,
+     "caveats": []
+    },
+    {
+     "claim": "n1",
+     "claim_type": "HYP/need",
+     "claim_text": "n-type Mg3Sb2-based thermoelectrics need high near-room-temperature ZT to rival n-Bi2Te3",
+     "match_score": 0.135,
+     "n_evidence": 0,
+     "evidence": [],
+     "n_caveats": 0,
+     "caveats": []
+    }
+   ],
+   "n_sub_claims": 2,
+   "n_evidence": 0,
+   "modalities": []
+  },
+  {
+   "hop": "M5",
+   "stage_type": "Processing \u2192 Performance",
+   "next": null,
+   "chain_strength": null,
+   "matmech_figures": [
+    "F7"
+   ],
+   "matmech_techniques": [
+    "Integrated thermoelectric performance evaluation"
+   ],
+   "knowledge_imported": 2,
+   "sub_claims": [
+    {
+     "claim": "n18",
+     "claim_type": "DSC/conclusion",
+     "claim_text": "Se is an effective n-type dopant for Mg3.2Bi1.4Sb0.6, giving RT ZT ~0.82, peak ZT ~1.24 and ~12% efficiency",
+     "match_score": 0.152,
+     "n_evidence": 0,
+     "evidence": [],
+     "n_caveats": 0,
+     "caveats": []
+    },
+    {
+     "claim": "n13",
+     "claim_type": "PRP/value",
+     "claim_text": "Power factor reaches ~29 uW cm-1 K-2 at 300 K for x=0.01 (x=0 below 2), ~22 at 623 K",
+     "match_score": 0.126,
+     "n_evidence": 1,
+     "evidence": [
+      {
+       "node": "o12",
+       "relation": "evidences",
+       "technique": "TRANSPORT:power_factor",
+       "family": "TRANSPORT",
+       "panel_ids": [
+        "10.1016/j.jma.2020.11.023#F5c"
+       ],
+       "figs": [
+        "F5"
+       ],
+       "image_support": "shown",
+       "read_from": "axis",
+       "delivery": "oracle",
+       "observation": "PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5"
+      }
+     ],
+     "n_caveats": 0,
+     "caveats": []
+    }
+   ],
+   "n_sub_claims": 2,
+   "n_evidence": 1,
+   "modalities": [
+    "TRANSPORT"
+   ]
+  }
+ ],
+ "counts": {
+  "hops": 5,
+  "hops_with_evidence": 4,
+  "hops_without_evidence": 1,
+  "evidence_nodes": 5
+ },
+ "note": "Every verdict is model against model. The MatMech effect span was used for matching only and never reaches a solver prompt."
+}

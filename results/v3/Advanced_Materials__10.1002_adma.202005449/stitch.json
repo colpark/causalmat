@@ -1,0 +1,185 @@
+{
+ "paper": "Advanced_Materials__10.1002_adma.202005449",
+ "graph": "taxonomy/graphs_v07/Advanced_Materials__10.1002_adma.202005449.json",
+ "spine_claims": 18,
+ "match": "TF-IDF cosine, mean of word 1-2 grams and char_wb 3-5 grams, over text normalised for Unicode subscripts and Greek; MATCH_MIN 0.12",
+ "hops": [
+  {
+   "hop": "M1",
+   "stage_type": "Processing \u2192 Structure",
+   "next": "M2",
+   "chain_strength": "stage",
+   "matmech_figures": [
+    "F2"
+   ],
+   "matmech_techniques": [
+    "Rheometry & SEM"
+   ],
+   "knowledge_imported": 1,
+   "sub_claims": [],
+   "n_sub_claims": 0,
+   "n_evidence": 0,
+   "modalities": []
+  },
+  {
+   "hop": "M2",
+   "stage_type": "Structure \u2192 Property",
+   "next": null,
+   "chain_strength": null,
+   "matmech_figures": [
+    "F3"
+   ],
+   "matmech_techniques": [
+    "Cyclic Voltammetry (CV)",
+    "Galvanostatic Charge-Discharge (GCD)"
+   ],
+   "knowledge_imported": 2,
+   "sub_claims": [
+    {
+     "claim": "n11",
+     "claim_type": "PRP/value",
+     "claim_text": "Areal capacitance grows with the number of printed layers, reaching ~1100 mF cm-2 at ten layers",
+     "match_score": 0.253,
+     "n_evidence": 1,
+     "evidence": [
+      {
+       "node": "o10",
+       "relation": "evidences",
+       "technique": "ECHEM:GCD",
+       "family": "ECHEM",
+       "panel_ids": [],
+       "figs": [
+        "F3"
+       ],
+       "image_support": "shown",
+       "read_from": "axis",
+       "delivery": "oracle",
+       "observation": "Areal capacitance at the lowest current density reads ~1100 (10L), ~610 (5L) and ~40 mF cm-2 (1L)"
+      }
+     ],
+     "n_caveats": 0,
+     "caveats": []
+    },
+    {
+     "claim": "n12",
+     "claim_type": "PRF/service_capability",
+     "claim_text": "Printed MX-MSCs hold their capacitance through 10 000 galvanostatic cycles",
+     "match_score": 0.131,
+     "n_evidence": 1,
+     "evidence": [
+      {
+       "node": "o13",
+       "relation": "evidences",
+       "technique": "ECHEM:galvanostatic_cycling",
+       "family": "ECHEM",
+       "panel_ids": [],
+       "figs": [
+        "F3"
+       ],
+       "image_support": "shown",
+       "read_from": "axis",
+       "delivery": "oracle",
+       "observation": "Capacitance retention stays between 100 and 107% of the initial value through 10 000 cycles"
+      }
+     ],
+     "n_caveats": 0,
+     "caveats": []
+    }
+   ],
+   "n_sub_claims": 2,
+   "n_evidence": 2,
+   "modalities": [
+    "ECHEM"
+   ]
+  },
+  {
+   "hop": "M3",
+   "stage_type": "Property \u2192 Performance",
+   "next": null,
+   "chain_strength": null,
+   "matmech_figures": [
+    "F3"
+   ],
+   "matmech_techniques": [
+    "Electrochemical measurement"
+   ],
+   "knowledge_imported": 1,
+   "sub_claims": [],
+   "n_sub_claims": 0,
+   "n_evidence": 0,
+   "modalities": []
+  },
+  {
+   "hop": "M4",
+   "stage_type": "Processing \u2192 Performance",
+   "next": null,
+   "chain_strength": null,
+   "matmech_figures": [
+    "F4"
+   ],
+   "matmech_techniques": [
+    "Galvanostatic cycling",
+    "bending tests"
+   ],
+   "knowledge_imported": 1,
+   "sub_claims": [
+    {
+     "claim": "n16",
+     "claim_type": "PRP/value",
+     "claim_text": "MX-LIMBs deliver ~88 uAh cm-2 at 20 uA cm-2 on a plateau near 1.8 V, falling to ~25 uAh cm-2 at 200 uA cm-2",
+     "match_score": 0.156,
+     "n_evidence": 1,
+     "evidence": [
+      {
+       "node": "o20",
+       "relation": "evidences",
+       "technique": "ECHEM:GCD",
+       "family": "ECHEM",
+       "panel_ids": [
+        "10.1002/adma.202005449#F4i"
+       ],
+       "figs": [
+        "F4"
+       ],
+       "image_support": "shown",
+       "read_from": "axis",
+       "delivery": "oracle",
+       "observation": "Discharge capacity reads ~88 uAh cm-2 at 20 uA cm-2 and ~25 uAh cm-2 at 200 uA cm-2, the plateau sitting near 1.75-1.85 V"
+      }
+     ],
+     "n_caveats": 0,
+     "caveats": []
+    }
+   ],
+   "n_sub_claims": 1,
+   "n_evidence": 1,
+   "modalities": [
+    "ECHEM"
+   ]
+  },
+  {
+   "hop": "M5",
+   "stage_type": "Property \u2192 Performance",
+   "next": null,
+   "chain_strength": null,
+   "matmech_figures": [
+    "F5"
+   ],
+   "matmech_techniques": [
+    "Electromechanical testing"
+   ],
+   "knowledge_imported": 1,
+   "sub_claims": [],
+   "n_sub_claims": 0,
+   "n_evidence": 0,
+   "modalities": []
+  }
+ ],
+ "counts": {
+  "hops": 5,
+  "hops_with_evidence": 2,
+  "hops_without_evidence": 3,
+  "evidence_nodes": 3
+ },
+ "note": "Every verdict is model against model. The MatMech effect span was used for matching only and never reaches a solver prompt."
+}

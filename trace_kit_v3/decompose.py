@@ -10,10 +10,8 @@ import json, os, re, sys, glob
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 WORK = os.path.join(ROOT, '.v07work/decomp')
-PAPERS = ['Rare_Metals__s12598-012-0515-6', 'Biomaterials__j.biomaterials.2011.11.042',
-          'Advanced_Functional_Materials__10.1002_adfm.202008088',
-          'Nano_Letters__10.1021_acs.nanolett.6b04294',
-          'Acta_Materialia__10.1016_j.actamat.2021.116797']
+PAPERS = json.load(open(os.path.join(ROOT,'results/v5_papers.json')))
+PAPERS = [x['paper'] for x in PAPERS]
 
 
 def claims_of(paper):
