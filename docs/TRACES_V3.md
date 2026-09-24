@@ -387,3 +387,141 @@ extrapolate honestly — the estimate that matters is not in this data and would
 the hundred-paper bench to produce. What can be said from here is the requirement, not the rate: an
 inverted item needs a confirmed chain of at least four hops, and this design's chains are half that
 length.
+
+---
+
+# v3b: hide the effect
+
+v3's result stands and is unchanged above. Its cause was the format: every step stated the paper's
+conclusion, so the model graded an assertion and the evidence was optional. v3b removes the
+conclusion. Each step now gives the evidence and names the **property** it concerns — derived from
+the claim's `type`, a controlled vocabulary, because a type cannot leak a result — and asks what the
+evidence establishes, what it does not, and with what confidence. The answers are graded against the
+hidden effect with the sub-claims as the key: correct, partly correct, wrong, or cannot tell.
+
+Six traces, five arms, three repeats, plus 14 removals x 3. 132 answers and 125 gradings, every one
+verified byte-for-byte from the agents' own transcripts.
+
+## The stop rule did not fire, and that is the main validation
+
+> *Stop if the floor arm produces the hidden effect correctly on more than half the hops.*
+
+**Floor is correct on 0 of 41 rulings — 0%, with 39 of 41 "cannot tell".** Adding partly-correct
+takes it to 2%. The hidden effect is not readable from captions, so the item is testing evidence
+rather than recall. This is the thing v3 could never establish, because v3 handed the conclusion
+over in the prompt.
+
+## Arm results
+
+Pooled verdicts, and the paired comparison against `full` on the same case and step, averaged over
+repeats on a 0–3 scale (correct 3, partly 2, cannot tell 1, wrong 0):
+
+| arm | n | correct | partly | wrong | cannot tell | hit-rate | paired Δ vs full |
+|---|---|---|---|---|---|---|---|
+| full | 39 | 17 | 20 | 2 | 0 | **44%** | — |
+| floor | 41 | 0 | 1 | 1 | 39 | 0% | **−1.33** (14 of 14 worse) |
+| measurement | 42 | 13 | 26 | 3 | 0 | 31% | −0.17 (5 worse, 1 better, 8 same) |
+| reordered | 39 | 12 | 24 | 3 | 0 | 31% | −0.18 (6 worse, 2 better, 6 same) |
+| permute_image | 28 | 0 | 7 | 19 | 2 | 0% | **−1.72** (10 of 12 worse) |
+
+Nano Letters is excluded from `permute_image`: both its steps are oracle-delivered, so its `full`
+arm carries no images and its permuted prompt is byte-identical to `full`. Counting it would score a
+non-control as a control passing.
+
+**The design discriminates now, hard, at both extremes.** Captions alone cannot do the task and
+wrong pictures actively produce wrong findings — 19 of 28 permute rulings are `wrong`, not `cannot
+tell`, so the arm confidently reads the swapped panels and gets the answer wrong. In v3 the widest
+gap between any arm and full was 1.44 on a four-level scale that barely moved; here floor and
+permute sit 1.3–1.7 below full on a scale full actually uses.
+
+## The three questions
+
+### Does removal now change answers?
+
+**At the step whose evidence was removed, yes, 14 of 14 — but that result is close to tautological
+and should not be quoted on its own.** The question asks what *this* evidence establishes; with none
+provided, "cannot tell" is the correct answer, and that is exactly what comes back: every one of the
+14 drops falls to `cannot tell` in most repeats.
+
+The informative question is whether removing one hop's evidence degrades the **other** hops, which
+is what a chain would predict.
+
+**It does not. Mean spillover +0.04 over 20 step-pairs — 5 degraded, 7 improved, 8 unchanged.**
+Removing step 1's evidence leaves step 2 exactly where it was. The one large movement, Rare Metals
+drop1 → step2 at −1.00, is offset by three positive moves of comparable size.
+
+So v3b changes the removal result at the removed step and leaves it unchanged everywhere else. The
+chain still does not propagate.
+
+### Does reordered still equal full?
+
+**Effectively yes, and the apparent difference does not survive the noise.** The pooled hit-rate
+looks like a drop, 44% to 31%, but paired on the same case and step the difference is **−0.18 on a
+0–3 scale**, with 6 steps worse, 2 better and 6 identical.
+
+Two things make that uninterpretable as an ordering effect. The `measurement` arm — which changes
+the evidence, not the order — differs from full by **−0.17**, the same magnitude. And `full`'s own
+three repeats are unanimous on only **6 of 11 steps (55%)**, so run-to-run variation on this scale
+is as large as the difference being claimed.
+
+| arm | repeats unanimous |
+|---|---|
+| full | 6/11 = 55% |
+| floor | 11/13 = 85% |
+| measurement | 11/14 = 79% |
+| reordered | 10/11 = 91% |
+| permute_image | 4/7 = 57% |
+
+**The sequence still carries nothing this design can detect.** v3b fixed the item without rescuing
+that claim.
+
+### Does measurement-only text still match images?
+
+**Yes, essentially. −0.17, with 8 of 14 step-pairs identical.**
+
+This needs the caveat stated in the build: **nothing was stripped.** Zero interpretive terms matched
+across all 14 steps, because the graph's observation labels are already written as measurements
+("Yield stress in [11-20] at RT: 167 MPa as-grown, 113 MPa after the 520 C anneal"). So the
+measurement arm and a plain text arm are the same thing on this data, and this comparison is text
+against images, not stripped-text against images. An earlier version of the stripper made it worse
+by deleting "reflection" — a diffraction peak — from an XRD measurement.
+
+The direction did flip: in v3 the text arm scored **above** full (+0.22); in v3b it scores slightly
+below (−0.17). Both are small. The fair statement is that text and images remain interchangeable on
+these fourteen steps, with images perhaps marginally ahead once the conclusion is hidden.
+
+## v3 and v3b side by side
+
+| | v3 | v3b |
+|---|---|---|
+| the step asks | does this evidence warrant this stated conclusion? | what does this evidence establish about this property? |
+| conclusion in the prompt | yes | no |
+| graded against | nothing (arms compared to each other) | the hidden effect, sub-claims as key |
+| full arm | 86% one class | 44% correct, 51% partly, 5% wrong |
+| floor | −0.03 vs full | **−1.33**, 0% correct |
+| permute_image | −0.72 | **−1.72**, 19 of 28 `wrong` |
+| text vs images | text **above** full, +0.22 | text −0.17 |
+| reordered | +0.00 | −0.18, inside the noise |
+| removal, dropped step | 0 of 13 necessary | 14 of 14, near-tautologically |
+| removal, other steps | — | **+0.04, no spillover** |
+| stop rule | — | floor 0% correct, did not fire |
+
+**What hiding the effect fixed.** The item. v3's arms sat on a near-constant scale where nothing
+separated except deliberately wrong images; v3b's arms span the full range, captions fail
+completely, wrong pictures produce confidently wrong answers, and the evidence is doing the work.
+That is a real benchmark item where v3 had one that graded an assertion.
+
+**What it did not fix.** Both structural claims survive unchanged. The sequence still carries
+nothing detectable — reordered is within run-to-run noise of full. Text still matches images. And
+the chain still does not propagate: removing one hop's evidence leaves the others where they were.
+
+The honest summary is that v3's negative findings were **not** artefacts of the format, even though
+the format was genuinely broken. Fixing it changed how well the item measures and left what it
+measures saying the same thing.
+
+## Completeness
+
+Grader replies occasionally omitted a step, so the per-arm denominators differ (39 to 42 of a
+possible 42, and 28 of 36 for permute after the Nano Letters exclusion). Repeat-stability
+denominators vary for the same reason: a step counts only where all three repeats returned a
+verdict. No reply was discarded for disagreeing; the gaps are missing rows, not filtered ones.
