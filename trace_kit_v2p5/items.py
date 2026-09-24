@@ -90,7 +90,7 @@ def split_panels(pa, pb, cap=CAP):
 
 def build():
     pairs = json.load(open(os.path.join(ROOT, 'results/v2p5/pairs.json')))['pairs']
-    seen, items = set(), []
+    seen, items, used_ids = set(), [], set()
     for x in pairs:
         k = (x['paper'], x['kind'], tuple(sorted((x['a'], x['b']))))
         if k in seen: continue
@@ -104,6 +104,11 @@ def build():
         else:
             oa, ob = x['a'], x['b']
         if not oa or not ob or oa not in N or ob not in N: continue
+        if oa == ob:
+            # A spine edge whose upstream and downstream claims are evidenced by the SAME
+            # observation is not a pair: there is one measurement, so nothing combines. The
+            # drafters said as much, returning combines false on all ten.
+            continue
         A, B = N[oa], N[ob]
 
         def pans(n):
@@ -123,8 +128,17 @@ def build():
             qa=(A.get('attrs') or {}).get('quantity') or 'the first quantity below',
             qb=(B.get('attrs') or {}).get('quantity') or 'the second quantity below',
             topic=topic_of(x['claims'], N))
+        # the id was built from the evidence nodes alone, so two different pairs -- a different
+        # claim reached through the same two observations -- collided on one id and overwrote each
+        # other's prompt and reply. The claims are part of what makes the item.
+        base = f"{x['paper'].split('__')[0][:12].lower()}_{x['kind'][:3]}_{oa}_{ob}"
+        iid = base if base not in used_ids else base + '_' + '-'.join(x['claims'][:2])
+        n_try = 2
+        while iid in used_ids:
+            iid = f"{base}_{n_try}"; n_try += 1
+        used_ids.add(iid)
         items.append({
-            'item': f"{x['paper'].split('__')[0][:12].lower()}_{x['kind'][:3]}_{oa}_{ob}",
+            'item': iid,
             'paper': x['paper'], 'generator': x['kind'], 'basis': x['basis'],
             'observation_a': {'node': oa, 'text': A.get('label'), 'technique': (A.get('attrs') or {}).get('technique'), 'family': ta},
             'observation_b': {'node': ob, 'text': B.get('label'), 'technique': (B.get('attrs') or {}).get('technique'), 'family': tb},
