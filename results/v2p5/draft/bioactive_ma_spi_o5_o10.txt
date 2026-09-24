@@ -1,14 +1,14 @@
-Question as the solver sees it: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+Question as the solver sees it: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
 
-Observation A (UVVIS): Co-doped absorption edges extend well past 420 nm into the visible vs a sharp TiO2 edge near 410 nm; Ce0.2 absorbs most
-Observation B (ASSAY:catalysis): Degradation at 60 min: Er0.5Ce0.2 ~46% > Ce0.3 ~41% > Ce0.1 ~31% > TiO2 ~20%, same order at 20 and 40 min
+Observation A (FTIR:GATR): BVLD-PPAmF spectrum carries a labelled -COOH stretch (~3400 cm-1) and -C=O band (~1660 cm-1) over the PPAmF spectrum
+Observation B (UVVIS:chromogenic_assay): Thrombin specific activity ~0.65e-3 abs/ng/cm2 on BVLD-PPAmF and BVLD/NO-PPAmF vs ~1.3e-3 on 316L SS, PPAmF and NO-PPAmF (***)
 
-How the graph links them: b13 -causes-> b17
-Panels: F4b, F8
+How the graph links them: n14 -causes-> n17
+Panels: F3b, F4
 
 What the paper concluded, for your reference as the key's author:
-  Ce co-doping narrows the optical band gap of TiO2 from 2.90 eV to 2.20-2.46 eV, smallest (2.20 eV) at Ce 0.2
-  Photocatalytic dye degradation rises with co-doping, best for Er0.5Ce0.2Ti-O (~46% vs ~20% for TiO2 in 60 min)
+  BVLD is immobilised on the coating surface at ~0.74 ug/cm2 and stays after PBS rinsing
+  Grafted BVLD keeps its anti-thrombin bioactivity: thrombin specific activity is roughly halved on BVLD-bearing coatings
 
 You are drafting an answer key, not answering a question.
 
@@ -34,7 +34,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},

@@ -1,13 +1,13 @@
-Question as the solver sees it: What does each of these two measurements establish on its own about STR/microstructure/distribution, and what does putting them together add that neither gives alone?
+Question as the solver sees it: What does each of these two measurements establish on its own about STR/phase/fraction, and what does putting them together add that neither gives alone?
 
-Observation A (SEM): Thin sheets drape spheres in b (red circles) and c; in d wrinkled sheets cover the field, burying spheres
-Observation B (XRD): Cu2S reflections are clearly weaker for RGO-Cu2S-3; RGO-Cu2S-1 and -2 resemble bare Cu2S
+Observation A (XRD): XRD: simple-mixing peaks broad with raised background; co-precipitated patterns show narrower, better separated peaks
+Observation B (TEM:HRTEM): HRTEM (w/ HCl): crystalline patches (red arrows) coexist with amorphous-like regions (white arrows)
 
-How the graph links them: both evidence m8: SEM and XRD
-Panels: F1b, F1c, F1d, F3a
+How the graph links them: both evidence s3: XRD and TEM
+Panels: F1d, F1f
 
 What the paper concluded, for your reference as the key's author:
-  RGO nanosheets wrap the Cu2S microspheres, coverage rising with GO until sheets bury the spheres
+  Crystallinity rises (amorphous fraction falls): simple mixing < co-precipitation w/o HCl < w/ HCl
 
 You are drafting an answer key, not answering a question.
 
@@ -33,7 +33,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},

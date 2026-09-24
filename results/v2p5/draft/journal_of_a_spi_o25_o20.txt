@@ -34,7 +34,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},

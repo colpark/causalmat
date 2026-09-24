@@ -1,13 +1,13 @@
 Question as the solver sees it: What does each of these two measurements establish on its own about STR/chemistry/composition, and what does putting them together add that neither gives alone?
 
-Observation A (XPS): Deconvolved Co3+ component of Co 2p is larger in Co5Fe5 and Co5Fe3Cr2 than in Co and Co5Cr5
-Observation B (EELS): Co L3 edge of Co5Fe3Cr2 and Co5Fe5 blue-shifted by 1.35 eV relative to Co and Co5Cr5
+Observation A (STEM:EDS): STEM-EDS maps: Na, V, Fe, C, N, O all cover the HAADF particle uniformly
+Observation B (THERMAL:TGA): TGA: gradual ~25% mass loss up to ~350 C, then a sharp step to ~60% at ~360 C
 
-How the graph links them: both evidence n10: XPS and EELS
-Panels: F3a, F3b
+How the graph links them: both evidence s4: STEM and THERMAL
+Panels: F1h, F1g
 
 What the paper concluded, for your reference as the key's author:
-  Fe incorporation raises Co valence (more Co3+) in Co5Fe5 and Co5Fe3Cr2
+  As-synthesized formula Na0.4(VO)3[Fe(CN)6]2.12H2O with vanadyl ions and zeolitic/ligand water
 
 You are drafting an answer key, not answering a question.
 
@@ -33,7 +33,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},

@@ -1,14 +1,14 @@
-Question as the solver sees it: Does the upstream evidence account for the downstream observation about PRP/value / PRF/figure_of_merit? Say what the combination supports and what it leaves open.
+Question as the solver sees it: Does the upstream evidence account for the downstream observation about STR/defect/extended / STR/defect/extended? Say what the combination supports and what it leaves open.
 
-Observation A (THERMAL:lattice): kappa_L+kappa_b of x=0.01 is ~0.69 at 300 K and ~0.60 at 400-450 K; all doped rise above ~475 K
-Observation B (TRANSPORT:ZT): ZT at 300 K: ~0.84 (x=0.005), ~0.78 (0.01), 0.63-0.69 (0.02-0.04); n-Bi2Te3 reference curve ~0.88
+Observation A (TEM): Dense dislocation band labelled as pile-up along a lamella boundary
+Observation B (TEM): Dislocation content rises from unresolved mottled contrast (F3a) to tangled lines (F4a) to dense walls (F5a)
 
-How the graph links them: n14 -causes-> n16
-Panels: F5f, F6a
+How the graph links them: n9 -causes-> n10
+Panels: F3a, F4a, F4a, F4c, F5a
 
 What the paper concluded, for your reference as the key's author:
-  Se-doped samples have low kappa_L+kappa_b ~0.6-0.9 W/mK at 300-450 K (x=0.01: ~0.69 at 300 K)
-  Room-temperature ZT reaches ~0.82-0.84 for x=0.005, the highest in the series at 300 K
+  At 1.5% strain FCC dislocation density rises with slip bands, pile-ups, intersections and networks; B2 still dislocation-free
+  After fracture FCC holds dense dislocation walls and Taylor lattices; B2 holds straight parallel dislocations
 
 You are drafting an answer key, not answering a question.
 
@@ -34,7 +34,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},

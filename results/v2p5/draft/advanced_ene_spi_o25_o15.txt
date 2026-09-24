@@ -1,13 +1,13 @@
-Question as the solver sees it: Does the upstream evidence account for the downstream observation about MEC/pathway / PRF/service_capability? Say what the combination supports and what it leaves open.
+Question as the solver sees it: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
 
 Observation A (ECHEM:EIS): Fitted Rct rises ~3 to ~26 ohm by cycle 150 then ~24-28 (large error bars); Rfilm ~2-3 and Re ~0.5 ohm flat
 Observation B (ECHEM:GCD): w/ HCl capacity drops steeply over the first ~20-50 cycles, then slowly to ~55 mAh/g at 250; CE ~100%
 
-How the graph links them: m5 -explains-> f3
+How the graph links them: r4 -causes-> f3
 Panels: F5d, F2a
 
 What the paper concluded, for your reference as the key's author:
-  V-site dissolution raises Rct, accumulating polarization and fading capacity; both saturate after early cycles
+  Charge-transfer resistance Rct accumulates with cycling while Re and Rfilm stay constant
   Capacity fades from 91 to ~55 mAh/g over 250 cycles, mostly in early cycles, at ~100% coulombic efficiency
 
 You are drafting an answer key, not answering a question.
@@ -34,7 +34,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},

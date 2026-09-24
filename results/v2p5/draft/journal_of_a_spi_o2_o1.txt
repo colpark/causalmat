@@ -3,11 +3,11 @@ Question as the solver sees it: Does the upstream evidence account for the downs
 Observation A (XRD): YSZ reflections are marked t-ZrO2, Al2O3-YSZ reflections c-ZrO2; no Al2O3 reflection is marked or visible
 Observation B (XRD): YSZ pattern has a small (012) peak at ~43 deg and split peaks at ~35, 60 and 74 deg; Al2O3-YSZ pattern has neither
 
-How the graph links them: n21 -explains-> n4
+How the graph links them: n5 -explains-> n4
 Panels: F1, F1
 
 What the paper concluded, for your reference as the key's author:
-  Some Al aggregates at grain boundaries as an amorphous phase instead of forming Al2O3
+  No Al2O3 phase forms because some Al dissolves into ZrO2 as a solid solution during plasma spraying
   As-sprayed Al2O3-YSZ is cubic ZrO2, while YSZ is mainly tetragonal ZrO2 with a little cubic phase
 
 You are drafting an answer key, not answering a question.
@@ -34,7 +34,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},

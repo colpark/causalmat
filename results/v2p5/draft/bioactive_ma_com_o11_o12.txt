@@ -1,13 +1,13 @@
 Question as the solver sees it: What does each of these two measurements establish on its own about PRP/value, and what does putting them together add that neither gives alone?
 
-Observation A (SEM): Many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF
-Observation B (BIO:platelet_count): Adhered platelets ~32, 41, 15.5, 11 and 5 (x1e2 cell/mm2) on 316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF
+Observation A (FLUORESCENCE:AO_EB): AO/EB images: fewer stained cells on Mg-Zn-Y-Nd than on 317L SS in most panels; the gap is widest at 3 d, where SS is dense
+Observation B (BIO:viability): Vital-cell ratio is lower on Mg-Zn-Y-Nd (about 74-88%) than on 317L SS (about 87-98%) at every time for all four cell types
 
-How the graph links them: both evidence n18: SEM and BIO
-Panels: F5a, F5b
+How the graph links them: both evidence n12: FLUORESCENCE and BIO
+Panels: F6a, F6b, F7a, F7b, F8a
 
 What the paper concluded, for your reference as the key's author:
-  BVLD/NO-PPAmF suppresses platelet adhesion and activation more than BVLD-PPAmF or NO-PPAmF alone
+  Fewer cells adhere and fewer remain vital on Mg-Zn-Y-Nd than on 317L SS in all four cell cultures
 
 You are drafting an answer key, not answering a question.
 
@@ -33,7 +33,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},

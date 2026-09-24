@@ -1,13 +1,13 @@
-Question as the solver sees it: What does each of these two measurements establish on its own about PRP/value, and what does putting them together add that neither gives alone?
+Question as the solver sees it: What does each of these two measurements establish on its own about STR/microstructure/feature_size, and what does putting them together add that neither gives alone?
 
-Observation A (ECHEM:photocurrent): Steady photocurrent: Ag0.25Pd0.75-ZIS ~2.1 > Pd-ZIS ~1.5 > Ag-ZIS ~0.9 > ZIS ~0.4 uA/cm2
-Observation B (PL): PL peak at ~470 nm strongly quenched by metal loading: ZIS >> Ag-ZIS > Pd-ZIS > Ag0.25Pd0.75-ZIS
+Observation A (SEM): (a) deformed, elongated relief without clear boundaries; (b),(c) equiaxed grains ~2-4 um with grooved boundaries
+Observation B (EBSD): IPF maps: (a) equiaxed grains mostly ~0.5-1.5 um; (c) equiaxed grains ~1.5-3 um
 
-How the graph links them: both evidence pr2: ECHEM and PL
-Panels: F10a, F10c
+How the graph links them: both evidence n24: SEM and EBSD
+Panels: F10a, F10b, F11a, F10c, F11c
 
 What the paper concluded, for your reference as the key's author:
-  Ag0.25Pd0.75-ZIS shows the most efficient photocarrier separation, ranking Ag0.25Pd0.75-ZIS > Pd-ZIS > Ag-ZIS > ZIS
+  For a given ECAP state, longer pulses or times take SRX from partial to complete to coarsened; high-temperature ECAP states end coarse and uneven
 
 You are drafting an answer key, not answering a question.
 
@@ -33,7 +33,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},

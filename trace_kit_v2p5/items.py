@@ -63,7 +63,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
@@ -201,5 +207,70 @@ def depth3():
               open(os.path.join(ROOT, 'results/v2p5/depth3.json'), 'w'), indent=1)
 
 
-if __name__ == '__main__': {'build': build, 'prompts': prompts, 'collect': None,
+def _find_key(o):
+    """the key object, wherever it sits. Some drafters wrapped it inside their own schema."""
+    if isinstance(o, dict):
+        if 'combines' in o or ('proposition' in o and 'limits' in o): return o
+        for v in o.values():
+            r = _find_key(v)
+            if r: return r
+    elif isinstance(o, list):
+        for v in o:
+            r = _find_key(v)
+            if r: return r
+    return None
+
+
+def _objs(t):
+    out, d, s = [], 0, None
+    for i, c in enumerate(t or ''):
+        if c == '{':
+            if d == 0: s = i
+            d += 1
+        elif c == '}' and d:
+            d -= 1
+            if not d: out.append(t[s:i + 1])
+    return sorted(out, key=len, reverse=True)
+
+
+def parse_draft(t):
+    import re as _re
+    for o in _objs(t):
+        for cand in (o, _re.sub(r',(\s*[}\]])', r'\1', o)):
+            try: j = json.loads(cand)
+            except Exception: continue
+            k = _find_key(j)
+            if k: return k
+    return None
+
+
+def collect():
+    D = json.load(open(os.path.join(ROOT, 'results/v2p5/items.json')))
+    ok = miss = 0
+    for it in D['items']:
+        f = os.path.join(ROOT, 'results/v2p5/draft', it['item'] + '.out.txt')
+        k = parse_draft(open(f).read()) if os.path.exists(f) else None
+        if k:
+            it['key'] = {'drafted': True, **k}; ok += 1
+        else:
+            it['key'] = None; miss += 1
+    json.dump(D, open(os.path.join(ROOT, 'results/v2p5/items.json'), 'w'), indent=1)
+    lab = collections.Counter((i['key'] or {}).get('labels', {}).get('causal_strength')
+                              for i in D['items'] if i.get('key'))
+    comb = sum(1 for i in D['items'] if (i.get('key') or {}).get('combines'))
+    ni = sum(1 for i in D['items'] if (i.get('key') or {}).get('not_identifiable'))
+    print(f"{ok} keys collected, {miss} still missing")
+    if ok:
+        print(f"  combines: {comb}/{ok}   names something not identifiable: {ni}/{ok} = {ni/ok:.0%}")
+        print(f"  causal strength: {dict(lab)}")
+    gap = [i for i in D['items'] if not i.get('key')]
+    jobs = [{'id': i['item'], 'agent': 'net-writer',
+             'prompt': os.path.abspath(os.path.join(ROOT, 'results/v2p5/draft', i['item'] + '.txt')),
+             'out': os.path.abspath(os.path.join(ROOT, 'results/v2p5/draft', i['item'] + '.out.txt'))}
+            for i in gap]
+    json.dump(jobs, open(os.path.join(ROOT, '.v07work/batch_v2p5_gap.json'), 'w'), indent=1)
+    print(f"  gap batch rewritten: {len(jobs)} jobs")
+
+
+if __name__ == '__main__': {'build': build, 'prompts': prompts, 'collect': collect,
                             'depth3': depth3}[sys.argv[1]]()

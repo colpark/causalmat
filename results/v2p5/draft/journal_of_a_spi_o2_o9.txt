@@ -1,14 +1,14 @@
-Question as the solver sees it: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+Question as the solver sees it: Does the upstream evidence account for the downstream observation about STR/microstructure/orientation / PRP/value? Say what the combination supports and what it leaves open.
 
-Observation A (XRD): Pattern (b): only alpha-Al2O3, cBN and ZrO2 reflections at every temperature 1550-1700 C, no new peaks
-Observation B (MECH:hardness): Hardness rises with temperature in all three series: S1 9.3 to 15.6, S2 9.4 to 14.8, S3 9.0 to 14.1 GPa
+Observation A (SEM): SEM: fibers run nearly parallel across the field, few crossings
+Observation B (MECH:tensile): Cast film E_mod ~1600 MPa, F_max ~37 MPa, elongation ~15%; F// fibers ~500 MPa, ~22 MPa, ~130%; F-perp ~220 MPa, ~8 MPa, ~265%
 
-How the graph links them: n21 -causes-> n12
-Panels: F2b, F5
+How the graph links them: n8 -causes-> n23
+Panels: F3f, F2a, F3g
 
 What the paper concluded, for your reference as the key's author:
-  S2 binder does not react: only alpha-Al2O3, ZrO2 and cBN remain at 1550-1700 C
-  Hardness rises with sintering temperature; maxima S1 15.6 > S2 14.8 > S3 14.1 GPa
+  Electrospun PZT/PVDF fibers are highly aligned along one direction
+  Fiber films are far more compliant and extensible than the cast film, most so perpendicular to the fibers
 
 You are drafting an answer key, not answering a question.
 
@@ -34,7 +34,13 @@ Give:
    inference_validity: "follows", "follows, weakly", or "does not follow".
    causal_strength: descriptive, associative, conditional mechanism, or discriminating.
 
-Reply as JSON only:
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
 {"combines": true or false, "proposition": "...", "limits": ["..."],
  "not_identifiable": "..." or null,
  "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
