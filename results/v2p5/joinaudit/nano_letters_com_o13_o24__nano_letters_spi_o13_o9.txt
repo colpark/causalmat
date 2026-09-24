@@ -1,0 +1,42 @@
+The join: nano_letters_com_o13_o24  --->  nano_letters_spi_o13_o9   on claim n18
+
+UPSTREAM ITEM
+v2.5 complementary item nano_letters_com_o13_o24
+  question: What does each of these two measurements establish on its own about MEC/identification, and what does putting them together add that neither gives alone?
+  A (SAXS): Na SAXS contours stay nearly straight; I(q) curves overlap except a small drop at ~0.03-0.1 A-1 at 0.11/0.02 V
+  B (ATOM:AIMD): Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps
+  key: Together, the near-flat Na SAXS contours and near-overlapping I(q) curves (only a small drop at q~0.03-0.1 A^-1 seen at 0.11 V and 0.02 V) rule out a large volume/structural change as the driver of Na capacity fading, while the AIMD-computed degree of oxidation shows Na-Co3O4 reaching only ~36% at 2 ps -- below Na-Co3S4 (~59%) and far below Li-Co3O4 (~91%) -- and plateauing after 0.8 ps, indicating the conversion/sodiation reaction itself stalls early. Combined, the structural-stasis result plus the low, stalled oxidation-degree result let the pair be read as favoring poor sodiation activity (minor conversion) over volume change as the source of Na capacity fading.
+  limits: SAXS alone only shows structural/volumetric stability; it excludes volume change as a cause but cannot by itself identify what does limit capacity.; AIMD alone gives a computed oxidation-degree ranking and an early plateau in a picosecond-scale simulation; on its own it says nothing about real cell volume behavior and does not rule out volume change.; The two measurements are different kinds of quantity: SAXS is an experimental scattering-intensity profile read at specific applied voltages (0.11 V, 0.02 V), while AIMD is a computed cumulative oxidation percentage from a picosecond-scale trajectory (2 ps snapshot, plateau after 0.8 ps) -- the simulated timescale is not the same kind of quantity as, nor directly comparable to, the electrochemical timescale over which real capacity fading occurs.; Only three AIMD systems (Li-Co3O4, Na-Co3S4, Na-Co3O4) are compared at a single 2 ps point, which supports a ranking, not a quantitative trend or rate.
+
+DOWNSTREAM ITEM
+v2.5 spine_edge item nano_letters_spi_o13_o9
+  question: Does the upstream evidence account for the downstream observation about MEC/identification / PRF/service_capability? Say what the combination supports and what it leaves open.
+  A (SAXS): Na SAXS contours stay nearly straight; I(q) curves overlap except a small drop at ~0.03-0.1 A-1 at 0.11/0.02 V
+  B (ECHEM:GCD): Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40
+  key: Na SAXS contours staying nearly straight and I(q) profiles overlapping across cycling (only a minor, localized drop near q~0.03-0.1 A-1 at 0.11/0.02 V) indicate the electrode does not undergo substantial structural/volume change during Na cycling. Set against the severe capacity fade seen in GCD (discharge capacity falling from ~870 mAh/g at cycle 1 to ~480 at cycle 2 and ~70 mAh/g by cycle 40), the pair together supports ruling OUT volume change as the driver of the fade: if volumetric/structural collapse were responsible for the large capacity loss, the SAXS contours would be expected to evolve markedly with cycling rather than stay nearly straight. This licenses attributing the fade to a different, non-volumetric mechanism.
+  limits: SAXS here is a structural/scattering readout (contour shape, I(q) overlap) at essentially fixed/limited voltage points (0.11 V, 0.02 V), not a cycle-resolved series matched one-to-one against the 40-cycle GCD window, so the two datasets are compared at different sampling resolutions; The combination positively rules out volume change as the cause of the capacity loss but does not itself positively demonstrate that 'poor sodiation activity/minor conversion' is the actual mechanism -- that attribution is reached by elimination, not by direct evidence of reduced conversion extent in these two panels; SAXS structural stability and electrochemical capacity are different kinds of quantities (a scattering/structural profile vs. a cumulative capacity amount), so their joint pattern shows correlation-by-exclusion rather than a mechanistic link established by a shared measurement
+
+The joined claim, as the chain now asserts it:
+  Na SAXS contours staying nearly straight and I(q) profiles overlapping across cycling (only a minor, localized drop near q~0.03-0.1 A-1 at 0.11/0.02 V) indicate the electrode does not undergo substantial structural/volume change during Na cycling. Set against the severe capacity fade seen in GCD (discharge capacity falling from ~870 mAh/g at cycle 1 to ~480 at cycle 2 and ~70 mAh/g by cycle 40), the pair together supports ruling OUT volume change as the driver of the fade: if volumetric/structural collapse were responsible for the large capacity loss, the SAXS contours would be expected to evolve markedly with cycling rather than stay nearly straight. This licenses attributing the fade to a different, non-volumetric mechanism.
+
+You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}
