@@ -1,0 +1,118 @@
+{
+ "paper": "Advanced_Functional_Materials__10.1002_adfm.202008088",
+ "doi": "https://doi.org/10.1002/adfm.202008088",
+ "title": "Domain\u2010Size\u2010Dependent Residual Stress Governs the Phase\u2010Transition and Photoluminescence Behavior of Methylammonium Lead Iodide",
+ "casual_chain": "Processing \u2192 Structure \u2192 Properties \u2192 Performance",
+ "hops": [
+  {
+   "id": "M1",
+   "stage_type": "Processing \u2192 Structure",
+   "figures": [
+    "F1"
+   ],
+   "techniques": [
+    "Materials Processing"
+   ],
+   "experiment_name": "Sample Preparation Using Different Processing Techniques",
+   "knowledge_imported": {
+    "count": 2,
+    "items": [
+     "{\"content\": \"The crystalline state of MAPbI3 depends on the growth method\", \"reference\": [\"[29\\u201333]\"], \"confidence\":\u2026",
+     "{\"content\": \"Processing conditions influence nucleation and grain growth dynamics in thin film deposition\", \"confidence\":\u2026"
+    ]
+   },
+   "next": "M2",
+   "chain_basis": "string similarity 0.95",
+   "_matmech_span_DO_NOT_PROMPT": {
+    "cause": "Spin-coating, temperature-gradient-assisted solidification, and inverse temperature crystallization",
+    "effect": "Polycrystalline (PC), highly oriented crystalline (HOC), and single-crystalline (SC) structures with varying domain sizes are formed"
+   },
+   "chain_strength": "span"
+  },
+  {
+   "id": "M2",
+   "stage_type": "Structure \u2192 Property",
+   "figures": [
+    "F3"
+   ],
+   "techniques": [
+    "Optical Characterization"
+   ],
+   "experiment_name": "TDPL and PDPL Spectroscopy",
+   "knowledge_imported": {
+    "count": 2,
+    "items": [
+     "{\"content\": \"Phase transition in MAPbI3 is accompanied by volume expansion and optical changes\", \"reference\":\u2026",
+     "{\"content\": \"Residual stress from volume change during phase transitions influences optical properties in soft\u2026"
+    ]
+   },
+   "next": "M3",
+   "chain_basis": "stage type: property is this hop's effect stage and the next hop's cause stage",
+   "_matmech_span_DO_NOT_PROMPT": {
+    "cause": "Polycrystalline (PC), highly oriented crystalline (HOC), and single-crystalline (SC) structures with varying domain sizes",
+    "effect": "Distinct photoluminescence (PL) behavior including dual peaks in PC and single peak in SC"
+   },
+   "chain_strength": "stage"
+  },
+  {
+   "id": "M3",
+   "stage_type": "Property \u2192 Performance",
+   "figures": [
+    "F2"
+   ],
+   "techniques": [
+    "Structural",
+    "Vibrational Analysis"
+   ],
+   "experiment_name": "Temperature-dependent XRD and Raman spectroscopy",
+   "knowledge_imported": {
+    "count": 2,
+    "items": [
+     "{\"content\": \"Phase transition in MAPbI3 involves volume change and affects electronic properties\", \"reference\": [\"[25]\"],\u2026",
+     "{\"content\": \"Residual stress alters bandgap and charge carrier mobility in semiconductors\", \"confidence\": 1.0, \"type\":\u2026"
+    ]
+   },
+   "next": null,
+   "chain_basis": null,
+   "_matmech_span_DO_NOT_PROMPT": {
+    "cause": "Photoluminescence (PL) behavior\u2013optical property",
+    "effect": "Phase-transition characteristics influencing optoelectronic device performance"
+   }
+  },
+  {
+   "id": "M4",
+   "stage_type": "Structure \u2192 Performance",
+   "figures": [
+    "F6"
+   ],
+   "techniques": [
+    "Stability Testing"
+   ],
+   "experiment_name": "Thermal Cycling and Aging Studies",
+   "knowledge_imported": {
+    "count": 2,
+    "items": [
+     "{\"content\": \"Phase transition in MAPbI3 involves significant volume change (\\u2206V \\u2248 4.5%)\", \"reference\": [\"[25]\"],\u2026",
+     "{\"content\": \"Large domain sizes accumulate more residual stress, increasing susceptibility to cracking and degradation\",\u2026"
+    ]
+   },
+   "next": null,
+   "chain_basis": null,
+   "_matmech_span_DO_NOT_PROMPT": {
+    "cause": "Polycrystalline (PC), highly oriented crystalline (HOC), and single-crystalline (SC) structures with varying domain sizes",
+    "effect": "Phase-transition behavior and photoluminescence in optoelectronic applications"
+   }
+  }
+ ],
+ "counts": {
+  "hops": 4,
+  "chained_pairs": 2,
+  "chained_by_span": 1,
+  "chained_by_stage": 1,
+  "orphans": 1,
+  "orphan_ids": [
+   "M4"
+  ]
+ },
+ "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
+}

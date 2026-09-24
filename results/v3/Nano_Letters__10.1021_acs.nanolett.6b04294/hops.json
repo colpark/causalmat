@@ -1,0 +1,94 @@
+{
+ "paper": "Nano_Letters__10.1021_acs.nanolett.6b04294",
+ "doi": "https://doi.org/10.1021/acs.nanolett.6b04294",
+ "title": "Insights into the Distinct Lithiation/Sodiation of Porous Cobalt Oxide by in Operando Synchrotron X-ray Techniques and Ab Initio Molecular Dynamics Simulations",
+ "casual_chain": "Processing \u2192 Structure \u2192 Performance",
+ "hops": [
+  {
+   "id": "M1",
+   "stage_type": "Processing \u2192 Structure",
+   "figures": [
+    "F1"
+   ],
+   "techniques": [
+    "Synchrotron X-ray diffraction",
+    "thermogravimetric analysis",
+    "nitrogen adsorption-desorption isotherms"
+   ],
+   "experiment_name": "HEXRD, TGA, BET surface area analysis",
+   "knowledge_imported": {
+    "count": 1,
+    "items": [
+     "{\"content\": \"Thermal decomposition of MOFs typically leads to porous structures due to gas release\u2026"
+    ]
+   },
+   "next": "M2",
+   "chain_basis": "stage type: structure is this hop's effect stage and the next hop's cause stage",
+   "_matmech_span_DO_NOT_PROMPT": {
+    "cause": "Thermal decomposition of Co-based MOF under air atmosphere",
+    "effect": "Porous structure with interconnected nano-sized particles and mesopores formed in cobalt oxide"
+   },
+   "chain_strength": "stage"
+  },
+  {
+   "id": "M2",
+   "stage_type": "Structure \u2192 Performance",
+   "figures": [
+    "F2"
+   ],
+   "techniques": [
+    "Coin cell assembly",
+    "cycling tests"
+   ],
+   "experiment_name": "Electrochemical testing",
+   "knowledge_imported": {
+    "count": 2,
+    "items": [
+     "{\"content\": \"Porous structures generally improve ion diffusion kinetics and accommodate volumetric expansion in battery\u2026",
+     "{\"content\": \"Smaller ions (like Li\\u207a) typically exhibit faster diffusion kinetics than larger ions (like\u2026"
+    ]
+   },
+   "next": null,
+   "chain_basis": null,
+   "_matmech_span_DO_NOT_PROMPT": {
+    "cause": "Porous structure with interconnected nano-sized particles and mesopores",
+    "effect": "Superior lithium storage performance compared to sodium storage"
+   }
+  },
+  {
+   "id": "M3",
+   "stage_type": "Processing \u2192 Performance",
+   "figures": [
+    "F6"
+   ],
+   "techniques": [
+    "Computational modeling"
+   ],
+   "experiment_name": "Ab initio MD simulations",
+   "knowledge_imported": {
+    "count": 2,
+    "items": [
+     "{\"content\": \"Metal oxides typically exhibit different reactivity toward Li\\u207a and Na\\u207a due to size\u2026",
+     "{\"content\": \"Sodium ions have larger radius (1.02 \\u00c5) than lithium ions (0.76 \\u00c5), affecting\u2026"
+    ]
+   },
+   "next": null,
+   "chain_basis": null,
+   "_matmech_span_DO_NOT_PROMPT": {
+    "cause": "Thermal decomposition of Co-based MOF under air atmosphere",
+    "effect": "Inferior sodium storage performance compared to lithium storage"
+   }
+  }
+ ],
+ "counts": {
+  "hops": 3,
+  "chained_pairs": 1,
+  "chained_by_span": 0,
+  "chained_by_stage": 1,
+  "orphans": 1,
+  "orphan_ids": [
+   "M3"
+  ]
+ },
+ "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
+}
