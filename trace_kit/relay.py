@@ -61,9 +61,13 @@ def harvest(jobs_path, relay_id, tasks_dir):
     jobs = json.load(open(jobs_path))
     D = dispatches(transcript(relay_id, tasks_dir))
     rep, bad = [], 0
+    # a dispatch answers ONE job. Without this, several jobs carrying byte-identical prompts -- the
+    # repeats of one arm -- all resolve to the same dispatch, and the same reply is written to each
+    # of their out files. That looks like agreement across repeats and is really one run copied.
+    used = set()
     for j in jobs:
         want = open(j["prompt"]).read().strip()
-        cand = [(a, p, i) for a, p, i in D if a == j["agent"] and same(p, want) and i]
+        cand = [(a, p, i) for a, p, i in D if a == j["agent"] and same(p, want) and i and i not in used]
         rec = {"id": j["id"], "agent": j["agent"], "dispatches": len(cand)}
         done = None
         for a, p, i in reversed(cand):
@@ -71,7 +75,7 @@ def harvest(jobs_path, relay_id, tasks_dir):
             if not os.path.exists(tr): continue
             prompt, reply = read(tr)
             if reply and reply.strip():
-                done = (i, same(prompt, want), reply); break
+                done = (i, same(prompt, want), reply); used.add(i); break
         if not done:
             near = [i for a, p, i in D if a == j["agent"] and not same(p, want) and p.strip()[:200] == want[:200]]
             rec.update({"status": "DIFFERS" if near else "MISSING"}); bad += 1
