@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Taken together, the two SEM observations establish (a) that in the as-sprayed state the Al2O3-YSZ cross-section has a longer, more open crack network and larger pores than the fine, short-crack network seen in YSZ, and (b) that the YSZ crack network specifically remains visually unchanged in the same imaged field across the two viewing instances. Combined, this supports that YSZ's finer, tighter crack morphology is stable under whatever change separates the two views, while Al2O3-YSZ starts out with a coarser, more open crack/pore structure.
+
+Qualifications on that result:
+  - Observation A is a single-state, cross-material comparison (Al2O3-YSZ vs YSZ) and Observation B is a same-material, two-view stability check confined to YSZ; neither observation, nor their combination, includes a before/after comparison of the Al2O3-YSZ crack network itself.
+  - Because no pre/post view of Al2O3-YSZ is described, the pair cannot show whether the larger, more open Al2O3-YSZ cracks also propagate or connect over the same interval in which YSZ was shown to be unchanged.
+  - The two observations are drawn from different subjects for different purposes (A: material contrast at one time point; B: temporal stability at one material only), so they are not a matched pair of measurements and cannot be read as a single trend line.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+YSZ crack network in the same field looks unchanged between the two views
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/damage / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

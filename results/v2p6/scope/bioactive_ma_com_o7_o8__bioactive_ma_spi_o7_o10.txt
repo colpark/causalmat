@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+PL alone ranks radiative recombination across the three samples: strongest (worst, most recombination) for TiO2, about half for Er0.5Ti-O, and lowest (least recombination) for Er0.5Ce0.2. EIS alone ranks charge-transfer resistance for the two samples it covers: Er0.5Ce0.2Ti-O shows a small arc (~1.5 kOhm) with a sloped tail (low, well-defined charge-transfer resistance), while TiO2 rises almost vertically with no closed arc (very poor charge transfer, no resolvable resistance). Put together, the two independently-obtained rankings point the same direction for the two samples they share: TiO2 is worst on both the optical (highest PL) and electrochemical (no arc) measures, and Er0.5Ce0.2Ti-O is best on both (lowest PL, smallest arc). This convergence across two different measurement types is what neither observation gives alone -- PL says nothing about charge-transfer resistance, and EIS says nothing about radiative recombination.
+
+Qualifications on that result:
+  - PL and EIS probe different physical quantities (radiative recombination via optical emission vs. charge-transfer resistance via electrochemical impedance); agreement in ranking is a consistency between two proxies, not a demonstrated mechanistic link between them
+  - EIS as given covers only TiO2 and Er0.5Ce0.2Ti-O; Er0.5Ti-O's charge-transfer resistance is not reported, so the full three-way ordering seen in PL is not matched by a full three-way ordering in EIS
+  - the pair does not establish that lower recombination causes lower charge-transfer resistance (or vice versa), only that the two move together across the two samples both were measured on
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+PL band at 390-420 nm is strongest for TiO2, about half for Er0.5Ti-O and lowest for Er0.5Ce0.2
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

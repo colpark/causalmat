@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the TEM and UV-Vis results characterize the same synthesized reduced material from two angles: TEM (F2a/F2c) confirms that reduction produces a structurally distinct product -- small dark nanoparticles densely decorating the sheets, absent on the bare (unreduced) sheets -- while UV-Vis (F3c) shows that this reduced material has a well-defined, reproducible NIR optical response, with A/L scaling linearly with concentration (R2 = 0.9999) and yielding a specific extinction coefficient of 6.4 L g-1 cm-1 at 808 nm. Combined, they support that the structurally confirmed heterojunction product (nanoparticle-decorated sheets) is the entity possessing this quantified strong NIR absorption -- i.e., they link a structural identity claim to a property-value claim for the same material.
+
+Qualifications on that result:
+  - No absorption measurement on the bare (unreduced) sheets is included in this pair, so the combination does not show that nanoparticle formation specifically raised or caused the 808 nm absorption relative to the starting sheets
+  - TEM evidence is a qualitative/structural observation (particle presence and size range 5-25 nm), not a quantified nanoparticle density, so it cannot be correlated dose-response with the numerical extinction-coefficient slope
+  - The linearity (R2 = 0.9999) demonstrates Beer-Lambert-law reproducibility of the coefficient measurement itself, not that the heterojunction structure is mechanistically responsible for the absorption strength
+  - The physical mechanism of the absorption (plasmonic response of Bi nanoflakes, interband transitions, or a junction effect between Bi and Bi2O3) is not established by either observation
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+A/L at 808 nm is linear in concentration (R2 = 0.9999) with slope alpha = 6.4 L g-1 cm-1
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together the two spectra show that zinc deposition is accompanied by a concurrent change in both the nitrogen electronic state (XAS N 1s: ~398 eV feature collapses, ~401 eV feature becomes dominant) and a vibrational/bonding-sensitive Raman feature (~1200 cm-1 weakens from pristine to zinc-loaded). Combining them gives convergent, cross-technique evidence that some chemistry/bonding change at or near nitrogen sites tracks with zinc loading -- a claim neither spectrum alone can support, since XAS alone only shows a shift among nitrogen chemical states without any vibrational corroboration, and Raman alone only shows a weakening of one feature without indicating that nitrogen electronic structure is involved.
+
+Qualifications on that result:
+  - Neither observation, nor their combination, specifies the vibrational-mode assignment of the ~1200 cm-1 Raman feature (i.e., which bond or atoms it reflects), so it cannot be tied specifically to a Zn-N vibration versus a general lattice/disorder-related mode
+  - Both are pristine-vs-zinc-loaded comparisons (two states, not a series), so they establish that a change coincides with zinc treatment, not a mechanistic pathway or bond-formation event
+  - The pairing cannot distinguish direct Zn-N bond formation at pyridinic sites from an indirect zinc-induced structural/electronic perturbation of the carbon lattice that separately shifts the N 1s states and dampens the 1200 cm-1 mode
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+After zinc deposition the ~398 eV N 1s feature collapses and the ~401 eV feature becomes the taller of the two
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/chemistry/bonding / STR/microstructure/shape? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

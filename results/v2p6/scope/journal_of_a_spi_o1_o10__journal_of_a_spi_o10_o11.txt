@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Observation A establishes the diagnostic XRD markers for tetragonal vs cubic ZrO2: as-sprayed YSZ shows a small (012) peak near 43 deg plus split peaks near 35, 60 and 74 deg, while as-sprayed Al2O3-YSZ shows none of these. Observation B shows that after cycling, the Al2O3-YSZ pattern develops a t-ZrO2-marked peak near 43 deg and a split peak near 73-74 deg matching the t-ZrO2 reference sticks. Put together, the pair supports that Al2O3-YSZ, which lacked the tetragonal markers as-sprayed, acquires them after cycling -- i.e. its ZrO2 phase identity shifts from cubic-like toward tetragonal with thermal cycling, using the YSZ as-sprayed pattern and the t-ZrO2 reference sticks as the identity reference.
+
+Qualifications on that result:
+  - The comparison identifies which phase markers are present or absent (phase identity) but does not quantify how much of the material converted (phase fraction) -- no peak-area or Rietveld-type fraction data appear in either observation.
+  - Observation A compares two different as-sprayed coatings (YSZ vs Al2O3-YSZ); Observation B compares Al2O3-YSZ before and after cycling. The pair does not include an as-sprayed-vs-cycled YSZ contrast, so it cannot rule out that YSZ's own phase mixture also shifted with cycling.
+  - The two peak positions used (~43 deg and ~73-74 deg) are matched to reference sticks by position only in the text given; this supports identity assignment but not resolution of any residual cubic content coexisting with the new tetragonal peaks.
+  - No intermediate cycle counts are described in A or B, so the pair shows an endpoint contrast (as-sprayed vs cycled) rather than a trajectory.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Cycled patterns show a t-ZrO2-marked peak near 43 deg and a split peak near 73-74 deg matching the t-ZrO2 reference sticks
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/phase/fraction / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

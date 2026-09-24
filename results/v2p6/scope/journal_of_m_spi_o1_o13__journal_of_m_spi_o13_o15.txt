@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+The as-cast alloy is confirmed (by XRD) to contain two ordered phases (L12 and B2), and at the first strain step the TEM pair shows one lamella remaining featureless while its neighbor develops mottled contrast plus line contrast along the interface -- together indicating that the two-phase system responds asymmetrically to strain, with one lamella type acquiring visible internal contrast and the other not.
+
+Qualifications on that result:
+  - XRD is a bulk, spatially unresolved measurement of phase content across the as-cast sample; it does not identify which specific TEM lamella is which phase
+  - The TEM observation as given is a morphological/contrast description (featureless vs mottled/line contrast), not a phase-indexed (e.g., diffraction-pattern-confirmed) identification of each lamella
+  - Only one strain step and one lamella pair are described, so the asymmetry is not shown to be general across the microstructure
+  - No count or areal fraction of dislocations/planar slip is given, so the comparison is qualitative contrast only, not a quantified defect density
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+At first strain step one lamella is featureless while the neighbour shows mottled contrast and line contrast along the interface
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/defect/extended / STR/defect/extended? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

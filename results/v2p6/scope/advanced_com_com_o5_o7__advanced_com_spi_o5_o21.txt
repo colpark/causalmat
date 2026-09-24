@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Putting SEM and the photograph together supports that the surface modification seen at the particle level (bare BST ~70 nm, smooth, versus modified particles that are rough, coated, and larger) is the same modification that tracks with the macroscopic color trend (white to dark brown) as Ag content rises -- i.e., the coating/roughening event visualized in SEM co-occurs with, and moves in the same direction as, increasing Ag loading.
+
+Qualifications on that result:
+  - SEM here only contrasts two discrete states (bare vs 'modified'), not a graded series across multiple Ag contents, so the pair cannot show that darkening scales continuously with degree of coating or with particle size as seen by SEM
+  - The photograph shows color change across a range of Ag content but carries no particle-level structural information on its own
+  - Ag content, particle size, and surface coating thickness all rise together by construction as Ag loading increases, so the combination cannot separate which of these is doing the work in producing the color change
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Bare BST particles are smooth, ~70 nm; modified particles look rough, coated and larger
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/distribution / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

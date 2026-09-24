@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Taken together, the SEM series (F1a-d) showing bare Cu2S spheres built from few large flakes versus GO-containing spheres built from many smaller, thinner flakes (finest in F1c-d), and the N2-sorption isotherm (F3b) showing RGO-Cu2S adsorbs more N2 at all P/P0 (~53 vs ~32 cm3/g near 1) with a pore-size peak near 20 nm, together support that the shift to a finer, thinner-flake microstructure in the GO-containing spheres is associated with greater N2-accessible surface/porosity than the coarse-flake bare-sphere microstructure.
+
+Qualifications on that result:
+  - SEM (F1a-d) gives only a qualitative shape/size description of the flakes (fewer/larger vs many/smaller-thinner); it carries no surface-area or pore-volume number, so it cannot itself be matched quantitatively to the cm3/g adsorption values in F3b.
+  - Only two conditions are compared (bare vs RGO-Cu2S); this supports an ordering (more flakes/thinner => more N2 uptake) but not a dose-response or monotonic relationship across GO loadings.
+  - GO/RGO addition is the single manipulation that simultaneously (a) changes the Cu2S flake morphology and (b) introduces RGO sheets, which themselves carry surface area independent of any Cu2S shape change; the two panels cannot separate which of these drives the higher N2 uptake.
+  - The pore-size peak (~20 nm) is a distribution feature from a separate BJH-type measurement and is not directly derivable from the SEM images.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+RGO-Cu2S adsorbs more N2 at all P/P0 (~53 vs ~32 cm3/g near 1) with a pore-size peak ~20 nm
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/porosity / PRF/figure_of_merit? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

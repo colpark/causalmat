@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the TEM image and the Arrhenius comparison support that C@Co, in which Co particles of about 5-30 nm (a few up to ~40 nm) are densely and evenly dispersed on the carbon nanosheets, is the same material (C10) whose dehydrogenation activation energy (81.9 kJ/mol) is lower than that of the undoped C0 sample (130.3 kJ/mol). This associates the presence of a dense, uniform, nanoscale Co particle dispersion with a lowered dehydrogenation activation energy, consistent with the Co particles acting as catalytic/nucleation sites.
+
+Qualifications on that result:
+  - TEM (panel F2c) is reported only for the doped material (C@Co); there is no matching TEM image of C0, so the two microstructures are not compared side by side to show that dispersion, rather than some other compositional difference between C0 and C10, tracks with the Ea change.
+  - The Arrhenius comparison (panel F10) rests on only two lines/two samples (C0 and C10), which is enough to order the two Ea values but not enough to establish a dose-response or continuous relationship between particle dispersion/size and activation energy.
+  - TEM gives a static, structural snapshot of particle size and spacing; Ea is a kinetic quantity extracted from temperature-dependent absorption/desorption rates over a separate temperature series, so the two measurements are not taken on the same axis and the link between them is inferred, not directly measured.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Arrhenius lines: slope -15.674 (C0) and -9.852 (C10) give Ea = 130.3 and 81.9 kJ/mol
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

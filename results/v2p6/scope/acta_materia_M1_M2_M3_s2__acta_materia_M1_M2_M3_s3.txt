@@ -1,0 +1,30 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Yield stress and nanoplate number density move together across the three heat treatments: 167 -> 113 -> 160 MPa against 9.8 -> 0.3 -> 9.0 per um, both dipping after the 520 C anneal and recovering after the further 400 C anneal. This is consistent with a strengthening contribution from the nanoplates.
+
+Qualifications on that result:
+  - Nanoplate THICKNESS moves the opposite way, 28 -> 84 -> 14 nm, so the two plate descriptors do not covary with each other and the comparison does not isolate which of them, if either, carries the strength.
+  - Three points, and the heat treatments differ in more than plate density, so a contribution is the most the data supports -- not that density is the cause.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Yield stress is strongly orientation dependent and, in [11-20] and [01-10], reaches ~145-165 MPa at RT, about 11x the pure-Mg single crystal
+
+The later step then asks: Compare the stress at which this evidence shows deformation along [0001] with the stress step 2 reported for that same orientation. Report both and say what the comparison implies about the deformation route.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

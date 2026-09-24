@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+XRD establishes, on its own, only that certain crystalline phases are present somewhere in the bulk HP5 specimen: ZrB2, SiC, C (graphite), and BN, with no AlN or Al2O3 detected. It is a bulk, spatially-averaged measurement and says nothing about where in the microstructure any given phase sits. TEM establishes, on its own, only a real-space microstructural feature: a band of parallel dark fringes of even width running along grain boundaries at a triple junction. Imaging alone does not by itself identify the chemical/crystallographic identity of that band. Put together, the two observations let one propose that the layered fringe band seen by TEM corresponds to one of the layered crystalline phases XRD confirms is present in the bulk (graphite or BN), because the fringe morphology (parallel, evenly spaced layers) is consistent with a layered-lattice phase, and XRD confirms such phases exist in the sample.
+
+Qualifications on that result:
+  - XRD is a bulk, spatially-averaged measurement; it cannot localize any phase to the grain-boundary triple junction seen in TEM.
+  - TEM imaging alone does not give chemical/crystallographic identity for the fringe band; no spot diffraction (SAED) or spectroscopic (EDS/EELS) data on that specific band is reported here.
+  - The XRD phase list contains two layered phases -- C (graphite) and BN -- either of which could plausibly produce parallel, evenly spaced fringes at a grain boundary, so the combination cannot by itself assign the TEM band to one rather than the other.
+  - No co-located chemical analysis ties the specific triple-junction band to a specific one of the XRD-confirmed phases.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+HP5 XRD: reflections marked ZrB2, SiC, C (graphite) and BN; none marked AlN or Al2O3
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

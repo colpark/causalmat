@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+The XPS binding-energy shifts (Ag 3d marginally higher, Pd 3d marginally lower in Ag0.25Pd0.75-ZIS versus the Ag-ZIS and Pd-ZIS controls) indicate electron-density redistribution between Ag and Pd on alloying. Read together with the DFT-computed Delta G_H* series (Pd -0.31, Pd0.75Ag0.25 -0.08, Pd0.5Ag0.5 0.12, Pd0.25Ag0.75 0.28, Ag 0.49 eV), this is consistent with that electronic interaction being associated with the near-thermoneutral H* adsorption free energy (-0.08 eV) found at the Pd0.75Ag0.25(111) composition, the value closest to zero among the five surfaces examined.
+
+Qualifications on that result:
+  - XPS is reported for only one alloy composition (Ag0.25Pd0.75-ZIS) against the two single-metal controls, while the DFT series spans five compositions; the pairing does not show the BE shift tracking dG_H* across the full range.
+  - The XPS result is a qualitative, 'marginal' comparative shift, not a quantified charge-transfer magnitude, so it cannot be matched numerically against the eV-scale computed dG_H* values.
+  - XPS is measured on the real ZIS-supported material, whereas dG_H* is computed on an idealized bare metal (111) surface -- the two observations concern different objects, not the same measured system.
+  - The co-occurrence of an electronic shift and a near-optimal computed adsorption energy does not by itself establish that the shift causes the favorable dG_H*, as opposed to both being separate consequences of alloy formation.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Computed Delta G_H*: Pd -0.31, Pd0.75Ag0.25 -0.08, Pd0.5Ag0.5 0.12, Pd0.25Ag0.75 0.28, Ag 0.49 eV
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

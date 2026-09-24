@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the DFT band-structure calculation and the Hall measurement support a mechanistic account: Se substitution donates electrons that raise E_F until the M, K and L conduction-band minima (initially ~0.15 eV above E_F) reach E_F while the Gamma minimum stays ~0.35-0.4 eV higher, and this band-edge alignment is consistent with the measured rise in Hall carrier concentration from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 (x=0.005-0.04) at 300 K -- i.e., Se acts as an n-type donor whose effect on the electronic structure plausibly underlies the observed increase in carrier density with x.
+
+Qualifications on that result:
+  - The DFT comparison (F2c vs F2d) appears to be a two-state snapshot (undoped vs one Se-doped case), while the Hall data (F4a) span five x values (0, 0.005, 0.01, 0.02, 0.04); the pairing cannot establish a quantitative, point-by-point correspondence between band-edge position and n_H across the full doping series, only a qualitative directional match.
+  - DFT gives a 0 K electronic-structure energy level (eV relative to E_F); Hall gives a 300 K measured carrier density (cm^-3); the two are different kinds of quantity connected only through band theory, not through a shared measurement or a direct calculation of n_H from the DFT bands.
+  - The combination does not rule out other contributions to the Hall-measured carrier density (e.g., temperature-dependent scattering or additional defect states) beyond the M/K/L band-edge alignment shown in the DFT panels.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+n_H rises from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 at 300 K for x=0.005-0.04
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/descriptor / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

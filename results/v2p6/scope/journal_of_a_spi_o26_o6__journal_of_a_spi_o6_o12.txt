@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Taken together, the gradual, discontinuity-free softening of all eight Raman modes for x=0.06 from RT to 275C and the emergence/composition-shift of a second dielectric maximum Tm2 (appearing for x>=0.02, moving ~200 to ~260C) support treating Tm2 as arising without an abrupt structural change at that composition: the smooth phonon evolution at x=0.06 (a composition within the Tm2-bearing range) is consistent with a continuous/diffuse origin for the Tm2 anomaly rather than a discrete structural phase transition.
+
+Qualifications on that result:
+  - Raman was measured only at x=0.06; the pair does not establish the same conclusion across the full x=0-0.08 series or at other compositions where Tm2 also appears (x>=0.02 more broadly)
+  - The absence of a Raman discontinuity is negative evidence against an abrupt transition; it does not positively demonstrate that Sr-vacancy-affected polar nanoregions (PNRs) specifically are the cause of Tm2 - no vacancy- or PNR-specific signature is reported in either observation
+  - Dielectric data are shown only at 1 kHz, so no frequency-dispersion evidence (the usual hallmark for identifying relaxor/PNR behavior) is combined with the Raman data here
+  - The two observations compare different kinds of quantities (phonon frequency shift vs. permittivity extremum position/magnitude), so the link rests on temperature/composition co-occurrence rather than a shared measured quantity
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+At 1 kHz the Tm1 maximum drops from ~6750 (x=0) to ~2700 (x=0.08); a second maximum appears for x>=0.02 and moves ~200 -> ~260 C
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/qualification? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

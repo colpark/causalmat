@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the two XRD observations support that YSZ retains a predominantly tetragonal zirconia structure and Al2O3-YSZ shows a cubic zirconia structure: Observation A's phase labels (t-ZrO2 for YSZ, c-ZrO2 for Al2O3-YSZ) are corroborated by Observation B's diagnostic peak-shape evidence, since the small (012) peak at ~43 deg and the split peaks at ~35, 60 and 74 deg -- present only in the YSZ pattern and absent in the Al2O3-YSZ pattern -- are the specific features that distinguish a lower-symmetry (tetragonal) reflection pattern from a higher-symmetry (cubic) one. B thus supplies the diagnostic detail that explains why A's phase call is made. Both patterns also lack any marked or visible Al2O3 reflection.
+
+Qualifications on that result:
+  - Does not establish why the two coatings end up with different zirconia phases (no mechanism for tetragonal vs cubic phase stabilization is given by these two observations)
+  - Does not quantify the fraction of tetragonal vs cubic phase present in either sample
+  - The absence of an Al2O3 reflection in both patterns does not by itself indicate where the Al went (e.g., amorphous aggregation at grain boundaries) -- neither observation addresses Al distribution, only that no Al2O3 peak appears
+  - Both observations are drawn from the same XRD panel (F1) on the same samples, so they are two levels of description (label vs. peak detail) of one measurement rather than independent lines of evidence
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+YSZ pattern has a small (012) peak at ~43 deg and split peaks at ~35, 60 and 74 deg; Al2O3-YSZ pattern has neither
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

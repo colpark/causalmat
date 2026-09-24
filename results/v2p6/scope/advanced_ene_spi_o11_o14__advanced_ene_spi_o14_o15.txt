@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Taken together, the XAS evidence (after zinc deposition the ~398 eV N 1s feature collapses while the ~401 eV feature becomes dominant, indicating Zn-N bond formation at pyridinic-N sites and a shift toward graphitic-like nitrogen character) and the SEM evidence (zinc plates as a largely flat deposit with sparse protruding platelets on CnC HS, but as a dense mat of sharp platelets on C HS) are consistent with a picture in which Zn-N bonding sites present on CnC HS favor a planar, non-dendritic zinc deposit, whereas their absence or difference on C HS is associated with dense, sharp dendritic platelet growth.
+
+Qualifications on that result:
+  - Observation A is reported as a single 'after zinc deposition' spectral change; it is not explicitly presented as a paired CnC HS-vs-C HS NEXAFS comparison, so the data given do not directly confirm that C HS lacks the same Zn-N bonding shift seen on CnC HS.
+  - CnC HS and C HS differ by construction in more than nitrogen content (they are different host structures), so a correlation between the N 1s bonding shift and the flat-vs-dense-platelet contrast cannot rule out other structural differences between the two substrates as contributing causes of the morphology difference.
+  - Both observations are qualitative, single-condition snapshots (a relative two-peak intensity comparison and a qualitative SEM appearance) rather than quantitative measurements across a range of conditions, so at most a co-occurrence is established, not a dose-response or direct mechanistic test linking bonding strength to platelet density/shape.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Zinc on CnC HS is a largely flat deposit with sparse protruding platelets; on C HS the surface is a dense mat of sharp platelets
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/shape / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

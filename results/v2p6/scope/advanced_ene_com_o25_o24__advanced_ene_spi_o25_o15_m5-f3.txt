@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+The two measurements, taken together, show that the growth of interfacial charge-transfer resistance (Rct, EIS) and the growth of dissolved vanadium (ICP-OES) trace the same temporal pattern: both rise over early cycling and both saturate by around cycle 150 (Rct to ~24-28 ohm, V to ~3.7 mg/L), while the much lower Fe dissolution (~1.1 mg/L) and the flat Rfilm/Re make film growth or Fe dissolution unlikely as the dominant contributor. This joint timing match is what supports associating V-site dissolution with the buildup of polarization resistance captured by Rct; neither series alone (Rct's rise-then-plateau, or V's rise-then-plateau) identifies what the other is responding to.
+
+Qualifications on that result:
+  - Matching saturation timing across two separately measured series is a temporal correlation, not a mechanistic proof that dissolved V is what raises Rct rather than some other cycling-linked process
+  - Rct at the plateau carries large error bars, so the precision of the 'both saturate around cycle 150' match is weak
+  - Rct (ohm, an interfacial impedance state) and dissolved V (mg/L, a cumulative amount in electrolyte) are different kinds of quantities; their co-saturation is a qualitative parallel in trend shape, not a quantitative dose-response link between amount of V dissolved and ohms of Rct gained
+  - Low Fe dissolution (~1.1 mg/L) argues against Fe as a major contributor but does not by itself establish V as causally sufficient for the Rct rise
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Fitted Rct rises ~3 to ~26 ohm by cycle 150 then ~24-28 (large error bars); Rfilm ~2-3 and Re ~0.5 ohm flat
+
+The later step then asks: Does the upstream evidence account for the downstream observation about MEC/pathway / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the single low-angle XRD reflection (a reciprocal-space signature of a periodic repeat distance) and the TEM images (direct real-space views of parallel channel stripes and a regular pore lattice with period ~5-6 nm) cross-confirm that MBG, 2Co- and 5Co-MBG each contain a genuine periodic mesostructure rather than just an XRD artifact or a locally imaged feature: the reciprocal-space peak corresponds to the real-space repeat pattern actually seen in TEM, and this periodic channel/pore structure is present in all three samples.
+
+Qualifications on that result:
+  - A single low-angle XRD reflection per pattern cannot by itself fix which mesophase symmetry is present (no higher-order reflections are reported to index a specific space group), so the pair does not establish the structural symmetry type beyond 'periodic'
+  - TEM was imaged over a local field (~200 nm for the stripe view), so the pair does not establish that the ordered arrangement extends uniformly through the bulk of each sample
+  - TEM 'period' (~5-6 nm, center-to-center repeat spacing) is a different quantity from pore diameter; combining the two observations does not by itself yield a pore-size value
+  - The small shifts in 2theta (1.37/1.47/1.35 deg) across MBG/2Co/5Co are not tied by this evidence to a quantitative trend with Co content
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Small-angle XRD: one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

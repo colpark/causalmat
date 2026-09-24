@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Ranking the alloy compositions by how close the computed H* free energy is to zero (|Delta G_H*|: Pd0.75Ag0.25 0.08 < Pd0.5Ag0.5 0.12 < Pd0.25Ag0.75 0.28 < Pd 0.31 < Ag 0.49 eV) reproduces, composition for composition, the measured H2 evolution rate ordering (Ag0.25Pd0.75 125.4 > Ag0.5Pd0.5 57.3 > Ag0.75Pd0.25 43.5 > Pd 34.5 > Ag 3.2 umol/h). Together the two observations support that the photocatalytic HER activity across this Ag-Pd series tracks the computed proximity of H* adsorption energy to thermoneutral, consistent with Pd0.75Ag0.25 being favored because its H* binding is closest to zero.
+
+Qualifications on that result:
+  - Observation B is a DFT calculation on an idealized (111) surface model, not a measurement on the actual working photocatalyst particles; Observation A is a rate measured under real illuminated reaction conditions with ZIS support present, so the two sides are different regimes being compared only through a shared ordinal trend.
+  - Only five discrete compositions are compared, giving a matching order/ranking, not a continuous quantitative relationship between Delta G_H* and rate.
+  - Composition is the single variable driving both series, so the same compositional change could also be altering other rate-relevant factors (electronic coupling/charge transfer with ZIS, active-site density, light absorption) that covary with H* binding energy; the pair cannot rule these out as contributing to the observed rate trend.
+  - No intermediate kinetic or electrochemical measurement (e.g., Tafel/impedance data on H adsorption itself) is present to isolate the H* adsorption step from other composition-dependent steps in the overall photocatalytic mechanism.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Computed Delta G_H*: Pd -0.31, Pd0.75Ag0.25 -0.08, Pd0.5Ag0.5 0.12, Pd0.25Ag0.75 0.28, Ag 0.49 eV
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

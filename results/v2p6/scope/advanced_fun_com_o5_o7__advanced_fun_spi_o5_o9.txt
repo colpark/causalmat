@@ -1,0 +1,33 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Taken together, the XRD result (all traces step down near 150 K, with the PC (004) reflection showing the two structural branches coexisting over a band from ~150 to ~175 K) and the PL result (the ~785 nm band grows against the ~745 nm band between 138 and 150 K, earliest/strongest under the 325 nm laser and latest under 633 nm) support a depth-dependent reading of the same transition: since 325 nm and 633 nm probe different penetration depths, PL's ordering (shallow-probe signal first, deep-probe signal last) supplies a spatial/depth ordering that XRD alone cannot give, while XRD's coexistence band supplies bulk-averaged evidence that the two structural phases genuinely coexist rather than switching instantaneously. Combined, this is consistent with the transformation appearing near the domain surface before it appears deeper in the domain.
+
+Qualifications on that result:
+  - The two observation windows do not overlap (PL: 138-150 K; XRD coexistence band: 150-175 K), so the pairing only yields a qualitative/ordinal linkage -- surface-sensitive signal precedes the bulk-averaged coexistence window -- not a merged quantitative transition profile
+  - The 'surface vs. deep' reading rests on treating 325 nm vs 633 nm laser penetration as a depth proxy; neither observation directly measures depth or a spatial gradient
+  - Neither observation reports a phase fraction: XRD shows two coexisting diffraction branches without stated fractions, and PL shows a band-intensity ratio change without a stated fraction conversion
+  - Nothing in either observation gives a completion timescale (e.g., how narrow the finishing window is) -- that is not present in either observation as stated
+  - The pairing does not distinguish a single continuous surface-to-core front from multiple independent, depth-graded transformation events
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Every trace steps down near 150 K; for PC (004) the two branches coexist over a shaded band from ~150 to ~175 K
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/phase/fraction / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

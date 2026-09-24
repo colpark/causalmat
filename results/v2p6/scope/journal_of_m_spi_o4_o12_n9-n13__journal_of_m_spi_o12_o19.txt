@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the DFT band structure (Se doping pulling the M, K, L conduction-band minima from ~0.15 eV above E_F down to E_F while the Gamma minimum stays ~0.35-0.4 eV up) gives a plausible electronic-structure mechanism -- multi-valley convergence at E_F -- for why doped samples show much higher power factor than the undoped sample (x=0.01 ~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, versus x=0 at most ~5). The pairing supports that Se doping's effect on the band edges is consistent with, and offered as the explanation for, the step-up in PF from undoped to doped.
+
+Qualifications on that result:
+  - The DFT panels (F2c vs F2d) contrast only undoped and Se-doped band structures; they do not resolve different Se fractions x=0.005 vs x=0.01, so the pair cannot explain why x=0.01 is highest while x=0.005 is the lowest of the doped samples
+  - DFT band positions are a zero-temperature electronic-structure calculation while the power factor is a transport coefficient measured across 300-623 K, so the two are different kinds of quantity and no temperature-resolved mechanism is established
+  - The combination shows the band picture is consistent with enhanced PF upon doping but does not quantify how much of the PF gain is attributable to the multi-valley convergence itself versus other transport factors (mobility, scattering) not covered by either panel
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

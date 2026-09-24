@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+TEM (F4a: parallel channel stripes over a ~200 nm field of view; F4b: a regular pore lattice with ~5-6 nm periodicity) shows that, at the local scale imaged, the mesopores are arranged in an ordered, periodic channel/lattice pattern. N2 sorption (F3a) shows that all three samples display a type IV hysteresis step at P/P0 ~0.45-0.6, i.e., mesopores are present when the material is probed in bulk by gas adsorption. Put together, the two support that the periodic ~5-6 nm channel structure seen locally by TEM is consistent with (not merely a local imaging artifact against) the mesoporosity detected by the bulk-averaged N2 measurement - the local order and the bulk mesopore signature are compatible with describing the same pore population.
+
+Qualifications on that result:
+  - N2 sorption's type IV hysteresis step alone cannot establish long-range order or periodicity: the same hysteresis signature is also produced by disordered or worm-like mesopore networks, so it cannot by itself show the pores form an ordered channel/lattice.
+  - TEM alone is local: F4a and F4b cover only a ~200 nm field of view in what appear to be at most two of the samples, so imaging alone cannot show that the ordered channel structure is representative of the bulk material or present throughout the whole sample volume.
+  - The N2 hysteresis step is reported for all three samples, but the ordered-lattice TEM images (F4a, F4b) do not clearly cover all three, so the pair together cannot establish whether every sample that shows the hysteresis step also has the periodic channel structure, or whether some instead have non-periodic mesoporosity that produces the same isotherm feature.
+  - The two observations are different kinds of quantities (a local real-space length scale from imaging vs. a bulk relative-pressure hysteresis position from gas adsorption), so their agreement is a qualitative consistency, not a quantitative cross-check of one measured value against another.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Small-angle XRD: one low-angle reflection in all three patterns, at 2theta ~1.37 (MBG), ~1.47 (2Co) and ~1.35 deg (5Co)
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/phase/identity / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

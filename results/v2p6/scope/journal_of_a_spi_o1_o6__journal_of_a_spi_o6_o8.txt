@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Combining the XRD phase identification with the EBSD misorientation trend supports an association: the coating identified as predominantly cubic ZrO2 (Al2O3-YSZ, lacking the split peaks near 35/60/74 deg and the small ~43 deg peak) shows a much larger orientation change per interval early in cycling (~4.3-11 deg at 5 cycles) than the mainly tetragonal YSZ (0.7-2.3 deg throughout), with Al2O3-YSZ falling to ~1 deg by 20 cycles, consistent with the paper's claim that Al2O3-YSZ undergoes much larger micro-strain during cycling than YSZ.
+
+Qualifications on that result:
+  - XRD is a single as-sprayed snapshot and is not tracked across the cycling series, so it cannot show whether the identified phase persists as misorientation falls toward 20 cycles
+  - EBSD misorientation is only a proxy for strain, not a direct phase measurement
+  - the two systems differ in composition (Al2O3 addition) as well as phase, so phase identity and composition change together by construction and cannot be separated as the cause of the larger initial misorientation/strain
+  - the convergence of Al2O3-YSZ toward YSZ-like values by 20 cycles is not explained by a static as-sprayed phase reading
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Orientation change per interval is ~4.3-11 deg at 5 cycles in Al2O3-YSZ, falling to ~1 deg by 20 cycles, versus 0.7-2.3 deg throughout for YSZ
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / STR/microstructure/damage? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

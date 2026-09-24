@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Observation A's temperature-dependence pattern for Se-doped mu_H (falling along T^-0.5 to T^-1 guide lines, steepening to ~T^-1.5 above ~525 K, contrasted with the x=0 sample rising with T) identifies a phonon-type scattering regime governing transport in the Se-doped samples. Observation B shows that at 300 K, the same Se-doped samples (x=0.005-0.02 at ~145-170 cm2/Vs, x=0.04 at ~125 cm2/Vs) exceed every literature mu_H value (max ~139) at comparable carrier density n_H, so the density-matched comparison indicates the advantage is not merely a carrier-concentration artifact. Together, the two panels support that the elevated 300 K Se-doped mobility relative to literature is linked to the scattering behavior captured by the T-dependence in A, i.e., an intrinsic transport-mechanism basis for the 300 K advantage rather than a density-driven one.
+
+Qualifications on that result:
+  - Observation A alone does not pin down which scattering mechanism operates specifically at 300 K versus in the higher-T (>525 K) regime; the T^-1.5 behavior lies outside the 300 K window used in B
+  - Observation B's literature comparison is against different samples/sources with unknown synthesis, purity, or grain-boundary characteristics, so an intrinsic-mechanism explanation cannot rule out extrinsic sample-quality differences as a contributor to exceeding the literature max
+  - The pair does not establish why x=0.005-0.02 gives a higher advantage than x=0.04, or why any particular composition would be optimal, since B only reports a range and a single higher-x point rather than a resolved composition dependence
+  - Too few points across composition to support a smooth relationship between doping level and the mobility advantage, only an ordering (low-x range and x=0.04 both exceed literature, low-x range higher)
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+At 300 K, x=0.005-0.02 mu_H (~145-170) exceeds every literature point (max ~139); x=0.04 (~125) still tops refs at similar n_H
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/descriptor / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

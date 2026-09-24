@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the two Hall observations show that increasing Se content (x=0.005-0.04) raises the 300 K carrier concentration n_H from ~0.5e19 up to 3.3e19 cm-3, and that over this same doping range the 300 K Hall mobility mu_H (~125-170 cm2/Vs) stays above every literature value reported at comparable n_H. Combined, this supports that Se doping adds electron carriers (consistent with Se acting as a donor) while the samples retain a mobility advantage relative to reference materials at similar carrier concentration -- i.e., the added carriers are not accompanied by a mobility penalty relative to other reported samples.
+
+Qualifications on that result:
+  - The pairing does not establish the microscopic doping mechanism (Se substituting on the Sb site) -- that requires structural/site evidence, not just the n_H and mu_H trends across x
+  - The mobility comparison is against a heterogeneous set of literature samples (different synthesis routes, microstructures, grain sizes), so the observed mu_H advantage at matched n_H could reflect differences in sample quality/scattering sources rather than being attributable solely to the Se-doping process
+  - Observation B only reports mu_H behavior for the ranges x=0.005-0.02 and x=0.04, so a single optimal composition (e.g., a peak mobility at one specific x) cannot be pinned down from these two observations alone
+  - The data given are a few doping points/ranges, not a dense series, so they support an ordering/trend across x but not a fitted continuous n_H-mu_H relationship
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+At 300 K, x=0.005-0.02 mu_H (~145-170) exceeds every literature point (max ~139); x=0.04 (~125) still tops refs at similar n_H
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/descriptor / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

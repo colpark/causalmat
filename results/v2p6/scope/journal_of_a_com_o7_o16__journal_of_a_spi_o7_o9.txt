@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+The SEM fracture-surface image (panel c, showing a rough surface with a few dark cavities between grains) visually corroborates the residual porosity quantified by the apparent-porosity measurements: the presence of dark cavities is consistent with a sample that still has measurable apparent porosity rather than being fully dense.
+
+Qualifications on that result:
+  - Panel B is a single qualitative SEM snapshot (panel c only); the record does not state which sample (S1/S2/S3) or which sintering temperature it corresponds to, so it cannot be matched to a specific point on the S1/S2/S3 porosity-vs-temperature series
+  - The SEM description ('a few dark cavities') is not quantified, so the pair does not establish a numeric or proportional correspondence between cavity count/area in the image and the measured apparent-porosity percentages (8.7-0.4% for S1, 7.9-0.7% for S2, 11.2-7.7% for S3)
+  - Together they do not explain why S3 retains ~7.7% porosity while S1 and S2 densify below 1%; the image gives only a visual snapshot of cavities, not a mechanism for the difference in densification behavior across samples
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Apparent porosity falls with temperature: S1 8.7 to 0.4%, S2 7.9 to 0.7%, S3 11.2 to 7.7%
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/porosity / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

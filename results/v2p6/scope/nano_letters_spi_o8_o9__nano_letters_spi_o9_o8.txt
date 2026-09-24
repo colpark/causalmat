@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+The zeta-potential reversal (from +25 mV for BSA@ZIF-8 to -16 mV and -14.5 mV for the DNA- and RNA-aptamer samples) shows that a net-anionic species now coats the particle surface, and the EDS map shows phosphorus (the aptamer backbone's signature element) present inside the same C/Zn/N-filled particle outline in both aptamer samples. Together these support that the anionic, phosphorus-bearing aptamer is associated with/adsorbed onto the cationic BSA@ZIF-8 particle, consistent with electrostatic attachment of the polyanionic backbone to the cationic surface.
+
+Qualifications on that result:
+  - Zeta potential is a single bulk-average charge value per sample; it cannot by itself show where the anionic species sits or whether it forms a coating at all
+  - The EDS map shows P only as sparse, scattered dots rather than filling the outline the way C, Zn and N do, which argues against a continuous, surface-spanning 'layer' -- the combination does not establish a uniform phosphorus-bearing shell over the surface
+  - Neither measurement distinguishes electrostatic adsorption from a partial covalent or coordination contribution; the charge reversal and elemental presence are consistent with, but do not prove, a purely electrostatic mechanism
+  - No quantitative amount or density of bound aptamer is given, so surface coverage extent cannot be determined
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+EDS maps: C, Zn and N fill the particle outline for both aptamer samples, while P appears only as sparse dots inside the same outline
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/distribution / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

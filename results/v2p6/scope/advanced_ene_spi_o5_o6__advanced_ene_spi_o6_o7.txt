@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the two observations are consistent with the paper's explanatory claim: the HRTEM image shows that even the highest-capacity sample (w/ HCl, initial ~91 mAh/g) still contains amorphous-like regions coexisting with crystalline patches rather than being fully crystalline, and the capacity ranking (w/ HCl > w/o HCl > simple mixing, ~91 > ~81 > ~61 mAh/g at every cycle) shows a monotonic ordering across synthesis routes. This co-occurrence is compatible with residual amorphous content acting as an interfacial resistance that limits capacity, i.e., that greater crystallinity associates with higher discharge capacity.
+
+Qualifications on that result:
+  - Observation A (HRTEM) is reported only for the w/ HCl sample; no HRTEM/crystallinity comparison for the w/o HCl or simple-mixing samples is included in the cited panels, so the assumed amorphous-content ordering across the three synthesis routes that would track the capacity ranking is not directly shown
+  - The mechanism itself (amorphous region as film resistance hindering electrochemical process) is asserted, not measured here -- no impedance, resistance, or quantitative crystallinity-fraction data accompany the capacity data in these panels, so the link is a plausible co-occurrence rather than a demonstrated causal pathway
+  - Observation A is a qualitative morphological classification (presence of crystalline vs amorphous patches in one sample) while Observation B is a quantitative, multi-sample, per-cycle capacity series; the two are different kinds of measurement and cannot support a dose-response or magnitude relationship between amorphous fraction and capacity
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Discharge capacity ranks w/ HCl > w/o HCl > simple mixing at every cycle (initial ~91, ~81, ~61 mAh/g)
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

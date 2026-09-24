@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the FTIR chemical signature (-COOH ~3400 cm-1, -C=O ~1660 cm-1 on BVLD-PPAmF vs PPAmF) and the QCM-D areal mass trace (rise to ~0.78 ug/cm2 after BVLD injection, settling to ~0.71 after PBS rinse, 0.74 +/- 0.05 ug/cm2 annotated) support that BVLD is chemically immobilised on the coating surface and remains at ~0.74 ug/cm2 after PBS rinsing.
+
+Qualifications on that result:
+  - FTIR alone gives no quantity and no information about whether the material survives rinsing
+  - QCM-D alone quantifies retained areal mass but cannot confirm the retained mass is chemically BVLD rather than nonspecific adsorbate, buffer residue, or hydration/dissipation-associated mass
+  - the pair does not establish the immobilisation mechanism (covalent bonding vs physical adsorption/entrapment)
+  - QCM-D mass may include hydrated/coupled water rather than pure dry BVLD mass, a different quantity kind than the FTIR chemical-identity signal
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+BVLD-PPAmF spectrum carries a labelled -COOH stretch (~3400 cm-1) and -C=O band (~1660 cm-1) over the PPAmF spectrum
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

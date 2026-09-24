@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the two panels support that the peak-voltage signal reported in F7b is genuinely a piezoelectric response (not an electrical artifact) and that this piezoelectric output scales monotonically with PZT loading: F7f's sign inversion on electrode reversal confirms the pulses originate from a polarity-dependent charge-generation process, and F7b's monotonic rise (7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V across 0-10 wt% PZT) shows that process's output magnitude increases with PZT content. The pair jointly supports that a piezoelectric mechanism, rather than noise or a fixed artifact, underlies the dose-dependent voltage trend.
+
+Qualifications on that result:
+  - The polarity-reversal test (F7f) is a qualitative check performed on the piezoelectric signal in general; it is not stated to have been repeated at every PZT wt% point on the F7b curve, so it does not itself verify that each individual data point along the 0-10 wt% series is piezoelectric in origin.
+  - F7b's monotonic voltage trend alone cannot rule out artifact or measurement drift as a contributor to the rise; only F7f's sign-flip test rules that out, and only for the composition(s) it was actually run on.
+  - The combination does not establish or quantify the underlying molecular mechanism (dipole rotation under compression) directly -- neither panel visualizes or measures dipole alignment; that mechanism is inferred, not observed, from these two output measurements.
+  - The two panels together do not separate how much of the rising voltage trend is due to PVDF chain-dipole alignment versus PZT domain-dipole alignment, since both are invoked as contributing to net polarization change and both vary together as PZT wt% is increased by construction of the composite.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Peak voltage rises 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt% PZT
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Taken together, the Tauc-plot band gap of ~0.69 eV (Observation A) shows bismuthene's absorption edge lies well below the ~1.88 eV photon energy of the 660 nm excitation used in the assay, so it is electronically capable of absorbing that light; the faster DPBF absorbance decay with bismuthene (~0.73 at 30 min) versus water alone (~0.93 at 30 min) (Observation B) shows a light-associated loss of DPBF signal specific to the bismuthene sample. Combined, this is consistent with bismuthene's narrow-band-gap semiconducting character being compatible with photo-driven singlet-oxygen generation under the applied illumination.
+
+Qualifications on that result:
+  - The Tauc extrapolation alone gives only an inferred band-gap value (with data deviating from linearity below ~1.1 eV) and carries no measurement of photocatalytic or singlet-oxygen activity
+  - The DPBF comparison alone shows a bismuthene-vs-water difference in relative absorbance but does not by itself identify the ~0.69 eV gap as the property responsible for it
+  - No wavelength-dependent action spectrum or dose-response data link the specific 0.69 eV value to the magnitude or rate of DPBF decay
+  - The DPBF comparison is only two conditions at a single 30-min timepoint, too sparse to establish a quantitative relationship between band gap and singlet-oxygen yield, only an ordering (bismuthene lower than water)
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Relative DPBF absorbance falls to ~0.73 in 30 min with bismuthene vs ~0.93 in water
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+FTIR (GATR) assigns specific vibrational bands to bond types present in the PPAm film -- N-H (3350/3210 cm-1), aliphatic C-H, -N=C=O/-C=N (2245/2180 cm-1), C=O/C=N (1645 cm-1), C-N (1230 cm-1) -- while ToF-SIMS independently detects N-containing fragment ions (CH4N m/z 30, C3H9N m/z 59, C4H10N m/z 72) among the CxHy ion set at the surface. Put together, the two techniques give converging, independent confirmation that nitrogen is retained as part of the film's molecular structure and is detectable both as vibrational bonding signatures and as surface mass fragments -- a stronger basis for asserting N retention than either technique alone, since FTIR could in principle reflect subsurface/bulk species and SIMS fragment masses alone do not confirm a bonding assignment.
+
+Qualifications on that result:
+  - ToF-SIMS fragment formulas (CH4N, C3H9N, C4H10N) are mass-only identifications and cannot by themselves specify which functional group (amine N-H vs nitrile/isocyanate vs C=O/C=N) the nitrogen belongs to, so they cannot confirm the specific bond assignments FTIR makes
+  - the FTIR bands attributed to plasma-fragmentation products (-N=C=O/-C=N at 2245/2180 cm-1, C=O/C=N at 1645 cm-1) have no corresponding fragment explicitly identified in the cited SIMS ion list, so the pairing does not show that SIMS detects those specific new groups
+  - neither observation gives a quantity (amount or rate) of any group, so the combination cannot establish how much N-H versus nitrile/isocyanate/C=O is present, only that N-containing species are present in both measurement modalities
+  - GATR-FTIR and ToF-SIMS probe different depths/mechanisms (vibrational absorption vs surface fragment ejection), so agreement on 'N is present' does not establish the two techniques are sampling the identical molecular species
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+PPAm IR bands assigned: N-H stretch 3350/3210, C-H stretch, -N=C=O/-C=N 2245/2180, -C=O/C=N 1645, C-N 1230 cm-1
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/chemistry/bonding / STR/chemistry/bonding? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

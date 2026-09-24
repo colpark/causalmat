@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+TEM alone shows that at the fine (nanoscale/sub-micron field-of-view) scale the microstructure consists of straight, alternating A and B lamellae with sharp interfaces -- a lamellar, two-phase morphology, but only at one local site. EBSD alone shows that at the broader (colony-scale) field of view the material consists of lamellar colonies of two phases radiating from colony boundaries with no single-phase regions -- i.e., the two-phase lamellar arrangement is pervasive across colonies, but EBSD's resolution does not by itself confirm that the lamellae are straight with sharp interfaces at fine scale. Put together, the two observations establish that the fine-scale alternating-lamellae morphology seen in TEM is not a local artifact: the same two-phase lamellar character persists from the nanoscale (TEM) up through the colony scale (EBSD), with no single-phase regions found anywhere in the broader field of view. This joint scale-consistency is what supports describing the structure as a fully lamellar two-phase (eutectic-type) microstructure rather than one that is only locally lamellar or only partially two-phase.
+
+Qualifications on that result:
+  - Does not establish which of lamella A or B corresponds to which named phase (FCC(L12) vs B2) -- that identification is not given by combining these two morphological/phase-distribution observations alone
+  - Does not establish volume fraction, lamellar spacing, or interface width quantitatively -- both observations are qualitative/morphological
+  - Does not establish representativity across the whole sample/casting, only across the fields of view captured in the TEM and EBSD panels cited (F1c, F1b)
+  - TEM (local, high resolution) and EBSD (broader field, lower resolution) are different kinds of observation (point/local micrograph vs. areal phase map), so agreement between them is a scale-consistency check, not an independent quantitative corroboration
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+TEM bright-field: parallel alternating straight lamellae A and B with sharp interfaces
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/shape / STR/defect/extended? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

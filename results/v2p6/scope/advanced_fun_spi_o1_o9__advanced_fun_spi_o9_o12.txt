@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together the two panels show that the same synthesized material appears, by TEM, as thin free-standing sheets ~100-200 nm across, and, by Tauc analysis of its UV-Vis spectrum, shows an absorption edge whose linear extrapolation intercepts zero near 0.69 eV -- i.e., the sheet-form product also displays a low, semiconductor-like optical gap. This supports characterizing the product as a nanosheet-form material with an associated small optical gap, consistent with (but not proof of) the paper's framing that thinning to nanosheet morphology underlies the semiconducting optical response.
+
+Qualifications on that result:
+  - Observation A gives only the lateral dimension of the sheets (~100-200 nm across); it does not quantify sheet thickness, so the pair cannot show that the material is thin enough in the confinement direction to plausibly open a gap by quantum confinement
+  - No thickness series or bulk-material Tauc comparison is included, so there is no basis in these two panels for concluding that the morphology (thinness) is what produces or accounts for the 0.69 eV gap rather than the gap being an inherent property of the material's composition regardless of size
+  - The Tauc data depart from linearity below ~1.1 eV, meaning the 0.69 eV intercept rests on an extrapolation from a limited linear region, adding uncertainty to the gap value used in the comparison
+  - The two observations are of different physical quantities (a spatial/morphological measure vs. a spectroscopically derived energy) taken on possibly different specimens/preparations, so their co-occurrence does not by itself establish a mechanistic link between them
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Linear extrapolation of (F(inf)hv)^2 reaches zero at 0.69 eV; data leave the line below ~1.1 eV
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

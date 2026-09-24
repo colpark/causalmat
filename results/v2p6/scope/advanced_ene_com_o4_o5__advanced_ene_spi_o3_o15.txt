@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the TEM image and the XRD series support that RGO sheets wrap around Cu2S microspheres and that this wrapping is consistent with the trend of weaker Cu2S reflections as GO content rises (RGO-Cu2S-3 clearly weaker; -1 and -2 close to bare Cu2S). The TEM view supplies a candidate physical mechanism -- thin sheets extending around a ~5 um sphere -- that can account for progressive attenuation/masking of the Cu2S crystalline signal seen across the RGO-Cu2S-1/2/3 series in XRD.
+
+Qualifications on that result:
+  - The TEM observation is a single image at one point in the sample, not tied to a specific composition in the -1/-2/-3 series, so it cannot by itself establish that coverage increases with GO amount
+  - The XRD trend is a qualitative comparison of reflection intensity across three samples (-1, -2, -3), not a quantified coverage measurement, and gives no morphological information on its own
+  - The pair does not quantify how much of the sphere surface is covered or establish a dose-response relationship between GO amount and coverage extent
+  - Only three composition points are compared, too few to support a continuous relationship, only an ordering (weaker with more GO)
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Thin sheets drape spheres in b (red circles) and c; in d wrinkled sheets cover the field, burying spheres
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/distribution / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

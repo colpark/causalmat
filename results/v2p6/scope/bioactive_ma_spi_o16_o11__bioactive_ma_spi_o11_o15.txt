@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Taken together, the two SEM readouts show a consistent parallel gradient across the same surface series (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF): surfaces with denser fibrin networks and trapped cells (316L SS, PPAmF) also show many spread, dendritic (activated) platelets, while surfaces with sparse or absent fibrin (BVLD-PPAmF, NO-PPAmF, and especially the almost-bare BVLD/NO-PPAmF) also show fewer platelets and, where present, round unspread (unactivated) morphology. The co-occurrence of suppressed fibrin deposition and suppressed platelet spreading/activation on the same modified surfaces is consistent with a shared upstream cause acting on both processes.
+
+Qualifications on that result:
+  - Both observations are qualitative SEM morphology/coverage assessments on the same fixed samples, not a mechanistic or biochemical readout, so they cannot themselves identify thrombin inactivation (or any specific molecular mechanism) as the shared upstream cause.
+  - Fibrin formation and platelet activation are known to be mutually reinforcing in the coagulation cascade (thrombin both activates platelets and cleaves fibrinogen to fibrin), so the parallel reduction seen in A and B could reflect one process driving the other rather than both being independently suppressed by a common upstream cause.
+  - Only an ordering/qualitative gradient across surface types is shown, not a quantitative dose-response or rate relationship, and no independent (non-SEM) marker of thrombin activity is included in these two panels to anchor the mechanism.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

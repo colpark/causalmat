@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+The EBSD IPF maps establish that the equiaxed features visible in panels (a) and (c) are genuine crystallographic grains, sized about 0.5-1.5 um in (a) and about 1.5-3 um in (c). The SEM image separately shows that panel (d) contains much finer, uniform equiaxed features (about 0.3-0.8 um) than panels (b) and (c) imaged at the same 2 um scale. Put together, the pair supports reading the finer SEM features in (d) as a continuation of the same equiaxed-grain trend down to a smaller size -- i.e., the grain/feature size decreases from the EBSD-confirmed ~1.5-3 um grains in (c) toward the ~0.3-0.8 um features seen by SEM in (d).
+
+Qualifications on that result:
+  - No EBSD data is given for panel (d) itself, so its ~0.3-0.8 um features are not directly confirmed as true recrystallized grains rather than subgrains, deformation substructure, or SEM contrast artifacts -- the identification rests on morphological analogy to the EBSD-confirmed grains in (a) and (c), not direct crystallographic proof on the same panel.
+  - SEM (topographic/secondary-electron contrast) and EBSD (crystallographic misorientation contrast) are different measurement kinds; their size readings are not guaranteed to coincide on the same features.
+  - Only two EBSD panels (a, c) and one SEM panel (d) are available, with no shared panel between the two techniques, so the data support only a qualitative ordering of sizes across panels, not a quantitative size-vs-condition relationship.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+(d) fine uniform features ~0.3-0.8 um, far finer than (b),(c) at the same 2 um scale
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/feature_size / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

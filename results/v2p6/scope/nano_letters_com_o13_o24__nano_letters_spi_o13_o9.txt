@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the near-flat Na SAXS contours and near-overlapping I(q) curves (only a small drop at q~0.03-0.1 A^-1 seen at 0.11 V and 0.02 V) rule out a large volume/structural change as the driver of Na capacity fading, while the AIMD-computed degree of oxidation shows Na-Co3O4 reaching only ~36% at 2 ps -- below Na-Co3S4 (~59%) and far below Li-Co3O4 (~91%) -- and plateauing after 0.8 ps, indicating the conversion/sodiation reaction itself stalls early. Combined, the structural-stasis result plus the low, stalled oxidation-degree result let the pair be read as favoring poor sodiation activity (minor conversion) over volume change as the source of Na capacity fading.
+
+Qualifications on that result:
+  - SAXS alone only shows structural/volumetric stability; it excludes volume change as a cause but cannot by itself identify what does limit capacity.
+  - AIMD alone gives a computed oxidation-degree ranking and an early plateau in a picosecond-scale simulation; on its own it says nothing about real cell volume behavior and does not rule out volume change.
+  - The two measurements are different kinds of quantity: SAXS is an experimental scattering-intensity profile read at specific applied voltages (0.11 V, 0.02 V), while AIMD is a computed cumulative oxidation percentage from a picosecond-scale trajectory (2 ps snapshot, plateau after 0.8 ps) -- the simulated timescale is not the same kind of quantity as, nor directly comparable to, the electrochemical timescale over which real capacity fading occurs.
+  - Only three AIMD systems (Li-Co3O4, Na-Co3S4, Na-Co3O4) are compared at a single 2 ps point, which supports a ranking, not a quantitative trend or rate.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Na SAXS contours stay nearly straight; I(q) curves overlap except a small drop at ~0.03-0.1 A-1 at 0.11/0.02 V
+
+The later step then asks: Does the upstream evidence account for the downstream observation about MEC/identification / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

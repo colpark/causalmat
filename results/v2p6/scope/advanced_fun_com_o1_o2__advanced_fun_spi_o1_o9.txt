@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+TEM alone establishes lateral extent (~100-200 nm) and a thin, sheet-like/semi-transparent morphology across many particles on the grid, but gives no direct thickness value. AFM alone establishes a thickness (~14 nm) from a height profile across one flake and separately reports lateral size (~100-200 nm) consistent with TEM, but as a single-flake measurement it cannot on its own confirm that this lateral extent is representative of the population. Put together, the two observations jointly fix both in-plane dimensions (from TEM's survey of many sheets) and the out-of-plane dimension (from AFM's height profile), yielding a single consistent picture of thin, flat, lamellar sheets roughly 100-200 nm across and about 14 nm thick -- i.e., a high-aspect-ratio nanosheet morphology that neither technique's numbers alone would justify (TEM cannot give thickness; AFM's single profile cannot establish lateral extent across the sample).
+
+Qualifications on that result:
+  - AFM thickness (~14 nm) comes from a height profile across one flake, so it is a single-particle measurement, not a population statistic, and could be affected by tip or substrate artifacts
+  - TEM lateral sizes (~100-200 nm) are described only as 'mostly' in that range -- an approximate qualitative range from visual inspection, not a measured size distribution
+  - combining the two assumes the flake measured by AFM is representative of the population imaged by TEM; the pair does not itself demonstrate this correspondence, it is inferred from the overlapping size range reported in both
+  - neither observation nor their combination addresses count, yield, or the proportion of material in this morphology versus other shapes
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Thin semi-transparent square sheets, mostly ~100-200 nm across, scattered on the grid
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/feature_size / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

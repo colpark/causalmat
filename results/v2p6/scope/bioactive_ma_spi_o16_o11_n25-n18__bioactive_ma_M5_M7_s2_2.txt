@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Across the same set of surfaces, the SEM readout of fibrin network density/cell trapping (Obs A) and the SEM readout of platelet count/spreading morphology (Obs B) track the same ranking: 316L SS and PPAmF show dense fibrin plus many spread, dendritic platelets; BVLD-PPAmF and NO-PPAmF show an intermediate reduction (platelets with little fibrin, or fibrin strands, with fewer spread platelets); BVLD/NO-PPAmF shows the least of both (almost bare surface, only a few round unspread platelets). The two independent morphological signatures corroborate each other, so together they support that the surface treatment suppressing fibrin formation is the same one showing reduced platelet adhesion/activation, with BVLD/NO-PPAmF showing the strongest joint suppression of the two.
+
+Qualifications on that result:
+  - Both observations are qualitative SEM descriptions (dense/sparse, spread/round, bare/strands) with no counts, areas, or statistics given, so the magnitude or significance of the ranking cannot be assessed from these panels alone.
+  - Fibrin network formation and platelet activation are mechanistically coupled (activated platelets promote fibrin formation; fibrin traps platelets), so the co-occurring reduction in both cannot be resolved into which change is upstream and which is downstream from morphology alone.
+  - Neither panel shows a biochemical or enzymatic readout, so the pair does not itself demonstrate that BVLD acts via thrombin inactivation; that mechanism is asserted elsewhere, not shown by these two SEM comparisons.
+  - The comparison is across surface types (a fixed small set of conditions: 316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF), not a dose-response or time series, so it supports an ordering across conditions, not a quantitative relationship.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+The PPAmF composite reduces the NO burst and prolongs NO release beyond 8 h, versus ~1 h for PPAm
+
+The later step then asks: how the material performs in service
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

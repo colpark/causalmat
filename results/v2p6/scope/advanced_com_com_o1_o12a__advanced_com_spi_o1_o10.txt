@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+FTIR (new bands at 2930, 2864 and 1122 cm-1 only in BST-SH) identifies the chemical identity of a new surface species -- CH2-containing aliphatic groups and a Si-O-type linkage -- while TGA (a ~1% weight-loss step at 180-250 C present in composites but absent in pure PAEN) independently confirms that an extra, thermally-decomposable mass component is actually present in the material. Together the two corroborate each other: the species FTIR detects spectroscopically is not a spectral artifact, since TGA shows it corresponds to a real, quantifiable mass loss that pure PAEN does not show, and the mass loss TGA detects is not from PAEN itself, since FTIR shows it carries the CH2/Si-O signature of a distinct organic/Si-containing species. Neither observation alone gives this: FTIR alone shows a new group is chemically present but not that it is a bulk, quantifiable, thermally distinct component; TGA alone shows an extra mass-loss step but not what chemical species is lost.
+
+Qualifications on that result:
+  - Does not establish covalent bonding (Si-O-BST grafting) as opposed to strong physisorption or adsorption of MPTMS/silane species on the BST surface -- neither the band presence nor the mass-loss step distinguishes a covalent linkage from a non-covalent one
+  - TGA's ~1% weight loss is not tied quantitatively to the FTIR bands -- the two measurements are not calibrated against each other, so the pairing shows co-occurrence of 'new species present' and 'new mass-loss step present,' not a measured amount of grafted material
+  - No coverage or density information -- neither observation nor their combination indicates how much of the BST surface is modified
+  - Combining two indirect/qualitative-to-semiquantitative techniques does not substitute for a direct bonding-verification method
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+New bands at 2930, 2864 and 1122 cm-1 appear only in the BST-SH spectrum
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/chemistry/bonding / STR/interface? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

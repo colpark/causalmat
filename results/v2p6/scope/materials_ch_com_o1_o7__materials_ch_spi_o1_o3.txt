@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the density measurement and the SEM fracture image corroborate that the HP composites (especially 1 and 5 wt% AlN, reaching ~100% relative density) are genuinely fully dense: the bulk density number is confirmed by direct microstructural inspection showing no open pores and large flat transgranular fracture facets, i.e. the near-100% relative density figure is not an artifact of the measurement method but corresponds to an observably pore-free, well-consolidated microstructure with fracture running through grains rather than around residual porosity.
+
+Qualifications on that result:
+  - Density is a single bulk average over the whole sample and cannot by itself confirm whether residual porosity, if any, is open or closed, or how pores are distributed; SEM supplies only a local, qualitative view of one fracture surface and cannot by itself quantify a density value or compare it across the 0/1/3/5 wt% AlN series
+  - SEM as reported gives no wt%-resolved porosity data, so the pair does not establish a quantitative trend linking SEM pore appearance to the specific density values (~97.5%, ~99.3%, ~100%) at each composition, only a qualitative consistency
+  - Neither observation establishes the mechanism by which AlN addition raises relative density (e.g., sintering-aid or grain-boundary effect); they only jointly confirm the resulting dense, pore-free state and transgranular fracture mode
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+HP relative density rises from ~97.5% (0 wt% AlN) to ~100% at 1 and 5 wt% (~99.3% at 3 wt%)
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/microstructure/porosity / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

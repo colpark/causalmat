@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, SEM and ELISA show that all three functionalised surfaces (BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF) present visibly less platelet/fibrin coverage than 316L SS and plain PPAmF, and this qualitative reduction co-occurs with total fibrinogen and gamma-chain levels roughly halving (total ~0.10 to ~0.053-0.06; gamma-chain ~0.13-0.15 to ~0.054-0.065) on the same three coatings. This supports a general link between the functionalised coatings and reduced fibrin/fibrinogen deposition consistent with curbed thrombin-mediated platelet activation.
+
+Qualifications on that result:
+  - SEM is a qualitative/visual read (fibrin network density, cell trapping, 'almost bare' appearance) on a small number of imaged fields, not a quantitative count, so it cannot itself confirm the ELISA-measured magnitude or ranking.
+  - ELISA shows the halving is shared by all three coatings including NO-PPAmF, which does not carry BVLD; the pair therefore cannot attribute the fibrinogen/gamma-chain drop specifically to BVLD-driven thrombin inactivation rather than an NO-associated or general PPAmF-functionalisation effect.
+  - SEM's 'almost bare' description of BVLD/NO does not match ELISA's finding that BVLD/NO is not the lowest in fibrinogen or gamma-chain among the three coatings, so the two readouts disagree on fine ordering even though both indicate a reduction relative to controls.
+  - Coating chemistry (PPAmF base layer) is common to all functionalised surfaces, so the two observations do not separate a coating-generic surface effect from a BVLD-specific thrombin-inactivation effect.
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Total fibrinogen (~0.10 -> ~0.053-0.06) and gamma-chain (~0.13-0.15 -> ~0.054-0.065) halve on all three functionalised coatings; BVLD/NO is not the lowest
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

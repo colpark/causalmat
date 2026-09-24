@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Taken together, the XRD confirmation that the as-prepared KMnHCF is a single, well-matched monoclinic P21/n phase (3D open framework of N-coordinated Mn and C-coordinated Fe) and the ICP-AES trend showing Zn content climbing from zero to about 50 at% by the 20th cycle and settling near 47 at% support a picture in which an open, well-defined host framework is present at the outset and, over cycling, comes to contain a large, roughly stable share of Zn among the cathode metals -- consistent with Zn2+ becoming the dominant inserted cation.
+
+Qualifications on that result:
+  - Observation A is a single, as-prepared time point; it says nothing about the framework's state at cycle 20 or later, so it cannot show that the structure identified initially is the same host that is present when the Zn plateau is reached
+  - Observation B is a bulk elemental at% from ICP-AES; it reports how much Zn is in the cathode overall, not where the Zn resides, so it cannot show that the Zn sits in the framework sites described by observation A rather than elsewhere in the electrode
+  - the two observations are of different kinds (a static phase-match snapshot versus a cycle-indexed compositional amount), so comparing them supports co-occurrence in the same material, not a mechanistic link between the framework and the uptake
+  - no site-resolved or post-cycling structural data are given, so the plateau at ~47 at% cannot be tied to saturation of framework sites specifically versus some other limit
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Zn content rises from zero to about 50 at% by the 20th cycle and stays near 47 at% afterwards
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/chemistry/composition / STR/phase/site_occupancy? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

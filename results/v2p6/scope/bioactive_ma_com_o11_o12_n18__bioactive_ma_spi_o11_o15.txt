@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the SEM morphology and the BIO platelet counts show that BVLD/NO-PPAmF has both the fewest adhered platelets (~5x1e2 cells/mm2, lowest of the five surfaces) and a morphology dominated by a few round, unspread platelets, in contrast to 316L SS and PPAmF (32 and 41x1e2 cells/mm2, many spread dendritic platelets) and to BVLD-PPAmF and NO-PPAmF alone (15.5 and 11x1e2 cells/mm2, fewer spread platelets but still present). Combining the two measurements shows a reduced platelet number (BIO) co-occurring with reduced platelet spreading/activation shape (SEM) specifically on BVLD/NO-PPAmF -- a joint reduction in adhesion and activation that neither the count alone (which says nothing about the shape/activation state of the platelets present) nor the SEM images alone (which give no quantitative count) can show.
+
+Qualifications on that result:
+  - No statistics or error bars are reported alongside either measurement, so the apparent stepwise ordering across the five surfaces is descriptive, not tested
+  - SEM morphology is reported qualitatively per surface (many/fewer/a few) and is not tied numerically to the counted platelet densities from the same fields, so the correspondence between 'few round platelets' and '5x1e2 cells/mm2' is descriptive, not a measured relationship
+  - The pair says nothing about the underlying surface-chemistry or biochemical mechanism producing the suppression -- only that count and morphology move together across surfaces
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Many spread, dendritic platelets on 316L SS and PPAmF; fewer on BVLD-PPAmF and NO-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Together, the Rietveld XRD fit and the HRTEM lattice-fringe image establish that the same monoclinic P21/n phase model describes the material both as a bulk, ensemble-averaged structure (XRD) and as the local, single-particle lattice order (HRTEM): the (220) fringe spacing of 0.36 nm running unbroken across the particle is consistent with the same unit cell that the calculated XRD pattern (flat difference curve) fits, so the phase identification is corroborated at two independent scales rather than resting on one.
+
+Qualifications on that result:
+  - Neither observation, nor the pair, establishes the coordination chemistry (N-coordinated Mn, C-coordinated Fe) claimed for the framework -- that identity comes from other evidence, not from XRD fit or fringe spacing alone
+  - The XRD fit is a bulk average over the whole sample and cannot confirm that any single particle is a homogeneous single crystal of that phase
+  - The HRTEM image is from one particle/field of view and cannot confirm bulk phase purity or that the same order holds across the whole sample
+  - The unbroken fringes across one particle do not, by themselves, prove full 3D framework connectivity or rule out stacking defects outside the imaged zone axis
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+The calculated pattern overlies the measured XRD trace and the difference curve stays flat
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/phase/identity / STR/chemistry/composition? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

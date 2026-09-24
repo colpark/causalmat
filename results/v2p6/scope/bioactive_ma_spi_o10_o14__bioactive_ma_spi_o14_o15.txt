@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Read together, the two panels show that BVLD's anti-thrombin bioactivity and the drop in fibrinogen/gamma-chain adsorption are dissociated, not co-occurring effects of a single mechanism. Thrombin specific activity falls only on the BVLD-bearing coatings (~0.65e-3 abs/ng/cm2 on BVLD-PPAmF and BVLD/NO-PPAmF vs ~1.3e-3 on 316L SS, PPAmF and NO-PPAmF), whereas total fibrinogen (~0.10 to ~0.053-0.06) and gamma-chain exposure (~0.13-0.15 to ~0.054-0.065) drop on all three functionalised coatings, including NO-PPAmF, which shows no reduction in thrombin activity, and BVLD/NO is not even the lowest for fibrinogen despite carrying the BVLD anti-thrombin effect.
+
+Qualifications on that result:
+  - NO-PPAmF halves fibrinogen/gamma-chain exposure without any matching fall in thrombin specific activity, so retained anti-thrombin bioactivity is not necessary for the fibrinogen effect
+  - BVLD/NO-PPAmF carries the BVLD anti-thrombin effect but is not the lowest for fibrinogen, so more thrombin inhibition does not track with less fibrinogen adsorption
+  - the two assays measure different quantity kinds (a normalized enzymatic activity per area vs. an ELISA signal for adsorbed protein amount), so they are not on a common scale for inferring one drives the other
+  - the coating groupings differ across the two observations (BVLD-bearing vs non-BVLD-bearing in A; all three functionalised coatings vs baseline in B), so a matched, like-for-like causal comparison is not set up
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Total fibrinogen (~0.10 -> ~0.053-0.06) and gamma-chain (~0.13-0.15 -> ~0.054-0.065) halve on all three functionalised coatings; BVLD/NO is not the lowest
+
+The later step then asks: Does the upstream evidence account for the downstream observation about PRP/value / PRF/service_capability? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

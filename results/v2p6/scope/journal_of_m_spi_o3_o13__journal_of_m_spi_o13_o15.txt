@@ -1,0 +1,32 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Taken together, the baseline two-phase lamellar architecture with sharp A/B interfaces (Observation A) and the asymmetric contrast that appears at the first strain step (Observation B) support that the alternating lamellar structure is the substrate on which strain is partitioned unequally between the two lamella types: one lamella type stays featureless while its neighbour develops mottled contrast and line contrast along the interface, i.e. the onset of plastic deformation is phase-selective and interface-localized rather than uniform across the microstructure.
+
+Qualifications on that result:
+  - The pair does not by itself identify which of the two lamellae (A or B) corresponds to which phase, i.e. it does not establish from imaging alone that the featureless lamella is B2 and the mottled one is FCC
+  - Does not establish the mechanism behind the asymmetry (intrinsic phase slip resistance versus interface/constraint effects)
+  - Only two states are compared -- the undeformed baseline (F1c) and the first strain step (F3a) -- too few points to support a strain-dependent trend or rate of defect accumulation, only an ordering (before vs after first increment)
+  - Does not establish whether the asymmetric pattern persists, intensifies, or reverses at higher strains beyond the first step
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+At first strain step one lamella is featureless while the neighbour shows mottled contrast and line contrast along the interface
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/defect/extended / STR/defect/extended? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}

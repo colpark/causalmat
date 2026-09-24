@@ -1,0 +1,31 @@
+You are given two texts from a chain of reasoning about one set of experiments. Judge one thing only: whether the first text, read together with its own qualifications, supports the second.
+
+TEXT 1 -- an earlier result, with the qualifications its author attached to it
+
+Observation A establishes the baseline FTIR fingerprint of unmodified PPAm (N-H stretch 3350/3210, aliphatic C-H, isocyanate/nitrile 2245/2180, C=O/C=N 1645, C-N 1230 cm-1), showing PPAm retains amine and nitrogen-containing groups from plasma polymerization. Observation B shows that after NO exposure, new bands (starred NO vibration, N=N, N-N, N-O stretches) appear in NO-PPAm that are absent from the PPAm spectrum. Together these two spectra support that NO exposure produces new nitrogen-oxygen-containing chemical species in the coating, over and above the nitrogen-containing functional groups (amine, nitrile/isocyanate, C=N) already present in the unreacted PPAm baseline -- i.e., NO becomes chemically incorporated into the PPAm film rather than merely physisorbed.
+
+Qualifications on that result:
+  - The generic labels 'NO vibration,' 'N=N,' 'N-N,' and 'N-O stretch' do not carry the wavenumber specificity needed to fix which nitrogen-oxygen linkage is present
+  - The comparison is a presence/absence spectral difference between two samples (PPAm vs NO-PPAm), not a quantitative measure of how much NO is incorporated or of reaction stoichiometry
+  - Observation A characterizes PPAm alone and Observation B characterizes a PPAm-vs-NO-PPAm difference; neither alone, nor their pairing, includes a control ruling out other N-O-containing byproducts or side reactions
+
+TEXT 2 -- the premise a later step takes as given before it reasons any further
+
+Starred NO vibration, N=N, N-N and N-O stretch bands appear in NO-PPAm and are absent from the PPAm spectrum
+
+The later step then asks: Does the upstream evidence account for the downstream observation about STR/chemistry/bonding / PRP/value? Say what the combination supports and what it leaves open.
+
+Does TEXT 1, as qualified, support TEXT 2 -- the same sample or specimen set, the same material state, the same measurement scope and conditions, the same quantity?
+
+Choose exactly one:
+
+  supports                 TEXT 1, with its qualifications applied, establishes what TEXT 2 takes as given. Sample, state, scope and quantity all line up.
+  supports only narrower   TEXT 1 establishes something real, but narrower than TEXT 2 assumes: a subset of the specimens, a different state or condition, a weaker or more hedged version of the quantity, or a qualification TEXT 2 quietly sets aside.
+  incompatible             TEXT 1 does not bear on TEXT 2, or bears on it the wrong way: a different quantity, a different specimen, a different experiment, or a contradiction.
+
+Judge the texts as written. Do not credit either text with anything it does not say, and do not repair a mismatch by assuming the two must be about the same thing because they appear in one chain.
+
+Return JSON and nothing else:
+{"verdict": "supports" | "supports only narrower" | "incompatible",
+ "mismatch": "sample" | "state" | "scope" | "quantity" | "none",
+ "why": "at most 60 words, quoting the words in TEXT 1 and in TEXT 2 that decide it"}
