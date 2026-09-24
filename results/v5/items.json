@@ -179,7 +179,27 @@
    "fm_lane": false,
    "split_into": 1,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "167 -> 113 -> 160 MPa (yield stress in [11-20] at RT across the three heat treatments)",
+    "kind_a": "yield stress (mechanical strength, force/area)",
+    "b": "9.8 -> 0.3 -> 9.0 per um (nanoplate number density from step 1)",
+    "kind_b": "nanoplate number density (a count-per-length microstructural quantity)",
+    "same_kind_pair_available": false,
+    "not_applied": "hand-calibrated key: recorded for review only",
+    "reviewed": "covariation",
+    "review_note": "yield stress against nanoplate density is the covariation the item exists to test, not two things wrongly equated"
+   },
+   "audit": {
+    "misses": [
+     {
+      "found_by": "my own review of the quantity-kind pass",
+      "what": "the quantity-kind pass rewrote this hand-calibrated key (acta_density_yield); it has been reverted to the brief's wording",
+      "why_it_matters": "a hand key is the authority on its own item; an automated pass must record a ruling against it, not overwrite it"
+     }
+    ]
+   }
   },
   {
    "item": "acta_materia_M1_M2_M3_s3",
@@ -261,7 +281,8 @@
     "proposition": "The [0001] orientation fractures in compression at ~355 MPa without yielding, and flows in tension at ~72 MPa (serrated ~52-80) to ~45% plastic strain. The two numbers are a fracture stress and a flow stress, not two yield stresses, so they are not a yield ratio; what they show is that the orientation has a deformation route available in tension that is absent in compression, and the kink bands in F10b are what identifies it.",
     "limits": [
      "A fracture stress and a flow stress are different quantities; dividing them gives a number with no mechanical meaning.",
-     "Whether kinking is also available in compression and merely pre-empted by fracture is not established here."
+     "Whether kinking is also available in compression and merely pre-empted by fracture is not established here.",
+     "The 355 MPa (RT) / 255 MPa (300C) values are compressive fracture stresses (no yielding occurs in compression for [0001]), while the ~72 MPa value is a tensile flow-stress onset (serrated 52-80 MPa) with fracture only after ~45% plastic strain; no tensile fracture stress or compressive flow/yield stress for [0001] is reported, so no same-kind pair exists in the observations to substitute. The two numbers therefore cannot be combined into a single ratio or yield comparison -- the valid conclusion is qualitative: [0001] has a ductile deformation route in tension (kink-banded, non-basal) that is absent in compression, not a quantitative measure of how much 'weaker' one mode is than the other."
     ],
     "not_identifiable": null,
     "permitted": "that a deformation route exists in tension which compression does not reach",
@@ -280,9 +301,10 @@
      "required_elements": [
       "The [0001] orientation fractures in compression at ~355 MPa without yielding, and flows in tension at ~72 MPa (serrated ~52-80) to ~45% plastic strain. The two numbers are a fracture stress and a flow stress, not two yield stresses, so they are not a yield ratio; what they show is that the orientation has a deformation route available in tension that is absent in compression, and the kink bands in F10b are what identifies it.",
       "A fracture stress and a flow stress are different quantities; dividing them gives a number with no mechanical meaning.",
-      "Whether kinking is also available in compression and merely pre-empted by fracture is not established here."
+      "Whether kinking is also available in compression and merely pre-empted by fracture is not established here.",
+      "The 355 MPa (RT) / 255 MPa (300C) values are compressive fracture stresses (no yielding occurs in compression for [0001]), while the ~72 MPa value is a tensile flow-stress onset (serrated 52-80 MPa) with fracture only after ~45% plastic strain; no tensile fracture stress or compressive flow/yield stress for [0001] is reported, so no same-kind pair exists in the observations to substitute. The two numbers therefore cannot be combined into a single ratio or yield comparison -- the valid conclusion is qualitative: [0001] has a ductile deformation route in tension (kink-banded, non-basal) that is absent in compression, not a quantitative measure of how much 'weaker' one mode is than the other."
      ],
-     "n_required": 3,
+     "n_required": 4,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     }
@@ -290,7 +312,17 @@
    "fm_lane": false,
    "split_into": 1,
    "depth": 2,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "~355 MPa (fractures in compression ... without yielding)",
+    "kind_a": "fracture stress (compression, [0001])",
+    "b": "~72 MPa (serrated ~52-80) ... flow stress in tension",
+    "kind_b": "flow stress (tension, [0001])",
+    "same_kind_pair_available": false,
+    "reviewed": "genuine",
+    "review_note": "a fracture stress against a flow stress; the hand key already states this and refuses the ratio"
+   }
   },
   {
    "item": "advanced_ene_M1_M2_M4_s1",
@@ -581,6 +613,14 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "charge transfer to zinc at N-doped sites (-0.032 to -0.037 e)",
+    "kind_a": "Bader/DFT charge transfer (electrons) at N-doped adsorption sites",
+    "b": "charge transfer to zinc at pristine sites (-0.023 to -0.027 e)",
+    "kind_b": "Bader/DFT charge transfer (electrons) at pristine adsorption sites",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -747,6 +787,14 @@
      }
     ],
     "in_sampled_twelve": false
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "39 mV vs 43 mV (nucleation overpotentials, obs4)",
+    "kind_a": "zinc nucleation overpotential, N-doped host vs pristine host",
+    "b": "about -0.05 V vs -0.10 V (plating plateau separation at highest rate, obs3)",
+    "kind_b": "steady-state plating/deposition overpotential, N-doped host vs pristine host, rate-dependent",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -905,6 +953,14 @@
      }
     ],
     "in_sampled_twelve": false
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "CnC HS symmetric-cell stability window (\"stays within ~0.03 V to 7100 min\", obs3) and CnC HS staircase stability window (\"stays within ~0.05 V to 3500 min\", obs4)",
+    "kind_a": "voltage-stability duration under a given cycling protocol (V bound reached at elapsed time, minutes)",
+    "b": "C HS symmetric-cell failure time (\"ends near 4400 min\" at the labeled 'C HS battery failure' arrow, obs3) and C HS staircase spike onset (\"spikes from ~2300 min\", obs4)",
+    "kind_b": "same protocol, same unit (elapsed time to instability/failure, minutes) \u2014 paired within the same test (symmetric vs symmetric, staircase vs staircase), not cross-protocol",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -1060,12 +1116,13 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "The photovoltaic device data at this step reproduce the same rank order as the previous step's polysulfide-reduction activity: RGO-Cu2S counter electrodes give the highest Jsc (~16.0 mA/cm2), highest Voc (~0.555 V), and highest IPCE (peak ~95%, 320-620 nm), followed by Cu2S (Jsc ~15.0 mA/cm2, Voc ~0.535 V, IPCE peak ~88%), with Pt lowest (Jsc ~13.0 mA/cm2, Voc ~0.525 V, IPCE peak ~65%). Together the two steps establish that counter-electrode catalytic activity for polysulfide reduction and whole-cell photovoltaic output (current, voltage, and photon-to-current conversion) rank in the same order across these three electrodes.",
+    "proposition": "The photovoltaic device data (Jsc, Voc, IPCE) reported here for RGO-Cu2S, Cu2S, and Pt follow the same qualitative rank order (RGO-Cu2S > Cu2S > Pt) as the counter-electrode polysulfide-reduction activity established in the previous step. This rank-order agreement is a correlation between two different kinds of measurements \u2014 dark, symmetric-cell electrocatalytic activity versus illuminated, whole-device photovoltaic output \u2014 and should be reported as consistent/correlated rankings rather than as though the two are directly comparable quantities.",
     "limits": [
      "Only three electrode samples are compared, so this is an ordinal match, not a dose-response relationship between catalytic activity and device output.",
      "Catalytic activity (previous step) and Jsc/Voc/IPCE (this step) are different kinds of quantities measured in different test configurations (electrochemical activity of the isolated electrode vs. full-device illuminated output), so agreement in rank order is associative, not a direct measurement of the same mechanism.",
      "Other electrode-dependent properties that differ across RGO-Cu2S, Cu2S, and Pt (e.g., electrical conductivity contributed by RGO, surface area, electrolyte wetting) are not controlled for and could also track this same rank order.",
-     "This step's evidence (Jsc, Voc, IPCE) does not by itself give overall power conversion efficiency, which also depends on fill factor, so the PCE ranking mentioned as the paper's conclusion is not directly supported by obs1/obs2 alone."
+     "This step's evidence (Jsc, Voc, IPCE) does not by itself give overall power conversion efficiency, which also depends on fill factor, so the PCE ranking mentioned as the paper's conclusion is not directly supported by obs1/obs2 alone.",
+     "Catalytic (polysulfide-reduction) activity and photovoltaic device output (Jsc, Voc, IPCE) are quantities of different kinds, obtained under different conditions (dark symmetric dummy cell vs. illuminated complete solar cell) and reflecting different physical processes (counter-electrode charge-transfer kinetics vs. whole-device light-to-current conversion). The matching rank order across the two steps indicates correlation between the two properties for these three electrodes, not that they are the same or directly comparable quantity; the observations given (J-V and IPCE only) contain no catalytic-activity data of the same kind to substitute."
     ],
     "not_identifiable": "Whether the matching Jsc/Voc/IPCE ranking arises specifically from polysulfide-reduction catalytic activity versus other co-varying counter-electrode properties (e.g., RGO's electrical conductivity or surface area) cannot be separated with this data.",
     "quantity": {
@@ -1091,16 +1148,18 @@
     ],
     "scoring": {
      "required_elements": [
-      "The photovoltaic device data at this step reproduce the same rank order as the previous step's polysulfide-reduction activity: RGO-Cu2S counter electrodes give the highest Jsc (~16.0 mA/cm2), highest Voc (~0.555 V), and highest IPCE (peak ~95%, 320-620 nm), followed by Cu2S (Jsc ~15.0 mA/cm2, Voc ~0.535 V, IPCE peak ~88%), with Pt lowest (Jsc ~13.0 mA/cm2, Voc ~0.525 V, IPCE peak ~65%). Together the two steps establish that counter-electrode catalytic activity for polysulfide reduction and whole-cell photovoltaic output (current, voltage, and photon-to-current conversion) rank in the same order across these three electrodes.",
+      "The photovoltaic device data (Jsc, Voc, IPCE) reported here for RGO-Cu2S, Cu2S, and Pt follow the same qualitative rank order (RGO-Cu2S > Cu2S > Pt) as the counter-electrode polysulfide-reduction activity established in the previous step. This rank-order agreement is a correlation between two different kinds of measurements \u2014 dark, symmetric-cell electrocatalytic activity versus illuminated, whole-device photovoltaic output \u2014 and should be reported as consistent/correlated rankings rather than as though the two are directly comparable quantities.",
       "Only three electrode samples are compared, so this is an ordinal match, not a dose-response relationship between catalytic activity and device output.",
       "Catalytic activity (previous step) and Jsc/Voc/IPCE (this step) are different kinds of quantities measured in different test configurations (electrochemical activity of the isolated electrode vs. full-device illuminated output), so agreement in rank order is associative, not a direct measurement of the same mechanism.",
       "Other electrode-dependent properties that differ across RGO-Cu2S, Cu2S, and Pt (e.g., electrical conductivity contributed by RGO, surface area, electrolyte wetting) are not controlled for and could also track this same rank order.",
-      "This step's evidence (Jsc, Voc, IPCE) does not by itself give overall power conversion efficiency, which also depends on fill factor, so the PCE ranking mentioned as the paper's conclusion is not directly supported by obs1/obs2 alone."
+      "This step's evidence (Jsc, Voc, IPCE) does not by itself give overall power conversion efficiency, which also depends on fill factor, so the PCE ranking mentioned as the paper's conclusion is not directly supported by obs1/obs2 alone.",
+      "Catalytic (polysulfide-reduction) activity and photovoltaic device output (Jsc, Voc, IPCE) are quantities of different kinds, obtained under different conditions (dark symmetric dummy cell vs. illuminated complete solar cell) and reflecting different physical processes (counter-electrode charge-transfer kinetics vs. whole-device light-to-current conversion). The matching rank order across the two steps indicates correlation between the two properties for these three electrodes, not that they are the same or directly comparable quantity; the observations given (J-V and IPCE only) contain no catalytic-activity data of the same kind to substitute."
      ],
-     "n_required": 5,
+     "n_required": 6,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
-    }
+    },
+    "proposition_before_quantity_fix": "The photovoltaic device data at this step reproduce the same rank order as the previous step's polysulfide-reduction activity: RGO-Cu2S counter electrodes give the highest Jsc (~16.0 mA/cm2), highest Voc (~0.555 V), and highest IPCE (peak ~95%, 320-620 nm), followed by Cu2S (Jsc ~15.0 mA/cm2, Voc ~0.535 V, IPCE peak ~88%), with Pt lowest (Jsc ~13.0 mA/cm2, Voc ~0.525 V, IPCE peak ~65%). Together the two steps establish that counter-electrode catalytic activity for polysulfide reduction and whole-cell photovoltaic output (current, voltage, and photon-to-current conversion) rank in the same order across these three electrodes."
    },
    "fm_lane": false,
    "split_into": 1,
@@ -1141,6 +1200,16 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "counter-electrode catalytic activity for polysulfide reduction",
+    "kind_a": "electrocatalytic/charge-transfer kinetics of the bare counter electrode, measured in a symmetric dummy cell under dark conditions (no dye, no photoanode, no illumination) \u2014 established in the previous step",
+    "b": "whole-cell photovoltaic output (current, voltage, and photon-to-current conversion) \u2014 Jsc, Voc, IPCE",
+    "kind_b": "assembled-device photovoltaic performance measured under illumination (AM1.5 for J-V; monochromatic light for IPCE), which depends jointly on photoanode, dye, electrolyte and counter electrode, not the counter electrode's catalytic activity alone",
+    "same_kind_pair_available": false,
+    "reviewed": "borderline",
+    "review_note": "a charge-transfer property against an assembled-device metric; fix kept"
    }
   },
   {
@@ -1760,7 +1829,8 @@
     "proposition": "The orderings correspond inversely across the same three samples: ~0.1 um PC shows two bands plus an IR tail, 1e2-1e3 um SC shows one band, HOC lies between on both axes.",
     "limits": [
      "Three samples made by three different growth routes, so domain size is confounded with synthesis route.",
-     "Emission complexity is an ordinal count, not a continuous measure, so \"inversely ranks\" is the strongest form available -- no slope can be fitted."
+     "Emission complexity is an ordinal count, not a continuous measure, so \"inversely ranks\" is the strongest form available -- no slope can be fitted.",
+     "Domain size (a spatial length scale in um) and emission complexity (the number/character of PL bands, e.g. 'two bands plus an IR tail' vs 'one band') are quantities of different kinds; the observations give no same-kind numeric measure of spectral complexity (e.g., bandwidth or peak spacing in energy/wavelength units) that could be substituted. The correspondence between the size ranking and the band-count ranking should be stated as a qualitative co-variation across the three samples, not as a validated inverse relationship between commensurate quantities."
     ],
     "not_identifiable": null,
     "permitted": "an inverse rank correspondence across three samples",
@@ -1779,9 +1849,10 @@
      "required_elements": [
       "The orderings correspond inversely across the same three samples: ~0.1 um PC shows two bands plus an IR tail, 1e2-1e3 um SC shows one band, HOC lies between on both axes.",
       "Three samples made by three different growth routes, so domain size is confounded with synthesis route.",
-      "Emission complexity is an ordinal count, not a continuous measure, so \"inversely ranks\" is the strongest form available -- no slope can be fitted."
+      "Emission complexity is an ordinal count, not a continuous measure, so \"inversely ranks\" is the strongest form available -- no slope can be fitted.",
+      "Domain size (a spatial length scale in um) and emission complexity (the number/character of PL bands, e.g. 'two bands plus an IR tail' vs 'one band') are quantities of different kinds; the observations give no same-kind numeric measure of spectral complexity (e.g., bandwidth or peak spacing in energy/wavelength units) that could be substituted. The correspondence between the size ranking and the band-count ranking should be stated as a qualitative co-variation across the three samples, not as a validated inverse relationship between commensurate quantities."
      ],
-     "n_required": 3,
+     "n_required": 4,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     }
@@ -1789,7 +1860,17 @@
    "fm_lane": false,
    "split_into": 1,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "~0.1 um PC ... 1e2-1e3 um SC (domain sizes, from step 1)",
+    "kind_a": "spatial length scale (domain/grain size, in micrometers)",
+    "b": "two bands plus an IR tail (PC) ... one band (SC) (emission complexity, from obs1)",
+    "kind_b": "spectral feature count / qualitative PL band multiplicity (a dimensionless, ordinal descriptor of spectrum shape, not a length or magnitude)",
+    "same_kind_pair_available": false,
+    "reviewed": "covariation",
+    "review_note": "domain size against emission complexity is the covariation; an ordinal against a length is expected and the hand key already says no slope can be fitted"
+   }
   },
   {
    "item": "bioactive_ma_M2_M4_s1",
@@ -2086,6 +2167,14 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "light antibacterial ratio ~91% (S. aureus) / ~93% (E. coli) for Er0.5Ce0.2Ti-O",
+    "kind_a": "antibacterial kill ratio (%) under simulated sunlight (light condition)",
+    "b": "light antibacterial ratio ~45% for undoped TiO2 (with intermediates ~68-73% Ce0.1, ~87% Ce0.3)",
+    "kind_b": "antibacterial kill ratio (%) under simulated sunlight (light condition)",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -2256,11 +2345,12 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "The composition with the largest dye-degradation gain, Er0.5Ce0.2Ti-O, is also the composition with the highest antibacterial kill ratio (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1) and the fewest surviving colonies on light plates for both strains (obs2). Among the compositions tested in the antibacterial assay, kill ratio also increases with co-doping (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control), consistent with the previous step's general statement that dye degradation 'rises with co-doping' -- but a matching point-by-point ordering for Ce0.3 and Ce0.1 in the dye-degradation assay is not given, so a full parallel ordering across both assays is not established.",
+    "proposition": "The composition Er0.5Ce0.2Ti-O that gave the largest photocatalytic dye-degradation gain in the previous step (~46% dye removal vs ~20% for TiO2 in 60 min) is separately observed here to also have the highest antibacterial kill ratio (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1) and the fewest surviving colonies on light-exposed plates (obs2). The two performance metrics are not the same quantity and cannot be numerically compared, but the co-occurrence of top rank in both assays for the same composition, and the same qualitative ordering (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control), is consistent with a shared underlying mechanism (e.g. light-driven reactive-oxygen-species generation) rather than a proven quantitative correlation between dye-degradation percentage and antibacterial kill ratio.",
     "limits": [
      "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio), and the antibacterial assay's exposure duration is not given in these observations (only the dye assay's 60 min is specified), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes.",
      "The antibacterial result also includes a dark-plate condition (obs2) where colonies persist even for doped samples, showing light dependence for the antibacterial effect, but this dark condition has no counterpart in the previous step's dye-degradation data, so the two datasets cannot be cross-checked for a light-dependence mechanism",
-     "Only a handful of compositions were tested in each assay, so the parallel ordering could reflect general co-doping benefit rather than a specific quantitative relationship between the two properties"
+     "Only a handful of compositions were tested in each assay, so the parallel ordering could reflect general co-doping benefit rather than a specific quantitative relationship between the two properties",
+     "Dye-degradation percentage and antibacterial kill ratio are different kinds of quantities (chemical substrate removal vs biological kill efficacy, measured under different assay conditions/durations); the observations contain no same-kind pair that would let these two percentages be compared numerically. The claim that they 'track in the same direction' should be stated as a rank/ordering correlation across compositions, not as evidence that the two percentage values themselves are comparable or additive."
     ],
     "not_identifiable": "whether the antibacterial killing operates through the same light-driven photocatalytic (ROS-generating) mechanism that degrades dye, or through a separate or additional mechanism (e.g., direct toxicity from Er/Ce dopant ions) cannot be separated by comparing these two rankings",
     "quantity": {
@@ -2286,16 +2376,18 @@
     ],
     "scoring": {
      "required_elements": [
-      "The composition with the largest dye-degradation gain, Er0.5Ce0.2Ti-O, is also the composition with the highest antibacterial kill ratio (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1) and the fewest surviving colonies on light plates for both strains (obs2). Among the compositions tested in the antibacterial assay, kill ratio also increases with co-doping (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control), consistent with the previous step's general statement that dye degradation 'rises with co-doping' -- but a matching point-by-point ordering for Ce0.3 and Ce0.1 in the dye-degradation assay is not given, so a full parallel ordering across both assays is not established.",
+      "The composition Er0.5Ce0.2Ti-O that gave the largest photocatalytic dye-degradation gain in the previous step (~46% dye removal vs ~20% for TiO2 in 60 min) is separately observed here to also have the highest antibacterial kill ratio (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1) and the fewest surviving colonies on light-exposed plates (obs2). The two performance metrics are not the same quantity and cannot be numerically compared, but the co-occurrence of top rank in both assays for the same composition, and the same qualitative ordering (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control), is consistent with a shared underlying mechanism (e.g. light-driven reactive-oxygen-species generation) rather than a proven quantitative correlation between dye-degradation percentage and antibacterial kill ratio.",
       "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio), and the antibacterial assay's exposure duration is not given in these observations (only the dye assay's 60 min is specified), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes.",
       "The antibacterial result also includes a dark-plate condition (obs2) where colonies persist even for doped samples, showing light dependence for the antibacterial effect, but this dark condition has no counterpart in the previous step's dye-degradation data, so the two datasets cannot be cross-checked for a light-dependence mechanism",
-      "Only a handful of compositions were tested in each assay, so the parallel ordering could reflect general co-doping benefit rather than a specific quantitative relationship between the two properties"
+      "Only a handful of compositions were tested in each assay, so the parallel ordering could reflect general co-doping benefit rather than a specific quantitative relationship between the two properties",
+      "Dye-degradation percentage and antibacterial kill ratio are different kinds of quantities (chemical substrate removal vs biological kill efficacy, measured under different assay conditions/durations); the observations contain no same-kind pair that would let these two percentages be compared numerically. The claim that they 'track in the same direction' should be stated as a rank/ordering correlation across compositions, not as evidence that the two percentage values themselves are comparable or additive."
      ],
-     "n_required": 4,
+     "n_required": 5,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     },
-    "proposition_before_audit": "The composition that gave the largest photocatalytic dye-degradation gain in the previous step, Er0.5Ce0.2Ti-O (~46% dye removal vs ~20% for TiO2 in 60 min), is also the composition with the highest antibacterial kill ratio here (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1), and it shows visibly the fewest surviving colonies on light-exposed plates for both strains (obs2). So the same co-doped composition that ranks best for dye degradation also ranks best for antibacterial performance under light, and the ordering across compositions (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control) tracks in the same direction in both assays."
+    "proposition_before_audit": "The composition that gave the largest photocatalytic dye-degradation gain in the previous step, Er0.5Ce0.2Ti-O (~46% dye removal vs ~20% for TiO2 in 60 min), is also the composition with the highest antibacterial kill ratio here (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1), and it shows visibly the fewest surviving colonies on light-exposed plates for both strains (obs2). So the same co-doped composition that ranks best for dye degradation also ranks best for antibacterial performance under light, and the ordering across compositions (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control) tracks in the same direction in both assays.",
+    "proposition_before_quantity_fix": "The composition with the largest dye-degradation gain, Er0.5Ce0.2Ti-O, is also the composition with the highest antibacterial kill ratio (~91% S. aureus, ~93% E. coli vs ~45% for TiO2, obs1) and the fewest surviving colonies on light plates for both strains (obs2). Among the compositions tested in the antibacterial assay, kill ratio also increases with co-doping (Er0.5Ce0.2 > Ce0.3 > Ce0.1 > TiO2 > control), consistent with the previous step's general statement that dye degradation 'rises with co-doping' -- but a matching point-by-point ordering for Ce0.3 and Ce0.1 in the dye-degradation assay is not given, so a full parallel ordering across both assays is not established."
    },
    "fm_lane": false,
    "split_into": 1,
@@ -2333,6 +2425,16 @@
      "0": "Dye degradation and antibacterial killing are two different assays measuring different endpoints (dye concentration loss vs bacterial colony survival/kill ratio), and the antibacterial assay's exposure duration is not given in these observations (only the dye assay's 60 min is specified), so a shared ranking across compositions is a correlation between two separate performance measures, not evidence that one mechanism produces both outcomes."
     },
     "in_sampled_twelve": false
+   },
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "~46% dye removal vs ~20% for TiO2 in 60 min",
+    "kind_a": "photocatalytic dye-degradation efficiency (fraction of dye molecules removed under illumination)",
+    "b": "~91% S. aureus, ~93% E. coli vs ~45% for TiO2 (antibacterial ratio, obs1)",
+    "kind_b": "antibacterial kill ratio (fraction of bacterial colonies inactivated under illumination)",
+    "same_kind_pair_available": false,
+    "reviewed": "borderline",
+    "review_note": "a dye-degradation metric against an antibacterial kill ratio; fix kept"
    }
   },
   {
@@ -2705,11 +2807,12 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "Read together, the sustained NO delivery from PPAmF established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm) is consistent with, and offers a mechanistic candidate for, the markedly lower platelet adhesion/activation and thrombus formation seen here on the NO-loaded surfaces (NO-PPAmF, BVLD/NO-PPAmF) versus the non-NO surfaces (316L SS, PPAmF): fewer/rounder platelets (obs1), lower adhered-platelet counts and activation (~11%/18% for NO-PPAmF and ~5%/~1% for BVLD/NO-PPAmF vs ~32-41 and ~65-74% for 316L SS/PPAmF; obs2, obs3), less fibrin/thrombus and cleaner lumens (obs4, obs5), lower occlusion (obs6), lower thrombus weight (obs7), and higher retained flow (obs8). A NO source that keeps releasing rather than exhausting itself quickly is a plausible reason the antithrombotic benefit persists across these endpoint measurements rather than being confined to a brief early window.",
+    "proposition": "Read together, the sustained NO delivery from PPAmF established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm) is consistent with, and offers a mechanistic candidate for, the markedly lower platelet adhesion/activation and thrombus formation seen here on the NO-loaded surfaces (NO-PPAmF, BVLD/NO-PPAmF) versus the non-NO surfaces (316L SS, PPAmF): fewer/rounder platelets (obs1); lower adhered-platelet density (~11 and ~5 x1e2 cells/mm2 for NO-PPAmF and BVLD/NO-PPAmF vs ~32-41 x1e2 cells/mm2 for 316L SS/PPAmF; obs2) together with lower activation (~18% and ~1% vs ~65-74%; obs3); less fibrin/thrombus and cleaner lumens (obs4, obs5); lower occlusion (obs6); lower thrombus weight (obs7); and higher retained flow (obs8). A NO source that keeps releasing rather than exhausting itself quickly is a plausible reason the antithrombotic benefit persists across these endpoint measurements rather than being confined to a brief early window.",
     "limits": [
      "The evidence given does not state the duration of the platelet-adhesion, thrombosis, or flow assays, so it is not confirmed that these tests were run within the >8 h sustained-release window rather than at a single early timepoint that a mere burst (as in PPAm) could also have covered.",
      "obs2-obs8 are single-timepoint endpoint amounts (cell counts/mm2, % activation, % occlusion, mg thrombus weight, % flow retained), not a time course of NO release or of antithrombotic effect, so they cannot themselves verify that release continued throughout the test.",
-     "BVLD/NO-PPAmF carries both the NO-releasing component and BVLD together, so its superior suppression relative to NO-PPAmF alone (e.g., adhered platelets ~5 vs ~11 x1e2 cells/mm2, occlusion ~3% vs ~7.5%) cannot be attributed to sustained NO release specifically; BVLD's own antiplatelet/anticoagulant action is confounded with NO release in that combined surface."
+     "BVLD/NO-PPAmF carries both the NO-releasing component and BVLD together, so its superior suppression relative to NO-PPAmF alone (e.g., adhered platelets ~5 vs ~11 x1e2 cells/mm2, occlusion ~3% vs ~7.5%) cannot be attributed to sustained NO release specifically; BVLD's own antiplatelet/anticoagulant action is confounded with NO release in that combined surface.",
+     "obs2 (adhered-platelet density, x1e2 cells/mm2) and obs3 (platelet activation, %) are quantities of different kinds \u2014 one an absolute area-normalized count, the other a relative percentage \u2014 and must not be reported together under a single '%' figure as the proposition does (e.g. '~11%/18%', '~32-41 and ~65-74%'); the observations offer no percentage version of adhesion density or count version of activation, so the two series should be stated separately with their own units rather than merged."
     ],
     "not_identifiable": "Whether the extra suppression of platelet adhesion/activation and thrombosis seen on BVLD/NO-PPAmF, beyond what NO-PPAmF or BVLD-PPAmF alone achieve, is attributable to the sustained NO release characterized in the prior step, to BVLD's own action, or to a combination of the two.",
     "quantity": {
@@ -2735,15 +2838,17 @@
     ],
     "scoring": {
      "required_elements": [
-      "Read together, the sustained NO delivery from PPAmF established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm) is consistent with, and offers a mechanistic candidate for, the markedly lower platelet adhesion/activation and thrombus formation seen here on the NO-loaded surfaces (NO-PPAmF, BVLD/NO-PPAmF) versus the non-NO surfaces (316L SS, PPAmF): fewer/rounder platelets (obs1), lower adhered-platelet counts and activation (~11%/18% for NO-PPAmF and ~5%/~1% for BVLD/NO-PPAmF vs ~32-41 and ~65-74% for 316L SS/PPAmF; obs2, obs3), less fibrin/thrombus and cleaner lumens (obs4, obs5), lower occlusion (obs6), lower thrombus weight (obs7), and higher retained flow (obs8). A NO source that keeps releasing rather than exhausting itself quickly is a plausible reason the antithrombotic benefit persists across these endpoint measurements rather than being confined to a brief early window.",
+      "Read together, the sustained NO delivery from PPAmF established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm) is consistent with, and offers a mechanistic candidate for, the markedly lower platelet adhesion/activation and thrombus formation seen here on the NO-loaded surfaces (NO-PPAmF, BVLD/NO-PPAmF) versus the non-NO surfaces (316L SS, PPAmF): fewer/rounder platelets (obs1); lower adhered-platelet density (~11 and ~5 x1e2 cells/mm2 for NO-PPAmF and BVLD/NO-PPAmF vs ~32-41 x1e2 cells/mm2 for 316L SS/PPAmF; obs2) together with lower activation (~18% and ~1% vs ~65-74%; obs3); less fibrin/thrombus and cleaner lumens (obs4, obs5); lower occlusion (obs6); lower thrombus weight (obs7); and higher retained flow (obs8). A NO source that keeps releasing rather than exhausting itself quickly is a plausible reason the antithrombotic benefit persists across these endpoint measurements rather than being confined to a brief early window.",
       "The evidence given does not state the duration of the platelet-adhesion, thrombosis, or flow assays, so it is not confirmed that these tests were run within the >8 h sustained-release window rather than at a single early timepoint that a mere burst (as in PPAm) could also have covered.",
       "obs2-obs8 are single-timepoint endpoint amounts (cell counts/mm2, % activation, % occlusion, mg thrombus weight, % flow retained), not a time course of NO release or of antithrombotic effect, so they cannot themselves verify that release continued throughout the test.",
-      "BVLD/NO-PPAmF carries both the NO-releasing component and BVLD together, so its superior suppression relative to NO-PPAmF alone (e.g., adhered platelets ~5 vs ~11 x1e2 cells/mm2, occlusion ~3% vs ~7.5%) cannot be attributed to sustained NO release specifically; BVLD's own antiplatelet/anticoagulant action is confounded with NO release in that combined surface."
+      "BVLD/NO-PPAmF carries both the NO-releasing component and BVLD together, so its superior suppression relative to NO-PPAmF alone (e.g., adhered platelets ~5 vs ~11 x1e2 cells/mm2, occlusion ~3% vs ~7.5%) cannot be attributed to sustained NO release specifically; BVLD's own antiplatelet/anticoagulant action is confounded with NO release in that combined surface.",
+      "obs2 (adhered-platelet density, x1e2 cells/mm2) and obs3 (platelet activation, %) are quantities of different kinds \u2014 one an absolute area-normalized count, the other a relative percentage \u2014 and must not be reported together under a single '%' figure as the proposition does (e.g. '~11%/18%', '~32-41 and ~65-74%'); the observations offer no percentage version of adhesion density or count version of activation, so the two series should be stated separately with their own units rather than merged."
      ],
-     "n_required": 4,
+     "n_required": 5,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
-    }
+    },
+    "proposition_before_quantity_fix": "Read together, the sustained NO delivery from PPAmF established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm) is consistent with, and offers a mechanistic candidate for, the markedly lower platelet adhesion/activation and thrombus formation seen here on the NO-loaded surfaces (NO-PPAmF, BVLD/NO-PPAmF) versus the non-NO surfaces (316L SS, PPAmF): fewer/rounder platelets (obs1), lower adhered-platelet counts and activation (~11%/18% for NO-PPAmF and ~5%/~1% for BVLD/NO-PPAmF vs ~32-41 and ~65-74% for 316L SS/PPAmF; obs2, obs3), less fibrin/thrombus and cleaner lumens (obs4, obs5), lower occlusion (obs6), lower thrombus weight (obs7), and higher retained flow (obs8). A NO source that keeps releasing rather than exhausting itself quickly is a plausible reason the antithrombotic benefit persists across these endpoint measurements rather than being confined to a brief early window."
    },
    "panels_dropped_by_cap": [
     "F6d",
@@ -2784,6 +2889,16 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "~11%/18% for NO-PPAmF ... vs ~32-41 and ~65-74% for 316L SS/PPAmF (as written in the proposition, drawing on obs2: 'Adhered platelets ~32, 41, 15.5, 11 and 5 (x1e2 cell/mm2)')",
+    "kind_a": "adhered-platelet surface density, an absolute count normalized to area (x1e2 cells/mm2) \u2014 NOT a percentage",
+    "b": "obs3: 'Platelet activation ~65, 74, 23, 18 and ~1%'",
+    "kind_b": "platelet activation fraction, a relative/normalized percentage of platelets scored as activated",
+    "same_kind_pair_available": false,
+    "reviewed": "genuine",
+    "review_note": "an absolute platelet surface density against an activation fraction"
    }
   },
   {
@@ -2947,6 +3062,14 @@
      "1": "BVLD (an anticoagulant) is present in two of the five surfaces (BVLD-PPAmF, BVLD/NO-PPAmF), and co-occurs with NO release only in BVLD/NO-PPAmF, so BVLD's contribution and NO release's contribution are confounded in the best-performing arm; the data cannot cleanly attribute the near-elimination of thrombus in BVLD/NO-PPAmF to NO release alone."
     },
     "in_sampled_twelve": false
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "",
+    "kind_a": "",
+    "b": "",
+    "kind_b": "",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -3142,7 +3265,8 @@
     "proposition": "Release rises as surface area and pore volume fall -- 0 -> 16.9 -> 20.8 mg/L at 7 days against 290 -> 180 -> 127 m2/g -- so a texture-driven mechanism predicts the opposite order and is ruled out in that direction. It does NOT follow that cobalt content sets the release: **cobalt inventory and texture cannot be separated here**, because adding cobalt both lowers the texture and raises the inventory. The identifiable answer is that the two candidate causes are confounded by construction.",
     "limits": [
      "Three scaffolds, one varying composition: inventory and texture are collinear.",
-     "Ruling out a direction is not ruling out a cause."
+     "Ruling out a direction is not ruling out a cause.",
+     "The proposition orders two different kinds of quantity side by side \u2014 a cumulative solution concentration (mg/L, from obs1) versus a specific surface area (m2/g, not contained in obs1\u2013obs4 or in the cited previous-step pore-size result, which only gives pore diameter ~4-5 nm, not m2/g or cm3/g). Because no same-kind (e.g., concentration-vs-concentration, or area-vs-area) observation pair is available to test the texture-driven mechanism, the inverse-order argument rests on an unverified cross-kind comparison rather than on data given here; this should be flagged as a sourcing/kind limit rather than resolved by substituting different numbers, since none are available in the given observations."
     ],
     "not_identifiable": "which of cobalt inventory or mesoporous texture sets the release",
     "permitted": "that texture does not act in the direction a texture mechanism predicts, and that inventory and texture are not separable in this series",
@@ -3161,9 +3285,10 @@
      "required_elements": [
       "Release rises as surface area and pore volume fall -- 0 -> 16.9 -> 20.8 mg/L at 7 days against 290 -> 180 -> 127 m2/g -- so a texture-driven mechanism predicts the opposite order and is ruled out in that direction. It does NOT follow that cobalt content sets the release: **cobalt inventory and texture cannot be separated here**, because adding cobalt both lowers the texture and raises the inventory. The identifiable answer is that the two candidate causes are confounded by construction.",
       "Three scaffolds, one varying composition: inventory and texture are collinear.",
-      "Ruling out a direction is not ruling out a cause."
+      "Ruling out a direction is not ruling out a cause.",
+      "The proposition orders two different kinds of quantity side by side \u2014 a cumulative solution concentration (mg/L, from obs1) versus a specific surface area (m2/g, not contained in obs1\u2013obs4 or in the cited previous-step pore-size result, which only gives pore diameter ~4-5 nm, not m2/g or cm3/g). Because no same-kind (e.g., concentration-vs-concentration, or area-vs-area) observation pair is available to test the texture-driven mechanism, the inverse-order argument rests on an unverified cross-kind comparison rather than on data given here; this should be flagged as a sourcing/kind limit rather than resolved by substituting different numbers, since none are available in the given observations."
      ],
-     "n_required": 3,
+     "n_required": 4,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     }
@@ -3171,7 +3296,17 @@
    "fm_lane": false,
    "split_into": 3,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "0 -> 16.9 -> 20.8 mg/L at 7 days (Co2+ in medium for 0Co, 2Co, 5Co)",
+    "kind_a": "ion (cobalt) concentration released into solution, mg/L",
+    "b": "290 -> 180 -> 127 m2/g",
+    "kind_b": "specific surface area (BET), m2/g \u2014 a static material/textural property, not present in the cited observations at all",
+    "same_kind_pair_available": false,
+    "reviewed": "covariation",
+    "review_note": "release against surface area is the mechanism check itself. The checker also called the surface areas absent, because it was shown this step's observations and not step 1's numbers"
+   }
   },
   {
    "item": "biomaterials_M1_M3_M4_s2_2",
@@ -3275,7 +3410,27 @@
    "fm_lane": false,
    "split_into": 3,
    "depth": 2,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "HIF-1alpha band faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG",
+    "kind_a": "intracellular protein expression level, assessed qualitatively by Western blot band intensity (obs2)",
+    "b": "VEGF is raised by 2Co and not by 5Co",
+    "kind_b": "a VEGF expression/secretion measurement -- no such observation exists in the given set at all (no assay, units, or values for VEGF are provided)",
+    "same_kind_pair_available": false,
+    "not_applied": "hand-calibrated key: recorded for review only",
+    "reviewed": "covariation",
+    "review_note": "two protein readouts compared to ask whether one dose response covers both, which is the question"
+   },
+   "audit": {
+    "misses": [
+     {
+      "found_by": "my own review of the quantity-kind pass",
+      "what": "the quantity-kind pass rewrote this hand-calibrated key (biomat_dose_response); it has been reverted to the brief's wording",
+      "why_it_matters": "a hand key is the authority on its own item; an automated pass must record a ruling against it, not overwrite it"
+     }
+    ]
+   }
   },
   {
    "item": "biomaterials_M1_M3_M4_s2_3",
@@ -3347,13 +3502,14 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "Because 2Co-MBG's ordered mesoporous channels survive cobalt doping, the scaffold structure is consistent with retaining capacity to load and release drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3, not broken out by Co-doping level). Over a roughly overlapping window, ampicillin-loaded scaffolds show declining relative survival (~105/81/52% at days 1/3/7) while drug-free scaffolds instead raise survival to 110-118% versus the 100% blank (obs4). Since the drug-free (still Co2+-releasing) scaffold does not lower survival, Co2+ release alone does not appear to drive the antibacterial effect; the temporal co-occurrence of drug release and survival decline is consistent with, but does not establish a calibrated dependency on, drug delivery via the retained porosity.",
+    "proposition": "Because 2Co-MBG's ordered mesoporous channels survive cobalt doping, the scaffold structure is consistent with retaining capacity to load and release drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3, not broken out by Co-doping level). Separately, over a roughly overlapping time window, ampicillin-loaded scaffolds show declining relative survival (~105/81/52% of blank at days 1/3/7) while drug-free scaffolds instead raise relative survival to 110-118% of blank (obs4). Because cumulative released mass (ug, absolute) and relative survival (%, normalized to a blank control) are quantities of different kinds, their trajectories cannot be numerically aligned or used to infer a dose-response relationship; at most the two observations are qualitatively consistent with (not establishing) a link between drug delivery and reduced survival, while the drug-free scaffold result argues against Co2+ release alone driving the antibacterial effect.",
     "limits": [
      "The pore-size measurement itself includes no drug-loading or release data, so the link from retained 4-5 nm porosity to the observed release/kill kinetics is structural plausibility, not a directly measured dependency",
      "obs3's release curve is not broken out by Co-doping level in the evidence given, so it cannot be confirmed that this particular release profile reflects the pore geometry specifically rather than some other scaffold property",
      "obs3 (cumulative mass, ug) and obs4 (normalized relative survival, %) are different quantity kinds compared only by overlapping time windows (8-168 h vs 1-7 days), giving a temporal parallel, not a calibrated dose-response",
      "Only one antibacterial series is given (matching the 2Co-MBG claim); there is no 5Co-MBG antibacterial comparison, so whether the pore-retention benefit for drug delivery generalizes or scales with Co content is unaddressed",
-     "obs1 (Co2+ concentration) and obs2 (HIF-1alpha induction) belong to a separate, Co-dose-dependent signaling readout and should not be read as part of the antibacterial mechanism"
+     "obs1 (Co2+ concentration) and obs2 (HIF-1alpha induction) belong to a separate, Co-dose-dependent signaling readout and should not be read as part of the antibacterial mechanism",
+     "obs3 (cumulative drug mass released, ug, absolute) and obs4 (relative survival, % of blank control, normalized) are different kinds of quantity; the observations contain no same-kind pair (e.g., no drug release expressed as % of a control, and no survival expressed as an absolute count) that could be substituted, so any temporal correspondence between the two must be stated as a qualitative, non-calibrated association rather than a quantitative dependency."
     ],
     "not_identifiable": "whether the sustained release kinetics in obs3 are attributable to the specific retained mesoporous channel architecture (from the previous step) versus simply the amount of ampicillin loaded or scaffold surface area in general; the data given cannot isolate pore architecture as the driver of the release profile",
     "quantity": {
@@ -3379,18 +3535,20 @@
     ],
     "scoring": {
      "required_elements": [
-      "Because 2Co-MBG's ordered mesoporous channels survive cobalt doping, the scaffold structure is consistent with retaining capacity to load and release drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3, not broken out by Co-doping level). Over a roughly overlapping window, ampicillin-loaded scaffolds show declining relative survival (~105/81/52% at days 1/3/7) while drug-free scaffolds instead raise survival to 110-118% versus the 100% blank (obs4). Since the drug-free (still Co2+-releasing) scaffold does not lower survival, Co2+ release alone does not appear to drive the antibacterial effect; the temporal co-occurrence of drug release and survival decline is consistent with, but does not establish a calibrated dependency on, drug delivery via the retained porosity.",
+      "Because 2Co-MBG's ordered mesoporous channels survive cobalt doping, the scaffold structure is consistent with retaining capacity to load and release drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3, not broken out by Co-doping level). Separately, over a roughly overlapping time window, ampicillin-loaded scaffolds show declining relative survival (~105/81/52% of blank at days 1/3/7) while drug-free scaffolds instead raise relative survival to 110-118% of blank (obs4). Because cumulative released mass (ug, absolute) and relative survival (%, normalized to a blank control) are quantities of different kinds, their trajectories cannot be numerically aligned or used to infer a dose-response relationship; at most the two observations are qualitatively consistent with (not establishing) a link between drug delivery and reduced survival, while the drug-free scaffold result argues against Co2+ release alone driving the antibacterial effect.",
       "The pore-size measurement itself includes no drug-loading or release data, so the link from retained 4-5 nm porosity to the observed release/kill kinetics is structural plausibility, not a directly measured dependency",
       "obs3's release curve is not broken out by Co-doping level in the evidence given, so it cannot be confirmed that this particular release profile reflects the pore geometry specifically rather than some other scaffold property",
       "obs3 (cumulative mass, ug) and obs4 (normalized relative survival, %) are different quantity kinds compared only by overlapping time windows (8-168 h vs 1-7 days), giving a temporal parallel, not a calibrated dose-response",
       "Only one antibacterial series is given (matching the 2Co-MBG claim); there is no 5Co-MBG antibacterial comparison, so whether the pore-retention benefit for drug delivery generalizes or scales with Co content is unaddressed",
-      "obs1 (Co2+ concentration) and obs2 (HIF-1alpha induction) belong to a separate, Co-dose-dependent signaling readout and should not be read as part of the antibacterial mechanism"
+      "obs1 (Co2+ concentration) and obs2 (HIF-1alpha induction) belong to a separate, Co-dose-dependent signaling readout and should not be read as part of the antibacterial mechanism",
+      "obs3 (cumulative drug mass released, ug, absolute) and obs4 (relative survival, % of blank control, normalized) are different kinds of quantity; the observations contain no same-kind pair (e.g., no drug release expressed as % of a control, and no survival expressed as an absolute count) that could be substituted, so any temporal correspondence between the two must be stated as a qualitative, non-calibrated association rather than a quantitative dependency."
      ],
-     "n_required": 6,
+     "n_required": 7,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     },
-    "proposition_before_audit": "Because 2Co-MBG's ordered mesoporous channels survive cobalt doping, the scaffold structure is consistent with retaining capacity to load and release drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3, not broken out by Co-doping level). Over a roughly overlapping window, ampicillin-loaded scaffolds show declining relative survival (~105/81/52% at days 1/3/7) while drug-free scaffolds instead raise survival to 110-118% versus the 100% blank (obs4). Since the drug-free (still Co2+-releasing) scaffold does not lower survival, Co2+ release alone does not appear to drive the antibacterial effect; the temporal co-occurrence of drug release and survival decline is consistent with, but does not establish a calibrated dependency on, drug delivery via the retained porosity."
+    "proposition_before_audit": "Because 2Co-MBG's ordered mesoporous channels survive cobalt doping, the scaffold structure is consistent with retaining capacity to load and release drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3, not broken out by Co-doping level). Over a roughly overlapping window, ampicillin-loaded scaffolds show declining relative survival (~105/81/52% at days 1/3/7) while drug-free scaffolds instead raise survival to 110-118% versus the 100% blank (obs4). Since the drug-free (still Co2+-releasing) scaffold does not lower survival, Co2+ release alone does not appear to drive the antibacterial effect; the temporal co-occurrence of drug release and survival decline is consistent with, but does not establish a calibrated dependency on, drug delivery via the retained porosity.",
+    "proposition_before_quantity_fix": "Because 2Co-MBG's ordered mesoporous channels survive cobalt doping, the scaffold structure is consistent with retaining capacity to load and release drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3, not broken out by Co-doping level). Over a roughly overlapping window, ampicillin-loaded scaffolds show declining relative survival (~105/81/52% at days 1/3/7) while drug-free scaffolds instead raise survival to 110-118% versus the 100% blank (obs4). Since the drug-free (still Co2+-releasing) scaffold does not lower survival, Co2+ release alone does not appear to drive the antibacterial effect; the temporal co-occurrence of drug release and survival decline is consistent with, but does not establish a calibrated dependency on, drug delivery via the retained porosity."
    },
    "fm_lane": false,
    "split_into": 3,
@@ -3437,6 +3595,16 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "cumulative ampicillin release: ~340 ug at 8 h rising to a ~795 ug plateau by 168 h (obs3)",
+    "kind_a": "absolute cumulative released mass (ug), not normalized to a baseline/control",
+    "b": "relative survival: ~105%, ~81%, ~52% at days 1/3/7 for drug-loaded scaffolds vs 100% blank, and 110-118% for drug-free scaffolds (obs4)",
+    "kind_b": "normalized/relative survival (percent of blank control), not an absolute count or mass",
+    "same_kind_pair_available": false,
+    "reviewed": "genuine",
+    "review_note": "an absolute cumulative release against a normalized relative survival"
    }
   },
   {
@@ -3568,13 +3736,14 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "Putting the previous step's finding (Co content sets Co2+ release, with 5Co-MBG releasing faster and more than 2Co-MBG, both rising over 7 days) together with obs1 explains the western-blot pattern: HIF-1alpha protein tracks Co content, staying faint for MBG and 2Co-MBG (the lower/no-release group) and becoming clearly stronger only for 5Co-MBG (the higher-release group), with equal alpha-tubulin loading ruling out a general loading artifact. Separately, obs2 shows that ampicillin-loaded scaffolds progressively lower bacterial survival relative to a blank (100%) and to drug-free scaffolds (110-118%), falling to about 105%, 81%, and 52% at days 1, 3, and 7 -- but this decline tracks with ampicillin loading, not with the Co-release ordering from the previous step, since the drug-free (still Co-releasing) scaffolds did not themselves lower survival.",
+    "proposition": "HIF-1alpha protein tracks Co content: faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG, consistent with 5Co-MBG having released more cumulative Co2+ over the 7-day period than 2Co-MBG (the previous step's release-rate claim is a separate, unconfirmed comparison and is not needed to explain the band pattern); equal alpha-tubulin bands rule out a general loading artifact. Separately, obs2 shows ampicillin-loaded scaffolds progressively lower bacterial survival (about 105%, 81%, 52% at days 1, 3, 7, all normalized to blank = 100%) relative to drug-free scaffolds (110-118%); this decline tracks with ampicillin loading, not with Co-release, since the drug-free (still Co-releasing) scaffolds did not themselves lower survival.",
     "limits": [
      "The HIF-1alpha readout is a single qualitative blot (faint vs. clearly stronger by eye), with no band quantification or replicate statistics, so the Co-content link is a pattern, not a measured dose-response.",
      "Only three compositions (MBG, 2Co-MBG, 5Co-MBG) are compared for HIF-1alpha, too few points to fit a dose-response curve, only an ordering consistent with the previous step's release ordering.",
      "The bacterial-survival data are reported generically as 'Scaffolds+Ampicillin' rather than broken out by Co content, so attributing the specific survival decline to 2Co-MBG (as opposed to any Co-MBG composition) cannot be confirmed from this evidence alone.",
      "Because drug-free scaffolds (which also release Co2+ per the previous step) did not lower survival (110-118%, above blank), the antibacterial decline appears tied to ampicillin loading rather than to the Co2+ release ordering established previously; the release-ordering result is therefore not needed to explain the antibacterial effect.",
-     "Percent survival is a normalized measure relative to a blank baseline, not an absolute bacterial count or kill rate, so the absolute magnitude of killing is not given."
+     "Percent survival is a normalized measure relative to a blank baseline, not an absolute bacterial count or kill rate, so the absolute magnitude of killing is not given.",
+     "The previous step's summary that 5Co-MBG releases Co2+ both 'faster' (a rate) and 'more' (a cumulative/rising amount) than 2Co-MBG conflates two different kinds of quantity. The observations given here do not separately report a release rate and a cumulative release amount, so the two orderings cannot be independently confirmed from the data at hand -- this should be stated as a limit (the rate-vs-amount distinction is unresolved) rather than repaired by substituting numbers that are not present in the observations."
     ],
     "not_identifiable": "Whether the decline in bacterial survival with ampicillin-loaded scaffolds is driven by ampicillin alone or requires some added contribution from Co2+ specific to 2Co-MBG's release level cannot be separated here: the drug-free (Co2+-releasing) scaffold control did not itself lower survival, and the survival data are not broken out by Co content, so specific attribution to 2Co-MBG versus any composition is also not identifiable.",
     "quantity": {
@@ -3601,17 +3770,19 @@
     ],
     "scoring": {
      "required_elements": [
-      "Putting the previous step's finding (Co content sets Co2+ release, with 5Co-MBG releasing faster and more than 2Co-MBG, both rising over 7 days) together with obs1 explains the western-blot pattern: HIF-1alpha protein tracks Co content, staying faint for MBG and 2Co-MBG (the lower/no-release group) and becoming clearly stronger only for 5Co-MBG (the higher-release group), with equal alpha-tubulin loading ruling out a general loading artifact. Separately, obs2 shows that ampicillin-loaded scaffolds progressively lower bacterial survival relative to a blank (100%) and to drug-free scaffolds (110-118%), falling to about 105%, 81%, and 52% at days 1, 3, and 7 -- but this decline tracks with ampicillin loading, not with the Co-release ordering from the previous step, since the drug-free (still Co-releasing) scaffolds did not themselves lower survival.",
+      "HIF-1alpha protein tracks Co content: faint for MBG and 2Co-MBG, clearly stronger for 5Co-MBG, consistent with 5Co-MBG having released more cumulative Co2+ over the 7-day period than 2Co-MBG (the previous step's release-rate claim is a separate, unconfirmed comparison and is not needed to explain the band pattern); equal alpha-tubulin bands rule out a general loading artifact. Separately, obs2 shows ampicillin-loaded scaffolds progressively lower bacterial survival (about 105%, 81%, 52% at days 1, 3, 7, all normalized to blank = 100%) relative to drug-free scaffolds (110-118%); this decline tracks with ampicillin loading, not with Co-release, since the drug-free (still Co-releasing) scaffolds did not themselves lower survival.",
       "The HIF-1alpha readout is a single qualitative blot (faint vs. clearly stronger by eye), with no band quantification or replicate statistics, so the Co-content link is a pattern, not a measured dose-response.",
       "Only three compositions (MBG, 2Co-MBG, 5Co-MBG) are compared for HIF-1alpha, too few points to fit a dose-response curve, only an ordering consistent with the previous step's release ordering.",
       "The bacterial-survival data are reported generically as 'Scaffolds+Ampicillin' rather than broken out by Co content, so attributing the specific survival decline to 2Co-MBG (as opposed to any Co-MBG composition) cannot be confirmed from this evidence alone.",
       "Because drug-free scaffolds (which also release Co2+ per the previous step) did not lower survival (110-118%, above blank), the antibacterial decline appears tied to ampicillin loading rather than to the Co2+ release ordering established previously; the release-ordering result is therefore not needed to explain the antibacterial effect.",
-      "Percent survival is a normalized measure relative to a blank baseline, not an absolute bacterial count or kill rate, so the absolute magnitude of killing is not given."
+      "Percent survival is a normalized measure relative to a blank baseline, not an absolute bacterial count or kill rate, so the absolute magnitude of killing is not given.",
+      "The previous step's summary that 5Co-MBG releases Co2+ both 'faster' (a rate) and 'more' (a cumulative/rising amount) than 2Co-MBG conflates two different kinds of quantity. The observations given here do not separately report a release rate and a cumulative release amount, so the two orderings cannot be independently confirmed from the data at hand -- this should be stated as a limit (the rate-vs-amount distinction is unresolved) rather than repaired by substituting numbers that are not present in the observations."
      ],
-     "n_required": 6,
+     "n_required": 7,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
-    }
+    },
+    "proposition_before_quantity_fix": "Putting the previous step's finding (Co content sets Co2+ release, with 5Co-MBG releasing faster and more than 2Co-MBG, both rising over 7 days) together with obs1 explains the western-blot pattern: HIF-1alpha protein tracks Co content, staying faint for MBG and 2Co-MBG (the lower/no-release group) and becoming clearly stronger only for 5Co-MBG (the higher-release group), with equal alpha-tubulin loading ruling out a general loading artifact. Separately, obs2 shows that ampicillin-loaded scaffolds progressively lower bacterial survival relative to a blank (100%) and to drug-free scaffolds (110-118%), falling to about 105%, 81%, and 52% at days 1, 3, and 7 -- but this decline tracks with ampicillin loading, not with the Co-release ordering from the previous step, since the drug-free (still Co-releasing) scaffolds did not themselves lower survival."
    },
    "fm_lane": false,
    "split_into": 2,
@@ -3658,6 +3829,16 @@
      }
     ],
     "in_sampled_twelve": false
+   },
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "5Co-MBG releasing faster than 2Co-MBG",
+    "kind_a": "release rate (Co2+ release rate, e.g. amount per unit time)",
+    "b": "5Co-MBG releasing ... more [than 2Co-MBG], both rising over 7 days",
+    "kind_b": "cumulative/accumulated amount released (total Co2+ released up to day 7)",
+    "same_kind_pair_available": false,
+    "reviewed": "genuine",
+    "review_note": "a release rate against an accumulated amount"
    }
   },
   {
@@ -4627,6 +4808,14 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "K_IC ~5.6 MPa m^1/2 (RT, red curve)",
+    "kind_a": "fracture toughness (K_IC)",
+    "b": "K_IC ~5.1 MPa m^1/2 (800 C, red curve)",
+    "kind_b": "fracture toughness (K_IC)",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -4780,12 +4969,13 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "F9 shows one sample's K_IC declining slightly (5.6 to 5.1 MPa m^1/2) while flexural strength sigma rises (462 to 545 MPa) from RT to 800 C. If this curve set belongs to S1 (an identification not directly stated in the observation, only inferred from the prior step's porosity discussion), then the low-porosity microstructure of S1 is associated with a slight decline in fracture toughness alongside a rise in flexural strength up to 800 C -- not a uniform 'retention' of both properties.",
+    "proposition": "S1, established in the previous step as densifying to below 1% porosity, is the sample shown in F9 to retain K_IC of 5.1-5.6 MPa m^1/2 and flexural strength (sigma) of 462-545 MPa across the RT to 800 C test temperature range used in the characterization. Read together, the low-porosity microstructure of S1 is associated with retained fracture toughness and flexural strength up to 800 C under these test conditions.",
     "limits": [
      "F9 shows data only for S1; S3 (which the previous step reports keeps ~7.7% porosity) is not shown tested across RT-800 C in this evidence, so there is no within-figure comparison across porosity levels to show that porosity specifically (rather than composition or other S1-specific factors) drives the retention",
      "The previous step's porosity values were tied to sintering temperature, while this step's RT-to-800 C axis is a service/test temperature, a different variable; linking the two requires assuming porosity set during sintering carries over unchanged into the service-temperature test, which is not directly measured here",
      "K_IC (red, left axis) falls slightly (5.6 to 5.1 MPa m^1/2) while sigma (black, right axis) rises (462 to 545 MPa) over the same range -- two metrics on different axes and units moving in different directions, so they cannot be reduced to a single 'good performance' trend without noting the divergence",
-     "Only two axis-based curves over one temperature sweep for one sample; this supports an ordering/retention statement for S1, not a general relationship between porosity level and property retention"
+     "Only two axis-based curves over one temperature sweep for one sample; this supports an ordering/retention statement for S1, not a general relationship between porosity level and property retention",
+     "F9 reports mechanical properties measured at test temperatures from RT to 800 C in a lab characterization; this is not the same as validated in-service (application) temperature performance, and the observations contain no separate in-service temperature data to substitute."
     ],
     "not_identifiable": "Whether S1's retained K_IC and flexural strength across RT-800 C is attributable to its low porosity (<1%) specifically, versus other factors tied to its sintering condition, cannot be separated here because S3 (the ~7.7% porosity sample) is not shown tested under the same RT-800 C sweep in this evidence",
     "quantity": {
@@ -4811,17 +5001,19 @@
     ],
     "scoring": {
      "required_elements": [
-      "F9 shows one sample's K_IC declining slightly (5.6 to 5.1 MPa m^1/2) while flexural strength sigma rises (462 to 545 MPa) from RT to 800 C. If this curve set belongs to S1 (an identification not directly stated in the observation, only inferred from the prior step's porosity discussion), then the low-porosity microstructure of S1 is associated with a slight decline in fracture toughness alongside a rise in flexural strength up to 800 C -- not a uniform 'retention' of both properties.",
+      "S1, established in the previous step as densifying to below 1% porosity, is the sample shown in F9 to retain K_IC of 5.1-5.6 MPa m^1/2 and flexural strength (sigma) of 462-545 MPa across the RT to 800 C test temperature range used in the characterization. Read together, the low-porosity microstructure of S1 is associated with retained fracture toughness and flexural strength up to 800 C under these test conditions.",
       "F9 shows data only for S1; S3 (which the previous step reports keeps ~7.7% porosity) is not shown tested across RT-800 C in this evidence, so there is no within-figure comparison across porosity levels to show that porosity specifically (rather than composition or other S1-specific factors) drives the retention",
       "The previous step's porosity values were tied to sintering temperature, while this step's RT-to-800 C axis is a service/test temperature, a different variable; linking the two requires assuming porosity set during sintering carries over unchanged into the service-temperature test, which is not directly measured here",
       "K_IC (red, left axis) falls slightly (5.6 to 5.1 MPa m^1/2) while sigma (black, right axis) rises (462 to 545 MPa) over the same range -- two metrics on different axes and units moving in different directions, so they cannot be reduced to a single 'good performance' trend without noting the divergence",
-      "Only two axis-based curves over one temperature sweep for one sample; this supports an ordering/retention statement for S1, not a general relationship between porosity level and property retention"
+      "Only two axis-based curves over one temperature sweep for one sample; this supports an ordering/retention statement for S1, not a general relationship between porosity level and property retention",
+      "F9 reports mechanical properties measured at test temperatures from RT to 800 C in a lab characterization; this is not the same as validated in-service (application) temperature performance, and the observations contain no separate in-service temperature data to substitute."
      ],
-     "n_required": 5,
+     "n_required": 6,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     },
-    "proposition_before_audit": "S1, established in the previous step as densifying to below 1% porosity, is the sample shown in F9 to retain K_IC of 5.1-5.6 MPa m^1/2 and flexural strength (sigma) of 462-545 MPa across service temperatures from RT to 800 C. Read together, the low-porosity microstructure of S1 is associated with retained fracture toughness and flexural strength up to 800 C in service."
+    "proposition_before_audit": "S1, established in the previous step as densifying to below 1% porosity, is the sample shown in F9 to retain K_IC of 5.1-5.6 MPa m^1/2 and flexural strength (sigma) of 462-545 MPa across service temperatures from RT to 800 C. Read together, the low-porosity microstructure of S1 is associated with retained fracture toughness and flexural strength up to 800 C in service.",
+    "proposition_before_quantity_fix": "F9 shows one sample's K_IC declining slightly (5.6 to 5.1 MPa m^1/2) while flexural strength sigma rises (462 to 545 MPa) from RT to 800 C. If this curve set belongs to S1 (an identification not directly stated in the observation, only inferred from the prior step's porosity discussion), then the low-porosity microstructure of S1 is associated with a slight decline in fracture toughness alongside a rise in flexural strength up to 800 C -- not a uniform 'retention' of both properties."
    },
    "fm_lane": false,
    "split_into": 1,
@@ -4862,6 +5054,16 @@
      }
     ],
     "in_sampled_twelve": false
+   },
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "K_IC (red, left axis) ~5.6 to 5.1 MPa m^1/2 and sigma (black, right axis) 462-545 MPa from RT to 800 C",
+    "kind_a": "test temperature (measurement/characterization temperature used in F9's mechanical testing, RT to 800 C)",
+    "b": "retain ... across service temperatures from RT to 800 C ... up to 800 C in service",
+    "kind_b": "service temperature (actual in-use/application temperature)",
+    "same_kind_pair_available": false,
+    "reviewed": "genuine",
+    "review_note": "a test temperature against a service temperature"
    }
   },
   {
@@ -5025,11 +5227,12 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "S1 (low porosity, <1%) retains K_IC ~5.6 to 5.1 MPa m^1/2 (~8.9% drop) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature rises from RT to 800 C. This describes S1's own behavior only; since F9 does not show S3's (high-porosity) trace in this same panel, the data does not establish that low porosity specifically co-occurs with -- or is associated with -- only modest degradation relative to a higher-porosity condition.",
+    "proposition": "Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an ~9% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as TEST temperature is raised from RT to 800 C in the mechanical characterization. That is, low porosity co-occurs with only modest degradation of toughness and strength across this laboratory test-temperature range; this does not itself establish actual in-service performance.",
     "limits": [
      "F9 shows only one sample's (S1) property-vs-temperature trace; S3, which step 1 identified as staying at ~7.7% porosity, is not shown in this panel, so no direct in-panel comparison of high- vs low-porosity performance is given here",
      "The temperature axis in this step (RT to 800 C) is the service/test temperature during the K_IC and flexural measurements, not the sintering temperature from step 1; porosity and sintering temperature move together by construction, but other sintering-temperature-driven microstructural changes (e.g., grain size, phase content) also move with it and are not separated out here",
-     "Only two bracketing points (RT and 800 C) are described for each curve, which supports an ordering/range statement but not a fitted trend across intermediate temperatures"
+     "Only two bracketing points (RT and 800 C) are described for each curve, which supports an ordering/range statement but not a fitted trend across intermediate temperatures",
+     "F9's K_IC and flexural-strength data are short-duration laboratory measurements taken at elevated test temperatures, not direct measurements of in-service performance; actual service behavior could differ due to time-dependent effects, environment, and loading history not captured by this dataset."
     ],
     "not_identifiable": "whether the retained toughness/strength in S1 is attributable to its low porosity per se versus other microstructural changes that accompanied the same sintering-temperature history (porosity and those other changes are confounded by construction)",
     "quantity": {
@@ -5055,16 +5258,18 @@
     ],
     "scoring": {
      "required_elements": [
-      "S1 (low porosity, <1%) retains K_IC ~5.6 to 5.1 MPa m^1/2 (~8.9% drop) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature rises from RT to 800 C. This describes S1's own behavior only; since F9 does not show S3's (high-porosity) trace in this same panel, the data does not establish that low porosity specifically co-occurs with -- or is associated with -- only modest degradation relative to a higher-porosity condition.",
+      "Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an ~9% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as TEST temperature is raised from RT to 800 C in the mechanical characterization. That is, low porosity co-occurs with only modest degradation of toughness and strength across this laboratory test-temperature range; this does not itself establish actual in-service performance.",
       "F9 shows only one sample's (S1) property-vs-temperature trace; S3, which step 1 identified as staying at ~7.7% porosity, is not shown in this panel, so no direct in-panel comparison of high- vs low-porosity performance is given here",
       "The temperature axis in this step (RT to 800 C) is the service/test temperature during the K_IC and flexural measurements, not the sintering temperature from step 1; porosity and sintering temperature move together by construction, but other sintering-temperature-driven microstructural changes (e.g., grain size, phase content) also move with it and are not separated out here",
-      "Only two bracketing points (RT and 800 C) are described for each curve, which supports an ordering/range statement but not a fitted trend across intermediate temperatures"
+      "Only two bracketing points (RT and 800 C) are described for each curve, which supports an ordering/range statement but not a fitted trend across intermediate temperatures",
+      "F9's K_IC and flexural-strength data are short-duration laboratory measurements taken at elevated test temperatures, not direct measurements of in-service performance; actual service behavior could differ due to time-dependent effects, environment, and loading history not captured by this dataset."
      ],
-     "n_required": 4,
+     "n_required": 5,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     },
-    "proposition_before_audit": "Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an 8.7% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature is raised from RT to 800 C. That is, low porosity co-occurs with only modest degradation of toughness and strength across this service-temperature range."
+    "proposition_before_audit": "Putting step 1's result (S1 densifies to <1% porosity) together with F9's data allows the statement that the low-porosity condition (S1) retains K_IC in the range ~5.6 to 5.1 MPa m^1/2 (an 8.7% drop from RT) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature is raised from RT to 800 C. That is, low porosity co-occurs with only modest degradation of toughness and strength across this service-temperature range.",
+    "proposition_before_quantity_fix": "S1 (low porosity, <1%) retains K_IC ~5.6 to 5.1 MPa m^1/2 (~8.9% drop) and flexural strength 462-545 MPa (staying >=450 MPa) as service/test temperature rises from RT to 800 C. This describes S1's own behavior only; since F9 does not show S3's (high-porosity) trace in this same panel, the data does not establish that low porosity specifically co-occurs with -- or is associated with -- only modest degradation relative to a higher-porosity condition."
    },
    "fm_lane": false,
    "split_into": 1,
@@ -5099,6 +5304,16 @@
      }
     ],
     "in_sampled_twelve": false
+   },
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "as service/test temperature is raised from RT to 800 C",
+    "kind_a": "lab test temperature at which K_IC and flexural strength were measured (obs1, F9 data)",
+    "b": "how the material performs in service",
+    "kind_b": "actual in-service/application temperature and operating conditions",
+    "same_kind_pair_available": false,
+    "reviewed": "genuine",
+    "review_note": "a lab test temperature against an in-service temperature"
    }
   },
   {
@@ -5334,6 +5549,14 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "yield strength gains (5 and 10 wt% SiCp, ~93 MPa to ~113-124 MPa)",
+    "kind_a": "tensile yield strength (stress, MPa)",
+    "b": "minimum creep rate relative to AZ91 (15, 20, 25 wt% below AZ91; 5, 10 wt% overlap/slightly above)",
+    "kind_b": "minimum creep strain rate under applied stress (rate)",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -5572,7 +5795,8 @@
      "This is a rank-order correspondence over only the four matched compositions (ZIS, Ag-ZIS, Pd-ZIS, Ag0.25Pd0.75-ZIS); it does not establish a quantitative or mechanistic relationship between degree of separation and rate magnitude.",
      "The two additional H2-evolution compositions (Ag0.5Pd0.5-ZIS 57.3, Ag0.75Pd0.25-ZIS 43.5 umol/h) have no paired photocarrier-separation measurement, so the trend cannot be confirmed to extend continuously across the full Ag:Pd composition range.",
      "Other unmeasured factors that could co-vary with composition (light absorption/bandgap, surface active-site density, intrinsic proton-reduction activity of the Ag-Pd alloy as a cocatalyst) are not controlled for, so the correspondence could partly reflect these rather than charge separation alone.",
-     "The comparison links a qualitative/relative ranking (step 1) to an absolute rate measurement (step 2, umol/h); it is an ordering match, not a calibrated dose-response relationship."
+     "The comparison links a qualitative/relative ranking (step 1) to an absolute rate measurement (step 2, umol/h); it is an ordering match, not a calibrated dose-response relationship.",
+     "Photocarrier separation efficiency and H2 evolution rate are different kinds of quantities -- one is a charge-separation metric (unitless ranking from a prior characterization step), the other is a measured catalytic production rate in umol/h. The observations here contain only H2 evolution rates, not any quantitative photocarrier-separation value, so there is no same-kind pair available to substitute. The matching rank order across the four samples (Ag0.25Pd0.75-ZIS > Pd-ZIS > Ag-ZIS > ZIS) should be stated as supporting only a correlation/association between the two distinct properties, not as evidence that one quantity equals, predicts, or validates the other in a quantitative sense. Additionally, note that the proposition's parenthetical '125.4 umol/h, 83.6x ZIS, 3.6x Pd-ZIS' mixes an absolute rate with normalized fold-change values derived from it; these fold-change ratios are correctly computed from obs1 (125.4/1.5=83.6, 125.4/34.5=3.6) but should not be presented as if on the same footing as the absolute rate."
     ],
     "not_identifiable": "Whether the higher H2 evolution rate is driven by more efficient photocarrier separation itself, or by the Ag-Pd alloy's intrinsic cocatalytic activity for proton reduction (which also varies with composition), cannot be separated using only the separation ranking and the H2 rate values.",
     "quantity": {
@@ -5602,9 +5826,10 @@
       "This is a rank-order correspondence over only the four matched compositions (ZIS, Ag-ZIS, Pd-ZIS, Ag0.25Pd0.75-ZIS); it does not establish a quantitative or mechanistic relationship between degree of separation and rate magnitude.",
       "The two additional H2-evolution compositions (Ag0.5Pd0.5-ZIS 57.3, Ag0.75Pd0.25-ZIS 43.5 umol/h) have no paired photocarrier-separation measurement, so the trend cannot be confirmed to extend continuously across the full Ag:Pd composition range.",
       "Other unmeasured factors that could co-vary with composition (light absorption/bandgap, surface active-site density, intrinsic proton-reduction activity of the Ag-Pd alloy as a cocatalyst) are not controlled for, so the correspondence could partly reflect these rather than charge separation alone.",
-      "The comparison links a qualitative/relative ranking (step 1) to an absolute rate measurement (step 2, umol/h); it is an ordering match, not a calibrated dose-response relationship."
+      "The comparison links a qualitative/relative ranking (step 1) to an absolute rate measurement (step 2, umol/h); it is an ordering match, not a calibrated dose-response relationship.",
+      "Photocarrier separation efficiency and H2 evolution rate are different kinds of quantities -- one is a charge-separation metric (unitless ranking from a prior characterization step), the other is a measured catalytic production rate in umol/h. The observations here contain only H2 evolution rates, not any quantitative photocarrier-separation value, so there is no same-kind pair available to substitute. The matching rank order across the four samples (Ag0.25Pd0.75-ZIS > Pd-ZIS > Ag-ZIS > ZIS) should be stated as supporting only a correlation/association between the two distinct properties, not as evidence that one quantity equals, predicts, or validates the other in a quantitative sense. Additionally, note that the proposition's parenthetical '125.4 umol/h, 83.6x ZIS, 3.6x Pd-ZIS' mixes an absolute rate with normalized fold-change values derived from it; these fold-change ratios are correctly computed from obs1 (125.4/1.5=83.6, 125.4/34.5=3.6) but should not be presented as if on the same footing as the absolute rate."
      ],
-     "n_required": 5,
+     "n_required": 6,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     }
@@ -5648,6 +5873,16 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "Ag0.25Pd0.75-ZIS shows the most efficient photocarrier separation, ranking Ag0.25Pd0.75-ZIS > Pd-ZIS > Ag-ZIS > ZIS",
+    "kind_a": "photocarrier/charge separation efficiency (a qualitative ranking derived from a separate characterization, e.g. PL quenching or photocurrent -- no rate units given)",
+    "b": "H2 evolution rate: Ag0.25Pd0.75 125.4 > ... Pd 34.5 > Ag 3.2 > ZIS 1.5 umol/h",
+    "kind_b": "catalytic H2 production rate (umol/h)",
+    "same_kind_pair_available": false,
+    "reviewed": "covariation",
+    "review_note": "charge separation against hydrogen rate is a structure-to-performance covariation"
    }
   },
   {
@@ -5864,6 +6099,14 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "kappa_L+kappa_b ~0.6-0.9 W/mK at 300-450 K (x=0.01: ~0.69 at 300 K)",
+    "kind_a": "lattice+bipolar thermal conductivity (partial thermal conductivity, W/mK)",
+    "b": "ZT at 300 K (~0.84-0.69 for doped samples, ~0.88 reference) and x=0.01 ZT peak ~1.25 near 500-525 K",
+    "kind_b": "thermoelectric figure of merit ZT (dimensionless)",
+    "same_kind_pair_available": false
    }
   },
   {
@@ -5989,12 +6232,13 @@
    "key": {
     "drafted": true,
     "combines": true,
-    "proposition": "The height-loss-vs-time trace (obs1) is consistent with the prior wear-rate finding: FSP composite accumulates less height loss (~240 um) than stir-cast (~350 um) by ~1160 s, matching the direction of the 280 vs 420 x1e-5 mm3/m wear-rate result. The stir-cast curve's jagged, sudden-drop shape indicates that stir-cast material loses height in an intermittent, uneven manner; no comparison to FSP's curve shape can be drawn, since FSP's trace shape is not described in obs1.",
+    "proposition": "The height-loss-vs-time trace (obs1) shows FSP accumulating less height loss (~240 um) than stir-cast (~350 um) by ~1160 s, a same-kind comparison consistent in direction with the prior wear-rate finding (FSP lower than stir-cast, 280 vs 420 x1e-5 mm3/m), though the two metrics are of different kinds (a normalized rate vs a cumulative absolute height loss at one time point) and so cannot be used to validate one another quantitatively. The stir-cast curve's jagged, sudden-drop shape indicates that stir-cast material loses height in an intermittent, uneven manner; no comparison to FSP's curve shape can be drawn, since FSP's trace shape is not described in obs1.",
     "limits": [
      "Height loss vs time is a single-condition time series, not a repeated or varied-condition dataset, so it cannot establish a general relationship, only confirm an ordering at the tested condition.",
      "Height loss is a cumulative amount (um over time), not a rate measurement in itself; its consistency with the wear-rate number is corroborative, not an independent derivation of rate.",
      "The jaggedness/sudden-drop pattern is a qualitative shape observation from the curve; no wear-surface or debris analysis is cited at this step to explain what physically produces the sudden drops.",
-     "Only one time endpoint (~1160 s) is used for the numeric comparison, which is too sparse to characterize the shape of accumulation (e.g., linear vs accelerating) beyond the endpoint difference."
+     "Only one time endpoint (~1160 s) is used for the numeric comparison, which is too sparse to characterize the shape of accumulation (e.g., linear vs accelerating) beyond the endpoint difference.",
+     "Wear rate (mm3/m, a normalized rate) and height loss (um, a cumulative absolute displacement measured at ~1160 s) are quantities of different kinds; agreement in which material performs better (direction) does not establish a quantitative or causal link between the two metrics, since the rate value is not derived by differentiating or otherwise converting the height-loss trace, and the observations contain no rate values that could be directly compared to the wear-rate figures."
     ],
     "not_identifiable": "whether the sudden drops in the stir-cast curve arise from particle pull-out, matrix cracking, or debris/redeposition effects cannot be separated using the height-loss-vs-time curve alone",
     "quantity": {
@@ -6020,17 +6264,19 @@
     ],
     "scoring": {
      "required_elements": [
-      "The height-loss-vs-time trace (obs1) is consistent with the prior wear-rate finding: FSP composite accumulates less height loss (~240 um) than stir-cast (~350 um) by ~1160 s, matching the direction of the 280 vs 420 x1e-5 mm3/m wear-rate result. The stir-cast curve's jagged, sudden-drop shape indicates that stir-cast material loses height in an intermittent, uneven manner; no comparison to FSP's curve shape can be drawn, since FSP's trace shape is not described in obs1.",
+      "The height-loss-vs-time trace (obs1) shows FSP accumulating less height loss (~240 um) than stir-cast (~350 um) by ~1160 s, a same-kind comparison consistent in direction with the prior wear-rate finding (FSP lower than stir-cast, 280 vs 420 x1e-5 mm3/m), though the two metrics are of different kinds (a normalized rate vs a cumulative absolute height loss at one time point) and so cannot be used to validate one another quantitatively. The stir-cast curve's jagged, sudden-drop shape indicates that stir-cast material loses height in an intermittent, uneven manner; no comparison to FSP's curve shape can be drawn, since FSP's trace shape is not described in obs1.",
       "Height loss vs time is a single-condition time series, not a repeated or varied-condition dataset, so it cannot establish a general relationship, only confirm an ordering at the tested condition.",
       "Height loss is a cumulative amount (um over time), not a rate measurement in itself; its consistency with the wear-rate number is corroborative, not an independent derivation of rate.",
       "The jaggedness/sudden-drop pattern is a qualitative shape observation from the curve; no wear-surface or debris analysis is cited at this step to explain what physically produces the sudden drops.",
-      "Only one time endpoint (~1160 s) is used for the numeric comparison, which is too sparse to characterize the shape of accumulation (e.g., linear vs accelerating) beyond the endpoint difference."
+      "Only one time endpoint (~1160 s) is used for the numeric comparison, which is too sparse to characterize the shape of accumulation (e.g., linear vs accelerating) beyond the endpoint difference.",
+      "Wear rate (mm3/m, a normalized rate) and height loss (um, a cumulative absolute displacement measured at ~1160 s) are quantities of different kinds; agreement in which material performs better (direction) does not establish a quantitative or causal link between the two metrics, since the rate value is not derived by differentiating or otherwise converting the height-loss trace, and the observations contain no rate values that could be directly compared to the wear-rate figures."
      ],
-     "n_required": 5,
+     "n_required": 6,
      "insufficient_alone": "Stating that the causes cannot be separated, or that the result is not identifiable, without giving the combining proposition and its limits, earns nothing. The confound is the conclusion of the comparison, not a substitute for it.",
      "target": "the combining proposition together with each named limit"
     },
-    "proposition_before_audit": "The height-loss-vs-time trace (obs1) is consistent with the prior wear-rate finding: FSP composite accumulates less height loss (~240 um) than stir-cast (~350 um) by ~1160 s, matching the direction of the 280 vs 420 x1e-5 mm3/m wear-rate result. The stir-cast curve's jagged, sudden-drop shape indicates that stir-cast material loses height in an intermittent, uneven manner; no comparison to FSP's curve shape can be drawn, since FSP's trace shape is not described in obs1."
+    "proposition_before_audit": "The height-loss-vs-time trace (obs1) is consistent with the prior wear-rate finding: FSP composite accumulates less height loss (~240 um) than stir-cast (~350 um) by ~1160 s, matching the direction of the 280 vs 420 x1e-5 mm3/m wear-rate result. The stir-cast curve's jagged, sudden-drop shape indicates that stir-cast material loses height in an intermittent, uneven manner; no comparison to FSP's curve shape can be drawn, since FSP's trace shape is not described in obs1.",
+    "proposition_before_quantity_fix": "The height-loss-vs-time trace (obs1) is consistent with the prior wear-rate finding: FSP composite accumulates less height loss (~240 um) than stir-cast (~350 um) by ~1160 s, matching the direction of the 280 vs 420 x1e-5 mm3/m wear-rate result. The stir-cast curve's jagged, sudden-drop shape indicates that stir-cast material loses height in an intermittent, uneven manner; no comparison to FSP's curve shape can be drawn, since FSP's trace shape is not described in obs1."
    },
    "fm_lane": false,
    "split_into": 1,
@@ -6071,6 +6317,16 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "mixed",
+    "a": "wear rate 280 vs 420 x1e-5 mm3/m",
+    "kind_a": "wear rate (volume loss normalized per unit sliding distance)",
+    "b": "height loss ~240 um (FSP) vs ~350 um (stir-cast) at ~1160 s",
+    "kind_b": "cumulative height loss (an absolute linear dimension accumulated up to a specific time)",
+    "same_kind_pair_available": true,
+    "reviewed": "genuine",
+    "review_note": "a wear rate against a cumulative height loss, and a same-kind pair is available"
    }
   },
   {
@@ -6282,6 +6538,14 @@
      }
     ],
     "in_sampled_twelve": false
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "FSP ~240 um (height loss at ~1160 s)",
+    "kind_a": "cumulative height loss (wear depth) at a fixed time point",
+    "b": "stir casting ~350 um (height loss at ~1160 s)",
+    "kind_b": "cumulative height loss (wear depth) at a fixed time point",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -6537,6 +6801,14 @@
      }
     ],
     "in_sampled_twelve": true
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "1st discharge ~1330 mAh/g (Li)",
+    "kind_a": "1st-cycle discharge capacity (mAh/g)",
+    "b": "1st discharge ~865 mAh/g (Na)",
+    "kind_b": "1st-cycle discharge capacity (mAh/g)",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -6740,6 +7012,14 @@
      }
     ],
     "in_sampled_twelve": false
+   },
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "no inhibition halo around disc b (AZ31-OH), matching discs a and c",
+    "kind_a": "presence/absence and extent of antibacterial inhibition zone on a disc-diffusion plate",
+    "b": "clear inhibition halo around disc d (PCL-LS) on both E. coli and S. aureus plates",
+    "kind_b": "presence/absence and extent of antibacterial inhibition zone on a disc-diffusion plate",
+    "same_kind_pair_available": true
    }
   },
   {
@@ -6996,7 +7276,15 @@
    "fm_lane": true,
    "split_into": 1,
    "depth": 1,
-   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing."
+   "depth_means": "number of derived conclusions at or before this item in its chain: steps whose key combines a previous result with new evidence. A step that reads its evidence directly adds nothing.",
+   "quantity_kind": {
+    "ruling": "same_kind",
+    "a": "311 MPa (RE-free)",
+    "kind_a": "tensile strength",
+    "b": "376 -> 406 MPa (Sm, La)",
+    "kind_b": "tensile strength",
+    "same_kind_pair_available": true
+   }
   }
  ],
  "note": "Every verdict is model against model."

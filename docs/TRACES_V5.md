@@ -131,3 +131,96 @@ Fixed, and all seven now apply.
 question, the quantity kind on each side, the evidence, and the key with its limits, what is
 permitted, what is not, and what is not identifiable — plus its three labels and whether the key is
 hand-calibrated or drafted.
+
+
+---
+
+# v5b: closing the key audit
+
+## 1. The key audit, sampled and in full
+
+| | sampled 12 | **all 23 drafted survivors** |
+|---|---|---|
+| propositions hold | 4/12 = 33% | **9/23 = 39%** |
+| limits hold | 47/47 = 100% | **86/89 = 97%** |
+
+The sampled figure is what the brief asked for; the full figure supersedes it. **The sample was
+optimistic on limits** — across all 23 keys three limits are wrong, not none — and about right on
+propositions. Seventeen statements were rewritten, sixteen propositions and one limit set.
+
+The split is the finding, and it is stable across both cuts: **drafters write reliable caveats and
+overstated conclusions.** The limits were requested with worked examples of what a confound looks
+like; the proposition is where a model wants to conclude something.
+
+The one proposition ruled `wrong` is a misreading, not a nuance. The yield-strength series 93, 113,
+124, 127, 136, 142 MPa maps to 0, 5, 10, 15, 20, 25 wt% SiCp, so **127 MPa belongs to 15 wt%**, and
+the draft had attributed it to 10 wt% while arguing that 5 and 10 wt% give the largest gains.
+
+## 2. What the audit cannot see
+
+**The per-statement audit rules whether each *stated* limit is true. It never asks whether a
+*needed* limit is missing.** That is the whole of its blind spot, and 86 of 89 limits holding says
+nothing about it.
+
+Nano Letters is the case that proves it. The auditor correctly struck an unsupported Na-specific
+mechanism claim — and its own replacement then compared Li **charge** capacity against Na
+**discharge** capacity. Every statement in the key was true; nothing in a per-statement audit could
+fire.
+
+Worse, **that key was wrong the same way twice.** The auditor introduced the mismatch, and my own
+`collect()` — which re-applied audit fixes on every run — silently reinstated it over the
+correction. It survived only because the correction happened to also append a limit, which is luck,
+not a safeguard. `collect()` is now idempotent and records when it declines to overwrite.
+
+The correction is stricter than a swap: at cycle 40 the data give Li *charge* (~840 mAh/g) and Na
+*discharge* (~70), and **neither Li discharge nor Na charge**, so no like-for-like 40-cycle
+comparison exists in this evidence. The key compares first-cycle numbers like with like — 1st
+discharge 1330 against 865, 1st charge 870 against 470 — and carries the absence of a same-kind
+40-cycle pair as a limit.
+
+## 3. The quantity-kind check, and its own error rate
+
+One further question of all 29 keys: does the proposition compare quantities of different kinds?
+The raw result was **14 of 26 ruled `mixed`, 54%** — with 3 unparsed. That number should not be
+quoted, because the check has a category error and I reviewed every ruling by hand:
+
+| my review | n | |
+|---|---|---|
+| **genuine** | 7 | a real mismatch: test against service temperature, rate against cumulative amount, absolute against normalized, fracture against flow stress |
+| **borderline** | 2 | cross-assay comparisons, arguable either way; fixes kept and flagged |
+| **not a mismatch** | 5 | a covariation *relates* two different quantities — that is what the item is for |
+
+**The checker conflates "relates two different quantities" with "equates two quantities of different
+kinds".** Yield stress against nanoplate density, domain size against emission complexity, cobalt
+release against surface area — each is the covariation or mechanism check the item exists to test.
+Ruling those `mixed` is a category error, not a finding. Corrected rate: **7 genuine of 26 = 27%**,
+plus the Nano Letters mismatch found by review rather than by any check.
+
+One ruling was also wrong on its facts: it called the Biomaterials surface areas "not present in
+the cited observations at all". They come from step 1, which the item explicitly takes as input —
+the checker was shown this step's observations and not the previous step's numbers. A prompt-design
+fault in my check, not a fault in the key.
+
+**The check overwrote two hand-calibrated keys before I caught it.** `acta_density_yield` lost the
+words "move together", which is the entire covariation, and `biomat_dose_response` was rewritten
+too. Both are reverted to the brief's wording, both carry the incident as a logged miss, and the
+pass now records a ruling against a hand key rather than applying it. A hand key is the authority
+on its own item.
+
+## 4. The reports
+
+**32 self-contained HTML reports**, one per paper including all 16 with no surviving item, in
+`results/v5/reports/`, zipped to `results/v5/reports.zip` (8.4 MB). Five sections each: the original
+graph in stage order with every evidence node's panels and image verdict; all of MatMech's
+causality, spans included and labelled audit-only; how the traces were extracted, with the funnel
+and the stitch hop by hop; how the traces merge with that causality, every link with its strength
+and what confirmed it, and the confirmed chain drawn over the paper's own argument; and the final
+traces with question, panels, proposition, limits, scoring target, depth, causal strength, key
+status, every audit verdict beside the text it replaced, and dropped items with their reasons.
+
+Verified: zero external references of any kind, balanced markup, five sections each, and *every
+verdict is model against model* on every page.
+
+For the 16 papers with no surviving item, sections 4 and 5 say where the pipeline stopped. For nine
+of them the answer is the same and it is the central result of v5: **the hops attach to evidence and
+then nothing joins them.**

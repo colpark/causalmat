@@ -94,7 +94,13 @@ def collect():
         it['quantity_kind'] = {'ruling': rule, 'a': r.get('quantity_a'), 'kind_a': r.get('kind_a'),
                                'b': r.get('quantity_b'), 'kind_b': r.get('kind_b'),
                                'same_kind_pair_available': r.get('same_kind_pair_available')}
-        if rule == 'mixed':
+        if rule == 'mixed' and k.get('hand_calibrated'):
+            # A hand key is written from the brief and is the authority on its own item. The first
+            # run auto-edited two of them -- acta_density_yield lost the words "move together",
+            # which is the whole covariation, and biomat_dose_response was rewritten too. The
+            # ruling is recorded for review and nothing is changed.
+            it['quantity_kind']['not_applied'] = 'hand-calibrated key: recorded for review only'
+        elif rule == 'mixed':
             if r.get('fix'):
                 k.setdefault('proposition_before_quantity_fix', k['proposition'])
                 k['proposition'] = r['fix']
