@@ -96,6 +96,15 @@ def main():
     for a in ARMS[1:]:
         v = agg.get(a, [])
         if v: print(f"  {a:16s} {sum(v)/len(v):+.2f}  over {len(v)} cases")
+    print("\nmajority-class baseline: the share of an arm's step rulings taking its single most")
+    print("common level. An arm that says one thing everywhere scores 100% and carries no signal.")
+    for a in ARMS:
+        lv = [r['arms'].get(a, {}).get('steps', {}).get(i)
+              for r in rows for i in range(1, r['n_steps'] + 1)]
+        lv = [x for x in lv if x]
+        if not lv: continue
+        c = collections.Counter(lv); top, n = c.most_common(1)[0]
+        print(f"  {a:16s} {n}/{len(lv)} = {n/len(lv):.0%} are '{top}'   {dict(c)}")
     parsed = collections.Counter(v['parsed'] for r in rows for v in r['arms'].values())
     print(f"\nreplies parsed: {dict(parsed)}")
 
