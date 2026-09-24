@@ -20,12 +20,14 @@ by variant; those run on the canonical opener and the alternatives are recorded.
 
 Every verdict is model against model.
 """
-import collections, json, os, sys
+import collections, json, os, re, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 R = lambda *p: os.path.join(ROOT, *p)
 sys.path.insert(0, R('trace_kit_v2p5'))
 from pages import obj  # noqa: E402
+# by package, not by path: putting trace_kit_v2p6 on sys.path shadows v2.5's pages with v2.6's
+from trace_kit_v2p6.clean import clean  # noqa: E402
 
 ARM = R('results/v2p6/arms')
 CMP = R('results/v2p6/compare')
@@ -163,7 +165,10 @@ def compare():
             fb = os.path.join(ARM, f"{r['chain']}_B{k}.out.txt")
             if not (os.path.exists(fa) and os.path.exists(fb)):
                 miss.append(f"{r['chain']}_{k}"); continue
-            body = COMPARE.format(q=r['q'], a=open(fa).read().strip(), b=open(fb).read().strip())
+            # clean() strips output-framing fragments and injected-instruction notes, which
+            # landed in one arm of a pair and not the other and are not a difference between
+            # the two answers. The raw .out.txt files are left alone.
+            body = COMPARE.format(q=r['q'], a=clean(open(fa).read()), b=clean(open(fb).read()))
             f = os.path.join(CMP, f"{r['chain']}_{k}.txt")
             open(f, 'w').write(body)
             jobs.append({'id': f"{r['chain']}_{k}", 'agent': 'net-grader', 'prompt': f,
@@ -181,15 +186,25 @@ def collect():
         for k in range(1, REPEATS + 1):
             f = os.path.join(CMP, f'{ch}_{k}.out.txt')
             if not os.path.exists(f): continue
-            o = obj(open(f).read(), 'changed') or {}
+            raw = open(f).read()
+            o = obj(raw, 'changed') or {}
             v = (o.get('changed') or '').strip().lower()
+            salv = False
+            if not v:
+                # A few replies quote the two answers inside "why" without escaping the quotes,
+                # or run past the end and lose the closing brace, so the object will not parse.
+                # The verdict token itself is unambiguous in the raw text, and throwing away a
+                # legible ruling would be its own kind of error. Salvaged rulings are counted.
+                m = re.search(r'"changed"\s*:\s*"(yes|no)"', raw, re.I)
+                if m: v, salv = m.group(1).lower(), True
             v = 'yes' if v.startswith('y') else ('no' if v.startswith('n') else None)
             if v: votes.append({'vote': v, 'what': (o.get('what_changed') or '').strip().lower(),
-                                'why': (o.get('why') or '').strip()})
+                                'why': (o.get('why') or '').strip(), 'salvaged': salv})
         if not votes: unruled.append(ch); continue
         c = collections.Counter(v['vote'] for v in votes)
         maj = c.most_common(1)[0][0]
         out[ch] = {'necessity': maj, 'votes': [v['vote'] for v in votes],
+                   'salvaged': sum(1 for v in votes if v.get('salvaged')),
                    'unanimous': len(c) == 1 and len(votes) == REPEATS,
                    'n_votes': len(votes), 'paper': r['paper'], 'depth': r['depth'],
                    'final': r['final'], 'upstream': r['upstream'],
@@ -202,6 +217,7 @@ def collect():
            'necessity': dict(collections.Counter(v['necessity'] for v in out.values())),
            'stability': {'chains_with_3_votes': len(full), 'unanimous': len(agree),
                          'share': round(len(agree) / len(full), 3) if full else None},
+           'salvaged_rulings': sum(v.get('salvaged', 0) for v in out.values()),
            'by_depth': {str(d): dict(collections.Counter(
                v['necessity'] for v in out.values() if v['depth'] == d))
                for d in sorted({v['depth'] for v in out.values()})},

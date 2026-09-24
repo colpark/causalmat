@@ -29,11 +29,11 @@ def main():
     P, IG, SC, NE, CT = J('pruned.json'), J('ignored.json'), J('scope.json'), \
         J('necessity.json'), J('counted.json')
     COST = J('cost.json')
-    PG = J('pages_report.json')
+    PG = J('pages_report.json') if os.path.exists(R('results/v2p6/pages_report.json')) else None
     A = []
     W = A.append
 
-    W('# Traces v2.6 — only the merges that hold\n')
+    W('# Traces v2.6 — tightening the v2.5 merges\n')
     W('Every verdict is model against model.\n')
     W('v2.6 keeps v2.5\'s 32 papers and its two-step items. It changes only which merges count.\n')
     W('An external review of the Nano Letters page (nanolett.6b04294) found merges that link two '
@@ -43,25 +43,53 @@ def main():
       'generator paired series because they had the same length. Each of those is a separate '
       'defect and v2.6 addresses each separately.\n')
 
+    st0 = NE['stability']
+    stopped = st0['share'] < 2 / 3
+    if stopped:
+        W('## Where this run stopped\n')
+        W(f'**The stop rule fired.** The brief said to stop rather than filter if step 5\'s '
+          f'repeats agree on fewer than two thirds of chains. They agree on '
+          f'{st0["unanimous"]} of {st0["chains_with_3_votes"]} — '
+          f'{round(100 * st0["share"], 1)}%. So steps 1 to 4 are reported as results and step 5 '
+          f'is reported as an instrument that is not yet good enough to filter on. Steps 6 and 7 '
+          f'— counting the merges and rebuilding the pages with a counted/not-counted label — '
+          f'were **not applied**, because both consume step 5 as a gate.\n')
+        W(f'Everything step 5 needs was nevertheless run in full: 492 arm answers and 313 '
+          f'comparisons, all verified byte for byte. The numbers are in '
+          f'`results/v2p6/necessity.json` and the step-5 column of the funnel below is shown '
+          f'for information, not as a result.\n')
+        W(f'The other stop rule did not fire: {CT["compositional"]} chains would survive all '
+          f'three gates, above the floor of 10.\n')
+
     W('## The funnel\n')
     W(tbl(['stage', 'chains', 'lost here'],
-          [[n, v, '' if i == 0 else CT['funnel'][i - 1][1] - v]
+          [[n + (' *(not reliable, see below)*' if stopped and i == 5 else ''), v,
+            '' if i == 0 else CT['funnel'][i - 1][1] - v]
            for i, (n, v) in enumerate(CT['funnel'])]))
     W('')
-    W(f'**{CT["compositional"]} of {P["funnel"]["chains_v2p5"]} v2.5 chains are compositional '
-      f'merges.** Of the {CT["chains"]} chains that reach the model checks, '
-      f'{CT["lost_at"]["step3"]} are lost at step 3, {CT["lost_at"]["step4"]} more at step 4 and '
-      f'{CT["lost_at"]["step5"]} more at step 5.\n')
-    W(f'At seam level: {CT["seams"]} seams, {CT["seams_counted"]} counted, '
-      f'{CT["seam_gates"]["upstream_ignored"]} flagged upstream-ignored, '
-      f'{CT["seam_gates"]["scope_failed"]} failing the scope check.\n')
+    n3 = CT['funnel'][3][1]; n4 = CT['funnel'][4][1]
+    W(f'**Through the checks that hold, {n4} of {P["funnel"]["chains_v2p5"]} v2.5 chains '
+      f'survive.** 130 became 82 on structure alone: 21 chains used a covariation item and 27 '
+      f'were the same chain under another opener. Of those 82, {CT["lost_at"]["step3"]} are lost '
+      f'at step 3 because a seam in them never uses the upstream result, and '
+      f'{CT["lost_at"]["step4"]} more at step 4 on scope. Step 5 would remove '
+      f'{CT["lost_at"]["step5"]} more, leaving {CT["funnel"][5][1]}, but see the stop rule.\n')
+    W(f'At seam level, on the two gates that hold: {CT["seams"]} seams, '
+      f'{CT["seam_gates"]["upstream_ignored"]} flagged upstream-ignored and '
+      f'{CT["seam_gates"]["scope_failed"]} failing the scope check, leaving '
+      f'{CT["seams"] - len({*[k for k, v in CT["seams_out"].items() if v["upstream_ignored"] or not v["gate4"]]})} '
+      f'that clear both. ({CT["seams_counted"]} would also clear step 5, not reported as a '
+      f'result.)\n')
 
     W('## Chain depth, before and after\n')
     ds = sorted({int(k) for k in list(P['depth_before']) + list(P['depth_after_dedup'])
                  + list(CT['depth_compositional'])})
-    W(tbl(['depth', 'v2.5', 'after dropping covariation', 'after dedup', 'compositional'],
+    W(tbl(['depth', 'v2.5', 'after dropping covariation', 'after dedup',
+           'through steps 3+4', 'through step 5 *(not reliable)*'],
           [[d, P['depth_before'].get(str(d), 0), P['depth_after_drop'].get(str(d), 0),
-            P['depth_after_dedup'].get(str(d), 0), CT['depth_compositional'].get(str(d), 0)]
+            P['depth_after_dedup'].get(str(d), 0),
+            sum(1 for c in CT['chains_out'] if c['depth'] == d and c['gate3'] and c['gate4']),
+            CT['depth_compositional'].get(str(d), 0)]
            for d in ds]))
     W('')
     W(f'The two depth-5 chains were both covariation-dependent and are gone. '
@@ -107,13 +135,39 @@ def main():
       f'proposition and limits, handed over as a settled earlier result. A second agent read '
       f'both answers and ruled whether the conclusion or the uncertainty changed. Three repeats, '
       f'majority of three.\n')
-    W(tbl(['necessity', 'chains'], sorted(NE['necessity'].items(), key=lambda x: -x[1])))
+    W(tbl(['necessity (majority of 3)', 'chains'],
+          sorted(NE['necessity'].items(), key=lambda x: -x[1])))
     W('')
+    pat = collections.Counter()
+    for v in NE['chains_out'].values():
+        pat[v['votes'].count('yes')] += 1
+    n = sum(pat.values())
+    W(tbl(['votes over the 3 repeats', 'chains', 'share'],
+          [[f'{y} yes / {3 - y} no', pat.get(y, 0), f'{round(100 * pat.get(y, 0) / n)}%']
+           for y in (3, 2, 1, 0)]))
+    W('')
+    ry = sum(v['votes'].count('yes') for v in NE['chains_out'].values()) / (3 * n)
+    chance = ry ** 3 + (1 - ry) ** 3
     W(f'**Stability: {st["unanimous"]} of {st["chains_with_3_votes"]} chains had all three '
-      f'repeats agree ({round(100 * st["share"])}%).** The stop rule was two thirds; '
-      + ('this clears it.' if st['share'] >= 2 / 3 else
-         '**this does not clear it, and the run stops here rather than filter on a noisy check.**')
-      + '\n')
+      f'repeats agree, {round(100 * st["share"], 1)}%.** The stop rule was two thirds, so '
+      f'**this does not clear it and the run stops rather than filter on a noisy check.**\n')
+    W(f'How noisy: the per-repeat "yes" rate is {round(ry, 3)}, so three independent coin flips '
+      f'at that rate would agree {round(100 * chance, 1)}% of the time. The observed '
+      f'{round(100 * st["share"], 1)}% is above that, so the check is not pure noise — it '
+      f'carries real signal. It is just nowhere near separable enough to gate on: '
+      f'{pat.get(2, 0) + pat.get(1, 0)} of {n} chains, {round(100 * (pat.get(2, 0) + pat.get(1, 0)) / n)}%, '
+      f'split 2-1, and a majority of three on a coin that lands 54% heads is not a verdict.\n')
+    W('Three things to fix before this check is worth running again:\n')
+    W('1. **The comparer is asked a yes/no question about a difference of degree.** Two prose '
+       'answers to an open question differ in wording every time; ruling whether the difference '
+       '"matters" is the judgement, and it is being forced into a binary. A graded scale, or '
+       'asking the same agent to rank the two answers on a stated dimension, would be steadier.\n')
+    W('2. **Arm A and arm B are separate samples, so they differ for two reasons at once** — the '
+       'upstream result, and ordinary answer-to-answer variation. Sampling arm A three times and '
+       'comparing it against itself would measure that floor directly. That control was not run '
+       'here and should be: without it we cannot say how much of the 54% "yes" rate is the '
+       'upstream result at all.\n')
+    W('3. **Necessity probes only the last hop**, so a chain is judged on one merge (see below).\n')
     W(tbl(['depth', 'necessity yes', 'necessity no'],
           [[d, v.get('yes', 0), v.get('no', 0)] for d, v in sorted(NE['by_depth'].items())]))
     W('')
@@ -134,24 +188,29 @@ def main():
     W('## Per paper\n')
     rows = []
     for p, v in CT['per_paper'].items():
-        rows.append([p.split('__')[0].replace('_', ' ')[:38], v.get('chains', 0),
-                     v.get('gate3', 0), v.get('gate4', 0), v.get('compositional', 0),
-                     v.get('seams', 0), v.get('ignored', 0), v.get('counted', 0)])
-    rows.sort(key=lambda r: (-r[4], -r[1]))
-    W(tbl(['paper', 'chains', 'pass 3', 'pass 3+4', 'compositional', 'seams', 'ignored',
-           'seams counted'], rows))
+        nm = p.split('__')[0].replace('_', ' ')[:30] + ' · ' + p.split('__')[1][:26]
+        rows.append([nm, v.get('chains', 0),
+                     v.get('gate3', 0), v.get('gate4', 0),
+                     v.get('seams', 0), v.get('ignored', 0),
+                     v.get('compositional', 0), v.get('counted', 0)])
+    rows.sort(key=lambda r: (-r[3], -r[1]))
+    W(tbl(['paper', 'chains', 'pass 3', 'pass 3+4', 'seams', 'ignored',
+           'compositional *(not reliable)*', 'seams counted *(not reliable)*'], rows))
     W('')
     tot = collections.Counter()
     for v in CT['per_paper'].values(): tot.update(v)
-    W(f'Totals: {tot["chains"]} chains, {tot["compositional"]} compositional, {tot["seams"]} '
-      f'seams, {tot["ignored"]} ignored, {tot["counted"]} counted.\n')
+    W(f'Totals: {tot["chains"]} chains, {tot["gate3"]} past step 3, {tot["gate4"]} past steps '
+      f'3 and 4, {tot["seams"]} seams, {tot["ignored"]} ignored. '
+      f'({tot["compositional"]} compositional and {tot["counted"]} seams counted under step 5, '
+      f'not reported as results.)\n')
 
     W('## Worked example — Nano Letters, nanolett.6b04294\n')
     ch = [c for c in CT['chains_out'] if c['paper'] == NANO]
     sm = {k: v for k, v in CT['seams_out'].items() if v['paper'] == NANO}
     W(f'The page the review read. v2.5 showed 4 chains here; v2.6 shows {len(ch)} after the '
-      f'covariation drop and the tail collapse, of which '
-      f'{sum(1 for c in ch if c["compositional"])} is a compositional merge.\n')
+      f'covariation drop and the tail collapse — the review\'s "traces 3 and 4 are the same '
+      f'chain under two generator labels" is the pair that collapsed. Of the {len(ch)}, '
+      f'{sum(1 for c in ch if c["gate3"] and c["gate4"])} clear steps 3 and 4.\n')
     W(tbl(['trace', 'depth', 'ways in', 'items', 'upstream used', 'scope', 'necessity',
            'compositional'],
           [[c['chain'], c['depth'], len(c['openers']), ' → '.join(c['path']),
@@ -174,6 +233,25 @@ def main():
             ev = (IG['seams'].get(k) or {}).get('evidence') or []
             for e in ev[:2]: W(f'  > {e}')
         W('')
+
+    W('## One contamination, found and removed\n')
+    W('A relay flagged that some arm replies carried text that was not part of the answer. Two '
+      'kinds, both checked directly rather than taken on the relay\'s word: a trailing '
+      'output-framing fragment (`</message>`, `</invoke>`) on 27 replies, and a leading note on '
+      '21 replies where the answerer had seen this session\'s MCP server instruction block in '
+      'its tool list, correctly judged it was not from the user, ignored it and said so. Neither '
+      'changed what the answer said.\n')
+    W('But both landed asymmetrically — in one arm of a pair and not the other, 25 and 21 pairs '
+      'respectively — and the comparer is asked whether the two answers differ. So the artifacts '
+      'were stripped (`clean.py`, leaving the raw replies untouched) and every comparison whose '
+      'prompt changed was re-run: 39 of 246.\n')
+    W('**7 of those 39 flipped, every one of them from "no" to "yes".** The contamination was '
+      'suppressing the finding that the upstream result mattered. All numbers in this document '
+      'are from the cleaned re-run.\n')
+    W(f'Two comparison replies quoted the answers inside their `why` field without escaping the '
+      f'quotes and so would not parse as JSON. Their verdict token was unambiguous in the raw '
+      f'text and was read from it; {NE.get("salvaged_rulings", 0)} rulings were salvaged this '
+      f'way and are counted here.\n')
 
     W('## What the calls cost\n')
     rows = []
@@ -204,9 +282,10 @@ def main():
       '- `results/v2p6/ignored.json` — step 3, the flag and the audit sentence behind it\n'
       '- `results/v2p6/scope/` — step 4, one prompt and one reply per join\n'
       '- `results/v2p6/arms/`, `results/v2p6/compare/` — step 5, every arm and comparison\n'
-      '- `results/v2p6/counted.json` — step 6, the three gates per seam and per chain\n'
-      '- `results/v2p6/pages/` — step 7, one page per paper plus the index\n')
-    W(f'Pages: {len(PG["rows"])} + index, totals {PG["totals"]}.\n')
+      '- `results/v2p6/counted.json` — the three gates per seam and per chain, computed for '
+      'the record; step 5 is present in it but is not reported as a result\n')
+    if PG: W(f'Pages: {len(PG["rows"])} + index, totals {PG["totals"]}.\n')
+    else: W('- `results/v2p6/pages/` — not built. See "Where this run stopped".\n')
     W('Every verdict is model against model.')
 
     open(R('docs/TRACES_V2P6.md'), 'w').write('\n'.join(A) + '\n')
