@@ -137,20 +137,29 @@ def build():
                    if byitem[k].get('_bb') is None or (byitem[k].get('key') or {}).get('combines'))
 
     # --- 5 convergence
+    #
+    # Independence was first tested on evidence NODE ids being disjoint. That is not independence:
+    # two different observation nodes routinely cite the same panels, so the same figure can appear
+    # on both routes under two node ids. Auditing the 24 claims that test produced, only 2 had
+    # genuinely disjoint panels; 20 shared panels outright and 2 shared a figure. A judge caught it
+    # first, writing that the routes "share the same core charge-transfer figures rather than being
+    # fully disjoint measurements".
+    #
+    # Independence is now tested on PANELS, which is what a route actually rests on.
     conv = []
     for (paper, cc), items in concl.items():
         if len(items) < 2: continue
-        ev = {}
+        pan = {}
         for k in items:
             it = byitem[k]
-            ev[k] = {it.get('observation_a', {}).get('node'), it.get('observation_b', {}).get('node')} \
-                    if not it.get('_bb') else set(it.get('claims') or [])
+            pan[k] = {p['suffix'] for p in (it.get('panels') or []) if p.get('suffix')}
         indep = [k for k in items]
         pairsok = [(a, b) for i, a in enumerate(indep) for b in indep[i + 1:]
-                   if not (ev[a] & ev[b])]
+                   if pan[a] and pan[b] and not (pan[a] & pan[b])]
         if pairsok:
             conv.append({'paper': paper, 'claim': cc, 'routes': items,
-                         'independent_route_pairs': len(pairsok)})
+                         'independent_route_pairs': len(pairsok),
+                         'independence': 'disjoint panels'})
 
     res = {'backbone': [b['_item'] for b in bb], 'attachments': att,
            'joins': final, 'rejected': rejected,
