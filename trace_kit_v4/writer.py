@@ -57,6 +57,15 @@ def step_block(t, s, N, prev):
         L += [f"The previous step (step {prev['step']}) established: {prev['output']}",
               f"This step's question refers back to it as: \"{s['refers_to_previous']}\"", ""]
     L.append(f"This step's question, as the solver sees it: {s['question']}")
+    c = s.get('combining')
+    if c:
+        L += ["",
+              "This step is meant to carry a CROSS-STEP inference. The proposition it should reach "
+              "combines the previous step's output with this step's evidence:",
+              f"  {c['proposition']}",
+              f"  from step {prev['step'] if prev else '-'}: {c['from_previous']}",
+              f"  from this step: {c['from_this']}",
+              "Your reasoning must actually perform that combination, using both sets of numbers."]
     L.append(f"The claim this step lands on:")
     for c in s['claims']:
         L.append(f"  [{c}] {(N.get(c) or {}).get('label')}")
@@ -137,6 +146,13 @@ def parse(txt):
 
 
 def collect():
+    # once v4b has re-judged on the data, its labels are the labels. The writer's own
+    # needs_previous answer is kept in the reasoning but no longer decides anything.
+    v4b = {}
+    f4 = os.path.join(ROOT, 'results/v4/dependency_v4b.json')
+    if os.path.exists(f4):
+        for r in json.load(open(f4))['rows']:
+            v4b[(r['trace'], r['step'])] = r
     tally = collections.Counter()
     for f in TR:
         t = json.load(open(f)); d = os.path.dirname(f)
@@ -154,6 +170,13 @@ def collect():
                        'input_from_previous': prev['output'], 'dependency': 'none',
                        'why': 'restatement: this step lands only on claims step '
                               f"{prev['step']} already established ({', '.join(s['claims'])})"}
+            elif (t['trace'], s['step']) in v4b:
+                r4 = v4b[(t['trace'], s['step'])]
+                rec = {'step': s['step'], 'output': s['output'],
+                       'input_from_previous': prev['output'], 'dependency': r4['new'],
+                       'why': r4.get('proposition') or r4.get('why_none'),
+                       'kind': r4.get('kind'), 'from_previous': r4.get('from_previous'),
+                       'from_this': r4.get('from_this'), 'v4_label': r4.get('old')}
             else:
                 dd = (j or {}).get('dependency') or {}
                 need = dd.get('needs_previous')

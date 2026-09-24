@@ -91,7 +91,8 @@
      "needs_previous": false,
      "why": "The five TEM/STEM panels (F1b-F1f) directly and completely support both the phase identification (n8) and the density/thickness quantification (n9) without requiring any conclusion carried in from an earlier step"
     }
-   }
+   },
+   "combining": null
   },
   {
    "step": 2,
@@ -101,7 +102,7 @@
    "output": "Yield stress is strongly orientation dependent and, in [11-20] and [01-10], reaches ~145-165 MPa at RT, about 11x the pure-Mg single crystal",
    "output_short": "Yield stress is strongly orientation dependent and, in [11-20] and [01-10], reaches ~145-165 MPa at RT, about 11x the pure-Mg single crystal",
    "property": "the mechanical property",
-   "question": "Taking the phase you identified and the feature sizes you measured in step 1 as given, what does the evidence below show about the mechanical property?",
+   "question": "Across the three heat treatments (as-grown, 520 C, and the further 400 C anneal), does the mechanical property measured here move with the feature sizes you measured in step 1, or independently of them? Give the comparison and say what it implies about what carries the strength.",
    "refers_to_previous": "the phase you identified and the feature sizes you measured in step 1",
    "join_to_previous": {
     "kind": "spine edge",
@@ -163,7 +164,15 @@
      "needs_previous": true,
      "why": "The question explicitly frames the mechanical evidence as building on the phase identity and nanoplate density/thickness measured in step 1, so interpreting the orientation-dependent and heat-treatment-dependent yield stress changes as effects of that microstructure requires the prior identification."
     }
-   }
+   },
+   "combining": {
+    "kind": "covariation",
+    "proposition": "Yield stress tracks nanoplate number density across the three heat treatments: both fall after the 520 C anneal and both recover after the further 400 C anneal, so the strengthening follows plate density rather than the anneal itself.",
+    "from_previous": "nanoplate count 9.8 -> 0.3 -> 9.0 per um, mean thickness 28 -> 84 -> 14 nm (as-grown / 520 C / 520->400 C) [n9]",
+    "from_this": "yield stress in [11-20] at RT 167 -> 113 -> 160 MPa across the same three heat treatments [n12]",
+    "question": "Across the three heat treatments (as-grown, 520 C, and the further 400 C anneal), does the mechanical property measured here move with the feature sizes you measured in step 1, or independently of them? Give the comparison and say what it implies about what carries the strength."
+   },
+   "question_v4": "Taking the phase you identified and the feature sizes you measured in step 1 as given, what does the evidence below show about the mechanical property?"
   },
   {
    "step": 3,
@@ -173,7 +182,7 @@
    "output": "In tension along [0001] the crystal elongates ~45% at 65-80 MPa by kink-band formation, the first bulk demonstration of tensile ductility by kinking",
    "output_short": "In tension along [0001] the crystal elongates ~45% at 65-80 MPa by kink-band formation, the first bulk demonstration of tensile ductility by kinking",
    "property": "how the material performs in service",
-   "question": "Taking the property value you measured in step 2 as given, what does the evidence below show about how the material performs in service?",
+   "question": "Compare the stress at which this evidence shows deformation along [0001] with the property value you measured in step 2 for that same orientation. Report both numbers and say what their ratio implies about the deformation route.",
    "refers_to_previous": "the property value you measured in step 2",
    "join_to_previous": {
     "kind": "stage only",
@@ -224,7 +233,15 @@
      "needs_previous": false,
      "why": "The [0001] tensile ductility-by-kinking finding (obs1, obs2, n18) is a separate observation on a different loading orientation and does not use or require the [11-20]/[01-10] yield-stress value from step 2."
     }
-   }
+   },
+   "combining": {
+    "kind": "quantity needing both",
+    "proposition": "The [0001] orientation that step 2 found unable to yield in compression, fracturing at ~355 MPa, deforms in tension at ~65-80 MPa to ~45% strain, a four- to five-fold asymmetry that a slip mechanism cannot produce.",
+    "from_previous": "[0001] fractures at ~355 MPa in compression without yielding; soft orientation ~9 MPa, [11-20] ~148-165 MPa [n12]",
+    "from_this": "tension along [0001] flows at ~72 MPa, serrated ~52-80 MPa, ~45% plastic strain [n18]",
+    "question": "Compare the stress at which this evidence shows deformation along [0001] with the property value you measured in step 2 for that same orientation. Report both numbers and say what their ratio implies about the deformation route."
+   },
+   "question_v4": "Taking the property value you measured in step 2 as given, what does the evidence below show about how the material performs in service?"
   }
  ],
  "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model.",

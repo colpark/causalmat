@@ -150,7 +150,13 @@ padding:1px 6px;border-radius:5px;margin-left:5px}
 .hid{border:1px dashed var(--hide);border-radius:9px;padding:9px 12px;margin:10px 0}
 .hid b{color:var(--hide);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;display:block}
 .arrow{text-align:center;color:var(--mut);font-size:12.5px;padding:6px 0 10px}
-.arrow .lbl{display:inline-block;border:1px solid var(--line);border-radius:20px;padding:5px 13px;background:var(--card)}
+.arrow .lbl{display:inline-block;border:1px solid var(--line);border-radius:14px;padding:8px 15px;
+background:var(--card);max-width:760px;text-align:left}
+.comb{margin-top:7px;border-top:1px dashed var(--line);padding-top:7px;font-size:12.5px}
+.comb b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--acc);margin-bottom:2px}
+.comb.none b{color:var(--warn)}
+.comb .from{color:var(--mut);font-size:11.5px;margin-top:3px}
+.comb .from span{font-weight:600}
 .dep{font-weight:600}.dep.real{color:var(--acc)}.dep.none{color:var(--warn)}
 table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
 th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
@@ -233,12 +239,22 @@ def build(t):
         P(f'<div class="hid"><b>hidden effect &mdash; not shown to the solver</b>{E(s["output"])}</div>')
         P('</div>')
         if i + 1 < len(t['steps']):
-            nd = dep.get(t['steps'][i + 1]['step'], {})
+            nxt = t['steps'][i + 1]
+            nd = dep.get(nxt['step'], {})
+            cmb = nxt.get('combining')
             cls = 'real' if nd.get('dependency') == 'real' else 'none'
-            P(f'<div class="arrow"><span class="lbl">&darr; passes on: '
-              f'{E((r.get("handoff") or s["output_short"] or "")[:150])} '
-              f'&middot; <span class="dep {cls}">dependency: {E(str(nd.get("dependency")))}</span>'
-              f'</span></div>')
+            P('<div class="arrow"><div class="lbl">')
+            P(f'&darr; passes on: {E((r.get("handoff") or s["output_short"] or "")[:150])}')
+            P(f'<br><span class="dep {cls}">dependency: {E(str(nd.get("dependency")))}'
+              f'{" &middot; " + E(cmb["kind"]) if cmb else ""}</span>')
+            if cmb:
+                P(f'<div class="comb"><b>combining proposition</b>{E(cmb["proposition"])}'
+                  f'<div class="from"><span>from step {s["step"]}:</span> {E(cmb["from_previous"])}</div>'
+                  f'<div class="from"><span>from step {nxt["step"]}:</span> {E(cmb["from_this"])}</div>'
+                  f'</div>')
+            elif nd.get('why'):
+                P(f'<div class="comb none"><b>no combining proposition</b>{E(str(nd["why"])[:300])}</div>')
+            P('</div></div>')
     if t.get('end_to_end'):
         e = t['end_to_end']
         P('<div class="step"><div class="sh"><span class="sn">end to end</span></div><ul>')
@@ -278,7 +294,9 @@ def build(t):
           f'<td><i>{E(str(b.get("property")))}</i><br>{E(str(b.get("answer"))[:230])}'
           f'<br><b>{E(str(b.get("verdict")))}</b></td>'
           f'<td>{E(s["question"][:200])}<br><b>dependency: {E(str(dd.get("dependency")))}</b>'
-          f'<br>{E(str(dd.get("why"))[:200])}</td></tr>')
+          + (f'<br><i>v4 said {E(str(dd.get("v4_label")))}; re-judged on the data</i>'
+             if dd.get('v4_label') and dd.get('v4_label') != dd.get('dependency') else '')
+          + f'<br>{E(str(dd.get("why"))[:220])}</td></tr>')
     P('</tbody></table></div>')
 
     # --- provenance

@@ -105,7 +105,8 @@
      "needs_previous": false,
      "why": "This step evaluates phase identity and pore structure directly from the XRD, TEM and N2 sorption observations themselves, without needing any conclusion carried in from a prior step"
     }
-   }
+   },
+   "combining": null
   },
   {
    "step": 2,
@@ -118,7 +119,7 @@
    "output": "Co2+ release is set by Co content: 5Co-MBG releases faster and more than 2Co-MBG, both rising over 7 days ; Released Co2+ acts as a hypoxia mimic, raising HIF-1alpha in BMSCs, which drives VEGF ; 2Co-MBG releases ampicillin over the first ~72 h, then the release plateaus ; Ampicillin-loaded 2Co-MBG lowers bacterial survival versus blank and drug-free scaffolds",
    "output_short": "Co2+ release is set by Co content: 5Co-MBG releases faster and more than 2Co-MBG, both rising over 7 days",
    "property": "the rate at which it happens and the mechanism connecting the two and how the material performs in service",
-   "question": "Taking the phase you identified and the pore structure you characterised in step 1 as given, what does the evidence below show about the rate at which it happens and the mechanism connecting the two and how the material performs in service?",
+   "question": "Order the three scaffolds by the rate measured here, and compare that order with the pore structure you characterised in step 1. If the texture were controlling this rate, which scaffold would lead? Say what the comparison implies about the mechanism.",
    "refers_to_previous": "the phase you identified and the pore structure you characterised in step 1",
    "join_to_previous": {
     "kind": "spine edge",
@@ -183,7 +184,15 @@
      "needs_previous": true,
      "why": "the release rate and antibacterial/HIF findings are read as expressions of the mesoporous pore structure and surface area characterised in step 1, so the mechanism linking phase to release rate cannot be stated without that structural input"
     }
-   }
+   },
+   "combining": {
+    "kind": "mechanism check",
+    "proposition": "Release rises as surface area and pore volume fall, so it is set by Co content and not by the mesoporous texture: the 5Co scaffold has the least surface area and releases the most.",
+    "from_previous": "surface area 290 -> 180 -> 127 m2/g and pore volume 0.30 -> 0.19 -> 0.15 cm3/g for 0Co / 2Co / 5Co [n9]",
+    "from_this": "Co2+ in medium at 7 days: 0 (0Co), ~16.9 (2Co), ~20.8 mg/L (5Co) [n11]",
+    "question": "Order the three scaffolds by the rate measured here, and compare that order with the pore structure you characterised in step 1. If the texture were controlling this rate, which scaffold would lead? Say what the comparison implies about the mechanism."
+   },
+   "question_v4": "Taking the phase you identified and the pore structure you characterised in step 1 as given, what does the evidence below show about the rate at which it happens and the mechanism connecting the two and how the material performs in service?"
   },
   {
    "step": 3,
@@ -251,7 +260,9 @@
      "needs_previous": true,
      "why": "Step 2's Co2+ release kinetics and hypothesized HIF-1alpha/VEGF mechanism and ampicillin release performance provide the property, mechanism, and performance baseline that the blot and survival evidence here directly test and extend."
     }
-   }
+   },
+   "combining": null,
+   "question_v4": "Taking the property value you measured and the mechanism you identified and the performance you measured in step 2 as given, what does the evidence below show about the mechanism connecting the two and how the material performs in service?"
   }
  ],
  "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model.",

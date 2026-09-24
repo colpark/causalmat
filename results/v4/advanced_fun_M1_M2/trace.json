@@ -55,7 +55,8 @@
      "needs_previous": false,
      "why": "This step reads domain-size histograms directly from F1a and states the size range as a standalone SEM-based measurement, not dependent on any prior step's conclusion."
     }
-   }
+   },
+   "combining": null
   },
   {
    "step": 2,
@@ -65,7 +66,7 @@
    "output": "As-grown emission below 150 K ranks with crystalline state: PC dual peak plus IR tail, HOC intermediate, SC a single peak",
    "output_short": "As-grown emission below 150 K ranks with crystalline state: PC dual peak plus IR tail, HOC intermediate, SC a single peak",
    "property": "the optical property",
-   "question": "Taking the feature sizes you measured in step 1 as given, what does the evidence below show about the optical property?",
+   "question": "Rank the three samples by what this evidence shows, and compare that ranking with the feature sizes you measured in step 1. Do the two orderings correspond, and what does that imply about the optical property?",
    "refers_to_previous": "the feature sizes you measured in step 1",
    "join_to_previous": {
     "kind": "stage only",
@@ -107,7 +108,15 @@
      "needs_previous": true,
      "why": "the claim's ranking of PC, HOC, SC by emission complexity only reads as tracking 'crystalline state' because step 1 already ordered these same three labels by domain size (PC smallest, HOC intermediate, SC largest), so the panel's PC/HOC/SC labels borrow their ordering meaning from that prior measurement"
     }
-   }
+   },
+   "combining": {
+    "kind": "covariation",
+    "proposition": "Emission complexity ranks inversely with domain size across the same three samples: the ~0.1 um PC shows a dual peak with an IR tail, the 1e2-1e3 um SC a single band, and HOC lies between on both axes.",
+    "from_previous": "domain size ~0.1 um (PC), 10-100 um (HOC), 1e2-1e3 um (SC) [n7]",
+    "from_this": "below 150 K, PC shows two branches plus an IR tail, HOC intermediate, SC one band [n13]",
+    "question": "Rank the three samples by what this evidence shows, and compare that ranking with the feature sizes you measured in step 1. Do the two orderings correspond, and what does that imply about the optical property?"
+   },
+   "question_v4": "Taking the feature sizes you measured in step 1 as given, what does the evidence below show about the optical property?"
   }
  ],
  "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model.",
