@@ -27,6 +27,16 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 
+def clear(h):
+    """a confirmed link is no longer excluded -- unless something recorded an explicit reason.
+
+    Without this the flag is sticky: a hop excluded on an earlier run when its link was stage_only
+    stayed excluded after the link confirmed. An exclusion carrying `exclusion_reason` is a
+    deliberate call (Nano Letters M3's dropped scope framing) and is left alone."""
+    if h.get('excluded_from_traces') and not h.get('exclusion_reason'):
+        h.pop('excluded_from_traces', None)
+
+
 def main(paper, lexical=False):
     d = os.path.join(ROOT, 'results/v3', paper)
     hops = json.load(open(os.path.join(d, 'hops.json')))
@@ -58,7 +68,7 @@ def main(paper, lexical=False):
         if not nxt: out.append({**h, 'chain_strength': None}); continue
         if h.get('chain_strength') == 'span':
             h['link_confirmed_by'] = 'text identity between the two spans'
-            out.append(h); continue
+            clear(h); out.append(h); continue
         A, B = set(eff.get(h['id'], [])), set(cau.get(nxt, []))
         shared = sorted((A & B) - universal)
         joined = []
@@ -70,9 +80,11 @@ def main(paper, lexical=False):
         if shared:
             h['chain_strength'] = 'stage+graph'
             h['link_confirmed_by'] = f"shared spine claim{'s' if len(shared) > 1 else ''}: {', '.join(shared)}"
+            clear(h)
         elif joined:
             h['chain_strength'] = 'stage+graph'
             h['link_confirmed_by'] = f"spine edge joining the two hops' claims: {joined[0]}"
+            clear(h)
         else:
             h['chain_strength'] = 'stage_only'
             h['link_confirmed_by'] = None
