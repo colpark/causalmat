@@ -158,6 +158,46 @@ Four papers yield items but no chain: their pairs do not share a claim in the di
 needs. Eight papers reach depth 3 or more. Only two reach a convergence claim once independence is
 tested on figures.
 
+## The join audit: composing a chain launders limits
+
+96 of 145 joins audited. The remaining 49 were cut off when the weekly API limit was reached; the
+figures below are final for what ran and will not be completed.
+
+| | single pairs | **joined** |
+|---|---|---|
+| propositions hold | 50% | **26/96 = 27%** |
+
+| upstream limits, across the handoff | |
+|---|---|
+| carried | 119/348 = 34% |
+| **dropped** | **78/348 = 22%** |
+| not applicable | 151/348 = 43% |
+
+**55 of 96 joins — 57% — launder a limit.** The upstream conclusion was true only within its
+limits; the downstream item uses it as if those limits did not apply. Every individual statement
+stays true while it happens, which is why a per-item audit cannot see it: it rules whether each
+*stated* limit is true, and each one is. What changes is that the next item stops carrying them.
+
+**Laundering does not grow with depth — it is flat near 55% per join — so it compounds.**
+
+| chains preserving *every* limit | |
+|---|---|
+| depth 2 | 23/52 = 44% |
+| depth 3 | 2/13 = 15% |
+| depth 4 | 1/5 = 20% |
+| depth 6 | 0/2 = 0% |
+| **all** | **26/72 = 36%** |
+
+### This corrects how I reported depth
+
+Chains reaching depth 6 was the headline I gave for composition, twice, before this audit existed
+to contradict it. If each join is roughly an even chance of shedding a caveat, **a deep chain is not
+a stronger item, it is a longer one**, carrying a conclusion whose qualifications were dropped a
+step at a time. Depth without limit survival is accumulation, not support.
+
+v2.5 still wins clearly on coverage (32 of 32 papers against 16) and on discriminating items (31
+against 3). "Chains to depth 6" should not be counted among its gains.
+
 ## What went wrong in the build, and what caught it
 
 Four defects, **none found by the checks I had written**:
