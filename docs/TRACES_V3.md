@@ -338,3 +338,52 @@ hop's evidence is necessary, and the grading question is too easily satisfied to
 v3's contribution is structural rather than evaluative — it shows where a paper's argument forks
 (Biomaterials), which hops restate rather than advance (Nano Letters M3), and which land on claims
 with no figure behind them (adfm M3, M4).
+
+## Where the chain structure lives
+
+The `reordered` result says where it does not live: **not in the sequence, as this design presents
+it.** Stripping the paper's order and the link sentences changed nothing. That is a real finding
+about the presentation, but it does not establish that the structure is absent from the argument —
+only that asking "does this evidence warrant this step?" cannot see it. The chain is handed to the
+model as a premise, and a premise is not tested by being reordered; the model re-derives each step
+locally from its own evidence either way.
+
+So the structure, if it is anywhere measurable, is in what the chain **excludes** rather than in the
+order it presents. Three places this work did find it, none of them in the arms:
+
+- **The graph check.** Seven stage links were candidates; before the matcher of record, five could
+  not be confirmed through our graph. Whether hop A's effect claims and hop B's cause claims meet is
+  a structural fact, and it is decided outside the solver entirely.
+- **The fork.** Biomaterials reaches M4 by two routes sharing no intermediate step. The arms judge
+  both identically, but the branching is in the graph whether or not any arm can see it.
+- **The restatement.** Nano Letters M3 borrows M2's exact panel set. That is detectable by
+  comparing evidence sets, not by asking a model to grade a step.
+
+### The inverted design, and why it is not affordable here
+
+The natural way to make the structure the *answer* rather than the premise is to invert the task:
+hand over the evidence unordered and ask the model to reconstruct the chain. Then the ordering is
+what is scored, and `reordered` stops being a control and becomes the whole item.
+
+The arithmetic kills it at our chain lengths. Guessing an ordering of `n` steps is right 1/`n`! of
+the time:
+
+| chain length | orderings | chance |
+|---|---|---|
+| 2 | 2 | 50.0% |
+| 3 | 6 | 16.7% |
+| 4 | 24 | 4.2% |
+| 5 | 120 | 0.8% |
+| 6 | 720 | 0.1% |
+
+Our six chains are of length 3, 2, 3, 2, 2, 2 — **mean chance accuracy 38.9%**. Four of the six are
+two-step chains where a coin does as well as a model. Nothing below four steps separates a solver
+from guessing, and **none of the five papers produced a chain of four or more**: 16 hops, nine
+confirmed links, longest path three.
+
+So an inverted design needs a corpus filtered for long chains before it can be run at all. From
+these five papers the yield of four-plus-hop chains is zero, and that is too small a sample to
+extrapolate honestly — the estimate that matters is not in this data and would need a scan across
+the hundred-paper bench to produce. What can be said from here is the requirement, not the rate: an
+inverted item needs a confirmed chain of at least four hops, and this design's chains are half that
+length.
