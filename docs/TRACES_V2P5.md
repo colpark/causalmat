@@ -24,14 +24,18 @@ trustworthy conclusions from it.
 
 | generator | items | discriminating | not-identifiable | propositions hold | mixed quantities |
 |---|---|---|---|---|---|
-| **complementary** | 89 | **23 (26%)** | 53% | 12/24 = 50% | **4%** |
-| **spine_edge** | 174 | 7 (4%) | **87%** | 10/25 = **40%** | 12% |
-| **covariation** | 19 | 3 | 63% | 12/19 = **63%** | **37%** |
+| **complementary** | 92 | **22 (24%)** | 53% | 12/24 = 50% | 1/25 = 4% |
+| **spine_edge** | 175 | **8 (5%)** | 87% | 10/25 = 40% | 3/25 = 12% |
+| **covariation** | 19 | **3 (16%)** | 63% | 12/19 = 63% | 7/19 = 37% |
+
+The last two columns are **sampled, not computed over every item**: the key audit ran on 68
+packets and the quantity-kind check on 69, both stratified by generator and then by paper.
+The first three columns cover all 286 items.
 
 **Complementarity produces the discriminating items.** Pairing two technique families on one claim
-gives 26% discriminating against spine_edge's 4%, and the lowest rate of incomparable quantities.
+gives 24% discriminating against spine_edge's 5%, and the lowest rate of incomparable quantities.
 
-**A spine edge buys an association and a confound, not a discrimination.** 151 of 174 spine-edge
+**A spine edge buys an association and a confound, not a discrimination.** 152 of 175 spine-edge
 keys name something as not identifiable — 87%. A `causes` or `explains` edge between two
 figure-backed claims almost always comes with a candidate the pair cannot separate. That is an
 honest result about how much a causal edge can carry on its own.
@@ -54,7 +58,15 @@ percentage against an absolute mass.
 | limits hold | 86/89 = 97% | 240/260 = 92% |
 
 Propositions hold better here than in v5; limits slightly worse, and the 9 wrong limits sit mostly
-in covariation, which fits a generator whose series proxy the drafter can only partly see.
+in covariation, which fits a generator whose series proxy the drafter can only partly see. Nothing
+was unparsed in this audit.
+
+The **key audit's** proposition split is holds 34, overreaches
+29, wrong 5 — unlike the join audit
+below, it does rule some propositions outright wrong. Its limits split is holds
+240, overreaches 11, wrong 9.
+One further packet was audited and then invalidated when its key turned out to belong to another
+item, leaving 68.
 
 The v5 pattern holds across both runs and 91 audited keys: **drafters write reliable caveats and
 overstated conclusions.**
@@ -88,13 +100,33 @@ fully disjoint measurements"* — 20 of 24 shared panels outright. After that fi
 the routes *"draw on the same underlying experiment and same five surfaces"* — 4 of the 6 survivors
 used different panels of one figure.
 
-**The result survived every correction.** Across 29 convergence judgements at two levels of
-independence, **not once did both routes warrant the conclusion alone.** In the corrected run: route
-A partly warrants in all 6, route B partly in 3 and outright no in 3, all 6 agree only partly,
-combined strength associative in 5.
+**The result survived every correction.** Across 29 convergence judgements at
+two levels of independence, **not once did both routes warrant the conclusion alone.**
 
-In this corpus a claim reached by two routes is usually **one experiment counted twice**, and where
-the routes really are separate, each supports the conclusion only partly.
+Both runs predate the figure-level test, and neither describes the 3 claims
+that survive it. They are reported because the finding is what held across the corrections, not
+because they describe the final set.
+
+| | node-id run | panel run |
+|---|---|---|
+| claims judged | 23 | 6 |
+| route A warrants alone | partly 18, no 5 | partly 6 |
+| route B warrants alone | partly 17, no 5, yes 1 | partly 3, no 3 |
+| routes agree | partly 22, yes 1 | partly 6 |
+| **both alone** | **0** | **0** |
+
+The 3 figure-level claims were never judged: the independence test was
+tightened after the panel run, and no further model call was made. So the strongest statement the
+data supports is about the 29 judgements above, whose routes are now known to
+overlap — **not** about genuinely independent convergence, which remains unmeasured.
+
+In this corpus a claim reached by two routes is usually **one experiment counted twice** — 20 of the
+original 24 shared panels outright, and 4 of the 6 survivors shared a figure.
+
+What cannot be said, and an earlier draft of this section did say: that where the routes really are
+separate each still supports the conclusion only partly. The three genuinely independent claims were
+never judged, so that sentence extrapolated from overlapping routes to independent ones. Genuine
+convergence in this corpus is **3 claims, unmeasured**.
 
 ## Structure
 
@@ -109,10 +141,10 @@ figure-backed claims these graphs are acyclic.
 | 5 | 3 |
 | 6 | 2 |
 
-Also: only **36 of 185 spine-edge pairs have a MatMech hop** confirming them. Our graph carries
-causal structure MatMech never recorded, and the 149 without one are exactly what v5's link
-requirement discarded. `produces` yields zero pairs — its upstream is a design or process node that
-is rarely figure-backed.
+Also: only **34 of 175 spine-edge items have a MatMech hop** confirming them. Our graph carries
+causal structure MatMech never recorded, and the 141 without one are exactly what v5's link
+requirement discarded. By relation they are `causes` 145 and `explains` 30; **`produces` yields zero**
+— its upstream is a design or process node that is rarely figure-backed.
 
 ## Per paper
 
@@ -152,10 +184,11 @@ Paper names are truncated; several journals contribute more than one paper.
 | Acta Materialia | 2 | 12 | 2 | 7 | 3 | 3 | 1 | 2 | 1 |
 | Nano Letters | 1 | 10 | 2 | 4 | 4 | 3 | 4 | 2 | 0 |
 | Rare Metals | 1 | 1 | 0 | 1 | 0 | 0 | 0 | - | 0 |
-| **total** | **29** | **283** | **19** | **90** | **174** | **49** | **130** | **6** | **3** |
+| **total** | **29** | **286** | **19** | **92** | **175** | **49** | **130** | **6** | **3** |
 
-Four papers yield items but no chain: their pairs do not share a claim in the direction a join
-needs. Eight papers reach depth 3 or more. Only two reach a convergence claim once independence is
+Five papers yield items but no chain: their pairs do not share a claim in the direction a join
+needs — both Biomaterials 2010 papers, Advanced Materials 202005449, JMA 2019.01.003 and Rare
+Metals s12598-012-0515-6. Eight papers reach depth 3 or more. Only two reach a convergence claim once independence is
 tested on figures.
 
 ## The join audit: composing a chain launders limits
@@ -166,8 +199,10 @@ All 147 joins audited, 146 parsed.
 |---|---|---|
 | propositions hold | 50% | **36/146 = 25%** |
 
-Of the 110 that do not hold, **every one overreaches and none is wrong**. Joining does not introduce
-false statements; it introduces unwarranted confidence.
+Of the 110 that do not hold, **every one overreaches and none is wrong** — a property of the **join**
+audit specifically. The per-item key audit above does rule 5 propositions outright wrong, so this is
+not a general feature of the drafters: joining does not introduce false statements, it introduces
+unwarranted confidence.
 
 | upstream limits, across the handoff | |
 |---|---|
@@ -185,15 +220,21 @@ them.
 
 | chains preserving *every* limit | |
 |---|---|
-| depth 2 | 32/66 = 48% |
+| depth 2 | 32/67 = 48% |
 | depth 3 | 8/31 = 26% |
 | depth 4 | **1/26 = 4%** |
 | depth 5 | 0/3 = 0% |
 | depth 6 | 0/2 = 0% |
-| **all** | **41/128 = 32%** |
+| **all** | **41/129 = 32%** |
 
 Beyond depth 3 the chains essentially stop preserving their qualifications: one chain in 26 at depth
 4, none at all at 5 or 6.
+
+The denominators reach 129 of the 130 chains. One chain is missing —
+Journal of Magnesium and Alloys, depth 2 — because one of its joins
+is the single reply of 147 that did not parse. An earlier version of this table read 128 of 130;
+that was a fault in the counting script, which split join filenames on a double underscore while
+four item ids contain one, so two chains looked unaudited whose joins had in fact been audited.
 
 ### This corrects how I reported depth
 
@@ -226,6 +267,38 @@ vocabulary comparison, so a key agreeing with its observations entirely through 
 — 130.3 to 81.9 kJ/mol, 150 min to 11 min — scored near zero and was quarantined. For an item built
 on two measurements that is the common case.
 
-Three keys of 286 never produced a verifying reply after four dispatches and are recorded as
-undrafted rather than filled in. One key, `rare_metals_com_o2_o3`, was dispatched directly rather
-than through a relay and carries that on the item.
+All 286 keys are drafted. Three of them failed verification across four dispatches and were left
+undrafted for a time; they were redrafted once the relay was told the earlier attempts had been
+truncated, and went through the same byte-for-byte transcript verification as every other key. One
+key, `rare_metals_com_o2_o3`, was dispatched directly rather than through a relay and carries that
+on the item as `key_provenance` — it is the only key in the run that did not come through the
+relay-and-harvest path.
+
+
+## Corrections, 2026-09-24
+
+Every number above was recomputed from the committed data by `trace_kit_v2p5/doc_numbers.py`, which
+runs no model call and writes nothing. Verdict spellings are normalised before counting. The
+corrections:
+
+| what | was | now | cause |
+|---|---|---|---|
+| keys undrafted | "three of 286 never produced a verifying reply" | all 286 drafted | stale: written before the final three were redrafted |
+| per-paper total items | 283 | 286 | same |
+| per-paper generator totals | 19 / 90 / 174 | 19 / 92 / 175 | same |
+| generator table, complementary | 89 items, 23 discriminating | 92 items, 22 discriminating | stale count from before the final drafts |
+| generator table, spine_edge | 174 items, 7 discriminating | 175 items, 8 discriminating | same |
+| spine-edge not-identifiable | 151 of 174 | 152 of 175 | same |
+| papers with items but no chain | four | five, named | miscount |
+| chain-survival denominators | 128 of 130 chains, depth 2 = 32/66 | 129 of 130, depth 2 = 32/67 | counting-script fault: join filenames split on a double underscore, which four item ids contain |
+| key-audit limits | 240/260, unparsed unstated | 240/260, 0 unparsed, split stated | wording |
+| "none is wrong" | unscoped | scoped to the join audit; key audit's 5 wrong reported | wording: the sentence was true of one audit and read as true of both |
+| generator table, last two columns | denominators unstated | marked as sampled, 68 and 69 packets | wording: sampled columns read as whole-set properties |
+| convergence prose | described the 6-claim panel run beside the 3-claim count | both runs tabulated and labelled; the 3 figure-level claims stated as never judged | internal inconsistency: results of a superseded set presented alongside the corrected count |
+| spine-edge MatMech hops | 36 of 185 pairs, 149 without, causes 151 / explains 34 | 34 of 175 items, 141 without, causes 145 / explains 30 | stale: counted pairs before the ten self-pairs were removed, not items |
+| convergence conclusion | "where the routes really are separate, each supports the conclusion only partly" | withdrawn; genuine convergence is 3 claims, unmeasured | the claim extrapolated from overlapping routes to independent ones that were never judged |
+
+Unchanged and confirmed correct: 286 items, 32 of 32 papers, 167 FM-lane, 33 discriminating, 147
+joins, 24 rejected all splits, 130 chains at 68/31/26/3/2, join audit 36/146 holding and 82/146
+laundering, 3 convergence claims, key-audit limits 240/260, and the v5 side of the comparison at 29
+items over 16 papers with 3 discriminating and 7 FM-lane.
