@@ -1,0 +1,114 @@
+{
+ "trace": "journal_of_a_M2_M5",
+ "paper": "Journal_of_Advanced_Ceramics__s40145-021-0536-4",
+ "graph": "taxonomy/graphs_v07/Journal_of_Advanced_Ceramics__s40145-021-0536-4.json",
+ "chain": [
+  "M2",
+  "M5"
+ ],
+ "setup": "PcBN tools see local temperature rise in cutting, so binders must keep strength and toughness hot",
+ "steps": [
+  {
+   "step": 1,
+   "claims": [
+    "n13",
+    "n14",
+    "n12"
+   ],
+   "output": "Flexural strength generally rises with sintering temperature; S1 at 1600 C is highest at ~465 MPa ; Fracture toughness: S1 at 1600 C highest ~5.6 MPa m^1/2; S3 ~3.7-4.0; S2 at most ~3.5 ; Hardness rises with sintering temperature; maxima S1 15.6 > S2 14.8 > S3 14.1 GPa",
+   "output_short": "Flexural strength generally rises with sintering temperature; S1 at 1600 C is highest at ~465 MPa",
+   "property": "the mechanical property",
+   "question": "What does the evidence below show about the mechanical property?",
+   "refers_to_previous": null,
+   "join_to_previous": null,
+   "technique": "MECH:flexural",
+   "delivery": "oracle",
+   "observations": [
+    "Flexural strength: S1 ~165, 188, 465 MPa (1400-1600 C); S3 ~170-195 flat; S2 ~80, 98, 170, 145 MPa",
+    "K_IC: S1 ~2.4, 2.9, 5.6; S3 ~3.7, 3.95, 3.95; S2 ~2.1, 2.0, 3.0, 3.5 MPa m^1/2",
+    "Hardness rises with temperature in all three series: S1 9.3 to 15.6, S2 9.4 to 14.8, S3 9.0 to 14.1 GPa"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1007/s40145-021-0536-4#F6a",
+     "suffix": "F6a",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Advanced_Ceramics/s40145-021-0536-4/images/621fb5147fc8a5a7914d3307098eb816d2a129f8404d7c4060e2db58c4ab83ea.jpg",
+     "caption_span": "Flexural strength and"
+    },
+    {
+     "panel_id": "10.1007/s40145-021-0536-4#F6b",
+     "suffix": "F6b",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Advanced_Ceramics/s40145-021-0536-4/images/621fb5147fc8a5a7914d3307098eb816d2a129f8404d7c4060e2db58c4ab83ea.jpg",
+     "caption_span": "fracture toughness of the PcBN composites sintered at different temperatures"
+    },
+    {
+     "panel_id": "10.1007/s40145-021-0536-4#F5",
+     "suffix": "F5",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Advanced_Ceramics/s40145-021-0536-4/images/28c7eb620a09471b8cfaea5f988fd8b7667c0c495bfa857c54c194a5e5e23fae.jpg",
+     "caption_span": "Fig. 5 Vickers hardness of the PcBN composites sintered at different temperatures."
+    }
+   ],
+   "support_level": "shown",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M2",
+    "stage_type": "Structure \u2192 Properties",
+    "matmech_figures": [
+     "F5",
+     "F6",
+     "F7",
+     "F8"
+    ],
+    "link_confirmed_by": null,
+    "chain_strength": null
+   }
+  },
+  {
+   "step": 2,
+   "claims": [
+    "n16"
+   ],
+   "output": "S1 keeps K_IC >= 5.1 MPa m^1/2 (8.7% below RT) and flexural strength >= 450 MPa up to 800 C",
+   "output_short": "S1 keeps K_IC >= 5.1 MPa m^1/2 (8.7% below RT) and flexural strength >= 450 MPa up to 800 C",
+   "property": "how the material performs in service",
+   "question": "Taking the property value you measured in step 1 as given, what does the evidence below show about how the material performs in service?",
+   "refers_to_previous": "the property value you measured in step 1",
+   "join_to_previous": {
+    "kind": "stage only",
+    "detail": []
+   },
+   "technique": [
+    "MECH:toughness",
+    "MECH:flexural"
+   ],
+   "delivery": "oracle",
+   "observations": [
+    "K_IC (red, left axis) ~5.6 to 5.1 MPa m^1/2 and sigma (black, right axis) 462-545 MPa from RT to 800 C"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1007/s40145-021-0536-4#F9",
+     "suffix": "F9",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Advanced_Ceramics/s40145-021-0536-4/images/eb8ef4d5ac9c0729d578ced4c2471885d7a738ec0cacc0e3d2652a83552e5980.jpg",
+     "caption_span": "Fig. 9 High temperature mechanical properties of Sample S1 at elevated temperatures."
+    }
+   ],
+   "support_level": "shown",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M5",
+    "stage_type": "Properties \u2192 Performance",
+    "matmech_figures": [
+     "F9",
+     "F10",
+     "F11"
+    ],
+    "link_confirmed_by": "shared spine claims: n13, n14",
+    "chain_strength": "stage+graph"
+   }
+  }
+ ],
+ "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model."
+}

@@ -32,7 +32,8 @@
    "chain_candidates": [
     "M3",
     "M4"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M2",
@@ -61,7 +62,8 @@
    "chain_candidates": [
     "M3",
     "M4"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M3",
@@ -84,7 +86,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Silk fibroin particles with higher silk II (\u03b2-sheet) content produced at pH 7",
     "effect": "Increased initial burst release of crystal violet during in vitro drug release"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M4",
@@ -107,7 +110,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Silk fibroin particles with higher silk I (amorphous) content produced at pH 9",
     "effect": "Slower, more sustained release of crystal violet due to denser, less permeable matrix"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M5",
@@ -132,7 +136,8 @@
     "cause": "Adjusting pH during salting out from pH 4 to pH 9",
     "effect": "Zeta potential of silk fibroin particles becomes more negative"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claim: s11"
   },
   {
    "id": "M6",
@@ -155,7 +160,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Increased negative zeta potential of silk fibroin particles at higher pH",
     "effect": "Enhanced loading efficiency of positively charged drugs like crystal violet and alcian blue"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M7",
@@ -180,7 +186,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Salting out with potassium phosphate at ionic strength below 0.75 M",
     "effect": "No particle formation or low yield"
-   }
+   },
+   "chain_strength": null
   }
  ],
  "counts": {
@@ -195,7 +202,13 @@
    "M3",
    "M4",
    "M7"
-  ]
+  ],
+  "by_strength": {
+   "stage+graph": 1
+  },
+  "usable_links": 1,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

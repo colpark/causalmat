@@ -1,0 +1,101 @@
+{
+ "trace": "journal_of_m_M3_M4",
+ "paper": "Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023",
+ "graph": "taxonomy/graphs_v07/Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023.json",
+ "chain": [
+  "M3",
+  "M4"
+ ],
+ "setup": "n-type Mg3Sb2-based thermoelectrics need high near-room-temperature ZT to rival n-Bi2Te3",
+ "steps": [
+  {
+   "step": 1,
+   "claims": [
+    "n14"
+   ],
+   "output": "Se-doped samples have low kappa_L+kappa_b ~0.6-0.9 W/mK at 300-450 K (x=0.01: ~0.69 at 300 K)",
+   "output_short": "Se-doped samples have low kappa_L+kappa_b ~0.6-0.9 W/mK at 300-450 K (x=0.01: ~0.69 at 300 K)",
+   "property": "the measured property value",
+   "question": "What does the evidence below show about the measured property value?",
+   "refers_to_previous": null,
+   "join_to_previous": null,
+   "technique": "THERMAL:lattice",
+   "delivery": "oracle",
+   "observations": [
+    "kappa_L+kappa_b of x=0.01 is ~0.69 at 300 K and ~0.60 at 400-450 K; all doped rise above ~475 K"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1016/j.jma.2020.11.023#F5f",
+     "suffix": "F5f",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023/images/e97b843ad7d9410688d4372c412c5ca0b5c2d658982b414c251282f8eda38559.jpg",
+     "caption_span": "lattice thermal conductivity of Mg3.2Bi1.4Sb0.6-xSex samples"
+    }
+   ],
+   "support_level": "shown",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M3",
+    "stage_type": "Structure \u2192 Properties",
+    "matmech_figures": [
+     "F5"
+    ],
+    "link_confirmed_by": null,
+    "chain_strength": null
+   }
+  },
+  {
+   "step": 2,
+   "claims": [
+    "n16",
+    "s6"
+   ],
+   "output": "Room-temperature ZT reaches ~0.82-0.84 for x=0.005, the highest in the series at 300 K ; Peak ZT ~1.24-1.25 near 500 K for x=0.01",
+   "output_short": "Room-temperature ZT reaches ~0.82-0.84 for x=0.005, the highest in the series at 300 K",
+   "property": "what the sample is like",
+   "question": "Taking the property value you measured in step 1 as given, what does the evidence below show about what the sample is like?",
+   "refers_to_previous": "the property value you measured in step 1",
+   "join_to_previous": {
+    "kind": "spine edge",
+    "detail": [
+     "n14 -causes-> n16",
+     "n14 -causes-> s6"
+    ]
+   },
+   "technique": "TRANSPORT:ZT",
+   "delivery": "oracle",
+   "observations": [
+    "ZT at 300 K: ~0.84 (x=0.005), ~0.78 (0.01), 0.63-0.69 (0.02-0.04); n-Bi2Te3 reference curve ~0.88",
+    "x=0.01 ZT peaks at ~1.25 near 500-525 K"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1016/j.jma.2020.11.023#F6a",
+     "suffix": "F6a",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023/images/83b69d99b3e0033f51deefa24884f665315be84db537fd1e97347ec5fb3a8dec.jpg",
+     "caption_span": "Temperature dependent ZT value of Mg3.2Bi1.4Sb0.6-xSex samples, data in references are shown for comparison [8,22]"
+    },
+    {
+     "panel_id": "10.1016/j.jma.2020.11.023#F6a",
+     "suffix": "F6a",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023/images/83b69d99b3e0033f51deefa24884f665315be84db537fd1e97347ec5fb3a8dec.jpg",
+     "caption_span": "Temperature dependent ZT value of Mg3.2Bi1.4Sb0.6-xSex samples, data in references are shown for comparison [8,22]"
+    }
+   ],
+   "support_level": "shown",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M4",
+    "stage_type": "Properties \u2192 Performance",
+    "matmech_figures": [
+     "F6",
+     "F7"
+    ],
+    "link_confirmed_by": "shared spine claim: n14",
+    "chain_strength": "stage+graph"
+   }
+  }
+ ],
+ "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model."
+}

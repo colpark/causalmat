@@ -1,0 +1,40 @@
+Property under test: how the material performs in service
+
+The previous step (step 1) established: Photocatalytic dye degradation rises with co-doping, best for Er0.5Ce0.2Ti-O (~46% vs ~20% for TiO2 in 60 min)
+
+Evidence available at this step (ASSAY):
+  [obs1] Light: antibacterial ratio Er0.5Ce0.2 ~91% (c) and ~93% (d) > Ce0.3 ~87% > Ce0.1 ~68-73% > TiO2 ~45% > control ~4-7%
+  [obs2] Er0.5Ce0.2Ti-O light plates carry the fewest colonies for both strains; dark plates stay covered, sparser for doped samples
+Panels: F10c, F10d, F10a, F10b
+
+What the paper concluded at this step, for your reference as the key's author:
+  Under simulated sunlight for 20 min, Er0.5Ce0.2Ti-O kills ~91% of S. aureus and ~93% of E. coli vs ~45% for TiO2
+
+You are drafting an answer key, not answering a question.
+
+Say what this evidence, together with the previous step's result, actually PERMITS someone to
+conclude -- and no more. A key that overstates is worse than a key that says a thing cannot be
+determined. "Not identifiable" is a correct and scorable answer whenever two candidate causes
+cannot be separated by the data given.
+
+Give:
+1. the combining proposition: what follows from putting the previous step's result together with
+   this evidence. If nothing does, say so and set `combines` false.
+2. its limits: what this comparison does NOT establish, including any confound -- two variables
+   that move together by construction, a quantity compared against a different kind of quantity,
+   or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: one of rate, amount, cumulative, normalized -- and say what is
+   being measured, with units and the window it covers.
+5. three labels:
+   dependency: real if the conclusion becomes unjustifiable without the previous step, none if not.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+6. the handoff to the next step, WITH the caveats it must carry.
+
+Reply as JSON only:
+{"combines": true or false,
+ "proposition": "...", "limits": ["..."], "not_identifiable": "..." or null,
+ "quantity": {"previous": {"kind": "...", "what": "..."}, "this": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."},
+ "handoff": "...", "handoff_caveats": ["..."]}

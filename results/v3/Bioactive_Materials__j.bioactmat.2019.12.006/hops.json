@@ -33,7 +33,8 @@
     "M4",
     "M5",
     "M6"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M2",
@@ -62,7 +63,8 @@
     "M4",
     "M5",
     "M6"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M3",
@@ -93,7 +95,8 @@
     "M4",
     "M5",
     "M6"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M4",
@@ -121,7 +124,9 @@
     "cause": "Multilayered PPAmF structure with surface-grafted BVLD and bulk-loaded NONOates",
     "effect": "Simultaneous anti-platelet (via NO release) and anti-coagulant (via BVLD inhibition of thrombin) biological properties"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage_only",
+   "link_confirmed_by": null,
+   "excluded_from_traces": true
   },
   {
    "id": "M5",
@@ -147,7 +152,8 @@
     "cause": "Presence of diazeniumdiolates (NONOates) in the PPAmF bulk and hydrophobic C-F barrier layers",
     "effect": "Sustained NO release over 8 hours with reduced burst release compared to single-layer PPAm"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claim: n16"
   },
   {
    "id": "M6",
@@ -171,7 +177,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Dual-functional structure with surface BVLD and bulk NO storage in PPAmF coating",
     "effect": "Highly endothelium-mimetic thromboresistant performance in ex vivo rabbit AV shunt model with 90.4% blood flow retention and minimal thrombus"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M7",
@@ -196,7 +203,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Sustained NO release (>8 h) and high BVLD bioactivity",
     "effect": "Significantly reduced platelet adhesion, fibrinogen adsorption/activation, and thrombus formation in vivo"
-   }
+   },
+   "chain_strength": null
   }
  ],
  "counts": {
@@ -210,7 +218,14 @@
    "M2",
    "M3",
    "M6"
-  ]
+  ],
+  "by_strength": {
+   "stage_only": 1,
+   "stage+graph": 1
+  },
+  "usable_links": 1,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

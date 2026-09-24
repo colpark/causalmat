@@ -35,7 +35,8 @@
    "chain_candidates": [
     "M3",
     "M4"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M2",
@@ -69,7 +70,8 @@
    "chain_candidates": [
     "M3",
     "M4"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M3",
@@ -101,7 +103,8 @@
     "cause": "Homogeneous dispersion, fine grains, and clean interfaces in FSP composite",
     "effect": "Higher microhardness (94 HV) and lower wear rate (280 \u00d7 10\u207b\u2075 mm\u00b3/m)"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "spine edge joining the two hops' claims: p2 -causes-> f1"
   },
   {
    "id": "M4",
@@ -135,7 +138,8 @@
     "cause": "Inhomogeneous dispersion, coarse grains, and interfacial reactions in stir cast composite",
     "effect": "Lower microhardness (62 HV) and higher wear rate (420 \u00d7 10\u207b\u2075 mm\u00b3/m)"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "spine edge joining the two hops' claims: p2 -causes-> f1"
   },
   {
    "id": "M5",
@@ -163,7 +167,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Higher microhardness and lower coefficient of friction in FSP composite",
     "effect": "Superior wear resistance under sliding conditions"
-   }
+   },
+   "chain_strength": null
   }
  ],
  "counts": {
@@ -175,7 +180,13 @@
   "orphan_ids": [
    "M1",
    "M2"
-  ]
+  ],
+  "by_strength": {
+   "stage+graph": 2
+  },
+  "usable_links": 2,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

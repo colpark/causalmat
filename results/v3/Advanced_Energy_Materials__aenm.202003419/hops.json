@@ -27,7 +27,8 @@
     "cause": "Synthesis of carbon hollow-spheres (C HS) from resorcinol\u2013formaldehyde polymer, followed by nitrogen doping via layer-by-layer strategy using polydopamine precursor",
     "effect": "Pyridinic-nitrogen sites on carbon host forming Zn-N bonds; homogeneous zinc nucleation and mesoporous zinc-network formation"
    },
-   "chain_strength": "span"
+   "chain_strength": "span",
+   "link_confirmed_by": "text identity between the two spans"
   },
   {
    "id": "M2",
@@ -53,7 +54,8 @@
     "cause": "Pyridinic-nitrogen sites on carbon host forming Zn-N bonds; homogeneous zinc nucleation and mesoporous zinc-network formation",
     "effect": "Zn-N bond strength\u2013chemical property, overpotential\u2013electrochemical property, Coulombic efficiency\u2013electrochemical property"
    },
-   "chain_strength": "span"
+   "chain_strength": "span",
+   "link_confirmed_by": "text identity between the two spans"
   },
   {
    "id": "M3",
@@ -80,7 +82,8 @@
     "cause": "Homogeneous zinc nucleation and mesoporous zinc-network formation",
     "effect": "Overpotential\u2013electrochemical property, Coulombic efficiency\u2013electrochemical property"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claim: n16"
   },
   {
    "id": "M4",
@@ -105,7 +108,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Zn-N bond strength\u2013chemical property, overpotential\u2013electrochemical property, Coulombic efficiency\u2013electrochemical property",
     "effect": "Suppression of zinc-dendrite formation, stable cycling performance over 7000 min in symmetric cells, high capacity retention over 500 cycles in Zn-MnO\u2082 battery"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M5",
@@ -130,7 +134,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Synthesis of carbon hollow-spheres (C HS) from resorcinol\u2013formaldehyde polymer, followed by nitrogen doping via layer-by-layer strategy using polydopamine precursor",
     "effect": "Suppression of zinc-dendrite formation, stable cycling performance over 7000 min in symmetric cells, high capacity retention over 500 cycles in Zn-MnO\u2082 battery"
-   }
+   },
+   "chain_strength": null
   }
  ],
  "counts": {
@@ -141,7 +146,14 @@
   "orphans": 1,
   "orphan_ids": [
    "M5"
-  ]
+  ],
+  "by_strength": {
+   "span": 2,
+   "stage+graph": 1
+  },
+  "usable_links": 3,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

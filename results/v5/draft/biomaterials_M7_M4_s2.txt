@@ -1,0 +1,40 @@
+Property under test: how the material performs in service
+
+The previous step (step 1) established: Ultra-long circulation (>~16 h) makes SWNTs accumulate strongly in the skin dermis
+
+Evidence available at this step (INVIVO:tumor_volume):
+  [obs1] Relative tumor volume of SWNT+Laser drops to ~0.2 and stays <1 for 14 days while the three control groups grow to ~5-8x (p<0.0001)
+  [obs2] Irradiated tumor site on the SWNT-injected mouse appears as a flat dark mark; tumors in the other three groups look raised
+Panels: F5a, F5b
+
+What the paper concluded at this step, for your reference as the key's author:
+  SWNT plus laser ablates irradiated tumors and suppresses regrowth over 14 days, unlike untreated, laser-only and SWNT-only groups
+
+You are drafting an answer key, not answering a question.
+
+Say what this evidence, together with the previous step's result, actually PERMITS someone to
+conclude -- and no more. A key that overstates is worse than a key that says a thing cannot be
+determined. "Not identifiable" is a correct and scorable answer whenever two candidate causes
+cannot be separated by the data given.
+
+Give:
+1. the combining proposition: what follows from putting the previous step's result together with
+   this evidence. If nothing does, say so and set `combines` false.
+2. its limits: what this comparison does NOT establish, including any confound -- two variables
+   that move together by construction, a quantity compared against a different kind of quantity,
+   or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: one of rate, amount, cumulative, normalized -- and say what is
+   being measured, with units and the window it covers.
+5. three labels:
+   dependency: real if the conclusion becomes unjustifiable without the previous step, none if not.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+6. the handoff to the next step, WITH the caveats it must carry.
+
+Reply as JSON only:
+{"combines": true or false,
+ "proposition": "...", "limits": ["..."], "not_identifiable": "..." or null,
+ "quantity": {"previous": {"kind": "...", "what": "..."}, "this": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."},
+ "handoff": "...", "handoff_caveats": ["..."]}

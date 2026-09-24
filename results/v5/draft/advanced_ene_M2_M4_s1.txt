@@ -1,0 +1,41 @@
+Property under test: the measured property value
+
+This is the first step of its chain; there is no previous result.
+
+Evidence available at this step (ECHEM:CV):
+  [obs1] CV reduction peak near -1.25 V: ~-43 (RGO-Cu2S), ~-41 (Cu2S) mA/cm2; Pt reaches only ~-0.45 mA/cm2
+  [obs2] EIS: Pt low-frequency arc spans ~2500 ohm; inset second arcs ~10 ohm (Cu2S, apex ~14 ohm, unclosed at 16) and ~3 ohm (RGO-Cu2S)
+  [obs3] Tafel: log J highest for RGO-Cu2S, slightly lower for Cu2S, about one decade lower for Pt over +-0.3 V
+Panels: F6a, F6b, F6c, F6d
+
+What the paper concluded at this step, for your reference as the key's author:
+  Polysulfide-reduction activity ranks RGO-Cu2S-2 above Cu2S and far above Pt
+
+You are drafting an answer key, not answering a question.
+
+Say what this evidence, together with the previous step's result, actually PERMITS someone to
+conclude -- and no more. A key that overstates is worse than a key that says a thing cannot be
+determined. "Not identifiable" is a correct and scorable answer whenever two candidate causes
+cannot be separated by the data given.
+
+Give:
+1. the combining proposition: what follows from putting the previous step's result together with
+   this evidence. If nothing does, say so and set `combines` false.
+2. its limits: what this comparison does NOT establish, including any confound -- two variables
+   that move together by construction, a quantity compared against a different kind of quantity,
+   or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: one of rate, amount, cumulative, normalized -- and say what is
+   being measured, with units and the window it covers.
+5. three labels:
+   dependency: real if the conclusion becomes unjustifiable without the previous step, none if not.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+6. the handoff to the next step, WITH the caveats it must carry.
+
+Reply as JSON only:
+{"combines": true or false,
+ "proposition": "...", "limits": ["..."], "not_identifiable": "..." or null,
+ "quantity": {"previous": {"kind": "...", "what": "..."}, "this": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."},
+ "handoff": "...", "handoff_caveats": ["..."]}

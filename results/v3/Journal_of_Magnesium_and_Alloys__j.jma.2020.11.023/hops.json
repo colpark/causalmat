@@ -31,7 +31,8 @@
    "chain_candidates": [
     "M2",
     "M3"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M2",
@@ -59,7 +60,9 @@
     "cause": "Enhanced valley degeneracy in conduction bands due to Mg\u2083Bi\u2082 alloying and Se doping",
     "effect": "High electron concentration (3 \u00d7 10\u00b9\u2079 cm\u207b\u00b3) and ultrahigh Hall mobility (150 cm\u00b2 V\u207b\u00b9 s\u207b\u00b9) at 300 K"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage_only",
+   "link_confirmed_by": null,
+   "excluded_from_traces": true
   },
   {
    "id": "M3",
@@ -85,7 +88,8 @@
     "cause": "Alloying of Mg\u2083Bi\u2082 with Mg\u2083Sb\u2082 and Se doping",
     "effect": "Reduction in lattice thermal conductivity (\u03ba_L) to 0.6\u20130.7 W m\u207b\u00b9 K\u207b\u00b9 at low temperatures"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claim: n14"
   },
   {
    "id": "M4",
@@ -110,7 +114,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "High power factor (29 \u03bcW cm\u207b\u00b9 K\u207b\u00b2 at 300 K) and low lattice thermal conductivity (0.6\u20130.7 W m\u207b\u00b9 K\u207b\u00b9)",
     "effect": "High thermoelectric figure-of-merit ZT of 0.82 at 300 K and peak ZT of 1.24 at 498 K"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M5",
@@ -134,7 +139,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "DC hot-pressing at 1053 K to form coarse grains and minimize grain boundary scattering",
     "effect": "High engineering ZT (ZT_eng) of ~0.9 and engineering power factor (PF_eng) of ~12% efficiency for low-temperature applications"
-   }
+   },
+   "chain_strength": null
   }
  ],
  "counts": {
@@ -146,7 +152,14 @@
   "orphan_ids": [
    "M1",
    "M5"
-  ]
+  ],
+  "by_strength": {
+   "stage_only": 1,
+   "stage+graph": 1
+  },
+  "usable_links": 1,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

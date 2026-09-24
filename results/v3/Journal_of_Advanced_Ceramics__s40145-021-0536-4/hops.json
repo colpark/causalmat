@@ -40,7 +40,8 @@
     "M2",
     "M3",
     "M4"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M2",
@@ -71,7 +72,8 @@
     "cause": "SiAlON phase as binder with uniform cBN distribution and low porosity (<0.8%) in Sample S1",
     "effect": "Optimal flexural strength (465 \u00b1 29 MPa) and fracture toughness (5.62 \u00b1 0.37 MPa\u00b7m\u00b9/\u00b2) at 1600 \u00b0C; high Vickers hardness (15.59 \u00b1 0.54 GPa)"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claims: n13, n14"
   },
   {
    "id": "M3",
@@ -98,7 +100,8 @@
     "cause": "Al\u2082O\u2083\u2013ZrO\u2082(3Y) binder system in Sample S2 with high thermal expansion mismatch and no chemical reaction",
     "effect": "Low flexural strength (145 \u00b1 7 MPa) and fracture toughness (3.52 \u00b1 0.21 MPa\u00b7m\u00b9/\u00b2) despite low porosity"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claim: n14"
   },
   {
    "id": "M4",
@@ -129,7 +132,8 @@
     "cause": "Al\u2013Ti metal binder system in Sample S3 with high porosity (7.68%) and cBN agglomeration",
     "effect": "Low flexural strength and fracture toughness despite high bulk density; inferior mechanical properties"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claims: n13, n14, n18"
   },
   {
    "id": "M5",
@@ -160,7 +164,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "High flexural strength (465 \u00b1 29 MPa) and fracture toughness (5.62 \u00b1 0.37 MPa\u00b7m\u00b9/\u00b2) of Sample S1 at room temperature",
     "effect": "Maintenance of high flexural strength (467 \u00b1 18 MPa) and fracture toughness (5.13 \u00b1 0.40 MPa\u00b7m\u00b9/\u00b2) at 800 \u00b0C during high-temperature machining"
-   }
+   },
+   "chain_strength": null
   }
  ],
  "counts": {
@@ -171,7 +176,13 @@
   "orphans": 1,
   "orphan_ids": [
    "M1"
-  ]
+  ],
+  "by_strength": {
+   "stage+graph": 3
+  },
+  "usable_links": 3,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

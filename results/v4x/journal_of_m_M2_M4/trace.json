@@ -1,0 +1,110 @@
+{
+ "trace": "journal_of_m_M2_M4",
+ "paper": "Journal_of_Magnesium_and_Alloys__j.jma.2015.01.001",
+ "graph": "taxonomy/graphs_v07/Journal_of_Magnesium_and_Alloys__j.jma.2015.01.001.json",
+ "chain": [
+  "M2",
+  "M4"
+ ],
+ "setup": "Cast Mg alloy AZ91 needs higher strength and creep resistance at elevated temperature",
+ "steps": [
+  {
+   "step": 1,
+   "claims": [
+    "n13",
+    "n14"
+   ],
+   "output": "Tensile yield strength rises from ~93 to ~142 MPa with SiCp, largest gains at 5 and 10 wt% ; Ultimate compressive strength rises monotonically from ~310 to ~363 MPa with SiCp",
+   "output_short": "Tensile yield strength rises from ~93 to ~142 MPa with SiCp, largest gains at 5 and 10 wt%",
+   "property": "the mechanical property",
+   "question": "What does the evidence below show about the mechanical property?",
+   "refers_to_previous": null,
+   "join_to_previous": null,
+   "technique": "MECH:tensile",
+   "delivery": "oracle",
+   "observations": [
+    "YS bars rise ~93, 113, 124, 127, 136, 142 MPa for 0-25 wt% SiCp",
+    "UCS points rise ~310, 318, 333, 343, 353, 363 MPa with SiCp content"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1016/j.jma.2015.01.001#F3",
+     "suffix": "F3",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Magnesium_and_Alloys/j.jma.2015.01.001/images/5ef89c6e842bacaf873543f10a0bbe3ed0cbc11126fa8e299fad639d18ad5a21.jpg",
+     "caption_span": "Fig. 3. Histogram showing variation in yield strength (YS) and ultimate tensile strength (UTS) of the composites with respect to SiCp ."
+    },
+    {
+     "panel_id": "10.1016/j.jma.2015.01.001#F4",
+     "suffix": "F4",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Magnesium_and_Alloys/j.jma.2015.01.001/images/1da63aa8dc26b9eff6d68e8107a55c35dd7adb105e8feccc1e2660fb75bd97d0.jpg",
+     "caption_span": "Fig. 4. Variation in ultimate compressive strength (UCS) of the AZ91 alloy with increase in reinforcement content."
+    }
+   ],
+   "support_level": "shown",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M2",
+    "stage_type": "Structure \u2192 Property",
+    "matmech_figures": [
+     "F3",
+     "F4"
+    ],
+    "link_confirmed_by": null,
+    "chain_strength": null
+   }
+  },
+  {
+   "step": 2,
+   "claims": [
+    "n13",
+    "n16",
+    "n20"
+   ],
+   "output": "Tensile yield strength rises from ~93 to ~142 MPa with SiCp, largest gains at 5 and 10 wt% ; Minimum creep rate at 175 C is lowered for 15-25 wt% SiCp; 5-10 wt% differ little from AZ91 ; Improved creep resistance at 175 C and 80-120 MPa for composites with >=15 wt% SiCp",
+   "output_short": "Tensile yield strength rises from ~93 to ~142 MPa with SiCp, largest gains at 5 and 10 wt%",
+   "property": "the mechanical property and how the material performs in service",
+   "question": "Taking the property value you measured in step 1 as given, what does the evidence below show about the mechanical property and how the material performs in service?",
+   "refers_to_previous": "the property value you measured in step 1",
+   "join_to_previous": {
+    "kind": "shared claim",
+    "detail": [
+     "n13"
+    ]
+   },
+   "technique": "MECH:creep",
+   "delivery": "oracle",
+   "observations": [
+    "Minimum creep rate vs applied stress: 15, 20, 25 wt% lie below AZ91; 5 and 10 wt% overlap or lie slightly above",
+    "YS bars rise ~93, 113, 124, 127, 136, 142 MPa for 0-25 wt% SiCp"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1016/j.jma.2015.01.001#F7a",
+     "suffix": "F7a",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Magnesium_and_Alloys/j.jma.2015.01.001/images/5917e0c0487cbac0085cdcfcde9f50b790b644c6109a3e670b1f5743c0017eed.jpg",
+     "caption_span": "applied stress and"
+    },
+    {
+     "panel_id": "10.1016/j.jma.2015.01.001#F3",
+     "suffix": "F3",
+     "png": null,
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Journal_of_Magnesium_and_Alloys/j.jma.2015.01.001/images/5ef89c6e842bacaf873543f10a0bbe3ed0cbc11126fa8e299fad639d18ad5a21.jpg",
+     "caption_span": "Fig. 3. Histogram showing variation in yield strength (YS) and ultimate tensile strength (UTS) of the composites with respect to SiCp ."
+    }
+   ],
+   "support_level": "shown",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M4",
+    "stage_type": "Property \u2192 Performance",
+    "matmech_figures": [
+     "F6"
+    ],
+    "link_confirmed_by": "shared spine claim: n13",
+    "chain_strength": "stage+graph"
+   }
+  }
+ ],
+ "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model."
+}

@@ -1,0 +1,43 @@
+Property under test: the measured property value
+
+This is the first step of its chain; there is no previous result.
+
+Evidence available at this step (ASSAY:catalysis):
+  [obs1] Degradation at 60 min: Er0.5Ce0.2 ~46% > Ce0.3 ~41% > Ce0.1 ~31% > TiO2 ~20%, same order at 20 and 40 min
+  [obs2] PL band at 390-420 nm is strongest for TiO2, about half for Er0.5Ti-O and lowest for Er0.5Ce0.2
+  [obs3] Nyquist plot: Er0.5Ce0.2Ti-O shows a small arc (~1.5 kOhm) then a sloped tail; TiO2 rises almost vertically with no closed arc
+  [obs4] Light-on current ~7e-6 A/cm2 for Er0.5Ce0.2Ti-O vs ~5.3e-6 for TiO2 over 8 on/off cycles; dark current ~3e-6 for both
+Panels: F8, F7, F9a, F9b
+
+What the paper concluded at this step, for your reference as the key's author:
+  Photocatalytic dye degradation rises with co-doping, best for Er0.5Ce0.2Ti-O (~46% vs ~20% for TiO2 in 60 min)
+  Photogenerated electron-hole separation improves: recombination falls with Er and further with Ce, charge transfer resistance drops, photocurrent rises
+
+You are drafting an answer key, not answering a question.
+
+Say what this evidence, together with the previous step's result, actually PERMITS someone to
+conclude -- and no more. A key that overstates is worse than a key that says a thing cannot be
+determined. "Not identifiable" is a correct and scorable answer whenever two candidate causes
+cannot be separated by the data given.
+
+Give:
+1. the combining proposition: what follows from putting the previous step's result together with
+   this evidence. If nothing does, say so and set `combines` false.
+2. its limits: what this comparison does NOT establish, including any confound -- two variables
+   that move together by construction, a quantity compared against a different kind of quantity,
+   or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: one of rate, amount, cumulative, normalized -- and say what is
+   being measured, with units and the window it covers.
+5. three labels:
+   dependency: real if the conclusion becomes unjustifiable without the previous step, none if not.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+6. the handoff to the next step, WITH the caveats it must carry.
+
+Reply as JSON only:
+{"combines": true or false,
+ "proposition": "...", "limits": ["..."], "not_identifiable": "..." or null,
+ "quantity": {"previous": {"kind": "...", "what": "..."}, "this": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."},
+ "handoff": "...", "handoff_caveats": ["..."]}

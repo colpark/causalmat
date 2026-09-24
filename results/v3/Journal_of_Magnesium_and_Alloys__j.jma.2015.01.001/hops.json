@@ -34,7 +34,8 @@
    "chain_candidates": [
     "M2",
     "M3"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M2",
@@ -63,7 +64,8 @@
     "cause": "Grain size reduction and near-uniform distribution of SiCp particles; clean Mg-SiCp interface",
     "effect": "Increase in yield strength and ultimate compressive strength; minimal change in ultimate tensile strength"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claim: n13"
   },
   {
    "id": "M3",
@@ -92,7 +94,8 @@
     "cause": "Grain size reduction and near-uniform distribution of SiCp particles; clean Mg-SiCp interface",
     "effect": "Reduction in minimum creep rate and increase in stress exponent (n) and true stress exponent (nt)"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claims: n16, n20, n21"
   },
   {
    "id": "M4",
@@ -117,7 +120,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Increased yield strength, ultimate compressive strength, and reduced minimum creep rate",
     "effect": "Improved creep resistance and mechanical performance of AZ91-SiCp composites at 175 \u00b0C under 80\u2013120 MPa stress"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M5",
@@ -143,7 +147,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Stir casting with preheated SiC particles added at 750 \u00b0C under argon atmosphere",
     "effect": "Improved creep resistance and mechanical performance of AZ91-SiCp composites at 175 \u00b0C under 80\u2013120 MPa stress"
-   }
+   },
+   "chain_strength": null
   }
  ],
  "counts": {
@@ -155,7 +160,13 @@
   "orphan_ids": [
    "M1",
    "M5"
-  ]
+  ],
+  "by_strength": {
+   "stage+graph": 2
+  },
+  "usable_links": 2,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

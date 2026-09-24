@@ -1,0 +1,42 @@
+Property under test: how the material performs in service
+
+The previous step (step 2) established: Zinc adsorption is exothermic on N-doped graphene (-0.072 to -0.089 eV) but endothermic on pristine graphene (+0.014 to +0.030 eV)
+
+Evidence available at this step (SEM):
+  [obs1] Zinc on CnC HS is a largely flat deposit with sparse protruding platelets; on C HS the surface is a dense mat of sharp platelets
+  [obs2] CnC HS holds roughly 93-100% Coulombic efficiency to about 205 cycles; C HS data end near 50 cycles after falling to zero at ~40 and ~48
+  [obs3] C HS voltage spikes grow from ~2600 min and its trace ends near 4400 min at the 'C HS battery failure' arrow, while CnC HS stays within ~0.03 V to 7100 min
+  [obs4] Under a stepped current-density staircase C HS develops large voltage spikes from ~2300 min while CnC HS stays within ~0.05 V to 3500 min
+Panels: F3d, F3e, F4a, F4b, F4e
+
+What the paper concluded at this step, for your reference as the key's author:
+  CnC HS sustains ~200 plating/stripping cycles and >7000 min symmetric cycling, while C HS fails near 50 cycles and ~4400 min
+
+You are drafting an answer key, not answering a question.
+
+Say what this evidence, together with the previous step's result, actually PERMITS someone to
+conclude -- and no more. A key that overstates is worse than a key that says a thing cannot be
+determined. "Not identifiable" is a correct and scorable answer whenever two candidate causes
+cannot be separated by the data given.
+
+Give:
+1. the combining proposition: what follows from putting the previous step's result together with
+   this evidence. If nothing does, say so and set `combines` false.
+2. its limits: what this comparison does NOT establish, including any confound -- two variables
+   that move together by construction, a quantity compared against a different kind of quantity,
+   or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: one of rate, amount, cumulative, normalized -- and say what is
+   being measured, with units and the window it covers.
+5. three labels:
+   dependency: real if the conclusion becomes unjustifiable without the previous step, none if not.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+6. the handoff to the next step, WITH the caveats it must carry.
+
+Reply as JSON only:
+{"combines": true or false,
+ "proposition": "...", "limits": ["..."], "not_identifiable": "..." or null,
+ "quantity": {"previous": {"kind": "...", "what": "..."}, "this": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."},
+ "handoff": "...", "handoff_caveats": ["..."]}

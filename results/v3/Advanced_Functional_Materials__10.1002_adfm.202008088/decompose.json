@@ -6,17 +6,20 @@
    "effect": {
     "claims": [
      "n4",
+     "n5",
      "n7"
     ],
     "why": {
-     "n4": "States the same three crystalline states (PC, HOC, SC) used as the comparison set, along with their domain-size range, matching the effect's claim that these structures with varying domain sizes were formed.",
-     "n6": "States that MAPbI3 was crystallized into PC films, HOC films, and mm-sized single crystals, which is the direct instantiation of the effect's claim that PC, HOC, and SC structures were formed.",
-     "n7": "Gives the specific domain-size values for PC (~0.1 um), HOC (~10-100 um), and SC (~1e2-1e3 um), which is the quantitative measurement of the effect's 'varying domain sizes' claim."
+     "n4": "States the three crystalline states (PC, HOC, SC) as the comparison structures, later extended to a domain-size series, matching the formed structures with varying domain sizes.",
+     "n5": "Names the specific growth route used to form each of the PC, HOC and SC structures.",
+     "n6": "States that the three routes were used to crystallize MAPbI3 into PC films, HOC films and single crystals, i.e., the structures were formed.",
+     "n7": "Gives the specific domain sizes (varying by orders of magnitude) for PC, HOC and SC, matching the 'varying domain sizes' part of the effect."
     },
     "unmatched_parts": [],
     "parsed": true,
     "claims_before_completion": [
      "n4",
+     "n5",
      "n6",
      "n7"
     ]
@@ -27,8 +30,8 @@
      "n6"
     ],
     "why": {
-     "n5": "States the three distinct growth routes (spin-coating, temperature-gradient solidification, inverse temperature crystallization) chosen for each crystalline state, matching the effect directly.",
-     "n6": "Specifies the same three routes used to crystallize MAPbI3 into PC films, HOC films, and SC crystals, the more detailed version of the same growth-method fact."
+     "n5": "States that each crystalline state (PC, HOC, SC) is grown by its own chosen route: spin-coating, temperature-gradient solidification, and inverse temperature crystallization \u2014 the exact fact of the effect.",
+     "n6": "Specifies the same three routes applied to MAPbI3 precursor solution, naming the resulting products (PC films, HOC films, SC crystals), i.e., the same growth-method fact at a more concrete level."
     },
     "unmatched_parts": [],
     "parsed": true
@@ -40,7 +43,7 @@
      "n13"
     ],
     "why": {
-     "n13": "Both state that as-grown PC exhibits a dual PL peak (plus IR tail) while SC exhibits a single PL peak, ranking with crystalline state below 150 K."
+     "n13": "Both state that as-grown PC shows a dual PL peak while SC shows a single peak, with HOC intermediate, ranking by crystalline state."
     },
     "unmatched_parts": [],
     "parsed": true,
@@ -55,9 +58,9 @@
      "n7"
     ],
     "why": {
-     "n4": "States the three crystalline states PC, HOC, SC and the domain-size series that classifies them, matching the effect's structural/domain-size framing.",
-     "n6": "States that MAPbI3 was crystallized into the three structural forms (PC films, HOC films, SC crystals), i.e. the resulting structures the effect describes.",
-     "n7": "Gives the specific domain-size ranges for PC, HOC and SC, the quantitative version of the varying domain sizes stated in the effect."
+     "n4": "States the three crystalline states PC/HOC/SC as the comparison axis together with the domain-size series, matching the effect's structures-with-varying-domain-sizes fact at a general level.",
+     "n6": "States that the three growth routes produced PC films, HOC films and mm-sized single crystals, i.e. the same three structural states as the effect.",
+     "n7": "Gives the specific domain-size values for PC, HOC and SC, the quantitative instance of the effect's 'varying domain sizes' claim."
     },
     "unmatched_parts": [],
     "parsed": true
@@ -65,39 +68,26 @@
   },
   "M3": {
    "effect": {
-    "claims": [
-     "n2",
-     "n19"
-    ],
-    "why": {
-     "n2": "States the same link asserted by the effect: domain-size-derived residual stress governs both the phase transition and the PL (optoelectronic) behaviour of MAPbI3.",
-     "n19": "Restates the same governing link between domain-size-dependent residual stress, the phase transition, and PL behaviour, i.e. phase-transition characteristics tied to optoelectronic behaviour."
-    },
+    "claims": [],
+    "why": {},
     "unmatched_parts": [
-     "No claim explicitly frames the link in terms of 'optoelectronic device performance'; the paper's claims tie phase-transition characteristics to PL/emission behaviour specifically, not to device-level performance metrics (efficiency, stability in a device, etc.)."
+     "No claim explicitly states that phase-transition characteristics influence optoelectronic device performance; the claims describe phase-transition mechanisms and facts (domain size, residual stress, PL emission behavior) but none frame these as affecting 'device performance' specifically \u2014 that link is a downstream consequence not asserted by any listed claim."
     ],
     "parsed": true,
-    "claims_before_completion": [
-     "n2",
-     "n19"
-    ]
+    "claims_before_completion": []
    },
    "cause": {
     "claims": [
      "n13",
      "n16",
-     "n21",
-     "n18"
+     "n21"
     ],
     "why": {
-     "n13": "Both describe the as-grown, crystalline-state-dependent PL emission pattern (PC dual peak/IR tail, HOC intermediate, SC single peak) below 150 K.",
-     "n16": "Both describe the PL emission behavior of the ground nanoparticle samples converging to a single red-shifting tetragonal-like band with no low-temperature transition.",
-     "n21": "Both describe the PL emission behavior change (surface becoming dual-emitting like PC while core remains single-peak) after atmospheric ageing of SC.",
-     "n18": "Both describe power-dependent PL as a probe/behavior reflecting crystallinity in SC perovskite."
+     "n13": "States the as-grown PL emission behavior (dual peak, intermediate, single peak) as it varies by crystalline state below 150 K, a specific measurement of PL/optical behavior.",
+     "n16": "States the PL emission behavior after grinding (all converge to one red-shifting tetragonal-like band, no transition), another specific instance of PL/optical behavior.",
+     "n21": "States the PL emission behavior after atmospheric ageing (surface becomes PC-like dual emitter, core stays single-peak), another specific instance of PL/optical behavior."
     },
-    "unmatched_parts": [
-     "The effect as stated is a bare topic label ('PL behavior-optical property') without specifying which sample, condition, or measurement; claims that only assert the causal link (domain size/residual stress governing PL behavior, e.g. n2, n19) were treated as mechanism/thesis statements rather than direct statements of the PL behavior fact itself, and claims about prior literature disagreement on dual PL emission (n1) were treated as background/motivation rather than a reported PL behavior finding."
-    ],
+    "unmatched_parts": [],
     "parsed": true
    }
   },
@@ -105,19 +95,31 @@
    "effect": {
     "claims": [
      "n2",
-     "n19"
+     "n19",
+     "n13",
+     "n14",
+     "n16",
+     "n21"
     ],
     "why": {
-     "n2": "states domain size (via residual stress) governs both phase transition and PL behaviour of MAPbI3, matching the effect's core claim",
-     "n19": "restates as the paper's conclusion that domain-size-dependent residual stress governs the phase transition and PL of MAPbI3"
+     "n2": "States the general thesis that domain size, via residual stress, governs both the phase transition and PL behaviour of MAPbI3.",
+     "n19": "Restates the same governing-thesis fact (domain-size-dependent residual stress controls the orthorhombic-tetragonal transition and PL) as the effect's conclusion.",
+     "n13": "Gives the specific PL behaviour (dual/intermediate/single-peak emission) that varies with crystalline state, a concrete instance of the photoluminescence fact.",
+     "n14": "Gives the specific phase-transition behaviour (transition temperature and window) as a function of domain size, a concrete instance of the phase-transition fact.",
+     "n16": "States the specific combined outcome where phase-transition and PL behaviour converge after grinding, i.e. the same two properties measured together.",
+     "n21": "States a specific PL behaviour change (surface vs core emission) tied to phase/domain state, a concrete instance of the photoluminescence fact."
     },
     "unmatched_parts": [
-     "explicit link to optoelectronic applications/relevance is not stated by any claim"
+     "No claim ties the phase-transition/PL findings to 'optoelectronic applications'; that framing is absent from the claim list."
     ],
     "parsed": true,
     "claims_before_completion": [
      "n2",
-     "n19"
+     "n19",
+     "n13",
+     "n14",
+     "n16",
+     "n21"
     ]
    },
    "cause": {
@@ -127,9 +129,9 @@
      "n7"
     ],
     "why": {
-     "n4": "States the three crystalline states PC, HOC, SC and the domain-size series that classifies them, matching the effect's structural/domain-size framing.",
-     "n6": "States that MAPbI3 was crystallized into the three structural forms (PC films, HOC films, SC crystals), i.e. the resulting structures the effect describes.",
-     "n7": "Gives the specific domain-size ranges for PC, HOC and SC, the quantitative version of the varying domain sizes stated in the effect."
+     "n4": "Both state the three archetypal crystalline states PC, HOC, SC compared via a domain-size series.",
+     "n6": "Both describe production of PC, HOC, and SC (single-crystal) forms of MAPbI3.",
+     "n7": "Both state the varying domain sizes across PC, HOC, and SC structures."
     },
     "unmatched_parts": [],
     "parsed": true

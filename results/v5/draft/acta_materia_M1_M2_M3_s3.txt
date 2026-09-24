@@ -1,0 +1,43 @@
+Property under test: how the material performs in service
+
+The previous step (step 2) established: Yield stress is strongly orientation dependent and, in [11-20] and [01-10], reaches ~145-165 MPa at RT, about 11x the pure-Mg single crystal
+
+Evidence available at this step (MECH:tensile):
+  [obs1] Tensile [0001] test at RT: the flow stress starts at ~72 MPa, is serrated between ~52 and ~80 MPa, and the specimen reaches ~45% plastic strain before fracture
+  [obs2] The tensile gauge is filled with fine bands inclined to the [0001] tensile direction, across which the marked basal-plane trace kinks
+  [obs3] Between RT and 400 C the alloy's [11-20]/[01-10] yield stress falls only from ~165 to ~105 MPa, while the gray pure-Mg reference falls from ~270 to ~15 MPa and sits near 10 MPa in the soft orientations
+  [obs4] Stress-strain curves: [11-20], [01-10] and [1 1 -2 1.85] all pass 5% plastic strain at RT and 300 C, [0001] fractures without yielding (x at ~355 and ~255 MPa), and only [01-10] at RT work-hardens, 165 -> 205 MPa
+Panels: F10a, F10b, F2a, F2b, F2c
+
+What the paper concluded at this step, for your reference as the key's author:
+  The crystal keeps a yield stress above 100 MPa with more than 5% compressive plastic strain in [11-20] and [01-10] from RT to 400 C
+  In tension along [0001] the crystal elongates ~45% at 65-80 MPa by kink-band formation, the first bulk demonstration of tensile ductility by kinking
+
+You are drafting an answer key, not answering a question.
+
+Say what this evidence, together with the previous step's result, actually PERMITS someone to
+conclude -- and no more. A key that overstates is worse than a key that says a thing cannot be
+determined. "Not identifiable" is a correct and scorable answer whenever two candidate causes
+cannot be separated by the data given.
+
+Give:
+1. the combining proposition: what follows from putting the previous step's result together with
+   this evidence. If nothing does, say so and set `combines` false.
+2. its limits: what this comparison does NOT establish, including any confound -- two variables
+   that move together by construction, a quantity compared against a different kind of quantity,
+   or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: one of rate, amount, cumulative, normalized -- and say what is
+   being measured, with units and the window it covers.
+5. three labels:
+   dependency: real if the conclusion becomes unjustifiable without the previous step, none if not.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+6. the handoff to the next step, WITH the caveats it must carry.
+
+Reply as JSON only:
+{"combines": true or false,
+ "proposition": "...", "limits": ["..."], "not_identifiable": "..." or null,
+ "quantity": {"previous": {"kind": "...", "what": "..."}, "this": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."},
+ "handoff": "...", "handoff_caveats": ["..."]}

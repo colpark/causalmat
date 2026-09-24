@@ -30,7 +30,8 @@
    "chain_candidates": [
     "M2",
     "M3"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M2",
@@ -57,7 +58,8 @@
     "cause": "Hierarchical Cu\u2082S microspheres wrapped by RGO nanosheets with increased surface area, mesoporous structure, and improved electrical connectivity",
     "effect": "Enhanced electrocatalytic activity, lower charge-transfer resistance, and higher exchange current density for polysulfide reduction"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claim: m14"
   },
   {
    "id": "M3",
@@ -82,7 +84,8 @@
     "cause": "Crystalline monoclinic Cu\u2082S nanoflakes with RGO wrapping and reduced oxygen content",
     "effect": "High electrochemical stability and efficient charge transfer due to strong interfacial bonding and preserved Cu(I) state"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "spine edge joining the two hops' claims: m13 -explains-> m14"
   },
   {
    "id": "M4",
@@ -107,7 +110,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "High electrocatalytic activity, low charge-transfer resistance (R_CT2 = 3.380 \u03a9), and high exchange current density (J\u2080) of RGO-Cu\u2082S-2 electrode",
     "effect": "Power conversion efficiency of 3.85% in CdS/CdSe QDSSCs, outperforming Pt (2.14%) and Cu\u2082S (3.39%) electrodes"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M5",
@@ -130,7 +134,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "One-step solvothermal synthesis with 10 mL GO ethanol solution followed by calcination at 350\u00b0C in Ar",
     "effect": "Optimized power conversion efficiency of 3.85% in QDSSCs, 80% higher than Pt and 14% higher than Cu\u2082S"
-   }
+   },
+   "chain_strength": null
   }
  ],
  "counts": {
@@ -142,7 +147,13 @@
   "orphan_ids": [
    "M1",
    "M5"
-  ]
+  ],
+  "by_strength": {
+   "stage+graph": 2
+  },
+  "usable_links": 2,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

@@ -1,0 +1,163 @@
+{
+ "paper": "Advanced_Energy_Materials__aenm.202003639",
+ "n_spine_claims": 20,
+ "hops": {
+  "M1": {
+   "effect": {
+    "claims": [
+     "n9"
+    ],
+    "why": {
+     "n9": "Both state the same structural conversion: monoclinic KMnHCF transforms into rhombohedral KZnHCF (K2Zn3[Fe(CN)6]2), i.e., the phase transformation from monoclinic K2MnFe(CN)6 to rhombohedral K2Zn3[Fe(CN)6]2."
+    },
+    "unmatched_parts": [
+     "The specific coordination-geometry detail that MnN6 octahedra are replaced by ZnN4 tetrahedra is not explicitly restated as a standalone fact by any claim (n15 only mentions ZnN4 in passing while making a different, mechanism-oriented point about channel widening, and n11/n12 describe the cause of the transition rather than the resulting coordination change itself)."
+    ],
+    "parsed": true,
+    "claims_before_completion": [
+     "n9"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "n4",
+     "n7"
+    ],
+    "why": {
+     "n4": "Both identify the same specific electrolyte, 30 m KFSI + 1 m Zn(CF3SO3)2, used for electrochemical cycling.",
+     "n7": "Both describe the electrochemical cycling process (galvanostatic cycling of the cell) carried out in this electrolyte system."
+    },
+    "unmatched_parts": [],
+    "parsed": true
+   }
+  },
+  "M2": {
+   "effect": {
+    "claims": [
+     "n18",
+     "n19",
+     "n20"
+    ],
+    "why": {
+     "n18": "states the capacity settles near 100 mAh/g, matching the stable capacity value in the effect",
+     "n19": "states the 98% capacity retention from cycle 100 to 400, matching the retention and cycle span in the effect",
+     "n20": "general statement that the converted electrode yields a stable zinc-ion cathode, the same overall stability fact stated in general terms"
+    },
+    "unmatched_parts": [],
+    "parsed": true,
+    "claims_before_completion": [
+     "n18",
+     "n19",
+     "n20"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "n9",
+     "n15"
+    ],
+    "why": {
+     "n9": "States the electrode converts to the rhombohedral K2Zn3[Fe(CN)6]2 phase, the same structural transformation as the effect.",
+     "n15": "Describes ZnN4 tetrahedra linked via longer cyanide bridges to FeC6 producing wider channels, matching the ZnN4/wider-channel structural detail of the effect."
+    },
+    "unmatched_parts": [],
+    "parsed": true
+   }
+  },
+  "M3": {
+   "effect": {
+    "claims": [
+     "n25",
+     "n19"
+    ],
+    "why": {
+     "n25": "Both state that the converted electrode discharges via a single voltage plateau (at 1.74 V, yielding 150 Wh/kg).",
+     "n19": "Both describe enhanced redox reversibility, measured as 98% capacity retention over 300 cycles with 99-100% coulombic efficiency."
+    },
+    "unmatched_parts": [],
+    "parsed": true,
+    "claims_before_completion": [
+     "n25",
+     "n19"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "n4",
+     "n7"
+    ],
+    "why": {
+     "n4": "Both state that the 30 m KFSI + 1 m Zn(CF3SO3)2 electrolyte is the one used for electrochemical cycling of the cell.",
+     "n7": "Both describe the galvanostatic electrochemical cycling of the KMnHCF-Zn cell (in this electrolyte) as the process/condition being reported."
+    },
+    "unmatched_parts": [],
+    "parsed": true
+   }
+  },
+  "M4": {
+   "effect": {
+    "claims": [
+     "n3",
+     "n6"
+    ],
+    "why": {
+     "n3": "n3 identifies the as-prepared KMnHCF as a vacancy-poor Prussian blue analogue, matching the effect's low Fe(CN)6 vacancy content.",
+     "n6": "n6 states the as-prepared KMnHCF is monoclinic P21/n, matching the effect's monoclinic phase formation."
+    },
+    "unmatched_parts": [
+     "No claim explicitly states the high crystallinity of the as-prepared material.",
+     "n5 describes the synthesis method (controlled precipitation with citrate) that produces this structure, which is the cause/process rather than the structural fact itself, so it is not counted as a match."
+    ],
+    "parsed": true,
+    "claims_before_completion": [
+     "n3",
+     "n6"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "n5"
+    ],
+    "why": {
+     "n5": "Both state that KMnHCF was synthesized by controlled precipitation at room temperature using citrate as a complexing agent."
+    },
+    "unmatched_parts": [],
+    "parsed": true
+   }
+  },
+  "M5": {
+   "effect": {
+    "claims": [
+     "n17",
+     "n19"
+    ],
+    "why": {
+     "n17": "Both identify the Fe3+/Fe2+ couple as the redox process operating in the converted KZnHCF electrode",
+     "n19": "99-100% coulombic efficiency over cycling is the quantitative measure of the redox reaction's high reversibility"
+    },
+    "unmatched_parts": [
+     "No claim explicitly states low voltage polarization (e.g., small charge/discharge voltage gap) for the Fe3+/Fe2+ redox process"
+    ],
+    "parsed": true,
+    "claims_before_completion": [
+     "n17",
+     "n19"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "n9"
+    ],
+    "why": {
+     "n9": "n9 states the same rhombohedral K2Zn3[Fe(CN)6]2 structure formed from KMnHCF (formula matches the effect's structure)"
+    },
+    "unmatched_parts": [
+     "The specific coordination detail that Zn occupies ZnN4 tetrahedra is not independently stated as a standalone structural fact; n15 mentions ZnN4 only as part of a mechanistic claim about wider channels accommodating Zn2+, which is a consequence/mechanism rather than the same structural fact."
+    ],
+    "parsed": true
+   }
+  }
+ },
+ "note": "net-decompose is a matcher; its output never reaches a solver prompt. Every verdict is model against model.",
+ "graph_completion": "complete.py: unsupported matched claims replaced by a supported one-edge neighbour that matches the effect at least as well"
+}

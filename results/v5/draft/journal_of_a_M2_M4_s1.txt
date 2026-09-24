@@ -1,0 +1,42 @@
+Property under test: the mechanism connecting the two
+
+This is the first step of its chain; there is no previous result.
+
+Evidence available at this step (TRANSPORT:dielectric):
+  [obs1] TCC curve of x=0.06 stays between the +/-15% dashed limits from ~40 to ~340-350 C; x=0.08 overshoots +15% near 230-290 C
+  [obs2] All eight Raman wavenumbers of x=0.06 soften gradually from RT to 275 C
+  [obs3] At 1 kHz the Tm1 maximum drops from ~6750 (x=0) to ~2700 (x=0.08); a second maximum appears for x>=0.02 and moves ~200 -> ~260 C
+  [obs4] Diffuseness gamma rises 1.71, 1.94, 1.96, 1.97, 2.00 for x = 0 to 0.08
+Panels: F4f, F5b, F4a, F4b, F4c, F4d, F4e, F4a, F4b, F4c, F4d, F4e
+
+What the paper concluded at this step, for your reference as the key's author:
+  Tm2 arises from thermal evolution of Sr-vacancy-affected PNRs, not from an abrupt structural phase transition
+
+You are drafting an answer key, not answering a question.
+
+Say what this evidence, together with the previous step's result, actually PERMITS someone to
+conclude -- and no more. A key that overstates is worse than a key that says a thing cannot be
+determined. "Not identifiable" is a correct and scorable answer whenever two candidate causes
+cannot be separated by the data given.
+
+Give:
+1. the combining proposition: what follows from putting the previous step's result together with
+   this evidence. If nothing does, say so and set `combines` false.
+2. its limits: what this comparison does NOT establish, including any confound -- two variables
+   that move together by construction, a quantity compared against a different kind of quantity,
+   or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: one of rate, amount, cumulative, normalized -- and say what is
+   being measured, with units and the window it covers.
+5. three labels:
+   dependency: real if the conclusion becomes unjustifiable without the previous step, none if not.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+6. the handoff to the next step, WITH the caveats it must carry.
+
+Reply as JSON only:
+{"combines": true or false,
+ "proposition": "...", "limits": ["..."], "not_identifiable": "..." or null,
+ "quantity": {"previous": {"kind": "...", "what": "..."}, "this": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."},
+ "handoff": "...", "handoff_caveats": ["..."]}

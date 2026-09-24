@@ -1,0 +1,156 @@
+{
+ "paper": "Advanced_Functional_Materials__10.1002_adfm.202005093",
+ "n_spine_claims": 16,
+ "hops": {
+  "M1": {
+   "effect": {
+    "claims": [
+     "a7"
+    ],
+    "why": {
+     "a7": "Both state that the final bismuthene product is a thin, free-standing 2D lamellar nanosheet (a7 gives the specific ~200 nm lateral size and ~14 nm thickness that quantifies the 'few-layered, ultrathin' morphology stated by the effect)."
+    },
+    "unmatched_parts": [],
+    "parsed": true,
+    "claims_before_completion": [
+     "a7"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "a4",
+     "a5",
+     "a6"
+    ],
+    "why": {
+     "a4": "States the same freeze-thaw intercalation/exfoliation followed by NaBH4 reduction process described in the effect.",
+     "a5": "Specifies the exact freeze-thaw treatment (five cycles at -80C with sonication) that constitutes the freezing-thawing part of the effect.",
+     "a6": "Specifies the NaBH4 reduction treatment step that constitutes the reduction part of the effect."
+    },
+    "unmatched_parts": [],
+    "parsed": true
+   }
+  },
+  "M2": {
+   "effect": {
+    "claims": [
+     "a11"
+    ],
+    "why": {
+     "a11": "Both state that bismuthene exhibits strong optical absorption in the NIR biowindow, with a11 giving the specific extinction coefficient (6.4 L g-1 cm-1) at 808 nm."
+    },
+    "unmatched_parts": [],
+    "parsed": true,
+    "claims_before_completion": [
+     "a11"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "a7",
+     "a16"
+    ],
+    "why": {
+     "a7": "Both state that the bismuthene product exists as thin, sheet-like (lamellar) nanostructures, with a7 giving the specific ~14 nm thickness and ~200 nm lateral size that quantifies the 'ultrathin 2D nanosheet' morphology.",
+     "a16": "a16 restates as a general thesis that the freeze-thaw/NaBH4 route yields 2D bismuthene, i.e. the same overall fact that the product is 2D bismuthene nanosheets."
+    },
+    "unmatched_parts": [
+     "The specific 'few-layered' descriptor (number of atomic/molecular layers) is not directly quantified by any claim; only overall sheet thickness (~14 nm) is given in a7."
+    ],
+    "parsed": true
+   }
+  },
+  "M3": {
+   "effect": {
+    "claims": [
+     "a14",
+     "a16"
+    ],
+    "why": {
+     "a14": "States the specific in vivo result that the photothermal (plus PDT) treatment effectively ablates 4T1 tumors (100% inhibition, 54-day survival).",
+     "a16": "General summary claim that the bismuthene enables effective synergistic PTT/PDT tumor therapy, the same overall ablation result stated generally."
+    },
+    "unmatched_parts": [
+     "The effect isolates 'photothermal hyperthermia' alone as effective for ablation, but the paper's claims (a14, a15) frame tumor eradication as requiring the PTT+PDT combination, with PTT alone leaving residual/regrowing cells, so no claim states photothermal hyperthermia alone as fully effective."
+    ],
+    "parsed": true,
+    "claims_before_completion": [
+     "a14",
+     "a16"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "a13"
+    ],
+    "why": {
+     "a13": "Both state the photothermal conversion efficiency (~19.4%) of bismuthene at 808 nm."
+    },
+    "unmatched_parts": [],
+    "parsed": true
+   }
+  },
+  "M4": {
+   "effect": {
+    "claims": [
+     "a12"
+    ],
+    "why": {
+     "a12": "Singlet oxygen generation under 660 nm light is the specific measurement demonstrating the material's photodynamic (ROS-mediated) action that underlies effective PDT for killing tumor cells."
+    },
+    "unmatched_parts": [
+     "No claim directly reports a tumor-cell-death outcome (in vitro cytotoxicity or in vivo tumor result) attributable to PDT alone; a14's mention of 'PDT alone' is only a comparison aside within the claim about the combined PTT/PDT treatment's success, so it does not state standalone PDT efficacy as its main assertion.",
+     "a15's synergy mechanism (ROS clearing residual cells after PTT) is the reason the combined therapy works, i.e. a downstream/mechanistic claim about combination therapy rather than the same fact of PDT alone being effective for tumor cell death."
+    ],
+    "parsed": true,
+    "claims_before_completion": [
+     "a12"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "a2",
+     "a12"
+    ],
+    "why": {
+     "a2": "states as a design/general property that bismuthene should generate ROS under red light, the same capability measured specifically in a12",
+     "a12": "directly reports that under 660 nm light bismuthene generates singlet oxygen, i.e. ROS generation capability"
+    },
+    "unmatched_parts": [],
+    "parsed": true
+   }
+  },
+  "M5": {
+   "effect": {
+    "claims": [
+     "a2",
+     "a16"
+    ],
+    "why": {
+     "a2": "States the design rationale that bismuthene's NIR/red-light/X-ray properties should enable imaging-guided PTT/PDT, i.e., PA/CT imaging-guided photonic treatment.",
+     "a16": "States directly that the synthesized bismuthene is used for PA/CT imaging-guided synergistic PTT/PDT cancer treatment."
+    },
+    "unmatched_parts": [
+     "No claim gives the specific in vivo PA imaging or CT imaging results/contrast data underlying the 'guided' imaging aspect beyond the general design rationale and summary statement."
+    ],
+    "parsed": true,
+    "claims_before_completion": [
+     "a2",
+     "a16"
+    ]
+   },
+   "cause": {
+    "claims": [
+     "a7"
+    ],
+    "why": {
+     "a7": "Both describe the physical morphology of the final bismuthene product as free-standing, lamellar (few-layered), ultrathin 2D nanosheets, with a7 giving the specific TEM measurement (~200 nm lateral size, ~14 nm thickness) supporting the general description."
+    },
+    "unmatched_parts": [],
+    "parsed": true
+   }
+  }
+ },
+ "note": "net-decompose is a matcher; its output never reaches a solver prompt. Every verdict is model against model.",
+ "graph_completion": "complete.py: unsupported matched claims replaced by a supported one-edge neighbour that matches the effect at least as well"
+}

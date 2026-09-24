@@ -29,7 +29,8 @@
    "chain_candidates": [
     "M3",
     "M4"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M2",
@@ -56,7 +57,8 @@
    "chain_candidates": [
     "M3",
     "M4"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M3",
@@ -80,7 +82,9 @@
     "cause": "Cubic ZIF-8 structure with encapsulated biomolecules",
     "effect": "High encapsulation efficiency of biomolecules (e.g., ~59% BSA, ~53.5% siRNA, ~47% DOX)"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage_only",
+   "link_confirmed_by": null,
+   "excluded_from_traces": true
   },
   {
    "id": "M4",
@@ -104,7 +108,9 @@
     "cause": "Positive zeta potential of BSA@ZIF-8 MOFs",
     "effect": "Electrostatic aptamer surface functionalization with DNA/RNA aptamers"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage_only",
+   "link_confirmed_by": null,
+   "excluded_from_traces": true
   },
   {
    "id": "M5",
@@ -128,7 +134,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "pH-responsive degradation of ZIF-8 MOFs",
     "effect": "Controlled drug release at acidic pH (e.g., tumor microenvironment)"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M6",
@@ -153,7 +160,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Two-stage microfluidic chip for integrated BioZIF-8 synthesis and aptamer functionalization",
     "effect": "Improved targeting efficiency to lymph nodes and tumors"
-   }
+   },
+   "chain_strength": null
   }
  ],
  "counts": {
@@ -166,7 +174,13 @@
    "M1",
    "M2",
    "M6"
-  ]
+  ],
+  "by_strength": {
+   "stage_only": 2
+  },
+  "usable_links": 0,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

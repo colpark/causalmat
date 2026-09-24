@@ -26,7 +26,8 @@
     "cause": "Functionalization with amphiphilic PEG-PMHC18 polymers of varying PEG lengths (2 kDa, 5 kDa) and densities (5% to 100%) via covalent anchoring, followed by sonication, centrifugation, and filtration",
     "effect": "PEG-coated SWNTs with single-tube or small-bundle morphology (average length ~200 nm), stabilized in aqueous and physiological environments"
    },
-   "chain_strength": "span"
+   "chain_strength": "span",
+   "link_confirmed_by": "text identity between the two spans"
   },
   {
    "id": "M2",
@@ -53,7 +54,8 @@
     "cause": "Functionalization with amphiphilic PEG-PMHC18 polymers of varying PEG lengths (2 kDa, 5 kDa) and densities (5% to 100%) via covalent anchoring, followed by sonication, centrifugation, and filtration",
     "effect": "Blood circulation half-life increases with higher PEGylation degree and longer PEG chains; tumor uptake and skin accumulation also increase"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "spine edge joining the two hops' claims: n11 -motivates-> n13"
   },
   {
    "id": "M3",
@@ -78,7 +80,9 @@
     "cause": "PEG-coated SWNTs with single-tube or small-bundle morphology (average length ~200 nm), stabilized in aqueous and physiological environments",
     "effect": "NIR optical absorption and blood circulation half-life are determined by surface coating density and morphology"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage_only",
+   "link_confirmed_by": null,
+   "excluded_from_traces": true
   },
   {
    "id": "M4",
@@ -104,7 +108,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Blood circulation half-life of 12\u201313 h and high tumor uptake (~15% ID/g) with relatively low skin accumulation (~3% ID/g)",
     "effect": "Successful in vivo photothermal ablation of 4T1 tumors following intravenous injection and 808 nm NIR laser irradiation (1 W/cm\u00b2)"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M5",
@@ -128,7 +133,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "Functionalization with amphiphilic PEG-PMHC18 polymers of varying PEG lengths (2 kDa, 5 kDa) and densities (5% to 100%) via covalent anchoring",
     "effect": "In vivo photothermal ablation of 4T1 tumors with high efficacy using intravenous injection and low-power NIR laser"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M6",
@@ -151,7 +157,9 @@
     "cause": "Synthesis of 5%-2kPEG-PMHC18 polymer with limited water solubility",
     "effect": "Failure to solubilize SWNTs, resulting in aggregation"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage_only",
+   "link_confirmed_by": null,
+   "excluded_from_traces": true
   },
   {
    "id": "M7",
@@ -178,7 +186,8 @@
     "cause": "Use of 100%-5kPEG-PMHC18 polymer for SWNT functionalization",
     "effect": "Extremely high skin accumulation (~29% ID/g) despite high tumor uptake (~23% ID/g)"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "spine edge joining the two hops' claims: n10b -motivates-> n13"
   }
  ],
  "counts": {
@@ -189,7 +198,15 @@
   "orphans": 1,
   "orphan_ids": [
    "M5"
-  ]
+  ],
+  "by_strength": {
+   "span": 1,
+   "stage+graph": 2,
+   "stage_only": 2
+  },
+  "usable_links": 3,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }

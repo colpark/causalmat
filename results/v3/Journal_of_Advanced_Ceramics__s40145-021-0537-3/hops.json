@@ -32,7 +32,8 @@
    "chain_candidates": [
     "M3",
     "M4"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M2",
@@ -63,7 +64,8 @@
    "chain_candidates": [
     "M3",
     "M4"
-   ]
+   ],
+   "chain_strength": null
   },
   {
    "id": "M3",
@@ -90,7 +92,8 @@
     "cause": "Porous, multi-layered structure with highly oriented fibers and enhanced \u03b2-phase content",
     "effect": "High output voltage (62.0 V), high output power (136.9 \u03bcW), and high sensitivity (12.4 V\u00b7N\u207b\u00b9)"
    },
-   "chain_strength": "span"
+   "chain_strength": "span",
+   "link_confirmed_by": "text identity between the two spans"
   },
   {
    "id": "M4",
@@ -115,7 +118,9 @@
     "cause": "Porous, multi-layered fiber structure with separated internal fibers and compressed surface fibers",
     "effect": "High flexibility with Young\u2019s modulus of 227.2 MPa and elongation at break of 262.3%"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage_only",
+   "link_confirmed_by": null,
+   "excluded_from_traces": true
   },
   {
    "id": "M5",
@@ -141,7 +146,8 @@
    "_matmech_span_DO_NOT_PROMPT": {
     "cause": "High output voltage (62.0 V), high output power (136.9 \u03bcW), and high sensitivity (12.4 V\u00b7N\u207b\u00b9)",
     "effect": "Ability to light 21 LEDs in series and charge a 1 \u03bcF capacitor to 6.4 V within 65 s under human motion"
-   }
+   },
+   "chain_strength": null
   },
   {
    "id": "M6",
@@ -167,7 +173,8 @@
     "cause": "Laminating process under 15 MPa at 30 \u00b0C",
     "effect": "Enhanced piezoelectric sensitivity (12.4 V\u00b7N\u207b\u00b9) and output power (136.9 \u03bcW)"
    },
-   "chain_strength": "stage"
+   "chain_strength": "stage+graph",
+   "link_confirmed_by": "shared spine claims: n15, n17"
   }
  ],
  "counts": {
@@ -179,7 +186,15 @@
   "orphan_ids": [
    "M1",
    "M2"
-  ]
+  ],
+  "by_strength": {
+   "span": 1,
+   "stage_only": 1,
+   "stage+graph": 1
+  },
+  "usable_links": 2,
+  "universal_claims_excluded": [],
+  "link_claims_from": "net-decompose + complete.py (matcher of record)"
  },
  "note": "Every verdict is model against model. MatMech cause/effect spans are kept only under _matmech_span_DO_NOT_PROMPT and must never reach a solver prompt."
 }
