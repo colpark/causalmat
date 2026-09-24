@@ -176,4 +176,98 @@ def build():
               f"{sum(1 for c in conv if c['paper']==p):5d}")
 
 
-if __name__ == '__main__': {'build': build}[sys.argv[1]]()
+JOIN_ASK = """You are auditing a JOIN: one item's conclusion has been carried forward as another
+item's input. Two things to rule on.
+
+FIRST, the joined proposition. Rule `holds`, `overreaches` or `wrong` against the evidence of both
+items, and quote what you rule against. Overreaches means it states something the evidence supports
+only weakly or in a weaker form -- a cause where only an association is available, a relationship
+where only an ordering is.
+
+SECOND, and this is the point of a join: **do the upstream item's limits survive the handoff?**
+The upstream conclusion was true only within its limits. If the downstream item uses that
+conclusion as if those limits did not apply, the chain has laundered a qualified result into an
+unqualified one. For each upstream limit, rule `carried` (the joined claim still respects it),
+`dropped` (the joined claim ignores it), or `not_applicable`.
+
+A single dropped limit that changes what the joined claim means is enough to fail the join.
+
+Reply as JSON only:
+{"proposition": {"verdict": "...", "evidence": "..."},
+ "limits_survive": [{"limit": "...", "verdict": "carried|dropped|not_applicable", "why": "..."}],
+ "join_verdict": "sound" or "launders a limit",
+ "fix": "corrected joined claim" or null}"""
+
+CONV_ASK = """Two routes, with disjoint evidence, reach the same conclusion.
+
+Say, for EACH route separately, whether its evidence warrants the conclusion on its own. Then say
+whether the two routes agree -- not merely whether both point the same way, but whether what each
+establishes is consistent with what the other establishes, including their limits.
+
+Two routes that both only weakly support a conclusion do not add up to strong support. Say so if
+that is the case.
+
+Reply as JSON only:
+{"route_a": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "route_b": {"warrants_alone": "yes|partly|no", "why": "..."},
+ "agree": "yes|partly|no", "why_agree": "...",
+ "combined_strength": "descriptive|associative|conditional mechanism|discriminating",
+ "caution": "what a reader should not conclude from having two routes"}"""
+
+
+def _txt(it):
+    if it.get('_bb'):
+        k = it.get('key') or {}
+        return (f"v5 backbone item {it['item']} -- {it.get('property')}\n"
+                f"  key: {k.get('proposition')}\n"
+                f"  limits: " + '; '.join(k.get('limits') or []))
+    k = it.get('key') or {}
+    return (f"v2.5 {it['generator']} item {it['item']}\n"
+            f"  question: {it['question']}\n"
+            f"  A ({it['observation_a']['technique']}): {it['observation_a']['text']}\n"
+            f"  B ({it['observation_b']['technique']}): {it['observation_b']['text']}\n"
+            f"  key: {k.get('proposition')}\n"
+            f"  limits: " + '; '.join(k.get('limits') or []))
+
+
+def prompts():
+    V5, S, P = load()
+    C = json.load(open(os.path.join(ROOT, 'results/v2p5/composed.json')))
+    byitem = {}
+    for s in S:
+        b = dict(V5[s]); b['_bb'] = True; byitem[s] = b
+    for x in P: byitem[x['item']] = x
+    d = os.path.join(ROOT, 'results/v2p5/joinaudit'); os.makedirs(d, exist_ok=True)
+    jobs = []
+    for j in C['joins']:
+        u, v = byitem.get(j['from']), byitem.get(j['to'])
+        if not u or not v: continue
+        if not (u.get('key') and v.get('key')): continue
+        L = [f"The join: {j['from']}  --->  {j['to']}   on claim {j['on_claim']}", "",
+             "UPSTREAM ITEM", _txt(u), "", "DOWNSTREAM ITEM", _txt(v), "",
+             "The joined claim, as the chain now asserts it:",
+             f"  {(v.get('key') or {}).get('proposition')}", "", JOIN_ASK]
+        f = os.path.join(d, f"{j['from']}__{j['to']}.txt"); open(f, 'w').write("\n".join(L))
+        jobs.append({'id': f"{j['from']}__{j['to']}", 'agent': 'net-judge',
+                     'prompt': os.path.abspath(f),
+                     'out': os.path.abspath(os.path.join(d, f"{j['from']}__{j['to']}.out.txt"))})
+    cd = os.path.join(ROOT, 'results/v2p5/convergence'); os.makedirs(cd, exist_ok=True)
+    cjobs = []
+    for c in C['convergence']:
+        rts = [byitem.get(r) for r in c['routes'] if byitem.get(r)]
+        rts = [r for r in rts if r.get('key')]
+        if len(rts) < 2: continue
+        L = [f"Both routes conclude about claim {c['claim']} in {c['paper']}", "",
+             "ROUTE A", _txt(rts[0]), "", "ROUTE B", _txt(rts[1]), "", CONV_ASK]
+        f = os.path.join(cd, f"{c['paper'][:20]}_{c['claim']}.txt"); open(f, 'w').write("\n".join(L))
+        cjobs.append({'id': f"conv_{c['paper'][:20]}_{c['claim']}", 'agent': 'net-judge',
+                      'prompt': os.path.abspath(f),
+                      'out': os.path.abspath(f.replace('.txt', '.out.txt'))})
+    json.dump(jobs, open(os.path.join(ROOT, '.v07work/batch_v2p5_join.json'), 'w'), indent=1)
+    json.dump(cjobs, open(os.path.join(ROOT, '.v07work/batch_v2p5_conv.json'), 'w'), indent=1)
+    print(f"{len(jobs)} join audits, {len(cjobs)} convergence items")
+    if len(jobs) < len(C['joins']):
+        print(f"  ({len(C['joins']) - len(jobs)} joins skipped: an endpoint has no key yet)")
+
+
+if __name__ == '__main__': {'build': build, 'prompts': prompts}[sys.argv[1]]()
