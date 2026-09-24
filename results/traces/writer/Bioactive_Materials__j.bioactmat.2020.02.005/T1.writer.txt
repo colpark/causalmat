@@ -1,0 +1,220 @@
+Write the question, answer key, grading note and answer_key_nodes for this trace.
+
+TRACE RECORD
+{
+ "id": "T1",
+ "group_id": "Bioactive_Materials/j.bioactmat.2020.02.005",
+ "root": "explain",
+ "subtype": "rejection",
+ "seed_claim": "b10",
+ "evidence": [
+  "o11"
+ ],
+ "hidden": [
+  "o11",
+  "b12",
+  "b14",
+  "b15",
+  "b16",
+  "b17",
+  "b18",
+  "b2"
+ ],
+ "branch": "qualifies edge o11 -> b10",
+ "fm_family": "XPS",
+ "lift": "required rejection with written reason",
+ "floor": {
+  "reaches": false,
+  "note": "the text asserts the claim; the ruling needs the plot"
+ },
+ "depth": 1,
+ "depth_families": [
+  "XPS"
+ ],
+ "channels_involved": [
+  "XPS"
+ ],
+ "mask": "hide the ruling; show the claim and the panel",
+ "grader": "answer key: the audit ruling on the panel",
+ "status": "control",
+ "ruling": "plot read, no domain model: depth-one negative control",
+ "walk": [
+  {
+   "node": "b1",
+   "role": "context"
+  },
+  {
+   "node": "b2",
+   "role": "redacted"
+  },
+  {
+   "node": "b3",
+   "role": "context"
+  },
+  {
+   "node": "b6",
+   "role": "context"
+  },
+  {
+   "node": "o11",
+   "role": "audit",
+   "op": "cross_check_consistency",
+   "panel_ids": [
+    "10.1016/j.bioactmat.2020.02.005#F6c",
+    "10.1016/j.bioactmat.2020.02.005#F6d"
+   ],
+   "verdict": "shown"
+  },
+  {
+   "node": "b10",
+   "role": "claim"
+  },
+  {
+   "node": "b12",
+   "role": "redacted"
+  },
+  {
+   "node": "b14",
+   "role": "redacted"
+  },
+  {
+   "node": "b15",
+   "role": "redacted"
+  },
+  {
+   "node": "b16",
+   "role": "redacted"
+  },
+  {
+   "node": "b17",
+   "role": "redacted"
+  },
+  {
+   "node": "b18",
+   "role": "redacted"
+  }
+ ],
+ "redactions": [
+  {
+   "node": "b12",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "b14",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "b15",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "b16",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "b17",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "b18",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "b2",
+   "why": "hypothesis states the mechanism the model must produce"
+  }
+ ],
+ "linear": [
+  {
+   "step": 1,
+   "role": "claim",
+   "nodes": [
+    "b10"
+   ],
+   "depends_on": [],
+   "hidden": false,
+   "text": "Claim under test: Er and Ce are incorporated in a Ti4+ host with surface hydroxyl and adsorbed oxygen; Ce is claimed as mixed Ce3+/Ce4+"
+  },
+  {
+   "step": 2,
+   "role": "read",
+   "nodes": [
+    "o11"
+   ],
+   "depends_on": [
+    1
+   ],
+   "hidden": false,
+   "text": "Read the panel: F6c, F6d [XPS]"
+  },
+  {
+   "step": 3,
+   "role": "ruling",
+   "nodes": [
+    "o11"
+   ],
+   "depends_on": [
+    2
+   ],
+   "hidden": true,
+   "text": "Ruling: The Er 4d and Ce 3d windows show no peak above noise: the 168.8 eV Er feature is a single spike under a drawn envelope and the eight Ce 3d u"
+  }
+ ]
+}
+
+NODE LABELS (every node the trace references)
+{
+ "b1": {
+  "type": "HYP/need",
+  "label": "Photocatalytic disinfection needs a catalyst that kills bacteria fast under visible/solar light, not only UV"
+ },
+ "b10": {
+  "type": "STR/chemistry/composition",
+  "label": "Er and Ce are incorporated in a Ti4+ host with surface hydroxyl and adsorbed oxygen; Ce is claimed as mixed Ce3+/Ce4+"
+ },
+ "b12": {
+  "type": "PRP/value",
+  "label": "Band gap falls from 2.90 eV for TiO2 to 2.20 eV at 0.2 mol% Ce, with strongly raised visible absorption"
+ },
+ "b14": {
+  "type": "MEC/pathway",
+  "label": "Ce 4f/5d levels narrow the gap and trap carriers while Er3+ up-converts NIR into visible light, so more long-lived visible-light carriers are produced"
+ },
+ "b15": {
+  "type": "PRP/value",
+  "label": "Photocatalytic dye degradation in 60 min rises from ~20% (TiO2) to ~46%, peaking at 0.2 mol% Ce"
+ },
+ "b16": {
+  "type": "MEC/pathway",
+  "label": "The separated carriers generate ROS at the particle surface, and ROS oxidise bacterial membranes and kill the cells"
+ },
+ "b17": {
+  "type": "PRF/service_capability",
+  "label": "20 min of simulated sunlight with Er0.5Ce0.2Ti-O kills ~92% of S. aureus and ~93% of E. coli"
+ },
+ "b18": {
+  "type": "DSC/conclusion",
+  "label": "Er-Ce co-doped TiO2 is a solar-driven photocatalyst that disinfects rapidly through enhanced visible absorption and carrier separation"
+ },
+ "b2": {
+  "type": "HYP/hypothesis",
+  "label": "Co-doping TiO2 with Er (NIR up-conversion) and Ce (gap narrowing, carrier trapping) should give rapid visible-light bacterial killing"
+ },
+ "b3": {
+  "type": "DES/base_system",
+  "label": "TiO2 nanoparticles as the photocatalyst host"
+ },
+ "b6": {
+  "type": "PRC/synthesis",
+  "label": "Sol-gel from titanium butoxide plus Ce/Er nitrates, gelled at 60 C, aged and dried, then annealed 3 h"
+ },
+ "o11": {
+  "type": "OBS/signal/feature_presence",
+  "label": "The Er 4d and Ce 3d windows show no peak above noise: the 168.8 eV Er feature is a single spike under a drawn envelope and the eight Ce 3d u/v markers sit on an unsmoothed noise trace"
+ }
+}
+
+WORKED EXAMPLES (follow their form and length)
+[{"id":"T1","root":"explain","subtype":"rejection","status":"control","seed_claim":"q7","evidence":["r2"],"hidden":["r2","q11","q8","q12","q16","q2"],"redactions":[{"node":"q11","why":"downstream conclusion restates the answer"},{"node":"q8","why":"downstream conclusion restates the answer"},{"node":"q12","why":"downstream conclusion restates the answer"},{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the ruling; show the claim and the panel","grader":"answer key: the audit ruling on the panel","question":"The caption says the WSi2 peak rises with excess ZrSi2 and ZrC appears at 20 vol% and above. Does Figure 2 support this?","answer_key":"No. The four traces are indistinguishable at the plotted scale and only the top one is indexed, so neither claim can be read from the figure (r2, q18).","grading":"Answer key: the audit ruling on the panel.","answer_key_nodes":["r2","q18"]},{"id":"T2","root":"infer","subtype":"estimate","status":"closed","seed_claim":"q8","evidence":["r7"],"hidden":["r7","q8","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"How thick and how long are the ZrB2 platelets on the F6 fracture surface?","answer_key":"A few hundred nm thick, up to about 1 um long (r7). A correct answer exists, but no decision in the paper turns on the number.","grading":"Closed: a bare measurement with no rejection, budget or stopping rule behind it. A fact in the graph, not a question for a model.","answer_key_nodes":null},{"id":"T3","root":"infer","subtype":"estimate","status":"closed","seed_claim":"q9","evidence":["r7"],"hidden":["r7","q9","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"How large are the SiC particles on the F6 fracture surface?","answer_key":"Nanometre-sized between the ZrB2 grains (r7, q9). Same situation as T2.","grading":"Closed: bare measurement, no decision attached.","answer_key_nodes":null},{"id":"T4","root":"infer","subtype":"rank","status":"open","seed_claim":"q9","evidence":["r10"],"hidden":["r10","q9","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"The same five panels. How do SiC particle size and distribution change with excess ZrSi2?","answer_key":"Submicron SiC with open pores at 0 vol%; nanometre-sized SiC between the ZrB2 grains once excess ZrSi2 is present.","grading":"Match to the labels of r10 and q9, judge-confirmed.","answer_key_nodes":null},{"id":"T5","root":"infer","subtype":"rank","status":"open","seed_claim":"q10","evidence":["r10"],"hidden":["r10","q10","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"independent channel r3 (PHYS), held out from the model","question":"The five fracture-surface SEM panels F8a to F8e, labelled RZSZ-0, 10, 15, 20 and 25 vol% excess ZrSi2. Rank the five compositions by porosity.","answer_key":"Porosity ranks 0 > 10 > 25 > 20 > 15. The density series the model never sees runs 91.7, 94.9, 98.5, 97.6, 96.4%.","grading":"Rank correlation against the Archimedes density (r3), an independent instrument held out from the model.","answer_key_nodes":["r3","r10"]},{"id":"T6","root":"infer","subtype":"rank","status":"open","seed_claim":"q14","evidence":["r10"],"hidden":["r10","q14","q15","q13","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"The same five panels. What fracture mode do the ZrB2 platelets show, and does it depend on platelet size?","answer_key":"Mixed mode: larger platelets break transgranularly, smaller ones along their boundaries.","grading":"Match to q14.","answer_key_nodes":null},{"id":"T7","root":"explain","subtype":"mechanism","status":"open","seed_claim":"q15","evidence":["r11"],"hidden":["q15","q13","q16","q2"],"redactions":[{"node":"q13","why":"downstream conclusion restates the answer"},{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism; show the rival","grader":"certified judge against the graph's mechanism, with the rival named","question":"The indentation crack on polished RZSZ-20, panel F8f. What toughening mechanisms are operating?","answer_key":"Interlocked platelets arrest and deflect the crack, then pull out and bridge it; the fork sits at a SiC-rich region; thermal-expansion mismatch adds residual stress around SiC.","grading":"Judge, with the crack features in r11 and the mechanism in q15 as the key.","answer_key_nodes":null},{"id":"T8","root":"explain","subtype":"rejection","status":"control","seed_claim":"q13","evidence":["r9"],"hidden":["r9","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the ruling; show the claim and the panel","grader":"answer key: the audit ruling on the panel","question":"Is fracture toughness at 25 vol% lower than at 20 vol%?","answer_key":"Not resolvable. The error bars at 20 and 25 overlap, unlike the hardness and strength bars (r9, q19).","grading":"Answer key: the audit ruling on the panel.","answer_key_nodes":["r9","q19"]},{"id":"T9","root":"explain","subtype":"competing causes","status":"open","seed_claim":"q12","evidence":["r10","r3","r7","r8"],"hidden":["q11","q15","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism node(s) explaining the claim; show the competing causes and their evidence","grader":"judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's","question":"Hardness and strength peak at 20 vol%. Three candidate causes with their evidence: platelet interlocking (SEM), nano-SiC (SEM), and densification (density peaking at 15 vol%). Which cause accounts for the optimum at 20, and why not densification alone?","answer_key":"Interlocking platelets grown through the ZrSi2 liquid (q11), which deflect and bridge cracks (q15). Densification alone cannot explain it: density peaks at 15 vol% while the properties peak at 20.","grading":"Judge, with q11 and q15 as the key and the 15-versus-20 mismatch as the required reason.","answer_key_nodes":["q11","q15","r3","r8"]},{"id":"T10","root":"explain","subtype":"competing causes","status":"open","seed_claim":"q13","evidence":["r10","r7","r8"],"hidden":["q11","q15","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism node(s) explaining the claim; show the competing causes and their evidence","grader":"judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's","question":"Fracture toughness reaches 6.08 MPa m^1/2 at 20 vol%. Candidates: platelet interlocking, nano-SiC. Which accounts for it, and by what mechanism?","answer_key":"Interlocked platelets: crack deflection, bridging and pull-out (q15).","grading":"Judge against q15.","answer_key_nodes":null},{"id":"T11","root":"intervene","subtype":"next condition","status":"open","seed_claim":"q17","evidence":["r10","r8"],"hidden":["q17","r8","q10","q17"],"redactions":null,"mask":"show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next","grader":"the measured outcome at the chosen condition from r8, held out","question":"The hypothesis, the design (an excess-ZrSi2 sweep), the processing, and the SEM fracture surfaces for 0, 10 and 15 vol% only. Nothing about density or properties. Which composition should be made next, and what do you expect from it?","answer_key":"20 vol% (q17). The outcome at that composition is the peak of the series: hardness 17.1 GPa, flexural strength 655 MPa, toughness 6.05 MPa m^1/2 (r8). Stopping at 15 is wrong.","grading":"The measured outcome at the chosen composition from F7, held out.","answer_key_nodes":["q17","r8"]},{"id":"T12","root":"generate","subtype":"design under constraint","status":"closed","seed_claim":"q5","evidence":[],"hidden":null,"redactions":null,"mask":"hide the route; show the constraint and the target structure","grader":"none in the tool inventory","question":"Design a one-step processing route that yields interlocking ZrB2 platelets with nano-SiC in a dense body.","answer_key":"The paper's route is reactive hot pressing at 1550 C, 30 min, 40 MPa (q5). But a proposed route cannot be scored: no simulator for reactive sintering exists in the tool inventory.","grading":"Closed: no oracle. The second gate closes the root until one exists.","answer_key_nodes":null}]
+
+Reply with JSON only: {"question": "...", "answer_key": "...", "grading": "...", "answer_key_nodes": [...]}

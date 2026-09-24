@@ -1,0 +1,35 @@
+Setting: Structural Mg alloys need higher strength, but the strong plastic anisotropy of hcp Mg leaves the soft orientations yielding at a few MPa
+
+The previous step (step 1) established: The dense basal planar defects are LPSO nanoplates: aggregates of four-layer Zn/Y-segregated fcc-type stacking faults, not conventional stacking faults ; Heat treatment sets nanoplate density and thickness: 9.8 per um and ~28 nm as-grown, ~0.3 per um and ~84 nm after 520 C, ~9.0 per um and ~14 nm after the further 400 C anneal
+This step's question refers back to it as: "the phase you identified and the feature sizes you measured in step 1"
+
+This step's question, as the solver sees it: Taking the phase you identified and the feature sizes you measured in step 1 as given, what does the evidence below show about the mechanical property?
+The claim this step lands on:
+  [n12] Yield stress is strongly orientation dependent and, in [11-20] and [01-10], reaches ~145-165 MPa at RT, about 11x the pure-Mg single crystal
+
+Observations behind it (MECH:compression):
+  [obs1] Yield stress in [11-20] at RT: 167 MPa as-grown, 113 MPa after the 520 C anneal, 160 MPa after the further 400 C anneal
+  [obs2] RT yield stress by orientation: ~9 MPa for [1 1 -2 1.85], ~148-165 MPa for [11-20], ~143 MPa for [01-10]; [0001] fractures at ~355 MPa without yielding
+  [obs3] Between RT and 400 C the alloy's [11-20]/[01-10] yield stress falls only from ~165 to ~105 MPa, while the gray pure-Mg reference falls from ~270 to ~15 MPa and sits near 10 MPa in the soft orientations
+Panels cited: F8a, F2a, F2a
+
+Write the reasoning an expert would give for this step, using ONLY the node labels above.
+
+Five parts, in order:
+1. what each observation shows - one line per panel, naming the panel
+2. the intermediate proposition it supports
+3. the assumption the inference needs
+4. what remains open
+5. what is handed to the next step
+
+Every sentence ends with the node id it comes from, in square brackets, like [o3]. A sentence that
+comes from no node ends with [writer inference] instead. Do not omit the marker on any sentence.
+
+Then judge the dependency. Could this step's question be answered WITHOUT the previous step's
+conclusion? Answer honestly; a step that stands alone is a real finding, not a failure.
+
+Reply as JSON only:
+{"observations": ["... [o3]"], "proposition": "... [n8]", "assumption": "... [writer inference]",
+ "open": "... [writer inference]", "handoff": "... [n8]",
+ "dependency": {"needs_previous": true or false,
+                "why": "one line: why the step fails without that input, or why it stands alone"}}

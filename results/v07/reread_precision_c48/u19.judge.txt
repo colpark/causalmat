@@ -1,0 +1,30 @@
+You are a judge. A blind second reader described figure panel(s) without the paper; a grader compared the description with the paper graph's evidence node and ruled WRONG (a contradiction). Decide whether that flag is a real citation error.
+
+Open every image below with the Read tool and look at it yourself before ruling. Do not open any other file.
+- panel F9: /home/aid1/Documents/causalmat/.v07work/rr/c58c7fcc0b81c706.jpg
+
+Evidence node o26 (what the graph says these panels show):
+Marked down-growth zones are longest along the Ti pillar, shorter for HA and short boxes at the Si-HA pillar edge
+
+Second reader's description(s):
+Panel F9:
+The image (/home/aid1/Documents/causalmat/.v07work/rr/c58c7fcc0b81c706.jpg) is a 3-row x 2-column composite of hematoxylin-and-eosin (H&E) stained histology sections, each row showing a low-magnification overview (left, scale bar 500 µm) and a corresponding higher-magnification inset (right, scale bar 200 µm) of a boxed region.
+
+Row 1: Overview shows two separate curled/folded tissue flaps with black dashed boxes marking regions of interest; the zoomed panel shows a layered fibrous tissue cross-section with a black double-headed arrow labeling a thickness of 400 µm.
+
+Row 2: Overview shows a larger, more convoluted folded tissue structure (appears skin/wound-like with follicular or glandular structures) with red dashed boxes; the zoomed panel shows fibrous/adipose-like tissue with red arrows marking a much thinner measured gap of 100 µm.
+
+Row 3: Overview shows a folded tissue section containing multiple dark, densely stained round/oval structures (possibly hair follicles, glands, or cellular inclusions) with blue dashed boxes; the zoomed panel shows a magnified view of these round dark-purple structures embedded in fibrous tissue, without an explicit measurement arrow/label visible.
+
+Overall trend across rows: each pair juxtaposes a wide-field tissue overview against a zoomed region highlighting a specific structural layer or gap, with measured thicknesses decreasing from 400 µm (row 1) to 100 µm (row 2); row 3 emphasizes morphological/cellular content (round inclusion bodies) rather than a linear thickness measurement.
+
+Grader's verdict:
+WRONG. The key describes marked "down-growth zones" compared across three pillar types (longest at Ti, shorter at HA, short boxes at Si-HA edge), i.e., a comparison of epithelial/tissue down-growth length by pillar material. The candidate's description instead reports absolute measured gap/thickness values (400 µm, then 100 µm, then no measurement) and emphasizes generic histological features (fibrous tissue, round inclusion bodies) with no mention of Ti, HA, or Si-HA pillars or any comparison of down-growth extent between them. This contradicts/misses the key's central comparative claim rather than merely omitting a detail, so it does not qualify as PARTIAL.
+
+Rule one of:
+- real: the panel(s) do not show what the node says (a different kind of data, a different sample or quantity, or the image contradicts the node). The citation or the node is wrong.
+- wording: the panel(s) do show what the node says; the flag comes from the reader naming or framing the same features differently, or from the grader reading a difference in words as a contradiction.
+- partial: some of what the node says is shown and some is not (for example one of several panels is wrong, or the node overstates what is visible).
+- unclear: you cannot tell from the image(s).
+
+Reply with JSON only: {"ruling": "real|wording|partial|unclear", "why": "one or two sentences naming what the image shows"}

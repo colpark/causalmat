@@ -1,0 +1,37 @@
+Setting: Bulk cobalt oxide anodes fade fast: low electronic conductivity and large volume change on cycling
+
+The previous step (step 1) established: PCO is mesoporous: hysteretic type IV isotherm, pores mostly 5-7 nm
+This step's question refers back to it as: "the pore structure you characterised in step 1"
+
+This step's question, as the solver sees it: Taking the pore structure you characterised in step 1 as given, what does the evidence below show about how the material performs in service?
+The claim this step lands on:
+  [n7] Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C (initial reversible ~870)
+  [n8] Na/PCO fades from ~870 (1st discharge) to ~70 mAh/g after 40 cycles at 0.1 C
+
+Observations behind it (ECHEM:GCD):
+  [obs1] Na 1st discharge reaches ~865 mAh/g (plateau ~0.15 V); 1st charge ~470; 40th cycle ~60 mAh/g
+  [obs2] Li 1st discharge: long plateau ~1.05 V to ~1330 mAh/g; 1st charge ~870 mAh/g with plateau ~2.0 V
+  [obs3] Li cycling: charge capacity ~870 (cycle 1) rising to ~1050 (cycle ~17) and back to ~840 at cycle 40; CE ~96%
+  [obs4] Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40
+Panels cited: F2c, F2a, F2b, F2d
+
+Write the reasoning an expert would give for this step, using ONLY the node labels above.
+
+Five parts, in order:
+1. what each observation shows - one line per panel, naming the panel
+2. the intermediate proposition it supports
+3. the assumption the inference needs
+4. what remains open
+5. what is handed to the next step
+
+Every sentence ends with the node id it comes from, in square brackets, like [o3]. A sentence that
+comes from no node ends with [writer inference] instead. Do not omit the marker on any sentence.
+
+Then judge the dependency. Could this step's question be answered WITHOUT the previous step's
+conclusion? Answer honestly; a step that stands alone is a real finding, not a failure.
+
+Reply as JSON only:
+{"observations": ["... [o3]"], "proposition": "... [n8]", "assumption": "... [writer inference]",
+ "open": "... [writer inference]", "handoff": "... [n8]",
+ "dependency": {"needs_previous": true or false,
+                "why": "one line: why the step fails without that input, or why it stands alone"}}

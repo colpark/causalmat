@@ -1,0 +1,460 @@
+Write the question, answer key, grading note and answer_key_nodes for this trace.
+
+TRACE RECORD
+{
+ "id": "T4",
+ "group_id": "Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023",
+ "root": "explain",
+ "subtype": "competing causes",
+ "seed_claim": "n14",
+ "evidence": [
+  "o2",
+  "o3",
+  "o5",
+  "o6"
+ ],
+ "hidden": [
+  "n15",
+  "n16",
+  "n17",
+  "n19",
+  "n20",
+  "n21",
+  "n23",
+  "n3"
+ ],
+ "branch": "two `causes` edges into n14: ['n13', 'n11']",
+ "rival": [],
+ "fm_family": "SEM",
+ "lift": null,
+ "floor": {
+  "reaches": false,
+  "support": [
+   "o5",
+   "o6"
+  ],
+  "note": "floor holds the non-FM causes only, so it picks the rival"
+ },
+ "depth": 3,
+ "depth_families": [
+  "ATOM",
+  "SEM",
+  "TRANSPORT"
+ ],
+ "mask": "hide the mechanism node(s) explaining the claim; show the competing causes and their evidence",
+ "grader": "judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's",
+ "status": "open",
+ "ruling": "",
+ "walk": [
+  {
+   "node": "n2",
+   "role": "context"
+  },
+  {
+   "node": "n3",
+   "role": "redacted"
+  },
+  {
+   "node": "n6",
+   "role": "context"
+  },
+  {
+   "node": "n9",
+   "role": "context"
+  },
+  {
+   "node": "n10",
+   "role": "context"
+  },
+  {
+   "node": "n13",
+   "role": "context"
+  },
+  {
+   "node": "o2",
+   "role": "evidence",
+   "op": null,
+   "panel_ids": [
+    "10.1016/j.jma.2020.11.023#F2c",
+    "10.1016/j.jma.2020.11.023#F2d"
+   ],
+   "verdict": "shown"
+  },
+  {
+   "node": "o3",
+   "role": "evidence",
+   "op": null,
+   "panel_ids": [
+    "10.1016/j.jma.2020.11.023#F3a",
+    "10.1016/j.jma.2020.11.023#F3b"
+   ],
+   "verdict": "shown"
+  },
+  {
+   "node": "o5",
+   "role": "evidence",
+   "op": "compare_across_conditions",
+   "panel_ids": [
+    "10.1016/j.jma.2020.11.023#F4a"
+   ],
+   "verdict": "shown"
+  },
+  {
+   "node": "o6",
+   "role": "evidence",
+   "op": "compare_across_conditions",
+   "panel_ids": [
+    "10.1016/j.jma.2020.11.023#F4b"
+   ],
+   "verdict": "shown"
+  },
+  {
+   "node": "n13",
+   "role": "cause"
+  },
+  {
+   "node": "n11",
+   "role": "cause"
+  },
+  {
+   "node": "n15",
+   "role": "mechanism"
+  },
+  {
+   "node": "n14",
+   "role": "claim"
+  },
+  {
+   "node": "n16",
+   "role": "redacted"
+  },
+  {
+   "node": "n17",
+   "role": "redacted"
+  },
+  {
+   "node": "n19",
+   "role": "redacted"
+  },
+  {
+   "node": "n20",
+   "role": "redacted"
+  },
+  {
+   "node": "n21",
+   "role": "redacted"
+  },
+  {
+   "node": "n23",
+   "role": "redacted"
+  }
+ ],
+ "redactions": [
+  {
+   "node": "n16",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "n17",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "n19",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "n20",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "n21",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "n23",
+   "why": "downstream conclusion restates the answer"
+  },
+  {
+   "node": "n3",
+   "why": "hypothesis states the mechanism the model must produce"
+  }
+ ],
+ "linear": [
+  {
+   "step": 1,
+   "role": "puzzle",
+   "nodes": [
+    "n14",
+    "o5",
+    "o6"
+   ],
+   "depends_on": [],
+   "hidden": false,
+   "text": "Observation to explain: Carrier concentration rises from 0.55 to 3.4e19 cm-3 with Se while mobility stays at 127-168 cm2/V/s. Its optimum: None vol%."
+  },
+  {
+   "step": 2,
+   "role": "candidates",
+   "nodes": [
+    "n13",
+    "n11"
+   ],
+   "depends_on": [
+    1
+   ],
+   "hidden": false,
+   "text": "Candidate causes: n13: Se substitution brings the K-point conduction valley down to the Fermi | n11: The body is dense and cleaves along layers, exposing coarse facets ten"
+  },
+  {
+   "step": 3,
+   "role": "test",
+   "nodes": [
+    "n11",
+    "o3"
+   ],
+   "depends_on": [
+    2
+   ],
+   "hidden": false,
+   "text": "Test n11 (The body is dense and cleaves along layers, exposing coarse ) against o3 [SEM]: KEEP, its evidence (o3) is most developed at the claim's optimum"
+  },
+  {
+   "step": 4,
+   "role": "test",
+   "nodes": [
+    "n13",
+    "o2"
+   ],
+   "depends_on": [
+    2
+   ],
+   "hidden": false,
+   "text": "Test n13 (Se substitution brings the K-point conduction valley down to) against o2 [ATOM]: KEEP, its evidence (o2) is most developed at the claim's optimum"
+  },
+  {
+   "step": 5,
+   "role": "mechanism",
+   "nodes": [
+    "n15",
+    "n25",
+    "o7"
+   ],
+   "depends_on": [
+    4
+   ],
+   "hidden": true,
+   "text": "Why the surviving cause works: Se donates electrons on the anion site, the extra valley absorbs them without raising the effective mass, and coarse gra  [premise: n25; evidence: o7]"
+  },
+  {
+   "step": 6,
+   "role": "mechanism",
+   "nodes": [
+    "n16",
+    "o8"
+   ],
+   "depends_on": [
+    5
+   ],
+   "hidden": true,
+   "text": "Why the surviving cause works: Room-temperature resistivity collapses from ~600 to ~11 uohm m, and the Seebeck magnitude falls from 350 to 175-239 uV/K  [premise: none; evidence: o8]"
+  },
+  {
+   "step": 7,
+   "role": "mechanism",
+   "nodes": [
+    "n17",
+    "o9"
+   ],
+   "depends_on": [
+    6
+   ],
+   "hidden": true,
+   "text": "Why the surviving cause works: Power factor reaches 29 uW/cm/K2 at room temperature for x = 0.01  [premise: none; evidence: o9]"
+  },
+  {
+   "step": 8,
+   "role": "mechanism",
+   "nodes": [
+    "n19",
+    "n25"
+   ],
+   "depends_on": [
+    7
+   ],
+   "hidden": true,
+   "text": "Why the surviving cause works: The power-factor gain and the suppressed lattice conduction together outweigh the Seebeck loss and the added electronic   [premise: n25; evidence: none]"
+  },
+  {
+   "step": 9,
+   "role": "mechanism",
+   "nodes": [
+    "n20",
+    "o11"
+   ],
+   "depends_on": [
+    8
+   ],
+   "hidden": true,
+   "text": "Why the surviving cause works: ZT is 0.82 at 300 K and peaks at 1.24 near 498 K  [premise: none; evidence: o11]"
+  },
+  {
+   "step": 10,
+   "role": "mechanism",
+   "nodes": [
+    "n21",
+    "o13"
+   ],
+   "depends_on": [
+    9
+   ],
+   "hidden": true,
+   "text": "Why the surviving cause works: As a module leg from 300 to 623 K it gives an engineering ZT near 0.84 and about 12% conversion efficiency  [premise: none; evidence: o13]"
+  },
+  {
+   "step": 11,
+   "role": "mechanism",
+   "nodes": [
+    "n23"
+   ],
+   "depends_on": [
+    10
+   ],
+   "hidden": true,
+   "text": "Why the surviving cause works: Se doping of a Bi-rich Mg3Sb2 Zintl gives a Te-free n-type thermoelectric that works at room temperature  [premise: none; evidence: none]"
+  },
+  {
+   "step": 12,
+   "role": "mechanism",
+   "nodes": [
+    "n3"
+   ],
+   "depends_on": [
+    11
+   ],
+   "hidden": true,
+   "text": "Why the surviving cause works: Alloying towards Mg3Bi2 and doping with Se should lift the carrier concentration while keeping mobility high  [premise: none; evidence: none]"
+  },
+  {
+   "step": 13,
+   "role": "adjudication",
+   "nodes": [
+    "n11",
+    "n13"
+   ],
+   "depends_on": [
+    12
+   ],
+   "hidden": false,
+   "text": "The optimum is set by n11, n13; no rival is necessary but not sufficient."
+  }
+ ]
+}
+
+NODE LABELS (every node the trace references)
+{
+ "n10": {
+  "type": "STR/phase/identity",
+  "label": "Every composition is single-phase Mg3Sb2-type (P-3m1) with no impurity reflections"
+ },
+ "n11": {
+  "type": "STR/microstructure/shape",
+  "label": "The body is dense and cleaves along layers, exposing coarse facets tens of microns across"
+ },
+ "n13": {
+  "type": "PRP/descriptor",
+  "label": "Se substitution brings the K-point conduction valley down to the Fermi level, raising the valley degeneracy"
+ },
+ "n14": {
+  "type": "PRP/descriptor",
+  "label": "Carrier concentration rises from 0.55 to 3.4e19 cm-3 with Se while mobility stays at 127-168 cm2/V/s"
+ },
+ "n15": {
+  "type": "MEC/pathway",
+  "label": "Se donates electrons on the anion site, the extra valley absorbs them without raising the effective mass, and coarse grains leave the mobility intact"
+ },
+ "n16": {
+  "type": "PRP/value",
+  "label": "Room-temperature resistivity collapses from ~600 to ~11 uohm m, and the Seebeck magnitude falls from 350 to 175-239 uV/K"
+ },
+ "n17": {
+  "type": "PRP/value",
+  "label": "Power factor reaches 29 uW/cm/K2 at room temperature for x = 0.01"
+ },
+ "n19": {
+  "type": "MEC/tradeoff",
+  "label": "The power-factor gain and the suppressed lattice conduction together outweigh the Seebeck loss and the added electronic heat flow"
+ },
+ "n2": {
+  "type": "HYP/gap",
+  "label": "n-type Mg3Sb2-based Zintl materials perform poorly near room temperature"
+ },
+ "n20": {
+  "type": "PRF/figure_of_merit",
+  "label": "ZT is 0.82 at 300 K and peaks at 1.24 near 498 K"
+ },
+ "n21": {
+  "type": "PRF/service_capability",
+  "label": "As a module leg from 300 to 623 K it gives an engineering ZT near 0.84 and about 12% conversion efficiency"
+ },
+ "n23": {
+  "type": "DSC/conclusion",
+  "label": "Se doping of a Bi-rich Mg3Sb2 Zintl gives a Te-free n-type thermoelectric that works at room temperature"
+ },
+ "n25": {
+  "type": "KNW/model",
+  "label": "Single parabolic band Pisarenko relation, Wiedemann-Franz for the electronic heat flow, and the engineering ZT formalism"
+ },
+ "n3": {
+  "type": "HYP/hypothesis",
+  "label": "Alloying towards Mg3Bi2 and doping with Se should lift the carrier concentration while keeping mobility high"
+ },
+ "n6": {
+  "type": "DES/variable_sweep",
+  "label": "Se content x = 0, 0.005, 0.01, 0.02 and 0.04 per formula unit"
+ },
+ "n9": {
+  "type": "PRC/forming",
+  "label": "DC hot press the powder at 1053 K and 45 MPa for 2 min"
+ },
+ "o11": {
+  "type": "OBS/response/characteristic_value",
+  "label": "ZT peaks at 1.24 near 498 K for x = 0.01, and at 300 K the x = 0.005 sample reads ~0.84"
+ },
+ "o13": {
+  "type": "OBS/response/characteristic_value",
+  "label": "At a hot side of 623 K the x = 0.01 sample reaches an engineering ZT of ~0.84 and an efficiency of ~11.8%"
+ },
+ "o2": {
+  "type": "OBS/signal/feature_shift",
+  "label": "In the Se-bearing supercell the K-point conduction band sits on the Fermi level, where without Se it lies ~0.45 eV above it"
+ },
+ "o3": {
+  "type": "OBS/morphology/appearance",
+  "label": "The fracture surface is dense and cleaves into striated layered facets tens of microns across, with no visible porosity"
+ },
+ "o5": {
+  "type": "OBS/response/trend",
+  "label": "Room-temperature carrier concentration rises 0.55, 1.75, 2.4, 3.1, 3.4e19 cm-3 across the Se series"
+ },
+ "o6": {
+  "type": "OBS/response/trend",
+  "label": "Room-temperature mobility is 127-168 cm2/V/s for every doped sample against ~15 for x = 0, and falls off faster above 450 K"
+ },
+ "o7": {
+  "type": "OBS/response/trend",
+  "label": "The measured Seebeck points lie on or just above the single-parabolic-band Pisarenko curves for an effective mass of 1.2 me"
+ },
+ "o8": {
+  "type": "OBS/response/trend",
+  "label": "Room-temperature resistivity is ~600 uohm m undoped and reaches a minimum of ~11.5 at x = 0.01 before rising again; the Seebeck magnitude falls monotonically from 350 to ~178 uV/K"
+ },
+ "o9": {
+  "type": "OBS/response/characteristic_value",
+  "label": "Power factor for x = 0.01 is ~28.8 uW/cm/K2 at 300 K, peaks near 29.3 at 375 K and falls to ~22 by 623 K"
+ }
+}
+
+WORKED EXAMPLES (follow their form and length)
+[{"id":"T1","root":"explain","subtype":"rejection","status":"control","seed_claim":"q7","evidence":["r2"],"hidden":["r2","q11","q8","q12","q16","q2"],"redactions":[{"node":"q11","why":"downstream conclusion restates the answer"},{"node":"q8","why":"downstream conclusion restates the answer"},{"node":"q12","why":"downstream conclusion restates the answer"},{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the ruling; show the claim and the panel","grader":"answer key: the audit ruling on the panel","question":"The caption says the WSi2 peak rises with excess ZrSi2 and ZrC appears at 20 vol% and above. Does Figure 2 support this?","answer_key":"No. The four traces are indistinguishable at the plotted scale and only the top one is indexed, so neither claim can be read from the figure (r2, q18).","grading":"Answer key: the audit ruling on the panel.","answer_key_nodes":["r2","q18"]},{"id":"T2","root":"infer","subtype":"estimate","status":"closed","seed_claim":"q8","evidence":["r7"],"hidden":["r7","q8","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"How thick and how long are the ZrB2 platelets on the F6 fracture surface?","answer_key":"A few hundred nm thick, up to about 1 um long (r7). A correct answer exists, but no decision in the paper turns on the number.","grading":"Closed: a bare measurement with no rejection, budget or stopping rule behind it. A fact in the graph, not a question for a model.","answer_key_nodes":null},{"id":"T3","root":"infer","subtype":"estimate","status":"closed","seed_claim":"q9","evidence":["r7"],"hidden":["r7","q9","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"How large are the SiC particles on the F6 fracture surface?","answer_key":"Nanometre-sized between the ZrB2 grains (r7, q9). Same situation as T2.","grading":"Closed: bare measurement, no decision attached.","answer_key_nodes":null},{"id":"T4","root":"infer","subtype":"rank","status":"open","seed_claim":"q9","evidence":["r10"],"hidden":["r10","q9","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"The same five panels. How do SiC particle size and distribution change with excess ZrSi2?","answer_key":"Submicron SiC with open pores at 0 vol%; nanometre-sized SiC between the ZrB2 grains once excess ZrSi2 is present.","grading":"Match to the labels of r10 and q9, judge-confirmed.","answer_key_nodes":null},{"id":"T5","root":"infer","subtype":"rank","status":"open","seed_claim":"q10","evidence":["r10"],"hidden":["r10","q10","q12","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"independent channel r3 (PHYS), held out from the model","question":"The five fracture-surface SEM panels F8a to F8e, labelled RZSZ-0, 10, 15, 20 and 25 vol% excess ZrSi2. Rank the five compositions by porosity.","answer_key":"Porosity ranks 0 > 10 > 25 > 20 > 15. The density series the model never sees runs 91.7, 94.9, 98.5, 97.6, 96.4%.","grading":"Rank correlation against the Archimedes density (r3), an independent instrument held out from the model.","answer_key_nodes":["r3","r10"]},{"id":"T6","root":"infer","subtype":"rank","status":"open","seed_claim":"q14","evidence":["r10"],"hidden":["r10","q14","q15","q13","q16"],"redactions":null,"mask":"hide the observation; hand over the panel(s)","grader":"answer key: the numbers and labels on the evidence node, judge-confirmed","question":"The same five panels. What fracture mode do the ZrB2 platelets show, and does it depend on platelet size?","answer_key":"Mixed mode: larger platelets break transgranularly, smaller ones along their boundaries.","grading":"Match to q14.","answer_key_nodes":null},{"id":"T7","root":"explain","subtype":"mechanism","status":"open","seed_claim":"q15","evidence":["r11"],"hidden":["q15","q13","q16","q2"],"redactions":[{"node":"q13","why":"downstream conclusion restates the answer"},{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism; show the rival","grader":"certified judge against the graph's mechanism, with the rival named","question":"The indentation crack on polished RZSZ-20, panel F8f. What toughening mechanisms are operating?","answer_key":"Interlocked platelets arrest and deflect the crack, then pull out and bridge it; the fork sits at a SiC-rich region; thermal-expansion mismatch adds residual stress around SiC.","grading":"Judge, with the crack features in r11 and the mechanism in q15 as the key.","answer_key_nodes":null},{"id":"T8","root":"explain","subtype":"rejection","status":"control","seed_claim":"q13","evidence":["r9"],"hidden":["r9","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the ruling; show the claim and the panel","grader":"answer key: the audit ruling on the panel","question":"Is fracture toughness at 25 vol% lower than at 20 vol%?","answer_key":"Not resolvable. The error bars at 20 and 25 overlap, unlike the hardness and strength bars (r9, q19).","grading":"Answer key: the audit ruling on the panel.","answer_key_nodes":["r9","q19"]},{"id":"T9","root":"explain","subtype":"competing causes","status":"open","seed_claim":"q12","evidence":["r10","r3","r7","r8"],"hidden":["q11","q15","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism node(s) explaining the claim; show the competing causes and their evidence","grader":"judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's","question":"Hardness and strength peak at 20 vol%. Three candidate causes with their evidence: platelet interlocking (SEM), nano-SiC (SEM), and densification (density peaking at 15 vol%). Which cause accounts for the optimum at 20, and why not densification alone?","answer_key":"Interlocking platelets grown through the ZrSi2 liquid (q11), which deflect and bridge cracks (q15). Densification alone cannot explain it: density peaks at 15 vol% while the properties peak at 20.","grading":"Judge, with q11 and q15 as the key and the 15-versus-20 mismatch as the required reason.","answer_key_nodes":["q11","q15","r3","r8"]},{"id":"T10","root":"explain","subtype":"competing causes","status":"open","seed_claim":"q13","evidence":["r10","r7","r8"],"hidden":["q11","q15","q16","q2"],"redactions":[{"node":"q16","why":"downstream conclusion restates the answer"},{"node":"q2","why":"hypothesis states the mechanism the model must produce"}],"mask":"hide the mechanism node(s) explaining the claim; show the competing causes and their evidence","grader":"judge: the graph's explaining mechanism as key; the cross-check that the rival's optimum differs from the claim's","question":"Fracture toughness reaches 6.08 MPa m^1/2 at 20 vol%. Candidates: platelet interlocking, nano-SiC. Which accounts for it, and by what mechanism?","answer_key":"Interlocked platelets: crack deflection, bridging and pull-out (q15).","grading":"Judge against q15.","answer_key_nodes":null},{"id":"T11","root":"intervene","subtype":"next condition","status":"open","seed_claim":"q17","evidence":["r10","r8"],"hidden":["q17","r8","q10","q17"],"redactions":null,"mask":"show the sweep design and the evidence for the first three conditions only (later panels hidden); hide the outcome series and the optimum; ask which condition to test next","grader":"the measured outcome at the chosen condition from r8, held out","question":"The hypothesis, the design (an excess-ZrSi2 sweep), the processing, and the SEM fracture surfaces for 0, 10 and 15 vol% only. Nothing about density or properties. Which composition should be made next, and what do you expect from it?","answer_key":"20 vol% (q17). The outcome at that composition is the peak of the series: hardness 17.1 GPa, flexural strength 655 MPa, toughness 6.05 MPa m^1/2 (r8). Stopping at 15 is wrong.","grading":"The measured outcome at the chosen composition from F7, held out.","answer_key_nodes":["q17","r8"]},{"id":"T12","root":"generate","subtype":"design under constraint","status":"closed","seed_claim":"q5","evidence":[],"hidden":null,"redactions":null,"mask":"hide the route; show the constraint and the target structure","grader":"none in the tool inventory","question":"Design a one-step processing route that yields interlocking ZrB2 platelets with nano-SiC in a dense body.","answer_key":"The paper's route is reactive hot pressing at 1550 C, 30 min, 40 MPa (q5). But a proposed route cannot be scored: no simulator for reactive sintering exists in the tool inventory.","grading":"Closed: no oracle. The second gate closes the root until one exists.","answer_key_nodes":null}]
+
+Reply with JSON only: {"question": "...", "answer_key": "...", "grading": "...", "answer_key_nodes": [...]}

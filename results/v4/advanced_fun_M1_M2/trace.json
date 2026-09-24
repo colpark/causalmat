@@ -1,0 +1,125 @@
+{
+ "trace": "advanced_fun_M1_M2",
+ "paper": "Advanced_Functional_Materials__10.1002_adfm.202008088",
+ "graph": "taxonomy/graphs_v07/Advanced_Functional_Materials__10.1002_adfm.202008088.json",
+ "chain": [
+  "M1",
+  "M2"
+ ],
+ "setup": "Reports disagree on whether MAPbI3 shows a low-temperature orthorhombic-tetragonal transition and dual PL emission",
+ "steps": [
+  {
+   "step": 1,
+   "claims": [
+    "n7"
+   ],
+   "output": "Domain size spans four decades: ~0.1 um (PC), ~10-100 um (HOC) and ~1e2-1e3 um (SC)",
+   "output_short": "Domain size spans four decades: ~0.1 um (PC), ~10-100 um (HOC) and ~1e2-1e3 um (SC)",
+   "property": "the size of the microstructural features",
+   "question": "What does the evidence below show about the size of the microstructural features?",
+   "refers_to_previous": null,
+   "join_to_previous": null,
+   "technique": "SEM",
+   "delivery": "crop",
+   "observations": [
+    "Inset domain-size histograms peak near 0.1 um (PC), 10-100 um (HOC) and 1e2-1e3 um (SC) on top-view SEM at 0.5, 100 and 5 um scale bars"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1002/adfm.202008088#F1a",
+     "suffix": "F1a",
+     "png": "images/F1a.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/images/cf94f7b3f22947dd1caf20c58362130c201f7af6b6c4333ffe0b5469175fd60b.jpg",
+     "caption_span": "Photographs and top-view SEM images of polycrystalline (PC) films, highly oriented crystalline (HOC) films, and single-crystalline (SC) MAPbl3 perovskites. Inset: Histograms of domain-size distribution. XRD spectra of PC, HOC, and SC MAPb|3 perovskites in the tetragonal phase at 300K for"
+    }
+   ],
+   "support_level": "partial",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M1",
+    "stage_type": "Processing \u2192 Structure",
+    "matmech_figures": [
+     "F1"
+    ],
+    "link_confirmed_by": null,
+    "chain_strength": null
+   },
+   "reference_reasoning": {
+    "observations": [
+     "Top-view SEM inset domain-size histograms in F1a peak near 0.1 um for PC, 10-100 um for HOC, and 1e2-1e3 um for SC, imaged at 0.5, 100 and 5 um scale bars respectively [obs1]."
+    ],
+    "proposition": "Domain size spans four decades across the three sample types: ~0.1 um for PC, ~10-100 um for HOC, and ~1e2-1e3 um for SC [n7].",
+    "assumption": "The histogram peaks in each inset are taken as representative of the characteristic domain size for that sample type shown in F1a [writer inference].",
+    "open": "Whether this four-decade spread in domain size relates to the disputed low-temperature orthorhombic-tetragonal transition or the dual PL emission is not addressed by this SEM evidence [writer inference].",
+    "handoff": "The domain size ordering and four-decade range across PC, HOC, and SC is carried forward as an established structural fact [n7].",
+    "dependency": {
+     "needs_previous": false,
+     "why": "This step reads domain-size histograms directly from F1a and states the size range as a standalone SEM-based measurement, not dependent on any prior step's conclusion."
+    }
+   }
+  },
+  {
+   "step": 2,
+   "claims": [
+    "n13"
+   ],
+   "output": "As-grown emission below 150 K ranks with crystalline state: PC dual peak plus IR tail, HOC intermediate, SC a single peak",
+   "output_short": "As-grown emission below 150 K ranks with crystalline state: PC dual peak plus IR tail, HOC intermediate, SC a single peak",
+   "property": "the optical property",
+   "question": "Taking the feature sizes you measured in step 1 as given, what does the evidence below show about the optical property?",
+   "refers_to_previous": "the feature sizes you measured in step 1",
+   "join_to_previous": {
+    "kind": "stage only",
+    "detail": []
+   },
+   "technique": "PL",
+   "delivery": "crop",
+   "observations": [
+    "As grown: PC shows two emission branches plus an IR tail below 150 K and across 50-370 uW at 80 K; HOC is intermediate; SC shows one band"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1002/adfm.202008088#F3a",
+     "suffix": "F3a",
+     "png": "images/F3a.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Advanced_Functional_Materials/10.1002_adfm.202008088/images/72e316d7b84668955dc339083adaf876f95c31aaf3ed9d8dbfc0c3dc6c69355a.jpg",
+     "caption_span": "before and"
+    }
+   ],
+   "support_level": "shown",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M2",
+    "stage_type": "Structure \u2192 Property",
+    "matmech_figures": [
+     "F3"
+    ],
+    "link_confirmed_by": "text identity between the two spans",
+    "chain_strength": "span"
+   },
+   "reference_reasoning": {
+    "observations": [
+     "Panel F3a: as grown below 150 K and across 50-370 uW at 80 K, PC shows two emission branches plus an IR tail, HOC is intermediate, and SC shows a single band [obs1]"
+    ],
+    "proposition": "As-grown emission below 150 K ranks with crystalline state: PC dual peak plus IR tail, HOC intermediate, SC a single peak [n13]",
+    "assumption": "The PC/HOC/SC ordering of emission complexity is read as tracking the same PC/HOC/SC ordering of domain size established in step 1, so that the smallest-domain sample (PC) is the one showing the dual peak plus IR tail and the largest-domain sample (SC) is the one showing a single band [writer inference]",
+    "open": "What structural or compositional feature within each domain size regime actually produces the extra emission branches and IR tail, as opposed to just co-occurring with smaller domain size, is not addressed [writer inference]",
+    "handoff": "As-grown emission below 150 K ranks with crystalline state: PC dual peak plus IR tail, HOC intermediate, SC a single peak [n13]",
+    "dependency": {
+     "needs_previous": true,
+     "why": "the claim's ranking of PC, HOC, SC by emission complexity only reads as tracking 'crystalline state' because step 1 already ordered these same three labels by domain size (PC smallest, HOC intermediate, SC largest), so the panel's PC/HOC/SC labels borrow their ordering meaning from that prior measurement"
+    }
+   }
+  }
+ ],
+ "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model.",
+ "end_to_end": {
+  "reasoning": [
+   "Top-view SEM images at 0.5, 100 and 5 um scale bars, with inset domain-size histograms, show peaks near 0.1 um for PC, 10-100 um for HOC and 1e2-1e3 um for SC [obs1].",
+   "These histogram peaks establish that domain size spans four decades across the three growth states, from ~0.1 um (PC) through ~10-100 um (HOC) to ~1e2-1e3 um (SC) [n7].",
+   "Taking that domain-size ordering (PC smallest, HOC intermediate, SC largest) as given, the as-grown low-temperature photoluminescence data show PC exhibiting two emission branches plus an IR tail below 150 K across 50-370 uW at 80 K, HOC an intermediate response, and SC a single emission band [obs1].",
+   "This ranks the as-grown low-temperature emission complexity with the crystalline/domain state: PC shows dual peak plus IR tail, HOC is intermediate, and SC shows a single peak, tracking the same PC-HOC-SC ordering used for domain size [n13].",
+   "The chain as a whole reads the microstructural size series (step 1) and the optical emission series (step 2) as ordered together by growth state, with PL splitting most pronounced in the smallest-domain material and absent in the largest-domain (single-crystal) material [writer inference]."
+  ],
+  "weakest_step": 2,
+  "why_weakest": "obs1 is reused to support both n7 (size) and n13 (optical ranking), so the step assumes the size ordering from step 1 lines up with the PL ordering rather than the source directly stating a size-to-emission link."
+ }
+}

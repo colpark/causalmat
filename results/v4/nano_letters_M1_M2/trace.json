@@ -1,0 +1,177 @@
+{
+ "trace": "nano_letters_M1_M2",
+ "paper": "Nano_Letters__10.1021_acs.nanolett.6b04294",
+ "graph": "taxonomy/graphs_v07/Nano_Letters__10.1021_acs.nanolett.6b04294.json",
+ "chain": [
+  "M1",
+  "M2"
+ ],
+ "setup": "Bulk cobalt oxide anodes fade fast: low electronic conductivity and large volume change on cycling",
+ "steps": [
+  {
+   "step": 1,
+   "claims": [
+    "n5"
+   ],
+   "output": "PCO is mesoporous: hysteretic type IV isotherm, pores mostly 5-7 nm",
+   "output_short": "PCO is mesoporous: hysteretic type IV isotherm, pores mostly 5-7 nm",
+   "property": "the porosity and pore structure",
+   "question": "What does the evidence below show about the porosity and pore structure?",
+   "refers_to_previous": null,
+   "join_to_previous": null,
+   "technique": "PHYS:N2_sorption",
+   "delivery": "oracle",
+   "observations": [
+    "N2 isotherm: adsorption/desorption hysteresis from P/P0 ~0.5 to 1.0, uptake ~110 cm3/g",
+    "Pore size distribution (inset) peaks at ~5.5 and ~6.9 nm, tail below 4 nm",
+    "SEM: agglomerated faceted particles (~250-500 nm) with open gaps; internal mesopores not resolved"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F1c",
+     "suffix": "F1c",
+     "png": "images/F1c.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de.jpg",
+     "caption_span": "2 adsorption/de-sorption isotherm curve and"
+    },
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F1c",
+     "suffix": "F1c",
+     "png": "images/F1c.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de.jpg",
+     "caption_span": "2 adsorption/de-sorption isotherm curve and"
+    },
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F1d",
+     "suffix": "F1d",
+     "png": "images/F1d.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/1891e777eaa3a4fe104b71558ff444058c4477cf80ca450e37d7e50f8dab89de.jpg",
+     "caption_span": "SEM image of the as-prepared PCO"
+    }
+   ],
+   "support_level": "shown",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M1",
+    "stage_type": "Processing \u2192 Structure",
+    "matmech_figures": [
+     "F1"
+    ],
+    "link_confirmed_by": null,
+    "chain_strength": null
+   },
+   "reference_reasoning": {
+    "observations": [
+     "N2 isotherm shows adsorption/desorption hysteresis from P/P0 ~0.5 to 1.0 with uptake ~110 cm3/g, in panel F1c [obs1]",
+     "The pore size distribution inset in panel F1c peaks at ~5.5 and ~6.9 nm with a tail below 4 nm [obs2]",
+     "SEM in panel F1d shows agglomerated faceted particles ~250-500 nm with open gaps, but does not resolve internal mesopores [obs3]"
+    ],
+    "proposition": "PCO is mesoporous, showing a hysteretic type IV isotherm with pores mostly 5-7 nm [n5]",
+    "assumption": "The hysteresis loop shape and the 5.5-6.9 nm distribution peaks are read as indicating a genuine internal mesopore network rather than artifacts of interparticle gaps between the ~250-500 nm SEM particles [writer inference]",
+    "open": "The SEM images cannot resolve the internal mesopores directly, so the link between the sorption-derived pore sizes and the particle-level open gaps seen in F1d is not confirmed, and the sub-4 nm tail in the pore size distribution is not characterized [writer inference]",
+    "handoff": "The mesoporous character with 5-7 nm pores established in n5 is carried forward as the structural basis for the anode's transport/volume-accommodation behavior [n5]",
+    "dependency": {
+     "needs_previous": false,
+     "why": "The mesoporosity claim is derived directly from this step's own N2 sorption and SEM observations (obs1-obs3) without needing any prior step's conclusion as an input"
+    }
+   }
+  },
+  {
+   "step": 2,
+   "claims": [
+    "n7",
+    "n8"
+   ],
+   "output": "Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C (initial reversible ~870) ; Na/PCO fades from ~870 (1st discharge) to ~70 mAh/g after 40 cycles at 0.1 C",
+   "output_short": "Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C (initial reversible ~870)",
+   "property": "how the material performs in service",
+   "question": "Taking the pore structure you characterised in step 1 as given, what does the evidence below show about how the material performs in service?",
+   "refers_to_previous": "the pore structure you characterised in step 1",
+   "join_to_previous": {
+    "kind": "stage only",
+    "detail": []
+   },
+   "technique": "ECHEM:GCD",
+   "delivery": "oracle",
+   "observations": [
+    "Na 1st discharge reaches ~865 mAh/g (plateau ~0.15 V); 1st charge ~470; 40th cycle ~60 mAh/g",
+    "Li 1st discharge: long plateau ~1.05 V to ~1330 mAh/g; 1st charge ~870 mAh/g with plateau ~2.0 V",
+    "Li cycling: charge capacity ~870 (cycle 1) rising to ~1050 (cycle ~17) and back to ~840 at cycle 40; CE ~96%",
+    "Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40"
+   ],
+   "panels": [
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F2c",
+     "suffix": "F2c",
+     "png": "images/F2c.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/47932ff90b58b750d67879eafcd018636a4f2fe8dd66ff48d0e50f28e95f66b5.jpg",
+     "caption_span": "Discharge/charge curves and"
+    },
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F2a",
+     "suffix": "F2a",
+     "png": "images/F2a.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/47932ff90b58b750d67879eafcd018636a4f2fe8dd66ff48d0e50f28e95f66b5.jpg",
+     "caption_span": "Discharge/charge curves and"
+    },
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F2b",
+     "suffix": "F2b",
+     "png": "images/F2b.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/47932ff90b58b750d67879eafcd018636a4f2fe8dd66ff48d0e50f28e95f66b5.jpg",
+     "caption_span": "cycle performance of Li/PCO cell at 0.1C (1C=890mAg-1) )"
+    },
+    {
+     "panel_id": "10.1021/acs.nanolett.6b04294#F2d",
+     "suffix": "F2d",
+     "png": "images/F2d.png",
+     "figure": "/home/aid1/Documents/causalmat/trace_kit/../matmech/Nano_Letters/10.1021_acs.nanolett.6b04294/images/47932ff90b58b750d67879eafcd018636a4f2fe8dd66ff48d0e50f28e95f66b5.jpg",
+     "caption_span": "cycle performance of Na/PCO cell at 0.1 C ( 1C=890mAg-1 )"
+    }
+   ],
+   "support_level": "shown",
+   "provenance_NOT_SOLVER_VISIBLE": {
+    "matmech_hop": "M2",
+    "stage_type": "Structure \u2192 Performance",
+    "matmech_figures": [
+     "F2"
+    ],
+    "link_confirmed_by": "shared spine claim: n5",
+    "chain_strength": "stage+graph"
+   },
+   "reference_reasoning": {
+    "observations": [
+     "F2c shows Na 1st discharge reaching ~865 mAh/g with a plateau near ~0.15 V, 1st charge ~470 mAh/g, and 40th-cycle capacity down to ~60 mAh/g [obs1].",
+     "F2a shows Li 1st discharge with a long plateau near ~1.05 V reaching ~1330 mAh/g, and 1st charge ~870 mAh/g with a plateau near ~2.0 V [obs2].",
+     "F2b shows Li cycling charge capacity starting at ~870 (cycle 1), rising to ~1050 (cycle ~17), and settling to ~840 by cycle 40, with CE ~96% [obs3].",
+     "F2d shows Na cycling discharge capacity collapsing from ~870 (cycle 1) to ~480 (cycle 2) and further to ~70 mAh/g by cycle 40 [obs4]."
+    ],
+    "proposition": "Across 40 cycles at 0.1 C, Li/PCO holds roughly 840-870 mAh/g of its initial reversible capacity while Na/PCO fades from an initial ~870 mAh/g toward only ~70 mAh/g [n7][n8].",
+    "assumption": "The reported charge/discharge and cycling curves for each cell are taken to reflect the intrinsic response of the PCO electrode to Li versus Na insertion rather than cell-specific artifacts [writer inference].",
+    "open": "The observations do not explain why the same PCO electrode sustains capacity under Li cycling but collapses under Na cycling, since no mechanism distinguishing the two alkali ions is given here [writer inference].",
+    "handoff": "The next step inherits the established performance gap: Li/PCO retains ~840-870 mAh/g after 40 cycles while Na/PCO fades to ~70 mAh/g after 40 cycles [n7][n8].",
+    "dependency": {
+     "needs_previous": false,
+     "why": "The cycling and voltage-profile data in F2a-F2d are read and compared directly without needing the pore-size/isotherm characterization from step 1; the capacity-retention contrast stands as an independent electrochemical finding."
+    }
+   }
+  }
+ ],
+ "note": "MatMech supplies which stretches are causal; our graph supplies the content. Every verdict is model against model.",
+ "end_to_end": {
+  "reasoning": [
+   "The N2 isotherm shows adsorption/desorption hysteresis from P/P0 ~0.5 to 1.0 with an uptake of ~110 cm3/g [obs1].",
+   "The pore size distribution inset peaks at ~5.5 and ~6.9 nm with a tail below 4 nm [obs2].",
+   "SEM shows agglomerated faceted particles of ~250-500 nm with open gaps between them, though the internal mesopores are not resolved at this length scale [obs3].",
+   "Together these observations establish that PCO is mesoporous, giving a hysteretic type IV isotherm and pores mostly 5-7 nm [n5].",
+   "Taking this mesoporous pore structure as given, the Li cell shows a first discharge with a long plateau at ~1.05 V reaching ~1330 mAh/g, and a first charge of ~870 mAh/g with a plateau near ~2.0 V [obs2].",
+   "Across subsequent Li cycling, charge capacity rises from ~870 mAh/g at cycle 1 to ~1050 mAh/g near cycle 17 and settles back to ~840 mAh/g by cycle 40, with coulombic efficiency ~96% [obs3].",
+   "This cycling record establishes that Li/PCO keeps ~840-870 mAh/g after 40 cycles at 0.1 C, starting from an initial reversible capacity of ~870 mAh/g [n7].",
+   "The Na cell shows a first discharge of ~865 mAh/g with a plateau near ~0.15 V, a first charge of only ~470 mAh/g, and just ~60 mAh/g remaining by cycle 40 [obs1].",
+   "Na cycling further shows discharge capacity collapsing from ~870 mAh/g at cycle 1 to ~480 mAh/g at cycle 2 and down to ~70 mAh/g by cycle 40 [obs4].",
+   "This record establishes that Na/PCO fades from ~870 mAh/g on first discharge to ~70 mAh/g after 40 cycles at 0.1 C, a sharp contrast to the stable Li behavior even though both electrodes were built on the same mesoporous, 5-7 nm pore architecture characterised in step 1 [n8].",
+   "Because the pore structure from step 1 was held as the common starting point for both alkali systems, the divergence in fade behavior implies that the mesoporosity alone does not account for cycling stability, and some other Na-specific mechanism must be responsible, though the packet does not characterise it directly [writer inference]."
+  ],
+  "weakest_step": 2,
+  "why_weakest": "Step 2 links the step-1 pore structure to the Li/Na performance contrast, but the porosity data (obs1-obs3 of step 1) describe the pristine electrode, not a post-cycling structural state, so the claim that the same mesoporous architecture underlies both the stable Li result and the failed Na result rests on an unverified continuity assumption rather than direct post-mortem evidence."
+ }
+}

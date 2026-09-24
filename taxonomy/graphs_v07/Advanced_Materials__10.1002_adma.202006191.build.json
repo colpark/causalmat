@@ -1,0 +1,84 @@
+{
+ "figures_in_packet": 4,
+ "figures_opened": [
+  "F1",
+  "F2",
+  "F3",
+  "F4"
+ ],
+ "crops_opened": [
+  "10.1002/adma.202006191#F1a",
+  "10.1002/adma.202006191#F1b",
+  "10.1002/adma.202006191#F2a",
+  "10.1002/adma.202006191#F2b",
+  "10.1002/adma.202006191#F2c",
+  "10.1002/adma.202006191#F2d",
+  "10.1002/adma.202006191#F2e",
+  "10.1002/adma.202006191#F2f",
+  "10.1002/adma.202006191#F2g",
+  "10.1002/adma.202006191#F3a",
+  "10.1002/adma.202006191#F3b",
+  "10.1002/adma.202006191#F3c",
+  "10.1002/adma.202006191#F4a",
+  "10.1002/adma.202006191#F4b"
+ ],
+ "panels_offered": 14,
+ "panels_cited": 14,
+ "panels_cited_ids": [
+  "10.1002/adma.202006191#F1a",
+  "10.1002/adma.202006191#F1b",
+  "10.1002/adma.202006191#F2a",
+  "10.1002/adma.202006191#F2b",
+  "10.1002/adma.202006191#F2c",
+  "10.1002/adma.202006191#F2d",
+  "10.1002/adma.202006191#F2e",
+  "10.1002/adma.202006191#F2f",
+  "10.1002/adma.202006191#F2g",
+  "10.1002/adma.202006191#F3a",
+  "10.1002/adma.202006191#F3b",
+  "10.1002/adma.202006191#F3c",
+  "10.1002/adma.202006191#F4a",
+  "10.1002/adma.202006191#F4b"
+ ],
+ "whole_figure_citations": [
+  {
+   "node": "o12",
+   "figs": [
+    "F4"
+   ],
+   "why": "the filament / hot-needle video frames of paper Figure 4a are in no offered crop; the F4a crop holds only the vine schematic row, so figs=[F4] with panel_ids=[]"
+  }
+ ],
+ "technique_cue_conflicts_resolved": [
+  {
+   "panel": "10.1002/adma.202006191#F3c",
+   "cue_classes": [
+    "micrograph"
+   ],
+   "technique_considered": "PHOTO:camera",
+   "technique_used": "OPTICAL:videoframe",
+   "resolution": "The panel is macroscopic video frames of a millimetre-scale machine (5 mm scale bar), which a PHOTO family would describe, but PHOTO is not admitted by the 'micrograph' cue class in cue_technique.json. OPTICAL is admitted and is the honest family for camera/video imaging, so o10 and o11 carry OPTICAL:videoframe. The technique was not bent to fit a different panel: F3c is the only panel that shows the walking and swimming sequence."
+  }
+ ],
+ "cue_notes": "F3c is the only crop in the packet with a non-empty cue class list (['micrograph']); every other crop has cue classes [] and is therefore not checked. No cited panel's technique conflicts with its cue classes after the F3c resolution above: all OPTICAL:*, SEM, MAG:VSM, MECH:tensile and MECH:loadcell citations sit on unchecked crops.",
+ "read_from_checks": "o10 and o11 restate strings listed in the F3c annotations ('Standingup', '2sWalking', '12sedge', '20sFalling', 'Shape-'/'24smorphing', 'Swimming down', 'Swimmingup', 'Helical propulsion', 'Sinkingbygravity') and are therefore read_from=annotation with annotation_match filled. o1, o2, o3, o12 and o14 are pixel readings whose content matches no listed annotation string (the F1b and F4b annotations are row, column and mode labels, not the shape or distribution claims). o4-o9 and o13 read values off plot axes and are read_from=axis; none of the numbers appears as an annotation string.",
+ "merged_nodes": [
+  "F1b bright-field row ('MMPs cover an increasing share of the field, 2:1 fully opaque') merged into o1's image_note instead of a separate OBS node: it states the reason the polarized-light texture disappears, which is the same claim o1 already carries",
+  "'MMPs stiffen the film' and 'the stiffening is anisotropic' merged into one PRP/value node n17: one claim (anisotropic stiffening), and splitting would have put the same three panels behind two nodes",
+  "audit node a1 ('stiffness is not monotonic in MMP content') removed and folded into o9's image_note: it qualified n17, which is off-spine, and the audit budget licenses an audit node only when it changes support for a SPINE claim",
+  "F2f and F2g readings merged into the single OBS node o9 with F2e: all three are xy_curve panels of the same quantity, so the modality split rule does not force separate nodes, and the claim read is one comparison of parallel against perpendicular",
+  "'helical rotation is converted to translation' (linked text F3, refs 55-56) folded into m3's mechanism rather than a separate KNW/precedent node",
+  "'Disperse Red 1 gives the matrix its photoresponse' folded into n3 (base_system) rather than a separate KNW/fact node"
+ ],
+ "audit_nodes": [
+  "n26 (DSC/limitation: 100 um thickness cap from polyimide anchoring strength) - the only audit node; o7's coercivity reading and the non-monotonic stiffness reading are carried in attrs.image_note instead, since neither qualifies a spine claim"
+ ],
+ "packet_problems": [
+  "F4a crop contains only the 'Twining motion of vines' schematic row; the experimental video frames of the filament grasping the hot needle, which the F4a caption span describes, are inside no offered crop",
+  "The F2e crop contains panels e, f and g together, while separate F2f and F2g crops also exist (overlapping crops for the same pixels)",
+  "F1a and F1b crops are cut at the right edge: the monomer names read 'RM25', 'ST386', 'Dispersere' and F1a's '1 acrylate' label bleeds into the top of the F1b crop",
+  "F3c OCR cue class is 'micrograph' although the panel is macroscopic camera frames with a 5 mm scale bar",
+  "F2a lists 'Increasingtemperature' and 'Decreasing temperature' as axis labels; they are legend entries",
+  "No full text (Wiley has no fetcher on this host), so the introduction and conclusions are absent and n1, n24 and n25 rest on the linked text of F3/F4 plus inference"
+ ]
+}
