@@ -35,7 +35,12 @@ def transcript(aid, tasks_dir=None):
     return hits[0] if hits else os.path.join(tasks_dir or "", aid + ".output")
 
 def dispatches(relay_tr):
-    """Agent tool_use calls in the relay transcript: (subagent_type, prompt, agent id)."""
+    """Agent tool_use calls in the relay transcript: (subagent_type, prompt, agent id, model).
+
+    The model is read for the same reason the prompt is: a job that asks for a cheap model and
+    silently runs on an expensive one makes the cost number a fiction, and the relay's own word
+    is not evidence. `model` is None when the dispatch did not set one, which means the default.
+    """
     uses, ids = {}, {}
     for line in open(relay_tr):
         try: m = json.loads(line)
@@ -44,12 +49,13 @@ def dispatches(relay_tr):
         if not isinstance(c, list): continue
         for b in c:
             if b.get("type") == "tool_use" and b.get("name") == "Agent":
-                uses[b["id"]] = (b["input"].get("subagent_type"), b["input"].get("prompt", ""))
+                uses[b["id"]] = (b["input"].get("subagent_type"), b["input"].get("prompt", ""),
+                                 b["input"].get("model"))
             elif b.get("type") == "tool_result" and b.get("tool_use_id") in uses:
                 txt = json.dumps(b.get("content"))
                 mm = re.search(r"agentId: (\w+)", txt)
                 if mm: ids[b["tool_use_id"]] = mm.group(1)
-    return [(uses[k][0], uses[k][1], ids.get(k)) for k in uses]
+    return [(uses[k][0], uses[k][1], ids.get(k), uses[k][2]) for k in uses]
 
 def unescape(s):
     """a JSON \\uXXXX escape inside a packet and the character it encodes are the same text; relays decode them"""
@@ -67,23 +73,34 @@ def harvest(jobs_path, relay_id, tasks_dir):
     used = set()
     for j in jobs:
         want = open(j["prompt"]).read().strip()
-        cand = [(a, p, i) for a, p, i in D if a == j["agent"] and same(p, want) and i and i not in used]
+        wm = j.get("model")
+        cand = [(a, p, i, md) for a, p, i, md in D
+                if a == j["agent"] and same(p, want) and i and i not in used
+                and (wm is None or md == wm)]
         rec = {"id": j["id"], "agent": j["agent"], "dispatches": len(cand)}
+        if wm: rec["model"] = wm
         done = None
-        for a, p, i in reversed(cand):
+        for a, p, i, md in reversed(cand):
             tr = transcript(i, tasks_dir)
             if not os.path.exists(tr): continue
             prompt, reply = read(tr)
             if reply and reply.strip():
-                done = (i, same(prompt, want), reply); used.add(i); break
+                done = (i, same(prompt, want), reply, md); used.add(i); break
         if not done:
-            near = [i for a, p, i in D if a == j["agent"] and not same(p, want) and p.strip()[:200] == want[:200]]
-            rec.update({"status": "DIFFERS" if near else "MISSING"}); bad += 1
+            near = [i for a, p, i, md in D if a == j["agent"] and not same(p, want)
+                    and p.strip()[:200] == want[:200]]
+            wrongm = [md for a, p, i, md in D
+                      if a == j["agent"] and same(p, want) and wm and md != wm]
+            rec.update({"status": "WRONG_MODEL" if wrongm else
+                        ("DIFFERS" if near else "MISSING")})
+            if wrongm: rec["model_seen"] = wrongm[:3]
+            bad += 1
         else:
-            i, exact, reply = done
+            i, exact, reply, md = done
             os.makedirs(os.path.dirname(os.path.abspath(j["out"])), exist_ok=True)
             open(j["out"], "w").write(reply)
-            rec.update({"status": "ok" if exact else "DIFFERS", "agent_id": i, "prompt_exact": exact})
+            rec.update({"status": "ok" if exact else "DIFFERS", "agent_id": i,
+                        "prompt_exact": exact, "model_seen": md})
             bad += not exact
         rep.append(rec)
     json.dump({"relay": relay_id, "n_dispatches": len(D), "jobs": rep}, open(jobs_path + ".harvest.json", "w"), indent=1)
