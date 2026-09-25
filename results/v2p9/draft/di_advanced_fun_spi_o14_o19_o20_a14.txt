@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Taken together, the solution-phase photothermal data (Obs A: 6-min spot temperature rising with concentration 25->200 ug/mL and with power density 0.5->1.5 W at 200 ug/mL, ~19.4% conversion efficiency) and the in vivo tumour data (Obs B: BNs-BSA drives tumour temperature to ~49 C by 5 min vs ~41 C for PBS) jointly support that the photothermal conversion capacity documented in solution is the basis for the therapeutic heating seen in the tumour under 808 nm light -- i.e., the concentration/power-responsive heating property established in A is consistent with, and offered as the mechanism behind, the BNs-BSA vs PBS temperature gap in B.
+  The qualifications recorded on that earlier result:
+    - Obs A varies concentration and power density in a controlled solution/cuvette setting; Obs B is a single in vivo comparison (BNs-BSA present vs absent as PBS) with no variation of concentration or power density in the tumour, so the dose/power dependence shown in A is not directly verified to hold inside tumour tissue.
+    - The two panels compare different things: A compares graded doses/power of the same material against each other, while B compares a fixed formulation against a vehicle control (PBS) -- not a dose-response series in vivo.
+    - The in vivo temperature difference in B could partly reflect factors not measured in either panel (blood perfusion/heat dissipation, tissue optical absorption, biodistribution or tumour accumulation of the nanomaterial) rather than the photothermal conversion property alone.
+    - The two measurements are taken at slightly different windows (6 min in A vs 5 min in B), so they are not read from matched timepoints.
+
+Observation B (None): Individual curves: all five BNs-BSA+Lasers tumours stay at 0; four of five BNs-BSA+808 nm tumours regrow after ~day 14
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a a19 -> a14 edge
+Panels: F5d
+
+What the paper concluded, for your reference as the key's author:
+  BNs-BSA plus 660/808 nm lasers eradicates 4T1 tumours (100% inhibition and 54-day survival), beating PTT or PDT alone
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

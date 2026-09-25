@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/behavior_class that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Observation A (XRD pattern (b), F2b) shows that in the S2 binder system only the starting phases alpha-Al2O3, cBN and ZrO2 are present across 1550-1700 C, with no new reflections appearing. Observation B (SEM panel (a), F7a) shows boxed cBN grains and SiAlON regions with cleaved facets and no gaps at their boundaries, which is the S1 (SiAlON) system. Put together, the two panels show one sample (S2) with no detectable phase reaction and a different sample (S1) with tight, gap-free cBN/binder boundaries; at most this juxtaposition suggests that samples with different binder chemistries differ both in phase reaction behavior and in interfacial morphology.
+  The qualifications recorded on that earlier result:
+    - The XRD evidence (Observation A) is reported for the S2 (Al2O3-based) binder and the SEM evidence (Observation B) is reported for the S1 (SiAlON) binder, so the two panels describe two different samples rather than two properties of the same sample; no single-sample link between phase reaction and interface quality is shown.
+    - Binder composition (SiAlON vs Al2O3-based) differs between the two samples along with everything else, so any apparent association between 'no new phases' and 'interface morphology' is confounded with which binder was used.
+    - Observation A speaks to bulk phase identity (which crystalline phases exist) while Observation B speaks to local interfacial morphology (facet cleavage and gap presence); these are different kinds of measurement and neither substitutes for the other.
+    - There is no XRD data shown here for S1 or SEM interface data shown here for S2, so the pairing cannot show what phase set accompanies S1's strong bonding or what interface morphology accompanies S2's unreacted phase set.
+
+Observation B (None): Panel (b): a protruding cBN grain beside a deep ~2 um socket; Al2O3 grains show clean faceted faces
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n9 -> n11 edge
+Panels: F7b
+
+What the paper concluded, for your reference as the key's author:
+  Fracture mode: S1 mixed trans/intergranular; S2 intergranular along cBN/Al2O3 interfaces; S3 through the binder with pullout
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

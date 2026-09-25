@@ -1,0 +1,32 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Across the same three-sample series (0Co, 2Co, 5Co), EDS confirms increasing Co incorporation (Co/Ca = 0, 0.14, 0.49) while N2 sorption shows uptake at P/P0~1 falling in step (~8.7, ~5.6, ~4.35 mmol/g). Together the two observations support that Co content and reduced N2 uptake track each other in the same rank order across the sample series.
+
+THE NEW MEASUREMENT
+Cumulative drug release ~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h (plateau)
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Co/Ca is 0.14 for the 2Co sample, intermediate between 0 (0Co) and 0.49 (5Co)
+2. [input] N2 uptake for 2Co is ~5.6 mmol/g, intermediate between ~8.7 (0Co) and ~4.35 (5Co)
+3. [input] 2Co-MBG occupies the middle position of the Co-content/N2-uptake co-trend established across the series
+4. [observation] Cumulative release rises to ~340 ug at 8 h
+5. [observation] Cumulative release rises to ~670 ug at 24 h
+6. [observation] Cumulative release rises to ~780 ug at 72 h
+7. [observation] Release plateaus at ~795 ug by 168 h
+8. [observation] The release profile shows a burst phase followed by a plateau
+9. [combined] The release profile in B belongs to the 2Co-MBG sample specifically
+10. [combined] The observed release behavior is that of one specific intermediate-Co, intermediate-porosity composition along the trend A describes, and nothing more

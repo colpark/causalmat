@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+EDS establishes where C and Co signals sit at the particle scale (concentrated on surfaces, densest along edges and some faces), while HRTEM establishes what is locally present at one such edge region at atomic resolution: crystalline alloy fringes (CeMg12 0.258 nm, Y5Mg24 0.265 nm) sitting next to an amorphous band and curved carbon layers (0.386 nm). Together they corroborate that the C-rich surface signal in the EDS map corresponds to an actual carbon phase (curved carbon layers) located at particle edges next to the alloy grains, i.e. carbon coats/sits on the alloy particle surface.
+
+THE NEW MEASUREMENT
+Second (diffusion-controlled) absorption stage lasts 66 min for C0 and 11 min for C10 at 360 C
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] A curved-carbon phase coats the alloy particle surface at particle edges.
+2. [observation] The diffusion-controlled second absorption stage finishes far faster in C10 (11 min) than in C0 (66 min) at 360 C.
+3. [input] The carbon coating sits exactly where diffusion into/through the particle would occur.
+4. [combined] The carbon coating's location is spatially consistent with the markedly shortened diffusion-controlled stage seen in the carbon-coated sample.
+5. [combined] The carbon coating could plausibly contribute to the markedly shortened diffusion-controlled stage seen in C10.
+6. [input] The structural result alone says nothing about absorption timing.
+7. [observation] The kinetic result alone says nothing about where or what carbon phase is present.
+8. [combined] Together, the structural corroboration and the kinetic finding support a plausible structure-to-kinetics correspondence.

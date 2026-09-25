@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  The two measurements, taken together, show that the growth of interfacial charge-transfer resistance (Rct, EIS) and the growth of dissolved vanadium (ICP-OES) trace the same temporal pattern: both rise over early cycling and both saturate by around cycle 150 (Rct to ~24-28 ohm, V to ~3.7 mg/L), while the much lower Fe dissolution (~1.1 mg/L) and the flat Rfilm/Re make film growth or Fe dissolution unlikely as the dominant contributor. This joint timing match is what supports associating V-site dissolution with the buildup of polarization resistance captured by Rct; neither series alone (Rct's rise-then-plateau, or V's rise-then-plateau) identifies what the other is responding to.
+  The qualifications recorded on that earlier result:
+    - Matching saturation timing across two separately measured series is a temporal correlation, not a mechanistic proof that dissolved V is what raises Rct rather than some other cycling-linked process
+    - Rct at the plateau carries large error bars, so the precision of the 'both saturate around cycle 150' match is weak
+    - Rct (ohm, an interfacial impedance state) and dissolved V (mg/L, a cumulative amount in electrolyte) are different kinds of quantities; their co-saturation is a qualitative parallel in trend shape, not a quantitative dose-response link between amount of V dissolved and ohms of Rct gained
+    - Low Fe dissolution (~1.1 mg/L) argues against Fe as a major contributor but does not by itself establish V as causally sufficient for the Rct rise
+
+Observation B (None): w/ HCl capacity drops steeply over the first ~20-50 cycles, then slowly to ~55 mAh/g at 250; CE ~100%
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a m5 -> f3 edge
+Panels: F2a
+
+What the paper concluded, for your reference as the key's author:
+  Capacity fades from 91 to ~55 mAh/g over 250 cycles, mostly in early cycles, at ~100% coulombic efficiency
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

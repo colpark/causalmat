@@ -1,0 +1,31 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+DLS (solution-phase, ensemble) and SEM (dry-state, direct imaging) agree on both the magnitude and the ordering: microfluidic particles sit in the ~300-400 nm (DLS) / ~350-400 nm (SEM) range with a narrow/tight distribution, while hydrothermal particles sit near ~1000 nm (DLS) / ~900-950 nm (SEM) with a broader spread. Because two independent measurement modalities converge on the same size scale and the same narrow-vs-broad contrast, the size difference between the two synthesis routes is corroborated rather than being an artifact of a single technique.
+
+THE NEW MEASUREMENT
+Encapsulation is higher for the microfluidic route in all three cargos (siRNA ~53 vs ~37%, DOX ~47 vs ~34%, BSA ~59 vs ~43%), each starred
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Two independent measurement modalities (DLS solution-phase ensemble and SEM dry-state imaging) agree on both size magnitude and the narrow-vs-broad distribution contrast between the two routes.
+2. [input] This cross-method agreement means the size/distribution difference between microfluidic and hydrothermal routes is corroborated, not a single-technique artifact.
+3. [input] Microfluidic particles are smaller with a narrower distribution; hydrothermal particles are larger with a broader distribution.
+4. [observation] Encapsulation efficiency is higher for the microfluidic route than the hydrothermal route for siRNA (~53% vs ~37%).
+5. [observation] Encapsulation efficiency is higher for the microfluidic route than the hydrothermal route for DOX (~47% vs ~34%).
+6. [observation] Encapsulation efficiency is higher for the microfluidic route than the hydrothermal route for BSA (~59% vs ~43%).
+7. [observation] The microfluidic route shows higher encapsulation efficiency across all three cargos tested.
+8. [combined] The microfluidic route's higher encapsulation efficiency co-occurs with its genuine, robustly-measured smaller/narrower particle size relative to the hydrothermal route's larger/broader size.
+9. [combined] Together, the two results establish that the encapsulation advantage is paired with a real size/distribution difference rather than with a size claim that could itself be a measurement artifact.

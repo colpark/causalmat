@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Taken together, the two panels show that co-doped samples with red-shifted/broadened visible-light absorption (edges extending past 420 nm vs TiO2's ~410 nm) also show higher photocatalytic degradation than undoped TiO2, and this ordering (co-doped > TiO2) holds consistently across all three measured time points (20, 40, 60 min). This supports a link (b13->b17) in which enhanced visible-light absorption in co-doped TiO2 is associated with improved photocatalytic degradation performance relative to undoped TiO2.
+  The qualifications recorded on that earlier result:
+    - Only 3-4 doping conditions are compared (Ce0.1, Ce0.3, Er0.5Ce0.2, TiO2), too few points to establish a dose-response relationship between absorption edge position and degradation rate, only an ordering among a handful of samples.
+    - The sample with the strongest absorption (Ce0.2, absorbs most per Observation A) is not the same sample with the highest degradation (Er0.5Ce0.2, per Observation B) - the two rankings are not built on identical compositions, so the pairing does not cleanly show that more absorption within the co-doped set tracks with more degradation.
+    - Observation A is a spectral/optical property (edge wavelength) and Observation B is a functional performance measure (% dye degraded over time); no measurement here connects them through an intermediate mechanism (e.g., charge separation, surface area, reactive species) - the link is inferred, not measured directly.
+
+Observation B (None): Light: antibacterial ratio Er0.5Ce0.2 ~91% (c) and ~93% (d) > Ce0.3 ~87% > Ce0.1 ~68-73% > TiO2 ~45% > control ~4-7%
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a b17 -> b19 edge
+Panels: F10c, F10d
+
+What the paper concluded, for your reference as the key's author:
+  Under simulated sunlight for 20 min, Er0.5Ce0.2Ti-O kills ~91% of S. aureus and ~93% of E. coli vs ~45% for TiO2
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about STR/microstructure/damage that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Taken together, the localized pile-up band at a lamella boundary (Observation A) and the panel-ordered progression of dislocation content from unresolved mottled contrast (F3a) through tangled lines (F4a) to dense walls (F5a) (Observation B) support that dislocation arrangements become progressively denser and more organized as the imaged features advance from diffuse contrast toward pile-up-type and wall-type structures, consistent with the paper's account that FCC dislocation content rises through pile-ups, intersections, and networks en route to dense walls and Taylor lattices.
+  The qualifications recorded on that earlier result:
+    - The images are separate TEM fields/specimens rather than the same region tracked continuously, so the ordering is inferred from panel sequence, not observed as a direct temporal or causal transformation of one feature into the next
+    - Observation A is a single localized snapshot of a pile-up at one lamella boundary, while Observation B is a broader qualitative progression drawn from multiple panels (F3a, F4a, F5a) spanning the material generally -- this mixes a local, specific instance with a general, distributed trend
+    - Neither observation gives a quantitative dislocation density measurement; both are descriptive/categorical labels (mottled, tangled, walls, pile-up), so no rate or magnitude relationship between the pile-up feature and the overall density rise is established
+    - Cannot rule out that dense walls form via a route not passing through the specific pile-up geometry shown in Observation A
+
+Observation B (None): High-magnification fracture: arrowed small holes and boxed microcracks at lamella ends and edges
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n10 -> n16 edge
+Panels: F2d
+
+What the paper concluded, for your reference as the key's author:
+  Voids and microcracks nucleate at FCC/B2 boundaries and B2 lamella ends; B2 lamellae break
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

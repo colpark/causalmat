@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Together, the two Hall observations show that increasing Se content (x=0.005-0.04) raises the 300 K carrier concentration n_H from ~0.5e19 up to 3.3e19 cm-3, and that over this same doping range the 300 K Hall mobility mu_H (~125-170 cm2/Vs) stays above every literature value reported at comparable n_H. Combined, this supports that Se doping adds electron carriers (consistent with Se acting as a donor) while the samples retain a mobility advantage relative to reference materials at similar carrier concentration -- i.e., the added carriers are not accompanied by a mobility penalty relative to other reported samples.
+
+THE NEW MEASUREMENT
+rho drops from ~650 (x=0) to ~12-23 micro-ohm m at 300 K; doped rho rises with T, x=0 falls
+
+THE KEY'S PROPOSITION
+Putting the carrier/mobility trend (n_H rising from ~0.5e19 to 3.3e19 cm-3 across x=0.005-0.04 while mu_H stays above literature values at matched n_H) together with the resistivity trend (rho falling from ~650 to ~12-23 micro-ohm m at 300 K with Se doping) supports that the observed resistivity drop is consistent with the carrier-concentration increase driving up conductivity without a compensating mobility penalty -- i.e., both the rise in n_H and the retained mobility advantage point in the same direction (lower rho), so the large drop in resistivity is not undercut by any mobility degradation from doping.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

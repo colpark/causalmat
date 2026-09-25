@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+XPS (Co3+ fraction of Co 2p) and EELS (Co L3 edge position) are two independent spectroscopic signatures of Co oxidation state, measured on the same four samples. Their agreement -- both show Co5Fe5 and Co5Fe3Cr2 elevated (larger Co3+ component; L3 edge blue-shifted 1.35 eV) relative to Co and Co5Cr5 -- cross-validates that the Fe-containing samples genuinely have a higher Co valence/oxidation state, rather than one technique's reading being a method-specific artifact (e.g., XPS peak-fitting/charging bias, or an EELS edge shift arising from a non-valence cause such as coordination or thickness effects).
+
+THE NEW MEASUREMENT
+Computed Delta G: CoCrOOH lowest for Co2+->Co3+, CoFeOOH lowest for Co3+->Co4+, CoFeCrOOH between, Co(OH)2 highest
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Fe-containing samples Co5Fe5 and Co5Fe3Cr2 show elevated Co3+ fraction by XPS and blue-shifted L3 edge by EELS relative to Co and Co5Cr5.
+2. [observation] CoCrOOH has the lowest computed Delta G for the Co2+->Co3+ step.
+3. [observation] CoFeOOH has the lowest computed Delta G for the Co3+->Co4+ step.
+4. [observation] CoFeCrOOH has intermediate computed Delta G values for these steps.
+5. [observation] Co(OH)2 has the highest computed Delta G for both oxidation steps.
+6. [combined] The compositions computed to have lower free-energy barriers (Fe- and/or Cr-containing) are the same compositions that spectroscopically show higher Co valence than Co(OH)2.
+7. [combined] Lower computed oxidation-step energetics is a plausible thermodynamic basis consistent with the observed valence-state ordering.
+8. [combined] This provides an energetic rationale for why Fe- and Cr-containing phases reach higher Co oxidation states more readily than the undoped phase.

@@ -1,0 +1,28 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Taken together, the SEM morphology change (bare BST ~70 nm, smooth vs. Ag-modified particles rough, coated, larger) and the DSC Tg series (pure PAEN 176 C vs. BST@Ag composites 146-157 C) support that coating the BST-SH surface with Ag physically alters the filler and coincides with composites whose glass transition differs from, and is lower than, the neat polymer.
+
+THE NEW MEASUREMENT
+Dielectric constant declines only ~10% from 100 Hz to 1 MHz for every sample
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Coating the BST-SH surface with Ag changes particle morphology from bare, smooth to rough, coated, larger particles.
+2. [input] Neat PAEN has a Tg of 176 C, while the BST@Ag composites have Tg values of 146-157 C, lower than the neat polymer.
+3. [observation] Dielectric constant declines only about 10% from 100 Hz to 1 MHz.
+4. [observation] This small decline in dielectric constant across the frequency sweep is the same for every sample measured.
+5. [combined] The samples showing this uniform frequency-domain dielectric decline include both the neat polymer and the Ag-modified composites identified in the Tg series.
+6. [combined] The coating-driven morphology change and the accompanying Tg depression are not accompanied by any sample-to-sample difference in frequency-domain dielectric behavior.

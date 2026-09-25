@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+DLS (solution-phase, ensemble) and SEM (dry-state, direct imaging) agree on both the magnitude and the ordering: microfluidic particles sit in the ~300-400 nm (DLS) / ~350-400 nm (SEM) range with a narrow/tight distribution, while hydrothermal particles sit near ~1000 nm (DLS) / ~900-950 nm (SEM) with a broader spread. Because two independent measurement modalities converge on the same size scale and the same narrow-vs-broad contrast, the size difference between the two synthesis routes is corroborated rather than being an artifact of a single technique.
+
+THE NEW MEASUREMENT
+Encapsulation is higher for the microfluidic route in all three cargos (siRNA ~53 vs ~37%, DOX ~47 vs ~34%, BSA ~59 vs ~43%), each starred
+
+THE KEY'S PROPOSITION
+Because the size/distribution difference between routes is corroborated across two independent methods (not a single-technique artifact), and encapsulation efficiency is higher for the microfluidic route across all three cargos (siRNA ~53 vs ~37%, DOX ~47 vs ~34%, BSA ~59 vs ~43%), the two together establish that the microfluidic route's encapsulation advantage co-occurs with a genuine, robustly-measured difference in particle size and distribution width (smaller/narrower for microfluidic, larger/broader for hydrothermal), rather than with a size claim that could itself be a measurement artifact.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Putting the EBSD and SEM readings together shows that YSZ, the material with the smaller and more stable per-interval misorientation (0.7-2.3 deg across all cycles, versus Al2O3-YSZ's 4.3-11 deg at 5 cycles falling to ~1 deg by 20 cycles), is also the material whose crack network appears unchanged between the two imaged views. The pair therefore supports a co-occurrence: low, stable orientation change tracks with an unchanged crack network in YSZ over this cycling range.
+
+THE NEW MEASUREMENT
+Coupon intact at 5 cycles; corners spalled at 10 cycles; spalled corners persist and grow slightly to 40 cycles
+
+THE KEY'S PROPOSITION
+Read together, A's Al2O3-YSZ misorientation trajectory (largest at 4.3-11 deg at 5 cycles, falling to ~1 deg by 20 cycles) and B's spallation timeline (coupon intact at 5 cycles, corners spalled at 10 cycles, spalled corners persisting and growing slightly to 40 cycles) show a temporal decoupling rather than a coincidence: the coupon is still macroscopically intact at the very cycle count where misorientation is at its highest measured value, visible spallation only appears afterward (between 5 and 10 cycles), and the spalled condition persists and worsens out to 40 cycles even though by 20 cycles the misorientation has already dropped to a YSZ-like low level (~1 deg). So the pair supports only a rough ordering in time -- peak misorientation precedes, rather than coincides with, the onset of macroscopic damage -- and shows that once damage appears it does not track the subsequent decline in misorientation.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

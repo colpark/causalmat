@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about MEC/identification that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Taken together, the persistence of the Na SXRD reflections through discharge/charge with only modest intensity loss (Observation A) and the near-unchanged SAXS contours/I(q) overlap with only a small drop near q~0.03-0.1 A-1 at 0.11/0.02 V (Observation B) jointly support that PCO undergoes only slight sodiation-driven change: the crystalline oxide phase is largely retained (no metallic Co, consistent with A) and the pore structure of Na/PCO is barely altered over the first cycle (consistent with B). Because A probes crystallographic/phase-fraction change and B probes nanoscale porosity/morphology change, and neither technique alone constrains the other's structural aspect, the pair is needed to support the combined claim that PCO stays structurally intact at both the lattice and pore-network level during the first cycle.
+  The qualifications recorded on that earlier result:
+    - SXRD constrains long-range crystalline order and phase fraction but is insensitive to nanoscale pore geometry, so it cannot by itself support the porosity claim
+    - SAXS constrains nanoscale electron-density contrast/porosity but does not identify phase or composition, so it cannot by itself support the retained-crystalline-oxide/no-metallic-Co claim
+    - the small SAXS drop at ~0.03-0.1 A-1 (0.11/0.02 V) and the modest SXRD intensity loss are each described only as small/modest, not quantified or matched in magnitude, so the pair does not establish a shared mechanism linking the two changes, only that both are minor
+    - neither observation resolves whether the modest changes seen originate at particle surfaces versus in the bulk
+
+Observation B (None): Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n16 -> n18 edge
+Panels: F6d
+
+What the paper concluded, for your reference as the key's author:
+  Na capacity fading stems from poor sodiation activity (minor conversion), not from volume change
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

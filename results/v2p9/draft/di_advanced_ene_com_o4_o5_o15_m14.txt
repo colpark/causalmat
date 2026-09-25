@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, the TEM image and the XRD series support that RGO sheets wrap around Cu2S microspheres and that this wrapping is consistent with the trend of weaker Cu2S reflections as GO content rises (RGO-Cu2S-3 clearly weaker; -1 and -2 close to bare Cu2S). The TEM view supplies a candidate physical mechanism -- thin sheets extending around a ~5 um sphere -- that can account for progressive attenuation/masking of the Cu2S crystalline signal seen across the RGO-Cu2S-1/2/3 series in XRD.
+  The qualifications recorded on that earlier result:
+    - The TEM observation is a single image at one point in the sample, not tied to a specific composition in the -1/-2/-3 series, so it cannot by itself establish that coverage increases with GO amount
+    - The XRD trend is a qualitative comparison of reflection intensity across three samples (-1, -2, -3), not a quantified coverage measurement, and gives no morphological information on its own
+    - The pair does not quantify how much of the sphere surface is covered or establish a dose-response relationship between GO amount and coverage extent
+    - Only three composition points are compared, too few to support a continuous relationship, only an ordering (weaker with more GO)
+
+Observation B (None): CV reduction peak near -1.25 V: ~-43 (RGO-Cu2S), ~-41 (Cu2S) mA/cm2; Pt reaches only ~-0.45 mA/cm2
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a m8 -> m14 edge
+Panels: F6a, F6b
+
+What the paper concluded, for your reference as the key's author:
+  Polysulfide-reduction activity ranks RGO-Cu2S-2 above Cu2S and far above Pt
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

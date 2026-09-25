@@ -1,0 +1,34 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Putting the EBSD and SEM readings together shows that YSZ, the material with the smaller and more stable per-interval misorientation (0.7-2.3 deg across all cycles, versus Al2O3-YSZ's 4.3-11 deg at 5 cycles falling to ~1 deg by 20 cycles), is also the material whose crack network appears unchanged between the two imaged views. The pair therefore supports a co-occurrence: low, stable orientation change tracks with an unchanged crack network in YSZ over this cycling range.
+
+THE NEW MEASUREMENT
+Coupon intact at 5 cycles; corners spalled at 10 cycles; spalled corners persist and grow slightly to 40 cycles
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Al2O3-YSZ misorientation is largest, 4.3-11 deg, at 5 cycles.
+2. [input] Al2O3-YSZ misorientation falls to about 1 deg by 20 cycles.
+3. [observation] The coupon is intact at 5 cycles.
+4. [observation] Corners are spalled at 10 cycles.
+5. [observation] Spalled corners persist and grow slightly out to 40 cycles.
+6. [combined] The coupon is still macroscopically intact at the very cycle count where misorientation is at its highest measured value.
+7. [combined] Visible spallation appears only afterward, between 5 and 10 cycles, relative to the peak-misorientation cycle count.
+8. [combined] The spalled condition persists and worsens to 40 cycles even though misorientation has already dropped to a YSZ-like low level by 20 cycles.
+9. [combined] Peak misorientation precedes, rather than coincides with, the onset of macroscopic damage.
+10. [combined] Once damage appears it does not track the subsequent decline in misorientation.
+11. [combined] The pair supports only a rough ordering in time.
+12. [combined] Together the trajectories show a temporal decoupling rather than a coincidence.

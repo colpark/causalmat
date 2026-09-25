@@ -1,0 +1,28 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Placing the SEM comparison next to the tensile curves supports only a qualitative, same-direction association: the EPT-treated sample (F10d) that shows a much finer, uniform feature size (~0.3-0.8 um, vs coarser features in F10b,c at the same 2 um scale) is the same condition whose tensile curve (F13) differs from the untreated one (F12) by a lower yield knee (~350 to ~330 MPa), a higher max stress (~420 to ~447 MPa), and a longer end strain (~0.095 to ~0.15). Together the two panels let you say the microstructural refinement and the property shift co-occur in the EPT vs non-EPT comparison.
+
+THE NEW MEASUREMENT
+'This study' points (~275/380, ~295/355, ~335/448 MPa) all above every literature point (max ~240 YS, ~318 UTS)
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] The EPT-treated condition's tensile point sits near the higher-UTS/lower-yield/longer-strain corner identified in A, at roughly 330 MPa yield and 447 MPa max.
+2. [observation] All 'this study' points (~275/380, ~295/355, ~335/448 MPa) lie above every literature point compiled for AZ61 (max ~240 YS, ~318 UTS).
+3. [combined] The ~330/447 MPa corner point flagged in A matches the ~335/448 MPa point in the new literature-position plot.
+4. [combined] The specific EPT-treated condition is therefore the same study point that clears the entire compiled literature band for AZ61.
+5. [combined] The condition already flagged in A as microstructurally refined is the same one shown in B to out-perform every other reported AZ61 processing route.
+6. [combined] This out-performance holds against the entire compiled literature, not just against the study's own untreated baseline comparison used in A.

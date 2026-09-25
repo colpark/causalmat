@@ -1,0 +1,37 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Together, the two XRD observations support that YSZ retains a predominantly tetragonal zirconia structure and Al2O3-YSZ shows a cubic zirconia structure: Observation A's phase labels (t-ZrO2 for YSZ, c-ZrO2 for Al2O3-YSZ) are corroborated by Observation B's diagnostic peak-shape evidence, since the small (012) peak at ~43 deg and the split peaks at ~35, 60 and 74 deg -- present only in the YSZ pattern and absent in the Al2O3-YSZ pattern -- are the specific features that distinguish a lower-symmetry (tetragonal) reflection pattern from a higher-symmetry (cubic) one. B thus supplies the diagnostic detail that explains why A's phase call is made. Both patterns also lack any marked or visible Al2O3 reflection.
+
+THE NEW MEASUREMENT
+Orientation change per interval is ~4.3-11 deg at 5 cycles in Al2O3-YSZ, falling to ~1 deg by 20 cycles, versus 0.7-2.3 deg throughout for YSZ
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] YSZ is predominantly tetragonal zirconia
+2. [input] Al2O3-YSZ is cubic zirconia
+3. [input] This phase identification is corroborated by diagnostic peak-shape detail
+4. [input] The two coatings are already distinguished by crystal phase
+5. [observation] Al2O3-YSZ shows ~4.3-11 deg orientation change per interval at 5 cycles
+6. [observation] Al2O3-YSZ's orientation change per interval falls to ~1 deg by 20 cycles
+7. [observation] YSZ shows a steady 0.7-2.3 deg orientation change per interval throughout cycling
+8. [observation] The two coatings diverge sharply in how their orientation change evolves over cycling
+9. [observation] Orientation change serves as a micro-strain proxy
+10. [input] Observation A alone gives no strain or cycling data
+11. [observation] Observation B alone carries no phase context
+12. [combined] The cubic-phase coating, Al2O3-YSZ, starts with much larger per-interval change that diminishes with cycling
+13. [combined] The tetragonal-phase coating, YSZ, remains comparatively low and stable throughout
+14. [combined] The phase difference established in A co-occurs with a distinctly different, evolving micro-strain response captured in B
+15. [combined] This co-occurrence link between phase and strain response is not shown by either observation alone

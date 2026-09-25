@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the two panels show that at low Se doping the same samples display both anomalously high 300 K Hall mobility (mu_H ~145-170 cm2/Vs at x=0.005-0.02, still ~125 cm2/Vs at x=0.04, all above the literature envelope, with the x=0.04 case explicitly compared at similar n_H) and a large drop in 300 K resistivity (from ~650 down to ~12-23 micro-ohm m), so the two transport signatures move together in the same doping range and point to the same qualitative outcome: Se doping produces low-resistivity material with enhanced carrier mobility rather than one at the expense of the other.
+
+THE NEW MEASUREMENT
+PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+
+THE KEY'S PROPOSITION
+Read together with the earlier 300 K result (Se doping raises mu_H while dropping rho, rather than trading mobility for conductivity), the power-factor data show that this same low-Se-doping regime also produces a large 300 K power-factor gain (PF rising from below 2 for x=0 to ~29 at x=0.01, still ~22 at 623 K), so the doping-driven conductivity/mobility enhancement co-occurs with, and is consistent with contributing to, an enhanced power factor rather than the doping instead sacrificing the Seebeck-conductivity balance. But the two pieces do not jointly show mobility is what drives the PF gain: the PF ordering (x=0.01 highest, x=0.005 lowest of the doped set) does not track the mobility ordering reported in the earlier result (mu_H already highest, ~145-170 cm2/Vs, at x=0.005-0.02), so the combination cannot pin the PF enhancement on the mobility mechanism specifically.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

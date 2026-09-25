@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Small-angle XRD (n8) showing a single low-angle reflection in all three patterns (~1.37 deg MBG, ~1.47 deg 2Co, ~1.35 deg 5Co) confirms an ordered mesoporous channel structure persists in the cobalt-doped glasses, and the release assay (n15) shows ampicillin is released gradually and cumulatively (~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h, plateauing). Together the two observations are consistent with an ordered mesoporous channel structure being present alongside a gradual, plateauing release profile -- i.e., the material that retains long-range pore ordering is the same material that shows sustained rather than burst release.
+
+THE NEW MEASUREMENT
+Relative survival with Scaffolds+Ampicillin ~105, ~81, ~52% at days 1, 3, 7 vs blank 100 and drug-free scaffolds 110-118%
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] The 2Co-MBG scaffold retains an ordered mesoporous channel structure.
+2. [input] The 2Co-MBG scaffold releases ampicillin gradually and cumulatively to a plateau, ~340 ug at 8h rising to ~795 ug at 168h.
+3. [observation] Scaffolds+Ampicillin show relative survival of ~105% at day 1, ~81% at day 3, and ~52% at day 7.
+4. [observation] Blank survival is 100% and drug-free scaffolds show survival of ~110-118%.
+5. [observation] Drug-free scaffolds show survival at or above the blank, indicating no killing by the scaffold material alone.
+6. [combined] The progressive decline in survival for ampicillin-loaded scaffolds across day 1/3/7 occurs during the same window in which ampicillin is being released from the scaffold.
+7. [combined] The antibacterial effect tracks the presence of released ampicillin specifically, not the mesoporous glass scaffold material itself.
+8. [combined] Sustained release of ampicillin from the 2Co-MBG scaffold, rather than the scaffold material alone, is associated with progressive bacterial killing over time.

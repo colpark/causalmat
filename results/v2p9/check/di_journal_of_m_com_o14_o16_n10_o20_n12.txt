@@ -1,0 +1,31 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+EDS establishes where C and Co signals sit at the particle scale (concentrated on surfaces, densest along edges and some faces), while HRTEM establishes what is locally present at one such edge region at atomic resolution: crystalline alloy fringes (CeMg12 0.258 nm, Y5Mg24 0.265 nm) sitting next to an amorphous band and curved carbon layers (0.386 nm). Together they corroborate that the C-rich surface signal in the EDS map corresponds to an actual carbon phase (curved carbon layers) located at particle edges next to the alloy grains, i.e. carbon coats/sits on the alloy particle surface.
+
+THE NEW MEASUREMENT
+Second (diffusion-controlled) absorption stage lasts 66 min for C0 and 11 min for C10 at 360 C
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Curved carbon layers (0.386 nm) sit next to alloy fringes at a particle edge.
+2. [input] This edge-region structural finding is corroborated by the coarser EDS C/Co surface map.
+3. [observation] The diffusion-controlled second absorption stage at 360 C lasts 66 min for C0.
+4. [observation] The diffusion-controlled second absorption stage at 360 C lasts 11 min for C10.
+5. [observation] The second absorption stage at 360 C drops from 66 min to 11 min going from C0 to C10.
+6. [combined] The surface carbon structural fact co-occurs with the faster diffusion-controlled kinetic fact in the carbon-containing sample.
+7. [combined] The combination gives correlative, mechanism-consistent support that carbon at the alloy particle surface is associated with markedly faster hydrogen-diffusion kinetics.
+8. [combined] The combined evidence is consistent with carbon acting as a diffusion pathway.
+9. [combined] The combined evidence does not by itself prove that carbon acts as a diffusion pathway.

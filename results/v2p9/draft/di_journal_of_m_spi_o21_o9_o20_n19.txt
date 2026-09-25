@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about DSC/comparison that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  SEM images showing fine (<0.2 um) bright particles dispersed within grain interiors and along boundaries, taken together with the tensile curves comparing without-EPT (F12) and with-EPT (F13) processing, support that a fine dispersed particle microstructure coexists with the observed shift in tensile behavior between the two processing states: yield ~350 to ~330 MPa, UTS ~420 to ~447 MPa, and end strain ~0.095 to ~0.15.
+  The qualifications recorded on that earlier result:
+    - Observation A reports the same bright, sub-0.2 um particle dispersion in both panels (b) and (c) without quantifying any difference in particle size, number density, or spacing between the without-EPT and with-EPT states, so it does not itself show that the particle distribution changed with EPT.
+    - Only two processing conditions (without EPT vs with EPT) are compared, an on/off pairing rather than a dose-response series, so a graded relationship between degree of particle dispersion and the size of the property shift cannot be established.
+    - The particle description is a qualitative/spatial-size observation while the tensile values are precise numeric stress and strain measurements; the two sides are not on a common quantitative scale that would let the pair establish a dose-response link.
+
+Observation B (None): 'This study' points (~275/380, ~295/355, ~335/448 MPa) all above every literature point (max ~240 YS, ~318 UTS)
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n18 -> n19 edge
+Panels: F14
+
+What the paper concluded, for your reference as the key's author:
+  ECAP+EPT AZ61 lies above all compared AZ61 routes (ECAP, forging, rolling, casting, FSP) in both YS and UTS
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

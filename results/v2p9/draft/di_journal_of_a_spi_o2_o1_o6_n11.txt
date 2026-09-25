@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, the two XRD observations support that YSZ retains a predominantly tetragonal zirconia structure and Al2O3-YSZ shows a cubic zirconia structure: Observation A's phase labels (t-ZrO2 for YSZ, c-ZrO2 for Al2O3-YSZ) are corroborated by Observation B's diagnostic peak-shape evidence, since the small (012) peak at ~43 deg and the split peaks at ~35, 60 and 74 deg -- present only in the YSZ pattern and absent in the Al2O3-YSZ pattern -- are the specific features that distinguish a lower-symmetry (tetragonal) reflection pattern from a higher-symmetry (cubic) one. B thus supplies the diagnostic detail that explains why A's phase call is made. Both patterns also lack any marked or visible Al2O3 reflection.
+  The qualifications recorded on that earlier result:
+    - Does not establish why the two coatings end up with different zirconia phases (no mechanism for tetragonal vs cubic phase stabilization is given by these two observations)
+    - Does not quantify the fraction of tetragonal vs cubic phase present in either sample
+    - The absence of an Al2O3 reflection in both patterns does not by itself indicate where the Al went (e.g., amorphous aggregation at grain boundaries) -- neither observation addresses Al distribution, only that no Al2O3 peak appears
+    - Both observations are drawn from the same XRD panel (F1) on the same samples, so they are two levels of description (label vs. peak detail) of one measurement rather than independent lines of evidence
+
+Observation B (None): Orientation change per interval is ~4.3-11 deg at 5 cycles in Al2O3-YSZ, falling to ~1 deg by 20 cycles, versus 0.7-2.3 deg throughout for YSZ
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n4 -> n11 edge
+Panels: F5a, F5b
+
+What the paper concluded, for your reference as the key's author:
+  Al2O3-YSZ undergoes a much larger micro-strain than YSZ during thermal cycling
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

@@ -1,0 +1,33 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+FTIR (new bands at 2930, 2864 and 1122 cm-1 only in BST-SH) identifies the chemical identity of a new surface species -- CH2-containing aliphatic groups and a Si-O-type linkage -- while TGA (a ~1% weight-loss step at 180-250 C present in composites but absent in pure PAEN) independently confirms that an extra, thermally-decomposable mass component is actually present in the material. Together the two corroborate each other: the species FTIR detects spectroscopically is not a spectral artifact, since TGA shows it corresponds to a real, quantifiable mass loss that pure PAEN does not show, and the mass loss TGA detects is not from PAEN itself, since FTIR shows it carries the CH2/Si-O signature of a distinct organic/Si-containing species. Neither observation alone gives this: FTIR alone shows a new group is chemically present but not that it is a bulk, quantifiable, thermally distinct component; TGA alone shows an extra mass-loss step but not what chemical species is lost.
+
+THE NEW MEASUREMENT
+DSC Tg steps: pure PAEN 176 C; BST@Ag 1/3/5% at 146, 149, 157 C
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] FTIR bands at 2930, 2864, 1122 cm-1 together with the ~1% TGA mass-loss step at 180-250 C confirm a chemically distinct, thermally-decomposable interfacial species at the BST surface.
+2. [observation] Pure PAEN has a Tg of 176 C.
+3. [observation] BST@Ag composites at 1/3/5% Ag show Tg values of 146, 149, 157 C, each below pure PAEN's Tg.
+4. [observation] Tg rises from 146 to 157 C as Ag content increases across 1/3/5%.
+5. [combined] The confirmed interfacial species gives a candidate explanation for why the composite Tg values are below pure PAEN's Tg.
+6. [combined] The confirmed organic/Si-O interfacial layer is present in the same composites whose Tg was measured.
+7. [combined] The interfacial layer's presence is consistent with a plasticizing disruption of chain packing at the filler-polymer interface.
+8. [combined] The confirmed-species framework can be read alongside the graded Tg rise with Ag content as a real interfacial layer plus a measurable thermal-property trend in the same material system.
+9. [input] FTIR/TGA evidence alone says nothing about any bulk thermal or mechanical consequence.
+10. [observation] The Tg trend alone says nothing about what chemistry underlies it.
+11. [combined] The pairing of the confirmed species and the Tg data together is more informative than either piece alone.

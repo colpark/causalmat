@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, the FTIR bands and the STEM-EDS maps support that the particle is a single, homogeneous compound rather than a mixture of separate phases: FTIR assigns the bonding/functional groups present (strong ~2100 cm-1 band consistent with a bridging cyanide-type stretch, sharp ~980 cm-1 band consistent with a vanadyl-type stretch, bands below 650 cm-1 consistent with framework metal-ligand vibrations, and a broad ~3430 cm-1 band consistent with O-H of water), while STEM-EDS shows that Na, V, Fe, C, N, and O are all present and cover the HAADF particle uniformly. Combined, the elements needed to form the bonded groups FTIR identifies (V, Fe, C, N, O, plus Na) are confirmed present and co-located across the same particle, so the functional groups are not artifacts of a separate, spatially segregated phase.
+  The qualifications recorded on that earlier result:
+    - The pair does not establish a quantitative formula (e.g., the specific stoichiometric coefficients or hydration number) -- FTIR gives only qualitative band positions and EDS gives only qualitative elemental coverage, not concentrations or ratios.
+    - The pair does not establish oxidation states beyond what the vanadyl-type ~980 cm-1 band implies; EDS cannot distinguish oxidation state or bonding environment for any element.
+    - Uniform EDS coverage over the imaged particle does not rule out compositional variation at a finer scale than imaged, or in particles not imaged.
+
+Observation B (None): CV: three anodic/cathodic peak pairs near 0.55/0.52, 0.89/0.87, 1.08/1.07 V, persisting over 20 cycles
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a s4 -> r2 edge
+Panels: F2c
+
+What the paper concluded, for your reference as the key's author:
+  Multi-electron redox: three reversible redox couples, Emid 0.54, 0.90, 1.08 V vs Ag/AgCl
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

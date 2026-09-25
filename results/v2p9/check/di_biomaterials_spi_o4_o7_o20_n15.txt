@@ -1,0 +1,29 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Both measurements decline monotonically together as Co content increases across the same three samples (MBG, 2Co, 5Co): the small-angle XRD peak height drops ~8-fold (~180000 to ~74000 to ~23000, with the 5Co peak barely above background) while the N2 uptake at P/P0~1 drops from ~8.7 to ~5.6 to ~4.35 mmol/g. Taken together, the two independent techniques converge on the same sample ordering, supporting that increasing Co doping progressively degrades the mesoporous structure -- both its long-range periodic ordering and its total porosity decline in step with Co content.
+
+THE NEW MEASUREMENT
+Cumulative drug release ~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h (plateau)
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] 2Co shows XRD peak height ~74000 and N2 uptake ~5.6 mmol/g, both reduced from MBG's ~180000/~8.7 mmol/g.
+2. [input] 2Co's values are well above the near-background level seen for 5Co (~23000 XRD, ~4.35 mmol/g N2 uptake).
+3. [input] 2Co represents an intermediate degree of mesoporous structural degradation among the three samples.
+4. [observation] Cumulative release rises to ~340 ug at 8h, ~670 ug at 24h, ~780 ug at 72h, plateauing at ~795 ug by 168h.
+5. [combined] The release curve corresponds specifically to the 2Co sample, the one identified as intermediately degraded.
+6. [combined] A sample with partial, non-maximal structural degradation is still able to sustain substantial ampicillin release.
+7. [combined] The combination only supports a contextual pairing of degradation degree with release amount, not a demonstrated causal link between the two.

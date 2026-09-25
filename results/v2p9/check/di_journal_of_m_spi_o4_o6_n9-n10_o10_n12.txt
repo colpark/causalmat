@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Together, the DFT band-structure calculation and the Hall measurement support a mechanistic account: Se substitution donates electrons that raise E_F until the M, K and L conduction-band minima (initially ~0.15 eV above E_F) reach E_F while the Gamma minimum stays ~0.35-0.4 eV higher, and this band-edge alignment is consistent with the measured rise in Hall carrier concentration from ~0.5e19 (x=0) to 1.7, 2.5, 2.9, 3.3e19 cm-3 (x=0.005-0.04) at 300 K -- i.e., Se acts as an n-type donor whose effect on the electronic structure plausibly underlies the observed increase in carrier density with x.
+
+THE NEW MEASUREMENT
+rho drops from ~650 (x=0) to ~12-23 micro-ohm m at 300 K; doped rho rises with T, x=0 falls
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Se substitution donates electrons, raising E_F so that the M, K and L conduction-band minima reach E_F while the Gamma minimum stays ~0.35-0.4 eV higher.
+2. [input] This band-edge alignment plausibly drives the rise in Hall carrier concentration from ~0.5e19 (x=0) to 1.7-3.3e19 cm-3 (x=0.005-0.04) at 300 K.
+3. [observation] Resistivity drops from ~650 micro-ohm m (x=0) to ~12-23 micro-ohm m (x=0.005-0.04) at 300 K.
+4. [combined] This resistivity drop is consistent with the same carrier-density increase established from the DFT+Hall account.
+5. [combined] The resistivity drop can be read as an electrical-transport corollary of that carrier-density increase.
+6. [combined] A doping-induced rise in n_H of this size is the kind of change that would lower resistivity by roughly this order of magnitude.
+7. [combined] Together the two results support a single connected picture rather than two independent, unrelated observations.
+8. [combined] In this picture, Se donor doping raises E_F, which raises Hall carrier density, which is associated with sharply lower resistivity.

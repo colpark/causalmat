@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, EDS (Ti, O, dominant C, and small Er ~1.4 keV / Ce ~4.8 keV peaks) and XPS (Ti 2p3/2 458.5, 2p1/2 464.2 eV; O1s 529.0/531.2/533.0 eV; Er 4d 168.8 eV) establish that the Er detected in the particles is present as a specific oxidation-state species (Er3+, from the 168.8 eV binding energy) associated with a Ti-O oxide framework, rather than merely being an element whose presence is inferred from an unconfirmed EDS peak alone. EDS supplies elemental presence; XPS supplies the chemical/oxidation-state assignment for that same element; only together do they support 'Er present as Er3+' rather than just 'an Er-energy peak was seen'.
+  The qualifications recorded on that earlier result:
+    - Does not establish Ce's oxidation state (Ce3+ vs Ce4+ vs a mixture): Observation B (XPS) reports only Ti 2p, O1s and Er 4d regions, with no Ce binding-energy data, so Ce chemistry is outside what this pair covers
+    - Does not establish that Er (or Ce) is incorporated into the TiO2 lattice rather than surface-adsorbed: XPS is surface-sensitive while EDS samples a larger interaction volume, so detection of Er by both techniques does not prove the signals come from the same spatial region/phase
+    - The dominant C peak in EDS is not addressed by the XPS observation (no C1s region reported), so it is unclear whether carbon reflects sample chemistry or grid/support/residue contamination
+    - EDS peaks for Er and Ce are described as small, limiting how strongly the 'elemental presence' side of the combination can be weighted
+
+Observation B (None): Dark: antibacterial ratio rises Ce0.1 ~28-33% < Ce0.2 ~43% < Ce0.3 ~45-47%; TiO2 ~6%, control ~0
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a b11 -> b21 edge
+Panels: F10c, F10d
+
+What the paper concluded, for your reference as the key's author:
+  Without light, antibacterial ratio rises with Ce content (to ~45-47% at Ce0.3) vs ~6% for TiO2
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

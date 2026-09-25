@@ -1,0 +1,31 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Together the two spectra show that zinc deposition is accompanied by a concurrent change in both the nitrogen electronic state (XAS N 1s: ~398 eV feature collapses, ~401 eV feature becomes dominant) and a vibrational/bonding-sensitive Raman feature (~1200 cm-1 weakens from pristine to zinc-loaded). Combining them gives convergent, cross-technique evidence that some chemistry/bonding change at or near nitrogen sites tracks with zinc loading -- a claim neither spectrum alone can support, since XAS alone only shows a shift among nitrogen chemical states without any vibrational corroboration, and Raman alone only shows a weakening of one feature without indicating that nitrogen electronic structure is involved.
+
+THE NEW MEASUREMENT
+Zinc on CnC HS is a largely flat deposit with sparse protruding platelets; on C HS the surface is a dense mat of sharp platelets
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] The earlier spectroscopic result (A) shows convergent XAS N 1s and Raman ~1200 cm-1 changes indicating a nitrogen-site chemistry/bonding change tracks zinc loading.
+2. [observation] Zinc deposits as a largely flat mat with sparse protruding platelets on CnC HS.
+3. [observation] Zinc deposits as a dense mat of sharp platelets on C HS.
+4. [input] A shows a chemistry change with no morphological readout.
+5. [observation] B shows a morphology contrast with no indication that nitrogen-site chemistry differs between the two surfaces.
+6. [combined] The nitrogen-site chemical change (A) and the zinc deposit morphology contrast (B) are associated with each other.
+7. [combined] The surface where nitrogen electronic/vibrational signatures shift with zinc loading is the same surface that yields the more planar, less-platelet-dense deposit.
+8. [combined] The surface without the documented nitrogen-site change is the same surface that yields the dense sharp-platelet mat.
+9. [combined] Neither A nor B alone supports the linkage between nitrogen-site chemistry and resulting deposit morphology.

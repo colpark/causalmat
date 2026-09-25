@@ -1,0 +1,31 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Observation A (XRD pattern (b), F2b) shows that in the S2 binder system only the starting phases alpha-Al2O3, cBN and ZrO2 are present across 1550-1700 C, with no new reflections appearing. Observation B (SEM panel (a), F7a) shows boxed cBN grains and SiAlON regions with cleaved facets and no gaps at their boundaries, which is the S1 (SiAlON) system. Put together, the two panels show one sample (S2) with no detectable phase reaction and a different sample (S1) with tight, gap-free cBN/binder boundaries; at most this juxtaposition suggests that samples with different binder chemistries differ both in phase reaction behavior and in interfacial morphology.
+
+THE NEW MEASUREMENT
+Panel (b): a protruding cBN grain beside a deep ~2 um socket; Al2O3 grains show clean faceted faces
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] XRD pattern F2b shows only starting phases alpha-Al2O3, cBN, ZrO2 present in S2 across 1550-1700 C, with no new reflections.
+2. [observation] Panel F7b shows a protruding cBN grain beside a deep ~2 um socket.
+3. [observation] In panel F7b, the Al2O3 grains show clean, well-faceted faces.
+4. [combined] Panel F7b is the SEM interface data belonging to sample S2.
+5. [input] The earlier result lacked any SEM interface data for S2, since Observation B only covered S1's panel F7a.
+6. [combined] Together the two panels give, for the first time, a single-sample (S2) link between bulk phase identity and interfacial morphology.
+7. [combined] Within S2, the absence of any new reaction phase co-occurs with a debonded, pulled-out cBN/binder interface (grain plus matching socket).
+8. [combined] The new SEM observation fills the specific gap flagged in the earlier result, that no SEM interface data existed for S2.
+9. [combined] This lets the unreacted phase set be paired with its own S2 interface morphology rather than borrowing S1's SEM panel.

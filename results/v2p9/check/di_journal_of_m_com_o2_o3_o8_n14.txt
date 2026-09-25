@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Two independent imaging modalities (optical microscopy across panels F1b-F1f and SEM at X150 magnification) converge on the same qualitative pattern: SiCp particles are broadly spread across the imaged field with occasional local clusters, rather than being confined to one region or showing gross segregation. Because the same dispersion pattern shows up under both optical contrast and SEM electron contrast, the pattern is unlikely to be an artifact specific to either technique (e.g., optical staining/contrast quirks or SEM charging/field-of-view bias), which strengthens confidence that the near-uniform dispersion with few agglomerates is a real microstructural feature rather than an imaging artifact.
+
+THE NEW MEASUREMENT
+UCS points rise ~310, 318, 333, 343, 353, 363 MPa with SiCp content
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] SiCp dispersion is near-uniform across the imaged field with only local, non-systematic clusters, not gross segregation.
+2. [input] This dispersion pattern is corroborated across two independent imaging modalities (optical microscopy and SEM).
+3. [input] Because two independent modalities agree, the dispersion pattern is unlikely to be a technique-specific imaging artifact.
+4. [observation] UCS rises monotonically from ~310 MPa to ~363 MPa as SiCp content increases.
+5. [combined] The monotonic UCS rise is consistent with a real reinforcement effect rather than an artifact-driven trend.
+6. [combined] The reinforcement effect is interpreted as operating on a genuinely, broadly dispersed particle population.
+7. [combined] The UCS rise is not a segregation-driven trend.
+8. [combined] The strengthening trend is plausible under a microstructure not dominated by gross agglomeration or imaging bias.

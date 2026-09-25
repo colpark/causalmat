@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Observation A shows the two hosts' plating overpotentials are nearly identical at the lowest current density but diverge sharply at the highest (about -0.05 V for CnC HS vs -0.10 V for C HS), while Observation B shows CnC HS sustains stable Coulombic efficiency (roughly 93-100%) out to about 205 cycles whereas C HS collapses to zero CE by about 40-48 cycles and its data end near 50 cycles. Taken together, the two observations are directionally consistent: the same host (CnC HS) that shows the smaller/lower plating overpotential, especially as demand (current density) increases, is also the host that survives far more cycles with stable efficiency. This supports a qualitative link between CnC HS's superior plating behavior at high rate and its longer, more stable cycling performance.
+  The qualifications recorded on that earlier result:
+    - Observation A is a set of voltage readings at discrete current densities from a single-sweep galvanostatic plot; Observation B is a per-cycle Coulombic-efficiency trace over hundreds of cycles at (presumably) one fixed condition - the two panels do not share a common x-axis or test condition, so no quantitative rate-to-lifetime relationship can be derived, only a qualitative same-host-wins pattern.
+    - The overpotential divergence is shown only at a few discrete current densities, not as a continuous function, so it cannot be used to predict or explain the specific cycle numbers (~205 vs ~40-50) at which CE degrades.
+    - Both differences (voltage separation and cycling stability) could arise from the same underlying host property (e.g., structure/composition of CnC vs C) without the overpotential itself being the mechanistic driver of the CE collapse; the pairing does not rule out this shared-cause explanation.
+
+Observation B (None): Charge and discharge capacity fall from about 1.0 to about 0.9 mAh over 500 cycles and the 1st and 100th cycle profiles nearly overlap
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n17 -> n18 edge
+Panels: F4f
+
+What the paper concluded, for your reference as the key's author:
+  Pre-zinced CnC HS in a Zn-MnO2 cell keeps ~90% of its capacity over 500 cycles and a three-cell stack powers a mobile phone
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

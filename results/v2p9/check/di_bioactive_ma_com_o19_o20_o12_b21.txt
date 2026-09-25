@@ -1,0 +1,32 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Together, EDS (Ti, O, dominant C, and small Er ~1.4 keV / Ce ~4.8 keV peaks) and XPS (Ti 2p3/2 458.5, 2p1/2 464.2 eV; O1s 529.0/531.2/533.0 eV; Er 4d 168.8 eV) establish that the Er detected in the particles is present as a specific oxidation-state species (Er3+, from the 168.8 eV binding energy) associated with a Ti-O oxide framework, rather than merely being an element whose presence is inferred from an unconfirmed EDS peak alone. EDS supplies elemental presence; XPS supplies the chemical/oxidation-state assignment for that same element; only together do they support 'Er present as Er3+' rather than just 'an Er-energy peak was seen'.
+
+THE NEW MEASUREMENT
+Dark: antibacterial ratio rises Ce0.1 ~28-33% < Ce0.2 ~43% < Ce0.3 ~45-47%; TiO2 ~6%, control ~0
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] The particles are genuine chemically-doped Ti-O oxides.
+2. [input] This chemical-doping identity is confirmed via the Er3+/Ti-O framework assignment from EDS+XPS.
+3. [observation] In the dark, the antibacterial ratio increases with Ce content.
+4. [observation] Ce0.1 gives an antibacterial ratio of ~28-33%.
+5. [observation] Ce0.2 gives an antibacterial ratio of ~43%.
+6. [observation] Ce0.3 gives an antibacterial ratio of ~45-47%.
+7. [observation] Undoped TiO2 gives an antibacterial ratio of ~6%.
+8. [observation] The control gives an antibacterial ratio of 0%.
+9. [combined] The chemically-verified doped-oxide identity and the composition-dependent antibacterial trend together license treating the samples as chemically-verified doped oxides that also show a dose-like functional trend with dopant loading.
+10. [combined] This rules out treating the chemistry confirmation and the activity trend as facts to be assessed in isolation from each other.

@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about DSC/comparison that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Across the Se-doped series, low kappa_L+kappa_b (x=0.01: ~0.69 W/mK at 300 K, ~0.60 W/mK at 400-450 K) co-occurs with respectable room-temperature ZT values for the doped samples (0.63-0.84 across x=0.005-0.04), approaching the n-Bi2Te3 reference ZT (~0.88), consistent with reduced lattice+bipolar thermal conductivity contributing to the figure of merit.
+  The qualifications recorded on that earlier result:
+    - The composition with the reported low kappa_L+kappa_b is x=0.01 (~0.69 at 300 K), but the highest ZT (~0.84) occurs at x=0.005, whose kappa_L+kappa_b value is not given here, so the pair cannot tie the specific peak-ZT composition to a specific low-kappa_L value
+    - ZT depends on total thermal conductivity (including an electronic component) and on the power factor (Seebeck coefficient and electrical conductivity), none of which appear in these two observations, so kappa_L+kappa_b alone cannot account for the full ZT trend
+    - Doping level co-varies with both quantities by construction (same composition series), so the apparent kappa_L-ZT relation could instead reflect other doping-driven changes such as carrier concentration or power factor
+    - Observation A spans a temperature range (300-475 K) while Observation B is reported only at 300 K, so the pairing does not establish whether the relationship holds across temperature, only at a single point
+
+Observation B (None): Bar chart: RT ZT 0.82 for this work vs 0.75, 0.70, 0.62, 0.32 for Refs 24, 22, 39, 40
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n16 -> s7 edge
+Panels: F6b
+
+What the paper concluded, for your reference as the key's author:
+  RT ZT ~0.82 exceeds Te/Se-doped Mg3(Sb,Bi)2 reports (0.32-0.75) and approaches n-Bi2Te3
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

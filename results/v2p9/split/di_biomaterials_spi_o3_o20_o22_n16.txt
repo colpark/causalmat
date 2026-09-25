@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Small-angle XRD (n8) showing a single low-angle reflection in all three patterns (~1.37 deg MBG, ~1.47 deg 2Co, ~1.35 deg 5Co) confirms an ordered mesoporous channel structure persists in the cobalt-doped glasses, and the release assay (n15) shows ampicillin is released gradually and cumulatively (~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h, plateauing). Together the two observations are consistent with an ordered mesoporous channel structure being present alongside a gradual, plateauing release profile -- i.e., the material that retains long-range pore ordering is the same material that shows sustained rather than burst release.
+
+THE NEW MEASUREMENT
+Relative survival with Scaffolds+Ampicillin ~105, ~81, ~52% at days 1, 3, 7 vs blank 100 and drug-free scaffolds 110-118%
+
+THE KEY'S PROPOSITION
+Read together with the established structure+release result (ordered mesoporous 2Co-MBG releasing ampicillin gradually and cumulatively to a plateau, ~340 ug at 8h to ~795 ug at 168h), the survival data (Scaffolds+Ampicillin ~105% at day 1, ~81% at day 3, ~52% at day 7, versus blank=100% and drug-free scaffolds ~110-118%) supports that the antibacterial effect tracks the presence of released ampicillin specifically, not the mesoporous glass scaffold material itself: drug-free scaffolds show survival at or above the blank (no killing), while ampicillin-loaded scaffolds show progressively lower survival across the same day-1/3/7 window in which ampicillin is being released. This licenses the modest combined claim that the sustained release of ampicillin from the 2Co-MBG scaffold, rather than the scaffold material alone, is associated with progressive bacterial killing over time.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

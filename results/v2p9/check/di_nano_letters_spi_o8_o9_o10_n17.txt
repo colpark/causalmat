@@ -1,0 +1,29 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+The zeta-potential reversal (from +25 mV for BSA@ZIF-8 to -16 mV and -14.5 mV for the DNA- and RNA-aptamer samples) shows that a net-anionic species now coats the particle surface, and the EDS map shows phosphorus (the aptamer backbone's signature element) present inside the same C/Zn/N-filled particle outline in both aptamer samples. Together these support that the anionic, phosphorus-bearing aptamer is associated with/adsorbed onto the cationic BSA@ZIF-8 particle, consistent with electrostatic attachment of the polyanionic backbone to the cationic surface.
+
+THE NEW MEASUREMENT
+Ex vivo fluorescence: both lymph nodes glow brighter (green) for the aptamer MOF than for the neat MOF (cyan) on the shared 0-2500 scale
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Zeta potential reversed from +25 mV for BSA@ZIF-8 to -16 mV and -14.5 mV for the DNA- and RNA-aptamer samples
+2. [input] A phosphorus signal is co-located with the C/Zn/N particle outline in both aptamer samples
+3. [input] Together these indicate the anionic, phosphorus-bearing aptamer is associated with/adsorbed onto the particle surface
+4. [observation] Both lymph nodes glow brighter/green for the aptamer-MOF versus cyan for the neat MOF on the shared 0-2500 scale
+5. [observation] The brighter/green signal indicates greater lymph-node accumulation for the aptamer-MOF than for the neat (unmodified) MOF
+6. [combined] The particle shown by fluorescence to accumulate more in the lymph nodes is the same particle whose surface state was shown to carry the anionic, phosphorus-bearing aptamer
+7. [combined] The presence of aptamer on the particle surface is associated with the enhanced in vivo lymph-node signal

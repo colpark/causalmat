@@ -1,0 +1,28 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+XRD establishes, across the bulk of the dehydrogenated sample, that only Mg, CeH2.73, CeO2 and YH2 reflections are present (with a Co marker peak in C10) and that no CeMg12/Y5Mg24/Ce2Mg17 reflections appear, i.e. no RE-Mg intermetallic phase forms anywhere detectable in the bulk. HRTEM then shows, at one imaged region of dehydrogenated C10, a real-space grain with 0.245 nm spacing matching Mg (101) sitting directly beside a grain with 0.318 nm spacing matching CeH2.73 (111), with the Mg grain wrapped by carbon layers. Put together, the local lattice-resolved image corroborates that the phases XRD assigns bulk-wide (Mg, CeH2.73) are genuinely present as distinct, physically adjacent crystalline grains rather than an XRD artifact, and adds real-space morphological information -- the carbon wrapping of the Mg grain -- that diffraction alone cannot supply.
+
+THE NEW MEASUREMENT
+PCT at 320-360 C: one flat plateau per temperature; C10 plateaus lie at nearly the same pressures as C0 (~0.15, 0.27, 0.45 MPa)
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Bulk XRD shows only Mg, CeH2.73, CeO2, YH2 in dehydrogenated C10, with no RE-Mg intermetallic phase detectable anywhere in the bulk.
+2. [input] HRTEM corroborates a real, carbon-wrapped Mg grain sitting adjacent to a CeH2.73 grain in dehydrogenated C10.
+3. [observation] C10 plateaus at 320-360 C sit at nearly the same pressures as C0, approximately 0.15, 0.27, 0.45 MPa.
+4. [observation] The desorption equilibrium (plateau pressures) remains essentially unchanged from the untreated material after C@Co modification and cycling.
+5. [combined] The C@Co modification/cycling does not create any new thermodynamically distinct phase.
+6. [combined] The persistence of the same phase assemblage is consistent with, and helps account for, why the desorption thermodynamics remain essentially unaltered.

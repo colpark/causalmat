@@ -1,0 +1,34 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+FTIR identifies the chemical species present (a broad ~3430 cm-1 O-H band signaling water, a strong ~2100 cm-1 band signaling bridging C≡N, a sharp ~980 cm-1 band signaling V=O of vanadyl, and bands below 650 cm-1 signaling M-CN framework bonds), while TGA quantifies how much mass is lost and at what temperature. Combined, the gradual ~25% mass loss up to ~350 C can be assigned to loss of the water identified by the O-H band, and the sharp step to ~60% at ~360 C can be assigned to collapse/decomposition of the cyanide-bridged framework identified by the ~2100 cm-1 and sub-650 cm-1 bands. Neither spectrum alone supports this: FTIR alone cannot say how much water or framework mass is present or at what temperature it leaves, and TGA alone cannot say what chemical species is being lost at each step.
+
+THE NEW MEASUREMENT
+CV: three anodic/cathodic peak pairs near 0.55/0.52, 0.89/0.87, 1.08/1.07 V, persisting over 20 cycles
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] The composition identified by A is a hydrated, cyanide-bridged vanadyl/M-CN framework
+2. [input] Water loss of ~25% occurs up to ~350C
+3. [input] Framework decomposition of ~60% occurs at ~360C
+4. [input] A alone gives no information on electrochemical behavior
+5. [observation] CV shows three anodic/cathodic peak pairs near 0.55/0.52, 0.89/0.87, and 1.08/1.07 V
+6. [observation] These three peak pairs persist over 20 cycles
+7. [observation] The peak pairs are reversible redox couples
+8. [observation] The redox couples are cycling-stable, based on their persistence over 20 cycles
+9. [observation] B alone shows three reversible couples exist in the electrode material, with no information on what chemical species is undergoing them
+10. [observation] The three distinct redox couples in CV indicate multi-electron redox activity
+11. [combined] The compositionally-identified vanadyl-cyanide framework material (from A) is the material exhibiting the multi-electron redox activity seen in B
+12. [combined] The three distinct, cycling-stable reversible redox couples in CV belong to the vanadyl-cyanide framework material identified by A

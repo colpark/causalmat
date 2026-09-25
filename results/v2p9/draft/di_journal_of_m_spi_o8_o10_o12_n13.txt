@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the two panels show that at low Se doping the same samples display both anomalously high 300 K Hall mobility (mu_H ~145-170 cm2/Vs at x=0.005-0.02, still ~125 cm2/Vs at x=0.04, all above the literature envelope, with the x=0.04 case explicitly compared at similar n_H) and a large drop in 300 K resistivity (from ~650 down to ~12-23 micro-ohm m), so the two transport signatures move together in the same doping range and point to the same qualitative outcome: Se doping produces low-resistivity material with enhanced carrier mobility rather than one at the expense of the other.
+  The qualifications recorded on that earlier result:
+    - Resistivity is set jointly by carrier density n_H and mobility mu_H (rho ~ 1/(n_H*mu_H)); only the x=0.04 point is stated as compared 'at similar n_H', so for the other doping levels the resistivity drop cannot be attributed to the mobility rise alone versus a concurrent change in carrier density from doping
+    - The observations are reported at only a few discrete x values (0, 0.005-0.02 lumped, 0.04), which supports an ordering/ranking across doping but not a continuous or quantitative dose-response relationship
+    - The opposite temperature trends (doped rho rises with T, x=0 falls with T) show the two regimes differ in scattering/degeneracy behavior but this contrast is not used to isolate which factor (mobility or carrier density) drives the 300 K resistivity drop
+    - Both readings are confined to 300 K comparisons against literature/undoped reference points; neither establishes a mechanism, only a co-occurring pattern
+
+Observation B (None): PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n12 -> n13 edge
+Panels: F5c
+
+What the paper concluded, for your reference as the key's author:
+  Power factor reaches ~29 uW cm-1 K-2 at 300 K for x=0.01 (x=0 below 2), ~22 at 623 K
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

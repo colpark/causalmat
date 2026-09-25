@@ -1,0 +1,26 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Across the Se-doped series, low kappa_L+kappa_b (x=0.01: ~0.69 W/mK at 300 K, ~0.60 W/mK at 400-450 K) co-occurs with respectable room-temperature ZT values for the doped samples (0.63-0.84 across x=0.005-0.04), approaching the n-Bi2Te3 reference ZT (~0.88), consistent with reduced lattice+bipolar thermal conductivity contributing to the figure of merit.
+
+THE NEW MEASUREMENT
+Bar chart: RT ZT 0.82 for this work vs 0.75, 0.70, 0.62, 0.32 for Refs 24, 22, 39, 40
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Within this work's own Se-doped series, low kappa_L+kappa_b co-occurs with a respectable ZT approaching the n-Bi2Te3 reference.
+2. [observation] This work's RT ZT (~0.82) exceeds four other published Te/Se-doped Mg3(Sb,Bi)2 reports (0.75, 0.70, 0.62, 0.32).
+3. [combined] Together, the internal association and the literature comparison extend an internal association to an external benchmark.
+4. [combined] The low-kappa_L+kappa_b regime achieved in this work is associated with a ZT that ranks above prior literature values for closely related doped compositions.

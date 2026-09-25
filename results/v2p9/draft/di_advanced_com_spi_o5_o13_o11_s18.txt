@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  The SEM morphology evidence (bare BST smooth ~70 nm vs. modified particles rough, coated and larger) is consistent with an Ag-coating step having occurred on the BST particles, and this surface modification accompanies the observed dielectric trend in which modified composites (5%>3%>1%) show substantially higher permittivity than PAEN at all frequencies (~6.05 vs 3.35 at 100 Hz). Together the two panels support that the surface-modified/coated particle state is associated with the elevated dielectric constant, i.e. the structural change tracks with the property change.
+  The qualifications recorded on that earlier result:
+    - SEM (F3a, F3b) only contrasts two qualitative states -- bare vs. modified -- it does not show morphology at each of the 1%, 3%, 5% loading levels that the dielectric data (F3e, F6a) distinguish, so no dose-resolved correspondence between degree of roughening/size increase and degree of permittivity increase can be drawn
+    - the SEM data are structural/morphological (particle size and surface texture, qualitative descriptive) while the dielectric data are a bulk electrical property (dimensionless constant across a frequency sweep) -- these are different kinds of quantities and their pairing shows co-occurrence, not a measured functional relationship
+    - only two SEM conditions vs. at least three dielectric loading conditions means the comparison is too sparse to support a quantitative or monotonic relationship, only a qualitative one
+
+Observation B (None): DSC Tg steps: pure PAEN 176 C; BST@Ag 1/3/5% at 146, 149, 157 C
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a s13 -> s18 edge
+Panels: F5a
+
+What the paper concluded, for your reference as the key's author:
+  Dielectric properties stay stable from 100 Hz to 1 MHz and up to about 135-140 C
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

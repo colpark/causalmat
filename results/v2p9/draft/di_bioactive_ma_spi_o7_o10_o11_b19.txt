@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  For the two samples common to both panels, the pattern is consistent with the paper's causal claim: TiO2 has the strongest 390-420 nm PL (highest recombination) and the lowest degradation (~20% at 60 min), while Er0.5Ce0.2 has the lowest PL (least recombination) and the highest degradation (~46% at 60 min, same rank at 20 and 40 min). Together the two panels show that the sample with the least recombination signature is also the sample with the most photocatalytic activity, and vice versa.
+  The qualifications recorded on that earlier result:
+    - The sample sets only partially overlap: PL (F7) was measured for TiO2, Er0.5Ti-O, and Er0.5Ce0.2, while degradation (F8) was measured for TiO2, Ce0.1, Ce0.3, and Er0.5Ce0.2 - only TiO2 and Er0.5Ce0.2 appear in both panels.
+    - Because Er0.5Ti-O has no matching degradation measurement and Ce0.1/Ce0.3 have no matching PL measurement, the monotonic recombination-to-activity relationship cannot be confirmed across the full co-doping series, only at the two shared endpoints.
+    - PL intensity is a proxy indicator of recombination (a steady-state spectroscopic amount, arbitrary units) while degradation is a cumulative percentage removed over a time window; the pairing shows a consistent endpoint correlation, not a quantitative dose-response link between the two quantities.
+
+Observation B (None): Light: antibacterial ratio Er0.5Ce0.2 ~91% (c) and ~93% (d) > Ce0.3 ~87% > Ce0.1 ~68-73% > TiO2 ~45% > control ~4-7%
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a b17 -> b19 edge
+Panels: F10c, F10d
+
+What the paper concluded, for your reference as the key's author:
+  Under simulated sunlight for 20 min, Er0.5Ce0.2Ti-O kills ~91% of S. aureus and ~93% of E. coli vs ~45% for TiO2
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

@@ -1,0 +1,29 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+SEM images showing fine (<0.2 um) bright particles dispersed within grain interiors and along boundaries, taken together with the tensile curves comparing without-EPT (F12) and with-EPT (F13) processing, support that a fine dispersed particle microstructure coexists with the observed shift in tensile behavior between the two processing states: yield ~350 to ~330 MPa, UTS ~420 to ~447 MPa, and end strain ~0.095 to ~0.15.
+
+THE NEW MEASUREMENT
+'This study' points (~275/380, ~295/355, ~335/448 MPa) all above every literature point (max ~240 YS, ~318 UTS)
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] The with-EPT state (F13) exhibits a fine (<0.2 um) dispersed particle microstructure in grain interiors and boundaries.
+2. [input] The with-EPT state (F13) coexists with yield ~330 MPa, UTS ~447 MPa, and end strain ~0.15.
+3. [input] The earlier result frames the tensile shift only as a within-study comparison against the without-EPT counterpart (F12).
+4. [observation] 'This study' points sit at approximately 275/380, 295/355, and 335/448 MPa YS/UTS.
+5. [observation] All three 'this study' points lie above the literature maximum of ~240 MPa YS and ~318 MPa UTS for other AZ61 routes.
+6. [combined] The with-EPT state's yield/UTS (~330/447) matches one of the 'this study' points (~335/448) that lies above every compared literature AZ61 route.
+7. [combined] The fine dispersed-particle microstructure recorded for the with-EPT state coexists with a property standing exceeding all other reported AZ61 processing routes, not just the without-EPT counterpart within this study.

@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, TEM's appearance of small dark nanoparticles after reduction (densely dotting the sheets, absent from the bare sheets) and Raman's post-reduction spectrum showing only the two low-shift bulk-Bi modes (~69, ~95 cm-1), with the oxide bands (~120-500 cm-1) absent, jointly support that reduction produces a new, morphologically distinct nanoparticle feature whose composition is consistent with metallic Bi rather than an oxide phase. TEM alone shows only that something new and discrete has formed, with no chemical-identity information carried by dark contrast; Raman alone shows only that the sample's vibrational signature is now dominated by bulk-Bi modes with oxide modes absent, with no spatial or morphological information about where that signal originates. Only combined do they support pairing 'a new discrete feature has formed' with 'the phase present is Bi-like, not oxide-like.'
+  The qualifications recorded on that earlier result:
+    - Raman here is a bulk/ensemble measurement, not spatially resolved to the individual TEM-imaged nanoparticles, so it cannot directly confirm that the newly appeared dark particles specifically are the source of the low-shift Bi modes rather than some other region of the sample
+    - TEM contrast alone (dark spots) carries no chemical-identity information; composition is inferred only via the separately-run Raman measurement, not measured on the same particles
+    - Neither observation quantifies the fraction of sheet converted, the amount of any remaining oxide, or confirms a specific layered/heterojunction architecture; Raman only reports presence/absence of vibrational bands, not stoichiometry or relative phase fraction
+    - The oxide bands being 'absent' in Raman does not by itself prove oxide is entirely gone from the structure (a Raman signal could be weak, masked, or below detection), so the pairing cannot rule out residual oxide near or beneath the new nanoparticles
+
+Observation B (None): A/L at 808 nm is linear in concentration (R2 = 0.9999) with slope alpha = 6.4 L g-1 cm-1
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a a8 -> a11 edge
+Panels: F3c
+
+What the paper concluded, for your reference as the key's author:
+  Strong NIR absorption: extinction coefficient 6.4 L g-1 cm-1 at 808 nm
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

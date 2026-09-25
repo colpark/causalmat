@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Together, the two XRD observations support that YSZ retains a predominantly tetragonal zirconia structure and Al2O3-YSZ shows a cubic zirconia structure: Observation A's phase labels (t-ZrO2 for YSZ, c-ZrO2 for Al2O3-YSZ) are corroborated by Observation B's diagnostic peak-shape evidence, since the small (012) peak at ~43 deg and the split peaks at ~35, 60 and 74 deg -- present only in the YSZ pattern and absent in the Al2O3-YSZ pattern -- are the specific features that distinguish a lower-symmetry (tetragonal) reflection pattern from a higher-symmetry (cubic) one. B thus supplies the diagnostic detail that explains why A's phase call is made. Both patterns also lack any marked or visible Al2O3 reflection.
+
+THE NEW MEASUREMENT
+Orientation change per interval is ~4.3-11 deg at 5 cycles in Al2O3-YSZ, falling to ~1 deg by 20 cycles, versus 0.7-2.3 deg throughout for YSZ
+
+THE KEY'S PROPOSITION
+Putting the established phase identification (Observation A: YSZ is predominantly tetragonal zirconia, Al2O3-YSZ is cubic zirconia, corroborated by diagnostic peak-shape detail) together with the orientation-change measurements (Observation B: Al2O3-YSZ shows ~4.3-11 deg change per interval at 5 cycles falling to ~1 deg by 20 cycles, versus YSZ's steady 0.7-2.3 deg throughout) shows that the two coatings, already distinguished by crystal phase, also diverge sharply in how their orientation change (a micro-strain proxy) evolves over thermal cycling: the cubic-phase coating (Al2O3-YSZ) starts with much larger per-interval change that diminishes with cycling, while the tetragonal-phase coating (YSZ) remains comparatively low and stable throughout. The combination thus supports that the phase difference established in A co-occurs with a distinctly different, evolving micro-strain response captured in B -- a link neither observation shows by itself, since A gives no strain/cycling data and B alone carries no phase context to explain why the two coatings' strain behavior differs.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

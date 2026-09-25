@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/diagnostic that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  EDS establishes where C and Co signals sit at the particle scale (concentrated on surfaces, densest along edges and some faces), while HRTEM establishes what is locally present at one such edge region at atomic resolution: crystalline alloy fringes (CeMg12 0.258 nm, Y5Mg24 0.265 nm) sitting next to an amorphous band and curved carbon layers (0.386 nm). Together they corroborate that the C-rich surface signal in the EDS map corresponds to an actual carbon phase (curved carbon layers) located at particle edges next to the alloy grains, i.e. carbon coats/sits on the alloy particle surface.
+  The qualifications recorded on that earlier result:
+    - The HRTEM field of view is a single local edge region of one milled C10 particle; it is not shown to be representative of every surface/edge/face location where the EDS map shows C and Co signal
+    - EDS spatial resolution (areal map over the SEM field of view) is far coarser than HRTEM's atomic/lattice-fringe resolution, so pairing them gives only qualitative corroboration of location, not a quantified or statistically representative distribution at the fine scale
+    - The cited HRTEM observation lists only CeMg12 and Y5Mg24 alloy fringes plus amorphous band and carbon layers -- no Co-containing lattice fringe is reported, so the combination does not itself demonstrate that Co is dispersed inside the carbon at atomic scale, only that C and Co signals co-locate at the coarser EDS map scale
+
+Observation B (None): JMAK plots of desorption are linear (R2 > 0.98) with eta = 1.59 (C0) and 1.32 (C10)
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n10 -> n16 edge
+Panels: F9a, F9b
+
+What the paper concluded, for your reference as the key's author:
+  JMAK exponent eta for dehydrogenation falls from 1.59 (C0) to 1.32 (C10)
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

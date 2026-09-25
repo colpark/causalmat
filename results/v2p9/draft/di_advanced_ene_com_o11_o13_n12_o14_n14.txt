@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about STR/microstructure/shape that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together the two spectra show that zinc deposition is accompanied by a concurrent change in both the nitrogen electronic state (XAS N 1s: ~398 eV feature collapses, ~401 eV feature becomes dominant) and a vibrational/bonding-sensitive Raman feature (~1200 cm-1 weakens from pristine to zinc-loaded). Combining them gives convergent, cross-technique evidence that some chemistry/bonding change at or near nitrogen sites tracks with zinc loading -- a claim neither spectrum alone can support, since XAS alone only shows a shift among nitrogen chemical states without any vibrational corroboration, and Raman alone only shows a weakening of one feature without indicating that nitrogen electronic structure is involved.
+  The qualifications recorded on that earlier result:
+    - Neither observation, nor their combination, specifies the vibrational-mode assignment of the ~1200 cm-1 Raman feature (i.e., which bond or atoms it reflects), so it cannot be tied specifically to a Zn-N vibration versus a general lattice/disorder-related mode
+    - Both are pristine-vs-zinc-loaded comparisons (two states, not a series), so they establish that a change coincides with zinc treatment, not a mechanistic pathway or bond-formation event
+    - The pairing cannot distinguish direct Zn-N bond formation at pyridinic sites from an indirect zinc-induced structural/electronic perturbation of the carbon lattice that separately shifts the N 1s states and dampens the 1200 cm-1 mode
+
+Observation B (None): Zinc on CnC HS is a largely flat deposit with sparse protruding platelets; on C HS the surface is a dense mat of sharp platelets
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n12 -> n14 edge
+Panels: F3d, F3e
+
+What the paper concluded, for your reference as the key's author:
+  Plated zinc is planar and compact on CnC HS but forms a dense mat of sharp dendritic platelets on C HS
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

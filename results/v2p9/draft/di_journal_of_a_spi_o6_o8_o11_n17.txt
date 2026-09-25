@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Putting the EBSD and SEM readings together shows that YSZ, the material with the smaller and more stable per-interval misorientation (0.7-2.3 deg across all cycles, versus Al2O3-YSZ's 4.3-11 deg at 5 cycles falling to ~1 deg by 20 cycles), is also the material whose crack network appears unchanged between the two imaged views. The pair therefore supports a co-occurrence: low, stable orientation change tracks with an unchanged crack network in YSZ over this cycling range.
+  The qualifications recorded on that earlier result:
+    - Observation B is a qualitative visual comparison (crack network 'looks unchanged') rather than a measured crack-length, crack-density, or connectivity value, so it cannot be matched quantitatively against the degree-valued misorientation numbers in Observation A.
+    - The crack-network reading (Observation B) is reported only for YSZ; no matched SEM crack-network comparison for Al2O3-YSZ is included in this pair, so the data given cannot show whether the much larger misorientation seen in Al2O3-YSZ actually accompanies a change in its crack network.
+    - Only two materials are compared, and material composition (presence of Al2O3) covaries by construction with misorientation magnitude, so any relationship between strain and crack behavior cannot be separated from other composition-linked differences between the two materials.
+    - A single qualitative observation (unchanged vs. not) at one pair of time points is too little to establish a dose-response or mechanistic relationship between misorientation magnitude and crack-network state, even for YSZ alone.
+
+Observation B (None): Coupon intact at 5 cycles; corners spalled at 10 cycles; spalled corners persist and grow slightly to 40 cycles
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n12 -> n17 edge
+Panels: F8
+
+What the paper concluded, for your reference as the key's author:
+  Al2O3-YSZ coating does not peel after 5 cycles but spalls most seriously between 5 and 10 thermal cycles
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}
