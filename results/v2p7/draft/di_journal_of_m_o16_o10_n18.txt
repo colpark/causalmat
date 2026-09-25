@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  The EBSD IPF maps establish that the equiaxed features visible in panels (a) and (c) are genuine crystallographic grains, sized about 0.5-1.5 um in (a) and about 1.5-3 um in (c). The SEM image separately shows that panel (d) contains much finer, uniform equiaxed features (about 0.3-0.8 um) than panels (b) and (c) imaged at the same 2 um scale. Put together, the pair supports reading the finer SEM features in (d) as a continuation of the same equiaxed-grain trend down to a smaller size -- i.e., the grain/feature size decreases from the EBSD-confirmed ~1.5-3 um grains in (c) toward the ~0.3-0.8 um features seen by SEM in (d).
+  The qualifications recorded on that earlier result:
+    - No EBSD data is given for panel (d) itself, so its ~0.3-0.8 um features are not directly confirmed as true recrystallized grains rather than subgrains, deformation substructure, or SEM contrast artifacts -- the identification rests on morphological analogy to the EBSD-confirmed grains in (a) and (c), not direct crystallographic proof on the same panel.
+    - SEM (topographic/secondary-electron contrast) and EBSD (crystallographic misorientation contrast) are different measurement kinds; their size readings are not guaranteed to coincide on the same features.
+    - Only two EBSD panels (a, c) and one SEM panel (d) are available, with no shared panel between the two techniques, so the data support only a qualitative ordering of sizes across panels, not a quantitative size-vs-condition relationship.
+
+Observation B (None): 423K-8+373K-3+25us-10min curve is highest of the three EPT curves: max ~447 MPa vs ~370 and ~356 MPa
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n15 -> n18 edge
+Panels: F13
+
+What the paper concluded, for your reference as the key's author:
+  After EPT, 423K-8+373K-3+25us-10min: yield ~330 MPa, UTS ~448 MPa, strain ~0.15; yield slightly lower but UTS and elongation higher than before EPT
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

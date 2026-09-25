@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  XRD establishes, across the bulk of the dehydrogenated sample, that only Mg, CeH2.73, CeO2 and YH2 reflections are present (with a Co marker peak in C10) and that no CeMg12/Y5Mg24/Ce2Mg17 reflections appear, i.e. no RE-Mg intermetallic phase forms anywhere detectable in the bulk. HRTEM then shows, at one imaged region of dehydrogenated C10, a real-space grain with 0.245 nm spacing matching Mg (101) sitting directly beside a grain with 0.318 nm spacing matching CeH2.73 (111), with the Mg grain wrapped by carbon layers. Put together, the local lattice-resolved image corroborates that the phases XRD assigns bulk-wide (Mg, CeH2.73) are genuinely present as distinct, physically adjacent crystalline grains rather than an XRD artifact, and adds real-space morphological information -- the carbon wrapping of the Mg grain -- that diffraction alone cannot supply.
+  The qualifications recorded on that earlier result:
+    - XRD alone gives bulk-averaged phase presence/absence but no information on spatial arrangement, grain morphology, or whether phases are adjacent/wrapped by carbon
+    - HRTEM alone images only one local grain pair and cannot establish that this Mg/CeH2.73 adjacency or the absence of RE-Mg phases is representative of the whole sample
+    - the pairing does not by itself establish reversibility or cycling behavior -- only phase identity and local morphology in the dehydrogenated state shown in these panels
+
+Observation B (None): PCT at 320-360 C: one flat plateau per temperature; C10 plateaus lie at nearly the same pressures as C0 (~0.15, 0.27, 0.45 MPa)
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n26 -> n19 edge
+Panels: F11a, F11b
+
+What the paper concluded, for your reference as the key's author:
+  C@Co leaves the thermodynamics nearly unchanged: plateau pressures and desorption enthalpy (83.3 vs 81.7 kJ/mol) barely differ
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

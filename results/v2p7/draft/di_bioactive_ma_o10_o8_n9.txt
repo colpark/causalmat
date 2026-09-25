@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Taken together, the polarization data and the immersion data provide two independent lines of evidence that converge on the same ranking: Mg-Zn-Y-Nd degrades far faster than 317L SS. The electrochemical scan shows a much lower corrosion potential for Mg-Zn-Y-Nd (near -1.5 V) versus 317L SS (about -0.25 V), with current branches shifted 2-3 decades higher; separately, the immersion test shows Mg-Zn-Y-Nd's corrosion rate (0.13-0.38 mm/y, peaking at day 7) staying above 317L SS's rate (<0.07 mm/y) at every time point measured. Neither observation alone rules out that the apparent difference is an artifact of one particular test method; the pair together shows the faster degradation of Mg-Zn-Y-Nd holds across two different measurement approaches (electrochemical and immersion), which is stronger support for a real, method-independent material difference than either measurement gives on its own.
+  The qualifications recorded on that earlier result:
+    - Does not establish a quantitative correspondence between the electrochemical current-density gap (2-3 decades) and the immersion rate gap (0.13-0.38 mm/y vs <0.07 mm/y) -- these are different kinds of quantities and the pair does not let one be converted into or predict the other
+    - Does not establish the mechanism responsible for the faster degradation
+    - The polarization measurement is an instantaneous/single-scan quantity while the immersion measurement is a rate tracked over multiple days with a peak at day 7; combining them supports only the qualitative ordering (Mg-Zn-Y-Nd faster than 317L SS), not a shared quantitative time-dependence
+    - Whether the two tests were run under matched environmental/media conditions is not given, so the concordance cannot be assumed to reflect identical test conditions
+
+Observation B (None): pH with Mg-Zn-Y-Nd climbs from 7.4 to ~10 by day 22 and plateaus; blank control peaks ~8.4 then falls to ~7.5; 317L SS falls to ~6.1 at day 20
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n7 -> n9 edge
+Panels: F5a
+
+What the paper concluded, for your reference as the key's author:
+  Immersed Mg-Zn-Y-Nd drives Hank's solution to pH ~10 and holds it there, above the blank control; 317L SS does not
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

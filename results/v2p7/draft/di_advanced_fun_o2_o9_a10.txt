@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  TEM alone establishes lateral extent (~100-200 nm) and a thin, sheet-like/semi-transparent morphology across many particles on the grid, but gives no direct thickness value. AFM alone establishes a thickness (~14 nm) from a height profile across one flake and separately reports lateral size (~100-200 nm) consistent with TEM, but as a single-flake measurement it cannot on its own confirm that this lateral extent is representative of the population. Put together, the two observations jointly fix both in-plane dimensions (from TEM's survey of many sheets) and the out-of-plane dimension (from AFM's height profile), yielding a single consistent picture of thin, flat, lamellar sheets roughly 100-200 nm across and about 14 nm thick -- i.e., a high-aspect-ratio nanosheet morphology that neither technique's numbers alone would justify (TEM cannot give thickness; AFM's single profile cannot establish lateral extent across the sample).
+  The qualifications recorded on that earlier result:
+    - AFM thickness (~14 nm) comes from a height profile across one flake, so it is a single-particle measurement, not a population statistic, and could be affected by tip or substrate artifacts
+    - TEM lateral sizes (~100-200 nm) are described only as 'mostly' in that range -- an approximate qualitative range from visual inspection, not a measured size distribution
+    - combining the two assumes the flake measured by AFM is representative of the population imaged by TEM; the pair does not itself demonstrate this correspondence, it is inferred from the overlapping size range reported in both
+    - neither observation nor their combination addresses count, yield, or the proportion of material in this morphology versus other shapes
+
+Observation B (None): Linear extrapolation of (F(inf)hv)^2 reaches zero at 0.69 eV; data leave the line below ~1.1 eV
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a a7 -> a10 edge
+Panels: F2n
+
+What the paper concluded, for your reference as the key's author:
+  Bismuthene is a semiconductor with an optical band gap of ~0.69 eV
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

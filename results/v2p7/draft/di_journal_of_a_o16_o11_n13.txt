@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  The SEM fracture-surface image (panel c, showing a rough surface with a few dark cavities between grains) visually corroborates the residual porosity quantified by the apparent-porosity measurements: the presence of dark cavities is consistent with a sample that still has measurable apparent porosity rather than being fully dense.
+  The qualifications recorded on that earlier result:
+    - Panel B is a single qualitative SEM snapshot (panel c only); the record does not state which sample (S1/S2/S3) or which sintering temperature it corresponds to, so it cannot be matched to a specific point on the S1/S2/S3 porosity-vs-temperature series
+    - The SEM description ('a few dark cavities') is not quantified, so the pair does not establish a numeric or proportional correspondence between cavity count/area in the image and the measured apparent-porosity percentages (8.7-0.4% for S1, 7.9-0.7% for S2, 11.2-7.7% for S3)
+    - Together they do not explain why S3 retains ~7.7% porosity while S1 and S2 densify below 1%; the image gives only a visual snapshot of cavities, not a mechanism for the difference in densification behavior across samples
+
+Observation B (None): Flexural strength: S1 ~165, 188, 465 MPa (1400-1600 C); S3 ~170-195 flat; S2 ~80, 98, 170, 145 MPa
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n8 -> n13 edge
+Panels: F6a
+
+What the paper concluded, for your reference as the key's author:
+  Flexural strength generally rises with sintering temperature; S1 at 1600 C is highest at ~465 MPa
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

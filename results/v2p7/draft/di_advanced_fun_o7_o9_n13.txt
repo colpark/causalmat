@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Taken together, the XRD result (all traces step down near 150 K, with the PC (004) reflection showing the two structural branches coexisting over a band from ~150 to ~175 K) and the PL result (the ~785 nm band grows against the ~745 nm band between 138 and 150 K, earliest/strongest under the 325 nm laser and latest under 633 nm) support a depth-dependent reading of the same transition: since 325 nm and 633 nm probe different penetration depths, PL's ordering (shallow-probe signal first, deep-probe signal last) supplies a spatial/depth ordering that XRD alone cannot give, while XRD's coexistence band supplies bulk-averaged evidence that the two structural phases genuinely coexist rather than switching instantaneously. Combined, this is consistent with the transformation appearing near the domain surface before it appears deeper in the domain.
+  The qualifications recorded on that earlier result:
+    - The two observation windows do not overlap (PL: 138-150 K; XRD coexistence band: 150-175 K), so the pairing only yields a qualitative/ordinal linkage -- surface-sensitive signal precedes the bulk-averaged coexistence window -- not a merged quantitative transition profile
+    - The 'surface vs. deep' reading rests on treating 325 nm vs 633 nm laser penetration as a depth proxy; neither observation directly measures depth or a spatial gradient
+    - Neither observation reports a phase fraction: XRD shows two coexisting diffraction branches without stated fractions, and PL shows a band-intensity ratio change without a stated fraction conversion
+    - Nothing in either observation gives a completion timescale (e.g., how narrow the finishing window is) -- that is not present in either observation as stated
+    - The pairing does not distinguish a single continuous surface-to-core front from multiple independent, depth-graded transformation events
+
+Observation B (None): As grown: PC shows two emission branches plus an IR tail below 150 K and across 50-370 uW at 80 K; HOC is intermediate; SC shows one band
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n12 -> n13 edge
+Panels: F3a
+
+What the paper concluded, for your reference as the key's author:
+  As-grown emission below 150 K ranks with crystalline state: PC dual peak plus IR tail, HOC intermediate, SC a single peak
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

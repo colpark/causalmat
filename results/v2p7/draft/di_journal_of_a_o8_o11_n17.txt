@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Taken together, the two SEM observations establish (a) that in the as-sprayed state the Al2O3-YSZ cross-section has a longer, more open crack network and larger pores than the fine, short-crack network seen in YSZ, and (b) that the YSZ crack network specifically remains visually unchanged in the same imaged field across the two viewing instances. Combined, this supports that YSZ's finer, tighter crack morphology is stable under whatever change separates the two views, while Al2O3-YSZ starts out with a coarser, more open crack/pore structure.
+  The qualifications recorded on that earlier result:
+    - Observation A is a single-state, cross-material comparison (Al2O3-YSZ vs YSZ) and Observation B is a same-material, two-view stability check confined to YSZ; neither observation, nor their combination, includes a before/after comparison of the Al2O3-YSZ crack network itself.
+    - Because no pre/post view of Al2O3-YSZ is described, the pair cannot show whether the larger, more open Al2O3-YSZ cracks also propagate or connect over the same interval in which YSZ was shown to be unchanged.
+    - The two observations are drawn from different subjects for different purposes (A: material contrast at one time point; B: temporal stability at one material only), so they are not a matched pair of measurements and cannot be read as a single trend line.
+
+Observation B (None): Coupon intact at 5 cycles; corners spalled at 10 cycles; spalled corners persist and grow slightly to 40 cycles
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n12 -> n17 edge
+Panels: F8
+
+What the paper concluded, for your reference as the key's author:
+  Al2O3-YSZ coating does not peel after 5 cycles but spalls most seriously between 5 and 10 thermal cycles
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

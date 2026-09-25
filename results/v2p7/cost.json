@@ -1,5 +1,37 @@
 {
  "partA_arms": {
-  "start": 1790301341.7965126
+  "start": 1790301341.7965126,
+  "stop": 1790302128.5062242,
+  "calls": 189,
+  "relays": 4,
+  "wall_s": 786.7,
+  "wall_min": 13.1,
+  "s_per_call": 4.16
+ },
+ "partA_compare": {
+  "start": 1790302128.5062327
+ },
+ "estimate_before_starting": {
+  "partA": {
+   "arms": 189,
+   "comparisons": 189,
+   "total": 378,
+   "basis": "63 chains x 3 extra arm A samples, then 3 A-vs-A comparisons each"
+  },
+  "partB": {
+   "graded_AB": 189,
+   "graded_AA": 189,
+   "total": 378,
+   "basis": "the graded comparer on the same pairs: 63 chains x 3 repeats x 2 pair kinds"
+  },
+  "partE": {
+   "drafts": 78,
+   "arms": 702,
+   "comparisons": 468,
+   "total": 1248,
+   "basis": "196 distinct (item, target claim) candidates capped at 3 per paper = ~78 items; each needs 6 arm A + 3 arm B samples and 3 A-vs-B + 3 A-vs-A graded comparisons"
+  },
+  "total": 2004,
+  "note": "326 raw candidate triples reduce to 196 distinct (item, target claim) pairs. Running all 196 would cost about 3100 calls, so a cap of 3 per paper is applied and stated. The full candidate count is reported either way."
  }
 }

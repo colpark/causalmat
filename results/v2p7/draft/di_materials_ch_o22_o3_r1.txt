@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  XRD establishes, on its own, only that certain crystalline phases are present somewhere in the bulk HP5 specimen: ZrB2, SiC, C (graphite), and BN, with no AlN or Al2O3 detected. It is a bulk, spatially-averaged measurement and says nothing about where in the microstructure any given phase sits. TEM establishes, on its own, only a real-space microstructural feature: a band of parallel dark fringes of even width running along grain boundaries at a triple junction. Imaging alone does not by itself identify the chemical/crystallographic identity of that band. Put together, the two observations let one propose that the layered fringe band seen by TEM corresponds to one of the layered crystalline phases XRD confirms is present in the bulk (graphite or BN), because the fringe morphology (parallel, evenly spaced layers) is consistent with a layered-lattice phase, and XRD confirms such phases exist in the sample.
+  The qualifications recorded on that earlier result:
+    - XRD is a bulk, spatially-averaged measurement; it cannot localize any phase to the grain-boundary triple junction seen in TEM.
+    - TEM imaging alone does not give chemical/crystallographic identity for the fringe band; no spot diffraction (SAED) or spectroscopic (EDS/EELS) data on that specific band is reported here.
+    - The XRD phase list contains two layered phases -- C (graphite) and BN -- either of which could plausibly produce parallel, evenly spaced fringes at a grain boundary, so the combination cannot by itself assign the TEM band to one rather than the other.
+    - No co-located chemical analysis ties the specific triple-junction band to a specific one of the XRD-confirmed phases.
+
+Observation B (None): HP hardness ~18.0 GPa at 0, ~20.3 GPa at 1 wt% AlN, then ~19.4 and ~19.2 GPa at 3 and 5 wt%
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a s6 -> r1 edge
+Panels: F2b
+
+What the paper concluded, for your reference as the key's author:
+  HP Vickers hardness peaks at ~20.3 GPa with 1 wt% AlN and falls slightly (~19.2-19.4 GPa) at 3-5 wt%
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

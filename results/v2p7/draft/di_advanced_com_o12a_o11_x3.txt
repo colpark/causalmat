@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  FTIR (new bands at 2930, 2864 and 1122 cm-1 only in BST-SH) identifies the chemical identity of a new surface species -- CH2-containing aliphatic groups and a Si-O-type linkage -- while TGA (a ~1% weight-loss step at 180-250 C present in composites but absent in pure PAEN) independently confirms that an extra, thermally-decomposable mass component is actually present in the material. Together the two corroborate each other: the species FTIR detects spectroscopically is not a spectral artifact, since TGA shows it corresponds to a real, quantifiable mass loss that pure PAEN does not show, and the mass loss TGA detects is not from PAEN itself, since FTIR shows it carries the CH2/Si-O signature of a distinct organic/Si-containing species. Neither observation alone gives this: FTIR alone shows a new group is chemically present but not that it is a bulk, quantifiable, thermally distinct component; TGA alone shows an extra mass-loss step but not what chemical species is lost.
+  The qualifications recorded on that earlier result:
+    - Does not establish covalent bonding (Si-O-BST grafting) as opposed to strong physisorption or adsorption of MPTMS/silane species on the BST surface -- neither the band presence nor the mass-loss step distinguishes a covalent linkage from a non-covalent one
+    - TGA's ~1% weight loss is not tied quantitatively to the FTIR bands -- the two measurements are not calibrated against each other, so the pairing shows co-occurrence of 'new species present' and 'new mass-loss step present,' not a measured amount of grafted material
+    - No coverage or density information -- neither observation nor their combination indicates how much of the BST surface is modified
+    - Combining two indirect/qualitative-to-semiquantitative techniques does not substitute for a direct bonding-verification method
+
+Observation B (None): DSC Tg steps: pure PAEN 176 C; BST@Ag 1/3/5% at 146, 149, 157 C
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a s9 -> x3 edge
+Panels: F5a
+
+What the paper concluded, for your reference as the key's author:
+  Tg of composites falls below pure PAEN (176 C) but rises with Ag, 146 to 157 C
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

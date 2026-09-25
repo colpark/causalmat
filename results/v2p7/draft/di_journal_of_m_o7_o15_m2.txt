@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about MEC/pathway that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  XRD (Obs A) alone establishes only that the SiO2 phase is present/greater in amount in pattern b than in pattern a (taller reflections at ~26.5 and ~58 deg), a single bulk-averaged compositional signal with no spatial information. OM (Obs B) alone establishes only that dark particles are spatially uniform, evenly scattered over all four fields with no particle-free areas, but OM cannot chemically identify what those dark particles are. Combining the two lets the dark particles OM shows spread evenly across the stir zone be attributed to the SiO2-bearing phase XRD shows is present/enriched in pattern b -- i.e., it is specifically the SiO2 (FA) phase, not just some unidentified particulate, that is evenly dispersed with no particle-free zones.
+  The qualifications recorded on that earlier result:
+    - XRD is a single bulk pattern, not tied to the four separate OM fields, so it cannot by itself show the phase increase is spatially uniform
+    - OM's 'dark particle' is a morphological/optical descriptor only; it does not chemically confirm the particles are SiO2
+    - Even distribution is only demonstrated over the four fields examined, not over the whole stir zone volume/cross-section
+    - The XRD comparison is a qualitative 'taller' peak-height read, not a quantified/calibrated phase amount
+
+Observation B (None): Worn surface b: shallower grooves covered by numerous fine debris particles, no large crater
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a s1 -> m2 edge
+Panels: F10b
+
+What the paper concluded, for your reference as the key's author:
+  Uniformly dispersed FA stops asperities penetrating the subsurface; load-bearing FA layers fracture into fine debris that roll (three-body), reducing cutting
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

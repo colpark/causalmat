@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about STR/defect/extended that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, bulk XRD phase indexing (L12 superlattice peaks near 25/35 deg plus B2 peaks near 31/44.6 deg) and local SAED zone-axis indexing on two separate lamellae (lamella A = FCC [011], lamella B = BCC [011], each with circled superlattice spots) establish that the as-cast alloy's dual ordered-phase signature seen in the ensemble diffraction pattern corresponds to two spatially distinct, real microstructural regions (lamella A and lamella B) that are each individually ordered (superlattice spots present) and crystallographically consistent with the FCC/BCC fundamental lattices matched by XRD. XRD alone gives only an ensemble-averaged phase inventory and cannot show whether the L12 and B2 signals come from spatially separated regions, a single complex structure, or a minority/trace phase. SAED alone shows two lamellae with different crystal systems and each ordered, but from just two local diffraction patterns cannot establish that this is the bulk-representative phase assemblage, nor independently pin the specific ordering type (as opposed to matching indexed FCC/BCC positions against the XRD-established L12/B2 reflections). Combining them ties the bulk phase identification to an observed lamellar morphology, supporting a genuine spatially-resolved dual-phase ordered (L12 + B2) structure rather than a single averaged or artifactual signal.
+  The qualifications recorded on that earlier result:
+    - Does not establish relative phase fractions or volume ratios of L12 vs B2
+    - Does not establish that the two imaged lamellae (A and B) are representative of the whole bulk sample; TEM samples a very small local volume compared to bulk XRD
+    - Does not establish compositional partitioning or chemistry of each phase
+    - The specific L12/B2 superstructure assignment on the SAED patterns is not fully independent of the XRD result -- SAED zone-axis indexing gives FCC/BCC fundamental symmetry and superlattice-spot presence (ordering exists), but tying that ordering specifically to the L12/B2 designations relies on matching to the XRD-indexed reflections, so the two are not wholly separate confirmations of the ordering type
+    - Does not establish the degree of long-range order (order parameter) or thermal/kinetic stability of the phases
+
+Observation B (None): At first strain step one lamella is featureless while the neighbour shows mottled contrast and line contrast along the interface
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n5 -> n8 edge
+Panels: F3a
+
+What the paper concluded, for your reference as the key's author:
+  At 0.6% strain dislocations and planar slip appear in FCC lamellae; B2 lamellae stay dislocation-free
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

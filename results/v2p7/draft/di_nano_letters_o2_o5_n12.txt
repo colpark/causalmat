@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  DLS (solution-phase, ensemble) and SEM (dry-state, direct imaging) agree on both the magnitude and the ordering: microfluidic particles sit in the ~300-400 nm (DLS) / ~350-400 nm (SEM) range with a narrow/tight distribution, while hydrothermal particles sit near ~1000 nm (DLS) / ~900-950 nm (SEM) with a broader spread. Because two independent measurement modalities converge on the same size scale and the same narrow-vs-broad contrast, the size difference between the two synthesis routes is corroborated rather than being an artifact of a single technique.
+  The qualifications recorded on that earlier result:
+    - DLS reports an intensity-weighted hydrodynamic diameter from particles in suspension (ensemble average, sensitive to aggregation and larger particles skewing the mode upward), while SEM reports a directly measured dry-state core size from individual imaged particles (subject to which particles happen to be imaged/segmented) -- the two numbers are not identical measurement quantities even though both are length scales, so the pair does not establish an exact absolute size, only that the two methods agree on scale and ordering
+    - the values are close but not numerically identical (DLS ~300-400 nm vs SEM ~350-400 nm for microfluidic; DLS ~1000 nm vs SEM ~900-950 nm for hydrothermal), consistent with the known solvation/hydrodynamic offset of DLS versus dry SEM core measurement
+    - neither observation nor their combination speaks to why the two synthesis routes differ in size or distribution width -- that mechanism is outside these two panels
+
+Observation B (None): Encapsulation is higher for the microfluidic route in all three cargos (siRNA ~53 vs ~37%, DOX ~47 vs ~34%, BSA ~59 vs ~43%), each starred
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n9 -> n12 edge
+Panels: F4f, F4g, F4h
+
+What the paper concluded, for your reference as the key's author:
+  Encapsulation efficiency is higher for the microfluidic route for every cargo (siRNA 53 vs 37%, DOX 47 vs 34%, BSA 59 vs 43%)
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

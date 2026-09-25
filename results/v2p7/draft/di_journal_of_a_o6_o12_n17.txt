@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/qualification that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Taken together, the gradual, discontinuity-free softening of all eight Raman modes for x=0.06 from RT to 275C and the emergence/composition-shift of a second dielectric maximum Tm2 (appearing for x>=0.02, moving ~200 to ~260C) support treating Tm2 as arising without an abrupt structural change at that composition: the smooth phonon evolution at x=0.06 (a composition within the Tm2-bearing range) is consistent with a continuous/diffuse origin for the Tm2 anomaly rather than a discrete structural phase transition.
+  The qualifications recorded on that earlier result:
+    - Raman was measured only at x=0.06; the pair does not establish the same conclusion across the full x=0-0.08 series or at other compositions where Tm2 also appears (x>=0.02 more broadly)
+    - The absence of a Raman discontinuity is negative evidence against an abrupt transition; it does not positively demonstrate that Sr-vacancy-affected polar nanoregions (PNRs) specifically are the cause of Tm2 - no vacancy- or PNR-specific signature is reported in either observation
+    - Dielectric data are shown only at 1 kHz, so no frequency-dispersion evidence (the usual hallmark for identifying relaxor/PNR behavior) is combined with the Raman data here
+    - The two observations compare different kinds of quantities (phonon frequency shift vs. permittivity extremum position/magnitude), so the link rests on temperature/composition co-occurrence rather than a shared measured quantity
+
+Observation B (None): TCC curve of x=0.06 stays between the +/-15% dashed limits from ~40 to ~340-350 C; x=0.08 overshoots +15% near 230-290 C
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n14 -> n17 edge
+Panels: F4f
+
+What the paper concluded, for your reference as the key's author:
+  x=0.06 keeps TCC within +/-15% (base 150 C) from about 40 to 350 C
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

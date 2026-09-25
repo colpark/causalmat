@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, the MECH data and the OM image identify a mechanism for the [1 1 -2 1.85] specimen's ductile mechanical class. MECH shows this orientation passes 5% plastic strain at both RT and 300 C without fracturing, unlike [0001] which fractures without yielding (~355 and ~255 MPa); OM on the same specimen shows dense fine slip traces running parallel to the marked (0001) trace on both the (11-2 3.24) and (1-100) side surfaces. Combined, this ties the [1 1 -2 1.85] specimen's ductile behavior specifically to basal, (0001)-plane slip activity rather than to some other unobserved process.
+  The qualifications recorded on that earlier result:
+    - Does not establish the deformation mechanism for [11-20] or [01-10], since OM is reported only for the [1 1 -2 1.85] specimen; whether those two also deform by basal slip or by a different mechanism cannot be read from this pair
+    - Does not tie the slip-trace observation to a specific test temperature (RT vs 300 C) among the two conditions used in the MECH curves, since Observation B gives no temperature for the imaged specimen
+    - Correlational, not causal: co-occurrence of ductility and basal slip traces on one specimen shows the traces are present, not that basal slip is the dominant or sole contributor to the measured 5% plastic strain
+    - Cannot account for [01-10]'s distinct RT work-hardening (165 -> 205 MPa), since no OM is given for that orientation
+
+Observation B (None): CRSS in the alloy: {10-12} twinning ~55-70 MPa at RT, {1-100} prismatic ~52 MPa at 200 C, (0001) basal ~4.3 MPa and flat; in pure Mg the same modes sit at ~6, ~11 and ~0.5 MPa
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n13 -> n14 edge
+Panels: F7a, F7b
+
+What the paper concluded, for your reference as the key's author:
+  CRSS for {10-12} twinning (~55-70 MPa) and {1-100} prismatic slip (~52 MPa at 200 C) is 5-10x that of pure Mg, while (0001) basal slip stays low at ~4 MPa
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

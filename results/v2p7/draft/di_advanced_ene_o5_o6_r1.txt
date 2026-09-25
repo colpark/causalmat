@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  XRD (peak broadening/background across the simple-mixing, co-precipitation-without-HCl, and co-precipitation-with-HCl samples) establishes a bulk-scale ordering of crystallinity/structural order among the three synthesis conditions -- broad, high-background patterns for simple mixing versus narrower, better-separated peaks for co-precipitation. HRTEM (shown for the w/HCl sample) establishes, at the local real-space scale, that crystalline patches and amorphous-like regions physically coexist within the same material rather than the sample being a single phase of uniform intermediate order. Put together, the two support reading the XRD peak broadening/background as reflecting a genuine mixed-phase (crystalline + amorphous) character of the material, i.e., that STR/phase differences across conditions correspond to a real spatial coexistence of two distinct phases rather than merely a shift in some single homogeneous order parameter.
+  The qualifications recorded on that earlier result:
+    - Does not give a quantitative crystalline/amorphous phase fraction for any sample -- both observations are qualitative/descriptive (peak shape and background level; patch identification by eye), not measured fractions.
+    - TEM coexistence is documented only for the w/HCl sample (F1f); it does not directly confirm that the simple-mixing or co-precipitation-without-HCl samples also contain physically distinct crystalline/amorphous patches versus some other structural difference.
+    - TEM images a small, local field of view, so it cannot establish that the crystalline/amorphous coexistence it shows is representative of the bulk material that XRD (F1d) is averaging over.
+    - The pair does not separate whether XRD peak narrowing/sharpening reflects a rising amorphous-to-crystalline phase fraction versus a change in crystallite size (a classic ambiguity of diffraction peak broadening) -- HRTEM here reports patch coexistence, not a crystallite-size distribution.
+
+Observation B (None): Discharge capacity ranks w/ HCl > w/o HCl > simple mixing at every cycle (initial ~91, ~81, ~61 mAh/g)
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a s3 -> r1 edge
+Panels: F2a
+
+What the paper concluded, for your reference as the key's author:
+  Electrochemical utilization and capacity retention increase with crystallinity
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

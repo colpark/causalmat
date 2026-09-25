@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, the two panels support that the peak-voltage signal reported in F7b is genuinely a piezoelectric response (not an electrical artifact) and that this piezoelectric output scales monotonically with PZT loading: F7f's sign inversion on electrode reversal confirms the pulses originate from a polarity-dependent charge-generation process, and F7b's monotonic rise (7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V across 0-10 wt% PZT) shows that process's output magnitude increases with PZT content. The pair jointly supports that a piezoelectric mechanism, rather than noise or a fixed artifact, underlies the dose-dependent voltage trend.
+  The qualifications recorded on that earlier result:
+    - The polarity-reversal test (F7f) is a qualitative check performed on the piezoelectric signal in general; it is not stated to have been repeated at every PZT wt% point on the F7b curve, so it does not itself verify that each individual data point along the 0-10 wt% series is piezoelectric in origin.
+    - F7b's monotonic voltage trend alone cannot rule out artifact or measurement drift as a contributor to the rise; only F7f's sign-flip test rules that out, and only for the composition(s) it was actually run on.
+    - The combination does not establish or quantify the underlying molecular mechanism (dipole rotation under compression) directly -- neither panel visualizes or measures dipole alignment; that mechanism is inferred, not observed, from these two output measurements.
+    - The two panels together do not separate how much of the rising voltage trend is due to PVDF chain-dipole alignment versus PZT domain-dipole alignment, since both are invoked as contributing to net polarization change and both vary together as PZT wt% is increased by construction of the composite.
+
+Observation B (None): Power peaks at 136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n13 -> n15 edge
+Panels: F7e
+
+What the paper concluded, for your reference as the key's author:
+  220 um f-P0.10 fiber PENG delivers a maximum 136.9 uW at 10 MOhm load, 6.5x the cast-film PENG
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

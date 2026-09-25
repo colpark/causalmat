@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about MEC/pathway that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  XPS (Co3+ fraction of Co 2p) and EELS (Co L3 edge position) are two independent spectroscopic signatures of Co oxidation state, measured on the same four samples. Their agreement -- both show Co5Fe5 and Co5Fe3Cr2 elevated (larger Co3+ component; L3 edge blue-shifted 1.35 eV) relative to Co and Co5Cr5 -- cross-validates that the Fe-containing samples genuinely have a higher Co valence/oxidation state, rather than one technique's reading being a method-specific artifact (e.g., XPS peak-fitting/charging bias, or an EELS edge shift arising from a non-valence cause such as coordination or thickness effects).
+  The qualifications recorded on that earlier result:
+    - Neither observation, alone or combined, gives an absolute oxidation-state value (e.g., a Co2+/Co3+ ratio or formal valence number) -- only a relative ordering across the four samples.
+    - The two measurements are different kinds of quantity (a normalized peak-area fraction from XPS vs. an edge-position energy shift in eV from EELS), so they cannot be combined into a single quantitative correlation -- only compared as concordant/discordant directional evidence on the same sample set.
+    - The pair does not establish the electronic mechanism (e.g., charge transfer from Fe) by which Fe incorporation would raise Co valence; it only shows two independent measurements point the same way.
+    - Because Co5Fe3Cr2 contains both Fe and Cr, the combined evidence does not by itself isolate Fe as the sole compositional driver versus a Fe-Cr combined effect; that discrimination, if it exists, comes from comparison with Co5Cr5, not from combining XPS with EELS.
+
+Observation B (None): Computed Delta G: CoCrOOH lowest for Co2+->Co3+, CoFeOOH lowest for Co3+->Co4+, CoFeCrOOH between, Co(OH)2 highest
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n10 -> n11 edge
+Panels: F1a
+
+What the paper concluded, for your reference as the key's author:
+  Fe-Cr synergy lowers Co2+->Co3+->Co4+ energies so Co3+delta active sites form at lower anodic potential
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, the near-flat Na SAXS contours and near-overlapping I(q) curves (only a small drop at q~0.03-0.1 A^-1 seen at 0.11 V and 0.02 V) rule out a large volume/structural change as the driver of Na capacity fading, while the AIMD-computed degree of oxidation shows Na-Co3O4 reaching only ~36% at 2 ps -- below Na-Co3S4 (~59%) and far below Li-Co3O4 (~91%) -- and plateauing after 0.8 ps, indicating the conversion/sodiation reaction itself stalls early. Combined, the structural-stasis result plus the low, stalled oxidation-degree result let the pair be read as favoring poor sodiation activity (minor conversion) over volume change as the source of Na capacity fading.
+  The qualifications recorded on that earlier result:
+    - SAXS alone only shows structural/volumetric stability; it excludes volume change as a cause but cannot by itself identify what does limit capacity.
+    - AIMD alone gives a computed oxidation-degree ranking and an early plateau in a picosecond-scale simulation; on its own it says nothing about real cell volume behavior and does not rule out volume change.
+    - The two measurements are different kinds of quantity: SAXS is an experimental scattering-intensity profile read at specific applied voltages (0.11 V, 0.02 V), while AIMD is a computed cumulative oxidation percentage from a picosecond-scale trajectory (2 ps snapshot, plateau after 0.8 ps) -- the simulated timescale is not the same kind of quantity as, nor directly comparable to, the electrochemical timescale over which real capacity fading occurs.
+    - Only three AIMD systems (Li-Co3O4, Na-Co3S4, Na-Co3O4) are compared at a single 2 ps point, which supports a ranking, not a quantitative trend or rate.
+
+Observation B (None): Na 1st discharge reaches ~865 mAh/g (plateau ~0.15 V); 1st charge ~470; 40th cycle ~60 mAh/g
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n18 -> n8 edge
+Panels: F2c
+
+What the paper concluded, for your reference as the key's author:
+  Na/PCO fades from ~870 (1st discharge) to ~70 mAh/g after 40 cycles at 0.1 C
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

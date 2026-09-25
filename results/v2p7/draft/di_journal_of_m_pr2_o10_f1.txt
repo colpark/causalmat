@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Photocurrent (Observation A) and PL quenching (Observation B) independently rank the same four samples in the identical order -- Ag0.25Pd0.75-ZIS best, then Pd-ZIS, then Ag-ZIS, then ZIS worst (least photocurrent, least quenched PL). Because two different measurement modalities, one electrochemical (charge extraction under illumination) and one optical (radiative recombination suppression), converge on the same relative ordering across all four samples, the pair together supports that this ordering reflects a real difference in photocarrier separation/recombination behavior among the samples, rather than being an artifact specific to either single technique.
+  The qualifications recorded on that earlier result:
+    - Neither measurement nor their agreement establishes the absolute magnitude or quantum yield of charge separation, only the relative order among these four samples.
+    - The pair does not establish why Ag0.25Pd0.75-ZIS is optimal (i.e., does not identify the mechanism by which the Ag/Pd combination outperforms single-metal loading); it only shows the ranking is consistent across two proxy techniques.
+    - Photocurrent is a rate-type electrochemical signal (current density under illumination) while PL is a steady-state optical emission intensity; agreement in ranking across two different quantity kinds strengthens confidence in the ordering but does not convert either into a direct measurement of photocatalytic charge-separation efficiency.
+
+Observation B (None): H2 evolution rate: Ag0.25Pd0.75 125.4 > Ag0.5Pd0.5 57.3 > Ag0.75Pd0.25 43.5 > Pd 34.5 > Ag 3.2 > ZIS 1.5 umol/h
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a pr2 -> f1 edge
+Panels: F8b, F8a
+
+What the paper concluded, for your reference as the key's author:
+  Ag0.25Pd0.75-ZIS gives the highest H2 evolution rate, 125.4 umol/h, 83.6x ZIS and 3.6x Pd-ZIS
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

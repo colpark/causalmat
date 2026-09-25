@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  SEM (F1b, F1c, F1d) shows, across fields containing many spheres, that sheets increasingly drape the spheres and eventually bury them, establishing a population-level coverage progression; TEM (F2a) shows a single ~5 um sphere with thin, transparent sheets extending around it at higher resolution, establishing that the draping material seen in SEM is a thin, sheet-like layer directly on the sphere surface rather than some other coarse deposit. Put together, the two support that thin nanosheets wrap individual Cu2S microspheres and that this wrapping extends across the imaged field, increasing up to the point of burying the spheres.
+  The qualifications recorded on that earlier result:
+    - Neither the multi-sphere SEM fields nor the single TEM image gives a measured percent surface coverage or a sheet thickness in nm; the b-to-d progression is read qualitatively from the images, not quantified
+    - TEM examines only one particle (F2a), so it cannot by itself establish that the thin-sheet wrapping is representative of the population; that generalization instead rests on the separate multi-sphere SEM fields
+    - SEM alone cannot resolve, at sub-particle scale, whether the draping material is a thin sheet or a thicker aggregate; that identification depends on the TEM image alone
+    - no compositional or loading data accompany these two panels, so the pair does not establish that a rising sheet quantity, as opposed to sample-to-sample variation across b, c, d, is what drives the coverage progression
+
+Observation B (None): CV reduction peak near -1.25 V: ~-43 (RGO-Cu2S), ~-41 (Cu2S) mA/cm2; Pt reaches only ~-0.45 mA/cm2
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a m8 -> m14 edge
+Panels: F6a, F6b
+
+What the paper concluded, for your reference as the key's author:
+  Polysulfide-reduction activity ranks RGO-Cu2S-2 above Cu2S and far above Pt
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

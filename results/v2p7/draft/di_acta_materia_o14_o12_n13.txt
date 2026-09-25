@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/behavior_class that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  OM alone establishes only band morphology: straight {10-12}/{01-12}-plane band traces versus wavy bands, plus an asymmetric contrast (strong on the (0001) side surface, faint on (1-100)/(-2110)) that marks the wavy bands as optically distinct from the straight ones. EBSD alone establishes only an orientation-map signature: lenticular bands each take one uniform colour (a single discrete orientation), whereas bands with the wavy morphology instead shade continuously with position (a gradually varying orientation); in the [01-10] specimen this shows up as uniformly red {10-12} twins coexisting with purple kink bands whose colour varies. Put together, the two observations show that the same population of bands -- the wavy, contrast-asymmetric ones seen in OM -- is the population whose EBSD colour varies continuously with position, while the straight, {10-12}/{01-12}-trace bands seen in OM are the population that EBSD shows as uniform single-colour (twin-like). Neither image alone links a morphology to an orientation behaviour; OM cannot say whether a band's internal orientation is uniform or graded, and EBSD orientation maps alone (without the OM band-trace/contrast record) cannot be tied to the optically distinguished straight-vs-wavy, {10-12}/{01-12}-trace-vs-other classification. The combination is what lets the two band populations (straight/uniform vs wavy/shading) be treated as one coherent pair of distinct structures rather than two separately-described but unlinked observations.
+  The qualifications recorded on that earlier result:
+    - The pair gives only a qualitative colour/contrast contrast (uniform vs continuously shading; strong vs faint side-surface contrast), not a measured magnitude of misorientation, so it does not by itself quantify how much the orientation changes across a kink band versus a twin.
+    - It is drawn from two specimen orientations only ([11-20] and [01-10]) and cannot establish that the same OM-morphology/EBSD-shading pairing holds for other loading orientations or specimens.
+    - The two observations are co-registered by band type (straight/lenticular vs wavy) rather than being independent measurements of the same quantity, so the match is a correspondence in imaging signature, not a mechanistic proof of what causes the continuous shading.
+    - OM contrast asymmetry (strong on (0001) side, faint on (1-100)/(-2110)) and EBSD colour behaviour are two different kinds of image contrast (optical topographic/diffraction contrast vs crystallographic-orientation colour coding); their agreement in distinguishing band types does not mean they are measuring the same physical variable.
+
+Observation B (None): Macroscopic views RT-400 C: the RT and 200 C specimens carry {01-12}/{10-12} twin traces, replaced by {10-10}/{1-100} prismatic slip traces at 300-400 C, while deformation bands persist at every temperature
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n11 -> n13 edge
+Panels: F4a, F4b
+
+What the paper concluded, for your reference as the key's author:
+  The soft orientation deforms by (0001) basal slip; the hard orientations deform by {10-12} twinning plus kink banding at RT, with {1-100} prismatic slip replacing twinning at and above 200-300 C
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

@@ -1,0 +1,52 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about STR/microstructure/porosity that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Put together, the disappearance of the oxide's Bragg reflections (~16.4, 19.2, 20.1 deg, fading to a weak broad bump by end of discharge, not regained on charge) and the collapse of the Co XANES white line (~0.97) to a shape matching the Co foil at discharge jointly identify the discharge product as a phase that has lost the oxide's long-range crystalline order AND has Co reduced to the metallic (Co0) oxidation state -- i.e., conversion of the oxide to an amorphous/metallic-Co-like product by 0.01 V. XRD alone only shows that the original oxide's crystallinity is lost, without saying what chemical state replaces it; XANES alone only shows that Co's local oxidation state matches metallic Co, without saying whether any long-range order survives. Neither alone supports the amorphous-and-metallic identification; together they do.
+  The qualifications recorded on that earlier result:
+    - Neither observation quantifies the fraction of material converted -- both are presence/absence (XRD reflections) or shape-matching (XANES white line, spectral shape) statements, not phase-fraction amounts.
+    - The XRD broad bump does not by itself distinguish true amorphization from nanocrystalline Co domains too small to diffract coherently, and XANES (a local probe) cannot resolve long-range order either, so this pairing cannot separate 'amorphous' from 'nanocrystalline but XRD-invisible' Co.
+    - On charge, XRD shows the oxide reflections are not regained and XANES shows the charged spectra differ from the OCV spectra; together these only establish incomplete reversibility of both structure and oxidation state -- they do not establish what phase forms on charge, only that it differs from both the discharged Co-metal state and the original OCV oxide state.
+
+Observation B (None): Li SAXS contours at low q bend to lower q during discharge (~6-11 h) and do not return on charge
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n12 -> n13 edge
+Panels: F3a
+
+What the paper concluded, for your reference as the key's author:
+  Li/PCO pore structure changes strongly on discharge and does not recover on charge
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

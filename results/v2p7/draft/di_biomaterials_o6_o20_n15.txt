@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  TEM (F4a: parallel channel stripes over a ~200 nm field of view; F4b: a regular pore lattice with ~5-6 nm periodicity) shows that, at the local scale imaged, the mesopores are arranged in an ordered, periodic channel/lattice pattern. N2 sorption (F3a) shows that all three samples display a type IV hysteresis step at P/P0 ~0.45-0.6, i.e., mesopores are present when the material is probed in bulk by gas adsorption. Put together, the two support that the periodic ~5-6 nm channel structure seen locally by TEM is consistent with (not merely a local imaging artifact against) the mesoporosity detected by the bulk-averaged N2 measurement - the local order and the bulk mesopore signature are compatible with describing the same pore population.
+  The qualifications recorded on that earlier result:
+    - N2 sorption's type IV hysteresis step alone cannot establish long-range order or periodicity: the same hysteresis signature is also produced by disordered or worm-like mesopore networks, so it cannot by itself show the pores form an ordered channel/lattice.
+    - TEM alone is local: F4a and F4b cover only a ~200 nm field of view in what appear to be at most two of the samples, so imaging alone cannot show that the ordered channel structure is representative of the bulk material or present throughout the whole sample volume.
+    - The N2 hysteresis step is reported for all three samples, but the ordered-lattice TEM images (F4a, F4b) do not clearly cover all three, so the pair together cannot establish whether every sample that shows the hysteresis step also has the periodic channel structure, or whether some instead have non-periodic mesoporosity that produces the same isotherm feature.
+    - The two observations are different kinds of quantities (a local real-space length scale from imaging vs. a bulk relative-pressure hysteresis position from gas adsorption), so their agreement is a qualitative consistency, not a quantitative cross-check of one measured value against another.
+
+Observation B (None): Cumulative drug release ~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h (plateau)
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n8 -> n15 edge
+Panels: F11a
+
+What the paper concluded, for your reference as the key's author:
+  2Co-MBG releases ampicillin over the first ~72 h, then the release plateaus
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

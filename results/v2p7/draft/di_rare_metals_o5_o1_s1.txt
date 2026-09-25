@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about STR/microstructure/distribution that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Together, the two panels support that the La-containing alloy possesses a distinct compound not found in the Sm alloy: the extra XRD reflections (~21-37, 50, 67 deg) seen only in the Al-Cu-Mn-La pattern are matched by a separate DSC dissolution event (shoulder B, ~638 C) beyond the Al2Cu-related peak A (~605 C), while the Sm pattern shows neither the extra reflections nor (by the same logic) the extra thermal event. The convergence of a structural signal (XRD) and an independent thermal signal (DSC) both appearing only with La is stronger support for a La-specific compound than either alone.
+  The qualifications recorded on that earlier result:
+    - Neither observation, nor their combination, independently proves the specific identity of the new phase (i.e., that it is Al6Cu6La with a cubic NaZn13-type structure); that assignment is stated as coming from comparison to known literature values for the DSC peak, not derived from indexing the XRD reflections against this pairing
+    - The pairing does not quantify how much of the new phase forms, only that its signatures (extra reflections, a distinct dissolution event) are present
+    - Absence of extra reflections and of a distinct second DSC event in the Sm alloy shows no detected new phase, not proof that Sm forms literally none - it could be below the detection limit of both methods
+    - The two measurements are of different kinds (positional/categorical diffraction counts vs. thermal-event temperatures) and are linked only by co-occurrence in the same alloy, not by a derived quantitative relationship
+
+Observation B (None): Bright interdendritic phase forms a continuous network in (a), isolated particles in (b), thin broken strings in (c)
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a s2 -> s1 edge
+Panels: F1a, F1b, F1c
+
+What the paper concluded, for your reference as the key's author:
+  RE turns the continuous coarse netlike interdendritic phase into discontinuous, finer particles; La more than Sm
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}
