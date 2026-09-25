@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+F4f plots two structural series against PZT wt%: β-phase content (left axis, already used in the earlier result) and crystallinity degree χc (right axis, ~50.2% at 0 wt%, rising to ~51.1, 52.3, 52.7, 52.6, and 53.3% at 2-10 wt%). F7b confirms the voltage series is monotonic across the full range: 7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V for 0-10 wt%.
+
+Read together with the earlier result, this settles that a structural correlate (crystallinity degree) does track voltage monotonically across the ENTIRE 0-10 wt% range, including the 6-10 wt% stretch where β-phase content plateaued/eased and decoupled from the still-rising voltage. So the combination extends the earlier finding: while β-phase content only explains the early-loading voltage gain, overall crystallinity offers a candidate structural correlate that stays aligned with voltage through high loading too, closing part of the gap the earlier result left open for 6-10 wt%.
+
+What remains open: this is still a correlation between two different quantity types (a normalized % vs an absolute V), so no magnitude relationship can be inferred. PZT wt% remains a shared driver of both series by construction, so coincidence versus a genuine crystallinity-mediated causal pathway is not distinguished. Only 6-7 discrete points exist on each side (still too few to fit a shared function). And because χc aggregates all crystalline phases, not just β-phase, this does not identify which phase(s) drive the high-loading voltage gain -- only that overall crystallinity, unlike β-phase alone, does not decouple from voltage.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The 10 wt% loading falls within the decoupled regime already identified.
+2. The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
+3. Observation A's decoupling was established within one fiber-film series varying PZT wt%; Observation B compares two different sample morphologies (fiber vs cast film) at a fixed wt%, so extending A's regime conclusion to explain B's fiber/cast gap is an inference across a different comparison axis, not a direct test
+4. Observation B reports no beta-phase (FTIR) measurement for either the fiber or the cast film samples used in the power comparison, so there is no beta-phase data to actually check against the 136.9 uW vs 21.025 uW gap
+5. the two observations are different quantity kinds on both count and axis: A pairs a normalized structural fraction (% beta phase) against an absolute voltage (V) across a wt% series, while B is an absolute power output (uW) at a fixed 10 MOhm load compared across two morphologies -- neither the magnitude nor the mechanism of B's 6.5x gap can be read from A's %-vs-V trend
+6. only one wt% point (10 wt%) is common between the two observations, insufficient to confirm that the fiber sample in B actually sits in the same beta-phase plateau region A describes

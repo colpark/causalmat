@@ -1,0 +1,32 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F4f is a two-axis plot: the beta-phase-content series (teal, left axis, already used in the earlier result) plus a second series — degree of crystallinity χc (red, right axis) — plotted against the same PZT loadings (cast film, 0, 2, 4, 6, 8, 10 wt%). Panel F7b is the same voltage-output series used before (7.5, 12.5, 26.5, 32.0, 43.0, 62.0 V, 0–10 wt%).
+
+The new signal here is χc. Unlike beta-phase content, which peaks at 4 wt% (81.8–83.2%) and then eases/plateaus near ~81% through 10 wt%, χc rises roughly monotonically from ~50.2–50.4% (cast film/0 wt%) to ~53.3% at 10 wt%, with only a shallow dip between 6 and 8 wt% (~52.7 to ~52.6%). That trajectory tracks the monotonic voltage rise across the *entire* 0–10 wt% range, including the 6–10 wt% stretch where beta-phase content no longer keeps pace with voltage.
+
+Read together with the earlier result, this settles that a structural/crystallization readout — overall crystallinity, not specifically beta-phase fraction — co-varies with voltage output across the full compositional range, closing the gap the beta-phase-only story left open at high loading. So the combination supports treating "beta-phase enhancement" as at most a partial, low-loading account, while overall crystallinity is a candidate structural correlate for the full 0–10 wt% output trend.
+
+It leaves open: (1) this is still correlation, not mechanism — voltage and χc share PZT wt% as a common driver, and PZT itself is a piezoelectric filler, so rising voltage at high loading could stem directly from more PZT phase rather than from host-polymer crystallization; (2) χc's own small dip at 6–8 wt% means it isn't perfectly monotonic either, so the match with voltage is approximate, not exact; (3) units/magnitudes still differ (% vs V), so no dose-response can be fit; (4) same sparse-point limitation (6–7 values) applies. So the pairing broadens which structural feature plausibly tracks output but does not establish which of crystallinity, beta-phase content, or PZT filler loading itself is causally responsible for the voltage gain.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The 10 wt% loading falls within the decoupled regime already identified.
+2. The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
+3. Observation A's decoupling was established within one fiber-film series varying PZT wt%; Observation B compares two different sample morphologies (fiber vs cast film) at a fixed wt%, so extending A's regime conclusion to explain B's fiber/cast gap is an inference across a different comparison axis, not a direct test
+4. Observation B reports no beta-phase (FTIR) measurement for either the fiber or the cast film samples used in the power comparison, so there is no beta-phase data to actually check against the 136.9 uW vs 21.025 uW gap
+5. the two observations are different quantity kinds on both count and axis: A pairs a normalized structural fraction (% beta phase) against an absolute voltage (V) across a wt% series, while B is an absolute power output (uW) at a fixed 10 MOhm load compared across two morphologies -- neither the magnitude nor the mechanism of B's 6.5x gap can be read from A's %-vs-V trend
+6. only one wt% point (10 wt%) is common between the two observations, insufficient to confirm that the fiber sample in B actually sits in the same beta-phase plateau region A describes

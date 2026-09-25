@@ -1,0 +1,29 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Reading the two panels directly: F1a is a Rietveld XRD refinement (experimental, calculated, difference, and Bragg-position traces) showing a good fit to a single phase at the pristine state — it gives phase identity, not site-occupancy numbers. F3b is a bar chart of bulk at% content (K, Fe, Mn, Zn) at Pristine, 4th, 20th, 60th, and 100th cycles: Zn rises from 0 to ~50% (20th) and settles ~47% (100th), matching the earlier result. But the chart also shows K falling from ~52% (pristine) to ~21% (100th), Fe holding/rising modestly (~21%→~30%), and Mn — the other framework-forming metal identified by the Rietveld model as N-coordinated in the host — collapsing from ~26% to near 0% by the 100th cycle.
+
+Combined with the earlier settled point (pristine phase = single monoclinic P21/n framework with N-coordinated Mn and C-coordinated Fe), this new compositional detail supports that cycling does not simply add Zn into an unchanged host: one of the two framework metals identified in that host (Mn) is progressively and almost completely depleted from the bulk cathode as Zn rises and K falls, while only Fe is retained. This ties the Zn increase to a coordinated loss of a framework component, not just guest-site filling.
+
+What remains open: both measurements are bulk/ensemble (a static pristine XRD pattern and elemental at%, not site- or cycle-resolved structure), so neither can show whether the P21/n phase, or any ordered framework at all, survives once Mn is nearly gone, nor whether Zn occupies vacated Mn sites, K's former sites, or a distinct phase.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The substantial, stable quantity of inserted Zn is accommodated at N-coordinated cation sites within the host lattice.
+2. Observation A's phase confirmation is a single as-prepared (cycle 0) snapshot and its Zn trend is cycle-indexed to cycle 20, while observation B's structural description ('with Zn added') is not tied to a specific cycle number, so the pair cannot confirm that this site picture corresponds to the point where Zn reaches the ~47 at% plateau specifically
+3. B is a local, site/coordination-level structural description while A's Zn content is a bulk elemental at% -- combining a bulk amount with a local structural feature supports plausibility of co-location, not a quantitative accounting of what fraction of the ~47 at% Zn occupies these sites versus elsewhere
+4. the combination does not rule out that some portion of the inserted Zn also resides in other positions (e.g., surface phases or partial vacancy occupation) alongside the N-coordinated lattice sites described
+5. no fractional-occupancy or site-resolved refinement quantifying how much Zn sits at these sites is given, so the structural description supports where Zn goes qualitatively but not how completely

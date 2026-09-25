@@ -1,0 +1,34 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+This measurement (F7e) directly settles the PRF/service_capability comparison for the f-P0.10 fiber PENG vs. the cast film, at a fixed 220 µm film thickness: across a sweep of external load resistances, the fiber film's power output peaks at 136.9 µW (at ~10 MΩ), roughly 6.5x higher than the cast film's peak of 21.025 µW (at a similar load). This is a direct, same-unit, same-quantity comparison (power in µW vs. power in µW), unlike the earlier beta-phase/voltage pairing — so it cleanly supports the claim that the fiber morphology gives substantially higher peak power-delivery capability (service capability) than the cast-film morphology under matched measurement conditions.
+
+What it leaves open:
+- The comparison is confined to one PZT loading (f-P0.10) and one thickness (220 µm); it says nothing about whether the fiber-vs-cast advantage holds, grows, or shrinks at other PZT wt% or thickness values.
+- It does not establish a mechanism — the panel shows only load-dependent power, not why fiber outperforms cast (e.g., whether beta-phase content, geometry/surface area, or piezoelectric coefficient differences drive the gap). The earlier beta-phase/voltage result explicitly could not fix a causal driver even for the voltage rise, and this power panel supplies no additional mechanistic evidence linking beta-phase to the fiber's power advantage.
+- Only the peak values are highlighted; the full curve shape (rise and fall across the resistance sweep) suggests an optimal-load dependency, so the capability advantage is load-specific (near 10 MΩ) rather than uniform across all resistances — at very low or very high loads the gap could narrow.
+- No error bars, replicate counts, or statistical treatment are visible in the panel, so the size and reliability of the 136.9 vs. 21.025 µW gap cannot be assessed beyond the single reported curve.
+
+In short: the panel supports a direct, same-unit demonstration that the fiber film delivers substantially greater peak power under optimal load than the cast film at this one composition/thickness; it does not extend that claim to other compositions/thicknesses, does not identify a mechanism, and does not quantify uncertainty.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The 10 wt% loading falls within the decoupled regime already identified.
+2. The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
+3. Observation A's decoupling was established within one fiber-film series varying PZT wt%; Observation B compares two different sample morphologies (fiber vs cast film) at a fixed wt%, so extending A's regime conclusion to explain B's fiber/cast gap is an inference across a different comparison axis, not a direct test
+4. Observation B reports no beta-phase (FTIR) measurement for either the fiber or the cast film samples used in the power comparison, so there is no beta-phase data to actually check against the 136.9 uW vs 21.025 uW gap
+5. the two observations are different quantity kinds on both count and axis: A pairs a normalized structural fraction (% beta phase) against an absolute voltage (V) across a wt% series, while B is an absolute power output (uW) at a fixed 10 MOhm load compared across two morphologies -- neither the magnitude nor the mechanism of B's 6.5x gap can be read from A's %-vs-V trend
+6. only one wt% point (10 wt%) is common between the two observations, insufficient to confirm that the fiber sample in B actually sits in the same beta-phase plateau region A describes

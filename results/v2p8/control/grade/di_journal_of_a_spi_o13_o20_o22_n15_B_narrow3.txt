@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F7e (read directly) shows two power-vs-load-resistance curves for a single composition (f-P0.10, 220 μm film): the fiber-film PENG rises from ~57 μW at 10^6 Ω to a peak of 136.9 μW at ~10^7 Ω (10 MΩ), then falls off toward 10^9 Ω; the cast-film PENG stays far lower throughout, peaking at only 21.025 μW near the same load region and declining monotonically thereafter.
+
+What this supports: at matched (optimal) external load, the fiber-based device delivers substantially more peak electrical power (~6.5x) than the cast-film device of the same nominal composition. This is a direct, device-level output measurement, not an inference — it establishes that fiber architecture materially improves peak power delivery, i.e., that construction/geometry affects the PENG's practical power (service) capability, at least at this one composition and this one load-sweep.
+
+What it leaves open: (1) This is a single composition point (f-P0.10) and one film thickness; it does not show how peak power scales with PZT wt% or whether the fiber-vs-cast advantage holds at other loadings. (2) No replicate curves or error bars are shown, so the size and reproducibility of the 6.5x gap are not quantified with uncertainty. (3) The panel gives no mechanism — it does not indicate whether the fiber advantage traces to beta-phase content, poling, geometry/capacitance, or fiber alignment; per the earlier-established caveats, beta content and voltage decouple above 4 wt%, so beta-phase cannot be assumed as the driver of this power gap without further evidence. (4) "10 MΩ optimum" is specific to this device/load configuration and may not generalize to other applications.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The 10 wt% loading falls within the decoupled regime already identified.
+2. The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
+3. Observation A's decoupling was established within one fiber-film series varying PZT wt%; Observation B compares two different sample morphologies (fiber vs cast film) at a fixed wt%, so extending A's regime conclusion to explain B's fiber/cast gap is an inference across a different comparison axis, not a direct test
+4. Observation B reports no beta-phase (FTIR) measurement for either the fiber or the cast film samples used in the power comparison, so there is no beta-phase data to actually check against the 136.9 uW vs 21.025 uW gap
+5. the two observations are different quantity kinds on both count and axis: A pairs a normalized structural fraction (% beta phase) against an absolute voltage (V) across a wt% series, while B is an absolute power output (uW) at a fixed 10 MOhm load compared across two morphologies -- neither the magnitude nor the mechanism of B's 6.5x gap can be read from A's %-vs-V trend
+6. only one wt% point (10 wt%) is common between the two observations, insufficient to confirm that the fiber sample in B actually sits in the same beta-phase plateau region A describes

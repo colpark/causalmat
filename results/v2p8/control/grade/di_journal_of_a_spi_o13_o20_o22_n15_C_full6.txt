@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Reading the panels: F4f actually carries two series against PZT wt% (0, 2, 4, 6, 8, 10) — the β-phase content already used, and a second curve, overall crystallinity χc (50.2% → 51.0% → 52.3% → 52.7% → 52.6% → 53.3%), which the earlier step did not consider. Unlike β-phase, χc rises essentially monotonically across the entire 0–10 wt% range, matching the shape of F7b's monotonic voltage rise (12.5→26.5→32.0→43.0→62.0 V) over that same full range, not just the 0–4 wt% window where β-phase tracked voltage.
+
+Combined with the earlier result, this settles that a single structural quantity — β-phase content — is not the best-fitting correlate of voltage over the whole loading range, but crystallinity is a candidate that tracks voltage's shape across all six points, including the 6–10 wt% region where β-phase decoupled. So the two measurements together support a two-regime shape-matching story: β-phase rise coincides with the early voltage gain, and overall crystallinity's continued rise coincides with the later voltage gain, together covering the full curve where either series alone did not.
+
+This still leaves open everything the earlier qualifications listed and more: PZT wt% remains the shared driver of both χc and voltage by construction, so shape-matching is not causal evidence for a crystallinity-mediated pathway either. The units remain incommensurate (% vs V), so magnitudes can't be compared. Only 5–6 points per series, too few to fit a function. And no mechanism is given here for why bulk crystallinity (as opposed to polar-phase content specifically) would raise piezoelectric output — that link is asserted by co-occurring trend shape alone, not established.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The 10 wt% loading falls within the decoupled regime already identified.
+2. The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
+3. Observation A's decoupling was established within one fiber-film series varying PZT wt%; Observation B compares two different sample morphologies (fiber vs cast film) at a fixed wt%, so extending A's regime conclusion to explain B's fiber/cast gap is an inference across a different comparison axis, not a direct test
+4. Observation B reports no beta-phase (FTIR) measurement for either the fiber or the cast film samples used in the power comparison, so there is no beta-phase data to actually check against the 136.9 uW vs 21.025 uW gap
+5. the two observations are different quantity kinds on both count and axis: A pairs a normalized structural fraction (% beta phase) against an absolute voltage (V) across a wt% series, while B is an absolute power output (uW) at a fixed 10 MOhm load compared across two morphologies -- neither the magnitude nor the mechanism of B's 6.5x gap can be read from A's %-vs-V trend
+6. only one wt% point (10 wt%) is common between the two observations, insufficient to confirm that the fiber sample in B actually sits in the same beta-phase plateau region A describes
