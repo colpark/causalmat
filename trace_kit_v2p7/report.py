@@ -179,22 +179,42 @@ def main():
     else:
         W(tbl(['stage', 'items'], [[k, v] for k, v in E['funnel']]))
         W('')
-        W(f"**{E['passed']} of {E['items_scored']} derived_input items pass necessity**, against "
-          f"a per-item A-vs-A floor, 2 of 3 repeats. Mean A-vs-B score {E['ab_mean']} against "
-          f"{E['aa_mean']} for A vs A.\n")
-        if E.get('stop_rule_fired'):
-            W(f"**The Part E stop rule fired**: fewer than 10 items pass, so the run stops "
-              f"before building pages.\n")
+        W(f"**The necessity gate is {E['necessity_gate']}.** Part B's decision agreement was "
+          f"28.6% against a two-thirds target, and the brief says that when Part B fails, the "
+          f"gate is skipped and the items are built and drafted anyway. So there is no "
+          f"necessity column and no claim that these items compose. Part E's own stop rule -- "
+          f"fewer than 10 items passing necessity -- cannot be evaluated, because nothing was "
+          f"measured against it.\n")
+        W(f"{E['drafted']} of {E['items']} drafted, {len(E['unparsed'])} unparsed, "
+          f"{len(E['foreign_keys'])} keys failing the belongs-check that caught 11 "
+          f"mis-attached keys in v2.5.\n")
+        W(tbl(['the drafter\'s own labels', 'items'],
+              sorted(E['labels'].items(), key=lambda x: (-x[1], x[0]))))
+        W('')
+        W(f"Read these with care. `dependency: real` on {E['labels'].get('dependency: real', 0)} "
+          f"of {E['drafted']} items and `combines` true on {E['combines_true']} are the "
+          f"DRAFTER's judgement of an item it was shown as a pair, not an independent test. The "
+          f"drafter cannot be the necessity check; that is the whole reason the gate exists. "
+          f"What the labels do say is less flattering and more informative: "
+          f"{E['labels'].get('inference_validity: follows, weakly', 0)} of {E['drafted']} are "
+          f"only \"follows, weakly\", "
+          f"{E['labels'].get('causal_strength: associative', 0)} are merely associative, and "
+          f"{E['not_identifiable']} name something not identifiable. The generator produces "
+          f"pairs that are structurally dependent and evidentially weak.\n")
         W('### Five worked examples\n')
+        W('The brief asked for both arms and the comparer\'s reasoning on each. Those do not '
+          'exist, because the gate was skipped. What is shown instead is the full item: the '
+          'input result, the new observation, and the key the drafter wrote from the two.\n')
         for w in E.get('worked_examples', [])[:5]:
             W(f"**`{w['item']}`** — {w['paper'].split('__')[0].replace('_', ' ')}, "
-              f"A-vs-B {w['ab_scores']} against A-vs-A {w['aa_scores']}, "
-              f"margins {w['margins']} → {w['necessity']}\n")
-            W(f"- input result: {w['input_result'][:260]}")
-            W(f"- new observation ({w['new_obs_node']}): {w['new_obs'][:220]}")
-            W(f"- arm A, the observation alone: {w['arm_a'][:400]}")
-            W(f"- arm B, plus the input result: {w['arm_b'][:400]}")
-            W(f"- the comparer: {w['difference'][:400]}\n")
+              f"edge {w['edge']}, upstream `{w['upstream_item']}`\n")
+            W(f"- question: {w['question']}")
+            W(f"- input result (arm B only): {w['input_result'][:300]}")
+            W(f"- new observation `{w['new_obs_node']}` (both arms): {w['new_obs'][:240]}")
+            W(f"- panels {w['panels']} against the upstream's "
+              f"{[q.split('#')[-1] for q in w['upstream_panels']]} — disjoint by construction")
+            W(f"- drafted proposition: {w['proposition'][:340]}")
+            W(f"- labels: {w['labels']}\n")
 
     # ---- funnel
     W('## The updated funnel\n')
@@ -226,10 +246,17 @@ def main():
     W(tbl(['stage', 'model calls', 'relays', 'wall minutes', 'seconds per call'], crow))
     W('')
     tot = sum(r[1] for r in crow); mins = sum(r[3] for r in crow)
-    W(f"**Actual so far: {tot} calls, {round(mins, 1)} minutes** at the 20-agent cap, dispatch to "
-      f"last harvest, relay overhead included. Every reply verified byte for byte against its "
-      f"prompt file from the agent's own transcript. Parts C and D cost nothing: they re-read "
-      f"audits that already exist.\n")
+    est_tot = est.get('total') or 0
+    W(f"**Actual: {tot} calls, {round(mins, 1)} minutes** at the 20-agent cap, dispatch to last "
+      f"harvest, relay overhead included. Every reply verified byte for byte against its prompt "
+      f"file from the agent's own transcript.\n")
+    W(f"That is {est_tot - tot} calls under the {est_tot} estimated, and the whole difference is "
+      f"Part E: the necessity gate was skipped when Part B failed its agreement target, which "
+      f"removed the 702 arm samples and 468 comparisons that gate would have needed. What was "
+      f"spent instead was 76 drafts twice over, because an id collision in the first pass meant "
+      f"two items would have carried a key drafted for a different item; all 76 were re-drafted "
+      f"on corrected ids rather than the four being patched in place.\n")
+    W('Parts C and D cost nothing: they re-read audits that already exist.\n')
 
     W('## Where the data is\n')
     W('- `results/v2p7/partA.json` — the noise floor, every A-vs-A ruling\n'

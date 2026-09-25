@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Overlaying the two series shows that the beta-phase rise (76.1-76.3% at 0 wt% up to a peak 81.8-83.2% at 2-4 wt%) tracks the early part of the voltage rise (7.5, 12.5, 26.5, 32.0 V over 0-4 wt%), consistent with beta-phase enhancement contributing to the initial output gain. But beyond 4 wt% the pairing decouples: beta content eases back to ~81% over 6-10 wt% while voltage keeps climbing to 43.0 and 62.0 V, so the combination only supports a beta-phase-mediated story for the low-loading regime, not for the full 0-10 wt% range.
+  The qualifications recorded on that earlier result:
+    - Beta content is non-monotonic (peaks at 4 wt%, then eases), while voltage is monotonic across the whole 0-10 wt% range, so the pair cannot establish beta-phase content as the operative driver at 6-10 wt%
+    - The two quantities are different kinds -- a normalized structural fraction (%) versus an absolute output amount (V) -- so the magnitude of the voltage gain cannot be read off the beta-phase change
+    - PZT wt% is a shared driver of both series by construction (it is varied to produce both the FTIR and the transport data), so the correlation at low loading does not by itself prove a beta-phase causal pathway rather than coincidence
+    - Only 5-6 discrete wt% points on each side, insufficient to fit a shared functional relationship, only to compare trend shapes
+
+Observation B (None): Power peaks at 136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n13 -> n15 edge
+Panels: F7e
+
+What the paper concluded, for your reference as the key's author:
+  220 um f-P0.10 fiber PENG delivers a maximum 136.9 uW at 10 MOhm load, 6.5x the cast-film PENG
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

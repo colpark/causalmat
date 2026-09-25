@@ -108,7 +108,12 @@ def build():
                         drops['over the per-paper cap'] += 1; continue
                     per_paper[p] += 1
                     items.append({
-                        'item': f"di_{p.split('__')[0][:12].lower()}_{it['item'].split('_')[-1]}_{o}_{tgt}",
+                        # the FULL upstream item id, not its last token. Taking the last token
+                        # collapsed journal_of_a_spi_o13_o20 and journal_of_a_spi_o25_o20 to the
+                        # same id, so one item's prompt overwrote the other's and one of the two
+                        # keys would have been attached to the wrong item. That is the v2.5 id
+                        # collision again, which mis-attached 11 keys before it was caught.
+                        'item': f"di_{it['item']}_{o}_{tgt}",
                         'paper': p, 'generator': 'derived_input',
                         'upstream_item': it['item'], 'claim_C': C, 'target_claim': tgt,
                         'input_result': (k.get('proposition') or '').strip(),
@@ -121,6 +126,10 @@ def build():
                         'upstream_panel_ids': sorted(x for x in used_pans),
                         'edge': f'{C} -> {tgt}',
                     })
+    ids = [x['item'] for x in items]
+    assert len(ids) == len(set(ids)), \
+        [k for k, n in collections.Counter(ids).items() if n > 1]
+
     # the mechanical exclusion check, run again over the finished items
     fails = []
     for x in items:
