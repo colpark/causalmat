@@ -1,0 +1,357 @@
+[
+ {
+  "join": "acta_materia_M1_M2_M3_s2__acta_materia_M1_M2_M3_s3",
+  "paper": "Acta_Materialia__10.1016_j.actamat.2021.116797",
+  "on_claim": "n12",
+  "v2p5_join_verdict": "sound",
+  "v2p5_proposition": "holds",
+  "v2p5_limits": {
+   "na": 2
+  },
+  "v2p5_evidence": "The joined claim reproduces the downstream item's own key verbatim: '[0001] fractures in compression at ~355 MPa without yielding, and flows in tension at ~72 MPa (serrated ~52-80) to ~45% plastic strain... not two yield stresses, so they are not a yield ratio... a deformation route available in tension that is absent in compression, and the kink bands in F10b are what identifies it.' This is explicitly hedged against the main hazard (treating a fracture stress and a flow stress as comparable yield values) and states only the qualitative conclusion the downstream item's own limits say is supportable, so it neither overreaches nor is wrong on the evidence presented.",
+  "v2p5_note": "Flagging a structural oddity outside the strict rubric: the downstream question text ('the stress step 2 reported for that same orientation') implies s2 reported a [0001]-specific stress value, but s2's actual key is about bulk yield stress vs. nanoplate number density across three heat treatments (167/113/160 MPa vs 9.8/0.3/9.0 per um) -- it never mentions [0001] orientation or single-crystal testing. The downstream key does not in fact use any numeric value from s2 in its comparison. So while no upstream limit is dropped (they're simply inapplicable to unrelated content), the join itself looks like a topic mismatch: the two items may not actually share the quantity the downstream question presupposes they share. Worth checking whether s2 and s3 are correctly paired, or whether 'step 2' in the s3 question refers to a different upstream item than the one shown here.",
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 establishes a correlation between yield stress and nanoplate density across heat treatments ('move together... consistent with a strengthening contribution'). TEXT 2 concerns orientation-dependent yield stress values for [11-20]/[01-10] versus pure Mg single crystal ('~145-165 MPa... 11x'), a different quantity and scope entirely, with no orientation data in TEXT 1.",
+  "text_upstream_key": "Yield stress and nanoplate number density move together across the three heat treatments: 167 -> 113 -> 160 MPa against 9.8 -> 0.3 -> 9.0 per um, both dipping after the 520 C anneal and recovering after the further 400 C anneal. This is consistent with a strengthening contribution from the nanoplates.",
+  "text_upstream_limits": [
+   "Nanoplate THICKNESS moves the opposite way, 28 -> 84 -> 14 nm, so the two plate descriptors do not covary with each other and the comparison does not isolate which of them, if either, carries the strength.",
+   "Three points, and the heat treatments differ in more than plate density, so a contribution is the most the data supports -- not that density is the cause."
+  ],
+  "text_downstream_previous_output": "Yield stress is strongly orientation dependent and, in [11-20] and [01-10], reaches ~145-165 MPa at RT, about 11x the pure-Mg single crystal",
+  "text_downstream_question": "Compare the stress at which this evidence shows deformation along [0001] with the stress step 2 reported for that same orientation. Report both and say what the comparison implies about the deformation route.",
+  "text_downstream_key": "The [0001] orientation fractures in compression at ~355 MPa without yielding, and flows in tension at ~72 MPa (serrated ~52-80) to ~45% plastic strain. The two numbers are a fracture stress and a flow stress, not two yield stresses, so they are not a yield ratio; what they show is that the orientation has a deformation route available in tension that is absent in compression, and the kink bands in F10b are what identifies it."
+ },
+ {
+  "join": "advanced_ene_M1_M2_M4_s2_1__advanced_ene_M1_M2_M4_s2_2",
+  "paper": "Advanced_Energy_Materials__aenm.202003419",
+  "on_claim": "n9",
+  "v2p5_join_verdict": "sound",
+  "v2p5_proposition": "holds",
+  "v2p5_limits": {
+   "carried": 3,
+   "na": 1
+  },
+  "v2p5_evidence": "\"a lower plating overpotential at the highest current density tested (about -0.05 V vs -0.10 V, obs3), with the two hosts' plateaus nearly coinciding at the lowest rate tested rather than diverging at every current density\" -- this is explicitly scoped to the two measured rate points (highest and lowest current density) and explicitly disclaims a general 'diverging at every current density' relationship. That hedge matches the downstream item's own stated limit that 'obs3 gives only two rate points ... which supports an ordering ... but not a continuous rate-dependence relationship.' The claim does not smuggle in a causal or DFT-derived mechanism; it states only what the electrochemical measurement shows.",
+  "v2p5_note": null,
+  "v2p6_scope": "supports only narrower",
+  "v2p6_mismatch": "scope",
+  "v2p6_why": "TEXT 1's own qualification says DFT models 'generic N-doped graphene' and 'they do not specify or isolate a pyridinic-N configuration,' only 'consistent with, but do not specifically isolate' the mechanism. TEXT 2 asserts as given that bonds 'form at pyridinic-nitrogen sites,' a specificity TEXT 1 explicitly disclaims.",
+  "text_upstream_key": "Combined with the prior step's finding that Zn-N bonds form at pyridinic-N sites, the DFT results at this step are consistent with, but do not specifically isolate, a thermodynamic driving force for that bond formation: charge transfer to zinc is more negative at N-doped sites (-0.032 to -0.037 e) than at pristine sites (-0.023 to -0.027 e, obs5); the transferred electron density sits in the zinc-substrate gap on N-doped graphene rather than as a detached lobe above pristine graphene (obs6); and computed adsorption energies are negative at top/hollow/bridge sites on N-doped graphene (-0.072/-0.089/-0.077 eV) versus positive on pristine graphene (+0.030/+0.014/+0.029 eV, obs7). Together these show nitrogen doping generically converts zinc adsorption from unfavorable to favorable at all three site geometries, giving an energetic driving force generally consistent with -- though not proof specific to -- the experimentally observed Zn-N bonding and pyridinic-to-graphitic nitrogen shift.",
+  "text_upstream_limits": [
+   "The DFT calculations model generic 'N-doped graphene' at top/hollow/bridge sites; they do not specify or isolate a pyridinic-N configuration, so they cannot confirm that the exothermicity is attributable specifically to pyridinic-N sites rather than N-doping in general (including graphitic-N already present)",
+   "The previous step's evidence is a spectroscopic chemical-state assignment (N 1s peak positions/intensities) while this step's evidence is a computed, static adsorption energy and Bader charge transfer; these are different kinds of quantities that can only be shown qualitatively consistent, not quantitatively cross-validated",
+   "obs2 (Raman ~1200 cm-1 feature), obs3 (plating-plateau separation) and obs4 (39 mV vs 43 mV nucleation overpotentials) are electrochemical/structural observations that are not tied into this binding-energy comparison and do not bear on the exothermic-vs-endothermic conclusion",
+   "The DFT values are single-point, 0 K computed energies for isolated adsorption geometries, not measurements under the discharge conditions used elsewhere in the evidence"
+  ],
+  "text_downstream_previous_output": "On zinc plating Zn-N bonds form at pyridinic-nitrogen sites, moving their chemical state toward graphitic nitrogen",
+  "text_downstream_question": "the electrochemical property",
+  "text_downstream_key": "...and a lower plating overpotential at the highest current density tested (about -0.05 V vs -0.10 V, obs3), with the two hosts' plateaus nearly coinciding at the lowest rate tested rather than diverging at every current density..."
+ },
+ {
+  "join": "advanced_ene_spi_o4_o5__advanced_ene_M1_M2_M4_s2_2",
+  "paper": "Advanced_Energy_Materials__aenm.202003419",
+  "on_claim": "n9",
+  "v2p5_join_verdict": "launders a limit",
+  "v2p5_proposition": "overreaches",
+  "v2p5_limits": {
+   "carried": 2,
+   "dropped": 1,
+   "na": 1
+  },
+  "v2p5_evidence": "Downstream key: 'a lower plating overpotential at the highest current density tested (about -0.05 V vs -0.10 V, obs3), with the two hosts' plateaus nearly coinciding at the lowest rate tested rather than diverging at every current density' combined with upstream key: 'the localized negative-charge feature at the substitutional nitrogen site co-occurs with a systematically more negative...charge transfer to the adsorbed zinc atom.' The join (per the upstream question 'does the upstream evidence account for the downstream observation') treats the DFT charge-hotspot/charge-transfer co-occurrence as accounting for the measured electrochemical (overpotential) advantage. But upstream explicitly states 'Neither observation reports the adsorption energetics, so the pair does not by itself establish that the extra charge transfer has any energetic consequence for zinc binding,' and downstream's own limits concede the DFT quantities and macroscopic overpotential are 'a different kind of quantity' and their agreement is 'suggestive, not a direct causal test.' So the combination supports only that N-doping is associated with both a computed charge-transfer difference and a measured overpotential difference; it does not support that the former accounts for (explains/causes) the latter, which is what the join implies.",
+  "v2p5_note": null,
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 concerns DFT charge-transfer magnitude co-occurring with a charge hotspot ('more negative charge transfer... -0.032 to -0.037 e'), not bond formation or nitrogen speciation. TEXT 2 asserts 'Zn-N bonds form at pyridinic-nitrogen sites, moving their chemical state toward graphitic nitrogen' upon plating -- an unrelated claim about chemical state/bonding, not charge-transfer magnitude.",
+  "text_upstream_key": "Together, the two DFT observations support that the localized negative-charge feature at the substitutional nitrogen site co-occurs with a systematically more negative (larger-magnitude) charge transfer to the adsorbed zinc atom: every N-doped site shows both the charge hotspot (Obs A) and a more negative Zn charge transfer (-0.032 to -0.037 e) than the pristine sites (-0.023 to -0.027 e, Obs B), so the presence of the N-localized charge tracks with enhanced electron donation to Zn across the doped structure.",
+  "text_upstream_limits": [
+   "Obs A is a qualitative presence/absence read of a charge-density feature at one site type, while Obs B is a quantitative range of charge-transfer values; the pairing shows co-occurrence, not a calibrated dose-response relationship between hotspot magnitude and transfer amount",
+   "Both quantities are derived from the same DFT charge-partitioning scheme, so part of their association may reflect how the charge is computed/attributed rather than an independent physical link between the N site and the Zn adsorbate",
+   "Neither observation reports the adsorption energetics, so the pair does not by itself establish that the extra charge transfer has any energetic consequence for zinc binding",
+   "The range given for each condition (multiple site values collapsed into a span) does not indicate how many distinct sites underlie each bound, limiting how strong an ordering claim can be drawn"
+  ],
+  "text_downstream_previous_output": "On zinc plating Zn-N bonds form at pyridinic-nitrogen sites, moving their chemical state toward graphitic nitrogen",
+  "text_downstream_question": "the electrochemical property",
+  "text_downstream_key": "...and a lower plating overpotential at the highest current density tested (about -0.05 V vs -0.10 V, obs3), with the two hosts' plateaus nearly coinciding at the lowest rate tested rather than diverging at every current density..."
+ },
+ {
+  "join": "advanced_ene_spi_o14_o17__advanced_ene_M1_M2_M4_s3",
+  "paper": "Advanced_Energy_Materials__aenm.202003419",
+  "on_claim": "n16",
+  "v2p5_join_verdict": "launders a limit",
+  "v2p5_proposition": "overreaches",
+  "v2p5_limits": {
+   "dropped": 2,
+   "na": 1
+  },
+  "v2p5_evidence": "The joined claim states the DFT adsorption-energy contrast (-0.072 to -0.089 eV vs +0.014 to +0.030 eV) \"is consistent with the morphological and cycling contrasts observed\" (obs1-obs4 on just two host samples) and \"offers a plausible thermodynamic basis for the uniform-versus-dendritic deposition, which in turn tracks with markedly longer service life on CnC HS.\" This chains an idealized single-atom DFT comparison through a two-sample morphology observation to a two-sample, multi-protocol cycling-life claim. Even with hedge words ('consistent with', 'plausible basis', 'tracks with'), the claim presents a directional mechanistic narrative (energetics -> morphology -> service life) where the underlying evidence is only an ordering between two confounded samples (CnC HS vs C HS differ in more than doping), not a dose-response or controlled mechanistic result -- exactly the overreach the downstream item's own stated limits (n=2 samples, confounded variables, three incommensurate cycling protocols) already flag.",
+  "v2p5_note": null,
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 concerns SEM morphology and plateau voltage gap for zinc on CnC HS vs C HS hosts; TEXT 2 concerns DFT adsorption energy of zinc on N-doped vs pristine graphene. Different materials, different quantity ('plateau separation... voltage' vs 'exothermic... eV'), and different experiment entirely; TEXT 1 does not bear on TEXT 2.",
+  "text_upstream_key": "Taken together, the SEM morphology (flat/sparse-platelet zinc on CnC HS vs a dense mat of sharp platelets on C HS) and the galvanostatic plateau behavior (near-coincident plating potentials at the lowest rate but a strong split, about -0.05 V vs -0.10 V, at the highest rate) are mutually consistent with a rate-dependent divergence: at low current density both hosts plate with similar overpotential regardless of host structure, while at high current density the hosts' effects on deposit morphology (planar/compact on CnC HS vs dendritic platelet mat on C HS) track the emergence of a large overpotential gap between hosts.",
+  "text_upstream_limits": [
+   "The SEM images (F3d/F3e) capture deposit morphology at whatever fixed condition was imaged, not across the current-density series used in the galvanostatic plateau comparison (F4c), so the panels do not show that the platelet-mat morphology specifically corresponds to the highest-rate plateau where the -0.05 V vs -0.10 V gap appears",
+   "The plateau separation is a voltage measured across a range of current densities (a rate series), while the SEM comparison is a single structural snapshot per host, so the two are different kinds of quantities and cannot be directly overlaid to prove a shared condition",
+   "The plateau gap as read from F4c reflects combined nucleation and plating overpotential, while the SEM shows only the resulting deposit shape; the panels given do not decompose which stage of deposition (nucleation vs growth) the morphology difference corresponds to"
+  ],
+  "text_downstream_previous_output": "Zinc adsorption is exothermic on N-doped graphene (-0.072 to -0.089 eV) but endothermic on pristine graphene (+0.014 to +0.030 eV)",
+  "text_downstream_question": "how the material performs in service",
+  "text_downstream_key": "The more favorable (exothermic, -0.072 to -0.089 eV) zinc adsorption on N-doped graphene, versus unfavorable (endothermic, +0.014 to +0.030 eV) adsorption on pristine graphene, is consistent with the morphological and cycling contrasts observed: CnC HS deposits zinc as a largely flat layer with only sparse protruding platelets (obs1), sustains 93-100% Coulombic efficiency to about 205 cycles (obs2), stays within ~0.03 V to 7100 min in symmetric cycling (obs3) and within ~0.05 V to 3500 min under a stepped current-density staircase (obs4); C HS instead grows a dense mat of sharp platelets (obs1), fails (drops to zero Coulombic efficiency) by ~40-48 cycles (obs2), develops large voltage spikes and ends near 4400 min in symmetric cycling (obs3), and spikes from ~2300 min under the staircase test (obs4). The energetics-morphology link offers a plausible thermodynamic basis for the uniform-versus-dendritic deposition, which in turn tracks with markedly longer service life on CnC HS."
+ },
+ {
+  "join": "bioactive_ma_M5_M7_s2_1__bioactive_ma_M5_M7_s2_2",
+  "paper": "Bioactive_Materials__j.bioactmat.2019.12.006",
+  "on_claim": "n18",
+  "v2p5_join_verdict": "sound",
+  "v2p5_proposition": "holds",
+  "v2p5_limits": {
+   "carried": 3,
+   "na": 1
+  },
+  "v2p5_evidence": "\"Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting.\" -- the claim is built almost entirely on hedged connective language (\"associated with,\" \"plausibly contributes to,\" \"comes closest to\") rather than asserting a proven causal or dose/time-response link, and it explicitly names BVLD as a co-factor rather than crediting NO release alone for the BVLD/NO-PPAmF result (\"combining the anticoagulant BVLD with sustained NO release\"). This matches the strength of evidence actually available (cross-sectional endpoint comparisons plus a plausible mechanistic candidate from step 1), so it does not overstate into an unqualified causal or time-verified claim.",
+  "v2p5_note": null,
+  "v2p6_scope": "supports",
+  "v2p6_mismatch": "none",
+  "v2p6_why": "TEXT 1 states the sustained NO delivery from PPAmF was 'established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm)', directly matching TEXT 2's claim that PPAmF 'prolongs NO release beyond 8 h, versus ~1 h for PPAm'; qualifications target the downstream platelet-effect linkage, not this premise.",
+  "text_upstream_key": "Read together, the sustained NO delivery from PPAmF established in the prior step (release lasting beyond 8 h rather than the ~1 h burst of PPAm) is consistent with, and offers a mechanistic candidate for, the markedly lower platelet adhesion/activation and thrombus formation seen here on the NO-loaded surfaces (NO-PPAmF, BVLD/NO-PPAmF) versus the non-NO surfaces (316L SS, PPAmF): fewer/rounder platelets (obs1); lower adhered-platelet density (~11 and ~5 x1e2 cells/mm2 for NO-PPAmF and BVLD/NO-PPAmF vs ~32-41 x1e2 cells/mm2 for 316L SS/PPAmF; obs2) together with lower activation (~18% and ~1% vs ~65-74%; obs3); less fibrin/thrombus and cleaner lumens (obs4, obs5); lower occlusion (obs6); lower thrombus weight (obs7); and higher retained flow (obs8). A NO source that keeps releasing rather than exhausting itself quickly is a plausible reason the antithrombotic benefit persists across these endpoint measurements rather than being confined to a brief early window.",
+  "text_upstream_limits": [
+   "The evidence given does not state the duration of the platelet-adhesion, thrombosis, or flow assays, so it is not confirmed that these tests were run within the >8 h sustained-release window rather than at a single early timepoint that a mere burst (as in PPAm) could also have covered.",
+   "obs2-obs8 are single-timepoint endpoint amounts (cell counts/mm2, % activation, % occlusion, mg thrombus weight, % flow retained), not a time course of NO release or of antithrombotic effect, so they cannot themselves verify that release continued throughout the test.",
+   "BVLD/NO-PPAmF carries both the NO-releasing component and BVLD together, so its superior suppression relative to NO-PPAmF alone (e.g., adhered platelets ~5 vs ~11 x1e2 cells/mm2, occlusion ~3% vs ~7.5%) cannot be attributed to sustained NO release specifically; BVLD's own antiplatelet/anticoagulant action is confounded with NO release in that combined surface.",
+   "obs2 (adhered-platelet density, x1e2 cells/mm2) and obs3 (platelet activation, %) are quantities of different kinds \u2014 one an absolute area-normalized count, the other a relative percentage \u2014 and must not be reported together under a single '%' figure as the proposition does (e.g. '~11%/18%', '~32-41 and ~65-74%'); the observations offer no percentage version of adhesion density or count version of activation, so the two series should be stated separately with their own units rather than merged."
+  ],
+  "text_downstream_previous_output": "The PPAmF composite reduces the NO burst and prolongs NO release beyond 8 h, versus ~1 h for PPAm",
+  "text_downstream_question": "how the material performs in service",
+  "text_downstream_key": "Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting."
+ },
+ {
+  "join": "bioactive_ma_com_o11_o12_n18__bioactive_ma_M5_M7_s2_2",
+  "paper": "Bioactive_Materials__j.bioactmat.2019.12.006",
+  "on_claim": "n18",
+  "v2p5_join_verdict": "launders a limit",
+  "v2p5_proposition": "overreaches",
+  "v2p5_limits": {
+   "dropped": 1,
+   "carried": 2
+  },
+  "v2p5_evidence": "Quoted from the joined claim: \"the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF)\" -- this is stated as an established, tested difference ('show that... have markedly fewer... and less'), when the upstream item explicitly says the underlying platelet-count ordering across surfaces is 'descriptive, not tested' (no stats/error bars). The causal tail of the claim is appropriately hedged ('is associated with, and plausibly contributes to, reduced platelet-driven thrombosis'), but the comparative/descriptive core of the claim is asserted with more certainty than the cited evidence supports.",
+  "v2p5_note": null,
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 concerns platelet adhesion counts and SEM morphology ('~5x1e2 cells/mm2', 'few round, unspread platelets') on BVLD/NO-PPAmF; TEXT 2 concerns NO release kinetics ('reduces the NO burst and prolongs NO release beyond 8 h'). Different measured quantity and experiment entirely; TEXT 1 gives no basis for TEXT 2's claim.",
+  "text_upstream_key": "Together, the SEM morphology and the BIO platelet counts show that BVLD/NO-PPAmF has both the fewest adhered platelets (~5x1e2 cells/mm2, lowest of the five surfaces) and a morphology dominated by a few round, unspread platelets, in contrast to 316L SS and PPAmF (32 and 41x1e2 cells/mm2, many spread dendritic platelets) and to BVLD-PPAmF and NO-PPAmF alone (15.5 and 11x1e2 cells/mm2, fewer spread platelets but still present). Combining the two measurements shows a reduced platelet number (BIO) co-occurring with reduced platelet spreading/activation shape (SEM) specifically on BVLD/NO-PPAmF -- a joint reduction in adhesion and activation that neither the count alone (which says nothing about the shape/activation state of the platelets present) nor the SEM images alone (which give no quantitative count) can show.",
+  "text_upstream_limits": [
+   "No statistics or error bars are reported alongside either measurement, so the apparent stepwise ordering across the five surfaces is descriptive, not tested",
+   "SEM morphology is reported qualitatively per surface (many/fewer/a few) and is not tied numerically to the counted platelet densities from the same fields, so the correspondence between 'few round platelets' and '5x1e2 cells/mm2' is descriptive, not a measured relationship",
+   "The pair says nothing about the underlying surface-chemistry or biochemical mechanism producing the suppression -- only that count and morphology move together across surfaces"
+  ],
+  "text_downstream_previous_output": "The PPAmF composite reduces the NO burst and prolongs NO release beyond 8 h, versus ~1 h for PPAm",
+  "text_downstream_question": "how the material performs in service",
+  "text_downstream_key": "Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting."
+ },
+ {
+  "join": "bioactive_ma_spi_o9_o11__bioactive_ma_M5_M7_s2_2",
+  "paper": "Bioactive_Materials__j.bioactmat.2019.12.006",
+  "on_claim": "n18",
+  "v2p5_join_verdict": "sound",
+  "v2p5_proposition": "holds",
+  "v2p5_limits": {
+   "carried": 3
+  },
+  "v2p5_evidence": "Joined claim: 'the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether... Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis' -- this is appropriately hedged as an association ('associated with, and plausibly contributes to') rather than asserted as established causation, and it explicitly flags that the best-performing arm combines BVLD with NO rather than crediting NO alone. Given downstream's own obs1-obs8 (its own SEM/photographic/quantitative shunt data, not solely the upstream item's), the two-category comparison (NO-releasing vs non-NO-releasing) is independently supported, so the claim does not overstate what the combined evidence shows.",
+  "v2p5_note": null,
+  "v2p6_scope": "supports only narrower",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 only characterizes the change qualitatively as 'lower peak flux, prolonged duration' over 'a release window from ~1 h to >10 h'; it never establishes the specific numeric claim in TEXT 2 that release is prolonged 'beyond 8 h... versus ~1 h for PPAm'.",
+  "text_upstream_key": "Together, the chemiluminescence and SEM data support that the surface with the altered NO-release profile (lower peak flux, prolonged duration) is the same surface (BVLD/NO-PPAmF) on which platelets appear least spread/activated, i.e., the change in NO release kinetics co-occurs with reduced platelet spreading relative to the high-burst NO-PPAm and to non-NO-releasing surfaces (SS, PPAmF).",
+  "text_upstream_limits": [
+   "Observation A only reports flux for NO-PPAm and BVLD/NO-PPAmF; it gives no flux data for BVLD-PPAmF or plain PPAmF, yet Observation B shows BVLD-PPAmF and NO-PPAmF also have fewer spread platelets than SS/PPAmF -- so the platelet reduction on those surfaces cannot be tied to any measured NO-flux change.",
+   "The two observations are different kinds of quantity: A is a time-resolved rate (NO flux over a release window from ~1 h to >10 h), B is a static endpoint morphology/count read (spread-dendritic vs round-unspread) from a single SEM time point across several surfaces -- there is no shared time axis to show the flux decline and the platelet change track each other rather than merely both being lower/fewer on the same composite.",
+   "BVLD itself is a known antiplatelet/anticoagulant coating present on both BVLD-PPAmF and BVLD/NO-PPAmF; because BVLD and the modified NO-release profile are bundled together on the same surface (BVLD/NO-PPAmF), the pair cannot separate BVLD's own effect on platelet spreading from the effect of the lowered/prolonged NO flux."
+  ],
+  "text_downstream_previous_output": "The PPAmF composite reduces the NO burst and prolongs NO release beyond 8 h, versus ~1 h for PPAm",
+  "text_downstream_question": "how the material performs in service",
+  "text_downstream_key": "Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting."
+ },
+ {
+  "join": "bioactive_ma_spi_o10_o11__bioactive_ma_M5_M7_s2_2",
+  "paper": "Bioactive_Materials__j.bioactmat.2019.12.006",
+  "on_claim": "n18",
+  "v2p5_join_verdict": "launders a limit",
+  "v2p5_proposition": "overreaches",
+  "v2p5_limits": {
+   "carried": 1,
+   "na": 1,
+   "dropped": 1
+  },
+  "v2p5_evidence": "Quoting the joined claim: 'the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF)' and 'BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether.' This sets up a clean NO-releasing-vs-non-NO-releasing dichotomy and credits NO (plus BVLD in the combination arm) for the observed reductions. But it silently drops BVLD-PPAmF -- a non-NO-releasing, BVLD-bearing surface -- from the comparison entirely. Upstream evidence (component B, SEM) shows BVLD-PPAmF already has 'fewer' spread/dendritic platelets than 316L SS/PPAmF even though it releases no NO, meaning BVLD alone (independent of NO) produces a platelet-suppressing effect comparable in kind to what NO-PPAmF shows. Without BVLD-PPAmF's shunt-level performance in the comparison, the claim that the platelet/thrombus reduction pattern tracks specifically with NO release (rather than substantially or partly with BVLD) is stated more strongly than the combined evidence supports -- an association is presented as if the grouping variable (NO) were isolated, when it is confounded by BVLD's independent effect that upstream evidence already demonstrates.",
+  "v2p5_note": null,
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 concerns 'thrombin specific activity' and SEM 'platelet spreading/activation' on BVLD-bearing coatings; TEXT 2 concerns 'NO burst' and 'NO release' duration for PPAmF. Different quantities and different experiments entirely; TEXT 1 does not bear on NO release kinetics.",
+  "text_upstream_key": "Together, the thrombin-activity assay and the SEM morphology survey support that BVLD-bearing coatings (BVLD-PPAmF and BVLD/NO-PPAmF) both retain reduced thrombin specific activity (~0.65e-3 abs/ng/cm2, versus ~1.3e-3 on 316L SS, PPAmF, NO-PPAmF) and show reduced platelet spreading/activation on SEM (fewer, less dendritic platelets on BVLD-PPAmF; a few round, unspread platelets on BVLD/NO-PPAmF), consistent with retained anti-thrombin bioactivity accompanying suppressed platelet activation on BVLD-grafted surfaces.",
+  "text_upstream_limits": [
+   "NO-PPAmF alone shows thrombin specific activity at the high, unaltered level (~1.3e-3, grouped with 316L SS and PPAmF) yet SEM still shows fewer spread platelets than on 316L SS/PPAmF, so the pairing does not show that thrombin-activity change tracks platelet suppression consistently across all four surfaces",
+   "the chromogenic assay is a single normalized enzymatic readout (activity per ng protein per cm2) while the SEM evidence is a qualitative/categorical description of platelet number and morphology, not a matched quantitative platelet count or activation score, so no dose-response or magnitude correlation between the two can be established",
+   "the greatest platelet suppression (round, unspread platelets) occurs on BVLD/NO-PPAmF, which has the same thrombin specific activity as BVLD-PPAmF alone, so the extra suppression seen with NO added cannot be attributed to a further change in thrombin activity from this pairing"
+  ],
+  "text_downstream_previous_output": "The PPAmF composite reduces the NO burst and prolongs NO release beyond 8 h, versus ~1 h for PPAm",
+  "text_downstream_question": "how the material performs in service",
+  "text_downstream_key": "Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting."
+ },
+ {
+  "join": "bioactive_ma_spi_o16_o11__bioactive_ma_M5_M7_s2_2",
+  "paper": "Bioactive_Materials__j.bioactmat.2019.12.006",
+  "on_claim": "n18",
+  "v2p5_join_verdict": "launders a limit",
+  "v2p5_proposition": "overreaches",
+  "v2p5_limits": {
+   "dropped": 1,
+   "carried": 2
+  },
+  "v2p5_evidence": "The joined claim states the NO-releasing surfaces 'have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF)' and that sustained NO delivery 'is associated with, and plausibly contributes to, reduced platelet-driven thrombosis.' This selectively narrows the 'non-NO-releasing' comparison group to 316L SS and PPAmF only, leaving out BVLD-PPAmF -- which is also non-NO-releasing. But the upstream item's own SEM readouts list BVLD-PPAmF as already showing 'platelets with little fibrin' (obs A) and being among the surfaces with 'fewer [platelets]' (obs B), i.e. a reduced fibrin/reduced-platelet pattern very similar to the NO-releasing surfaces despite having no NO release at all. That upstream evidence undercuts a clean NO-vs-non-NO binary story: it suggests BVLD alone already drives much of the reduction, and NO release's marginal, distinguishable contribution is weaker than the joined claim implies. The full 5-surface upstream gradient (BVLD alone, NO alone, BVLD+NO, vs. bare/PPAmF) supports only an ordering across combined variables, not a clean causal attribution to NO release as the differentiator.",
+  "v2p5_note": null,
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 concerns SEM-observed 'fibrin networks' and 'platelet spreading/activation' across a surface series; TEXT 2 concerns a wholly different quantity, 'NO burst' and NO release duration ('8 h' vs '~1 h'). No overlap in measurement, mechanism, or specimen scope discussed.",
+  "text_upstream_key": "Taken together, the two SEM readouts show a consistent parallel gradient across the same surface series (316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF): surfaces with denser fibrin networks and trapped cells (316L SS, PPAmF) also show many spread, dendritic (activated) platelets, while surfaces with sparse or absent fibrin (BVLD-PPAmF, NO-PPAmF, and especially the almost-bare BVLD/NO-PPAmF) also show fewer platelets and, where present, round unspread (unactivated) morphology. The co-occurrence of suppressed fibrin deposition and suppressed platelet spreading/activation on the same modified surfaces is consistent with a shared upstream cause acting on both processes.",
+  "text_upstream_limits": [
+   "Both observations are qualitative SEM morphology/coverage assessments on the same fixed samples, not a mechanistic or biochemical readout, so they cannot themselves identify thrombin inactivation (or any specific molecular mechanism) as the shared upstream cause.",
+   "Fibrin formation and platelet activation are known to be mutually reinforcing in the coagulation cascade (thrombin both activates platelets and cleaves fibrinogen to fibrin), so the parallel reduction seen in A and B could reflect one process driving the other rather than both being independently suppressed by a common upstream cause.",
+   "Only an ordering/qualitative gradient across surface types is shown, not a quantitative dose-response or rate relationship, and no independent (non-SEM) marker of thrombin activity is included in these two panels to anchor the mechanism."
+  ],
+  "text_downstream_previous_output": "The PPAmF composite reduces the NO burst and prolongs NO release beyond 8 h, versus ~1 h for PPAm",
+  "text_downstream_question": "how the material performs in service",
+  "text_downstream_key": "Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting."
+ },
+ {
+  "join": "bioactive_ma_spi_o16_o11_n25-n18__bioactive_ma_M5_M7_s2_2",
+  "paper": "Bioactive_Materials__j.bioactmat.2019.12.006",
+  "on_claim": "n18",
+  "v2p5_join_verdict": "launders a limit",
+  "v2p5_proposition": "overreaches",
+  "v2p5_limits": {
+   "carried": 2,
+   "na": 1,
+   "dropped": 1
+  },
+  "v2p5_evidence": "\"the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF)\" -- this recasts n18's three-tier surface ordering (316L SS/PPAmF worst; BVLD-PPAmF and NO-PPAmF intermediate; BVLD/NO-PPAmF best) as a clean NO-release-vs-no-NO-release binary. But n18's own data places BVLD-PPAmF (no NO, has BVLD) in the same intermediate tier as NO-PPAmF (has NO, no BVLD), so the ordering does not actually isolate NO release as the differentiator -- BVLD alone appears to produce a comparable intermediate suppression. The claim states this as an NO-release-driven effect with only mild hedging (\"associated with, and plausibly contributes to\"), overreaching what the surface-type ordering supports.",
+  "v2p5_note": null,
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 concerns SEM morphology rankings of 'fibrin network density/cell trapping' and 'platelet count/spreading' across surfaces; TEXT 2 concerns 'NO burst' and 'NO release' kinetics duration. Different measurement entirely; TEXT 1 says nothing about nitric oxide release, so it cannot establish TEXT 2's premise.",
+  "text_upstream_key": "Across the same set of surfaces, the SEM readout of fibrin network density/cell trapping (Obs A) and the SEM readout of platelet count/spreading morphology (Obs B) track the same ranking: 316L SS and PPAmF show dense fibrin plus many spread, dendritic platelets; BVLD-PPAmF and NO-PPAmF show an intermediate reduction (platelets with little fibrin, or fibrin strands, with fewer spread platelets); BVLD/NO-PPAmF shows the least of both (almost bare surface, only a few round unspread platelets). The two independent morphological signatures corroborate each other, so together they support that the surface treatment suppressing fibrin formation is the same one showing reduced platelet adhesion/activation, with BVLD/NO-PPAmF showing the strongest joint suppression of the two.",
+  "text_upstream_limits": [
+   "Both observations are qualitative SEM descriptions (dense/sparse, spread/round, bare/strands) with no counts, areas, or statistics given, so the magnitude or significance of the ranking cannot be assessed from these panels alone.",
+   "Fibrin network formation and platelet activation are mechanistically coupled (activated platelets promote fibrin formation; fibrin traps platelets), so the co-occurring reduction in both cannot be resolved into which change is upstream and which is downstream from morphology alone.",
+   "Neither panel shows a biochemical or enzymatic readout, so the pair does not itself demonstrate that BVLD acts via thrombin inactivation; that mechanism is asserted elsewhere, not shown by these two SEM comparisons.",
+   "The comparison is across surface types (a fixed small set of conditions: 316L SS, PPAmF, BVLD-PPAmF, NO-PPAmF, BVLD/NO-PPAmF), not a dose-response or time series, so it supports an ordering across conditions, not a quantitative relationship."
+  ],
+  "text_downstream_previous_output": "The PPAmF composite reduces the NO burst and prolongs NO release beyond 8 h, versus ~1 h for PPAm",
+  "text_downstream_question": "how the material performs in service",
+  "text_downstream_key": "Building on step 1 (PPAmF's matrix prolongs NO release beyond 8 h versus ~1 h for PPAm), the SEM, photographic, and quantitative data here (obs1-obs8) show that the NO-releasing surfaces (NO-PPAmF and BVLD/NO-PPAmF) have markedly fewer adhered/activated platelets, sparser fibrin, and less occlusive thrombus than the non-NO-releasing surfaces (316L SS, PPAmF), and that BVLD/NO-PPAmF -- combining the anticoagulant BVLD with sustained NO release -- comes closest to preventing occlusive thrombus altogether (~3% occlusion, ~2 mg thrombus, ~90% flow retained). Together the two steps support that sustained NO delivery from the composite is associated with, and plausibly contributes to, reduced platelet-driven thrombosis in this ex vivo shunt setting."
+ },
+ {
+  "join": "biomaterials_M1_M3_M4_s2_1__biomaterials_M1_M3_M4_s2_2",
+  "paper": "Biomaterials__j.biomaterials.2011.11.042",
+  "on_claim": "n11",
+  "v2p5_join_verdict": "sound",
+  "v2p5_proposition": "holds",
+  "v2p5_limits": {
+   "na": 3
+  },
+  "v2p5_evidence": "Downstream evidence: 'HIF-1alpha rises with cobalt, strongest for 5Co' and 'VEGF is raised by 2Co and not by 5Co.' Given one readout is monotonic increasing and the other is non-monotonic (peaks at 2Co, drops at 5Co), the inference 'a single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response' is a valid formal argument from the item's own two observed patterns -- it is a logical claim about incompatible shapes, not an overstated causal claim, so it holds as stated.",
+  "v2p5_note": null,
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 addresses release-mechanism confounding between cobalt inventory and texture, mentioning pore diameter only as an aside ('only gives pore diameter ~4-5 nm, not m2/g or cm3/g'). It asserts nothing about 'ordered mesoporous channel structure' being retained, which is what TEXT 2 claims.",
+  "text_upstream_key": "Release rises as surface area and pore volume fall -- 0 -> 16.9 -> 20.8 mg/L at 7 days against 290 -> 180 -> 127 m2/g -- so a texture-driven mechanism predicts the opposite order and is ruled out in that direction. It does NOT follow that cobalt content sets the release: **cobalt inventory and texture cannot be separated here**, because adding cobalt both lowers the texture and raises the inventory. The identifiable answer is that the two candidate causes are confounded by construction.",
+  "text_upstream_limits": [
+   "Three scaffolds, one varying composition: inventory and texture are collinear.",
+   "Ruling out a direction is not ruling out a cause.",
+   "The proposition orders two different kinds of quantity side by side \u2014 a cumulative solution concentration (mg/L, from obs1) versus a specific surface area (m2/g, not contained in obs1\u2013obs4 or in the cited previous-step pore-size result, which only gives pore diameter ~4-5 nm, not m2/g or cm3/g). Because no same-kind (e.g., concentration-vs-concentration, or area-vs-area) observation pair is available to test the texture-driven mechanism, the inverse-order argument rests on an unverified cross-kind comparison rather than on data given here; this should be flagged as a sourcing/kind limit rather than resolved by substituting different numbers, since none are available in the given observations."
+  ],
+  "text_downstream_previous_output": "2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)",
+  "text_downstream_question": "Do the HIF-1alpha and VEGF results describe one dose response in cobalt content?",
+  "text_downstream_key": "They do not. HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co. A single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response."
+ },
+ {
+  "join": "biomaterials_spi_o1_o10__biomaterials_M1_M3_M4_s2_2",
+  "paper": "Biomaterials__j.biomaterials.2011.11.042",
+  "on_claim": "n11",
+  "v2p5_join_verdict": "sound",
+  "v2p5_proposition": "holds",
+  "v2p5_limits": {
+   "carried": 3,
+   "na": 1
+  },
+  "v2p5_evidence": "They do not. HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co. A single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response.",
+  "v2p5_note": null,
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 supports only Co composition (Co/Ca) vs. Co2+ release ordering; it says nothing about pore/channel structure. TEXT 2 claims 2Co- and 5Co-MBG 'keep an ordered mesoporous channel structure (pores ~4-5 nm)', a structural quantity TEXT 1 never addresses.",
+  "text_upstream_key": "Together, the EDS composition data (Co/Ca = 0 for MBG, 0.14 for 2Co-MBG, 0.49 for 5Co-MBG) and the medium ion-release data (Co2+ absent for 0Co, and higher at every timepoint for 5Co than 2Co: ~8.9/17.9/20.8 mg/L vs ~4.7/10.5/16.9 mg/L at 1/3/7 days) support that the amount of Co incorporated into the scaffold sets the amount of Co2+ that is subsequently released into the medium, with the ordering 5Co > 2Co > 0Co holding both for embedded content and for released concentration at every measured day.",
+  "text_upstream_limits": [
+   "EDS Co/Ca is a single static compositional snapshot of the as-made scaffold, while release is a time course (days 1, 3, 7); pairing a fixed composition value against a rising time series only supports an ordering match (more embedded Co -> more released Co), not a quantitative dose-response or rate relationship",
+   "EDS Co/Ca is a normalized ratio (Co relative to Ca signal), whereas medium Co2+ is an absolute concentration (mg/L); these are different kinds of quantity and cannot be equated numerically, only rank-ordered",
+   "Only three scaffold groups (0Co, 2Co, 5Co) are compared, too few points to establish a continuous composition-release relationship beyond a monotonic ordering",
+   "Co content and group identity are set together by the synthesis design (0Co/2Co/5Co are defined by how much Co was added), so the match in ordering is partly a construction check rather than an independent test of a release mechanism"
+  ],
+  "text_downstream_previous_output": "2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)",
+  "text_downstream_question": "Do the HIF-1alpha and VEGF results describe one dose response in cobalt content?",
+  "text_downstream_key": "They do not. HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co. A single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response."
+ },
+ {
+  "join": "biomaterials_spi_o3_o20__biomaterials_M1_M3_M4_s2_2",
+  "paper": "Biomaterials__j.biomaterials.2011.11.042",
+  "on_claim": "n15",
+  "v2p5_join_verdict": "launders a limit",
+  "v2p5_proposition": "holds",
+  "v2p5_limits": {
+   "na": 3
+  },
+  "v2p5_evidence": "Grounded only in the downstream item's own data: \"HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co.\" Given a monotonically increasing HIF-1alpha signal and a non-monotonic (biphasic) VEGF signal across the same cobalt series, the inference \"A single monotonic dose response in cobalt cannot produce both\" is a valid, non-overreaching logical conclusion from the stated pattern -- it states an ordering/pattern mismatch, not an unsupported causal claim. Note, however, that this verdict rests entirely on downstream evidence; the upstream evidence (A: small-angle XRD reflections at ~1.37/1.47/1.35 deg; B: the ampicillin release curve to ~795 ug at 168 h) contributes nothing to it and is never invoked in the downstream key.",
+  "v2p5_note": null,
+  "v2p6_scope": "supports only narrower",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 only confirms a 'low-angle reflection' (peak position, degrees) persists in 2Co/5Co, with no mention of pore size. TEXT 2 asserts a specific quantity, 'pores ~4-5 nm', which TEXT 1 never measures or states.",
+  "text_upstream_key": "Small-angle XRD (n8) showing a single low-angle reflection in all three patterns (~1.37 deg MBG, ~1.47 deg 2Co, ~1.35 deg 5Co) confirms an ordered mesoporous channel structure persists in the cobalt-doped glasses, and the release assay (n15) shows ampicillin is released gradually and cumulatively (~340 ug at 8 h, ~670 at 24 h, ~780 at 72 h, ~795 ug at 168 h, plateauing). Together the two observations are consistent with an ordered mesoporous channel structure being present alongside a gradual, plateauing release profile -- i.e., the material that retains long-range pore ordering is the same material that shows sustained rather than burst release.",
+  "text_upstream_limits": [
+   "The XRD reflection is reported across three compositions (MBG, 2Co, 5Co) but the release curve corresponds to a single material (2Co-MBG per the stated conclusion), so there is no matched comparison showing that samples with stronger/weaker or shifted low-angle reflections (1.37 vs 1.47 vs 1.35 deg) release drug faster or slower -- no dose-response between degree of structural order and release kinetics is established.",
+   "The two measurements are different kinds of quantity: a static structural signature (peak position/presence, a single snapshot, non-kinetic) versus a cumulative mass-released-over-time curve (ug, 8-168 h window); pairing a structural presence/absence result with a kinetic cumulative curve cannot by itself demonstrate that the pores are the transport pathway responsible for the release rate or the plateau.",
+   "Only one low-angle peak and four release time points are given; this is too sparse to support a rate law or diffusion model linking pore geometry to release kinetics, only that both an ordered structure and a plateauing release exist in the same/related material."
+  ],
+  "text_downstream_previous_output": "2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)",
+  "text_downstream_question": "Do the HIF-1alpha and VEGF results describe one dose response in cobalt content?",
+  "text_downstream_key": "They do not. HIF-1alpha rises with cobalt, strongest for 5Co. VEGF is raised by 2Co and not by 5Co. A single monotonic dose response in cobalt cannot produce both, so the two readouts do not describe one dose response."
+ },
+ {
+  "join": "biomaterials_M2_M4_s2_1__biomaterials_M1_M3_M4_s2_3",
+  "paper": "Biomaterials__j.biomaterials.2011.11.042",
+  "on_claim": "n12",
+  "v2p5_join_verdict": "sound",
+  "v2p5_proposition": "holds",
+  "v2p5_limits": {
+   "na": 4,
+   "carried": 1
+  },
+  "v2p5_evidence": "'the scaffold structure is consistent with retaining capacity to load and release drug' ... 'Because cumulative released mass (ug, absolute) and relative survival (%, normalized to a blank control) are quantities of different kinds, their trajectories cannot be numerically aligned or used to infer a dose-response relationship; at most the two observations are qualitatively consistent with (not establishing) a link between drug delivery and reduced survival, while the drug-free scaffold result argues against Co2+ release alone driving the antibacterial effect.' -- every causal-sounding step is hedged to match what obs3/obs4 actually show (a structural plausibility, a temporal parallel between different-kind quantities, and an explicit caveat against Co2+-only causation), so it does not overreach past the downstream item's own evidence.",
+  "v2p5_note": null,
+  "v2p6_scope": "incompatible",
+  "v2p6_mismatch": "quantity",
+  "v2p6_why": "TEXT 1 concerns HIF-1alpha protein level via western blot ('HIF-1alpha protein level is higher in 5Co-MBG'); TEXT 2 concerns structural pore characterization ('ordered mesoporous channel structure (pores ~4-5 nm)'). TEXT 1 says nothing about pore structure, so it cannot support TEXT 2.",
+  "text_upstream_key": "HIF-1alpha protein level is higher in 5Co-MBG than in MBG and 2Co-MBG, consistent with 5Co-MBG's greater Co2+ release; the blot does not distinguish MBG from 2Co-MBG (both merely 'faint'), so it shows only an association between the highest-Co2+-release group and the highest HIF-1alpha band, not a full monotonic three-way ordering matching graded Co2+ release across all three groups.",
+  "text_upstream_limits": [
+   "Only three scaffold groups are compared (MBG, 2Co-MBG, 5Co-MBG); this is an ordering across categories, not a dose-response curve relating a measured Co2+ concentration to a measured HIF-1alpha level.",
+   "The western blot is a qualitative/semi-quantitative read (band intensity relative to alpha-tubulin loading control), not a quantified protein amount, and no timepoint within the 7-day release window is specified for when the blot was taken.",
+   "The scaffold groups differ in composition beyond Co2+ release (they are different materials, not a single material dosed with varying free Co2+), so material/compositional differences other than Co2+ release cannot be ruled out as contributing to the HIF-1alpha pattern.",
+   "This limit does not apply to the proposition under audit, which makes no VEGF claim; if intended as a general caution it should instead read: obs1 addresses only HIF-1alpha and says nothing about VEGF, so this evidence cannot be extended to support any separate downstream VEGF-related claim not made here.",
+   "obs2 (relative survival with Scaffolds+Ampicillin at ~105%, ~81%, ~52% on days 1, 3, 7 versus a 100% blank and 110-118% drug-free scaffolds) concerns antibacterial/cytotoxicity survival with an antibiotic, not the HIF-1alpha/hypoxia pathway, and does not bear on this mechanism."
+  ],
+  "text_downstream_previous_output": "2Co- and 5Co-MBG keep an ordered mesoporous channel structure (pores ~4-5 nm)",
+  "text_downstream_question": "how the material performs in service",
+  "text_downstream_key": "Because 2Co-MBG's ordered mesoporous channels survive cobalt doping, the scaffold structure is consistent with retaining capacity to load and release drug: cumulative ampicillin release climbs from ~340 ug at 8 h to a ~795 ug plateau by 168 h (obs3, not broken out by Co-doping level). Separately, over a roughly overlapping time window, ampicillin-loaded scaffolds show declining relative survival (~105/81/52% of blank at days 1/3/7) while drug-free scaffolds instead raise relative survival to 110-118% of blank (obs4). Because cumulative released mass (ug, absolute) and relative survival (%, normalized to a blank control) are quantities of different kinds, their trajectories cannot be numerically aligned or used to infer a dose-response relationship; at most the two observations are qualitatively consistent with (not establishing) a link between drug delivery and reduced survival, while the drug-free scaffold result argues against Co2+ release alone driving the antibacterial effect."
+ }
+]
