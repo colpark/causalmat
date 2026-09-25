@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F7e (s40145-021-0537-3) plots output power vs. external load resistance (10^6–10^9 Ω, log scale) for the f-P0.10 fiber-based PENG (220 µm film) against a cast-film device. The fiber film curve peaks at a labeled 136.9 µW near 10^7 Ω (10 MOhm) and falls off at higher and lower resistances; the cast film curve peaks much lower, at a labeled 21.025 µW, in roughly the same load region. Both labeled values match the stated measurement exactly.
+
+What this settles: the panel directly supports the claim that peak output power is substantially higher for the fiber-film device than the cast-film device under matched load-sweep conditions, and that both devices show a maximum-power-transfer-type peak near 10 MOhm rather than at the resistance extremes — consistent with the fiber architecture improving service_capability (power delivery capacity) relative to the cast-film control in this PENG.
+
+What it leaves open: the panel alone does not establish sample size, run-to-run variability, error bars, or statistical significance of the 136.9 vs 21.025 µW difference; it gives no information on long-term stability/durability, mechanism (why fiber outperforms cast), or generalizability beyond the specific f-P0.10, 220 µm fiber film and this one loading protocol. No text beyond the caption was available to confirm measurement conditions (e.g., excitation force/frequency) or corroborate reproducibility.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The 10 wt% loading falls within the decoupled regime already identified.
+2. The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
+3. Observation A's decoupling was established within one fiber-film series varying PZT wt%; Observation B compares two different sample morphologies (fiber vs cast film) at a fixed wt%, so extending A's regime conclusion to explain B's fiber/cast gap is an inference across a different comparison axis, not a direct test
+4. Observation B reports no beta-phase (FTIR) measurement for either the fiber or the cast film samples used in the power comparison, so there is no beta-phase data to actually check against the 136.9 uW vs 21.025 uW gap
+5. the two observations are different quantity kinds on both count and axis: A pairs a normalized structural fraction (% beta phase) against an absolute voltage (V) across a wt% series, while B is an absolute power output (uW) at a fixed 10 MOhm load compared across two morphologies -- neither the magnitude nor the mechanism of B's 6.5x gap can be read from A's %-vs-V trend
+6. only one wt% point (10 wt%) is common between the two observations, insufficient to confirm that the fiber sample in B actually sits in the same beta-phase plateau region A describes

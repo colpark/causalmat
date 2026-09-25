@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F7e shows a resistance sweep at fixed composition (f-P0.10, 220 µm film): output power peaks at 136.9 µW near 10 MΩ for the fiber-morphology film versus 21.025 µW for the cast film at a comparable load — roughly a 6.5-fold morphology-driven gain. This is a different comparison from the earlier wt%-sweep result: here composition/PZT loading is held fixed and morphology (fiber vs. cast) plus external load resistance are the varied factors, whereas the earlier result varied PZT wt% and tracked beta-phase fraction against voltage.
+
+Read together, the two results support the conclusion that PRF/service_capability (output power/voltage) is shaped by more than one independent factor: PZT wt%-linked beta-phase content only tracks output gains in the low-loading regime (0-4 wt%), and this new panel shows that fabrication morphology (fiber-spun vs. cast) produces a large, separate output boost at a single, fixed composition — a mechanism that operates independently of any wt%-driven beta-phase trend. This strengthens the earlier qualification that beta-phase content alone cannot account for the full output behavior, since here a substantial output swing (fiber vs. cast) is demonstrated with no wt% variation and no beta-phase measurement at all.
+
+What remains open: F7e does not report the PZT wt% or beta-phase fraction of the fiber/cast films used, so it cannot be tied numerically to the earlier FTIR/voltage series or used to explain the 6-10 wt% decoupling specifically. It also does not establish what mechanism underlies the fiber-vs-cast difference (e.g., alignment, poling, contact area) — only that morphology is a second, independent lever on power output, alongside a resistance-load dependence (a peak near 10 MΩ) not addressed by the wt% series at all.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The 10 wt% loading falls within the decoupled regime already identified.
+2. The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
+3. Observation A's decoupling was established within one fiber-film series varying PZT wt%; Observation B compares two different sample morphologies (fiber vs cast film) at a fixed wt%, so extending A's regime conclusion to explain B's fiber/cast gap is an inference across a different comparison axis, not a direct test
+4. Observation B reports no beta-phase (FTIR) measurement for either the fiber or the cast film samples used in the power comparison, so there is no beta-phase data to actually check against the 136.9 uW vs 21.025 uW gap
+5. the two observations are different quantity kinds on both count and axis: A pairs a normalized structural fraction (% beta phase) against an absolute voltage (V) across a wt% series, while B is an absolute power output (uW) at a fixed 10 MOhm load compared across two morphologies -- neither the magnitude nor the mechanism of B's 6.5x gap can be read from A's %-vs-V trend
+6. only one wt% point (10 wt%) is common between the two observations, insufficient to confirm that the fiber sample in B actually sits in the same beta-phase plateau region A describes

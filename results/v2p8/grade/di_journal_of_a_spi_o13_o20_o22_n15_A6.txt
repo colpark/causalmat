@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+The panel (F7e) is a single line-plot of output power (μW, left axis, shared with load current μA) versus external load resistance (Ω, log scale 10^6–10^9) for two PENG samples: fiber film (red) and cast film (blue). The red curve peaks at 136.9 μW near 10^7 Ω (10 MΩ) and falls off at higher and lower loads; the blue curve peaks at 21.025 μW in roughly the same load region and is lower across the whole range. This matches the stated measurement exactly.
+
+What it supports: under matched test conditions (same measurement setup, same external-load sweep), the fiber-based PENG delivers substantially higher peak electrical power output (~6.5× at its optimum load) than the cast-film PENG, with both devices sharing a similar optimal load resistance (~10 MΩ) at which power is maximized. This is a legitimate, direct empirical comparison of energy-conversion output between the two fabrication forms (fiber vs. cast) of what the caption identifies as the f-P0.10 composition, film thickness 220 μm.
+
+What it leaves open: the plot shows only single traces with no error bars or replicate data, so reproducibility/variance across samples or devices is unstated. It does not indicate long-term stability, durability, mechanical fatigue resistance, or performance under realistic service conditions (repeated cycling, humidity, temperature). It offers no mechanistic explanation for why the fiber geometry outperforms the cast film. It only covers one composition and one thickness, so generalization to other compositions/thicknesses is not supported. "Service capability" in a broader operational sense (i.e., ability to reliably power a real device over time) is not addressed—only peak instantaneous power under a resistive load sweep is shown.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The 10 wt% loading falls within the decoupled regime already identified.
+2. The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
+3. Observation A's decoupling was established within one fiber-film series varying PZT wt%; Observation B compares two different sample morphologies (fiber vs cast film) at a fixed wt%, so extending A's regime conclusion to explain B's fiber/cast gap is an inference across a different comparison axis, not a direct test
+4. Observation B reports no beta-phase (FTIR) measurement for either the fiber or the cast film samples used in the power comparison, so there is no beta-phase data to actually check against the 136.9 uW vs 21.025 uW gap
+5. the two observations are different quantity kinds on both count and axis: A pairs a normalized structural fraction (% beta phase) against an absolute voltage (V) across a wt% series, while B is an absolute power output (uW) at a fixed 10 MOhm load compared across two morphologies -- neither the magnitude nor the mechanism of B's 6.5x gap can be read from A's %-vs-V trend
+6. only one wt% point (10 wt%) is common between the two observations, insufficient to confirm that the fiber sample in B actually sits in the same beta-phase plateau region A describes

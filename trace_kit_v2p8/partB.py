@@ -17,12 +17,28 @@ wanders and three was not enough to see past it.
 
 Every verdict is model against model.
 """
-import json, os, sys
+import json, os, re, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 R = lambda *p: os.path.join(ROOT, *p)
 ARMS = R('results/v2p8/arms')
 SAMPLES = 6
+
+# v2.7's item question names BOTH sides -- "What does this measurement, read together with the
+# established earlier result below, settle...". Arms A and C hold only one side, so that question
+# asks each of them about material it was not given. v2.7 had the same flaw on its arm A. Each arm
+# is asked a question coherent with what it holds; all three are then graded against the same
+# claim list, which is what makes the arms comparable.
+Q_A = ("What does this measurement settle about {topic}? Say what it supports and what it "
+       "leaves open.")
+Q_C = ("What does the established earlier result below settle about {topic}? Say what it "
+       "supports and what it leaves open.")
+
+
+def topic_of(q):
+    m = re.search(r'settle about (.+?) that neither settles', q or '')
+    return m.group(1).strip() if m else 'the sample'
+
 
 TAIL = ("Answer in prose, at most 250 words. Say what conclusion this justifies and say plainly "
         "what it leaves uncertain. Claim nothing the evidence does not carry.")
@@ -86,12 +102,14 @@ def build(only=None):
                 + '\n'.join('  - ' + t for t in x['input_limits'])) if x['input_limits'] \
             else '\nNo qualifications were recorded on that earlier result.'
         q = x['question']
+        t = topic_of(q)
         bodies = {
-            'A': ARM_A.format(q=q, obs=x['new_observation']['text'], pans=pans, caps=caps,
-                              tail=TAIL),
+            'A': ARM_A.format(q=Q_A.format(topic=t), obs=x['new_observation']['text'],
+                              pans=pans, caps=caps, tail=TAIL),
             'B': ARM_B.format(q=q, obs=x['new_observation']['text'], pans=pans, caps=caps,
                               inp=x['input_result'], lims=lims, tail=TAIL),
-            'C': ARM_C.format(q=q, inp=x['input_result'], lims=lims, tail=TAIL),
+            'C': ARM_C.format(q=Q_C.format(topic=t), inp=x['input_result'], lims=lims,
+                              tail=TAIL),
         }
         for arm, body in bodies.items():
             f = os.path.join(ARMS, f"{x['item']}_{arm}.txt")

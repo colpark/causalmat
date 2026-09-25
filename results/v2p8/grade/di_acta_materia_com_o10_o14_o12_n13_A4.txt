@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+The two panels (F4a: [11-20] loading, side surfaces (1-100) and (0001); F4b: [01-10] loading, side surfaces (-2110) and (0001)) each show a 4x2 micrograph grid across RT, 200, 300, 400C. What they actually support: at RT (and in most rows at 200C) the traces are labeled with {01-12}-type indices (e.g., (10-12)(10-12), (01-12)(0-112)), consistent with twin traces; by 300-400C the labeled traces switch to {10-10}/{1-100} indices (e.g., (10-10)(01-10), (10-10)(-1100)), consistent with prismatic slip traces. "Deformation band" labels appear repeatedly and at multiple temperatures (RT, 200, 300, 400C) across both panels, so the claim that bands persist at every temperature is visually supported.
+
+What this leaves open: the transition is not perfectly clean at 300C — in F4a's (1-100) surface, the 200C panel already carries prismatic-slip-only labels rather than twin labels, so the twin-to-slip switch appears surface- and orientation-dependent rather than a sharp, uniform threshold at 300C. The images are static labeled micrographs, not quantitative trace-density or statistics, so they cannot settle how dominant twinning vs. slip is at each temperature, only that both trace types are identified as present in the fields shown. They also cannot establish causal mechanism (why the switch occurs) or generalize beyond these two loading orientations. So the measurement is supported qualitatively — twin traces at low T, prismatic slip traces at high T, bands throughout — but the exact temperature boundary and relative prevalence remain uncertain from these panels alone.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The {01-12}/{10-12} twin traces B finds at RT and 200 C are the same uniform-orientation population identified in A.
+2. The deformation bands B finds persisting at every temperature are the wavy, continuously-shading kink-band population identified in A.
+3. Kink banding operates as a deformation mechanism across the whole RT-400 C range even as twinning is replaced by prismatic slip at 300-400 C.
+4. This temperature-dependence-of-mechanism statement cannot be made from B's trace record alone, since it never says what a deformation band is in orientation terms.
+5. This temperature-dependence-of-mechanism statement cannot be made from A alone, since A carries no temperature information.
+6. A's morphology-to-orientation pairing (straight/uniform vs wavy/continuously-shading) was established only via OM+EBSD taken at the orientations/conditions behind A ([11-20] and [01-10] specimens), with no EBSD record at 200, 300, or 400 C, so applying that pairing to the bands B tracks at elevated temperature is an extrapolation of the imaging signature, not a re-measurement of it.
+7. A's link is only a qualitative colour/contrast correspondence (uniform vs continuously varying colour, strong vs faint side-surface contrast), not a measured misorientation magnitude, so the combination cannot say how much the kink-band orientation gradient changes (or stays the same) as temperature rises through the range B covers.
+8. The pairing in A is a co-registration by band type, not a mechanistic proof of what produces the continuous shading, so carrying it into B's temperature series still only yields a correspondence in imaging signature (which bands persist) rather than a demonstrated cause for why kink banding, and not twinning, survives past 200 C.
+9. B reports trace planes and band persistence at the macroscopic/OM level only; it does not itself contain an EBSD orientation map at 300-400 C, so nothing in the pair confirms that the persisting bands still show the graded (rather than uniform) internal orientation at those higher temperatures -- that identification rests entirely on carrying A's RT-established criterion forward.

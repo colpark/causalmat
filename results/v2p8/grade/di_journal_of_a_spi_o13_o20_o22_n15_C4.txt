@@ -1,0 +1,28 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+The established result settles only a partial, low-loading claim about the PRF/service_capability relationship. It supports the conclusion that from 0 to 4 wt%, the rise in beta-phase content (76.1-76.3% up to a peak of 81.8-83.2%) tracks the early rise in voltage output (7.5 to 32.0 V), so a beta-phase-mediated contribution to the initial output gain is consistent with the data in that narrow regime.
+
+It does not settle, and explicitly leaves open, anything about the 6-10 wt% range: there beta content is non-monotonic and eases back to ~81% while voltage keeps climbing monotonically to 43.0 and 62.0 V, so beta-phase content cannot be the operative driver of output gain at higher loadings, and the two series are shown to decouple there. The result also does not establish causation at any loading — PZT wt% is a shared driver of both the structural (FTIR) and transport (voltage) measurements by construction, so the low-loading correlation is equally consistent with coincidental co-variation rather than a genuine beta-phase causal pathway. Additionally, because beta content is a normalized percentage and voltage is an absolute quantity in different units, no quantitative mapping (e.g., how much voltage gain per unit beta-phase increase) can be derived. Finally, with only 5-6 discrete wt% points per series, the data support only a qualitative trend-shape comparison, not a fitted functional relationship. In short: a beta-phase contribution to the initial (0-4 wt%) output rise is plausible and consistent with the data, but full-range causality, quantitative attribution, and true mechanistic proof remain unestablished.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The 10 wt% loading falls within the decoupled regime already identified.
+2. The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
+3. Observation A's decoupling was established within one fiber-film series varying PZT wt%; Observation B compares two different sample morphologies (fiber vs cast film) at a fixed wt%, so extending A's regime conclusion to explain B's fiber/cast gap is an inference across a different comparison axis, not a direct test
+4. Observation B reports no beta-phase (FTIR) measurement for either the fiber or the cast film samples used in the power comparison, so there is no beta-phase data to actually check against the 136.9 uW vs 21.025 uW gap
+5. the two observations are different quantity kinds on both count and axis: A pairs a normalized structural fraction (% beta phase) against an absolute voltage (V) across a wt% series, while B is an absolute power output (uW) at a fixed 10 MOhm load compared across two morphologies -- neither the magnitude nor the mechanism of B's 6.5x gap can be read from A's %-vs-V trend
+6. only one wt% point (10 wt%) is common between the two observations, insufficient to confirm that the fiber sample in B actually sits in the same beta-phase plateau region A describes

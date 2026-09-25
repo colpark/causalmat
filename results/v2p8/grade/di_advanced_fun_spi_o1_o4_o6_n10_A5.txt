@@ -1,0 +1,35 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+The panel (F2d) plots Δσ/σ (%), the normalized Gaussian width of several XRD 2θ peaks, versus temperature for three sample forms: SC (blue), PC (red), and HOC (black), each tracked via multiple reflections (e.g., 004, 242, 224, 400).
+
+What it supports: all three sample types show a distinct anomaly in peak width clustered in the same narrow temperature window, ~150–160 K, which is consistent with a structural phase transition occurring near that temperature regardless of sample form. The character of the anomaly differs by form: SC shows a step-like narrowing (~100% down to ~50%) that then stays flat, consistent with a discontinuous change to a more ordered/less-disordered lattice state above the transition. PC and HOC instead show sharp transient peaks in width (PC's 242 reflection rising to ~260%, HOC's 004 to ~128%) that later relax back down, consistent with a localized burst of strain/mosaicity/microstrain right at the transition rather than a simple step change.
+
+What it leaves open: the measurement alone does not identify the actual crystal structures or space groups on either side of the transition, nor does it give lattice parameters. It does not explain why SC behaves as a step while PC and HOC behave as transient spikes — that could reflect genuine differences in transition order/mechanism, or could instead reflect sample-form-specific effects (grain size, domain/twin formation, strain relaxation kinetics) unrelated to the intrinsic phase transition. It also cannot rule out instrumental or peak-fitting artifacts as partial contributors to the width changes. Confirming phase identity and structural origin would require complementary structural data (e.g., peak positions/splitting, indexed lattice parameters, or diffraction patterns) not shown in this panel.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The phase whose peak width narrows (SC) is the same phase already established as coarse-domain and smooth-expansion.
+2. The phases whose peak width shows a sharp transient rise (PC, HOC) are the same phases already flagged for curved/offset shifts.
+3. Observation A and Observation B track different signatures of the lattice: average peak position versus peak breadth.
+4. The two datasets, despite tracking different signatures, point to the same phase ordering.
+5. Together the datasets support that a build-up of inhomogeneous residual strain occurs toward the transition.
+6. Peak-position smoothness (Observation A) alone only implied the strain build-up indirectly.
+7. Peak-width alone (Observation B) only showed this for three isolated phases without the domain-size framing.
+8. The domain-size/phase confound already recorded on Observation A is not resolved by adding B: PC, HOC and SC still differ in composition/crystal structure as well as domain size, so whether domain size or phase identity drives the strain-inhomogeneity magnitude remains unsettled
+9. Still only three phase categories (SC, PC, HOC) are compared, so the correspondence is an ordering across three points, not a dose-response between domain size and peak-width magnitude
+10. Peak width (B) and peak-position shift (A) are different kinds of lattice signatures -- breadth/dispersion of the reflection versus its mean shift with temperature -- so their agreement in direction is a cross-signature corroboration, not a repeated measurement of the same quantity
+11. The percentages themselves (260%, 128%, 50%) do not scale in proportion to the domain-size figures given in A, so no quantitative (only ordinal) relationship between domain scale and strain-inhomogeneity size is supported
