@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+OM alone establishes only band morphology: straight {10-12}/{01-12}-plane band traces versus wavy bands, plus an asymmetric contrast (strong on the (0001) side surface, faint on (1-100)/(-2110)) that marks the wavy bands as optically distinct from the straight ones. EBSD alone establishes only an orientation-map signature: lenticular bands each take one uniform colour (a single discrete orientation), whereas bands with the wavy morphology instead shade continuously with position (a gradually varying orientation); in the [01-10] specimen this shows up as uniformly red {10-12} twins coexisting with purple kink bands whose colour varies. Put together, the two observations show that the same population of bands -- the wavy, contrast-asymmetric ones seen in OM -- is the population whose EBSD colour varies continuously with position, while the straight, {10-12}/{01-12}-trace bands seen in OM are the population that EBSD shows as uniform single-colour (twin-like). Neither image alone links a morphology to an orientation behaviour; OM cannot say whether a band's internal orientation is uniform or graded, and EBSD orientation maps alone (without the OM band-trace/contrast record) cannot be tied to the optically distinguished straight-vs-wavy, {10-12}/{01-12}-trace-vs-other classification. The combination is what lets the two band populations (straight/uniform vs wavy/shading) be treated as one coherent pair of distinct structures rather than two separately-described but unlinked observations.
+
+THE NEW MEASUREMENT
+Macroscopic views RT-400 C: the RT and 200 C specimens carry {01-12}/{10-12} twin traces, replaced by {10-10}/{1-100} prismatic slip traces at 300-400 C, while deformation bands persist at every temperature
+
+THE KEY'S PROPOSITION
+Because the earlier OM+EBSD result (A) already established that the {10-12}/{01-12}-trace, straight bands are the uniform-orientation (twin) population while the wavy-morphology bands are the continuously-shading (kink-band) population, observation B's temperature series can be read in those same mechanistic terms: the {01-12}/{10-12} twin traces that B finds only at RT and 200 C are the same uniform-orientation population identified in A, and the deformation bands that B finds persisting at every temperature from RT to 400 C are the wavy, continuously-shading kink-band population identified in A. So together the two pieces support that kink banding operates as a deformation mechanism across the whole RT-400 C range even as twinning is replaced by {10-10}/{1-100} prismatic slip traces at 300-400 C -- a temperature-dependence-of-mechanism statement that B's trace record alone cannot make (it never says what a 'deformation band' is in orientation terms) and that A alone cannot make (it carries no temperature information).
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

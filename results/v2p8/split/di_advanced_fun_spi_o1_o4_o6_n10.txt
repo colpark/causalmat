@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the SEM domain-size distributions (Observation A) and the in-situ XRD lattice-expansion traces (Observation B) show a correspondence across the three phases: SC, which has the coarsest domains (~1e2-1e3 um), shows a smooth/near-linear shift of the (004)/(400) and (242)/(224) 2theta peaks with temperature, whereas PC (~0.1 um domains) and HOC (~10-100 um domains) show curvature and offsets in the same peak shifts. The pairing supports associating finer/less-uniform domain scale with non-linear, offset lattice-expansion behavior, and coarser domain scale with smoother expansion.
+
+THE NEW MEASUREMENT
+Relative peak width drops from ~100% to ~50% at 150 K for SC, but peaks at ~260% (PC, 242) and ~128% (HOC) around 150-155 K
+
+THE KEY'S PROPOSITION
+Reading the peak-width trace (Observation B) against the phase groupings already established in Observation A shows the same rank order lining up: the coarse-domain, smooth-expansion phase (SC) is the one whose peak width narrows (from ~100% down to ~50% at 150 K), while the finer/less-uniform-domain phases already flagged for curved/offset peak-position shifts (PC, HOC) are the ones that instead show a sharp transient rise in peak width (~260% for PC-242, ~128% for HOC) in the same 150-155 K window. Because the two datasets track different signatures of the lattice (average peak position vs peak breadth) yet point to the same phase ordering, together they support that a build-up of inhomogeneous residual strain occurs toward the transition and that its size differs by crystalline state -- a claim that peak-position smoothness alone (A) only implied indirectly and that peak-width alone (B) only showed for three isolated phases without the domain-size framing.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

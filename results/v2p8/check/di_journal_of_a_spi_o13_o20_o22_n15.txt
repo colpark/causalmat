@@ -1,0 +1,31 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Overlaying the two series shows that the beta-phase rise (76.1-76.3% at 0 wt% up to a peak 81.8-83.2% at 2-4 wt%) tracks the early part of the voltage rise (7.5, 12.5, 26.5, 32.0 V over 0-4 wt%), consistent with beta-phase enhancement contributing to the initial output gain. But beyond 4 wt% the pairing decouples: beta content eases back to ~81% over 6-10 wt% while voltage keeps climbing to 43.0 and 62.0 V, so the combination only supports a beta-phase-mediated story for the low-loading regime, not for the full 0-10 wt% range.
+
+THE NEW MEASUREMENT
+Power peaks at 136.9 uW at 10 MOhm for the fiber film vs 21.025 uW for the cast film
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Beta-phase-mediated voltage enhancement is restricted to the low-loading window, 0-4 wt%.
+2. [input] Over 0-4 wt%, beta content and voltage rise together.
+3. [input] Beta content and voltage decouple over 6-10 wt%, with beta easing to ~81% while voltage climbs to 43.0 and 62.0 V.
+4. [observation] Power peaks at 136.9 uW for the fiber film versus 21.025 uW for the cast film at 10 MOhm.
+5. [observation] The fiber-over-cast power advantage is about 6.5x.
+6. [observation] This power comparison is taken at the 10 wt% (f-P0.10) loading.
+7. [combined] The 10 wt% loading falls within the decoupled regime already identified.
+8. [input] Beta-phase enhancement was already established as inoperative as a driver at the 10 wt% loading.
+9. [combined] The large fiber-over-cast power advantage at 10 wt% is unlikely to be explained by a beta-phase-content story.
