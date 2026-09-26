@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the two results show that the transport optimum at x=0.01 is not confined to resistivity alone: the power factor also peaks at x=0.01 (~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, above both the lower x=0.005 doped value and the x=0 value of at most ~5), the same composition where resistivity was already noted to be lowest (~12-23 micro-ohm m range) even though Hall carrier concentration n_H rises monotonically across x=0.005-0.04. The pairing therefore reinforces, across a second transport quantity, that whatever sets the x=0.01 optimum is not simply the monotonic n_H increase from the Se-donor/E_F mechanism -- some composition-dependent factor besides carrier density must be responsible for both the resistivity minimum and the power factor maximum landing at the same x.
+
+THE NEW MEASUREMENT
+ZT at 300 K: ~0.84 (x=0.005), ~0.78 (0.01), 0.63-0.69 (0.02-0.04); n-Bi2Te3 reference curve ~0.88
+
+THE KEY'S PROPOSITION
+Placing the established PF/resistivity result (power factor peaks at x=0.01, ~29 uW cm-1 K-2 at 300 K, alongside the resistivity minimum at x=0.01) next to the ZT series (ZT at 300 K ~0.84 for x=0.005, ~0.78 for x=0.01, 0.63-0.69 for x=0.02-0.04, versus ~0.88 for the n-Bi2Te3 reference) shows that the composition where power factor and resistivity are optimized (x=0.01) is NOT the composition where the overall figure of merit is highest (x=0.005). The two optima are decoupled: the electronic-transport optimum sits one step higher in x than the ZT optimum. Together the two results establish that whatever non-n_H factor is boosting power factor and lowering resistivity at x=0.01 is not sufficient, by itself, to produce the best overall thermoelectric performance -- some additional composition-dependent quantity must be pulling the ZT optimum back down to x=0.005.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

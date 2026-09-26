@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Observation A alone only shows that the phase-identified bismuthene material has a strong, linear, concentration-proportional NIR extinction (alpha = 6.4 L g-1 cm-1) at 808 nm; it explicitly does not establish any energy-conversion or heating mechanism. Observation B alone only shows that irradiated spots heat up more with higher concentration (200 > 100 > 50 > 25 ug/mL) and higher power density (0.5 -> 1.5 W at 200 ug/mL), with water as a non-heating control; on its own it does not identify what property of the sample is responsible for that heating. Read together, the two support that the strong NIR extinction quantified in A is what drives the concentration- and power-dependent heating observed in B -- i.e., that this phase-identified bismuthene material converts absorbed 808 nm light into heat (a qualitative photothermal effect), because the same directionality (more material/more incident power -> more absorption -> more heat) links the two data sets and the water control rules out a trivial heating artifact.
+  The qualifications recorded on that earlier result:
+    - Does not establish a quantitative photothermal conversion efficiency or any specific numeric heat-conversion value -- alpha is an absorbance/concentration slope and the IR images give single-timepoint (6 min) spot temperatures, not an energy-balance calculation.
+    - Does not establish which phase drives the heating any more than A alone established which phase drives the absorption -- since the earlier result left the majority Bi phase versus minor Bi2O3 phase spatial arrangement and contribution undetermined, the heating seen in B cannot be assigned to the Bi phase alone versus a partial Bi2O3 contribution.
+    - Does not establish a quantitative (proportional or otherwise curve-fit) relationship between alpha and temperature rise -- the concentration series and the power-density series are two separate one-variable sweeps (not a full factorial), so only ordinal trends (more concentration, more power -> hotter) are supported, not a functional mapping from alpha to delta-T.
+    - Does not establish morphology/size effects, photostability, or in-use (device-level) performance -- B is a single 6-minute snapshot under laboratory irradiation, not a measure of sustained or repeated-use behavior.
+
+Observation B (None): Individual curves: all five BNs-BSA+Lasers tumours stay at 0; four of five BNs-BSA+808 nm tumours regrow after ~day 14
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a a13 -> a14 edge
+Panels: F5d
+
+What the paper concluded, for your reference as the key's author:
+  BNs-BSA plus 660/808 nm lasers eradicates 4T1 tumours (100% inhibition and 54-day survival), beating PTT or PDT alone
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

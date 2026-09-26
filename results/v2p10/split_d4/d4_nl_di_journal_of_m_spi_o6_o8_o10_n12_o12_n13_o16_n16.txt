@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the earlier resistivity/mobility result (n12) and the power-factor measurement (n13) support that the PF peak at x=0.01 (~29 at 300 K, ~22 at 623 K), which clearly exceeds x=0.005 (lowest of the doped set) and x=0 (at most ~5), sits on the same favorable-resistivity trend that n12 established as carrier-concentration-driven and not offset by a mobility penalty. That is, the combination supports that the low-rho, mobility-preserved regime identified in n12 is consistent with, and helps account for, why doping raises PF well above the undoped value near x=0.01, rather than the PF rise being an artifact of resistivity moving in the wrong direction.
+
+THE NEW MEASUREMENT
+ZT at 300 K: ~0.84 (x=0.005), ~0.78 (0.01), 0.63-0.69 (0.02-0.04); n-Bi2Te3 reference curve ~0.88
+
+THE KEY'S PROPOSITION
+Placing B's ZT-at-300K composition ordering (x=0.005 highest at ~0.84, x=0.01 next at ~0.78, x=0.02-0.04 lowest at 0.63-0.69) against the earlier PF/resistivity result (n12+n13: PF peaks at x=0.01, with x=0.005 the lowest PF among the doped set) shows that the composition with the lowest power factor among the doped samples (x=0.005) is the one with the highest ZT, while the PF-peak composition (x=0.01) yields a lower ZT. Together the two settle that the low-resistivity, mobility-preserved carrier regime identified in n12, which n13 showed drives the PF peak at x=0.01, does not carry over into the best thermoelectric figure of merit: PF ranking and ZT ranking diverge across x, so whatever n12/n13 established about resistivity and PF cannot by itself account for which composition performs best in ZT.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

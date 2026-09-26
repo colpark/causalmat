@@ -1,0 +1,32 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the earlier resistivity/mobility result (n12) and the power-factor measurement (n13) support that the PF peak at x=0.01 (~29 at 300 K, ~22 at 623 K), which clearly exceeds x=0.005 (lowest of the doped set) and x=0 (at most ~5), sits on the same favorable-resistivity trend that n12 established as carrier-concentration-driven and not offset by a mobility penalty. That is, the combination supports that the low-rho, mobility-preserved regime identified in n12 is consistent with, and helps account for, why doping raises PF well above the undoped value near x=0.01, rather than the PF rise being an artifact of resistivity moving in the wrong direction.
+
+THE NEW MEASUREMENT
+ZT at 300 K: ~0.84 (x=0.005), ~0.78 (0.01), 0.63-0.69 (0.02-0.04); n-Bi2Te3 reference curve ~0.88
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [observation] ZT at 300 K is highest for x=0.005 at ~0.84.
+2. [observation] ZT at 300 K for x=0.01 is ~0.78, next after x=0.005.
+3. [observation] ZT at 300 K for x=0.02-0.04 is lowest, at 0.63-0.69.
+4. [input] The PF peaks at x=0.01 among the doped samples.
+5. [input] x=0.005 has the lowest PF among the doped set.
+6. [combined] The composition with the lowest doped PF (x=0.005) is the one with the highest ZT.
+7. [combined] The PF-peak composition (x=0.01) yields a lower ZT than x=0.005.
+8. [combined] PF ranking and ZT ranking diverge across composition x.
+9. [combined] The low-resistivity, mobility-preserved carrier regime from n12 that drives the PF peak at x=0.01 does not carry over into the best ZT.
+10. [combined] What n12/n13 established about resistivity and PF cannot by itself account for which composition gives the best ZT.

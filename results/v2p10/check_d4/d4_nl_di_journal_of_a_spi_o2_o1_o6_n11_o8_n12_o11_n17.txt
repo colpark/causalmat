@@ -1,0 +1,33 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the established phase/strain result (n11: Al2O3-YSZ is cubic with a large per-interval orientation change at 5 cycles that diminishes by 20 cycles, while YSZ is tetragonal with a steady, low 0.7-2.3 deg/interval change throughout) and the crack-network observation (n12: YSZ's crack network looks unchanged between the two micrograph views in the same field, F4b/F4c) converge on YSZ specifically: the diffraction-derived micro-strain proxy showing YSZ as low and stable across cycling is corroborated by a direct microstructural observation (unchanged crack network) pointing the same way. Neither piece alone supports this convergence -- n11 carries no crack/microstructure evidence, and n12 alone (an unchanged crack network in one field) has no strain or phase context establishing that this reflects genuine microstructural stability rather than an incidental, unmeasured feature.
+
+THE NEW MEASUREMENT
+Coupon intact at 5 cycles; corners spalled at 10 cycles; spalled corners persist and grow slightly to 40 cycles
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] At 5 cycles, YSZ's crack network still looked unchanged.
+2. [input] At 5 cycles, YSZ's diffraction-derived strain/orientation-change rate was low and steady.
+3. [input] The microstructural/diffraction stability read does not sample past the point it reports (stops at 5 cycles).
+4. [observation] The coupon was still intact at 5 cycles.
+5. [observation] The coupon had spalled corners by 10 cycles.
+6. [observation] The spalled corners persisted and grew only slightly out to 40 cycles.
+7. [observation] The onset of macroscopic spallation falls within the 5-to-10-cycle window.
+8. [combined] Together the two pieces bound when the coating's actual service capability breaks down relative to when its microstructure last looked stable.
+9. [combined] The 5-to-10-cycle spallation onset window immediately follows the point at which the microstructural/diffraction read gave no sign of trouble.
+10. [combined] A's stability read alone cannot reveal this onset because it never samples past what it reports.
+11. [combined] B's spallation timeline alone cannot explain this onset because it carries no microstructural or strain correlate.

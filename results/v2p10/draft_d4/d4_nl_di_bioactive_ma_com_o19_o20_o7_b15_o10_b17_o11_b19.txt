@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the earlier result (confirmed Er3+ tracking with progressively suppressed 390-420 nm PL from TiO2 to Er0.5Ti-O to Er0.5Ce0.2) and the degradation data (Er0.5Ce0.2 ~46% > Ce0.3 ~41% > Ce0.1 ~31% > TiO2 ~20% at 60 min, same order at 20 and 40 min) support an association at the two endpoints common to both series: the sample with the most suppressed PL (Er0.5Ce0.2) is also the sample with the highest degradation activity, and the sample with the strongest (least-suppressed) PL, TiO2, is also the one with the lowest degradation activity. This licenses the associative claim that reduced PL (taken as reduced recombination) co-occurs with enhanced photocatalytic degradation in this series, which neither piece establishes alone: A never measures degradation, and B never measures PL/recombination.
+  The qualifications recorded on that earlier result:
+    - Only two samples overlap between the PL series (TiO2, Er0.5Ti-O, Er0.5Ce0.2) and the degradation series (Er0.5Ce0.2, Ce0.3, Ce0.1, TiO2) -- TiO2 and Er0.5Ce0.2 -- so the middle of the degradation ordering (Ce0.3 > Ce0.1) has no matching PL measurement at all, and Er0.5Ti-O's PL value has no matching degradation measurement; the combination gives a two-point correspondence, not a dose-response relationship across the full series
+    - Carries forward every qualification already recorded on the earlier result: Ce's oxidation state is still undetermined, so the combination cannot attribute the Ce0.3 > Ce0.1 > TiO2 degradation ordering (which involves no Er) to any chemically confirmed Ce mechanism
+    - Carries forward that lattice incorporation of Er3+ versus mere surface adsorption was never resolved, so even where PL and degradation move together (TiO2, Er0.5Ce0.2) the combination cannot say the enhanced degradation is produced by Er3+ altering the band/electronic structure rather than by some other effect of surface-bound Er
+    - The two measurements are co-occurring trends across the same nominal series, not a demonstrated mechanism linking reduced recombination to degradation performance; degradation could rise for reasons unconnected to the PL-inferred recombination change
+
+Observation B (None): Light: antibacterial ratio Er0.5Ce0.2 ~91% (c) and ~93% (d) > Ce0.3 ~87% > Ce0.1 ~68-73% > TiO2 ~45% > control ~4-7%
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a b17 -> b19 edge
+Panels: F10c, F10d
+
+What the paper concluded, for your reference as the key's author:
+  Under simulated sunlight for 20 min, Er0.5Ce0.2Ti-O kills ~91% of S. aureus and ~93% of E. coli vs ~45% for TiO2
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

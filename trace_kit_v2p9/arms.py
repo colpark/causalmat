@@ -31,9 +31,10 @@ from trace_kit_v2p8.partC import ASK  # noqa: E402
 
 # same recipe for the depth-2 pairs and the depth-3 next links; only the source and suffix differ
 SRC = os.environ.get('V2P9_SRC', 'results/v2p9/pairs.json')
+OUT = os.environ.get('V2P9_OUT', 'results/v2p9')
 TAG = os.environ.get('V2P9_TAG', '')
-ARMS = R('results/v2p9/arms' + TAG)
-GRADE = R('results/v2p9/grade' + TAG)
+ARMS = R(OUT + '/arms' + TAG)
+GRADE = R(OUT + '/grade' + TAG)
 TAIL = ("Answer as best you can from what you have. Do not refuse. Answer in prose, at most 250 "
         "words. Say what conclusion this justifies and say plainly what it leaves uncertain.")
 
@@ -77,7 +78,7 @@ def title_of(paper, _c={}):
 
 
 def live():
-    S2 = json.load(open(R('results/v2p9/step2%s.json' % TAG)))['items']
+    S2 = json.load(open(R(OUT + '/step2%s.json' % TAG)))['items']
     P = {x['item']: x for x in json.load(open(R(SRC)))['pairs_out']}
     return [(k, P[k], v) for k, v in S2.items() if v['alive'] and k in P]
 
@@ -88,7 +89,7 @@ def build(which='first'):
     items = live()
     if which == 'borderline':
         items = [(k, x, v) for k, x, v in items
-                 if k in set(json.load(open(R('results/v2p9/borderline%s.json' % TAG))))]
+                 if k in set(json.load(open(R(OUT + '/borderline%s.json' % TAG))))]
         sfx, arms = '2', ('A', 'B', 'C')
     else:
         sfx, arms = '1', ('A', 'B', 'C', 'N')
@@ -120,7 +121,7 @@ def build(which='first'):
             jobs.append({'id': f'{it}_{arm}{sfx}', 'agent':
                          'net-floor' if arm in ('C', 'N') else 'net-fullarm',
                          'prompt': f, 'out': os.path.join(ARMS, f'{it}_{arm}{sfx}.out.txt')})
-    n = R('results/v2p9/arm_jobs_%s%s.json' % (which, TAG))
+    n = R(OUT + '/arm_jobs_%s%s.json' % (which, TAG))
     json.dump(jobs, open(n, 'w'), indent=1)
     print(f'{len(jobs)} answers for {len(items)} items ({which})')
     return jobs
@@ -138,8 +139,8 @@ def grade(which='first'):
     jobs, miss = [], []
     for it, x, v in live():
         idx[it] = claim_list(v)
-    json.dump(idx, open(R('results/v2p9/claim_index%s.json' % TAG), 'w'), indent=1)
-    for j in json.load(open(R('results/v2p9/arm_jobs_%s%s.json' % (which, TAG)))):
+    json.dump(idx, open(R(OUT + '/claim_index%s.json' % TAG), 'w'), indent=1)
+    for j in json.load(open(R(OUT + '/arm_jobs_%s%s.json' % (which, TAG)))):
         it = j['id'].rsplit('_', 1)[0]
         if not os.path.exists(j['out']): miss.append(j['id']); continue
         listing = '\n'.join(f"{i}. {c['claim']}" for i, c in enumerate(idx[it], 1))
@@ -147,7 +148,7 @@ def grade(which='first'):
         f = os.path.join(GRADE, j['id'] + '.txt'); open(f, 'w').write(body)
         jobs.append({'id': j['id'], 'agent': 'net-grader', 'prompt': f,
                      'out': os.path.join(GRADE, j['id'] + '.out.txt')})
-    json.dump(jobs, open(R('results/v2p9/grade_jobs_%s%s.json' % (which, TAG)), 'w'), indent=1)
+    json.dump(jobs, open(R(OUT + '/grade_jobs_%s%s.json' % (which, TAG)), 'w'), indent=1)
     print(f'{len(jobs)} gradings ({which}), {len(miss)} answers missing: {miss[:6]}')
     return jobs
 

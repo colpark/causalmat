@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about MEC/pathway that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the pile-up band at the lamella boundary (Observation A) and the field of many straight, parallel dislocation lines along a single slip trace (Observation B, F5b) show that the microstructure contains at least two qualitatively distinct dislocation morphologies -- a tangled/pile-up arrangement localized at an interface and a separate, orderly parallel-line arrangement along a slip trace elsewhere in the field. This supports that dislocation behavior differs by location/phase in this material (i.e., the two lamella types are not responding to strain in the same way), beyond what either observation shows alone.
+  The qualifications recorded on that earlier result:
+    - Does not identify which of the two ordered phases (L12 or B2) corresponds to the pile-up morphology and which corresponds to the straight-parallel-line morphology, since neither TEM description in A or B is diffraction-indexed to a phase and XRD is spatially unresolved
+    - A is based on one strain step and one lamella pair/one pile-up band, and B is drawn from a single imaged field of one slip trace, so neither the pile-up response nor the straight-line arrangement is shown to be representative of the broader microstructure
+    - No dislocation count, areal fraction, or density is reported for either observation, so the pairing gives two qualitative morphology descriptions, not a quantified comparison of defect density or its change with strain
+    - No shared strain-state or specimen context is given linking A and B (B carries no stated context), so it cannot be established that the two morphologies were observed at the same deformation stage rather than reflecting different loading points
+    - Cannot rule out that either morphology (pile-up band, or straight parallel lines) arose from local boundary/slip-trace geometry rather than an intrinsic difference in the two phases' slip behavior
+
+Observation B (None): Hardening rate drops from ~85 to ~14 GPa by 0.009, falls slowly to ~5 GPa by 0.058, then turns negative
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n10 -> n15 edge
+Panels: F2b
+
+What the paper concluded, for your reference as the key's author:
+  Hardening stages follow substructure: FCC-only planar slip (I), FCC dislocation accumulation (II), B2 slip and interphase strain localisation (III)
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

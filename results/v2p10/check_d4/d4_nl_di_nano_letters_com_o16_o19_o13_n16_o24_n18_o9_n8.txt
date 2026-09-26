@@ -1,0 +1,31 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the earlier result (retained crystalline PCO oxide phase, Co not driven to metallic state, and near-invariant SAXS pore-scale scattering through sodiation) and the MD oxidation-degree ranking (Na-Co3O4 ~36% versus Na-Co3S4 ~59% versus Li-Co3O4 ~91% at 2 ps, with Na-Co3O4 plateauing after 0.8 ps) jointly indicate that the structurally-confirmed minor/limited conversion seen experimentally in Na-Co3O4 corresponds to a comparatively lower, early-saturating degree of oxidation than in the Li-analog or the Na-sulfide analog. That is, the pair together support that Na-Co3O4's sodiation reactivity is intrinsically limited relative to these other two systems, giving a comparative (simulation-side) counterpart to the experimental (structure-side) finding of minor conversion with no pore-scale reorganization. Neither shows this alone: the earlier result alone says nothing about how Na-Co3O4's oxidation degree compares to other chemistries, and the MD ranking alone says nothing about whether the real material actually retains its pore-scale microstructure during sodiation.
+
+THE NEW MEASUREMENT
+Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Na-Co3O4 undergoes only intrinsically limited, early-saturating sodiation reactivity.
+2. [observation] Discharge capacity falls from ~870 mAh/g at cycle 1 to ~480 mAh/g at cycle 2.
+3. [observation] Discharge capacity falls further to ~70 mAh/g by cycle 40.
+4. [observation] The capacity fade observed over cycling is severe and progressive.
+5. [combined] The severe capacity fade cannot be attributed simply to extensive bulk chemical conversion of the oxide.
+6. [combined] The severe capacity fade cannot be attributed simply to loss or collapse of the oxide's pore-scale microstructure.
+7. [combined] Some contribution beyond the degree of oxide conversion and beyond pore-scale reorganization must be operating to produce the continued fade over 40 cycles.
+8. [input] The earlier result alone says nothing about capacity or its trajectory.
+9. [observation] The cycling numbers alone say nothing about whether the oxide's structure or conversion extent is what is changing.

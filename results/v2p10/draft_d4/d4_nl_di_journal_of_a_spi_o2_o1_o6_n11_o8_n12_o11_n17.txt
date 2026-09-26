@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the established phase/strain result (n11: Al2O3-YSZ is cubic with a large per-interval orientation change at 5 cycles that diminishes by 20 cycles, while YSZ is tetragonal with a steady, low 0.7-2.3 deg/interval change throughout) and the crack-network observation (n12: YSZ's crack network looks unchanged between the two micrograph views in the same field, F4b/F4c) converge on YSZ specifically: the diffraction-derived micro-strain proxy showing YSZ as low and stable across cycling is corroborated by a direct microstructural observation (unchanged crack network) pointing the same way. Neither piece alone supports this convergence -- n11 carries no crack/microstructure evidence, and n12 alone (an unchanged crack network in one field) has no strain or phase context establishing that this reflects genuine microstructural stability rather than an incidental, unmeasured feature.
+  The qualifications recorded on that earlier result:
+    - B (n12) as given reports only on YSZ; it says nothing about whether Al2O3-YSZ's cracks changed, so the pair cannot be used to compare crack behavior between the two coatings, only to corroborate YSZ's own strain-stability claim
+    - B is a qualitative visual comparison ('looks unchanged') in a single field of view, not a quantified crack length, density, or count, so it cannot be set against the numeric orientation-change rates from A on a shared scale -- the pairing is a co-occurrence, not a correlation
+    - No mechanism is established connecting the tetragonal phase or the low orientation-change rate to crack-network stability; A's own qualifications already note no mechanism for phase stabilization is given, and B adds no causal link
+    - A single field of view and two time points (before/after five cycles) is too limited a sample to generalize crack behavior across the coating; this supports a spot-check consistency, not a general relationship between strain magnitude and cracking
+    - A's phase fraction is uncharacterized quantitatively, so no dose-relationship between degree of tetragonality and degree of crack stability can be drawn
+
+Observation B (None): Coupon intact at 5 cycles; corners spalled at 10 cycles; spalled corners persist and grow slightly to 40 cycles
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n12 -> n17 edge
+Panels: F8
+
+What the paper concluded, for your reference as the key's author:
+  Al2O3-YSZ coating does not peel after 5 cycles but spalls most seriously between 5 and 10 thermal cycles
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

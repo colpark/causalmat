@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the earlier result (retained crystalline PCO oxide phase, Co not driven to metallic state, and near-invariant SAXS pore-scale scattering through sodiation) and the MD oxidation-degree ranking (Na-Co3O4 ~36% versus Na-Co3S4 ~59% versus Li-Co3O4 ~91% at 2 ps, with Na-Co3O4 plateauing after 0.8 ps) jointly indicate that the structurally-confirmed minor/limited conversion seen experimentally in Na-Co3O4 corresponds to a comparatively lower, early-saturating degree of oxidation than in the Li-analog or the Na-sulfide analog. That is, the pair together support that Na-Co3O4's sodiation reactivity is intrinsically limited relative to these other two systems, giving a comparative (simulation-side) counterpart to the experimental (structure-side) finding of minor conversion with no pore-scale reorganization. Neither shows this alone: the earlier result alone says nothing about how Na-Co3O4's oxidation degree compares to other chemistries, and the MD ranking alone says nothing about whether the real material actually retains its pore-scale microstructure during sodiation.
+  The qualifications recorded on that earlier result:
+    - Does not equate the 2 ps MD-simulated 'degree of oxidation' with the experimentally observed extent of chemical change over a full electrochemical cycle; these are different quantities on vastly different timescales (picoseconds vs. cycle-scale) and cannot be treated as the same measurement
+    - Does not establish that the cross-chemistry ranking (Li-Co3O4, Na-Co3S4, Na-Co3O4) causally explains the pore-scale scattering invariance seen by SAXS; it is a separate, comparative simulation result on different systems
+    - Does not establish that poor sodiation activity, rather than volume change, is the cause of capacity fading -- neither observation directly measures capacity or cycling performance; A concerns pore-scale microstructure invariance and B concerns a simulated oxidation-degree metric at 2 ps
+    - Does not explain the mechanistic basis for the early plateau (0.8 ps) in Na-Co3O4's oxidation degree, or link it to the small SAXS drop or modest XRD intensity loss noted earlier
+    - Carries forward all qualifications already recorded on the earlier result: no quantitative pore-volume/surface-area extent for the small SAXS drop, no explanation of what produces that drop, no absolute porosity value or evolution beyond 'barely changes', and no demonstrated (only consistent) causal link between oxide retention and pore-scale behavior
+
+Observation B (None): Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n18 -> n8 edge
+Panels: F2d
+
+What the paper concluded, for your reference as the key's author:
+  Na/PCO fades from ~870 (1st discharge) to ~70 mAh/g after 40 cycles at 0.1 C
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

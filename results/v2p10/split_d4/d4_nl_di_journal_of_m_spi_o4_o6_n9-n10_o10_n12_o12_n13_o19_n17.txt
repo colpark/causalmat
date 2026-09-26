@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the two results show that the transport optimum at x=0.01 is not confined to resistivity alone: the power factor also peaks at x=0.01 (~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, above both the lower x=0.005 doped value and the x=0 value of at most ~5), the same composition where resistivity was already noted to be lowest (~12-23 micro-ohm m range) even though Hall carrier concentration n_H rises monotonically across x=0.005-0.04. The pairing therefore reinforces, across a second transport quantity, that whatever sets the x=0.01 optimum is not simply the monotonic n_H increase from the Se-donor/E_F mechanism -- some composition-dependent factor besides carrier density must be responsible for both the resistivity minimum and the power factor maximum landing at the same x.
+
+THE NEW MEASUREMENT
+eta at Th=623 K: ~11.8% for x=0.01 vs ~9.5-10.6% for other x
+
+THE KEY'S PROPOSITION
+Read together with the established transport result (x=0.01 as the shared optimum for both resistivity minimum and power factor maximum, including a PF peak retained at 623 K), the calculated efficiency result extends that same composition-dependent optimum one step further: the leg conversion efficiency at Th=623 K also peaks at x=0.01 (~11.8% vs ~9.5-10.6% for other x). This shows the x=0.01 optimum is not confined to the transport quantities (resistivity, power factor) taken individually but carries through into the derived device-level efficiency calculated over the Tc=300K-Th=623K range, and it does so at the higher-temperature end (623 K) that the earlier result's qualifications had flagged as unconfirmed for optimum stability.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

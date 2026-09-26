@@ -34,11 +34,12 @@ from trace_kit_v2p7.derived_input import QUESTION  # noqa: E402
 # the same recipe runs on the depth-2 pairs and on the depth-3 next links; the
 # source file and an output suffix are the only difference.
 SRC = os.environ.get('V2P9_SRC', 'results/v2p9/pairs.json')
+OUT = os.environ.get('V2P9_OUT', 'results/v2p9')
 TAG = os.environ.get('V2P9_TAG', '')
 
-DRAFT = R('results/v2p9/draft' + TAG)
-SPLIT = R('results/v2p9/split' + TAG)
-CHECK = R('results/v2p9/check' + TAG)
+DRAFT = R(OUT + '/draft' + TAG)
+SPLIT = R(OUT + '/split' + TAG)
+CHECK = R(OUT + '/check' + TAG)
 
 
 def pairs():
@@ -76,7 +77,7 @@ def draft():
                      'out': os.path.join(DRAFT, x['item'] + '.out.txt')})
     d = json.load(open(R(SRC))); d['pairs_out'] = P
     json.dump(d, open(R(SRC), 'w'), indent=1)
-    json.dump(jobs, open(R('results/v2p9/draft_jobs%s.json' % TAG), 'w'), indent=1)
+    json.dump(jobs, open(R(OUT + '/draft_jobs%s.json' % TAG), 'w'), indent=1)
     print(f'{len(jobs)} draft prompts')
     return jobs
 
@@ -102,8 +103,8 @@ def tag():
         f = os.path.join(SPLIT, x['item'] + '.txt'); open(f, 'w').write(body)
         jobs.append({'id': x['item'], 'agent': 'net-writer', 'prompt': f,
                      'out': os.path.join(SPLIT, x['item'] + '.out.txt')})
-    json.dump(K, open(R('results/v2p9/keys%s.json' % TAG), 'w'), indent=1)
-    json.dump(jobs, open(R('results/v2p9/tag_jobs%s.json' % TAG), 'w'), indent=1)
+    json.dump(K, open(R(OUT + '/keys%s.json' % TAG), 'w'), indent=1)
+    json.dump(jobs, open(R(OUT + '/tag_jobs%s.json' % TAG), 'w'), indent=1)
     print(f'{len(jobs)} tag prompts from {len(K)} drafted keys of {len(pairs())} pairs')
     return jobs
 
@@ -132,7 +133,7 @@ def check():
         f = os.path.join(CHECK, x['item'] + '.txt'); open(f, 'w').write(body)
         jobs.append({'id': x['item'], 'agent': 'net-contrib', 'prompt': f,
                      'out': os.path.join(CHECK, x['item'] + '.out.txt')})
-    json.dump(jobs, open(R('results/v2p9/check_jobs%s.json' % TAG), 'w'), indent=1)
+    json.dump(jobs, open(R(OUT + '/check_jobs%s.json' % TAG), 'w'), indent=1)
     print(f'{len(jobs)} check prompts, {len(miss)} pairs with no usable split')
     return jobs
 
@@ -175,7 +176,7 @@ def collect():
            'per_paper_alive': dict(collections.Counter(
                v['paper'] for v in out.values() if v['alive'])),
            'items': out}
-    json.dump(res, open(R('results/v2p9/step2%s.json' % TAG), 'w'), indent=1)
+    json.dump(res, open(R(OUT + '/step2%s.json' % TAG), 'w'), indent=1)
     print(json.dumps({k: v for k, v in res.items()
                       if k not in ('items', 'per_paper_alive')}, indent=1))
     return res

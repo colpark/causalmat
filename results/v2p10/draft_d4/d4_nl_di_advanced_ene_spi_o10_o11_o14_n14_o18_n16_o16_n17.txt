@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the earlier co-occurrence result (nitrogen-spectral shift plus flatter/sparser zinc morphology in CnC HS vs. the dense sharp-platelet mat in C HS) and the nucleation-overpotential values (39 mV on CnC HS vs. 43 mV on C HS, from F4d) show that the sample with the lower nucleation overpotential is the very same sample that carries both the nitrogen-linked spectral shift and the flatter, more compact zinc morphology. This extends the established co-occurrence from two axes (spectral, morphological) to three: the nitrogen-chemistry difference, the morphology difference, and the nucleation-overpotential difference all track together across the same two-sample comparison (CnC HS vs. C HS).
+  The qualifications recorded on that earlier result:
+    - Does not show that the nitrogen chemical-environment change, or the flatter morphology, causes the lower nucleation overpotential (or vice versa); it only adds a third co-occurring variable to the same two-sample comparison.
+    - Does not rule out other structural, compositional, or textural differences between CnC HS and C HS (unrelated to nitrogen species or morphology) as the actual driver of the overpotential difference.
+    - Only two samples/values are compared (39 mV vs 43 mV on two initial discharge profiles), which supports an ordering (CnC HS lower than C HS) but not a quantitative relationship or trend.
+    - Inherits the earlier result's qualifications: the pyridinic/graphitic chemical-state labels and any Zn-N bond are interpretive, not established by the panels; no coverage, amount, or size is measured on the morphology side; the overpotential values are read only at nucleation on the initial cycle, not across cycling or current density.
+
+Observation B (None): C HS voltage spikes grow from ~2600 min and its trace ends near 4400 min at the 'C HS battery failure' arrow, while CnC HS stays within ~0.03 V to 7100 min
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n16 -> n17 edge
+Panels: F4b
+
+What the paper concluded, for your reference as the key's author:
+  CnC HS sustains ~200 plating/stripping cycles and >7000 min symmetric cycling, while C HS fails near 50 cycles and ~4400 min
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

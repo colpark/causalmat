@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together with the earlier mobility/PF result, the ZT measurement shows that the same low-Se-doping regime that raises mu_H, lowers rho, and lifts the 300 K power factor (PF from below 2 at x=0 to ~29 at x=0.01) also produces the series' highest 300 K thermal figure of merit, ZT~0.84 at x=0.005, approaching the n-Bi2Te3 reference (~0.88) and well above x=0.02-0.04 (0.63-0.69). So doping-driven mobility/PF enhancement co-occurs with a real ZT gain rather than a ZT loss. But the combination also shows the doping level that maximizes ZT (x=0.005) is not the one that maximizes PF (x=0.01, PF~29 vs ZT~0.78 there) or the one at which mu_H is highest (x=0.005-0.02, ~145-170 cm2/Vs, all lumped together). Because the ZT peak's location diverges from both the PF peak and the mobility plateau, the pairing cannot show that mobility or the PF gain is what sets the ZT ordering -- some factor not measured in either observation (e.g., thermal conductivity) must be operating to place the ZT peak at x=0.005 rather than x=0.01.
+
+THE NEW MEASUREMENT
+Bar chart: RT ZT 0.82 for this work vs 0.75, 0.70, 0.62, 0.32 for Refs 24, 22, 39, 40
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] The earlier dose-response result identifies x=0.005 as the study's own 300 K ZT peak, with ZT~0.84.
+2. [input] The x=0.005 composition is the best-performing point within this study's own series.
+3. [input] That composition still trails the n-Bi2Te3 reference value of ZT~0.88.
+4. [observation] The bar chart reports a 'this work' RT ZT value of ~0.82.
+5. [observation] The bar chart lists four literature comparators for Te/Se-doped Mg3(Sb,Bi)2 at 0.75, 0.70, 0.62, and 0.32.
+6. [observation] The this-work bar value (~0.82) is higher than all four literature comparator values.
+7. [combined] The 'this work' data point in the bar chart is the same x=0.005 composition singled out as the earlier result's ZT peak.
+8. [combined] The internally doping-optimized x=0.005 composition also outperforms the cited external literature for this materials family.

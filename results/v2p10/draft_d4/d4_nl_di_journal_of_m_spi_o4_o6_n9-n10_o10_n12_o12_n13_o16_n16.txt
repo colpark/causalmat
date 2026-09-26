@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/figure_of_merit that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the two results show that the transport optimum at x=0.01 is not confined to resistivity alone: the power factor also peaks at x=0.01 (~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, above both the lower x=0.005 doped value and the x=0 value of at most ~5), the same composition where resistivity was already noted to be lowest (~12-23 micro-ohm m range) even though Hall carrier concentration n_H rises monotonically across x=0.005-0.04. The pairing therefore reinforces, across a second transport quantity, that whatever sets the x=0.01 optimum is not simply the monotonic n_H increase from the Se-donor/E_F mechanism -- some composition-dependent factor besides carrier density must be responsible for both the resistivity minimum and the power factor maximum landing at the same x.
+  The qualifications recorded on that earlier result:
+    - Power factor PF combines Seebeck coefficient and resistivity (PF depends on 1/rho and on S), so a PF peak at x=0.01 could be produced entirely by the already-noted resistivity dip at x=0.01, with no independent contribution from Seebeck coefficient behavior; the two measurements are not independent corroboration in the strict sense.
+    - The combination does not identify what the non-n_H factor is -- mobility, scattering, or Seebeck coefficient variation with x -- it only shows that some such factor must be present at both x=0.01 measurements.
+    - Resistivity in the earlier result is reported at 300 K only, while the power factor series adds a 623 K point; the match in optimum location is only established at 300 K, and nothing here speaks to whether the same x=0.01 optimum, or its cause, is stable with temperature.
+    - The DFT+Hall mechanistic account underlying the earlier result remains a two-state (undoped vs one doped), 0 K snapshot that does not calculate n_H directly from bands; adding power factor data does not resolve that gap, it only adds a further transport quantity layered on top of it.
+    - The combination does not rule out other contributions (temperature-dependent scattering, defect states) to either the resistivity minimum or the power factor maximum beyond the carrier-density mechanism already qualified as non-exclusive.
+
+Observation B (None): ZT at 300 K: ~0.84 (x=0.005), ~0.78 (0.01), 0.63-0.69 (0.02-0.04); n-Bi2Te3 reference curve ~0.88
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n13 -> n16 edge
+Panels: F6a
+
+What the paper concluded, for your reference as the key's author:
+  Room-temperature ZT reaches ~0.82-0.84 for x=0.005, the highest in the series at 300 K
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

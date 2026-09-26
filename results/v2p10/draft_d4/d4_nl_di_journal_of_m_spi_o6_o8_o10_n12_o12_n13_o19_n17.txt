@@ -1,0 +1,55 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the earlier resistivity/mobility result (n12) and the power-factor measurement (n13) support that the PF peak at x=0.01 (~29 at 300 K, ~22 at 623 K), which clearly exceeds x=0.005 (lowest of the doped set) and x=0 (at most ~5), sits on the same favorable-resistivity trend that n12 established as carrier-concentration-driven and not offset by a mobility penalty. That is, the combination supports that the low-rho, mobility-preserved regime identified in n12 is consistent with, and helps account for, why doping raises PF well above the undoped value near x=0.01, rather than the PF rise being an artifact of resistivity moving in the wrong direction.
+  The qualifications recorded on that earlier result:
+    - n12's mu_H data cover only x=0.005-0.02 and x=0.04, not x=0.01 where B's PF peak and rho minimum occur, so the PF peak cannot be tied to a measured mobility value at that exact composition
+    - PF = S^2/rho depends on the Seebeck coefficient S, which n12 says nothing about; the combination cannot determine whether the PF peak reflects the resistivity/mobility behavior from n12, a favorable S at x=0.01, or both
+    - n12's mu_H comparison is against a heterogeneous literature set (different synthesis, microstructure, grain size), so any mobility-preserved contribution to the PF trend could reflect sample quality rather than the Se-doping process itself
+    - the pair does not establish the microscopic doping mechanism (Se on the Sb site) underlying either the resistivity trend or the PF trend
+    - B's PF is reported at both 300 K and 623 K, but n12's rho/mu_H/n_H trend is not established across that full temperature range, so the combination says nothing about why PF and its underlying resistivity behavior might differ with temperature
+    - only a few doping points are available in both n12 and B, so the combination supports an ordering/trend across x, not a fitted continuous relationship linking n_H, mu_H, rho, and PF
+
+Observation B (None): eta at Th=623 K: ~11.8% for x=0.01 vs ~9.5-10.6% for other x
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n13 -> n17 edge
+Panels: F7c
+
+What the paper concluded, for your reference as the key's author:
+  Calculated leg conversion efficiency reaches ~12% for x=0.01 at Th=623 K, Tc=300 K
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}
