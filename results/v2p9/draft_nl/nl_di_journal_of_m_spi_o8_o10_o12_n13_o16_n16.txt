@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/figure_of_merit that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together with the earlier 300 K result (Se doping raises mu_H while dropping rho, rather than trading mobility for conductivity), the power-factor data show that this same low-Se-doping regime also produces a large 300 K power-factor gain (PF rising from below 2 for x=0 to ~29 at x=0.01, still ~22 at 623 K), so the doping-driven conductivity/mobility enhancement co-occurs with, and is consistent with contributing to, an enhanced power factor rather than the doping instead sacrificing the Seebeck-conductivity balance. But the two pieces do not jointly show mobility is what drives the PF gain: the PF ordering (x=0.01 highest, x=0.005 lowest of the doped set) does not track the mobility ordering reported in the earlier result (mu_H already highest, ~145-170 cm2/Vs, at x=0.005-0.02), so the combination cannot pin the PF enhancement on the mobility mechanism specifically.
+  The qualifications recorded on that earlier result:
+    - PF = S^2*sigma combines the Seebeck coefficient with conductivity; no Seebeck value is given in either observation, so the combination cannot attribute the PF magnitude to the conductivity/mobility side versus a Seebeck-coefficient change
+    - The earlier result's own confound is not resolved here: only x=0.04 was verified 'at similar n_H'; x=0.01, the doping level with the peak power factor, is not one of the points checked against a carrier-density confound, so it is still unclear whether mobility or n_H sets the conductivity term feeding the PF at x=0.01
+    - Only a few discrete doping levels are compared in either panel (x=0, 0.005, 0.01, 0.04 for A; x=0, 0.005, 0.01 for B), so the pairing supports an ordering/co-occurrence, not a continuous or quantitative dose-response link between mobility and power factor
+    - The PF measurement adds a 623 K point that the mobility/resistivity result never addresses (confined to 300 K), so nothing about the 300 K mobility mechanism can be extended to explain the PF value at 623 K
+    - The PF ranking across doped samples (x=0.005 lowest of doped, x=0.01 highest) does not match the mobility ranking from the earlier result (x=0.005-0.02 all showing the highest mu_H, ~145-170 cm2/Vs), which weakens rather than confirms a direct mobility-to-PF link
+
+Observation B (None): ZT at 300 K: ~0.84 (x=0.005), ~0.78 (0.01), 0.63-0.69 (0.02-0.04); n-Bi2Te3 reference curve ~0.88
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n13 -> n16 edge
+Panels: F6a
+
+What the paper concluded, for your reference as the key's author:
+  Room-temperature ZT reaches ~0.82-0.84 for x=0.005, the highest in the series at 300 K
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the in vitro result (absorption at 808 nm drives concentration- and power-dependent photothermal heating in solution, water staying cold) and the in vivo tumour measurement (BNs-BSA drives tumour temperature to ~49 C by 5 min vs ~41 C for PBS under 808 nm light) support that the absorption-mediated photothermal conversion demonstrated in solution is exercised as a real functional heating effect at the tumour site in vivo: the material is not just an absorber/heater in a dish, it also raises tissue temperature above the no-nanomaterial (PBS) baseline when irradiated in the animal.
+  The qualifications recorded on that earlier result:
+    - The in vitro data are a concentration series (25/50/100/200 ug/mL) and a power series (0.5-1.5 W) with a 6-min spot temperature in solution; the in vivo data are a single two-arm comparison (BNs-BSA vs PBS) at one dose and one power, read at 5 min in tissue -- there is no in vivo concentration or power series, so the pair cannot establish a quantitative dose- or power-response relationship in vivo, only that heating occurs and exceeds the PBS control.
+    - The in vitro qualifications already noted (qualitative, not quantitative, link between absorbance and heat; no derivation of the ~19.4% conversion efficiency; scattering/convective contributions not excluded) still apply and are not resolved by adding the tumour reading.
+    - The in vivo comparison does not control for how much nanomaterial reaches or stays at the tumour; a larger temperature rise with BNs-BSA versus PBS could reflect either the material's intrinsic absorption-mediated photothermal conversion (as shown in solution) or simply that more absorbing material accumulated at the tumour site, or some mix of both -- the pairing cannot distinguish these.
+    - Tissue heat dissipation (perfusion, conduction) differs from a solution/dish setting, so the ~49 C vs ~41 C figures are not commensurate with the 6-min solution spot temperatures or the A/L slope; the two sides are different kinds of measurement taken in different media.
+
+Observation B (None): Individual curves: all five BNs-BSA+Lasers tumours stay at 0; four of five BNs-BSA+808 nm tumours regrow after ~day 14
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a a19 -> a14 edge
+Panels: F5d
+
+What the paper concluded, for your reference as the key's author:
+  BNs-BSA plus 660/808 nm lasers eradicates 4T1 tumours (100% inhibition and 54-day survival), beating PTT or PDT alone
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

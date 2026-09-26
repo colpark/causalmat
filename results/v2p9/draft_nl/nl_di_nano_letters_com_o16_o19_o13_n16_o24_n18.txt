@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about MEC/identification that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the earlier XRD/XANES result (crystalline PCO oxide phase largely retained, Co not driven to the metallic state on sodiation) and the SAXS observation (contours stay nearly straight, I(q) overlapping through the cycle apart from a small drop at ~0.03-0.1 A-1 at 0.11/0.02 V) jointly support that the minor chemical/structural change PCO undergoes on sodiation is not accompanied by any substantial reorganization of pore-scale microstructure. Because a conversion-type reduction to metallic Co would be expected to generate new particle/void interfaces and hence measurable SAXS contrast changes, the near-invariance of the SAXS profile is consistent with, and reinforces, the XRD/XANES conclusion that no such reduction occurs; conversely, the retained crystallinity and oxidized Co signature give a structural/chemical basis for why the pore-scale scattering pattern stays largely unchanged. Neither piece alone shows this: XRD/XANES alone says nothing about pore-level microstructure, and the SAXS trace alone would not tell you whether an underlying chemical/oxidation-state change was occurring beneath an unchanged pore network.
+  The qualifications recorded on that earlier result:
+    - Does not establish the quantitative extent of any pore-structure change (e.g., a pore-volume or surface-area fraction) associated with the small SAXS drop at 0.11/0.02 V
+    - Does not establish what structurally produces the small SAXS drop at ~0.03-0.1 A-1, or whether it is related to the same process underlying the modest XRD intensity loss noted in observation A
+    - Does not establish an absolute porosity level or its evolution beyond 'barely changes' across the first cycle
+    - Does not establish a mechanistic link between the retained oxide/crystalline state and the pore-scale scattering behavior; the correspondence is consistent, not demonstrated as causal
+
+Observation B (None): Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n16 -> n18 edge
+Panels: F6d
+
+What the paper concluded, for your reference as the key's author:
+  Na capacity fading stems from poor sodiation activity (minor conversion), not from volume change
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

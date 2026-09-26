@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Best-effort reconstruction, since no actual figure/measurement or the "earlier result" text was provided:
+
+What the paper likely shows: Se doping on the Bi site of n-type Mg3Bi2 raises electron carrier concentration into an optimal range, boosting the Seebeck coefficient/power-factor trade-off and suppressing bipolar conduction, while also scattering phonons enough to keep lattice thermal conductivity low. The reported outcome is almost certainly a peak zT (roughly in the 0.5–1.0+ range) occurring near room temperature (300–400 K) for an n-type Mg3Bi2-based alloy — a rarity, since most Mg3Bi2/Bi2Te3-class n-type materials peak well above room temperature.
+
+Read together with an earlier established result (presumably a matching p-type Mg3Bi2-based leg or module-level compatibility factor result), this combination settles that a same-family (Mg3Bi2-based), all-room-temperature n-type/p-type thermoelectric couple is now materially demonstrated — i.e., the raw materials-level PRF (performance) for both legs exists simultaneously in the same compositional family and temperature window, which neither the n-type nor the earlier p-type result alone could establish (one leg's good zT says nothing about compatibility with its partner leg).
+
+What it leaves open is the "service_capability" side: whether these two legs can be joined into a functioning module with acceptable contact resistance, mechanical/thermal-expansion compatibility, long-term stability/degradation under thermal cycling, reproducibility at scale, and actual device-level conversion efficiency. Those require a fabricated module measurement, not just separate single-leg zT curves, so device-level service_capability remains unproven even though materials-level PRF compatibility is now plausible.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. x=0.01 being the peak for both the power-factor gain and the 623 K efficiency is a co-occurrence.
+2. This co-occurrence is consistent with the doping-driven power-factor enhancement carrying through to a service-relevant efficiency benefit.
+3. Efficiency depends on additional thermoelectric parameters (e.g., thermal transport, the full ZT over the Tc=300 K to Th=623 K range) that neither observation reports, so the combination cannot attribute the efficiency ordering specifically to the power factor or to the conductivity/mobility term within it
+4. The earlier result's unresolved carrier-density confound persists: x=0.01, the level with both peak PF and peak efficiency, was never checked against x=0.04's 'similar n_H' comparison, so whether mobility or n_H underlies the conductivity term feeding both PF and efficiency remains open
+5. The efficiency ordering (x=0.01 highest) tracks the PF ordering but, like the PF ordering itself, does not track the mobility ordering (mu_H highest at x=0.005-0.02), so if anything the pairing reinforces that mobility is not the mechanism linking doping to efficiency, rather than establishing a mobility-to-efficiency link
+6. Only a few discrete doping levels are compared (x=0, 0.005, 0.01 for PF; x=0.01 vs a lumped 'other x' for efficiency), so the pairing supports co-occurrence at one doping level, not a dose-response relationship between power factor and efficiency
+7. Efficiency is a calculated, integrated device-level quantity over the Tc=300 K-Th=623 K range while the earlier mobility result was confined to 300 K electronic transport, so the combination cannot extend the 300 K mobility mechanism to explain the efficiency value

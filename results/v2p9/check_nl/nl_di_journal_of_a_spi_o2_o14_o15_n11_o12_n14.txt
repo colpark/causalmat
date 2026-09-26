@@ -1,0 +1,33 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Taken together, the established result (Observation A: XRD pattern F2b showing only starting phases alpha-Al2O3, cBN, ZrO2 present in S2 from 1550-1700 C, no new reflections) and the new SEM observation (F7b: a protruding cBN grain beside a deep ~2 um socket, with Al2O3 grains showing clean faceted faces) together supply, for the first time, a single-sample (S2) link between bulk phase identity and interfacial morphology that the earlier result explicitly lacked. They show that within S2, the absence of any new reaction phase co-occurs with a debonded, pulled-out cBN/binder interface (grain plus matching socket), while the surrounding Al2O3 grains themselves retain clean, well-faceted surfaces. This fills the specific gap flagged in the earlier result -- that no SEM interface data existed for S2 -- and lets the unreacted phase set be paired with its own interface morphology rather than borrowing S1's SEM panel.
+
+THE NEW MEASUREMENT
+K_IC: S1 ~2.4, 2.9, 5.6; S3 ~3.7, 3.95, 3.95; S2 ~2.1, 2.0, 3.0, 3.5 MPa m^1/2
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] S2 XRD across 1550-1700 C shows only starting phases alpha-Al2O3, cBN, ZrO2, with no new reflections
+2. [input] S2 SEM shows a debonded, pulled-out cBN grain beside a matching ~2 um socket
+3. [input] S2 SEM shows the surrounding Al2O3 grains with otherwise clean, faceted surfaces
+4. [observation] S2 K_IC values are at most ~3.5 MPa m^1/2
+5. [observation] S1 K_IC reaches up to ~5.6 MPa m^1/2
+6. [observation] S3 K_IC ranges ~3.7-3.95 MPa m^1/2
+7. [observation] Among S1, S2, and S3, S2 has the lowest measured toughness
+8. [combined] The sample with the lowest measured toughness is the same sample for which the unreacted-phase-set-plus-debonded-interface picture was already established
+9. [combined] This pairing supplies, for S2 only, a joint phase-identity, interface-morphology, and toughness account
+10. [observation] The K_IC numbers alone give only a bare ranking, without any microstructural account
+11. [input] The XRD+SEM pairing alone is silent on mechanical property

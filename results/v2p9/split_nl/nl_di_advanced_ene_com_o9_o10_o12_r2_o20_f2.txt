@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Because the STEM-EDS/FTIR pairing already establishes that the particle is a single, homogeneous compound (not a mixture of separate phases), the three anodic/cathodic peak pairs seen by CV near 0.55/0.52, 0.89/0.87, and 1.08/1.07 V, persisting over 20 cycles, can be attributed to that one homogeneous phase itself rather than to a mixture of distinct impurity or secondary phases each contributing its own redox signal. Combined, the two results support that this single compound undergoes multiple, reversible redox events at three distinct potentials.
+
+THE NEW MEASUREMENT
+Discharge capacity falls stepwise from ~94-98 at 55 to ~54 mAh/g at 3520 mA/g; returns to ~78 at 55 mA/g
+
+THE KEY'S PROPOSITION
+Because the earlier CV result already attributes the three reversible redox couples (0.55/0.52, 0.89/0.87, 1.08/1.07 V) to the single homogeneous phase itself, the rate-capability trace (capacity falling stepwise from ~94-98 mAh/g at 55 mA/g to ~54 mAh/g at 3520 mA/g, then returning to ~78 mAh/g at 55 mA/g) can be read as capacity delivered and substantially recovered by that same single-phase, multi-redox chemistry, rather than by a secondary or impurity phase that might drop out under high-rate cycling. Together the two support that the phase's reversible redox activity survives being cycled through the high-rate steps, since capacity comes back on return to 55 mA/g instead of collapsing.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

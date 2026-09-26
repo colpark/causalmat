@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+The F2d cycling curve (870 mAh/g cycle 1, dropping to ~480 by cycle 2 and ~70 by cycle 40, at 0.1C where 1C=890 mAh/g) supplies the missing electrochemical-timescale data that A (first-cycle structural retention) and B (ps-scale, ~36% oxidation-degree plateau) could each only gesture toward but not connect. Combined with the earlier settled point, this measurement supports the following: the severe capacity drop already visible between cycle 1 and cycle 2 is consistent with, and gives real-world electrochemical weight to, the "poor sodiation reactivity" attribution — a large fraction of the nominal capacity is not being delivered even though the electrode's lattice/pore structure survived the first cycle intact (A), matching the AIMD finding that conversion stalls near ~36% oxidation within a picosecond (B). The first-cycle value (870) plausibly includes irreversible side-reaction/SEI capacity, while the much lower cycle-2 value more closely reflects the reversibly accessible, reactivity-limited capacity — bridging B's short-timescale plateau to an observable early-cycle number.
+
+What this combination still does not settle: whether the continued decline from cycle 2 (~480) down to cycle 40 (~70) reflects the same intrinsic reactivity limitation persisting cycle after cycle, or a different/additional degradation mode (progressive structural breakdown, particle isolation, electrolyte decomposition) taking over after the first cycle, since A's structural check and B's simulation both cover only the initial cycle/picosecond window. It also does not quantitatively map the 36% oxidation figure onto any specific mAh/g value, nor address surface-versus-bulk origin.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The Na capacity trajectory is consistent with the earlier attribution of intact structure plus intrinsically limited sodiation reactivity.
+2. A steep early capacity drop matches an early-onset, intrinsically limited conversion reaction rather than a loss that builds up gradually.
+3. The observed fade pattern is compatible with a reactivity-limited origin rather than requiring a slowly accumulating structural cause.
+4. The capacity-fade curve by itself does not distinguish reactivity-limited from structural causes -- that attribution rests entirely on the earlier A+B reasoning, so this step only checks consistency, it does not independently re-derive the attribution
+5. B's oxidation-degree evidence covers a 2 ps AIMD window plateauing at 0.8 ps, while the capacity data extends to cycle 40 of real cycling, so the pair does not establish that the same short-timescale reactivity limit is what continues to drive the further drop from ~480 (cycle 2) to ~70 mAh/g (cycle 40) -- later-cycle fade could involve additional or different degradation processes
+6. the correspondence is qualitative timing/magnitude agreement, not a quantitative link tying a specific oxidation-degree value to a specific mAh/g loss
+7. the cation/host-lattice confound from the earlier result carries over: nothing here isolates whether the limited reactivity is Na-specific or tied to the Co3O4 host lattice
+8. surface-versus-bulk origin of either the limited reaction or the retained structure remains unresolved
+9. this remains a correspondence between two consistent observations, not a demonstrated shared causal mechanism explaining why the reaction stalls and why capacity falls at this particular rate

@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Both panels are qualitative plate-culture photos, not quantitative counts. Panel F10a (S. aureus) and F10b (E. coli) each show a 2x5 grid: rows Dark/Light, columns Control/TiO2/Er0.5Ce0.1Ti-O/Er0.5Ce0.2Ti-O/Er0.5Ce0.3Ti-O.
+
+What the images support: under Dark conditions, Control and TiO2 plates show confluent/streaked bacterial lawns for both strains, and the doped Er-Ce-Ti-O plates in the dark do appear visibly less dense than Control/TiO2 dark plates (consistent with "dark plates stay covered, sparser for doped samples" — sparser relative to controls, but still substantially covered, not clean). Under simulated-sunlight (Light), colony counts drop sharply across all TiO2-containing samples relative to Control, and among the doped compositions, Er0.5Ce0.2Ti-O shows the fewest, most sparsely scattered colonies for both S. aureus and E. coli — visibly less than Er0.5Ce0.1Ti-O and Er0.5Ce0.3Ti-O under light. This supports a conclusion that the Er0.5Ce0.2Ti-O composition delivers the strongest light-activated antibacterial service capability among the doped variants tested, and that antibacterial action is light-dependent (dark plates retain much more growth than light plates for the same sample) rather than a simple contact-killing effect.
+
+What it leaves open: there is no CFU quantification, replicate count, or statistical test visible in the crops — "fewest" and "sparser" are visual impressions only, not measured reduction percentages or log-kill values. The mechanism (ROS generation, ion release, etc.) is not shown. Why 0.2 Ce outperforms 0.3 Ce (a non-monotonic dose effect) is not addressed by these images. Durability, reusability, and performance beyond a single 20-minute exposure are untested here.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The TiO2/Er0.5Ce0.2 endpoint contrast tracks in the same direction across this antibacterial-killing metric as it did for PL and degradation.
+2. The antibacterial-killing metric is a third, independent performance metric relative to PL and degradation.
+3. This light-dependent antibacterial pattern is consistent with the earlier PL/degradation pattern rather than an unrelated effect.
+4. The extension is still confined to the same two endpoint samples (TiO2, Er0.5Ce0.2Ti-O); the antibacterial observation does not report where Er0.5Ti-O, Ce0.1, or Ce0.3 fall, so the full four/five-sample ranking is not checked, only the two endpoints already used in the earlier result
+5. The comparison now spans three different kinds of quantity -- a qualitative three-point PL ordering, a cumulative degradation percentage over 20/40/60 min, and a colony-count/coverage comparison between light and dark plates -- so matching directions across all three shows the association holding at these endpoints, not that any one measurement causes another
+6. The light-vs-dark colony contrast supports a light-driven mechanism in a general sense but does not measure charge transfer resistance or photocurrent, so no specific mechanistic pathway from the PL indicator through reduced recombination to bacterial killing is demonstrated
+7. EDS still cannot distinguish Er3+ from a Ce3+/Ce4+ mixture, so even with the antibacterial result added, which dopant ion is responsible for the improved performance remains unresolved

@@ -1,0 +1,29 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together with the earlier 300 K result (Se doping raises mu_H while dropping rho, rather than trading mobility for conductivity), the power-factor data show that this same low-Se-doping regime also produces a large 300 K power-factor gain (PF rising from below 2 for x=0 to ~29 at x=0.01, still ~22 at 623 K), so the doping-driven conductivity/mobility enhancement co-occurs with, and is consistent with contributing to, an enhanced power factor rather than the doping instead sacrificing the Seebeck-conductivity balance. But the two pieces do not jointly show mobility is what drives the PF gain: the PF ordering (x=0.01 highest, x=0.005 lowest of the doped set) does not track the mobility ordering reported in the earlier result (mu_H already highest, ~145-170 cm2/Vs, at x=0.005-0.02), so the combination cannot pin the PF enhancement on the mobility mechanism specifically.
+
+THE NEW MEASUREMENT
+eta at Th=623 K: ~11.8% for x=0.01 vs ~9.5-10.6% for other x
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] x=0.01 is the doping level with the largest 300 K power-factor gain.
+2. [input] x=0.01 has the highest 623 K power factor, ~22.
+3. [observation] x=0.01 has the highest calculated efficiency at Th=623 K, ~11.8%.
+4. [observation] The other doping levels have efficiencies of ~9.5-10.6% at Th=623 K.
+5. [combined] x=0.01 being the peak for both the power-factor gain and the 623 K efficiency is a co-occurrence.
+6. [combined] This co-occurrence is consistent with the doping-driven power-factor enhancement carrying through to a service-relevant efficiency benefit.
+7. [combined] This rules out the PF gain being an artifact confined to the 300 K electronic-transport measurement with no bearing on device-level performance.

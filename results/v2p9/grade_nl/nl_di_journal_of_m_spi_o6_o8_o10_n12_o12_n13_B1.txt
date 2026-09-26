@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F5c (power factor vs T) shows: x=0 lowest throughout (~2 to ~5 µW/cm·K²); x=0.005 next-lowest of the doped set; x=0.01 highest at all T (~29 at 300K, ~22 at 623K); x=0.02 and x=0.04 intermediate. All doped curves fall with increasing T; the undoped curve rises with T.
+
+Read together with the established rho/n_H/mu_H result, this settles that the same doping-driven mechanism (rising n_H with no compensating mobility penalty, giving the large rho drop) also shows up as a large, monotonic-in-composition gain in power factor: every doped sample sits far above x=0 in PF, and the composition (x=0.01) that the earlier result flagged as the rho minimum is exactly the composition with the highest PF. That is new — neither the rho/mobility trend alone nor the PF panel alone ties the conductivity benefit of doping to the actual thermoelectric output metric; together they support that Se doping's conductivity enhancement (not offset by a mobility or Seebeck collapse) is what produces the PF gain, and that its temperature dependence (doped PF falling with T, undoped PF rising with T) mirrors the previously noted opposite rho-vs-T behavior of doped versus undoped samples.
+
+What it leaves open: no Seebeck coefficient data are shown here, so it cannot be confirmed that rho (not S) is driving the PF trend, nor can the PF peak at x=0.01 be pinned to a measured mu_H value there (mu_H data don't cover x=0.01, per the earlier qualification). The doping mechanism (Se on Sb site) is still not established, the mu_H comparison is still against a heterogeneous literature baseline, and the reason doped-vs-undoped rho/PF diverge with temperature remains unexplained by either measurement alone or in combination.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The PF peak at x=0.01 sits on the same favorable-resistivity trend that n12 established
+2. The low-rho, mobility-preserved regime identified in n12 helps account for why doping raises PF well above the undoped value near x=0.01
+3. The PF rise near x=0.01 is not an artifact of resistivity moving in the wrong direction
+4. n12's mu_H data cover only x=0.005-0.02 and x=0.04, not x=0.01 where B's PF peak and rho minimum occur, so the PF peak cannot be tied to a measured mobility value at that exact composition
+5. PF = S^2/rho depends on the Seebeck coefficient S, which n12 says nothing about; the combination cannot determine whether the PF peak reflects the resistivity/mobility behavior from n12, a favorable S at x=0.01, or both
+6. n12's mu_H comparison is against a heterogeneous literature set (different synthesis, microstructure, grain size), so any mobility-preserved contribution to the PF trend could reflect sample quality rather than the Se-doping process itself
+7. the pair does not establish the microscopic doping mechanism (Se on the Sb site) underlying either the resistivity trend or the PF trend
+8. B's PF is reported at both 300 K and 623 K, but n12's rho/mu_H/n_H trend is not established across that full temperature range, so the combination says nothing about why PF and its underlying resistivity behavior might differ with temperature
+9. only a few doping points are available in both n12 and B, so the combination supports an ordering/trend across x, not a fitted continuous relationship linking n_H, mu_H, rho, and PF

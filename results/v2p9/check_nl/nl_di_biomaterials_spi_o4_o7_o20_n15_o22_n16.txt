@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the two pieces let us locate the release measurement within the known structural state of that specific sample: the 2Co material used for the release curve is the one A characterizes as having intermediate mesoporous degradation (XRD peak height ~74000, N2 uptake ~5.6 mmol/g -- reduced from MBG but well above the near-background 5Co level). So the pairing permits saying that a sample with partially, but not maximally, degraded order/porosity is still able to sustain substantial ampicillin release, rising through ~340 ug (8 h), ~670 ug (24 h), ~780 ug (72 h) to a ~795 ug plateau (168 h). That is the extent of what combining them supports: a contextual pairing of 'how degraded' with 'how much/how long it released,' not a demonstrated link between the two.
+
+THE NEW MEASUREMENT
+Relative survival with Scaffolds+Ampicillin ~105, ~81, ~52% at days 1, 3, 7 vs blank 100 and drug-free scaffolds 110-118%
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] 2Co-MBG is the sample characterized as having intermediate structural degradation (mesoporous order and porosity reduced from MBG but above near-background 5Co)
+2. [input] 2Co-MBG's cumulative ampicillin release rises from about 340 ug at 8 h to a plateau of about 795 ug by 168 h
+3. [observation] Scaffolds+Ampicillin bacterial survival falls to about 105%, 81%, and 52% at days 1, 3, and 7
+4. [observation] Blank survival is about 100% and drug-free scaffold survival is about 110-118% over the same days
+5. [observation] The declining Scaffolds+Ampicillin survival trend is distinct from the drug-free scaffold's flat-to-elevated survival trend
+6. [combined] Over roughly the same time window in which ampicillin is cumulatively released from 2Co-MBG, bacterial survival declines
+7. [combined] The sustained release documented for 2Co-MBG is temporally associated with the antibacterial effect recorded for the same loaded-scaffold condition
+8. [combined] The release profile is contextually consistent with, but not a demonstrated causal link to, the antibacterial effect

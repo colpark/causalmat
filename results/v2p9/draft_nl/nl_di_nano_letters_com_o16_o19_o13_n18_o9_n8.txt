@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Combined with the earlier result that PCO's crystalline oxide phase is retained on sodiation and Co is not reduced to metallic state (XRD + XANES), the Na SAXS observation that contours stay nearly straight and I(q) curves overlap through discharge/charge (apart from a small drop at ~0.03-0.1 A^-1 at 0.11/0.02 V) jointly indicates that sodiation of PCO produces neither an appreciable metallic-Co-forming reduction nor an appreciable volume/morphology change. Together these rule out both a chemical-reduction pathway and a volume-change (mechanical) pathway as drivers of Na capacity fading, leaving the fading consistent with limited/poor sodiation (conversion) activity of the oxide rather than volume-change-induced degradation.
+  The qualifications recorded on that earlier result:
+    - Does not quantify the fraction of Co reduced/oxidized or the extent of the modest XRD intensity loss (carried over from the earlier result)
+    - Does not quantify the magnitude of the small SAXS drop at ~0.03-0.1 A^-1 in terms of actual volume/morphology change, nor its physical origin
+    - Does not establish the mechanism by which sodiation activity is limited (why conversion is minor)
+    - Does not independently explain whether the small SAXS drop and the modest XRD intensity loss share a common structural origin
+    - Neither observation alone supports the joint conclusion: XRD/XANES alone leaves open whether SAXS-scale volume or morphology changes (e.g., pulverization) could still drive fading; SAXS alone leaves open whether chemical reduction to metallic Co is occurring
+
+Observation B (None): Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n18 -> n8 edge
+Panels: F2d
+
+What the paper concluded, for your reference as the key's author:
+  Na/PCO fades from ~870 (1st discharge) to ~70 mAh/g after 40 cycles at 0.1 C
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

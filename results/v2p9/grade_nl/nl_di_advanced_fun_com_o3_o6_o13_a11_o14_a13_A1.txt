@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+The IR panels (F3e, F3g) show only qualitative thermal-image color maps over a 6-min irradiation window, not extracted numeric temperature-time traces.
+
+What this measurement supports: a clear, monotonic dose-response photothermal effect. In F3e, the hot spot (yellow/red core) grows larger and more intense with increasing concentration in the fixed order 200 > 100 > 50 > 25 µg/mL, while the water control stays blue/cold throughout all 6 timepoints. In F3g, at fixed (200 µg/mL) concentration, the hot spot similarly intensifies with increasing 808 nm laser power density from 0.5 to 1.5 W. Together these two panels justify the conclusion that the material is a genuine NIR (808 nm) photothermal agent — it converts absorbed light to heat, the water blank rules out laser-only heating of the medium, and the heating response scales positively and reproducibly with both material dose and irradiance. This is solid qualitative evidence of photothermal responsiveness (PRP) and dose/power dependence.
+
+What it leaves open: these are color-coded IR snapshots, not calibrated temperature-vs-time curves with numbers, error bars, or replicates, so no quantitative photothermal conversion efficiency (η) can be derived from these two panels alone. There's no photostability data (repeated laser on/off cycles), no wavelength-selectivity control, no concentration/power values below 25 µg/mL or above 1.5 W to bound the dose-response, and no link to actual therapeutic (PTT) efficacy, cytotoxicity, or in vivo outcome. So the panels establish that photothermal response exists and scales with dose/power, but not its magnitude, efficiency, durability, or downstream therapeutic value.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The concentration-proportional NIR absorption already attributed to the bulk two-phase material is what drives the observed photothermal heating.
+2. The material that absorbs 808 nm light proportionally to its mass concentration is also the thing generating heat proportionally to that same concentration.
+3. Does not identify which phase or interface (metallic Bi, Bi2O3, or their interface) converts the absorbed light into heat -- this repeats, at the photothermal stage, the same phase-attribution gap the earlier result already flagged for absorption itself
+4. Does not establish a quantitative photothermal conversion efficiency; the temperature-rise pattern shows heating scales with concentration and power but supplies no basis for computing a numeric conversion efficiency from these two observations alone
+5. The two sides are different kinds of quantity: A is a proportionality coefficient (mass extinction, a rate-like optical property) while B is an endpoint temperature reached after a fixed 6-minute irradiation (a cumulative/state outcome) -- matching trends in each does not by itself prove the absorption event is mechanistically what produces the measured heat, only that both track concentration and (for B) power in the expected direction
+6. Carries forward the earlier result's own caveat that bulk XRD/TEM consistency and bulk optical proportionality are correlational, not spatially or quantitatively linked to any single phase or particle

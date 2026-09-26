@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Putting the established phase identification (Observation A: YSZ is predominantly tetragonal zirconia, Al2O3-YSZ is cubic zirconia, corroborated by diagnostic peak-shape detail) together with the orientation-change measurements (Observation B: Al2O3-YSZ shows ~4.3-11 deg change per interval at 5 cycles falling to ~1 deg by 20 cycles, versus YSZ's steady 0.7-2.3 deg throughout) shows that the two coatings, already distinguished by crystal phase, also diverge sharply in how their orientation change (a micro-strain proxy) evolves over thermal cycling: the cubic-phase coating (Al2O3-YSZ) starts with much larger per-interval change that diminishes with cycling, while the tetragonal-phase coating (YSZ) remains comparatively low and stable throughout. The combination thus supports that the phase difference established in A co-occurs with a distinctly different, evolving micro-strain response captured in B -- a link neither observation shows by itself, since A gives no strain/cycling data and B alone carries no phase context to explain why the two coatings' strain behavior differs.
+
+THE NEW MEASUREMENT
+In Al2O3-YSZ the boxed band gains longer, linked cracks and a wide horizontal crack appears near the bottom in the second view
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Al2O3-YSZ (cubic phase) shows large per-interval orientation change, ~4.3-11 deg at 5 cycles falling to ~1 deg by 20 cycles
+2. [input] YSZ (tetragonal phase) shows steady per-interval orientation change of 0.7-2.3 deg throughout cycling
+3. [observation] Al2O3-YSZ's boxed band gains longer, linked cracks after cycling
+4. [observation] A wide horizontal crack appears near the bottom of Al2O3-YSZ in the second view
+5. [combined] The coating exhibiting the large, decaying micro-strain signature (Al2O3-YSZ) is the same coating that develops connected, propagating cracks
+6. [combined] The coating with steady low strain (YSZ) shows no such crack change
+7. [combined] The micro-strain evolution pattern captured by orientation-change tracks alongside visible microstructural crack damage within the same material
+8. [combined] Neither piece shows this link alone, since the strain-rate data carries no crack/microstructure information and the crack images carry no phase or strain-rate context

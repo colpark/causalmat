@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Because XRD and Raman together already establish that the sample is a majority hexagonal-Bi phase with only a minor, secondary Bi2O3 phase (mutually consistent, not conflicting), the linear NIR absorbance result (A/L vs. concentration at 808 nm, R2 = 0.9999, alpha = 6.4 L g-1 cm-1) can be attributed to this phase-identified bismuthene material as a whole: the strong, reproducible, concentration-proportional NIR absorption is a property of the same Bi-dominant sample whose composition was just fixed, supporting that this bismuthene material possesses a strong, quantifiable NIR extinction suitable for downstream (e.g. photothermal-type) use.
+  The qualifications recorded on that earlier result:
+    - Does not establish which phase produces the absorption -- since the earlier result explicitly leaves the spatial arrangement of Bi and Bi2O3 undetermined (heterojunction vs. separate/non-contacting phases), the linear alpha=6.4 L g-1 cm-1 cannot be assigned to the majority Bi phase alone versus a contribution from the minor Bi2O3 phase.
+    - Does not establish morphology or size effects on absorption -- neither technique gave nanoflake/nanosheet dimensions, so no size-dependent explanation of the extinction coefficient is supported.
+    - Does not quantify how much Bi2O3 is present (only a single (321) peak plus an absence in Raman), so any claim that the oxide is negligible for the optical property is unproven, only that it is a minor trace phase.
+    - Does not establish photothermal conversion, heat generation, or any mechanism beyond linear optical absorbance -- alpha is an extinction/absorbance-per-concentration value, not a measure of energy conversion or in-use performance.
+
+Observation B (None): Linear -ln(theta) vs time fit gives tau_s = 133.4 s and eta = 19.4%
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a a11 -> a13 edge
+Panels: F3h
+
+What the paper concluded, for your reference as the key's author:
+  Photothermal conversion at 808 nm with efficiency ~19.4%, heating rising with concentration and power density
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

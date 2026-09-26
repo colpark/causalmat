@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+This measurement supports a single connected picture linking structure, electronic structure, and transport: Se donor doping raises E_F (per DFT+Hall mechanistic account) so that M/K/L band minima approach E_F while Gamma stays ~0.35-0.4 eV higher, plausibly driving the Hall carrier concentration up from ~0.5e19 (x=0) to 1.7-3.3e19 cm-3 (x=0.005-0.04, 300 K); the accompanying resistivity drop from ~650 micro-ohm m to ~12-23 micro-ohm m over the same series is consistent with, and can be read as the electrical-transport corollary of, that same carrier-density rise. So the conclusion justified is: doping-driven E_F shift and carrier-density increase are qualitatively consistent with, and help explain the order of magnitude of, the observed resistivity collapse -- not two unrelated observations.
+
+What it leaves open is substantial. First, resistivity is lowest near x=0.01 while n_H rises monotonically through x=0.04, so carrier density alone cannot set the resistivity value across the full series -- mobility or scattering must also vary with x, and that variation is unaddressed. Second, since resistivity depends on both n and mobility, and this result only covers the n_H mechanism, the magnitude of the rho drop cannot be attributed to carrier density alone. Third, the qualitative rho(T) reversal -- doped samples rising with T, undoped falling -- is not explained by the carrier-density mechanism. Fourth, the DFT comparison is a 0 K two-state snapshot (undoped vs. one doped composition), not a five-point series, and does not directly calculate n_H from the bands, so the DFT-to-Hall correspondence remains unresolved. Finally, other contributors (temperature-dependent scattering, defect states) to the resistivity drop are not ruled out.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The resistivity minimum (~12-23 micro-ohm m range) was already noted at composition x=0.01, the same composition where the new power-factor peak lands.
+2. The power-factor result reinforces, across a second transport quantity, that the x=0.01 optimum is not simply explained by the monotonic n_H increase from the Se-donor/E_F mechanism.
+3. Some composition-dependent factor besides carrier density must be responsible for both the resistivity minimum and the power-factor maximum landing at the same x.
+4. Power factor PF combines Seebeck coefficient and resistivity (PF depends on 1/rho and on S), so a PF peak at x=0.01 could be produced entirely by the already-noted resistivity dip at x=0.01, with no independent contribution from Seebeck coefficient behavior; the two measurements are not independent corroboration in the strict sense.
+5. The combination does not identify what the non-n_H factor is -- mobility, scattering, or Seebeck coefficient variation with x -- it only shows that some such factor must be present at both x=0.01 measurements.
+6. Resistivity in the earlier result is reported at 300 K only, while the power factor series adds a 623 K point; the match in optimum location is only established at 300 K, and nothing here speaks to whether the same x=0.01 optimum, or its cause, is stable with temperature.
+7. The DFT+Hall mechanistic account underlying the earlier result remains a two-state (undoped vs one doped), 0 K snapshot that does not calculate n_H directly from bands; adding power factor data does not resolve that gap, it only adds a further transport quantity layered on top of it.
+8. The combination does not rule out other contributions (temperature-dependent scattering, defect states) to either the resistivity minimum or the power factor maximum beyond the carrier-density mechanism already qualified as non-exclusive.

@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together, the established result (boxed cBN grains and SiAlON matrix regions show cleaved facets with no gaps at their boundaries, co-located with the bulk XRD-identified SiAlON phase) and the panel F7b observation (a different cBN grain elsewhere on the fracture surface protrudes beside a deep ~2 um socket, with adjacent Al2O3 grains showing plain faceted faces) together show that interfacial bonding is not uniform across this one sample: some cBN grains sit in apparently gap-free, well-bonded boundaries while at least one other cBN grain has detached cleanly, leaving an open socket. The pairing supplies a contrasting (debonded) case that observation A alone lacked, so the two together give associative support for a link between where gap-free morphology/reaction-phase presence is seen and where bonding held, versus where a grain pulled free.
+  The qualifications recorded on that earlier result:
+    - Neither panel includes a spot-level chemical/EDS check, so it cannot be confirmed that the socket region in panel B specifically lacks the SiAlON phase identified in bulk XRD and inferred at the boxed region in observation A; the contrast is built entirely on morphology (cleaved, no gap vs. protruding grain with open socket), not on measured composition at either site.
+    - Both observations remain static, single-sample endpoint fractographic snapshots, not a controlled comparison (no binder lacking SiAlON, no matched test condition across the two locations), so the pair cannot show that SiAlON formation, rather than some other local sintering effect (porosity, residual stress, grain orientation) or fracture-test artifact, is what separates the gap-free grains from the pulled-out one.
+    - The bulk XRD phase identification behind observation A is global for the sample and is not re-verified at either the boxed grains or the panel B socket location, so the specific composition at either imaged site remains inferred rather than directly measured.
+    - The ~2 um socket depth is a single measurement at one grain, not a systematic survey across many grains, so it cannot support a general relationship between reaction-phase presence and bonding across the sample -- only that at least one debonded grain exists alongside the gap-free ones.
+
+Observation B (None): Flexural strength: S1 ~165, 188, 465 MPa (1400-1600 C); S3 ~170-195 flat; S2 ~80, 98, 170, 145 MPa
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n11 -> n13 edge
+Panels: F6a
+
+What the paper concluded, for your reference as the key's author:
+  Flexural strength generally rises with sintering temperature; S1 at 1600 C is highest at ~465 MPa
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

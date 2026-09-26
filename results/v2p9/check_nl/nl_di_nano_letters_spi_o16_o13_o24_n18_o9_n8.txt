@@ -1,0 +1,29 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Taken together, the retained lattice/porosity result (A: PCO stays structurally intact at both the crystalline-phase level, no metallic Co, and the pore-network level over the first cycle) and the computed degree-of-oxidation ranking (B: Na-Co3O4 reaches only ~36% oxidation and plateaus after 0.8 ps, versus ~59% for Na-Co3S4 and ~91% for Li-Co3O4 at 2 ps) jointly support attributing Na capacity fading to poor sodiation reactivity rather than to volume-change-driven structural failure: A rules out the alternative explanation (no substantial lattice collapse or pore destruction that would signal volume-change damage), while B shows that even without such damage the sodiation reaction itself proceeds only partially and stalls early, indicating an intrinsically limited conversion. Neither point supports this attribution alone -- A alone only shows the structure survived and says nothing about how far the reaction went, and B alone is a short-timescale computed oxidation ranking that says nothing about whether the experimental electrode structure held up.
+
+THE NEW MEASUREMENT
+Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [observation] Na discharge capacity is ~870 mAh/g at cycle 1, drops to ~480 mAh/g by cycle 2, and to ~70 mAh/g by cycle 40.
+2. [input] The earlier result attributes Na fade to an intact structure (per A) paired with a sodiation reaction that is intrinsically limited and stalls early (per B).
+3. [combined] The Na capacity trajectory is consistent with the earlier attribution of intact structure plus intrinsically limited sodiation reactivity.
+4. [observation] Capacity is already lost steeply within the first two cycles.
+5. [combined] A steep early capacity drop matches an early-onset, intrinsically limited conversion reaction rather than a loss that builds up gradually.
+6. [input] Progressive mechanical or structural degradation would be expected to produce a gradually accumulating capacity loss.
+7. [combined] The observed fade pattern is compatible with a reactivity-limited origin rather than requiring a slowly accumulating structural cause.

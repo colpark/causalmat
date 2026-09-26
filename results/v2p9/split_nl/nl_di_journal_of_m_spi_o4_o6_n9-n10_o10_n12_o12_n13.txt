@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together with the DFT+Hall based mechanistic account (Se donates electrons, raising E_F so M/K/L minima reach E_F while Gamma stays ~0.35-0.4 eV higher, plausibly driving the rise in Hall carrier concentration from ~0.5e19 at x=0 to 1.7-3.3e19 cm-3 across x=0.005-0.04 at 300 K), the observed resistivity drop from ~650 micro-ohm m (x=0) to ~12-23 micro-ohm m (x=0.005-0.04) at 300 K is consistent with, and can be read as an electrical-transport corollary of, that same carrier-density increase: a doping-induced rise in n_H of this size is the kind of change that would lower resistivity by roughly this order of magnitude. Together the two results support a single connected picture -- Se donor doping raises E_F, which raises Hall carrier density, which is associated with sharply lower resistivity -- rather than two independent, unrelated observations.
+
+THE NEW MEASUREMENT
+PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+
+THE KEY'S PROPOSITION
+Read together, the two results show that the transport optimum at x=0.01 is not confined to resistivity alone: the power factor also peaks at x=0.01 (~29 uW cm-1 K-2 at 300 K, ~22 at 623 K, above both the lower x=0.005 doped value and the x=0 value of at most ~5), the same composition where resistivity was already noted to be lowest (~12-23 micro-ohm m range) even though Hall carrier concentration n_H rises monotonically across x=0.005-0.04. The pairing therefore reinforces, across a second transport quantity, that whatever sets the x=0.01 optimum is not simply the monotonic n_H increase from the Se-donor/E_F mechanism -- some composition-dependent factor besides carrier density must be responsible for both the resistivity minimum and the power factor maximum landing at the same x.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

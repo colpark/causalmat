@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Read together with the DFT+Hall based mechanistic account (Se donates electrons, raising E_F so M/K/L minima reach E_F while Gamma stays ~0.35-0.4 eV higher, plausibly driving the rise in Hall carrier concentration from ~0.5e19 at x=0 to 1.7-3.3e19 cm-3 across x=0.005-0.04 at 300 K), the observed resistivity drop from ~650 micro-ohm m (x=0) to ~12-23 micro-ohm m (x=0.005-0.04) at 300 K is consistent with, and can be read as an electrical-transport corollary of, that same carrier-density increase: a doping-induced rise in n_H of this size is the kind of change that would lower resistivity by roughly this order of magnitude. Together the two results support a single connected picture -- Se donor doping raises E_F, which raises Hall carrier density, which is associated with sharply lower resistivity -- rather than two independent, unrelated observations.
+  The qualifications recorded on that earlier result:
+    - Resistivity is lowest near x=0.01, but the Hall carrier concentration increases monotonically from x=0.005 to x=0.04; this mismatch (non-monotonic rho vs monotonic n_H) means the pairing cannot show that carrier density alone sets the resistivity value across the series -- something else (e.g., carrier mobility or scattering) must also be varying with x.
+    - Resistivity is a transport coefficient that depends on both carrier density and mobility, while the earlier result only concerns the mechanism for carrier density (n_H); the combination says nothing about how mobility changes with x, so the magnitude of the rho drop cannot be attributed to the n_H increase alone.
+    - Doped compositions show rho rising with T while the undoped (x=0) sample shows rho falling with T -- a qualitative difference in transport behavior that the carrier-density mechanism from the earlier result does not address or explain.
+    - The earlier result's own limits carry over: the DFT comparison is a two-state (undoped vs one doped) snapshot at 0 K, not a five-point series, and it does not directly calculate n_H from the bands; resistivity data add a different quantity (a 300 K transport coefficient) without resolving that DFT-to-Hall correspondence.
+    - The combination does not rule out other contributions to the resistivity drop (e.g., temperature-dependent scattering, defect states) beyond the M/K/L band-edge-driven carrier-density increase already qualified as non-exclusive in the earlier result.
+
+Observation B (None): PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n12 -> n13 edge
+Panels: F5c
+
+What the paper concluded, for your reference as the key's author:
+  Power factor reaches ~29 uW cm-1 K-2 at 300 K for x=0.01 (x=0 below 2), ~22 at 623 K
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

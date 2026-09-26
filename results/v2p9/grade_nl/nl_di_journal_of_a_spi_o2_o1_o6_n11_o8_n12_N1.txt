@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Note: no actual measurement, figure, or "earlier result" text was included in the prompt for me to read — only the title was given. Based on that title alone, here is my best-effort inference of what the paper likely shows and what it would settle in combination with a prior/established result on strain tolerance (STR) and microstructure-damage links in thermal barrier coatings:
+
+The paper almost certainly reports that adding Al2O3 to YSZ changes the as-sprayed and cycled microstructure (e.g., altered porosity/pore morphology, denser or more brittle splat boundaries, different crack network development, possible phase or interfacial changes during thermal exposure) relative to plain YSZ, and separately measures thermal cycle life (number of cycles to spallation/failure) for both coating types. Taken alone, the microstructure characterization only shows correlation between composition and morphology, not that this morphology drives damage. Taken alone, a bare cycle-life number only ranks the two coatings without explaining mechanism. Combined with an established earlier result linking a specific microstructural feature (e.g., microcrack density, pore architecture, or interfacial strain accommodation, i.e. "strain tolerance") to damage accumulation and spallation resistance, this new measurement would let you argue that the Al2O3 addition's effect on cycle life is mediated through that same microstructural pathway — i.e., it supports a mechanistic, not just correlational, link between composition-driven microstructure change and thermal cyclic damage/failure life.
+
+What it leaves open: whether the mechanism generalizes beyond this specific composition/process (e.g., different Al2O3 fractions, spray parameters, substrates), whether other unmeasured factors (residual stress, TGO growth, bond-coat oxidation) also contribute, and whether the correlation holds under real service conditions rather than lab thermal cycling.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The diffraction-derived strain proxy showing YSZ as low and stable across cycling is corroborated by the unchanged crack network.
+2. Neither n11 nor n12 alone establishes that the unchanged crack network reflects genuine microstructural stability rather than an incidental, unmeasured feature.
+3. B (n12) as given reports only on YSZ; it says nothing about whether Al2O3-YSZ's cracks changed, so the pair cannot be used to compare crack behavior between the two coatings, only to corroborate YSZ's own strain-stability claim
+4. B is a qualitative visual comparison ('looks unchanged') in a single field of view, not a quantified crack length, density, or count, so it cannot be set against the numeric orientation-change rates from A on a shared scale -- the pairing is a co-occurrence, not a correlation
+5. No mechanism is established connecting the tetragonal phase or the low orientation-change rate to crack-network stability; A's own qualifications already note no mechanism for phase stabilization is given, and B adds no causal link
+6. A single field of view and two time points (before/after five cycles) is too limited a sample to generalize crack behavior across the coating; this supports a spot-check consistency, not a general relationship between strain magnitude and cracking
+7. A's phase fraction is uncharacterized quantitatively, so no dose-relationship between degree of tetragonality and degree of crack stability can be drawn

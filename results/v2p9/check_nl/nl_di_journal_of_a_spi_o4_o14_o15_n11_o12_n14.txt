@@ -1,0 +1,35 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+No combined proposition follows. The earlier XRD result (F2c) already established that nothing about a link between hBN formation and interface bonding follows from pairing it with a single-specimen micrograph, and F7b does not change that: F7b is another single, temperature-unspecified SEM snapshot (a protruding cBN grain beside a ~2 um socket, with clean-faceted Al2O3 grains), not a second point in the F2c temperature series and not identified as the same specimen scanned in F2c. Read together, the two panels still cannot tell you whether hBN formation at 1500-1600 C has anything to do with the grain-pullout/socket morphology visible in F7b.
+
+THE NEW MEASUREMENT
+K_IC: S1 ~2.4, 2.9, 5.6; S3 ~3.7, 3.95, 3.95; S2 ~2.1, 2.0, 3.0, 3.5 MPa m^1/2
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] No specimen-identified link exists between hBN formation and interface/grain-pullout morphology.
+2. [input] The hBN-related SEM/XRD evidence spans a 1400-1600 C temperature series.
+3. [input] The earlier result never fixed which composite was scanned at which temperature.
+4. [observation] S1's K_IC values are ~2.4, 2.9, 5.6 MPa m^1/2, with the highest value ~5.6.
+5. [observation] S3's K_IC values are ~3.7, 3.95, 3.95 MPa m^1/2.
+6. [observation] S2's K_IC values are ~2.1, 2.0, 3.0, 3.5 MPa m^1/2, at most ~3.5.
+7. [observation] The K_IC measurements carry no temperature labels for the specimens.
+8. [combined] The K_IC data's lack of a temperature axis fails to match against the 1400-1600 C hBN series.
+9. [combined] Adding the K_IC values does not repair the gap left by the earlier result.
+10. [combined] Nothing about the cause of the fracture-toughness ranking across S1/S2/S3 follows from combining the two pieces of evidence.
+11. [combined] The two pieces of evidence cannot be joined to say hBN formation produces S1's higher toughness.
+12. [combined] The two pieces of evidence cannot be joined to say hBN formation produces S2's lower toughness.
+13. [combined] The two pieces of evidence cannot be joined to say the F7b pullout/socket morphology produces S1's higher or S2's lower toughness.

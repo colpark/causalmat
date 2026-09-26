@@ -1,0 +1,34 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Both panels are IR thermal-image grids (0-6 min under 808 nm irradiation), color-coded 25-60 °C.
+
+F3e: rows are 200, 100, 50, 25 ug/mL and H2O, columns are time. The spot visibly goes from blue/green to yellow/orange/red fastest and most intensely at 200 ug/mL, progressively less at 100, 50, 25 ug/mL, and stays blue (cold, ~25 °C) for water across all 6 minutes.
+
+F3g: rows are 0.5, 0.75, 1.00, 1.25, 1.50 W (at fixed 200 ug/mL), columns are time. Same pattern — higher power density gives faster, hotter (redder) spots; 0.5 W barely warms over 6 min while 1.50 W reaches deep red/orange by 3-4 min.
+
+What this measurement supports: the material exhibits laser-induced (photothermal) heating whose magnitude and rate scale monotonically with both agent concentration and incident laser power density, and this heating is not simply an artifact of the solvent (water alone stays cold). This is solid qualitative/semi-quantitative evidence of a concentration- and power-dependent photothermal response consistent with a photothermal-conversion (PRP) mechanism.
+
+What it leaves open: no numeric temperature values, conversion-efficiency (η) calculation, replicate/error bars, or statistical test are shown in these two crops — the images give color-mapped trends only. There's no evidence here about photothermal stability over repeated laser cycles, wavelength selectivity, the underlying absorption mechanism, or downstream biological/therapeutic efficacy (e.g., cell killing, tumor ablation) — this measurement establishes heat generation scales with dose and power, nothing about whether that heat is therapeutically sufficient or mechanistically explained.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The strong NIR extinction quantified in observation A is what drives the concentration- and power-dependent heating seen in observation B.
+2. The same directionality -- more material or more incident power leading to more absorption leading to more heat -- links the extinction data set and the heating data set.
+3. Does not establish a quantitative photothermal conversion efficiency or any specific numeric heat-conversion value -- alpha is an absorbance/concentration slope and the IR images give single-timepoint (6 min) spot temperatures, not an energy-balance calculation.
+4. Does not establish which phase drives the heating any more than A alone established which phase drives the absorption -- since the earlier result left the majority Bi phase versus minor Bi2O3 phase spatial arrangement and contribution undetermined, the heating seen in B cannot be assigned to the Bi phase alone versus a partial Bi2O3 contribution.
+5. Does not establish a quantitative (proportional or otherwise curve-fit) relationship between alpha and temperature rise -- the concentration series and the power-density series are two separate one-variable sweeps (not a full factorial), so only ordinal trends (more concentration, more power -> hotter) are supported, not a functional mapping from alpha to delta-T.
+6. Does not establish morphology/size effects, photostability, or in-use (device-level) performance -- B is a single 6-minute snapshot under laboratory irradiation, not a measure of sustained or repeated-use behavior.

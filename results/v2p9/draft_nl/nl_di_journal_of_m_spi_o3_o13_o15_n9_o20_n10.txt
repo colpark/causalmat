@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about STR/defect/extended that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Because Observation A already established that the onset of plasticity at the first strain step is phase-selective and interface-localized (one lamella type stays featureless while its neighbour develops mottled and interfacial line contrast), the appearance at a further strain step of a dense dislocation pile-up specifically along a lamella boundary (Observation B) can be read as a continuation of that same interface-localized, phase-selective pattern rather than a new or different mode of deformation. Read together, the pair supports that the asymmetric partitioning of strain seen at the first step persists into a later strain step, with the boundary/interface remaining the site of dislocation accumulation rather than deformation becoming spatially uniform across the microstructure.
+  The qualifications recorded on that earlier result:
+    - Still does not identify which lamella (A or B) corresponds to which phase (B2 or FCC); the pile-up observation is a boundary feature and does not by itself map onto a named phase
+    - Still does not establish the mechanism behind the asymmetry: a dislocation pile-up at the boundary is consistent with either an interface/constraint obstruction effect or with one phase's intrinsically lower slip resistance funneling activity toward the boundary, and the pair cannot separate these
+    - Adds only one further strain state to the two already compared (baseline and first step), so three total states still support only an ordering of appearance across strain, not a rate or trend of defect accumulation
+    - Does not establish whether the pattern will continue, intensify, or reverse beyond this further step, since no additional later state is included
+
+Observation B (None): Dense parallel dislocation walls with cells, labelled Taylor lattice; arrow marks a pile-up
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n9 -> n10 edge
+Panels: F5a
+
+What the paper concluded, for your reference as the key's author:
+  After fracture FCC holds dense dislocation walls and Taylor lattices; B2 holds straight parallel dislocations
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

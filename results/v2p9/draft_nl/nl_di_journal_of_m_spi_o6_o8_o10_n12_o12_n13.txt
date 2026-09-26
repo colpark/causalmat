@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRP/value that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Putting the carrier/mobility trend (n_H rising from ~0.5e19 to 3.3e19 cm-3 across x=0.005-0.04 while mu_H stays above literature values at matched n_H) together with the resistivity trend (rho falling from ~650 to ~12-23 micro-ohm m at 300 K with Se doping) supports that the observed resistivity drop is consistent with the carrier-concentration increase driving up conductivity without a compensating mobility penalty -- i.e., both the rise in n_H and the retained mobility advantage point in the same direction (lower rho), so the large drop in resistivity is not undercut by any mobility degradation from doping.
+  The qualifications recorded on that earlier result:
+    - Does not establish the microscopic doping mechanism (Se substituting on the Sb site); that still requires structural/site evidence, not trends in n_H, mu_H, or rho
+    - The mu_H comparison underlying the mobility-advantage claim is against a heterogeneous literature set (different synthesis, microstructure, grain size), so the mobility-preserved contribution to low rho could reflect sample quality rather than the doping process itself
+    - Observation A's mu_H data only cover x=0.005-0.02 and x=0.04, while B reports the rho minimum specifically near x=0.01 -- a composition not covered by A's mu_H ranges, so the specific rho minimum cannot be tied to a measured mu_H value at that exact x
+    - B's temperature dependence (doped rho rising with T while x=0 rho falls with T) is not addressed by A at all; the combination says nothing about the mechanism behind this divergent T-behavior
+    - Only a few doping points/ranges are given, so the pair supports an ordering/trend across x, not a fitted continuous relationship linking n_H, mu_H, and rho
+
+Observation B (None): PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n12 -> n13 edge
+Panels: F5c
+
+What the paper concluded, for your reference as the key's author:
+  Power factor reaches ~29 uW cm-1 K-2 at 300 K for x=0.01 (x=0 below 2), ~22 at 623 K
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

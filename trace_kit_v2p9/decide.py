@@ -20,7 +20,7 @@ import collections, json, math, os, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 R = lambda *p: os.path.join(ROOT, *p)
-from trace_kit_v2p9.arms import score, live  # noqa: E402
+from trace_kit_v2p9.arms import score, live, TAG  # noqa: E402
 
 LO, HI, MARGIN, NBAR = 0.10, 0.40, 0.25, 0.25
 
@@ -64,7 +64,7 @@ def decide_one(m):
 
 
 def borderline():
-    idx = json.load(open(R('results/v2p9/claim_index.json')))
+    idx = json.load(open(R('results/v2p9/claim_index%s.json' % TAG)))
     # the margin itself, not its size: a margin of -0.30 is decided, not close
     out = []
     for it, x, v in live():
@@ -73,16 +73,16 @@ def borderline():
         d = decide_one(m)
         if (LO <= d['B_minus_A'] <= HI) or (LO <= d['B_minus_C'] <= HI):
             out.append(it)
-    json.dump(out, open(R('results/v2p9/borderline.json'), 'w'), indent=1)
+    json.dump(out, open(R('results/v2p9/borderline%s.json' % TAG), 'w'), indent=1)
     print(f'{len(out)} of 88 items are borderline and get a second sample of A, B and C')
     return out
 
 
 def collect():
-    idx = json.load(open(R('results/v2p9/claim_index.json')))
-    S2 = json.load(open(R('results/v2p9/step2.json')))['items']
-    bl = set(json.load(open(R('results/v2p9/borderline.json')))
-             if os.path.exists(R('results/v2p9/borderline.json')) else [])
+    idx = json.load(open(R('results/v2p9/claim_index%s.json' % TAG)))
+    S2 = json.load(open(R('results/v2p9/step2%s.json' % TAG)))['items']
+    bl = set(json.load(open(R('results/v2p9/borderline%s.json' % TAG)))
+             if os.path.exists(R('results/v2p9/borderline%s.json' % TAG)) else [])
     out, flips, unruled = {}, [], []
     for it, x, v in live():
         one = means(it, idx, ['1'])
@@ -140,7 +140,7 @@ def collect():
                       for p in sorted({v['paper'] for v in good})},
         'items_out': out,
     }
-    json.dump(res, open(R('results/v2p9/step4.json'), 'w'), indent=1)
+    json.dump(res, open(R('results/v2p9/step4%s.json' % TAG), 'w'), indent=1)
     print(json.dumps({k: v for k, v in res.items()
                       if k not in ('items_out', 'per_paper', 'N_items')}, indent=1))
     return res

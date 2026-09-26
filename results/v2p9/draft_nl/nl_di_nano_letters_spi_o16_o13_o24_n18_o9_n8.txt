@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Taken together, the retained lattice/porosity result (A: PCO stays structurally intact at both the crystalline-phase level, no metallic Co, and the pore-network level over the first cycle) and the computed degree-of-oxidation ranking (B: Na-Co3O4 reaches only ~36% oxidation and plateaus after 0.8 ps, versus ~59% for Na-Co3S4 and ~91% for Li-Co3O4 at 2 ps) jointly support attributing Na capacity fading to poor sodiation reactivity rather than to volume-change-driven structural failure: A rules out the alternative explanation (no substantial lattice collapse or pore destruction that would signal volume-change damage), while B shows that even without such damage the sodiation reaction itself proceeds only partially and stalls early, indicating an intrinsically limited conversion. Neither point supports this attribution alone -- A alone only shows the structure survived and says nothing about how far the reaction went, and B alone is a short-timescale computed oxidation ranking that says nothing about whether the experimental electrode structure held up.
+  The qualifications recorded on that earlier result:
+    - B's oxidation-degree values come from an AIMD simulation on a picosecond window (2 ps, plateauing at 0.8 ps), a different kind and timescale of quantity than A's experimental structural retention observed over the real first-cycle electrochemical timescale (down to 0.11/0.02 V), so the pair does not establish that the same limited-conversion behavior persists through the full cycle, only that it is short-lived in the simulation
+    - the B ranking (Li-Co3O4 vs Na-Co3S4 vs Na-Co3O4) varies cation identity and host-lattice anion together across the three materials, so it does not cleanly isolate whether the low oxidation degree in Na-Co3O4 is a sodium-specific effect or a host-lattice/anion effect
+    - A's own qualifications carry over: neither observation resolves whether the modest structural change (or the limited reaction) originates at particle surfaces versus in the bulk
+    - the pair shows the two findings are consistent with each other (structure intact, reaction limited) but does not demonstrate a shared causal mechanism linking why conversion stalls to why the lattice/pore structure is preserved -- it is a correspondence, not a mechanistic derivation
+    - B is a computed proxy for reaction extent, not a direct measurement of capacity fade, so the pair does not quantitatively tie a given oxidation-degree value to a specific amount of capacity loss
+
+Observation B (None): Na cycling: discharge capacity drops from ~870 (cycle 1) to ~480 (cycle 2) and ~70 mAh/g by cycle 40
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n18 -> n8 edge
+Panels: F2d
+
+What the paper concluded, for your reference as the key's author:
+  Na/PCO fades from ~870 (1st discharge) to ~70 mAh/g after 40 cycles at 0.1 C
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

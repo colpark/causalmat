@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F2a shows three discharge-capacity/coulombic-efficiency traces (co-precipitation w/ HCl [red], co-precipitation w/o HCl [blue], simple mixing w/o HCl [black]) over 250 cycles. Reading the first cycle: the red (w/ HCl) curve starts at roughly 90-91 mAh/g, matching the stated measurement, and it is clearly the highest of the three initial capacities (blue ~78-80 mAh/g, black ~88-90 mAh/g at cycle 1 but dropping fast).
+
+What this supports: the measurement is consistent with the plotted data — the w/ HCl cathode's first-discharge capacity (~91 mAh/g) is the highest among the three synthetic routes shown, and it also retains capacity better over cycling (ending near ~55 mAh/g at cycle 250 vs ~40 and ~32 mAh/g for the other two). Coulombic efficiency for all three routes is similarly high (~95-100%) throughout, so the panel does not differentiate the routes on that axis. This single number therefore supports a claim that the HCl-assisted co-precipitation route yields a cathode material with the best initial and long-term discharge capacity among the three synthesis procedures tested — i.e., it bears on structure/synthesis-to-performance (service_capability), not on any PRF (proton/redox-flow or similar) mechanism, which this panel does not address at all.
+
+What it leaves open: the panel gives no compositional, structural, or mechanistic explanation for why HCl treatment improves capacity (no PRF-related quantity — no proton content, redox couple, or flow/rate data — is shown here); it is purely an electrochemical cycling comparison. It also doesn't establish reproducibility (single cell per condition, no error bars), doesn't isolate which step of the synthesis (HCl addition vs. co-precipitation itself) is responsible, and doesn't extend beyond 250 cycles or beyond this one voltage/rate condition. So the measurement supports a synthesis-performance link but leaves the underlying PRF/mechanistic basis, and generality across conditions, undetermined.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The ~91 mAh/g capacity is delivered by that same single homogeneous phase.
+2. The capacity can be attributed to the phase's multi-redox mechanism rather than to a separate impurity phase or side reaction.
+3. Does not apportion the 91 mAh/g among the three individual redox couples or give the number of electrons transferred at each, since neither observation carries per-couple charge information
+4. Does not establish that the capacity is stable beyond the first discharge; the 20-cycle CV persistence speaks to peak reversibility, not to capacity retention at the 110 mA/g discharge rate used for the capacity measurement
+5. Does not rule out contributions from finer-scale phase variation or unimaged particles to the measured capacity, since the homogeneity basis of the CV attribution is qualitative and limited to the imaged region/particle
+6. Compares a qualitative, potential-resolved redox description (A) against a single quantitative cumulative-capacity value (B), so the two cannot be combined into a quantitative capacity-per-couple relationship

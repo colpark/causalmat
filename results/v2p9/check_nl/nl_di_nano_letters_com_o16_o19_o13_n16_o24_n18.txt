@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the earlier XRD/XANES result (crystalline PCO oxide phase largely retained, Co not driven to the metallic state on sodiation) and the SAXS observation (contours stay nearly straight, I(q) overlapping through the cycle apart from a small drop at ~0.03-0.1 A-1 at 0.11/0.02 V) jointly support that the minor chemical/structural change PCO undergoes on sodiation is not accompanied by any substantial reorganization of pore-scale microstructure. Because a conversion-type reduction to metallic Co would be expected to generate new particle/void interfaces and hence measurable SAXS contrast changes, the near-invariance of the SAXS profile is consistent with, and reinforces, the XRD/XANES conclusion that no such reduction occurs; conversely, the retained crystallinity and oxidized Co signature give a structural/chemical basis for why the pore-scale scattering pattern stays largely unchanged. Neither piece alone shows this: XRD/XANES alone says nothing about pore-level microstructure, and the SAXS trace alone would not tell you whether an underlying chemical/oxidation-state change was occurring beneath an unchanged pore network.
+
+THE NEW MEASUREMENT
+Degree of oxidation at 2 ps ranks Li-Co3O4 (~91%) > Na-Co3S4 (~59%) > Na-Co3O4 (~36%); Na-Co3O4 plateaus after 0.8 ps
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] PCO retains its crystalline oxide phase, Co is not driven to the metallic state, and SAXS pore-scale scattering stays near-invariant through sodiation.
+2. [observation] MD oxidation degree at 2 ps ranks Na-Co3O4 (~36%) below Na-Co3S4 (~59%) and Li-Co3O4 (~91%).
+3. [observation] Na-Co3O4's oxidation degree plateaus after 0.8 ps.
+4. [combined] The structurally-confirmed minor/limited conversion in Na-Co3O4 corresponds to a comparatively lower, early-saturating oxidation degree than in the Li-analog or Na-sulfide analog.
+5. [combined] Na-Co3O4's sodiation reactivity is intrinsically limited relative to Na-Co3S4 and Li-Co3O4.
+6. [combined] The MD ranking gives a comparative, simulation-side counterpart to the experimental, structure-side finding of minor conversion with no pore-scale reorganization.
+7. [input] The earlier result alone says nothing about how Na-Co3O4's oxidation degree compares to other chemistries.
+8. [observation] The MD ranking alone says nothing about whether the real material retains its pore-scale microstructure during sodiation.

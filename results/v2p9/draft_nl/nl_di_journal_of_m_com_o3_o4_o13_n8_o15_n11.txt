@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about MEC/pathway that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Combining the established fact that the microstructure is a pervasive, sharp-interfaced two-phase alternating-lamellae structure (confirmed consistent from TEM nanoscale up to EBSD colony scale) with the strain-step observation that one lamella stays featureless while its neighbour develops mottled contrast and interface line contrast shows that the onset of strain-induced defect contrast is lamella-selective, not uniform: within the alternating two-phase lamellar arrangement, one of the two lamella types accumulates deformation-related contrast while the other type remains unaffected. Neither piece alone gives this: the morphological result (A) says nothing about strain response, and the contrast observation (B) alone, without A's confirmation that the material is genuinely a pervasive two-phase alternating structure rather than a local artifact, could not be read as a phase-linked, systematic asymmetry rather than an isolated local variation.
+  The qualifications recorded on that earlier result:
+    - Does not identify which of the two lamella types (A or B) is the one developing mottled/line contrast versus the one staying featureless, because observation A explicitly leaves lamella-to-phase identity (FCC(L12) vs B2) undetermined, and observation B only distinguishes the two lamellae by their contrast appearance, not by phase name
+    - Only established at the 'first strain step' and only at the local site imaged (panel F3a); says nothing about whether this same selective response holds at other strain levels or elsewhere in the sample, consistent with A's own representativity limit (fields of view only)
+    - Does not quantify the amount or density of the mottled/line contrast, nor characterize its physical origin beyond visual description; the combination gives a qualitative presence/absence contrast difference, not a measured or mechanistically specified defect population
+    - Does not establish volume fraction, lamellar spacing, or interface width (a limit already carried over from observation A) and B adds no quantitative measure either
+
+Observation B (None): Dense dislocation band labelled as pile-up along a lamella boundary
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n8 -> n11 edge
+Panels: F4a, F4c
+
+What the paper concluded, for your reference as the key's author:
+  Dislocation pile-up at FCC(L12)/B2 boundaries, driven by lattice-mismatch internal stress, raises the yield strength
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

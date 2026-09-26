@@ -1,0 +1,53 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about STR/microstructure/damage that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  Putting the established phase identification (Observation A: YSZ is predominantly tetragonal zirconia, Al2O3-YSZ is cubic zirconia, corroborated by diagnostic peak-shape detail) together with the orientation-change measurements (Observation B: Al2O3-YSZ shows ~4.3-11 deg change per interval at 5 cycles falling to ~1 deg by 20 cycles, versus YSZ's steady 0.7-2.3 deg throughout) shows that the two coatings, already distinguished by crystal phase, also diverge sharply in how their orientation change (a micro-strain proxy) evolves over thermal cycling: the cubic-phase coating (Al2O3-YSZ) starts with much larger per-interval change that diminishes with cycling, while the tetragonal-phase coating (YSZ) remains comparatively low and stable throughout. The combination thus supports that the phase difference established in A co-occurs with a distinctly different, evolving micro-strain response captured in B -- a link neither observation shows by itself, since A gives no strain/cycling data and B alone carries no phase context to explain why the two coatings' strain behavior differs.
+  The qualifications recorded on that earlier result:
+    - Does not establish any mechanism by which crystal phase (cubic vs tetragonal) would produce the differing strain magnitudes -- A's own qualifications record that no mechanism for tetragonal vs cubic phase stabilization is given
+    - Does not quantify the tetragonal vs cubic phase fraction in either sample, so no quantitative relationship between phase fraction and strain magnitude can be drawn, only a qualitative co-occurrence
+    - Only two coatings are compared, so this supports an ordering/co-occurrence between the samples, not a general relationship between phase type and strain magnitude
+    - A is a categorical, single-measurement phase label from XRD peak positions/shapes (panel F1) while B is a per-interval rate measurement taken at specific cycle counts (panels F5a, F5b) -- these are different kinds of quantities, so the pairing is a co-occurrence across measurements, not a quantitative correlation on a shared scale
+
+Observation B (None): YSZ crack network in the same field looks unchanged between the two views
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n11 -> n12 edge
+Panels: F4b, F4c
+
+What the paper concluded, for your reference as the key's author:
+  After five thermal cycles cracks in Al2O3-YSZ propagate and connect, while YSZ shows no obvious change
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}

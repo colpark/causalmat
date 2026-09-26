@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together, the earlier result and the release curve support that the same material confirmed to contain a genuine periodic mesoporous channel structure (2Co-MBG, sharing the ~5-6 nm repeat period and single-reflection signature seen across MBG/2Co/5Co) is also the material that exhibits a graded, then-plateauing ampicillin release profile: ~340 ug at 8 h, ~670 ug at 24 h, ~780 ug at 72 h, leveling to ~795 ug by 168 h. This licenses associating a mesostructured carrier with a sustained-release-then-plateau behavior extending out to 72 h.
+
+THE NEW MEASUREMENT
+Relative survival with Scaffolds+Ampicillin ~105, ~81, ~52% at days 1, 3, 7 vs blank 100 and drug-free scaffolds 110-118%
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] The mesostructured 2Co-MBG carrier releases ampicillin in a sustained, graded profile, rising from ~340 ug at 8 h to ~780 ug by 72 h.
+2. [input] Cumulative ampicillin release from the carrier levels off to a plateau of ~795 ug by 168 h.
+3. [observation] Relative survival with ampicillin-loaded scaffolds is ~105% at day 1, ~81% at day 3, and ~52% at day 7.
+4. [observation] Blank controls show relative survival of ~100%.
+5. [observation] Drug-free scaffolds show relative survival of 110-118%.
+6. [observation] The progressive drop in survival is specific to ampicillin-loaded scaffolds rather than the scaffold material itself.
+7. [combined] Survival declines over the same multi-day/multi-hour window in which the carrier is releasing ampicillin.
+8. [combined] The drug delivered from this mesostructured carrier is associated with a time-extended antibacterial effect.

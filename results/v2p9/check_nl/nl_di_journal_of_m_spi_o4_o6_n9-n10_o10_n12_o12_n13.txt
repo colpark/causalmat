@@ -1,0 +1,29 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Read together with the DFT+Hall based mechanistic account (Se donates electrons, raising E_F so M/K/L minima reach E_F while Gamma stays ~0.35-0.4 eV higher, plausibly driving the rise in Hall carrier concentration from ~0.5e19 at x=0 to 1.7-3.3e19 cm-3 across x=0.005-0.04 at 300 K), the observed resistivity drop from ~650 micro-ohm m (x=0) to ~12-23 micro-ohm m (x=0.005-0.04) at 300 K is consistent with, and can be read as an electrical-transport corollary of, that same carrier-density increase: a doping-induced rise in n_H of this size is the kind of change that would lower resistivity by roughly this order of magnitude. Together the two results support a single connected picture -- Se donor doping raises E_F, which raises Hall carrier density, which is associated with sharply lower resistivity -- rather than two independent, unrelated observations.
+
+THE NEW MEASUREMENT
+PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [observation] The power factor peaks at x=0.01, reaching ~29 uW cm-1 K-2 at 300 K and ~22 at 623 K.
+2. [observation] This x=0.01 power-factor peak is above the lower x=0.005 doped value.
+3. [observation] This x=0.01 power-factor peak is above the x=0 value of at most ~5.
+4. [input] Hall carrier concentration n_H rises monotonically across x=0.005-0.04.
+5. [combined] The resistivity minimum (~12-23 micro-ohm m range) was already noted at composition x=0.01, the same composition where the new power-factor peak lands.
+6. [combined] The power-factor result reinforces, across a second transport quantity, that the x=0.01 optimum is not simply explained by the monotonic n_H increase from the Se-donor/E_F mechanism.
+7. [combined] Some composition-dependent factor besides carrier density must be responsible for both the resistivity minimum and the power-factor maximum landing at the same x.

@@ -1,0 +1,29 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Putting the carrier/mobility trend (n_H rising from ~0.5e19 to 3.3e19 cm-3 across x=0.005-0.04 while mu_H stays above literature values at matched n_H) together with the resistivity trend (rho falling from ~650 to ~12-23 micro-ohm m at 300 K with Se doping) supports that the observed resistivity drop is consistent with the carrier-concentration increase driving up conductivity without a compensating mobility penalty -- i.e., both the rise in n_H and the retained mobility advantage point in the same direction (lower rho), so the large drop in resistivity is not undercut by any mobility degradation from doping.
+
+THE NEW MEASUREMENT
+PF: x=0.01 highest, ~29 at 300 K and ~22 at 623 K; x=0.005 lowest of doped; x=0 at most ~5
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [observation] PF peaks at x=0.01, reaching ~29 at 300 K and ~22 at 623 K
+2. [observation] The x=0.01 PF value exceeds x=0.005, the lowest among the doped samples
+3. [observation] The x=0.01 PF value exceeds x=0 (undoped), which is at most ~5
+4. [input] n12 established that the resistivity drop is carrier-concentration-driven and not offset by a mobility penalty
+5. [combined] The PF peak at x=0.01 sits on the same favorable-resistivity trend that n12 established
+6. [combined] The low-rho, mobility-preserved regime identified in n12 helps account for why doping raises PF well above the undoped value near x=0.01
+7. [combined] The PF rise near x=0.01 is not an artifact of resistivity moving in the wrong direction

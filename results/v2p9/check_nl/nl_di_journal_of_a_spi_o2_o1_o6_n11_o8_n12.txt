@@ -1,0 +1,29 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Putting the established phase identification (Observation A: YSZ is predominantly tetragonal zirconia, Al2O3-YSZ is cubic zirconia, corroborated by diagnostic peak-shape detail) together with the orientation-change measurements (Observation B: Al2O3-YSZ shows ~4.3-11 deg change per interval at 5 cycles falling to ~1 deg by 20 cycles, versus YSZ's steady 0.7-2.3 deg throughout) shows that the two coatings, already distinguished by crystal phase, also diverge sharply in how their orientation change (a micro-strain proxy) evolves over thermal cycling: the cubic-phase coating (Al2O3-YSZ) starts with much larger per-interval change that diminishes with cycling, while the tetragonal-phase coating (YSZ) remains comparatively low and stable throughout. The combination thus supports that the phase difference established in A co-occurs with a distinctly different, evolving micro-strain response captured in B -- a link neither observation shows by itself, since A gives no strain/cycling data and B alone carries no phase context to explain why the two coatings' strain behavior differs.
+
+THE NEW MEASUREMENT
+YSZ crack network in the same field looks unchanged between the two views
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [input] Al2O3-YSZ is cubic zirconia with a large per-interval orientation change at 5 cycles that diminishes by 20 cycles.
+2. [input] YSZ is tetragonal zirconia with a steady, low 0.7-2.3 deg/interval orientation change throughout cycling.
+3. [observation] YSZ's crack network looks unchanged between the two micrograph views (F4b/F4c) in the same field.
+4. [combined] The diffraction-derived strain proxy showing YSZ as low and stable across cycling is corroborated by the unchanged crack network.
+5. [input] n11 alone carries no crack or microstructure evidence.
+6. [observation] n12 alone (an unchanged crack network in one field) has no strain or phase context.
+7. [combined] Neither n11 nor n12 alone establishes that the unchanged crack network reflects genuine microstructural stability rather than an incidental, unmeasured feature.

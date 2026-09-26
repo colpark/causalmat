@@ -1,0 +1,35 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F6a plots ZT vs. T (300-625 K) for Mg3.2Bi1.4Sb0.6-xSex with x = 0, 0.005, 0.01, 0.02, 0.04, plus a dashed n-Bi2Te3 reference curve. At 300 K the undoped x=0 sample sits near zero (~0.05, rising only to ~0.2 by 625 K), while every Se-doped sample is far higher: x=0.005 ~0.84-0.85, x=0.01 ~0.78, and x=0.02/0.04 ~0.63-0.69 — matching the stated numbers closely. All doped compositions rise with temperature to a broad peak of ~1.2-1.3 around 450-525 K, then fall off toward 600-625 K (down to ~0.6-1.1), tracking or exceeding the n-Bi2Te3 reference curve above roughly 420-450 K, though the reference is comparable or slightly higher near 300-400 K.
+
+What this justifies: the measurement supports that Se substitution for Sb is the operative lever raising ZT versus the undoped baseline across the whole temperature range, that ZT is non-monotonic (peaking mid-range rather than at either endpoint), and that the best-performing doped composition(s) rival or surpass the classic n-Bi2Te3 benchmark in the 450-600 K window — a legitimate figure-of-merit claim for that material class in that window.
+
+What it leaves open: this is a single ZT-vs-T curve set per composition with no error bars or repeat runs shown, so sample-to-sample reproducibility and measurement uncertainty are unaddressed. ZT here is the standard combination of separately measured S, sigma, and kappa; the panel itself doesn't show whether those were measured on the same pellet/run, so propagated error is unclear. Long-term/thermal-cycling stability of ZT and behavior beyond 625 K are not shown, and the n-Bi2Te3 reference is a literature curve (refs [8,22]) from a different study/setup, so the comparison is not a matched, side-by-side controlled measurement.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The doping-driven mobility/PF enhancement co-occurs with a real ZT gain rather than a ZT loss.
+2. The doping level that maximizes ZT (x=0.005) is not the one that maximizes PF (x=0.01).
+3. At x=0.01, PF~29 but ZT is only ~0.78, lower than at x=0.005.
+4. Because the ZT peak diverges from both the PF peak and the mobility plateau, the pairing cannot show mobility or PF gain sets the ZT ordering.
+5. Some factor not measured in either observation (e.g., thermal conductivity) must place the ZT peak at x=0.005 rather than x=0.01.
+6. No thermal conductivity value appears in either observation, so the combination cannot attribute the ZT peak at x=0.005 to a thermal-conductivity difference as opposed to the power-factor value reported there
+7. PF peaks at x=0.01 (~29) while ZT peaks at x=0.005 (~0.84 vs ~0.78 at x=0.01), a ranking mismatch that shows the PF gain from the earlier step does not by itself explain the ZT ordering
+8. Mobility is reported as highest across x=0.005-0.02 (~145-170 cm2/Vs) without singling out x=0.005, so the mobility mechanism from the earlier result also cannot be pinned as the specific driver of the ZT peak
+9. Only three doping levels overlap between the two panels for direct comparison (x=0, 0.005, 0.01), with x=0.02-0.04 appearing only in the ZT panel, so the pairing supports an ordering/co-occurrence at 300 K, not a continuous dose-response relationship
+10. ZT is reported only at 300 K in this observation, so nothing here extends the comparison to the 623 K PF point carried by the earlier result
+11. The earlier result's own unresolved carrier-density confound (only x=0.04 checked against n_H) is not addressed by the ZT data either, so it remains unclear whether mobility, n_H, or another factor sets the conductivity term feeding both PF and ZT at the doping levels of interest

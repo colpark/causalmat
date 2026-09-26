@@ -1,0 +1,35 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+I have no access to the actual paper, figures, or the "earlier result" text — I am inferring purely from the title and general domain knowledge, so treat this as a best-effort reconstruction, not a verified reading.
+
+Likely content: The paper reports that Ce/Er co-doped TiO2 kills bacteria (e.g., E. coli/S. aureus) rapidly under visible-light illumination, presumably via a log-reduction or kill-percentage value measured over a short exposure time, attributed to narrowed band gap (Ce) plus upconversion of longer-wavelength light to UV/visible-active energies (Er), boosting reactive-oxygen-species generation.
+
+The established earlier result is almost certainly that plain/undoped TiO2 is essentially inert as an antibacterial photocatalyst under visible light and only works under UV, because its band gap (~3.2 eV) doesn't absorb visible photons.
+
+Combined, the two results settle a causal/mechanistic point that neither settles alone: the new visible-light kill-rate value on its own could just mean "this doped material happens to kill bacteria," without showing why; the old UV-only result on its own only shows pure TiO2's limitation, not that doping fixes it. Together they support the conclusion that Ce/Er co-doping is what confers visible-light photocatalytic antibacterial activity — i.e., doping causally extends the active spectral range from UV into visible, converting an otherwise visible-light-inactive material into a rapidly bactericidal one.
+
+What remains open: whether Ce, Er, or their combination (synergy vs. either dopant alone) drives the effect; the underlying mechanism (band-gap narrowing vs. upconversion vs. defect states); dose-response, exposure-time, and concentration dependence; durability/reusability of the photocatalyst; efficacy against other bacterial species or biofilms; and any in vivo or cytotoxicity data.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The series identified by A and B as doped and optically shifted is also the series that degrades dye most efficiently.
+2. The combination supports an association across the sample set between chemically-verified, optically-shifted doped material and enhanced photocatalytic activity.
+3. The same particles that are doped and absorb further into the visible are the ones that degrade dye fastest.
+4. Does not establish a mechanism linking the confirmed Er3+ species, the absorption-edge shift, or visible-light absorption specifically to the increased degradation rate; it only shows the doped/shifted samples and the more-active samples are drawn from the same series
+5. Does not identify which dopant is responsible for the degradation enhancement: Ce alone (Ce0.1 -> Ce0.3) already raises degradation with increasing Ce content, and A explicitly leaves Ce's oxidation state and role undetermined while only confirming Er3+, so neither Er3+ nor Ce can be singled out as the active species for either the optical shift or the photocatalytic gain from this pairing
+6. Does not resolve whether the responsible species (whichever it is) is incorporated in the TiO2 lattice or merely surface-associated, a limitation already carried over unresolved from A
+7. Does not establish a quantitative or dose-response correspondence between the size of the absorption-edge shift (a wavelength quantity) and the size of the degradation enhancement (a time-resolved percentage), since these are different kinds of quantities measured under different conditions

@@ -1,0 +1,37 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+The ZT panel (F6a) shows: x=0 near ~0.05 at 300 K (rising only to ~0.22 by 623 K), while all doped samples sit far higher (0.63-0.84 at 300 K, peaking 1.1-1.25 around 450-550 K, comparable to the n-Bi2Te3 reference ~0.88 at 300 K). At 300 K specifically, the doped ordering is x=0.005 (~0.84) > x=0.01 (~0.78) > x=0.02-0.04 (0.63-0.69).
+
+Read together with the earlier PF result, this settles that the doping-driven gain is not confined to the power factor: doping also delivers a large ZT gain over the undoped sample, consistent with the doping regime being genuinely beneficial to thermoelectric performance rather than the PF rise being offset by some compensating figure-of-merit loss.
+
+But the combination also exposes a mismatch neither piece shows alone: the PF ordering at 300 K has x=0.01 highest and x=0.005 lowest of the doped set, while the ZT ordering at 300 K has x=0.005 highest and x=0.01 second - the two rankings invert. Since ZT = PF*T/kappa, this discordance implies thermal conductivity must differ across doping levels and is exerting enough influence to override the PF ranking when producing ZT, something the PF-only or mobility-only data could not reveal.
+
+This leaves open: no kappa values are given here, so the ZT/PF mismatch cannot be attributed to a specific thermal-conductivity mechanism (e.g., point-defect/alloy or bipolar scattering); the mobility-to-PF link remains unresolved as before; and how the ZT ordering behaves at higher temperature versus 300 K is not addressed by the 300 K-focused earlier results.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The doping-driven mobility/PF enhancement co-occurs with a real ZT gain rather than a ZT loss.
+2. The doping level that maximizes ZT (x=0.005) is not the one that maximizes PF (x=0.01).
+3. At x=0.01, PF~29 but ZT is only ~0.78, lower than at x=0.005.
+4. Because the ZT peak diverges from both the PF peak and the mobility plateau, the pairing cannot show mobility or PF gain sets the ZT ordering.
+5. Some factor not measured in either observation (e.g., thermal conductivity) must place the ZT peak at x=0.005 rather than x=0.01.
+6. No thermal conductivity value appears in either observation, so the combination cannot attribute the ZT peak at x=0.005 to a thermal-conductivity difference as opposed to the power-factor value reported there
+7. PF peaks at x=0.01 (~29) while ZT peaks at x=0.005 (~0.84 vs ~0.78 at x=0.01), a ranking mismatch that shows the PF gain from the earlier step does not by itself explain the ZT ordering
+8. Mobility is reported as highest across x=0.005-0.02 (~145-170 cm2/Vs) without singling out x=0.005, so the mobility mechanism from the earlier result also cannot be pinned as the specific driver of the ZT peak
+9. Only three doping levels overlap between the two panels for direct comparison (x=0, 0.005, 0.01), with x=0.02-0.04 appearing only in the ZT panel, so the pairing supports an ordering/co-occurrence at 300 K, not a continuous dose-response relationship
+10. ZT is reported only at 300 K in this observation, so nothing here extends the comparison to the 623 K PF point carried by the earlier result
+11. The earlier result's own unresolved carrier-density confound (only x=0.04 checked against n_H) is not addressed by the ZT data either, so it remains unclear whether mobility, n_H, or another factor sets the conductivity term feeding both PF and ZT at the doping levels of interest

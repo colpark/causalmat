@@ -1,0 +1,34 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F5c (power factor vs T for x=0, 0.005, 0.01, 0.02, 0.04) confirms the stated measurement: x=0.01 (red circles) is the highest curve throughout, running from ~29 µW cm⁻¹K⁻² at 300 K down to ~22 at 623 K; x=0.005 (black squares) is the lowest of the doped compositions (~23 at 300 K falling to ~13 at 623 K); undoped x=0 (green) sits far below all doped samples, rising only from ~2 to ~5 µW cm⁻¹K⁻² across the whole range. x=0.02 and x=0.04 fall in between, tracking each other closely and overlapping with x=0.005 at high T.
+
+What this justifies: doping (any nonzero x) massively improves PF over the undoped baseline across the entire 300–623 K range, and among doped levels x=0.01 gives the best PF at every temperature measured, with x=0.005 giving the worst PF among doped samples. This is a clear, monotonic-in-appearance non-monotonicity in dopant content — PF is not simply increasing or decreasing with x; 0.01 is an interior optimum, since 0.005 (lower doping) is worse than 0.02 and 0.04 (higher doping), and 0.04 (highest doping shown here) doesn't exceed 0.01.
+
+What is left open: the panel is power factor only — it does not by itself establish anything about thermal conductivity or ZT, so no conclusion about overall thermoelectric figure of merit can be drawn from this figure alone. It also doesn't reveal the mechanism (carrier concentration vs. mobility vs. Seebeck tradeoff) behind why x=0.01 is optimal, nor whether doping levels between 0.01 and 0.02, or above 0.04, might do better — the curve is only sampled at five discrete x values. Error bars/uncertainty are not shown, so the precision of the ranking (especially the near-overlap of x=0.02/0.04/0.005 at high T) can't be assessed from this image.
+
+File read: /home/aid1/Documents/causalmat/matmech/Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023/panels/crops/e97b843ad7d9410688d4372c412c5ca0b5c2d658982b414c251282f8eda38559_C.jpg
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The resistivity minimum (~12-23 micro-ohm m range) was already noted at composition x=0.01, the same composition where the new power-factor peak lands.
+2. The power-factor result reinforces, across a second transport quantity, that the x=0.01 optimum is not simply explained by the monotonic n_H increase from the Se-donor/E_F mechanism.
+3. Some composition-dependent factor besides carrier density must be responsible for both the resistivity minimum and the power-factor maximum landing at the same x.
+4. Power factor PF combines Seebeck coefficient and resistivity (PF depends on 1/rho and on S), so a PF peak at x=0.01 could be produced entirely by the already-noted resistivity dip at x=0.01, with no independent contribution from Seebeck coefficient behavior; the two measurements are not independent corroboration in the strict sense.
+5. The combination does not identify what the non-n_H factor is -- mobility, scattering, or Seebeck coefficient variation with x -- it only shows that some such factor must be present at both x=0.01 measurements.
+6. Resistivity in the earlier result is reported at 300 K only, while the power factor series adds a 623 K point; the match in optimum location is only established at 300 K, and nothing here speaks to whether the same x=0.01 optimum, or its cause, is stable with temperature.
+7. The DFT+Hall mechanistic account underlying the earlier result remains a two-state (undoped vs one doped), 0 K snapshot that does not calculate n_H directly from bands; adding power factor data does not resolve that gap, it only adds a further transport quantity layered on top of it.
+8. The combination does not rule out other contributions (temperature-dependent scattering, defect states) to either the resistivity minimum or the power factor maximum beyond the carrier-density mechanism already qualified as non-exclusive.

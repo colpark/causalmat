@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F7c plots device-relevant conversion efficiency eta(%) vs hot-side temperature Th (Tc fixed at 300 K) for x=0.005, 0.01, 0.02, 0.04. At Th=623 K, x=0.01 tops out near 11.8%, clearly above the other three compositions, which cluster at 9.5-10.6%, and this ordering (x=0.01 best) holds across most of the Th range shown, not just at the endpoint.
+
+Read together with the earlier settled PF result (x=0.01 has the highest power factor at both 300 K, ~29, and 623 K, ~22, among the doped samples), this combination supports the conclusion that the PF advantage at low-Se doping (x=0.01) is not merely a materials-metric artifact but actually propagates into higher device-level conversion efficiency across the full operating temperature span up to 623 K. That is, the same composition that leads in power factor also leads in the efficiency that a real thermoelectric generator would deliver, strengthening the case that x=0.01 is the practically favorable doping level, not just the one with the best isolated transport number.
+
+What this combination leaves open: conversion efficiency depends on the full figure of merit ZT = S^2*sigma*T/kappa, and thermal conductivity is not reported in either panel, so the eta ordering cannot be attributed to the PF advantage alone versus a possible favorable kappa at x=0.01. It also does nothing to resolve the earlier unresolved questions: whether mobility or carrier density (n_H) sets the conductivity term behind the PF/efficiency peak at x=0.01, and whether Seebeck coefficient rather than conductivity drives the PF magnitude. The undoped (x=0) sample is also absent from this efficiency panel, so the doped-vs-undoped efficiency comparison remains unaddressed.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. x=0.01 being the peak for both the power-factor gain and the 623 K efficiency is a co-occurrence.
+2. This co-occurrence is consistent with the doping-driven power-factor enhancement carrying through to a service-relevant efficiency benefit.
+3. Efficiency depends on additional thermoelectric parameters (e.g., thermal transport, the full ZT over the Tc=300 K to Th=623 K range) that neither observation reports, so the combination cannot attribute the efficiency ordering specifically to the power factor or to the conductivity/mobility term within it
+4. The earlier result's unresolved carrier-density confound persists: x=0.01, the level with both peak PF and peak efficiency, was never checked against x=0.04's 'similar n_H' comparison, so whether mobility or n_H underlies the conductivity term feeding both PF and efficiency remains open
+5. The efficiency ordering (x=0.01 highest) tracks the PF ordering but, like the PF ordering itself, does not track the mobility ordering (mu_H highest at x=0.005-0.02), so if anything the pairing reinforces that mobility is not the mechanism linking doping to efficiency, rather than establishing a mobility-to-efficiency link
+6. Only a few discrete doping levels are compared (x=0, 0.005, 0.01 for PF; x=0.01 vs a lumped 'other x' for efficiency), so the pairing supports co-occurrence at one doping level, not a dose-response relationship between power factor and efficiency
+7. Efficiency is a calculated, integrated device-level quantity over the Tc=300 K-Th=623 K range while the earlier mobility result was confined to 300 K electronic transport, so the combination cannot extend the 300 K mobility mechanism to explain the efficiency value

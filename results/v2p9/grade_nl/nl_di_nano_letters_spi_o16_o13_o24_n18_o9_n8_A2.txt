@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+The panel (F2d) shows a Na/PCO half-cell cycled galvanostatically at 0.1C (890 mAh/g basis), with charge and discharge capacity plus Coulombic efficiency plotted over 40 cycles. This directly matches the stated measurement: discharge capacity begins near ~870 mAh/g at cycle 1, drops sharply to ~480 mAh/g by cycle 2, and decays further to roughly 60-70 mAh/g by cycle 40, with charge capacity tracking closely below discharge throughout. Coulombic efficiency starts low (~55%) at cycle 1, rises quickly to the high 80s/low 90s by cycle 2-3, and climbs gradually to ~95% by cycle 40.
+
+What this settles: the measurement supports that this specific Na/PCO cathode material, under these specific cycling conditions (half-cell vs. Na metal, 0.1C rate), suffers pronounced and rapid capacity fade - losing roughly 90% of its initial discharge capacity within the first two cycles and continuing to fade to a low, largely stabilized capacity near 40 cycles. It also supports that Coulombic efficiency improves with cycling, consistent with initial irreversible side reactions (e.g., SEI formation, electrolyte decomposition, or irreversible structural/phase change) that diminish after the first cycle or two.
+
+What it leaves open: the panel alone does not identify the mechanism of fade (structural collapse, side reactions, electrode/electrolyte interface degradation, etc.), does not establish behavior at other rates or in full cells, does not speak to cycling life beyond 40 cycles, and does not by itself support any general claim about PRF or "service_capability" as a durable, rate-independent, or application-relevant property - it only characterizes this one cell's capacity retention trajectory under one fixed low-rate protocol.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The Na capacity trajectory is consistent with the earlier attribution of intact structure plus intrinsically limited sodiation reactivity.
+2. A steep early capacity drop matches an early-onset, intrinsically limited conversion reaction rather than a loss that builds up gradually.
+3. The observed fade pattern is compatible with a reactivity-limited origin rather than requiring a slowly accumulating structural cause.
+4. The capacity-fade curve by itself does not distinguish reactivity-limited from structural causes -- that attribution rests entirely on the earlier A+B reasoning, so this step only checks consistency, it does not independently re-derive the attribution
+5. B's oxidation-degree evidence covers a 2 ps AIMD window plateauing at 0.8 ps, while the capacity data extends to cycle 40 of real cycling, so the pair does not establish that the same short-timescale reactivity limit is what continues to drive the further drop from ~480 (cycle 2) to ~70 mAh/g (cycle 40) -- later-cycle fade could involve additional or different degradation processes
+6. the correspondence is qualitative timing/magnitude agreement, not a quantitative link tying a specific oxidation-degree value to a specific mAh/g loss
+7. the cation/host-lattice confound from the earlier result carries over: nothing here isolates whether the limited reactivity is Na-specific or tied to the Co3O4 host lattice
+8. surface-versus-bulk origin of either the limited reaction or the retained structure remains unresolved
+9. this remains a correspondence between two consistent observations, not a demonstrated shared causal mechanism explaining why the reaction stalls and why capacity falls at this particular rate

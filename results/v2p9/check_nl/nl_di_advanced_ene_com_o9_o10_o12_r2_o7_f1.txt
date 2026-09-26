@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Because the STEM-EDS/FTIR pairing already establishes that the particle is a single, homogeneous compound (not a mixture of separate phases), the three anodic/cathodic peak pairs seen by CV near 0.55/0.52, 0.89/0.87, and 1.08/1.07 V, persisting over 20 cycles, can be attributed to that one homogeneous phase itself rather than to a mixture of distinct impurity or secondary phases each contributing its own redox signal. Combined, the two results support that this single compound undergoes multiple, reversible redox events at three distinct potentials.
+
+THE NEW MEASUREMENT
+First discharge capacity of the w/ HCl cathode ~91 mAh/g
+
+Below are claims, each with a label. The labels mean:
+
+  input        reachable from THE EARLIER RESULT alone
+  observation  reachable from THE NEW MEASUREMENT alone
+  combined     needs both; neither side states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled input or observation actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "input" | "observation" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [observation] The w/ HCl cathode's first-discharge capacity is ~91 mAh/g.
+2. [input] The particle is a single homogeneous phase, not a mixture of separate phases.
+3. [input] That homogeneous phase shows three reversible anodic/cathodic couples near 0.55/0.52, 0.89/0.87, and 1.08/1.07 V.
+4. [combined] The ~91 mAh/g capacity is delivered by that same single homogeneous phase.
+5. [observation] This capacity exceeds the 50-65 mAh/g reported for earlier aqueous PBAs.
+6. [combined] The capacity can be attributed to the phase's multi-redox mechanism rather than to a separate impurity phase or side reaction.
+7. [input] The CV result alone could not quantify the capacity.
+8. [observation] The capacity number alone could not explain the mechanism.
