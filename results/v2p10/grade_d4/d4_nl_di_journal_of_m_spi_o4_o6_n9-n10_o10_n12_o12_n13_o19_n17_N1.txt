@@ -1,0 +1,26 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+CANNOT DETERMINE.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The x=0.01 efficiency peak extends the same composition-dependent optimum already seen in resistivity and power factor to a new, derived device-level quantity.
+2. The x=0.01 optimum is therefore not confined to the transport quantities (resistivity, power factor) taken individually but carries through into efficiency.
+3. Efficiency as calculated (via ZT-type formulas) depends on additional quantities -- notably thermal conductivity -- that are not part of either observation here; the pairing cannot establish that the resistivity/PF optimum at x=0.01 is what produces the efficiency peak, since a favorable thermal conductivity at x=0.01 could independently or additionally drive the eta ranking.
+4. The earlier result's own qualification stands: the non-n_H factor responsible for the resistivity minimum and PF maximum at x=0.01 is still not identified (mobility, scattering, or Seebeck variation), and adding the efficiency figure does not narrow this -- it only shows the optimum's downstream footprint, not its cause.
+5. Efficiency is a calculated, model-based quantity integrated implicitly over the Tc=300K to Th=623K operating window, whereas the transport comparison it is being read against is a set of point measurements/values at specific temperatures (300 K, and separately 623 K for PF); matching an integrated derived metric's optimum to point-property optima is not the same kind of correspondence as matching two point properties to each other.
+6. The combination does not rule out that other composition-dependent effects (e.g., temperature-dependent scattering or defect states, already flagged as unaddressed) contribute separately to the efficiency peak rather than solely through the resistivity/PF channel.

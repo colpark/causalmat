@@ -1,0 +1,32 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+This settled combination supports a specific, limited claim about PRF/figure_of_merit: the power-factor peak at x=0.01 (~29 at 300 K, ~22 at 623 K), clearly above both the lightest doping (x=0.005) and the undoped sample (≤~5), is consistent with sitting on the same favorable-resistivity, carrier-concentration-driven regime that the earlier mobility/resistivity result (n12) identified — i.e., the PF rise is not contradicted by, and can be partly attributed to, doping lowering resistivity without a compensating mobility penalty. So the justified conclusion is: doping's effect on resistivity/mobility is a plausible, evidence-consistent contributor to the observed PF enhancement, and the PF trend is not simply an artifact of resistivity moving the wrong way.
+
+What this leaves open is substantial. First, n12 has no mobility data exactly at x=0.01, the composition where the PF peak and resistivity minimum occur, so the mobility explanation can't be pinned to that exact point. Second, PF also depends on the Seebeck coefficient S, on which n12 is silent — so it cannot be determined whether the peak reflects the resistivity/mobility story, a favorable S at x=0.01, or some combination of both. Third, n12's mobility comparison relies on a heterogeneous literature dataset (different synthesis/microstructure), so any mobility-preserved contribution could reflect sample quality rather than the Se-doping mechanism itself. Fourth, the microscopic mechanism (Se substitution on the Sb site) is not established. Fifth, the temperature dependence linking the two datasets isn't established across the full 300–623 K range. Finally, with only a few shared doping points, this supports an ordering/trend across x, not a quantitative fitted relationship among n_H, mu_H, rho, and PF.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The composition with the lowest doped PF (x=0.005) is the one with the highest ZT.
+2. The PF-peak composition (x=0.01) yields a lower ZT than x=0.005.
+3. PF ranking and ZT ranking diverge across composition x.
+4. The low-resistivity, mobility-preserved carrier regime from n12 that drives the PF peak at x=0.01 does not carry over into the best ZT.
+5. What n12/n13 established about resistivity and PF cannot by itself account for which composition gives the best ZT.
+6. The combination does not identify what produces the ZT ranking at x=0.005 over x=0.01, since neither n12 nor n13 measures the additional quantity (beyond S and rho) that ZT depends on
+7. n12's mu_H/n_H/rho trend and n13's PF values are reported at 300 K and 623 K, but B's ZT values are given only at 300 K, so the combination says nothing about whether the PF-peak/ZT-peak divergence holds, narrows, or reverses at 623 K
+8. Only a handful of doping points overlap across n12, n13, and B, so this supports an ordering/divergence across x rather than a fitted relationship between PF and ZT
+9. n12's mu_H coverage does not include x=0.01 itself, and n12 says nothing about the Seebeck coefficient S, so the combination cannot decompose the PF-vs-ZT divergence into a resistivity/mobility contribution versus an S contribution
+10. The pair does not establish the microscopic doping mechanism responsible for either the PF trend or the ZT trend

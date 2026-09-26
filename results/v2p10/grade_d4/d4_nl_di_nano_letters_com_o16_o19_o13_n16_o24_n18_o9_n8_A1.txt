@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+The panel (F2d, Na/PCO cell at 0.1C, 1C=890 mA g-1) matches the stated numbers exactly: discharge capacity ~870 mAh/g at cycle 1, dropping sharply to ~480 mAh/g at cycle 2, and continuing to decay to roughly 70 mAh/g by cycle 40, with charge capacity tracking closely below discharge and Coulombic efficiency rising from ~55% to ~95% over the same 40 cycles.
+
+What this settles for PRF/service_capability: the measurement directly supports that this PCO electrode, when cycled against Na metal at a slow rate (0.1C), suffers severe and essentially continuous capacity fade rather than stabilizing at a usable plateau — it loses roughly 92% of its initial discharge capacity within 40 cycles. This is solid, first-hand evidence against durable service capability under these specific test conditions (0.1C, Na counter-electrode, this particular cell/electrolyte configuration, only 40 cycles shown).
+
+What it leaves open: the panel gives no information on behavior beyond cycle 40 (whether fade continues, plateaus, or the cell fails outright), no data at other C-rates or with different electrolytes/binders/cell formats that might yield better retention, no root-cause attribution (e.g., whether fade is from irreversible Na plating/stripping side reactions, structural degradation of PCO, or SEI growth), and no comparison to a Li-based control cell in this same panel to isolate whether the problem is Na-specific or intrinsic to the material. So the image supports "poor cycling stability as tested" but does not by itself establish the material's ultimate or optimized service capability, nor the mechanism of failure.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The severe capacity fade cannot be attributed simply to extensive bulk chemical conversion of the oxide.
+2. The severe capacity fade cannot be attributed simply to loss or collapse of the oxide's pore-scale microstructure.
+3. Some contribution beyond the degree of oxide conversion and beyond pore-scale reorganization must be operating to produce the continued fade over 40 cycles.
+4. Does not equate the 2 ps MD-simulated oxidation-degree metric with the chemical change actually accumulating across 40 electrochemical cycles; these remain different quantities on very different timescales and cannot be treated as tracking the same process
+5. Does not establish whether limited/poor sodiation reactivity itself, or volume change during cycling, or some other unlisted degradation process (e.g., contact loss, SEI growth) is the actual driver of the fade -- neither observation directly measures capacity-loss mechanism, so the combination only shows what is NOT the explanation (extensive conversion/microstructure collapse), not what is
+6. No quantitative link is established between the small SAXS drop / modest XRD intensity loss noted earlier and the magnitude of capacity lost at each cycle
+7. The mechanistic basis for the 0.8 ps plateau in Na-Co3O4's oxidation degree is not explained, so its relevance (if any) to why fade continues from cycle 2 through cycle 40 is not established
+8. Only coarse cycle points (1, 2, 40) are available for the capacity side, insufficient to characterize a fade-rate curve or shape, only the overall magnitude of loss
+9. Carries forward the earlier qualifications: no quantitative pore-volume/surface-area extent for the SAXS drop, no explanation of what produces that drop, no absolute porosity values, and only a consistent (not causal) link between oxide retention and pore-scale behavior

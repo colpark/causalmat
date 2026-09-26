@@ -1,0 +1,28 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+CANNOT DETERMINE
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The composition favored by the resistivity/PF mechanism is the same composition with the highest calculated efficiency.
+2. The PF advantage at x=0.01, and its underlying resistivity behavior, helps account for why x=0.01 is best-performing in efficiency.
+3. The efficiency ranking is not unrelated to the PF/resistivity trend.
+4. A's own qualifications carry forward unresolved: no measured mobility at x=0.01 itself, no data on the Seebeck coefficient S that also enters PF, and no microscopic doping mechanism -- so B cannot be used to resolve any of these gaps either
+5. the combination does not establish that PF/resistivity is what drives the efficiency ranking, because leg efficiency also depends on thermal conductivity and how PF and other transport properties integrate across the full Tc=300K-to-Th=623K gradient, none of which A or B report
+6. B is a single-temperature (Th=623K) efficiency figure for a calculation that spans Tc=300K to Th=623K, while A's PF/resistivity trend is documented only at the two discrete points 300K and 623K -- too coarse to confirm the efficiency ordering tracks the PF ordering across the intervening range
+7. only a few compositions are compared in each of A and B, so the pairing supports an ordering (x=0.01 best in both) rather than a fitted or quantitative relationship between PF/resistivity behavior and efficiency
+8. efficiency is a calculated, integrated performance metric, not a directly measured transport property, so agreement in ranking does not confirm which of PF's components (resistivity/mobility vs. S) is responsible

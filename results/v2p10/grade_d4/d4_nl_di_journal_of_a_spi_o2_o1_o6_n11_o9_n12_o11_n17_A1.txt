@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Figure 8 shows six coupon photos labeled 0, 5, 10, 20, 30, 40 (thermal cycles). At 0 and 5 cycles the coating surface looks intact and uniform. By cycle 10 a corner shows visible spallation (grayish substrate exposed at one corner). At cycles 20, 30, and 40 that same corner-region spalled area persists and appears to grow modestly in extent, while the bulk/central coating area remains intact-looking across all later images.
+
+What this measurement supports: it establishes an onset-and-persistence pattern for corner/edge spallation in this Al2O3-YSZ coating under the tested thermal cycling protocol — the coating survives visually intact through 5 cycles, localized corner damage initiates by 10 cycles, and that damage does not heal or reverse but instead slowly progresses through 40 cycles. This is consistent with edge/corner stress concentration (geometric discontinuity effects) driving earlier failure than the coating field.
+
+What it leaves open: this is a single coupon's qualitative photographic record, not a quantified spallation area, crack density, or adhesion-strength measurement, so the rate/severity of "growth" from 10 to 40 cycles cannot be stated numerically. It also does not establish statistical reproducibility (no replicate coupons shown), does not identify the failure mechanism (thermal-expansion mismatch vs. sintering vs. moisture), and does not indicate what happens beyond 40 cycles (whether spallation plateaus, accelerates, or eventually propagates to bulk failure). So "service_capability" claims beyond ~40 cycles, or claims about mechanism/statistical reliability, are not settled by this figure alone.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The largest micro-strain divergence and developing crack pattern occur while the coupon is still macroscopically intact, at 5 cycles.
+2. Visible corner spallation appears only afterward, by 10 cycles, relative to the strain/crack signature.
+3. The micro-strain/crack signature precedes macroscopic spallation onset, establishing a temporal ordering.
+4. No mechanism is shown by which the micro-strain divergence or crack development causes the subsequent spallation; both could instead be independent consequences of a shared underlying driver (e.g., phase instability or thermal cycling stress), a gap already carried forward from the earlier result
+5. The two observations are different kinds of measurement at different resolutions: A is a quantified per-interval rate (deg/interval) spanning cycles 5-20 plus a qualitative image description, while B is a categorical/state observation (intact vs. spalled, extent growing) at sparse checkpoints (5, 10, 40 cycles); no quantitative correlation between strain magnitude/decay and spallation extent can be drawn from this
+6. B is reported here only for Al2O3-YSZ; no spallation timeline for YSZ (the steady low-strain, no-crack-change coating) is given, so the combination cannot be extended to show that steady low micro-strain corresponds to absent or delayed spallation -- it remains a single-coating temporal ordering, not a general strain-spallation relationship
+7. Only three sparse cycle checkpoints (5, 10, 40) are available for B, sufficient to support an ordering (intact, then spalled, then slightly grown) but not a continuous or rate-based relationship with the strain data

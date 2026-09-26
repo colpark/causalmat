@@ -1,0 +1,38 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Best-guess reconstruction (no figures/data were provided, so this is inferential):
+
+The paper reports that Se doping on the Bi site of n-type Mg3Bi2-based Zintl-phase material raises the room-temperature power factor (PRF) by optimizing carrier concentration/mobility, and that this translates into a peak figure of merit (zT) at or near room temperature that is unusually high for this class of material — historically Mg3Bi2-based compounds only showed strong zT at elevated temperatures (~300–450°C), with mediocre near-room-temperature performance.
+
+Taken alone, a new room-temperature PRF/zT peak only shows that this particular doping level and sample achieve good performance in one temperature regime — it doesn't establish whether the material is competitive across the full operating range needed for real thermoelectric modules (which usually pair a low-temperature leg with a high-temperature leg).
+
+Read together with the earlier established result (good mid/high-temperature zT in undoped or lightly-doped Mg3Bi2-based compounds), the combination supports a stronger claim: that Se doping extends the useful operating window of n-type Mg3Bi2-based Zintl materials down to room temperature without sacrificing the previously demonstrated higher-temperature performance, making a single compositional family potentially viable across a broad temperature span (a "one-material" or near-single-leg thermoelectric device rather than needing entirely different compounds segmented by temperature).
+
+What remains open: whether the room-temperature and high-temperature optima can be achieved simultaneously in one bulk sample (vs. requiring different Se concentrations for each regime), long-term thermal/chemical stability and degradation of Se-doped samples, reproducibility across synthesis batches, and whether the reported PRF/zT gains survive scale-up into an actual device architecture rather than a lab pellet.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The composition with the lowest doped PF (x=0.005) is the one with the highest ZT.
+2. The PF-peak composition (x=0.01) yields a lower ZT than x=0.005.
+3. PF ranking and ZT ranking diverge across composition x.
+4. The low-resistivity, mobility-preserved carrier regime from n12 that drives the PF peak at x=0.01 does not carry over into the best ZT.
+5. What n12/n13 established about resistivity and PF cannot by itself account for which composition gives the best ZT.
+6. The combination does not identify what produces the ZT ranking at x=0.005 over x=0.01, since neither n12 nor n13 measures the additional quantity (beyond S and rho) that ZT depends on
+7. n12's mu_H/n_H/rho trend and n13's PF values are reported at 300 K and 623 K, but B's ZT values are given only at 300 K, so the combination says nothing about whether the PF-peak/ZT-peak divergence holds, narrows, or reverses at 623 K
+8. Only a handful of doping points overlap across n12, n13, and B, so this supports an ordering/divergence across x rather than a fitted relationship between PF and ZT
+9. n12's mu_H coverage does not include x=0.01 itself, and n12 says nothing about the Seebeck coefficient S, so the combination cannot decompose the PF-vs-ZT divergence into a resistivity/mobility contribution versus an S contribution
+10. The pair does not establish the microscopic doping mechanism responsible for either the PF trend or the ZT trend

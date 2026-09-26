@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Figure 8 shows a single coupon photographed at 0, 5, 10, 20, 30, and 40 thermal cycles. At 0 and 5 cycles the coating surface is intact and uniform. By 10 cycles, one corner/edge region shows visible spallation (loss of coating, exposing a lighter/rougher patch at the top-right corner). From 20 through 40 cycles, that same spalled region persists and appears to enlarge somewhat, while the bulk of the coated surface remains intact across all 40 cycles.
+
+What this supports: for Al2O3-YSZ TBC under the tested thermal-cycling protocol, coating failure is localized and edge/corner-initiated rather than a sudden, global delamination — damage onset occurs between 5 and 10 cycles, and once initiated it progresses gradually (slow growth) rather than catastrophically, with most of the coating surviving to 40 cycles. This is consistent with a service_capability claim that the coating tolerates moderate thermal cycling with only minor, localized attrition rather than early total failure.
+
+What it leaves open: this is a single representative coupon (no replicate/statistical data shown), so scatter across specimens is unknown. The exact cycle number at which spallation initiated (somewhere in the 5-10 range) is not resolved more finely. No quantitative area-loss, mass-loss, or adhesion-strength values accompany the photos, so "grows slightly" is qualitative/visual only. The image does not reveal the failure mechanism (thermal mismatch, sintering, oxidation of bond coat, etc.) or whether the corner is an edge-effect artifact of specimen geometry versus representative of in-service component behavior. It also does not establish an ultimate service-life limit — only that the coating survives to 40 cycles with edge damage, not whether/when it would eventually fail catastrophically beyond that point.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. Together the two pieces bound when the coating's actual service capability breaks down relative to when its microstructure last looked stable.
+2. The 5-to-10-cycle spallation onset window immediately follows the point at which the microstructural/diffraction read gave no sign of trouble.
+3. A's stability read alone cannot reveal this onset because it never samples past what it reports.
+4. B's spallation timeline alone cannot explain this onset because it carries no microstructural or strain correlate.
+5. A's crack-network read (n12) reports only on YSZ; B's spallation account (per the coating identified as Al2O3-YSZ) is not established as being drawn from the same specimen or layer, so the pair does not show that the material whose cracks looked stable is the material that spalled
+6. A is a qualitative single-field-of-view comparison ('looks unchanged') at one interval (before vs. 5 cycles), while B is a categorical intact/spalled/grown event timeline sampled at three points (5, 10, 40 cycles) with no crack length, density, or strain measure attached -- the two cannot be set on a shared scale to show a dose- or rate-based relationship, only a sequence in time
+7. Only one time point (5 cycles) is common to both observations, and only two further points (10, 40 cycles) exist on the spallation side, which is too sparse to establish anything beyond an ordering (apparent micro-stability preceded macro spallation), not a quantitative relationship between them
+8. No mechanism links crack-network appearance (or its absence of visible change) to macroscopic corner spallation, so the pairing cannot establish that the unchanged crack network either caused, failed to prevent, or was irrelevant to the spallation
+9. A's own convergence claim (n11+n12) concerns YSZ specifically, while n11 separately notes Al2O3-YSZ has a large orientation-change at 5 cycles that diminishes by 20; B's spallation timing is not measured against either coating's strain data directly, so the combination cannot attribute the 5-10 cycle spallation to one coating's phase/strain behavior over the other's

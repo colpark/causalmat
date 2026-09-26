@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F6a (path: /home/aid1/Documents/causalmat/matmech/Journal_of_Magnesium_and_Alloys/j.jma.2020.11.023/panels/crops/83b69d99b3e0033f51deefa24884f665315be84db537fd1e97347ec5fb3a8dec_A.jpg) plots ZT vs T (300-625 K) for Mg3.2Bi1.4Sb0.6-xSex at x = 0, 0.005, 0.01, 0.02, 0.04, plus two literature reference curves (n-Bi2Te3 [8], dashed; Mg3.05(Sb0.7Bi0.3)1.99Te0.01 [22], orange). Reading the curve at 300 K matches the quoted numbers closely: x=0 is near-zero (~0.05, essentially undoped/unoptimized), x=0.005 ~0.85, x=0.01 ~0.78, x=0.02/0.04 cluster ~0.63-0.69, and the n-Bi2Te3 reference sits at ~0.88.
+
+What this settles: Se substitution on the Sb/Bi site is what converts an otherwise poor thermoelectric (x=0, ZT<0.25 across the whole range) into a material with room-temperature ZT approaching commercial n-type Bi2Te3 (0.84 vs 0.88, ~95% of reference), and it also confirms a clear doping-dependent trend — lighter Se doping (x=0.005-0.01) outperforms heavier doping (x=0.02-0.04) at 300 K and gives the highest peak ZT (~1.25-1.3 around 450-525 K) among the Se-doped series, exceeding both literature references in that mid-temperature window.
+
+What it leaves open: the panel alone doesn't show which transport property (Seebeck, resistivity, or thermal conductivity) drives the 300 K differences between doping levels, gives no error bars/reproducibility information, doesn't establish behavior beyond ~625 K, and doesn't include x values between 0.01-0.02 or above 0.04, so the true optimum doping and its precision aren't pinned down — only the trend and approximate magnitudes are.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The composition optimizing power factor and resistivity (x=0.01) is not the composition maximizing ZT (x=0.005).
+2. The electronic-transport optimum and the ZT optimum are decoupled, with the transport optimum sitting one step higher in x than the ZT optimum.
+3. The non-n_H factor that boosts power factor and lowers resistivity at x=0.01 is not sufficient by itself to produce the best overall thermoelectric performance.
+4. Some additional composition-dependent quantity must be pulling the ZT optimum back down to x=0.005.
+5. The combination does not identify what pulls the ZT optimum to x=0.005 instead of x=0.01 -- ZT = PF*T/kappa in the usual decomposition, but no thermal conductivity value is cited here, so whether the shift is due to a lower kappa at x=0.005, a Seebeck-coefficient effect not captured by PF alone, or some other factor cannot be read off these two observations.
+6. Both quantities are reported at 300 K here, so the comparison of optimum locations is only established at that one temperature; the earlier result's 623 K power-factor point is not matched by a corresponding 623 K ZT value in this pairing, so nothing here says whether the same x=0.005-vs-x=0.01 split holds at higher temperature.
+7. The power-factor/resistivity optimum at x=0.01 was already qualified as not cleanly separating a resistivity effect from an independent Seebeck effect; that ambiguity is carried forward unresolved and layered under a further composite quantity (ZT) that adds thermal conductivity as an additional unmeasured ingredient.
+8. The comparison is only of optimum locations (x=0.01 for PF/resistivity vs x=0.005 for ZT) across a handful of doping levels; it establishes an ordering/location mismatch, not a continuous relationship between power factor and ZT versus composition.
+9. The DFT+Hall two-state, 0 K mechanistic account underlying the earlier result is not extended or tested by the ZT data; the ZT comparison sits on top of that unresolved mechanistic gap without closing it.

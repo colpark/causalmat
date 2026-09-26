@@ -58,8 +58,10 @@ def run(depth):
         KEY = json.load(open(R('results/v2p9/keys_nl.json')))
         NL4 = {}
     else:
-        S = json.load(open(R('results/v2p10/step4.json')))
-        leaves = [c['chain_id'] for c in S['chains'] if c['depth_ok']]
+        S = json.load(open(R('results/v2p10/step4_d4.json')))
+        # a depth 4 link only becomes a depth 5 leaf if it passed; its parents already had to
+        # pass to be a depth 3 chain, so a passing link here means all three links below it held
+        leaves = [k for k, v in S['items_out'].items() if v['compositional']]
         KEY = json.load(open(R('results/v2p10/keys_d4.json')))
         NL4 = {x['item']: x for x in
                json.load(open(R('results/v2p10/deeper_d4.json')))['pairs_out']}
