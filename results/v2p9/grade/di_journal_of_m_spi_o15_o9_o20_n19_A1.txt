@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Figure 14 is a scatter plot of Average UTS vs Average YS for AZ61 alloys processed by different techniques (90° ECAP, squeeze casting, 120° ECAP routes, multidirectional forging, friction stir processing, rolling, heat treatment, small-strain impact multidirectional forging, extrusion+ECAP, forging+heat treatment) plus three red "this study" points at roughly (275,380), (295,355), and (335,448) MPa.
+
+What the measurement supports: within this compiled literature comparison, the three "this study" data points sit clearly to the upper-right of every other processing route shown — both higher YS (~275-335 MPa vs a literature ceiling near ~240 MPa) and higher UTS (~355-448 MPa vs a literature ceiling near ~318 MPa). This is a legitimate, visually unambiguous strength-combination advantage over every comparator process plotted for AZ61 in this figure, i.e., the processing route in "this study" achieves a better YS-UTS combination than any of the nine listed literature routes.
+
+What it leaves open: the figure alone doesn't establish why this processing route outperforms the others (mechanism), doesn't show ductility/elongation, energy cost, scalability, or reproducibility (error bars/scatter aren't shown, so these appear to be single average points, not distributions with a quantified confidence interval). It also can't confirm the literature values were harvested/plotted correctly or represent truly equivalent test conditions (specimen geometry, strain rate, aging state), since that depends on Table 4 (not shown here) and the original sources — the figure caption references "the data in Table 4" but that table wasn't provided. So the plot supports a comparative ranking claim but not causal or mechanistic conclusions, nor guarantees of comparability across studies.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The ~330/447 MPa corner point flagged in A matches the ~335/448 MPa point in the new literature-position plot.
+2. The specific EPT-treated condition is therefore the same study point that clears the entire compiled literature band for AZ61.
+3. The condition already flagged in A as microstructurally refined is the same one shown in B to out-perform every other reported AZ61 processing route.
+4. This out-performance holds against the entire compiled literature, not just against the study's own untreated baseline comparison used in A.
+5. The link from A's refined/EPT specimen to a specific point in B's literature plot is an approximate numeric match (~330/447 vs ~335/448), not an explicit identification in either panel, so which of the three 'this study' points is EPT-treated versus untreated is inferred, not stated
+6. B supplies no SEM or microstructural data for any literature-route specimen (ECAP, forging, rolling, casting, FSP), so there is no basis to say those routes have coarser features than F10d - the property gap in B could come from alloy heat, specimen geometry, or test protocol differences across studies rather than microstructure
+7. A's own qualification carries forward unresolved: EPT plausibly changes recrystallization/grain refinement, dislocation density, and texture together, and B cannot help separate which of these drives the property advantage over literature, since B only reports YS/UTS numbers, not mechanism
+8. Still only one EPT vs non-EPT pair within the study, and B adds cross-study benchmark points rather than intermediate feature-size or property values, so no quantitative feature-size-to-property relationship is established, only two separate binary/ordinal comparisons (within-study, and study-vs-literature)
+9. The split yield-vs-UTS behavior noted in A (finer feature size paired with LOWER yield but HIGHER UTS and elongation) is not addressed by B at all, since B only shows absolute position relative to literature, not the internal yield/UTS trade-off

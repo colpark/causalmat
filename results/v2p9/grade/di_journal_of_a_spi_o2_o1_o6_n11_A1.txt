@@ -1,0 +1,38 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Both panels plot grain orientation variation (degrees) vs. thermal cycle number for ten tracked grains/regions (curves 1-10), one panel per coating layer.
+
+Panel (a), YSZ topcoat: values stay in a tight band of roughly 0.7-2.3 deg across the whole 5-40 cycle range, oscillating (peaks near cycle 25 and 40) but never departing far from that band — no large early spike.
+
+Panel (b), Al2O3-YSZ bond coat: at cycle 5 the ten curves are clustered high, roughly 4.3-11.4 deg (with the outlier curve "3" reaching ~11.4), then fall steeply and monotonically, converging to ~1-2 deg by cycle 20 and staying there through cycle 40 — essentially matching the YSZ level by the end.
+
+This supports the stated measurement numbers exactly (5-cycle range ~4.3-11 deg falling to ~1 deg by 20 cycles for Al2O3-YSZ, versus a flat 0.7-2.3 deg for YSZ throughout), and it justifies the qualitative conclusion that the Al2O3-YSZ interlayer undergoes a large, transient grain-reorientation event early in thermal cycling that relaxes/anneals out with continued cycling, whereas the YSZ topcoat's grain orientation is comparatively stable and low-amplitude from the start.
+
+What it leaves open: the plots give no error bars, replicate/sample-size information, or statistical test, so whether the early Al2O3-YSZ spike is significant versus measurement noise isn't established from the figure alone. The figure also does not identify the physical mechanism (e.g., interfacial stress relaxation, sintering, phase change, grain growth) driving the early high values, nor does it show whether this behavior generalizes beyond this specimen/cycling protocol, or how it connects mechanistically to coating failure (spallation, TGO growth, etc.) discussed elsewhere in the paper.
+
+Relevant files: F5a and F5b crops under /home/aid1/Documents/causalmat/matmech/Journal_of_Advanced_Ceramics/s40145-021-0538-2/panels/crops/135c1fde4c6b3ff49dfa6a4436f011340156e1816f5bcfba00aca8a60811aef9_A.jpg and _B.jpg.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The cubic-phase coating, Al2O3-YSZ, starts with much larger per-interval change that diminishes with cycling
+2. The tetragonal-phase coating, YSZ, remains comparatively low and stable throughout
+3. The phase difference established in A co-occurs with a distinctly different, evolving micro-strain response captured in B
+4. This co-occurrence link between phase and strain response is not shown by either observation alone
+5. Does not establish any mechanism by which crystal phase (cubic vs tetragonal) would produce the differing strain magnitudes -- A's own qualifications record that no mechanism for tetragonal vs cubic phase stabilization is given
+6. Does not quantify the tetragonal vs cubic phase fraction in either sample, so no quantitative relationship between phase fraction and strain magnitude can be drawn, only a qualitative co-occurrence
+7. Only two coatings are compared, so this supports an ordering/co-occurrence between the samples, not a general relationship between phase type and strain magnitude
+8. A is a categorical, single-measurement phase label from XRD peak positions/shapes (panel F1) while B is a per-interval rate measurement taken at specific cycle counts (panels F5a, F5b) -- these are different kinds of quantities, so the pairing is a co-occurrence across measurements, not a quantitative correlation on a shared scale

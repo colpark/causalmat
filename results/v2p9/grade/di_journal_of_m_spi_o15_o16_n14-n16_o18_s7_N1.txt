@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Best-guess reading (I was not given the actual DSC trace, figure, or the specific "established earlier result," so this is inference from the paper's likely content, not a report of data I've seen):
+
+The Se-doping paper almost certainly reports DSC on the Se-doped Mg3Bi2 samples to check for phase transitions/melting and decomposition behavior, comparing the doped material's thermal signature to that of pristine (undoped) Mg3Bi2 or Mg3Bi2-Sb-alloyed material established in earlier literature. Neither measurement alone settles much: the earlier result (host-phase transition/melting temperature of undoped Mg3Bi2) only tells you the baseline thermal stability of the parent compound, and the new DSC on Se-doped samples alone only shows that some thermal event occurs at a similar temperature — it can't by itself prove the material is still single-phase Mg3Bi2 rather than a doped compound with an altered or decomposed structure.
+
+Read together, the two results support the conclusion that Se substitution does not measurably shift the phase-transition/decomposition temperature relative to the parent Mg3Bi2, i.e., Se enters the lattice as a genuine dopant without destabilizing the host phase or producing detectable secondary-phase transitions. Combined with the paper's transport data, this licenses the claim that the observed high room-temperature thermoelectric performance (zT) arises from carrier-concentration/band-structure tuning by Se rather than from a different, more thermally fragile compound.
+
+What it leaves open: the DSC comparison cannot establish long-term operational/thermal-cycling stability, cannot rule out minor secondary phases below DSC's sensitivity, and cannot itself explain the microscopic electronic mechanism (band convergence, mobility change) behind the zT enhancement — that requires the separate transport/Hall/band-structure data.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. Together, the internal association and the literature comparison extend an internal association to an external benchmark.
+2. The low-kappa_L+kappa_b regime achieved in this work is associated with a ZT that ranks above prior literature values for closely related doped compositions.
+3. Observation B reports no kappa_L or kappa_b values for the comparison refs (24, 22, 39, 40), so the pair cannot show that this work's ZT advantage over those refs is due to lower thermal conductivity specifically; the ranking in B could equally reflect differences in power factor, carrier concentration, or electronic thermal conductivity between this work and those refs
+4. Observation B is reported only at 300 K while Observation A spans 300-475 K, so the combination says nothing about whether this work's ZT advantage over the literature refs persists at other temperatures
+5. The composition series in A co-varies doping level with kappa_L+kappa_b, power factor, and carrier concentration by construction, so even the within-series kappa-ZT association carried into the comparison is confounded and cannot be isolated as causal
+6. It is not established here which composition's kappa_L+kappa_b value corresponds to the 0.82 ZT plotted in B, so the pair cannot tie a specific low-kappa data point to the specific ZT that beats the literature refs
+7. ZT is a composite quantity (total thermal conductivity including an electronic term, and power factor), none of which are given in either observation, so kappa_L+kappa_b alone cannot account for why this work's ZT exceeds the other refs' ZT

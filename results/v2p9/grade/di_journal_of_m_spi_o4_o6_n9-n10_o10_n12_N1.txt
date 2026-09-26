@@ -1,0 +1,40 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Best-guess synthesis (no actual figures/values were available to me, so this is inferred from general knowledge of the Mg3Bi2-Se thermoelectric literature):
+
+The new paper reports that Se-doping (substituting on the Bi/pnictogen site) of n-type Mg3Bi2-based Zintl-phase materials yields high thermoelectric performance specifically at room temperature — i.e., a peak or near-peak zT (figure of merit) achieved near 300 K rather than only at elevated temperature, via the combination of (a) carrier-concentration/Fermi-level tuning from Se substitution and (b) suppressed lattice thermal conductivity from point-defect (mass/strain-contrast) phonon scattering.
+
+Read alone, this only shows that one specific dopant (Se) works well in one specific composition — it doesn't tell you whether the mechanism is general or an idiosyncratic chemistry effect.
+
+The "established earlier result" this is meant to be read against is presumably the prior, better-known result that Mg3Bi2-xSbx alloying (band-convergence + alloy scattering) is what produces high near-room-temperature zT in this material family. Read together, the two results jointly support a generalizable design principle: multiple distinct point-defect/dopant strategies (Sb-alloying, Se-doping) converge on the same physical mechanism — carrier optimization plus mass/strain-fluctuation phonon scattering — as the route to high room-temperature n-type performance in Mg3Bi2, rather than either result being a one-off, composition-specific fluke. That is the "PRP" (design-principle/property-relationship) value the combination settles that neither measurement alone could: generality of the mechanism across dopant chemistries.
+
+What remains open: the relative magnitude of electronic vs. thermal contributions in each case, whether the effect is truly additive/optimizable when Se and Sb are combined, and long-term/device-level stability and reproducibility of the Se-doped samples.
+
+No files were read or modified for this task; it required domain reasoning only, not codebase access.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. This resistivity drop is consistent with the same carrier-density increase established from the DFT+Hall account.
+2. The resistivity drop can be read as an electrical-transport corollary of that carrier-density increase.
+3. A doping-induced rise in n_H of this size is the kind of change that would lower resistivity by roughly this order of magnitude.
+4. Together the two results support a single connected picture rather than two independent, unrelated observations.
+5. In this picture, Se donor doping raises E_F, which raises Hall carrier density, which is associated with sharply lower resistivity.
+6. Resistivity is lowest near x=0.01, but the Hall carrier concentration increases monotonically from x=0.005 to x=0.04; this mismatch (non-monotonic rho vs monotonic n_H) means the pairing cannot show that carrier density alone sets the resistivity value across the series -- something else (e.g., carrier mobility or scattering) must also be varying with x.
+7. Resistivity is a transport coefficient that depends on both carrier density and mobility, while the earlier result only concerns the mechanism for carrier density (n_H); the combination says nothing about how mobility changes with x, so the magnitude of the rho drop cannot be attributed to the n_H increase alone.
+8. Doped compositions show rho rising with T while the undoped (x=0) sample shows rho falling with T -- a qualitative difference in transport behavior that the carrier-density mechanism from the earlier result does not address or explain.
+9. The earlier result's own limits carry over: the DFT comparison is a two-state (undoped vs one doped) snapshot at 0 K, not a five-point series, and it does not directly calculate n_H from the bands; resistivity data add a different quantity (a 300 K transport coefficient) without resolving that DFT-to-Hall correspondence.
+10. The combination does not rule out other contributions to the resistivity drop (e.g., temperature-dependent scattering, defect states) beyond the M/K/L band-edge-driven carrier-density increase already qualified as non-exclusive in the earlier result.

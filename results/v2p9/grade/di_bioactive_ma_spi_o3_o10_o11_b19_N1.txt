@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Best-guess reading (no actual paper text, figures, or "earlier result" were supplied to me, so this is inference from the title alone):
+
+The title indicates that Ce/Er co-doped TiO2 kills bacteria rapidly under *visible* light. The obvious "established earlier result" in this literature is the well-known baseline finding that plain/undoped TiO2 is photocatalytically antibacterial but only under UV illumination (band-gap ~3.2 eV excludes visible light), so its PRF (the proof-of-principle reactivity/kill-capability) was demonstrated only under a non-ambient, UV-lamp condition.
+
+Read together, the two results support a conclusion about service_capability that neither settles alone: the earlier UV result establishes that TiO2's antibacterial mechanism (photogenerated reactive oxygen species) works in principle (PRF), but says nothing about whether the material could function in ordinary ambient/room lighting — i.e., it doesn't establish service_capability. The new Ce/Er co-doping result alone shows fast killing under visible light, but without the earlier UV baseline you couldn't tell whether this is an improvement over an established mechanism or a novel, unvalidated effect. Combined, they jointly support the claim that Ce/Er doping extends a previously UV-only antibacterial mechanism into the visible spectrum, giving the material genuine real-world service_capability (functioning under ambient/room light rather than requiring special UV sources).
+
+What remains open: quantitative kill kinetics against realistic pathogen loads, durability/reusability of the coating, in vivo or clinically realistic biosafety, performance under variable ambient light intensity, and whether Ce vs Er contribute independently or synergistically. This is my best inference, not sourced from the actual paper.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. Er0.5Ce0.2's ranking advantage over other Ce loadings and TiO2 reproduces across a second, independent activity assay beyond dye degradation.
+2. This supports treating Er0.5Ce0.2's superior performance as a general composition property rather than an artifact of the dye-degradation assay alone.
+3. The antibacterial series again varies only Ce content (0.1, 0.2, 0.3) at fixed Er0.5 plus a TiO2 baseline, so Er0.75 is still never tested here either; the pairing still cannot check whether Er0.5's upconversion advantage over Er0.75 (from Observation A) shows up in any biological or chemical activity result
+4. Because Er level is never varied within the antibacterial data (same as within the dye-degradation data), the recurring Ce0.2-over-Ce0.1/Ce0.3 ordering could still be driven by Ce co-doping effects rather than by the Er0.5-favoring upconversion mechanism the graph proposes (b7->b17)
+5. Dye degradation (a chemical bleaching endpoint) and antibacterial killing (a biological viability endpoint) are different kinds of activity outcomes measured on different substrates, so agreement in ranking across them is consistent with a shared photocatalytic driver but does not by itself demonstrate one; it does not translate into a shared quantitative scale

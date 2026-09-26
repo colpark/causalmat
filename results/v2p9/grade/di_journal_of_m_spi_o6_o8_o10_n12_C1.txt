@@ -1,0 +1,29 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+This measurement supports the conclusion that Se doping over x = 0.005-0.04 acts as an electron donor, raising 300 K carrier concentration n_H from ~0.5×10^19 to 3.3×10^19 cm^-3, and that across this same range the samples' 300 K Hall mobility (~125-170 cm^2/Vs) exceeds every literature value reported at comparable n_H. So the justified claim is: Se doping increases carrier density in the expected donor-like direction, and it does so without incurring the mobility penalty typically seen in other reported samples at matched carrier concentration -- i.e., these samples show a mobility advantage relative to the existing literature at similar doping-induced carrier levels.
+
+What it leaves open is substantial. First, it does not establish the microscopic mechanism -- that Se is actually substituting on the Sb site -- since that requires structural or site-specific evidence beyond n_H/mu_H trends. Second, because the literature comparison set is heterogeneous (different synthesis routes, microstructures, grain sizes), the apparent mobility advantage could partly or wholly reflect differences in sample quality/scattering rather than being a genuine consequence of the Se-doping process itself. Third, mobility data are only reported for x=0.005-0.02 and separately for x=0.04, so no single optimal composition or peak-mobility point can be identified from this pairing. Finally, since only a few doping points/ranges were measured rather than a dense series, the result supports a directional trend/ordering across x but not a fitted, continuous n_H-mu_H relationship or precise functional form.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The resistivity drop is consistent with the carrier-concentration increase driving up conductivity
+2. The large drop in resistivity is not undercut by any mobility penalty from doping
+3. Does not establish the microscopic doping mechanism (Se substituting on the Sb site); that still requires structural/site evidence, not trends in n_H, mu_H, or rho
+4. The mu_H comparison underlying the mobility-advantage claim is against a heterogeneous literature set (different synthesis, microstructure, grain size), so the mobility-preserved contribution to low rho could reflect sample quality rather than the doping process itself
+5. Observation A's mu_H data only cover x=0.005-0.02 and x=0.04, while B reports the rho minimum specifically near x=0.01 -- a composition not covered by A's mu_H ranges, so the specific rho minimum cannot be tied to a measured mu_H value at that exact x
+6. B's temperature dependence (doped rho rising with T while x=0 rho falls with T) is not addressed by A at all; the combination says nothing about the mechanism behind this divergent T-behavior
+7. Only a few doping points/ranges are given, so the pair supports an ordering/trend across x, not a fitted continuous relationship linking n_H, mu_H, and rho

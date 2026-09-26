@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Note: the phrase "PRP/value" in the prompt does not correspond to anything in the supplied material — the settled result concerns EBSD/SEM grain-size evidence, not a PRP or "value" metric. Answering on the substance actually given:
+
+This combined result supports treating panel (d)'s fine SEM features (~0.3–0.8 um) as the small end of the same equiaxed-grain population confirmed crystallographically in panels (a) (~0.5–1.5 um) and (c) (~1.5–3 um). Together the three panels justify a qualitative conclusion: equiaxed grain/feature size decreases progressively from (a)/(c) toward (d), consistent with a single continuous grain-refinement trend across the panel set rather than an unrelated or artifactual population appearing only in (d).
+
+What this leaves open: (1) panel (d) itself has no EBSD data, so its features are not directly proven to be true recrystallized grains — they could instead be subgrains, deformation substructure, or SEM secondary-electron contrast artifacts; the claim rests on morphological analogy, not on-panel crystallographic confirmation. (2) SEM and EBSD are physically different contrast mechanisms (topographic vs. misorientation), so their size measurements are not guaranteed to align on identical microstructural features even where both are genuine grains. (3) With only two EBSD panels and one SEM panel, and no panel imaged by both techniques, the data support only a qualitative ordering of sizes across the four conditions, not a quantitative size-versus-processing-condition relationship or trend curve. In short: the ordering/continuity of grain refinement is supported; the crystallographic identity of the finest (d) features and any quantitative size-condition relationship are not established.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The processing condition linked to the finest observed equiaxed features also corresponds to the highest-strength EPT curve among those compared.
+2. Neither A nor B alone establishes this association between finest features and highest-strength curve.
+3. A's ~0.3-0.8 um features in (d) are not independently confirmed as true grains (no EBSD on panel (d)); the refinement trend rests on morphological analogy, not crystallographic proof on that panel
+4. The identification of which panel/condition (d) corresponds to the specific 423K-8+373K-3+25us-10min curve in B is presumed by the linking edge, not shown by a shared panel or label matching data given here
+5. A supports only a qualitative ordering of sizes across two EBSD panels and one SEM panel, not a quantitative size-vs-condition relationship; B supports only which single curve among three reaches the highest peak value, not a strength-vs-size relationship
+6. SEM and EBSD are different measurement kinds (topographic vs crystallographic contrast) whose size readings are not guaranteed to coincide on the same features, and neither is directly commensurate with a stress measurement

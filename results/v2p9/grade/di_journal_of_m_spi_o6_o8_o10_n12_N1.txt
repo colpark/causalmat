@@ -1,0 +1,37 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Best-guess reading (no data was supplied for either the paper or the "established earlier result," so this is inference from context, not verified figures):
+
+The new paper almost certainly reports that Se-doping on the Bi site of Mg3Bi2 raises n-type carrier concentration into an optimal range and adds point-defect/alloy scattering that suppresses lattice thermal conductivity, yielding a high thermoelectric figure of merit (zT) near room temperature — a single-material demonstration. Taken alone, that only shows the Se-doping trick works for this one Bi-based compound; it can't tell you whether the underlying design principle is general.
+
+The "established earlier result" is presumably the analogous finding for Mg3Sb2 (the Sb-based sister compound), where chalcogen/Te doping on the pnictogen site was already shown to optimize carrier density and cut lattice conductivity to give high n-type zT near room temperature. That earlier result alone only proves the principle for Sb-based Mg3X2.
+
+Read together, the two results settle something neither settles alone: that pnictogen-site chalcogen doping to tune carrier concentration and add point-defect scattering is a generalizable strategy across the whole Mg3(Sb,Bi)2 family, not an idiosyncrasy of one compound. That supports treating "value" (i.e., the achievable near-room-temperature n-type zT) as a property of the family/design rule rather than a one-off result, and strengthens confidence in the PRP (the underlying structure–property design principle) as portable across Sb↔Bi substitution.
+
+What remains open: whether the rule holds across the full Sb–Bi solid-solution range (not just end members), whether the same mechanism (versus coincidentally similar transport) is actually responsible in both cases, reproducibility across synthesis batches/labs, long-term stability/degradation under thermal cycling, and whether lab-scale zT gains translate into real device-level efficiency. Neither paper alone can address generality; combined they support generality of the design principle but not its robustness or device-level payoff.
+
+No files were used for this task; it is a pure text/reasoning answer with no code or repository artifacts involved.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The resistivity drop is consistent with the carrier-concentration increase driving up conductivity
+2. The large drop in resistivity is not undercut by any mobility penalty from doping
+3. Does not establish the microscopic doping mechanism (Se substituting on the Sb site); that still requires structural/site evidence, not trends in n_H, mu_H, or rho
+4. The mu_H comparison underlying the mobility-advantage claim is against a heterogeneous literature set (different synthesis, microstructure, grain size), so the mobility-preserved contribution to low rho could reflect sample quality rather than the doping process itself
+5. Observation A's mu_H data only cover x=0.005-0.02 and x=0.04, while B reports the rho minimum specifically near x=0.01 -- a composition not covered by A's mu_H ranges, so the specific rho minimum cannot be tied to a measured mu_H value at that exact x
+6. B's temperature dependence (doped rho rising with T while x=0 rho falls with T) is not addressed by A at all; the combination says nothing about the mechanism behind this divergent T-behavior
+7. Only a few doping points/ranges are given, so the pair supports an ordering/trend across x, not a fitted continuous relationship linking n_H, mu_H, and rho

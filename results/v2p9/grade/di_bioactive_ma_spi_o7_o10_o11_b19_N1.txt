@@ -1,0 +1,29 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Best-guess reconstruction (no actual data was supplied to me): the paper likely reports that Ce and Er co-doping narrows TiO2's bandgap and/or adds Er upconversion pathways, so the doped material generates reactive oxygen species and kills bacteria (e.g., E. coli/S. aureus) rapidly under visible light alone, whereas plain TiO2 is essentially inert without UV. Read together with an "established earlier result" that presumably showed baseline (undoped) TiO2 has photocatalytic/antibacterial activity only under UV — i.e., near-zero PRF (photocatalytic response factor) under visible light and therefore no service_capability in ordinary ambient/indoor lighting — this new measurement settles something neither result shows alone: that the dopant chemistry (not just "TiO2 photocatalysis" generically) is what converts a UV-only material into one with genuine visible-light service_capability. The earlier result alone only bounds the baseline material's limitation; this result alone only shows the doped sample "works," without telling you whether that's an improvement over anything. Combined, they support a causal claim: doping is the operative factor that raises PRF from ~null to functional under visible light, licensing deployment claims for ordinary lighting conditions (e.g., hospital rooms, surfaces) rather than requiring UV lamps.
+
+What remains open: the magnitude and durability of the effect (dose-response with Ce:Er ratio, long-term/reusable activity, mechanism attribution between Ce redox states vs Er upconversion), generalizability beyond the tested bacterial strains and lab light source to real ambient light and in vivo/biofilm contexts, and any safety or cytotoxicity trade-offs — none of which this single comparison can settle.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. Er0.5Ce0.2 is best and TiO2 is worst among the doped samples in both the degradation assay and the antibacterial assay
+2. The same rank order recurs across two independent activity assays, dye photocatalytic degradation and antibacterial killing
+3. The rank consistency extends beyond the two PL-measured samples to include Ce0.1 and Ce0.3, for which recombination was never directly measured
+4. Ce0.1 and Ce0.3 have no PL measurement, so their intermediate antibacterial ranking (Ce0.3 > Ce0.1) cannot be tied to a measured recombination value; it is only consistent with an extrapolation of the two-endpoint trend from A, not a confirmed data point
+5. Antibacterial killing ratio is a different kind of assay (microbial viability loss) from dye photocatalytic degradation; matching rank order at the endpoints does not establish that the same physical mechanism (electron-hole recombination suppression) drives bacterial killing rather than a distinct mechanism (e.g., ROS species or interactions specific to microbial membranes) that happens to correlate
+6. Er0.5Ti-O appears in neither the antibacterial panel nor the degradation panel, so it remains entirely outside the pattern in both directions
+7. Both A and B remain endpoint/summary comparisons over limited time windows (up to 60 min for degradation, 20 min for antibacterial killing), not a dose-response or mechanistic link between recombination amount and either activity measure

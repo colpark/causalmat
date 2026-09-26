@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+This measurement supports the conclusion that low-level Se doping produces a favorable transport combination rather than a trade-off: across the doping range surveyed (x = 0.005-0.02, and still at x = 0.04), samples show simultaneously enhanced 300 K Hall mobility (145-170 cm2/Vs, falling to ~125 cm2/Vs at x=0.04, all above the literature envelope) and sharply reduced 300 K resistivity (from ~650 down to 12-23 micro-ohm m relative to undoped/literature reference). Because these two signatures co-occur in the same samples over the same doping range, the result justifies the qualitative claim that Se doping does not lower resistivity merely by adding carriers at the cost of mobility (as conventional doping often does) but instead yields both higher mobility and lower resistivity together, at least at the doping levels tested. The x=0.04 point strengthens this because it is explicitly compared at similar carrier density n_H, isolating mobility as a contributor there.
+
+What it leaves open: for the lower-x points (0.005-0.02), resistivity depends jointly on n_H and mu_H, and since carrier density was not held or compared at similar n_H for those points, the drop in resistivity cannot be attributed to the mobility increase alone versus a concurrent rise in carrier density from doping. The data are only available at a few discrete x values, so this supports an ordering across doping levels, not a continuous or quantitative dose-response curve. The opposite temperature trends between doped and undoped material indicate different scattering/degeneracy regimes, but this contrast is not used to disentangle mobility from carrier-density effects. Finally, everything is confined to 300 K comparisons against literature/undoped baselines, so no mechanism is established — only a co-occurring pattern of enhanced mobility and reduced resistivity.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The doping-driven conductivity/mobility enhancement co-occurs with an enhanced power factor in the same low-Se-doping regime.
+2. This co-occurrence is consistent with the mobility/conductivity enhancement contributing to the power-factor gain, rather than doping sacrificing the Seebeck-conductivity balance.
+3. The power-factor ordering, x=0.01 highest and x=0.005 lowest among doped samples, does not track the mobility ordering, which is highest at x=0.005-0.02.
+4. Together the two results cannot pin the power-factor enhancement specifically on the mobility mechanism.
+5. PF = S^2*sigma combines the Seebeck coefficient with conductivity; no Seebeck value is given in either observation, so the combination cannot attribute the PF magnitude to the conductivity/mobility side versus a Seebeck-coefficient change
+6. The earlier result's own confound is not resolved here: only x=0.04 was verified 'at similar n_H'; x=0.01, the doping level with the peak power factor, is not one of the points checked against a carrier-density confound, so it is still unclear whether mobility or n_H sets the conductivity term feeding the PF at x=0.01
+7. Only a few discrete doping levels are compared in either panel (x=0, 0.005, 0.01, 0.04 for A; x=0, 0.005, 0.01 for B), so the pairing supports an ordering/co-occurrence, not a continuous or quantitative dose-response link between mobility and power factor
+8. The PF measurement adds a 623 K point that the mobility/resistivity result never addresses (confined to 300 K), so nothing about the 300 K mobility mechanism can be extended to explain the PF value at 623 K
+9. The PF ranking across doped samples (x=0.005 lowest of doped, x=0.01 highest) does not match the mobility ranking from the earlier result (x=0.005-0.02 all showing the highest mu_H, ~145-170 cm2/Vs), which weakens rather than confirms a direct mobility-to-PF link

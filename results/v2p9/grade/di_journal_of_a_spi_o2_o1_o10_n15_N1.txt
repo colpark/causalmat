@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Best-guess reading (no source text available, so this is inference from the title/domain, not from data in-hand):
+
+The paper compares single-layer YSZ and composite Al2O3-YSZ plasma-sprayed thermal barrier coatings, tracking microstructural evolution (sintering/densification, crack/porosity changes, and tetragonal-to-monoclinic phase transformation) through thermal cycling to spallation. Taken alone, this new measurement likely shows that Al2O3-YSZ coatings retain a lower monoclinic phase fraction (slower structural-transformation rate, "STR") after equivalent cycling than plain YSZ, alongside longer measured cycle life — but by itself that only shows a correlation between composition, phase fraction, and life, not that the phase fraction change is causally driving the life difference (it could instead be alumina's effect on sintering, crack deflection, or elastic modulus).
+
+Read together with the earlier established result — presumably from prior single-layer YSZ work establishing that monoclinic phase fraction growth (from the metastable tetragonal t' phase) tracks with, and mechanically drives, coating degradation and spallation via the associated volume expansion/microcracking — the combination lets the authors argue that the same STR-to-phase-fraction-to-failure pathway operates in both coating types, and that Al2O3 addition extends life specifically by suppressing that transformation rate (rather than by an unrelated mechanism). That is what neither result alone would settle: single-layer STR/phase data alone can't confirm the mechanism generalizes to the composite; the new composite measurement alone can't confirm phase fraction (versus alumina's other roles) is the operative variable.
+
+What remains open: the quantitative dose-response between phase fraction and cycle life, whether alumina's benefit is entirely mediated through STR suppression or partly through independent toughening/crack-deflection effects, and whether the mechanism holds beyond the tested compositions/cycling conditions.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The peak near 43 deg and split peak near 73-74 deg seen in the cycled pattern are the same diagnostic features that earlier distinguished tetragonal from cubic zirconia.
+2. The zirconia phase in the coating changes from cubic in the as-sprayed state to tetragonal after cycling.
+3. This change indicates a phase transformation occurred with thermal cycling.
+4. Does not quantify the fraction of tetragonal vs cubic phase present before or after cycling, only that the diagnostic peak-shape signature changes
+5. Does not establish at what point in cycling the transformation occurs -- the cycled-pattern observation gives no cycle count, so only a before/after (as-sprayed vs cycled) comparison is supported, not a rate or onset point within the cycling process
+6. Does not give a mechanism for why thermal cycling would drive a cubic-to-tetragonal transformation
+7. Only two snapshots (as-sprayed and generically 'cycled') are compared, not a cycle-by-cycle series, so an ordering (cubic before, tetragonal after) is supported but a continuous or bracketed relationship is not

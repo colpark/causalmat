@@ -1,0 +1,29 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+CANNOT DETERMINE.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The doping-driven conductivity/mobility enhancement co-occurs with an enhanced power factor in the same low-Se-doping regime.
+2. This co-occurrence is consistent with the mobility/conductivity enhancement contributing to the power-factor gain, rather than doping sacrificing the Seebeck-conductivity balance.
+3. The power-factor ordering, x=0.01 highest and x=0.005 lowest among doped samples, does not track the mobility ordering, which is highest at x=0.005-0.02.
+4. Together the two results cannot pin the power-factor enhancement specifically on the mobility mechanism.
+5. PF = S^2*sigma combines the Seebeck coefficient with conductivity; no Seebeck value is given in either observation, so the combination cannot attribute the PF magnitude to the conductivity/mobility side versus a Seebeck-coefficient change
+6. The earlier result's own confound is not resolved here: only x=0.04 was verified 'at similar n_H'; x=0.01, the doping level with the peak power factor, is not one of the points checked against a carrier-density confound, so it is still unclear whether mobility or n_H sets the conductivity term feeding the PF at x=0.01
+7. Only a few discrete doping levels are compared in either panel (x=0, 0.005, 0.01, 0.04 for A; x=0, 0.005, 0.01 for B), so the pairing supports an ordering/co-occurrence, not a continuous or quantitative dose-response link between mobility and power factor
+8. The PF measurement adds a 623 K point that the mobility/resistivity result never addresses (confined to 300 K), so nothing about the 300 K mobility mechanism can be extended to explain the PF value at 623 K
+9. The PF ranking across doped samples (x=0.005 lowest of doped, x=0.01 highest) does not match the mobility ranking from the earlier result (x=0.005-0.02 all showing the highest mu_H, ~145-170 cm2/Vs), which weakens rather than confirms a direct mobility-to-PF link

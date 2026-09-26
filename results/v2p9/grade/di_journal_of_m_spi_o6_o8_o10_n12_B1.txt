@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F5a (rho vs T, x=0 to 0.04) shows: x=0 starts near 650 microOhm-m at 300 K and falls with rising T (semiconductor-like, negative dRho/dT), while all Se-doped samples (x=0.005-0.04) sit far lower (12-23 microOhm-m at 300 K) and rise with T (metallic-like, positive dRho/dT, a hallmark of a degenerate, heavily doped semiconductor).
+
+Read together with the Hall result (n_H rising ~0.5e19 to 3.3e19 cm-3 with x, mu_H staying high, 125-170 cm2/Vs, above literature at matched n_H), this settles that the doping is not just adding carriers in a way that shows up only in Hall coefficient/mobility numbers -- it also produces the expected bulk transport signature: an order-of-magnitude drop in resistivity plus a switch from semiconducting to metallic-like T-dependence upon doping. Since rho = 1/(n e mu), a large rho drop at essentially maintained/high mu independently corroborates that the resistivity collapse is carrier-count driven (donor doping raising n), not an artifact of a Hall-specific effect (e.g., multiband Hall anomalies) -- the two independent measurements (Hall and resistivity) are mutually consistent with genuine degenerate donor doping by Se.
+
+What this still leaves open: the resistivity panel does not pin down the microscopic doping site (Se on Sb) any more than before; it doesn't resolve which single x is "optimal" (x=0.005 sits visibly above the tighter, nearly overlapping 0.01/0.02/0.04 curves, suggesting non-monotonic behavior with x rather than a clean trend, and the mu_H range gap at x=0.02-0.04 noted earlier is not filled); and the literature-mobility heterogeneity caveat is unaffected, since rho alone doesn't isolate mu from n.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The resistivity drop is consistent with the carrier-concentration increase driving up conductivity
+2. The large drop in resistivity is not undercut by any mobility penalty from doping
+3. Does not establish the microscopic doping mechanism (Se substituting on the Sb site); that still requires structural/site evidence, not trends in n_H, mu_H, or rho
+4. The mu_H comparison underlying the mobility-advantage claim is against a heterogeneous literature set (different synthesis, microstructure, grain size), so the mobility-preserved contribution to low rho could reflect sample quality rather than the doping process itself
+5. Observation A's mu_H data only cover x=0.005-0.02 and x=0.04, while B reports the rho minimum specifically near x=0.01 -- a composition not covered by A's mu_H ranges, so the specific rho minimum cannot be tied to a measured mu_H value at that exact x
+6. B's temperature dependence (doped rho rising with T while x=0 rho falls with T) is not addressed by A at all; the combination says nothing about the mechanism behind this divergent T-behavior
+7. Only a few doping points/ranges are given, so the pair supports an ordering/trend across x, not a fitted continuous relationship linking n_H, mu_H, and rho

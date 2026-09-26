@@ -1,0 +1,28 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+This measurement settles that Er detected in the particles is present specifically as Er3+, chemically associated with a Ti-O oxide framework — not merely an element whose presence rests on an unconfirmed EDS peak. The support comes from combining the two techniques: EDS establishes elemental presence (Ti, O, dominant C, plus small Er ~1.4 keV and Ce ~4.8 keV peaks), while XPS supplies oxidation-state confirmation via matched binding energies (Ti 2p3/2 458.5, 2p1/2 464.2 eV; O1s 529.0/531.2/533.0 eV; Er 4d 168.8 eV, diagnostic of Er3+). Neither technique alone would justify the "Er present as Er3+" conclusion — EDS alone gives only an energy peak, and XPS alone gives a binding energy without independent elemental confirmation from a different method; together they corroborate each other for this one element.
+
+This leaves several things open. First, Ce's oxidation state (Ce3+, Ce4+, or a mixture) is not established, since the XPS data reported covers only Ti 2p, O1s and Er 4d regions with no Ce binding-energy scan. Second, it does not establish that Er (or Ce) is incorporated into the TiO2 lattice rather than simply surface-adsorbed, because XPS is surface-sensitive while EDS samples a larger interaction volume, so co-detection doesn't guarantee the same spatial origin or phase. Third, the dominant carbon peak in EDS is unaddressed by XPS (no C1s data reported), leaving open whether it reflects genuine sample chemistry or contamination from the grid/support/residue. Finally, because the EDS Er and Ce peaks are described as small, the elemental-presence side of the evidence is comparatively weak, limiting overall confidence even where the Er3+ oxidation-state claim is supported.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The confirmed Er3+ species tracks with progressively suppressed PL emission across the TiO2 -> Er0.5Ti-O -> Er0.5Ce0.2 series
+2. The composition step chemically verified to contain Er3+ is the same step at which the recombination-linked PL band drops relative to undoped TiO2
+3. Does not establish that Ce is chemically responsible for the further PL decrease in Er0.5Ce0.2, since the earlier result explicitly leaves Ce's oxidation state undetermined (XPS covered only Ti 2p, O1s and Er 4d regions, no Ce binding-energy data)
+4. Does not establish whether the PL suppression arises from Er3+ incorporated into the TiO2 lattice (altering electronic/band structure) versus Er3+ merely surface-adsorbed, since the earlier result could not resolve lattice incorporation from surface adsorption
+5. Only three samples are compared in the PL data, giving an ordering (strongest/half/lowest) rather than enough points to support a quantitative dose-response relationship between confirmed Er3+ presence and degree of PL suppression
+6. The link is a co-occurrence of a confirmed chemical species with an optical trend across the same sample series, not a demonstrated mechanism by which Er3+ specifically (as opposed to Er doping generally) suppresses recombination

@@ -1,0 +1,34 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+F5a shows: x=0 has high resistivity (~650 down to ~200 µΩ·m) that *decreases* with increasing T (300–625 K) — semiconductor-like, thermally-activated transport. All Se-doped samples (x=0.005–0.04) show much lower resistivity (~12–23 µΩ·m at 300 K, rising to ~25–38 µΩ·m at 625 K) that *increases* with T — metallic-like transport, with x=0.005 modestly above the more heavily doped x=0.01–0.04 curves, which cluster tightly together.
+
+Combined with the settled DFT+Hall result (Se donation raises E_F so M/K/L valleys reach E_F, tracking n_H rising from ~0.5e19 to 1.7–3.3e19 cm^-3), this resistivity data adds an independent macroscopic transport signature of the same donor mechanism: it shows the material crosses from a lightly-doped, activated/semiconducting regime (x=0) to a degenerate, metallic regime (x≥0.005) as Se fills the conduction-band valleys — the sign change of dρ/dT is a qualitatively distinct, corroborating observation that neither the DFT calculation nor the Hall carrier count alone establishes.
+
+What it leaves open: the resistivity drop (roughly 30–50x) is far larger than the ~3–7x rise in n_H, implying that mobility/scattering changes (e.g., reduced ionized/activated-carrier scattering, or a different scattering regime in the metallic state) also contribute substantially — resistivity cannot on its own separate carrier-density effects from mobility effects. It also does not resolve why x=0.005 sits slightly above the higher-x curves while 0.01–0.04 are nearly degenerate, nor does it provide any quantitative link between resistivity, band position, and n_H beyond confirming the same qualitative donor/metallization trend already inferred.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. This resistivity drop is consistent with the same carrier-density increase established from the DFT+Hall account.
+2. The resistivity drop can be read as an electrical-transport corollary of that carrier-density increase.
+3. A doping-induced rise in n_H of this size is the kind of change that would lower resistivity by roughly this order of magnitude.
+4. Together the two results support a single connected picture rather than two independent, unrelated observations.
+5. In this picture, Se donor doping raises E_F, which raises Hall carrier density, which is associated with sharply lower resistivity.
+6. Resistivity is lowest near x=0.01, but the Hall carrier concentration increases monotonically from x=0.005 to x=0.04; this mismatch (non-monotonic rho vs monotonic n_H) means the pairing cannot show that carrier density alone sets the resistivity value across the series -- something else (e.g., carrier mobility or scattering) must also be varying with x.
+7. Resistivity is a transport coefficient that depends on both carrier density and mobility, while the earlier result only concerns the mechanism for carrier density (n_H); the combination says nothing about how mobility changes with x, so the magnitude of the rho drop cannot be attributed to the n_H increase alone.
+8. Doped compositions show rho rising with T while the undoped (x=0) sample shows rho falling with T -- a qualitative difference in transport behavior that the carrier-density mechanism from the earlier result does not address or explain.
+9. The earlier result's own limits carry over: the DFT comparison is a two-state (undoped vs one doped) snapshot at 0 K, not a five-point series, and it does not directly calculate n_H from the bands; resistivity data add a different quantity (a 300 K transport coefficient) without resolving that DFT-to-Hall correspondence.
+10. The combination does not rule out other contributions to the resistivity drop (e.g., temperature-dependent scattering, defect states) beyond the M/K/L band-edge-driven carrier-density increase already qualified as non-exclusive in the earlier result.

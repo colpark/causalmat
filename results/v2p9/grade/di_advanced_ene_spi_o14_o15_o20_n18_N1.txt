@@ -1,0 +1,33 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Note up front: I was given no actual measurement, figure, or "earlier result" text to work from — only the paper's title and journal, plus a request to treat "PRF/service_capability" as some evaluated quantity. That term is not standard in the zinc-anode literature, so I'm inferring it means something like "predicted/performance capability of the host to serve (i.e., protect/guide) the zinc anode" — the practical service-life or cycling capability of the material once the zincophilic-site mechanism is invoked as the causal explanation.
+
+Best-guess reading of the paper: it likely uses DFT binding-energy calculations plus spectroscopic/electrochemical evidence (nucleation overpotential, Zn deposition morphology, Coulombic efficiency) to identify which chemical motifs (heteroatoms, single-metal sites, defect sites) are "zincophilic" and to propose a mechanism (adsorption energy / electronic structure lowering the nucleation barrier) for why these sites guide uniform Zn plating.
+
+If the "established earlier result" is the prior, purely empirical finding that certain host materials extend cycling life or raise Coulombic efficiency (without a known mechanism), then this mechanistic paper, combined with that result, settles that the improved service capability is caused specifically by the zincophilic binding/electronic mechanism at defined sites — not an incidental bulk or morphological effect. That combination supports treating site-level zincophilicity as a transferable design rule for anode hosts.
+
+What it leaves open: neither result establishes the quantitative optimal site density/loading, performance under practical high-current-density or lean-electrolyte conditions, long-term stability over many hundreds of cycles, or whether the mechanism generalizes across host chemistries beyond those tested.
+
+Caveat: without the actual measurement/earlier-result text, this is inference from the title alone, not a verified reading.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The stability advantage already tied to compact CnC HS morphology extends well past the ~205-cycle window into a much longer, near-steady cycling regime.
+2. B contains no C HS comparator, so it is a single-arm extension of the CnC HS side only, not a repeat of A's paired contrast at 500 cycles
+3. The metric changes kind: A's CE (~93-100%, a per-cycle rate/efficiency measure) is not the same kind of quantity as B's capacity in mAh (a cumulative/absolute amount), so the two windows cannot be directly equated as one continuous trend
+4. B's test context is not shown to be the identical setup as A's CE cycling test (A's qualifications already flag that the CnC HS vs C HS pairing does not rule out other substrate differences), so any additional factors specific to B's longer test cannot be excluded as contributors
+5. Even together, the two do not establish a dose-response relationship between degree of morphology roughness and degree of capacity loss, since only one morphology condition (CnC HS) appears in B

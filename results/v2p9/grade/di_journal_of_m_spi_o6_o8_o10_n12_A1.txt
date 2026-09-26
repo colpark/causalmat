@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F5a shows resistivity ρ (μΩ·m, log scale) vs T (300–625 K) for x = 0, 0.005, 0.01, 0.02, 0.04. The x=0 (undoped) curve starts near 650 μΩ·m at 300 K and falls monotonically to about 220 μΩ·m by 625 K (negative dρ/dT, semiconductor-like). All doped curves (x=0.005–0.04) sit far lower, clustered around 12–23 μΩ·m at 300 K, and rise gently with T to roughly 25–40 μΩ·m at 625 K (positive dρ/dT, metal-like).
+
+What this settles: the doping level (x) is the dominant lever on the measured resistivity value — doping cuts room-temperature ρ by roughly 30–50x relative to x=0, and it flips the sign of the temperature dependence from decreasing (semiconducting) to increasing (metallic/degenerate) with heating. So a causal/relationship claim of the form "doping (x) lowers resistivity and changes its T-trend from semiconducting to metallic" is directly supported by this single panel, for this compound over 300–625 K.
+
+What it leaves open: the panel gives no information on why (carrier concentration vs. mobility vs. band structure), no data on Seebeck coefficient or thermal conductivity, so nothing here bears on overall thermoelectric performance (power factor, zT) or on any other property that might be paired with resistivity in a PRP claim. It also can't distinguish among the doped compositions (x=0.005–0.04 are nearly degenerate on this plot) or say whether the trend extrapolates below 300 K or above 625 K.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The resistivity drop is consistent with the carrier-concentration increase driving up conductivity
+2. The large drop in resistivity is not undercut by any mobility penalty from doping
+3. Does not establish the microscopic doping mechanism (Se substituting on the Sb site); that still requires structural/site evidence, not trends in n_H, mu_H, or rho
+4. The mu_H comparison underlying the mobility-advantage claim is against a heterogeneous literature set (different synthesis, microstructure, grain size), so the mobility-preserved contribution to low rho could reflect sample quality rather than the doping process itself
+5. Observation A's mu_H data only cover x=0.005-0.02 and x=0.04, while B reports the rho minimum specifically near x=0.01 -- a composition not covered by A's mu_H ranges, so the specific rho minimum cannot be tied to a measured mu_H value at that exact x
+6. B's temperature dependence (doped rho rising with T while x=0 rho falls with T) is not addressed by A at all; the combination says nothing about the mechanism behind this divergent T-behavior
+7. Only a few doping points/ranges are given, so the pair supports an ordering/trend across x, not a fitted continuous relationship linking n_H, mu_H, and rho

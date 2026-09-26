@@ -1,0 +1,30 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F11b (antibacterial survival assay, n≈unspecified but with error bars/replicates) shows Scaffolds+Ampicillin knocking relative bacterial survival down over time — ~105% (day1, ns) → ~81% (day3, *) → ~52% (day7, *) — while blank control stays at 100% and drug-free Scaffolds alone stay elevated at 110–118% throughout. So the antibacterial effect requires the loaded drug (scaffold material itself is not bactericidal) and it deepens with time.
+
+Read together with the settled release result (cumulative ampicillin: ~670 µg at 24h/day1, ~780 µg at 72h/day3, ~795 µg at 168h/day7, plateauing), the timepoints align almost exactly (day1=24h, day3=72h, day7=168h). The combination supports a stronger claim than either alone: the ampicillin being released from the ordered mesoporous 2Co-MBG scaffold is still bioactive and its sustained, non-burst delivery produces a progressively strengthening antibacterial effect rather than a one-time kill — i.e., the "gradual, plateauing" release profile previously characterized only as a mass-vs-time curve is now shown to correspond to a real, growing functional (bactericidal) consequence, and the drug-free scaffold control rules out the glass matrix itself as the active agent.
+
+What this leaves open: (1) killing accelerates most between day3 and day7 while cumulative release is nearly flat over that same interval (780→795 µg) — so the correlation is with cumulative exposure duration, not instantaneous release rate, and no rate law is established; (2) only the single 2Co-MBG composition is tested here too, so still no comparison of whether the differently-ordered MBG/2Co/5Co structures differ in antibacterial performance; (3) mechanism (pore-mediated diffusion causing sustained potency) remains inferred, not demonstrated directly.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. The progressive decline in survival for ampicillin-loaded scaffolds across day 1/3/7 occurs during the same window in which ampicillin is being released from the scaffold.
+2. Sustained release of ampicillin from the 2Co-MBG scaffold, rather than the scaffold material alone, is associated with progressive bacterial killing over time.
+3. The release curve plateaus after 24h (~670 ug at 24h, ~780 ug at 72h, ~795 ug at 168h -- little further increase), whereas survival keeps falling sharply over the matching days (81% at day3, 52% at day7); the two curves are not proportional, so the pairing cannot establish a dose-response or rate relationship between amount of ampicillin released and rate of bacterial killing.
+4. The release data (n15) are reported for one material (2Co-MBG) and the survival data (n16) are not independently matched across the three XRD compositions (MBG, 2Co, 5Co); the link assumes rather than demonstrates that the same material underlies both curves.
+5. The ordered mesoporous channel structure (XRD) is never tested directly against the survival outcome -- only the release curve is chained to the survival curve -- so the pair cannot show that pore ordering itself (as opposed to release timing generally) drives the antibacterial timing.
+6. The two measurements are different kinds of quantity (cumulative absolute mass released in ug vs. normalized relative survival in %), so no quantitative dose-kill relationship can be derived from placing them side by side.

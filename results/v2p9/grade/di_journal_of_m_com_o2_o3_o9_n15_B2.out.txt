@@ -1,0 +1,16 @@
+CORRECT
+
+Wait — this task requires me to return a JSON ruling object, not a grading verdict word. Let me clarify: the instructions for this specific sub-task ask me to produce JSON rulings for 8 claims against the given answer text, not to grade a candidate against CORRECT/WRONG. Here is that JSON output:
+
+{"rulings": [
+{"n": 1, "verdict": "stated", "quote": "Read together, the two results support a specific inference about behavior_class: the composite fails by a mixed ductile-brittle mechanism whose spatial heterogeneity is plausibly linked to the particle distribution"},
+{"n": 2, "verdict": "stated", "quote": "Because the earlier work showed particles are broadly but non-uniformly distributed with local clusters, the co-existence of both fracture textures across the field is consistent with (though not proof of) fracture behavior tracking local particle density"},
+{"n": 3, "verdict": "stated", "quote": "the ductile tear ridges correspond to matrix regions between/around SiCp particles tearing plastically"},
+{"n": 4, "verdict": "stated", "quote": "the flatter facet-like regions correspond to brittle fracture events (particle cleavage or particle-matrix decohesion) localized where particles or clusters sit"},
+{"n": 5, "verdict": "stated", "quote": "there is no direct overlay or compositional (e.g., EDS) confirmation that the facets specifically coincide with SiCp locations rather than, say, intermetallic phases or grain facets"},
+{"n": 6, "verdict": "absent", "quote": ""},
+{"n": 7, "verdict": "stated", "quote": "That link is what neither the dispersion evidence nor the fractography establishes on its own."},
+{"n": 8, "verdict": "stated", "quote": "whether the 20% SiCp sample is more brittle than the 10% sample (i.e., whether behavior_class shifts with loading) cannot be determined from these two panels — they look essentially identical at this resolution and magnification"}
+]}
+
+Note on claim 6: the answer only denies quantification for the fracture side ("no quantification of facet-area fraction versus tear-ridge fraction is given") but never explicitly states that the dispersion side lacks a clustering index or areal-fraction measurement (it only describes it qualitatively as "broad SiCp spread with occasional local clusters"). Since the claim is a two-sided compound (no quantification on either side), and only one side is explicitly denied quantification in the text, I ruled it "absent" rather than "stated," since a claim not directly quotable is treated as absent per the grading rules.

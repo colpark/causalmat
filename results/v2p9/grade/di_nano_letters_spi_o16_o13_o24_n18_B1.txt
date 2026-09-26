@@ -1,0 +1,31 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Panel F6d (read) shows MD-derived degree-of-oxidation curves over 2 ps: Li-Co3O4 rises steadily to ~91%, Na-Co3S4 climbs more slowly to ~59%, and Na-Co3O4 rises fastest at first but plateaus after ~0.8 ps at only ~36%, well below the other two.
+
+Combined with the earlier SXRD/SAXS result — that Na/PCO's crystalline oxide phase and pore network are only slightly perturbed through the first discharge/charge (no metallic Co, minimal porosity change) — this justifies a mechanistic claim that neither piece supports alone. The experiment shows *what* happens at the lattice and pore scale (retention, minor change) but is silent on *why*; the simulation shows *why* at the atomic/bond scale (Na drives comparatively little Co–O bond-breaking/oxidation in Co3O4, and that limited extent saturates quickly) but has no bearing on whether that translates into observable crystal/pore-scale retention in a real, slowly-cycled electrode. Together they support a coherent causal chain: Na's intrinsically low and self-limiting oxidative attack on Co3O4 (relative to Li, which nearly fully oxidizes) is a plausible atomistic origin for the modest, largely non-destructive structural response measured experimentally — i.e., MEC identification of a bond-breaking mechanism consistent with the observed retention.
+
+What remains open: the MD timescale (2 ps) is many orders of magnitude shorter than electrochemical cycling, so the link is qualitative/directional, not quantitatively matched to the "small" SXRD/SAXS changes; the simulation doesn't model the porous architecture itself, so it can't confirm the pore-network result specifically; and it still doesn't resolve the earlier surface-vs-bulk ambiguity.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. Even though PCO's structure is undamaged, the sodiation reaction itself proceeds only partially and stalls early, indicating an intrinsically limited conversion.
+2. Na capacity fading is attributable to poor sodiation reactivity rather than to volume-change-driven structural failure.
+3. B's oxidation-degree values come from an AIMD simulation on a picosecond window (2 ps, plateauing at 0.8 ps), a different kind and timescale of quantity than A's experimental structural retention observed over the real first-cycle electrochemical timescale (down to 0.11/0.02 V), so the pair does not establish that the same limited-conversion behavior persists through the full cycle, only that it is short-lived in the simulation
+4. the B ranking (Li-Co3O4 vs Na-Co3S4 vs Na-Co3O4) varies cation identity and host-lattice anion together across the three materials, so it does not cleanly isolate whether the low oxidation degree in Na-Co3O4 is a sodium-specific effect or a host-lattice/anion effect
+5. A's own qualifications carry over: neither observation resolves whether the modest structural change (or the limited reaction) originates at particle surfaces versus in the bulk
+6. the pair shows the two findings are consistent with each other (structure intact, reaction limited) but does not demonstrate a shared causal mechanism linking why conversion stalls to why the lattice/pore structure is preserved -- it is a correspondence, not a mechanistic derivation
+7. B is a computed proxy for reaction extent, not a direct measurement of capacity fade, so the pair does not quantitatively tie a given oxidation-degree value to a specific amount of capacity loss
