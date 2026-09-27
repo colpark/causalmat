@@ -1,12 +1,10 @@
 {
- "estimate_before_starting": {
-  "chains": 86,
-  "calls_each": 4,
-  "total": 344,
-  "roles": "plain-words paragraph, sentence-by-sentence check, caveat ledger ruling, comparison against the paper's own claim text",
-  "rendering": "no model calls"
- },
- "round_a": {
-  "start": 1790477589.6765516
- }
+ "note": "v2.10 reports: calls actually made, not estimated.",
+ "roundA_para_ledger_compare": 258,
+ "roundB_check": 86,
+ "roundA_redispatched_corrupted_prompt": 1,
+ "roundB_redispatched_contaminated_paragraph": 21,
+ "calls": 366,
+ "estimated": 344,
+ "why_over": "One round-A prompt was delivered with 28 bytes missing from the middle and was re-run. Twenty-one round-B prompts embedded a paragraph still carrying the writer own output framing; the prompts were regenerated and those 21 checks re-run."
 }

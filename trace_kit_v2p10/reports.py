@@ -26,6 +26,8 @@ sys.path.insert(0, R('trace_kit_v2p5'))
 sys.path.insert(0, R('trace_kit'))
 from cut_traces import store_for, fig_by_number  # noqa: E402
 from pages import obj  # noqa: E402
+sys.path.insert(0, R('trace_kit_v2p6'))
+from clean import clean as _v26clean  # noqa: E402
 
 E = html.escape
 OUT = R('results/v2p10/reports')
@@ -310,6 +312,41 @@ def jload(t, want):
     return obj(t, want)
 
 
+ECHO = re.compile(r'(?:write one paragraph|use only what is above|do not add mechanism|'
+                  r'return the paragraph as plain prose|return this final paragraph|'
+                  r'paragraph:)', re.I)
+
+
+def clean_para(t):
+    """strip the writer's own framing from a paragraph before anything else sees it.
+
+    Two artifacts, neither part of the paragraph:
+
+      a trailing tool-call fragment -- "</message>", "</invoke>" -- left on the end by the
+      writer's own output framing. 20 of 86. This is the same thing v2.6 hit on 26 of 246 arm
+      replies, so v2.6's regex does the work rather than a second one written here.
+
+      a lead-in line the writer added ("Here is the paragraph:"). 2 of 86.
+
+      the ask echoed back before the answer -- the writer restated "Write ONE paragraph, at
+      most 180 words..." and then "Paragraph:" before writing. 1 of 86.
+
+    Left in, the checker reads any of them as a sentence of the summary and rules on it, and
+    the page prints it. So they go before the paragraph is used anywhere -- by the checker and
+    by the page alike, out of this one function. The raw .out.txt is never modified.
+    """
+    t = _v26clean(t or '').strip()
+    parts = re.split(r'\n\s*\n', t)
+    while len(parts) > 1 and ECHO.match(parts[0].strip()):
+        parts = parts[1:]
+    t = '\n\n'.join(parts).strip()
+    if '\n' in t:
+        first, rest = t.split('\n', 1)
+        if first.rstrip().endswith(':') and rest.strip():
+            return rest.strip()
+    return t
+
+
 def checks():
     """round B: one CHECK call per chain, against the paragraph round A produced"""
     meta = json.load(open(R('results/v2p10/report_meta.json')))
@@ -319,7 +356,7 @@ def checks():
         if not os.path.exists(po) or not open(po).read().strip():
             miss.append(cid); continue
         body = open(os.path.join(PROM, f'{cid}_body.txt')).read()
-        text = CHECK.format(body=body, para=open(po).read().strip())
+        text = CHECK.format(body=body, para=clean_para(open(po).read()))
         f = os.path.join(PROM, f'{cid}_check.txt'); open(f, 'w').write(text)
         jobs.append({'id': f'{cid}_check', 'agent': 'net-contrib', 'prompt': f,
                      'out': os.path.join(PROM, f'{cid}_check.out.txt')})
@@ -340,10 +377,7 @@ def collect():
         rd = lambda k: (open(os.path.join(PROM, f'{cid}_{k}.out.txt')).read()
                         if os.path.exists(os.path.join(PROM, f'{cid}_{k}.out.txt')) else '')
         e = {'paper': m['paper'], 'depth': m['depth']}
-        para = rd('para').strip()
-        # the writer was asked for prose only; strip a stray lead-in line if one came back
-        if para.lower().startswith(('here is', 'paragraph:')):
-            para = para.split('\n', 1)[-1].strip()
+        para = clean_para(rd('para'))
         e['para_raw'] = para
 
         ck = jload(rd('check'), 'sentences')
@@ -1050,6 +1084,20 @@ def verify():
 def pct(a, b): return f'{100.0 * a / b:.1f}%' if b else 'n/a'
 
 
+def wilson(k, n, z=1.96):
+    if not n: return (0.0, 0.0)
+    p = k / n
+    d = 1 + z * z / n
+    c = (p + z * z / (2 * n)) / d
+    h = z * ((p * (1 - p) / n + z * z / (4 * n * n)) ** 0.5) / d
+    return (max(0.0, c - h), min(1.0, c + h))
+
+
+def ci(k, n): 
+    lo, hi = wilson(k, n)
+    return f'{100 * lo:.1f}&ndash;{100 * hi:.1f}%'
+
+
 def doc():
     """docs/TRACES_V2P10_REPORTS.md -- every number here is read out of the JSON"""
     cs = json.load(open(R('results/v2p10/report_chains.json')))
@@ -1100,10 +1148,11 @@ def doc():
     byd = collections.defaultdict(lambda: [0, 0])
     for e in C.values():
         byd[e['depth']][0] += len(e['checked']); byd[e['depth']][1] += len(e['kept'])
-    L += ['| depth | sentences written | kept | kept % |', '| ---: | ---: | ---: | ---: |']
+    L += ['| depth | sentences written | kept | kept % | 95% CI |',
+          '| ---: | ---: | ---: | ---: | ---: |']
     for k in sorted(byd):
         a, b = byd[k]
-        L.append(f'| {k} | {a} | {b} | {pct(b, a)} |')
+        L.append(f'| {k} | {a} | {b} | {pct(b, a)} | {ci(b, a)} |')
     L.append('')
     gone = [(cid, s['sentence']) for cid, e in C.items() for s in e['removed']]
     if gone:
@@ -1129,13 +1178,26 @@ def doc():
     for e in C.values():
         for x in e['ledger']: dep[e['depth']][x['verdict'] or 'unruled'] += 1
     L += ['By depth — the interesting axis, because a longer chain has more to forget:', '',
-          '| depth | qualifications | respects | ignores | contradicts | respected % |',
-          '| ---: | ---: | ---: | ---: | ---: | ---: |']
+          '| depth | chains | qualifications | respects | ignores | contradicts | respected % | 95% CI |',
+          '| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
+    nch = collections.Counter(e['depth'] for e in C.values())
     for k in sorted(dep):
         c = dep[k]; n = sum(c.values())
-        L.append(f'| {k} | {n} | {c["respects"]} | {c["ignores"]} | {c["contradicts"]} | '
-                 f'{pct(c["respects"], n)} |')
-    L.append('')
+        L.append(f'| {k} | {nch[k]} | {n} | {c["respects"]} | {c["ignores"]} | {c["contradicts"]} '
+                 f'| {pct(c["respects"], n)} | {ci(c["respects"], n)} |')
+    L += ['',
+          'The respected share rises at every step of depth, and the share of the written '
+          'paragraph that survives checking rises with it. **This is almost certainly selection, '
+          'not care.** A chain reaches depth 5 only by passing the arm test at four consecutive '
+          'links; a depth-2 chain passed it once. The deeper chains are the survivors of more '
+          'filtering, and the same property that gets a link past the arm test — a conclusion '
+          'that stays close to what the two measurements jointly license — is the property the '
+          'ledger rewards. Read this as a statement about the chains that survive, not about '
+          'what depth does to reasoning.', '',
+          'Two further reasons not to lean on the interval: the qualifications inside one chain '
+          'are not independent of each other, since later steps inherit and restate earlier '
+          f'limits, so the interval above is narrower than the truth; and depth 5 is '
+          f'{nch[5]} chains.', '']
     worst = sorted(C.items(), key=lambda kv: -sum(
         1 for x in kv[1]['ledger'] if x['verdict'] in ('ignores', 'contradicts')))
     bad = [(k, v) for k, v in worst
@@ -1171,7 +1233,11 @@ def doc():
                  f'| {c["conflicts"]} |')
     L += ['', 'A `broader` ruling is the one that matters: it says the chain claimed more than '
               'the paper\'s own wording of that claim supports. `narrower` is the benign '
-              'direction — the chain hedged where the paper did not.', '']
+              'direction — the chain hedged where the paper did not.', '',
+          f'`agrees` is rare ({ct.get("agrees", 0)} of {ctot}), and that is expected rather than '
+          'alarming: the chain writes a proposition built from two measurements, while the '
+          'paper\'s graph node is a one-line label for the claim. The two almost never match in '
+          'scope, so the ruling is nearly always a direction rather than an identity.', '']
 
     L += ['## The checks', '',
           f'- **Every chain rendered once, in full.** {ver["chains_rendered_once"]} of '
@@ -1200,8 +1266,18 @@ def doc():
           f'**whole figure** as an SVG overlay, never on the crop, so no pixel of the evidence '
           f'is painted over.', '',
           '## Cost', '',
-          f'- {cost.get("calls", 0)} Sonnet calls: {cs["chains"]} paragraphs, {cs["chains"]} '
-          f'checks, {cs["chains"]} caveat ledgers, {cs["chains"]} paper comparisons.',
+          f'- **{cost.get("calls", 0)} Sonnet calls** against {cost.get("estimated", 0)} '
+          f'estimated: {cs["chains"]} paragraphs, {cs["chains"]} checks, {cs["chains"]} caveat '
+          f'ledgers and {cs["chains"]} paper comparisons, plus '
+          f'{cost.get("roundA_redispatched_corrupted_prompt", 0)} + '
+          f'{cost.get("roundB_redispatched_contaminated_paragraph", 0)} re-runs.',
+          f'- The re-runs are the whole reason the byte-check exists, so they are itemised '
+          f'rather than averaged away. One round-A paragraph prompt was delivered 28 bytes '
+          f'short, the phrase "&nbsp;co-occurrence" silently dropped from two places in the '
+          f'middle; the relay counted it as delivered and the paragraph would have read fine. '
+          f'Twenty-one round-B check prompts embedded a paragraph that still carried the '
+          f'writer\'s own output framing; the prompts were regenerated, which made the '
+          f'byte-check reject those sends on its own, and the checks were re-run.',
           f'- Every reply was matched to its prompt byte for byte in the dispatching agent\'s own '
           f'transcript before it was written to disk. The relay\'s own report is not evidence.', '']
 

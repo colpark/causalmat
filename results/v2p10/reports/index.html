@@ -1,0 +1,115 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>v2.10 reasoning reports</title><style>
+*{box-sizing:border-box}
+:root{--bg:#f6f7f5;--card:#fff;--ink:#15171c;--mut:#5c636f;--line:#e0e3e7;--acc:#2f6f4f;
+--warn:#8a5a00;--bad:#b3261e;--chip:#eceff4;--hi:#fff3c4}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.62 -apple-system,BlinkMacSystemFont,
+"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:22px 16px 90px}
+h1{font-size:24px;line-height:1.28;margin:0 0 6px}
+h2{font-size:17px;margin:34px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+h3{font-size:15px;margin:0}
+code{font:12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--chip);
+padding:1px 5px;border-radius:4px;word-break:break-all}
+.sub{color:var(--mut);font-size:12.5px;margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin:14px 0}
+.banner{background:#11342a;color:#eaf5ef;border-radius:12px;padding:13px 17px;font-size:13.5px;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--chip);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.gsvg{min-width:640px;width:100%;height:auto}
+.gcol{font:600 11px ui-monospace,Menlo,monospace;fill:#8a919d;letter-spacing:.06em}
+.gn rect{fill:#fff;stroke:#ccd2d9}
+.gn text{font:11px ui-monospace,Menlo,monospace;fill:#7b828d;text-anchor:middle}
+.gn.on rect{fill:var(--acc);stroke:var(--acc)}
+.gn.on text{fill:#fff;font-weight:700}
+.ge{stroke:#dfe3e8;stroke-width:1.2}
+.ge.on{stroke:var(--acc);stroke-width:2.4}
+.traj{min-width:420px;width:100%;height:auto;max-height:120px}
+.tb{fill:#fff;stroke:var(--acc);stroke-width:1.6}
+.tt{font:600 10.5px ui-monospace,Menlo,monospace;fill:var(--mut);text-transform:uppercase}
+.ta{font:12px ui-monospace,Menlo,monospace;fill:var(--ink)}
+.tc{font:11.5px ui-monospace,Menlo,monospace;fill:var(--acc)}
+.tar{stroke:var(--acc);stroke-width:1.8;fill:none}.tarh{fill:var(--acc)}
+.sel{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px}
+.sel button{font:12px ui-monospace,Menlo,monospace;padding:4px 10px;border-radius:14px;cursor:pointer;
+border:1px solid var(--line);background:#fff;color:var(--ink)}
+.sel button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.chain{border:2px solid var(--acc);border-radius:13px;margin:22px 0;overflow:hidden;background:var(--card)}
+.chead{background:var(--chip);padding:11px 15px;border-bottom:1px solid var(--line);
+display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+.chead b{font-size:15px}
+.link{padding:14px 16px;border-top:1px solid var(--line)}
+.link h4{margin:0 0 9px;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.inp{background:var(--bg);border-left:3px solid var(--line);padding:9px 12px;margin:7px 0;font-size:13.5px}
+.obs{background:var(--bg);border-left:3px solid var(--acc);padding:9px 12px;margin:7px 0;font-size:13.5px}
+.qn{font-style:italic;color:var(--mut);font-size:13px;margin:8px 0}
+.cl{margin:5px 0;font-size:13.5px;padding-left:17px;position:relative}
+.cl:before{content:"\25B8";position:absolute;left:0;color:var(--acc)}
+.cl.lim:before{content:"\25B9";color:var(--warn)}
+.travel{border-top:2px dashed var(--acc);border-bottom:2px dashed var(--acc);
+background:linear-gradient(#f3f8f5,#eef4f0);padding:12px 16px}
+.travel b{display:block;font:600 10.5px ui-monospace,Menlo,monospace;text-transform:uppercase;
+letter-spacing:.05em;color:var(--acc);margin-bottom:5px}
+.travel p{margin:0;font-size:13.5px}
+.sc{width:auto;margin:9px 0;font-size:12.5px}
+.sc td,.sc th{text-align:right}.sc th:first-child,.sc td:first-child{text-align:left}
+.sc .hi{background:rgba(47,111,79,.13);font-weight:700}
+.pans{display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px;margin:10px 0}
+.pan{margin:0;flex:1 1 300px;min-width:min(300px,100%);max-width:100%;border:1px solid var(--line);
+border-radius:10px;padding:10px;background:var(--bg)}
+.pan.miss{color:var(--bad);font-size:13px;flex-basis:100%}
+.pcap{font:11.5px ui-monospace,Menlo,monospace;color:var(--mut);margin-bottom:7px}
+.pan img{display:block;width:100%;height:auto;border-radius:6px;background:#fff;cursor:zoom-in}
+.pan img.fig{margin:0}
+.figwrap{position:relative;margin-top:9px}
+.figwrap svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.figwrap rect{fill:none;stroke:#e2451f;stroke-width:6;vector-effect:non-scaling-stroke}
+.ptx{font-size:12.5px;margin-top:8px;color:#333a44}
+.ptx b{display:block;font:600 10px ui-monospace,Menlo,monospace;text-transform:uppercase;
+letter-spacing:.05em;color:var(--mut)}
+.ptx.use{border-left:2px solid var(--acc);padding-left:8px}
+.gen{padding:14px 16px;border-top:3px double var(--line);background:#fbfcfb}
+.para{font-size:14.5px}
+.para .s{background:linear-gradient(transparent 82%,#dceee4 0)}
+.para .s[data-q]{cursor:help}
+.gone{font-size:12.5px;color:var(--bad);margin-top:8px}
+.gone li{margin:3px 0}
+.vd{display:inline-block;font:600 11px ui-monospace,Menlo,monospace;padding:2px 8px;border-radius:11px;
+text-transform:uppercase;letter-spacing:.04em}
+.v-respects,.v-agrees{background:#dcefe4;color:#1d5a3c}
+.v-ignores,.v-broader{background:#fbe6c8;color:#7a4c00}
+.v-contradicts,.v-conflicts{background:#fadbd8;color:#8c1d18}
+.v-narrower{background:#e2e7f5;color:#31427c}
+.v-unruled{background:var(--chip);color:var(--mut)}
+details{margin:10px 0}summary{cursor:pointer;font-size:13.5px;color:var(--mut)}
+#zv{position:fixed;inset:0;background:rgba(14,16,20,.93);display:none;z-index:99;overflow:auto;
+padding:22px;text-align:center}
+#zv.on{display:block}#zv img{max-width:100%;height:auto;cursor:zoom-out}
+#zv .x{position:fixed;top:12px;right:16px;color:#fff;font-size:26px;cursor:pointer;line-height:1}
+@media(max-width:640px){.wrap{padding:16px 16px 70px}h1{font-size:20px}.pan{flex-basis:100%}}
+</style></head><body><div class="wrap">
+<h1>v2.10 &mdash; the chains, paper by paper</h1>
+<p class="sub">86 chains across 17 papers.</p>
+<div class="banner">Each report follows its paper's chains from the figure panels to the paper's own claim, with the arm scores that decided each link. <b>Every verdict is model against model.</b></div>
+<div class="scroll"><table><tr><th>paper</th><th>chains</th><th>deepest</th><th>panels</th><th>size</th></tr>
+<tr><td><a href="Advanced_Composites_and_Hybrid_Materials__s42114-021-00366-2.html">Advanced_Composites_and_Hybrid_Materials &amp;middot; s42114-021-00366-2</a></td><td>10</td><td>3</td><td>15</td><td>2.19 MB</td></tr>
+<tr><td><a href="Advanced_Energy_Materials__aenm.201601491.html">Advanced_Energy_Materials &amp;middot; aenm.201601491</a></td><td>3</td><td>3</td><td>7</td><td>0.99 MB</td></tr>
+<tr><td><a href="Advanced_Energy_Materials__aenm.202003412.html">Advanced_Energy_Materials &amp;middot; aenm.202003412</a></td><td>1</td><td>2</td><td>3</td><td>0.23 MB</td></tr>
+<tr><td><a href="Advanced_Energy_Materials__aenm.202003419.html">Advanced_Energy_Materials &amp;middot; aenm.202003419</a></td><td>8</td><td>5</td><td>12</td><td>1.54 MB</td></tr>
+<tr><td><a href="Advanced_Functional_Materials__10.1002_adfm.202005093.html">Advanced_Functional_Materials &amp;middot; 10.1002_adfm.202005093</a></td><td>8</td><td>4</td><td>11</td><td>1.98 MB</td></tr>
+<tr><td><a href="Bioactive_Materials__j.bioactmat.2020.01.002.html">Bioactive_Materials &amp;middot; j.bioactmat.2020.01.002</a></td><td>1</td><td>2</td><td>3</td><td>0.35 MB</td></tr>
+<tr><td><a href="Bioactive_Materials__j.bioactmat.2020.02.005.html">Bioactive_Materials &amp;middot; j.bioactmat.2020.02.005</a></td><td>9</td><td>4</td><td>13</td><td>1.68 MB</td></tr>
+<tr><td><a href="Biomaterials__j.biomaterials.2011.11.042.html">Biomaterials &amp;middot; j.biomaterials.2011.11.042</a></td><td>5</td><td>3</td><td>6</td><td>0.69 MB</td></tr>
+<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0536-4.html">Journal_of_Advanced_Ceramics &amp;middot; s40145-021-0536-4</a></td><td>6</td><td>3</td><td>7</td><td>0.69 MB</td></tr>
+<tr><td><a href="Journal_of_Advanced_Ceramics__s40145-021-0538-2.html">Journal_of_Advanced_Ceramics &amp;middot; s40145-021-0538-2</a></td><td>3</td><td>4</td><td>8</td><td>0.60 MB</td></tr>
+<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2015.01.001.html">Journal_of_Magnesium_and_Alloys &amp;middot; j.jma.2015.01.001</a></td><td>4</td><td>2</td><td>10</td><td>1.32 MB</td></tr>
+<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2020.02.028.html">Journal_of_Magnesium_and_Alloys &amp;middot; j.jma.2020.02.028</a></td><td>2</td><td>3</td><td>8</td><td>0.74 MB</td></tr>
+<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2020.09.027.html">Journal_of_Magnesium_and_Alloys &amp;middot; j.jma.2020.09.027</a></td><td>5</td><td>2</td><td>12</td><td>1.18 MB</td></tr>
+<tr><td><a href="Journal_of_Magnesium_and_Alloys__j.jma.2020.11.023.html">Journal_of_Magnesium_and_Alloys &amp;middot; j.jma.2020.11.023</a></td><td>7</td><td>5</td><td>10</td><td>1.50 MB</td></tr>
+<tr><td><a href="Journal_of_Materials_Science_&amp;_Technology__j.jmst.2020.05.053.html">Journal_of_Materials_Science_&amp;_Technology &amp;middot; j.jmst.2020.05.053</a></td><td>8</td><td>3</td><td>9</td><td>1.46 MB</td></tr>
+<tr><td><a href="Nano_Letters__10.1021_acs.nanolett.0c04053.html">Nano_Letters &amp;middot; 10.1021_acs.nanolett.0c04053</a></td><td>1</td><td>2</td><td>5</td><td>0.30 MB</td></tr>
+<tr><td><a href="Nano_Letters__10.1021_acs.nanolett.6b04294.html">Nano_Letters &amp;middot; 10.1021_acs.nanolett.6b04294</a></td><td>5</td><td>4</td><td>7</td><td>1.84 MB</td></tr>
+</table></div></div></body></html>
