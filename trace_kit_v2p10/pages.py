@@ -57,70 +57,53 @@ letter-spacing:.05em;color:var(--acc);margin-bottom:5px}
 
 
 def load():
+    """one decision map per depth, keyed by link id, so nothing depends on which file it came from"""
     d = {}
-    d['S4'] = json.load(open(R('results/v2p9/step4.json')))
-    d['S4n'] = json.load(open(R('results/v2p9/step4_nl.json')))
+    d['DEC'] = {}          # link id -> its arm decision
+    d['KEY'] = {}          # link id -> its drafted key
+    d['CLM'] = {}          # link id -> its kept claims and limits
+    d['REC'] = {}          # link id -> the pair record (observation, panels, question)
+
+    def add(dec_file, key_file, clm_file, src_file):
+        f = R(dec_file)
+        if os.path.exists(f):
+            d['DEC'].update(json.load(open(f))['items_out'])
+        f = R(key_file)
+        if os.path.exists(f): d['KEY'].update(json.load(open(f)))
+        f = R(clm_file)
+        if os.path.exists(f): d['CLM'].update(json.load(open(f))['items'])
+        f = R(src_file)
+        if os.path.exists(f):
+            d['REC'].update({x['item']: x for x in json.load(open(f))['pairs_out']})
+
+    add('results/v2p9/step4.json', 'results/v2p9/keys.json',
+        'results/v2p9/step2.json', 'results/v2p9/pairs.json')
+    add('results/v2p9/step4_nl.json', 'results/v2p9/keys_nl.json',
+        'results/v2p9/step2_nl.json', 'results/v2p9/nextlink.json')
+    add('results/v2p10/step4_d4.json', 'results/v2p10/keys_d4.json',
+        'results/v2p10/step2_d4.json', 'results/v2p10/deeper_d4.json')
+    add('results/v2p10/step4_d5.json', 'results/v2p10/keys_d5.json',
+        'results/v2p10/step2_d5.json', 'results/v2p10/deeper_d5.json')
     d['PU'] = json.load(open(R('results/v2p10/purge.json')))
-    d['P2'] = {x['item']: x for x in json.load(open(R('results/v2p9/pairs.json')))['pairs_out']}
-    d['NL3'] = {x['item']: x for x in
-                json.load(open(R('results/v2p9/nextlink.json')))['pairs_out']}
-    d['K2'] = json.load(open(R('results/v2p9/keys.json')))
-    d['K3'] = json.load(open(R('results/v2p9/keys_nl.json')))
-    d['C2'] = json.load(open(R('results/v2p9/step2.json')))['items']
-    d['C3'] = json.load(open(R('results/v2p9/step2_nl.json')))['items']
-    for tag, src, dec in (('4', 'deeper_d4.json', 'step4_d4.json'),
-                          ('5', 'deeper_d5.json', 'step4_d5.json')):
-        f = R('results/v2p10', src)
-        d['NL' + tag] = ({x['item']: x for x in json.load(open(f))['pairs_out']}
-                         if os.path.exists(f) else {})
-        f2 = R('results/v2p10', dec)
-        d['S' + tag] = (json.load(open(f2))['items_out'] if os.path.exists(f2) else {})
-        f3 = R('results/v2p10', f'keys_d{tag}.json')
-        d['K' + tag] = json.load(open(f3)) if os.path.exists(f3) else {}
-        f4 = R('results/v2p10', f'step2_d{tag}.json')
-        d['C' + tag] = json.load(open(f4))['items'] if os.path.exists(f4) else {}
+    d['D5'] = {i['item']: i for i in
+               json.load(open(R('results/v2p5/items.json')))['items']}
     return d
 
 
-def rec_of(it, d):
-    for k in ('NL5', 'NL4', 'NL3', 'P2'):
-        if it in d[k]: return d[k][it]
-    return None
-
-
-def dec_of(it, d):
-    for k in ('S5', 'S4', 'S4n'):
-        src = d[k] if k != 'S4n' else d['S4n']['items_out']
-        if k == 'S4': src = d['S4']['items_out'] if it in d['S4']['items_out'] else d['S4']
-        if it in src: return src[it]
-    for src in (d['S4']['items_out'], d['S4n']['items_out'], d['S4'], d['S5']):
-        if it in src: return src[it]
-    return None
-
-
-def key_of(it, d):
-    for k in ('K5', 'K4', 'K3', 'K2'):
-        if it in d[k]: return d[k][it]
-    return {}
-
-
-def claims_of(it, d):
-    for k in ('C5', 'C4', 'C3', 'C2'):
-        if it in d[k]: return d[k][it]
-    return {}
+def rec_of(it, d): return d['REC'].get(it)
+def dec_of(it, d): return d['DEC'].get(it)
+def key_of(it, d): return d['KEY'].get(it) or {}
+def claims_of(it, d): return d['CLM'].get(it) or {}
 
 
 def steps_of(leaf, d):
-    """the chain, root first"""
+    """the chain, root first. Stops at the v2.5 two-step item, which is not itself a link."""
     out, cur = [], leaf
-    while cur:
-        r = rec_of(cur, d)
-        if r is None: break
+    while cur and cur in d['REC']:
         out.append(cur)
-        cur = r.get('parent_item') or (r.get('upstream_item')
-                                       if r.get('upstream_item') in
-                                       set(d['P2']) | set(d['NL3']) | set(d['NL4']) | set(d['NL5'])
-                                       else None)
+        r = d['REC'][cur]
+        nxt = r.get('parent_item') or r.get('upstream_item')
+        cur = nxt if nxt in d['REC'] else None
     return list(reversed(out))
 
 
@@ -178,10 +161,10 @@ def build():
         chains.append({'leaf': it, 'depth': 2})
     for it in d['PU']['live_depth3']:
         chains.append({'leaf': it, 'depth': 3})
-    for tag in ('4', '5'):
-        for it, v in d['S' + tag].items():
-            if v.get('compositional') and v.get('all_links_pass', True):
-                chains.append({'leaf': it, 'depth': int(tag)})
+    for it, v in d['DEC'].items():
+        if not v.get('compositional'): continue
+        if it.startswith('d4_'): chains.append({'leaf': it, 'depth': 4})
+        elif it.startswith('d5_'): chains.append({'leaf': it, 'depth': 5})
     # a shorter chain fully contained in a longer passing one is not listed separately
     longest = {}
     for c in chains:

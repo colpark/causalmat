@@ -1,0 +1,35 @@
+You are checking one answer against a fixed list of claims. You are not judging whether the answer is good, and you are not comparing it with anything.
+
+THE ANSWER
+Best-guess reconstruction (no actual data, figures, or the "earlier result" were provided to me, so this is inference from the paper's likely content and typical practice in this literature):
+
+The paper almost certainly reports DSC traces for the Se-doped Mg3Bi2-based n-type samples, used to check for endothermic/exothermic anomalies (melting, peritectic decomposition, or an alpha–beta structural transition) over the working temperature range (roughly room temperature to ~700–750 K). On its own, a DSC curve showing no anomalous peak up to the measurement temperature only tells you that *this particular sample* did not undergo a detectable phase change or decomposition in that run — it can't by itself rule out that Se doping altered the transition temperature relative to undoped or differently-doped Mg3Bi2, nor can it confirm that the observed zT enhancement is a genuine transport effect rather than an artifact of an unrecognized phase change.
+
+Read together with the "established earlier result" (presumably prior DSC/phase-stability data on undoped or Te/Sb-doped Mg3Bi2-type Zintl compounds establishing a known decomposition or transition temperature), the combination lets you cross-check: if the new Se-doped sample's DSC onset matches or exceeds the previously established stability threshold, this settles that Se doping does not degrade (and may improve) thermal/phase stability, and that the reported high room-temperature thermoelectric performance is attributable to doping-tuned carrier concentration and band structure rather than to a masked phase transition.
+
+What remains open: long-term cycling/aging stability, stability at doping levels or temperatures not directly tested, and whether the mechanism (band convergence, point-defect scattering, etc.) generalizes beyond this specific Se concentration — DSC alone cannot address transport mechanism or long-term degradation.
+
+For each numbered claim below, rule one of:
+
+  stated        the answer asserts this claim, or asserts something that plainly carries it.
+                Different wording is fine; the assertion has to be there.
+  contradicted  the answer asserts something incompatible with this claim.
+  absent        the answer neither asserts it nor denies it.
+
+Quote the answer's own words for every "stated" and every "contradicted". If you cannot quote anything, the ruling is "absent" -- a claim you cannot point to in the text is not stated, however plausible it is that the answerer believed it.
+
+Do not reward an answer for being cautious or for hedging. "Cannot be determined" is not a statement of the claim.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "stated" | "contradicted" | "absent", "quote": "the answer's words, or \"\" when absent"}, ...]}
+
+THE CLAIMS
+1. This work's benchmarked ZT of 0.82 approaches the n-Bi2Te3 reference level established in A (~0.88).
+2. The composition responsible for this work's favorable standing against the literature in B is the ZT-optimized composition, x=0.005, not x=0.01.
+3. It is specifically the composition where PF/resistivity are NOT optimized (x=0.005) that is being showcased as beating or approaching the literature comparators.
+4. The internal decoupling of PF/resistivity optimum from ZT optimum documented in A does not prevent the material from being competitive externally in B.
+5. B's plotted 'this work' value (0.82) does not numerically match A's x=0.005 ZT value (~0.84) exactly, so the combination cannot confirm that B's bar is precisely the x=0.005 data point rather than a rounded or otherwise distinct figure
+6. The literature references in B (Refs 24, 22, 39, 40) come from different studies with their own synthesis, doping, and measurement conditions; this is a cross-study comparison, not a controlled variable within one composition series like A, so the ordering does not isolate which compositional or processing feature confers the advantage
+7. A's own open question -- what non-PF/non-resistivity factor (thermal conductivity, Seebeck coefficient) pulls the ZT optimum to x=0.005 -- is not addressed by B; B situates the outcome relative to other papers' reported ZT numbers but supplies no kappa or Seebeck data to resolve it
+8. Both observations are at 300 K/room temperature, so nothing here indicates whether this work's advantage over the cited literature persists at other temperatures
+9. Only an ordinal/benchmark comparison (this work exceeds or approaches four reference values) is established, not a continuous or mechanistic relationship; four literature points plus one series is too few to support more than an ordering

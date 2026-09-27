@@ -1,0 +1,30 @@
+You are taking one answer key apart, not answering anything.
+
+Below is a result established by an earlier step, a new measurement, and the key that was written for the two together. Break the key's proposition into short atomic claims -- one assertion each, no conjunctions -- and tag every claim with what it would take to reach it.
+
+THE EARLIER RESULT (step 1's conclusion)
+Placing the established PF/resistivity result (power factor peaks at x=0.01, ~29 uW cm-1 K-2 at 300 K, alongside the resistivity minimum at x=0.01) next to the ZT series (ZT at 300 K ~0.84 for x=0.005, ~0.78 for x=0.01, 0.63-0.69 for x=0.02-0.04, versus ~0.88 for the n-Bi2Te3 reference) shows that the composition where power factor and resistivity are optimized (x=0.01) is NOT the composition where the overall figure of merit is highest (x=0.005). The two optima are decoupled: the electronic-transport optimum sits one step higher in x than the ZT optimum. Together the two results establish that whatever non-n_H factor is boosting power factor and lowering resistivity at x=0.01 is not sufficient, by itself, to produce the best overall thermoelectric performance -- some additional composition-dependent quantity must be pulling the ZT optimum back down to x=0.005.
+
+THE NEW MEASUREMENT
+Bar chart: RT ZT 0.82 for this work vs 0.75, 0.70, 0.62, 0.32 for Refs 24, 22, 39, 40
+
+THE KEY'S PROPOSITION
+Read together, A's composition-resolved ZT series (ZT~0.84 at x=0.005, the internal optimum, versus ~0.78 at x=0.01 where PF/resistivity are optimized) and B's cross-study RT benchmark (this work 0.82 vs literature Te/Se-doped Mg3(Sb,Bi)2 values 0.32-0.75, approaching n-Bi2Te3) together indicate that the composition responsible for this work's favorable standing against the literature is the ZT-optimized composition (x=0.005) rather than the electronic-transport-optimized composition (x=0.01). In other words, the internal decoupling documented in A (best PF/resistivity and best ZT occur at different x) does not prevent the material from being competitive externally: it is specifically the composition where PF/resistivity are NOT optimized that is being showcased as beating or approaching the literature comparators in B.
+
+Tag each claim exactly one of:
+
+  input        the claim restates or directly follows from THE EARLIER RESULT alone. Someone
+               holding only the earlier result could write it.
+  observation  the claim restates or directly follows from THE NEW MEASUREMENT alone. Someone
+               holding only the measurement could write it.
+  combined     the claim needs BOTH. Neither the earlier result nor the measurement states it on
+               its own, and it does not follow from either alone.
+
+Be strict about "combined". A claim that merely mentions both sides is not combined; it has to
+assert something -- a link, a comparison, a consequence, a ruling-out -- that neither side
+carries. If in doubt, tag it input or observation.
+
+Keep each claim under 30 words and use the key's own wording where you can.
+
+Return JSON and nothing else:
+{"claims": [{"claim": "...", "tag": "input" | "observation" | "combined"}, ...]}

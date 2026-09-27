@@ -1,0 +1,328 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Advanced Energy Materials — v2.10</title><style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#16181d;--mut:#5d6470;--line:#e2e4e8;--acc:#2f6f4f;
+--warn:#8a5a00;--hide:#7a3ea1;--chip:#eef1f5;--bad:#b3261e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111317;--card:#181b21;
+--ink:#e8eaee;--mut:#9aa3b2;--line:#2a2f38;--acc:#6fbf95;--warn:#e0a33a;--hide:#c79be8;
+--chip:#222732;--bad:#ff6b5e}}
+:root[data-theme="dark"]{--bg:#111317;--card:#181b21;--ink:#e8eaee;--mut:#9aa3b2;--line:#2a2f38;
+--acc:#6fbf95;--warn:#e0a33a;--hide:#c79be8;--chip:#222732;--bad:#ff6b5e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:26px 16px 70px}
+h1{font-size:22px;margin:0 0 4px}
+h2{font-size:17px;margin:34px 0 4px;padding-top:16px;border-top:2px solid var(--line)}
+h2 .n{color:var(--mut);font:600 13px ui-monospace,Menlo,monospace;margin-right:8px}
+h3{font-size:13.5px;margin:18px 0 6px;color:var(--mut)}
+.sub{color:var(--mut);font-size:13px;margin:0 0 4px}
+.mvm{color:var(--acc);font-size:12.5px;font-weight:600;margin:0 0 6px}
+.lead{color:var(--mut);font-size:13px;margin:4px 0 12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:10px 0}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+code,.id{font:600 11.5px ui-monospace,Menlo,monospace;background:var(--chip);padding:1px 6px;border-radius:5px}
+.stage{margin:10px 0;border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 12px}
+.stage h4{margin:0 0 6px;font:600 11px ui-monospace,Menlo,monospace;color:var(--mut);letter-spacing:.06em}
+.node{padding:5px 0;border-bottom:1px dashed var(--line)}
+.node:last-child{border-bottom:0}
+.sup{font:600 10.5px ui-monospace,Menlo,monospace;padding:1px 6px;border-radius:4px;margin-left:5px}
+.sup.shown{background:var(--acc);color:#fff}.sup.partial{background:var(--warn);color:#fff}
+.sup.contradicts{background:var(--bad);color:#fff}
+.pans{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0}
+.pan{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--bg);max-width:236px}
+.pan img{display:block;width:100%;height:auto}
+.pan .cap{font:10.5px ui-monospace,Menlo,monospace;color:var(--mut);padding:3px 6px}
+.audit-only{border:2px solid var(--warn);border-radius:10px;padding:11px 14px;margin:10px 0;background:var(--card)}
+.audit-only b{color:var(--warn)}
+.hop{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;background:var(--card)}
+.span{font-size:12.5px;color:var(--mut);margin:3px 0}
+.span b{color:var(--ink)}
+.chain{border:1px solid var(--acc);border-radius:10px;padding:10px 13px;margin:10px 0;background:var(--card)}
+.link{font-size:13px;margin:5px 0}
+.str{font:600 10.5px ui-monospace,Menlo,monospace;padding:1px 6px;border-radius:4px;margin-right:6px}
+.str.span{background:var(--acc);color:#fff}.str.stagegraph{background:var(--chip);color:var(--acc)}
+.str.stage_only{background:var(--chip);color:var(--mut)}
+.item{border:1px solid var(--line);border-radius:12px;padding:14px 15px;margin:12px 0;background:var(--card)}
+.q{background:var(--chip);border-left:3px solid var(--acc);padding:9px 12px;border-radius:0 8px 8px 0;margin:8px 0}
+.q b{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);display:block}
+.key{border-left:3px solid var(--acc);background:var(--chip);padding:9px 12px;border-radius:0 8px 8px 0;margin:8px 0}
+.lim{border-left:3px solid var(--warn);padding:7px 12px;margin:7px 0;font-size:13px}
+.ni{border:1px dashed var(--hide);border-radius:9px;padding:8px 11px;margin:7px 0;font-size:12.5px}
+.ni b{color:var(--hide);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;display:block}
+.lab{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}
+.lab span{font-size:11.5px;background:var(--chip);border-radius:6px;padding:3px 9px;color:var(--mut)}
+.lab b{color:var(--ink)}
+.prov{font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 8px;border-radius:5px;margin-left:6px}
+.prov.hand{background:var(--acc);color:#fff}.prov.draft{background:var(--chip);color:var(--mut)}
+.prov.fixed{background:var(--warn);color:#fff}
+.v{font:600 10.5px ui-monospace,Menlo,monospace;padding:1px 6px;border-radius:4px;margin-right:6px}
+.v.holds{background:var(--chip);color:var(--acc)}.v.overreaches{background:var(--warn);color:#fff}
+.v.wrong{background:var(--bad);color:#fff}.v.mixed{background:var(--warn);color:#fff}
+.v.same_kind{background:var(--chip);color:var(--acc)}
+.was{font-size:12px;color:var(--mut);border-left:2px dashed var(--warn);padding:4px 10px;margin:5px 0}
+.miss{border:2px solid var(--bad);border-radius:9px;padding:9px 12px;margin:8px 0;font-size:12.5px}
+.miss b{color:var(--bad);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;display:block}
+.stop{border:2px solid var(--warn);border-radius:10px;padding:13px 15px;background:var(--card);margin:12px 0}
+.stop b{color:var(--warn)}
+.gsvg{width:100%;height:auto;background:var(--bg);border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.gcol{font:600 10.5px ui-monospace,Menlo,monospace;fill:var(--mut)}
+.gn rect{fill:var(--card);stroke:var(--line)}
+.gn text{font:600 10px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.gn.on rect{fill:var(--acc);stroke:var(--acc)}.gn.on text{fill:#fff}
+.ge{stroke:var(--line);stroke-width:1}.ge.on{stroke:var(--acc);stroke-width:2.4}
+@media(max-width:640px){.wrap{padding:18px 14px 50px}.pan{max-width:100%}}
+
+.gen{margin:26px 0 8px;font:600 12px ui-monospace,Menlo,monospace;letter-spacing:.06em;
+text-transform:uppercase;color:var(--mut)}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px 15px;margin:10px 0;background:var(--card)}
+.steps{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0}
+.stepbox{flex:1 1 300px;border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:var(--bg)}
+.stepbox h5{margin:0 0 4px;font:600 10.5px ui-monospace,Menlo,monospace;color:var(--mut);letter-spacing:.06em}
+.q{background:var(--chip);border-left:3px solid var(--acc);padding:9px 12px;border-radius:0 8px 8px 0;margin:9px 0}
+.q b{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.lab{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.lab span{font-size:11.5px;background:var(--chip);border-radius:6px;padding:3px 9px;color:var(--mut)}
+.lab b{color:var(--ink)}
+.flag{font:600 10.5px ui-monospace,Menlo,monospace;padding:2px 8px;border-radius:5px;margin-left:6px;
+background:var(--warn);color:#fff}
+.flag.ok{background:var(--chip);color:var(--mut)}
+.v{font:600 10.5px ui-monospace,Menlo,monospace;padding:1px 6px;border-radius:4px;margin-right:5px}
+.v.holds,.v.same_kind,.v.carried,.v.sound{background:var(--chip);color:var(--acc)}
+.v.overreaches,.v.mixed,.v.dropped,.v.launders{background:var(--warn);color:#fff}
+.v.wrong{background:var(--bad);color:#fff}
+.v.na{background:transparent;border:1px solid var(--line);color:var(--mut)}
+.chain{border:1px solid var(--acc);border-radius:11px;padding:11px 13px;margin:11px 0;background:var(--card)}
+.chainflow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:7px 0}
+.cbox{border:1px solid var(--line);border-radius:8px;padding:5px 9px;background:var(--bg);
+font:600 11px ui-monospace,Menlo,monospace}
+.cbox.bb{border-color:var(--acc);background:var(--acc);color:#fff}
+.cjoin{font:10.5px ui-monospace,Menlo,monospace;color:var(--mut);text-align:center}
+.nochain{border:1px dashed var(--warn);border-radius:10px;padding:11px 13px;margin:10px 0;font-size:13px}
+.idx td,.idx th{font-size:12px;padding:5px 7px}
+.idx tr:hover{background:var(--chip)}
+
+.gsvg .me{stroke-width:2.2}
+.me.good{stroke:var(--acc)} .me.bad{stroke:var(--warn)} .me.na{stroke:var(--line);stroke-dasharray:4 3}
+.jn rect{fill:var(--chip);stroke:var(--line)}
+.jn text{font:600 10px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.jlbl{font:9.5px ui-monospace,Menlo,monospace;fill:var(--mut);text-anchor:middle}
+.mb rect{fill:var(--card);stroke-width:2}
+.mb text{font:600 10px ui-monospace,Menlo,monospace;fill:var(--ink);text-anchor:middle}
+.mb.bb rect{stroke-dasharray:5 3;stroke-width:3}
+.trace{border:1px solid var(--acc);border-radius:13px;padding:0;margin:18px 0;overflow:hidden;background:var(--card)}
+.thead{background:var(--chip);padding:11px 15px;font-size:13.5px;border-bottom:1px solid var(--line)}
+.trace .card{margin:12px 15px;border-radius:10px}
+.seam{margin:0;padding:13px 16px;background:linear-gradient(var(--chip),var(--chip));
+border-top:2px dashed var(--acc);border-bottom:2px dashed var(--acc)}
+.seamhead{font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase;
+color:var(--acc);margin-bottom:7px}
+.seam .lims{font-size:13px}
+.seam .lims b{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.lrow{margin:6px 0}
+.lrow.drop{background:rgba(224,163,58,.13);border-left:3px solid var(--warn);padding:5px 9px;border-radius:0 6px 6px 0}
+.dropnote{color:var(--warn);font-weight:600;font-size:12px;margin-top:3px}
+.launderbar{background:var(--warn);color:#fff;padding:7px 11px;border-radius:7px;font-size:12.5px;margin:9px 0 0}
+.closing{margin:0;padding:13px 16px;border-top:2px solid var(--acc);background:var(--bg)}
+.closing b{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.ref{margin:12px 15px;padding:9px 12px;border:1px dashed var(--line);border-radius:9px;
+font-size:12.5px;color:var(--mut)}
+.nomerge{border:1px dashed var(--warn);border-radius:10px;padding:12px 14px;margin:10px 0;font-size:13px}
+.tt td,.tt th{font-size:12px}
+
+.chain{border:2px solid var(--acc);border-radius:13px;margin:20px 0;overflow:hidden;background:var(--card)}
+.chead{background:var(--chip);padding:11px 15px;font-size:13.5px;border-bottom:1px solid var(--line)}
+.link{padding:13px 16px}
+.link h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.travel{background:linear-gradient(var(--chip),var(--chip));border-top:2px dashed var(--acc);
+border-bottom:2px dashed var(--acc);padding:11px 16px}
+.travel b{display:block;font:600 10.5px ui-monospace,Menlo,monospace;text-transform:uppercase;
+letter-spacing:.05em;color:var(--acc);margin-bottom:5px}
+.travel p{margin:0;font-size:13px}
+.inp{background:var(--bg);border-left:3px solid var(--line);padding:8px 12px;margin:6px 0;font-size:13px}
+.obs{background:var(--bg);border-left:3px solid var(--acc);padding:8px 12px;margin:6px 0;font-size:13px}
+.qn{font-style:italic;color:var(--mut);font-size:12.5px;margin:6px 0}
+.cl{margin:4px 0;font-size:13px;padding-left:16px;position:relative}
+.cl:before{content:"▸";position:absolute;left:0;color:var(--acc)}
+.cl.lim:before{content:"▹";color:var(--warn)}
+.sc{border-collapse:collapse;margin:8px 0;font-size:12px}
+.sc td,.sc th{border:1px solid var(--line);padding:3px 9px;text-align:right}
+.sc th:first-child,.sc td:first-child{text-align:left}
+.sc .hi{background:rgba(42,125,96,.14);font-weight:700}
+.mem{border:1px dashed var(--warn);border-radius:10px;padding:12px 14px;margin:10px 0;font-size:13px}
+.mem b{color:#8a5d06}
+.idx td,.idx th{font-size:12.5px}
+</style>
+<body><div class="wrap">
+<h1>Advanced Energy Materials</h1><p class="sub">Advanced_Energy_Materials__aenm.202003412 &middot; v2.10</p>
+<p class="mvm">Every verdict is model against model.</p>
+<p class="lead"><b>1 passing chain(s)</b> &mdash; 1 at depth 2 &middot; 0 item(s) excluded as memorised</p>
+<h2><span class="n">1</span>The paper&rsquo;s argument graph</h2>
+<p class="lead">Every node a passing chain touches is highlighted.</p>
+<svg viewBox="0 0 1402 1040" class="gsvg" role="img" aria-label="argument graph">
+<text x="52" y="26" class="gcol">HYP</text>
+<text x="180" y="26" class="gcol">DES</text>
+<text x="308" y="26" class="gcol">PRC</text>
+<text x="436" y="26" class="gcol">STR</text>
+<text x="564" y="26" class="gcol">PRP</text>
+<text x="692" y="26" class="gcol">MEC</text>
+<text x="820" y="26" class="gcol">PRF</text>
+<text x="948" y="26" class="gcol">DSC</text>
+<text x="1076" y="26" class="gcol">KNW</text>
+<text x="1204" y="26" class="gcol">OBS</text>
+<line x1="100" y1="50" x2="49" y2="90" class="ge"/>
+<line x1="1124" y1="50" x2="49" y2="90" class="ge"/>
+<line x1="1252" y1="90" x2="49" y2="90" class="ge"/>
+<line x1="1252" y1="130" x2="49" y2="90" class="ge"/>
+<line x1="100" y1="90" x2="177" y2="50" class="ge"/>
+<line x1="100" y1="90" x2="177" y2="90" class="ge"/>
+<line x1="100" y1="90" x2="177" y2="130" class="ge"/>
+<line x1="228" y1="50" x2="305" y2="50" class="ge"/>
+<line x1="228" y1="90" x2="305" y2="50" class="ge"/>
+<line x1="228" y1="130" x2="305" y2="50" class="ge"/>
+<line x1="356" y1="50" x2="433" y2="50" class="ge"/>
+<line x1="356" y1="50" x2="433" y2="170" class="ge"/>
+<line x1="356" y1="50" x2="433" y2="290" class="ge"/>
+<line x1="484" y1="50" x2="561" y2="50" class="ge"/>
+<line x1="484" y1="90" x2="561" y2="50" class="ge"/>
+<line x1="484" y1="170" x2="561" y2="50" class="ge"/>
+<line x1="484" y1="170" x2="689" y2="50" class="ge"/>
+<line x1="740" y1="50" x2="561" y2="50" class="ge"/>
+<line x1="484" y1="170" x2="689" y2="90" class="ge"/>
+<line x1="740" y1="90" x2="561" y2="50" class="ge"/>
+<line x1="356" y1="50" x2="305" y2="90" class="ge"/>
+<line x1="356" y1="90" x2="433" y2="250" class="ge"/>
+<line x1="484" y1="250" x2="561" y2="90" class="ge"/>
+<line x1="612" y1="90" x2="561" y2="50" class="ge"/>
+<line x1="612" y1="50" x2="817" y2="50" class="ge"/>
+<line x1="612" y1="50" x2="817" y2="130" class="ge"/>
+<line x1="740" y1="50" x2="817" y2="130" class="ge on"/>
+<line x1="868" y1="50" x2="945" y2="90" class="ge"/>
+<line x1="868" y1="130" x2="945" y2="90" class="ge"/>
+<line x1="740" y1="50" x2="945" y2="90" class="ge"/>
+<line x1="612" y1="130" x2="561" y2="50" class="ge"/>
+<line x1="612" y1="50" x2="945" y2="130" class="ge"/>
+<line x1="1252" y1="650" x2="945" y2="130" class="ge"/>
+<line x1="1252" y1="250" x2="433" y2="50" class="ge"/>
+<line x1="1252" y1="290" x2="433" y2="50" class="ge"/>
+<line x1="1252" y1="330" x2="433" y2="290" class="ge"/>
+<line x1="1252" y1="370" x2="433" y2="290" class="ge"/>
+<line x1="1252" y1="410" x2="433" y2="90" class="ge"/>
+<line x1="1124" y1="90" x2="433" y2="170" class="ge"/>
+<line x1="1124" y1="90" x2="689" y2="50" class="ge"/>
+<line x1="1252" y1="450" x2="433" y2="170" class="ge"/>
+<line x1="1252" y1="490" x2="433" y2="170" class="ge"/>
+<line x1="1252" y1="530" x2="433" y2="170" class="ge"/>
+<line x1="1252" y1="570" x2="433" y2="210" class="ge"/>
+<line x1="1252" y1="490" x2="1201" y2="530" class="ge"/>
+<line x1="1252" y1="90" x2="689" y2="50" class="ge on"/>
+<line x1="1252" y1="850" x2="689" y2="50" class="ge on"/>
+<line x1="1252" y1="850" x2="1201" y2="890" class="ge"/>
+<line x1="1252" y1="890" x2="689" y2="50" class="ge"/>
+<line x1="1124" y1="130" x2="1201" y2="170" class="ge"/>
+<line x1="1252" y1="170" x2="689" y2="90" class="ge"/>
+<line x1="1252" y1="170" x2="1201" y2="210" class="ge"/>
+<line x1="1252" y1="210" x2="945" y2="50" class="ge"/>
+<line x1="1252" y1="970" x2="689" y2="90" class="ge"/>
+<line x1="1252" y1="610" x2="561" y2="50" class="ge"/>
+<line x1="1252" y1="650" x2="561" y2="50" class="ge"/>
+<line x1="1252" y1="650" x2="561" y2="90" class="ge"/>
+<line x1="1252" y1="650" x2="1201" y2="690" class="ge"/>
+<line x1="1252" y1="690" x2="561" y2="130" class="ge"/>
+<line x1="1252" y1="730" x2="561" y2="170" class="ge"/>
+<line x1="1252" y1="770" x2="817" y2="50" class="ge"/>
+<line x1="1252" y1="810" x2="817" y2="90" class="ge"/>
+<line x1="1252" y1="930" x2="817" y2="130" class="ge on"/>
+<line x1="356" y1="50" x2="433" y2="210" class="ge"/>
+<line x1="484" y1="210" x2="433" y2="130" class="ge"/>
+<line x1="484" y1="130" x2="433" y2="90" class="ge"/>
+<line x1="1124" y1="170" x2="433" y2="130" class="ge"/>
+<line x1="612" y1="170" x2="561" y2="50" class="ge"/>
+<line x1="868" y1="90" x2="945" y2="90" class="ge"/>
+<line x1="1252" y1="50" x2="433" y2="250" class="ge"/>
+<line x1="996" y1="50" x2="689" y2="90" class="ge"/>
+<line x1="612" y1="50" x2="945" y2="170" class="ge"/>
+<g class="gn"><title>Efficient, earth-abundant catalysts are needed to lower the OER overpotential</title><rect x="49" y="38" width="52" height="24" rx="6"/><text x="75" y="54">n1</text></g>
+<g class="gn"><title>Ternary Co-Fe-Cr (oxy)hydroxide of suitable composition should give dense, more active high-valence Co sites</title><rect x="49" y="78" width="52" height="24" rx="6"/><text x="75" y="94">n2</text></g>
+<g class="gn"><title>Co (oxy)hydroxide as the host OER catalyst, Co as the primary active site</title><rect x="177" y="38" width="52" height="24" rx="6"/><text x="203" y="54">n3</text></g>
+<g class="gn"><title>Co-substitute Fe (to stabilise Co4+) and Cr (to promote Co3+) into the Co (oxy)hydroxide</title><rect x="177" y="78" width="52" height="24" rx="6"/><text x="203" y="94">n4</text></g>
+<g class="gn"><title>Co:Fe:Cr molar ratio varied over the ternary composition space (performance atlas)</title><rect x="177" y="118" width="52" height="24" rx="6"/><text x="203" y="134">n5</text></g>
+<g class="gn"><title>Urea co-precipitation of metal chlorides/sulfate at 90 C for 6 h, washed and dried at 60 C</title><rect x="305" y="38" width="52" height="24" rx="6"/><text x="331" y="54">n6</text></g>
+<g class="gn"><title>Anneal Co5Fe3Cr2 (oxy)hydroxide at 500 C (A-Co5Fe3Cr2) as crystalline control</title><rect x="305" y="78" width="52" height="24" rx="6"/><text x="331" y="94">n16a</text></g>
+<g class="gn"><title>Co5Fe3Cr2 (oxy)hydroxide is low-crystalline (near-amorphous)</title><rect x="433" y="38" width="52" height="24" rx="6"/><text x="459" y="54">n7</text></g>
+<g class="gn"><title>Cr incorporation drives Co into octahedral sites in Co5Fe3Cr2 and Co5Cr5</title><rect x="433" y="78" width="52" height="24" rx="6"/><text x="459" y="94">n9</text></g>
+<g class="gn"><title>Cr takes fourfold coordination in ternary Co5Fe3Cr2 (Cr CN drops from 5.6 to 4.4)</title><rect x="433" y="118" width="52" height="24" rx="6"/><text x="459" y="134">n9b</text></g>
+<g class="gn"><title>Fe incorporation raises Co valence (more Co3+) in Co5Fe5 and Co5Fe3Cr2</title><rect x="433" y="158" width="52" height="24" rx="6"/><text x="459" y="174">n10</text></g>
+<g class="gn"><title>Cr in ternary Co5Fe3Cr2 is reduced (abundant Cr2+) by electron extraction from Fe</title><rect x="433" y="198" width="52" height="24" rx="6"/><text x="459" y="214">n10b</text></g>
+<g class="gn"><title>A-Co5Fe3Cr2 contains segregated crystalline phases</title><rect x="433" y="238" width="52" height="24" rx="6"/><text x="459" y="254">n16b</text></g>
+<g class="gn"><title>Co, Fe and Cr are homogeneously distributed in Co5Fe3Cr2 with no segregated metal particles</title><rect x="433" y="278" width="52" height="24" rx="6"/><text x="459" y="294">n8</text></g>
+<g class="gn"><title>Co5Fe3Cr2 is the optimum composition, with the smallest eta10 (232 mV) in 1 M KOH</title><rect x="561" y="38" width="52" height="24" rx="6"/><text x="587" y="54">n12</text></g>
+<g class="gn"><title>A-Co5Fe3Cr2 is far less active (eta10 373 mV) than amorphous Co5Fe3Cr2</title><rect x="561" y="78" width="52" height="24" rx="6"/><text x="587" y="94">n16c</text></g>
+<g class="gn"><title>Co5Fe3Cr2 has the smallest Tafel slope (31 mV/dec) among the catalysts</title><rect x="561" y="118" width="52" height="24" rx="6"/><text x="587" y="134">n13</text></g>
+<g class="gn"><title>Co5Fe3Cr2 has the highest TOF at eta = 300 mV over the composition atlas</title><rect x="561" y="158" width="52" height="24" rx="6"/><text x="587" y="174">n13b</text></g>
+<g class="gn on"><title>Fe-Cr synergy lowers Co2+-&gt;Co3+-&gt;Co4+ energies so Co3+delta active sites form at lower anodic potential</title><rect x="689" y="38" width="52" height="24" rx="6"/><text x="715" y="54">n11</text></g>
+<g class="gn"><title>Co sites in the ternary CoFeCr surface have the lowest theoretical overpotential (0.49 V)</title><rect x="689" y="78" width="52" height="24" rx="6"/><text x="715" y="94">n17</text></g>
+<g class="gn"><title>Co5Fe3Cr2 holds ~1.52 V at 50 mA cm-2 for 7 days in 1 M KOH</title><rect x="817" y="38" width="52" height="24" rx="6"/><text x="843" y="54">n14</text></g>
+<g class="gn"><title>Co5Fe3Cr2 retains &gt;95% of Co, Fe and Cr after 7 days of operation</title><rect x="817" y="78" width="52" height="24" rx="6"/><text x="843" y="94">n14b</text></g>
+<g class="gn on"><title>Co5Fe3Cr2 reaches eta10 = 452 mV in neutral 0.5 M KHCO3, better than IrO2 and the other catalysts</title><rect x="817" y="118" width="52" height="24" rx="6"/><text x="843" y="134">n15</text></g>
+<g class="gn"><title>Theoretical overpotential tracks measured onset overpotential near-linearly (R2 = 0.96) across four catalysts</title><rect x="945" y="38" width="52" height="24" rx="6"/><text x="971" y="54">n17b</text></g>
+<g class="gn"><title>Fe-Cr co-substitution in amorphous Co (oxy)hydroxide tunes Co valence/coordination, giving an active, stable OER catalyst</title><rect x="945" y="78" width="52" height="24" rx="6"/><text x="971" y="94">n18</text></g>
+<g class="gn"><title>eta10 of Co5Fe3Cr2 (232 mV) beats commercial IrO2 (316 mV) in 1 M KOH</title><rect x="945" y="118" width="52" height="24" rx="6"/><text x="971" y="134">d1</text></g>
+<g class="gn"><title>eta10 of Co5Fe3Cr2 matches or betters recently reported Cr-containing trimetallic catalysts</title><rect x="945" y="158" width="52" height="24" rx="6"/><text x="971" y="174">d1b</text></g>
+<g class="gn"><title>Co2+/Co3+ sites in Co (oxy)hydroxides undergo PCET to Co4+, which completes the OER cycle</title><rect x="1073" y="38" width="52" height="24" rx="6"/><text x="1099" y="54">k1</text></g>
+<g class="gn"><title>Co L3/L2 edge ratio is a Co valence descriptor: lower ratio = higher valence (Co(OH)2 4.36, CoOOH 2.74)</title><rect x="1073" y="78" width="52" height="24" rx="6"/><text x="1099" y="94">k2</text></g>
+<g class="gn"><title>Theoretical overpotential = max(G1..G4)/e - 1.23 V for the four-step adsorbate mechanism</title><rect x="1073" y="118" width="52" height="24" rx="6"/><text x="1099" y="134">k3</text></g>
+<g class="gn"><title>Cr2+ preferentially sits in fourfold (tetrahedral or square-planar) coordination</title><rect x="1073" y="158" width="52" height="24" rx="6"/><text x="1099" y="174">k4</text></g>
+<g class="gn"><title>XRD and TEM of A-Co5Fe3Cr2 index segregated crystalline phases</title><rect x="1201" y="38" width="52" height="24" rx="6"/><text x="1227" y="54">o24</text></g>
+<g class="gn on"><title>Computed Delta G: CoCrOOH lowest for Co2+-&gt;Co3+, CoFeOOH lowest for Co3+-&gt;Co4+, CoFeCrOOH between, Co(OH)2 highest</title><rect x="1201" y="78" width="52" height="24" rx="6"/><text x="1227" y="94">o1</text></g>
+<g class="gn"><title>Volcano: Fe/Cr-containing surface sites sit nearer the apex than the pure Co site (-0.70 V)</title><rect x="1201" y="118" width="52" height="24" rx="6"/><text x="1227" y="134">o2</text></g>
+<g class="gn"><title>Free-energy diagrams: limiting theoretical overpotential lowest (0.49 V) at Co site of CoFeCr model</title><rect x="1201" y="158" width="52" height="24" rx="6"/><text x="1227" y="174">o3</text></g>
+<g class="gn"><title>Theoretical overpotential vs measured onset overpotential is near-linear (R2 = 0.96) across four catalysts</title><rect x="1201" y="198" width="52" height="24" rx="6"/><text x="1227" y="214">o4</text></g>
+<g class="gn"><title>Crumpled, overlapping nanosheets with no visible lattice fringes</title><rect x="1201" y="238" width="52" height="24" rx="6"/><text x="1227" y="254">o6a</text></g>
+<g class="gn"><title>SAED shows only a diffuse halo, no discrete spots or sharp rings</title><rect x="1201" y="278" width="52" height="24" rx="6"/><text x="1227" y="294">o6b</text></g>
+<g class="gn"><title>HAADF-STEM shows uniform contrast with no bright metal-particle spots</title><rect x="1201" y="318" width="52" height="24" rx="6"/><text x="1227" y="334">o7a</text></g>
+<g class="gn"><title>Co, Fe and Cr EDX maps are uniform over the same area</title><rect x="1201" y="358" width="52" height="24" rx="6"/><text x="1227" y="374">o7b</text></g>
+<g class="gn"><title>Second-shell FT-EXAFS peak splits in two for Co5Fe5 and Co but is single for Co5Fe3Cr2 and Co5Cr5</title><rect x="1201" y="398" width="52" height="24" rx="6"/><text x="1227" y="414">o8</text></g>
+<g class="gn"><title>Deconvolved Co3+ component of Co 2p is larger in Co5Fe5 and Co5Fe3Cr2 than in Co and Co5Cr5</title><rect x="1201" y="438" width="52" height="24" rx="6"/><text x="1227" y="454">o10</text></g>
+<g class="gn"><title>Co L3 edge of Co5Fe3Cr2 and Co5Fe5 blue-shifted by 1.35 eV relative to Co and Co5Cr5</title><rect x="1201" y="478" width="52" height="24" rx="6"/><text x="1227" y="494">o11</text></g>
+<g class="gn"><title>Inset Co L3/L2: ~3.4-3.5 for Co5Fe5 and Co5Fe3Cr2 vs ~4.1-4.2 for Co5Cr5 and Co</title><rect x="1201" y="518" width="52" height="24" rx="6"/><text x="1227" y="534">o12</text></g>
+<g class="gn"><title>Cr L3/L2 white lines weaker in Co5Fe3Cr2 than Co5Cr5, with a 0.4 eV offset</title><rect x="1201" y="558" width="52" height="24" rx="6"/><text x="1227" y="574">o13</text></g>
+<g class="gn"><title>eta10 atlas minimum (~250 mV, purple) lies near Co:Fe:Cr = 5:3:2</title><rect x="1201" y="598" width="52" height="24" rx="6"/><text x="1227" y="614">o15</text></g>
+<g class="gn"><title>LSV onset order: Co5Fe3Cr2 &lt; Co5Fe5 &lt; Co5Cr5 ~ IrO2 &lt; A-Co5Fe3Cr2 &lt; Co</title><rect x="1201" y="638" width="52" height="24" rx="6"/><text x="1227" y="654">o16</text></g>
+<g class="gn"><title>Tafel slopes: Co5Fe3Cr2 31, Co5Fe5 39 mV/dec, others 52-63 mV/dec</title><rect x="1201" y="678" width="52" height="24" rx="6"/><text x="1227" y="694">o17</text></g>
+<g class="gn"><title>TOF atlas maximum (~0.1 s-1, red) lies near Co:Fe:Cr = 5:3:2</title><rect x="1201" y="718" width="52" height="24" rx="6"/><text x="1227" y="734">o18</text></g>
+<g class="gn"><title>Potential at 50 mA cm-2 stays flat near 1.52 V over 7 days</title><rect x="1201" y="758" width="52" height="24" rx="6"/><text x="1227" y="774">o19a</text></g>
+<g class="gn"><title>Metal retention stays ~99% for Co and Fe and ~96% for Cr through day 7</title><rect x="1201" y="798" width="52" height="24" rx="6"/><text x="1227" y="814">o19b</text></g>
+<g class="gn on"><title>Co L3 and L2 edges shift to higher loss and L2 grows from dry/VOC to 1.4 and 1.5 V</title><rect x="1201" y="838" width="52" height="24" rx="6"/><text x="1227" y="854">o20</text></g>
+<g class="gn"><title>Co L3/L2 of Co5Fe3Cr2 falls fastest, to ~2.99 at 1.4 V and ~2.69 at 1.5 V, below the CoOOH line (2.74)</title><rect x="1201" y="878" width="52" height="24" rx="6"/><text x="1227" y="894">o21</text></g>
+<g class="gn on"><title>Neutral LSV: Co5Fe3Cr2 crosses 10 mA cm-2 first, eta10 = 452 mV; IrO2 later</title><rect x="1201" y="918" width="52" height="24" rx="6"/><text x="1227" y="934">o22</text></g>
+<g class="gn"><title>Volcano (F1b) puts Co-CoFe and Cr-CoCr (~0.37 V) above Co-CoFeCr (0.49 V); F4g gives them 0.52 and 1.02 V</title><rect x="1201" y="958" width="52" height="24" rx="6"/><text x="1227" y="974">o23</text></g>
+</svg>
+<h2><span class="n">2</span>The chains</h2>
+<p class="lead">Deepest first. Each block is one link. The band between two blocks carries the previous link&rsquo;s conclusion forward, which is the thing the arm scores test.</p>
+<div class="chain"><div class="chead"><b>chain 1</b> &middot; depth 2 &middot; 1 link(s)</div>
+<div class="link">
+<h4>step 1 &mdash; the two-step item this chain starts from &middot; <code>di_advanced_ene_com_o1_o20_o22_n15</code></h4>
+<div class="inp"><b>takes as given:</b> Together, the DFT energetics (Observation A) and the EELS spectra (Observation B) provide convergent evidence that Co oxidation is thermodynamically favorable and does occur experimentally under anodic potential: DFT computes that CoCrOOH has the lowest Delta G for the Co2+-&gt;Co3+ step and CoFeOOH the lowest Delta G for the Co3+-&gt;Co4+ step (with CoFeCrOOH intermediate and Co(OH)2 highest for both), while EELS independently shows the Co L3/L2 edges shifting to higher energy loss and the L2 intensity growing as potential is raised from dry/open-circuit to 1.4 V and 1.5 V. The pairing lets the computed thermodynamic preference be read as corroborated by an experimental signature of increasing Co</div>
+<div class="obs"><b>new measurement</b> <code>o22</code> Neutral LSV: Co5Fe3Cr2 crosses 10 mA cm-2 first, eta10 = 452 mV; IrO2 later</div>
+<figure class="pan"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIywlHyEqIRobJjQnKi4vMTIxHiU2OjYwOiwwMTD/2wBDAQgJCQwKDBcMDBcwIBsgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDD/wAARCAFLAP0DASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAYBBQIDBAf/xABREAABAwMCAgQJBwkEBwgDAAABAgMEAAURBhIhMRNBUXEHFCIyM2GBkbEVI0J1kqHBFjQ1UlNisrPRJUNyghckVWODk/BERVRzlKLC4dLi8f/EABcBAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAeEQEAAgEFAQEAAAAAAAAAAAAAAQIxERIhQVEyIv/aAAwDAQACEQMRAD8A99rEr7OPdWDziWwXFHAbSVHh1YryvTFqe1/FuV5ul0uCU9O4xEjx3ChLCUqKd3k+dyzg0Hq4WCM59tQ44G0rUo4SgZJ9VU+lY1xgWpuJdrgmc80S2HgkArG47c45YGB7K757rDbLy5JwyGyHCTwSjrVQUtv11Y512RAYed6V1fRtLVHdShxQHEBRTjPA9dYw9d2OXdBAYkLW8pzokrLDiUKX2BRTj76WY78TVd1hliRHiWi3uFcRgOo3ynQFeXjOU9ysVVImx3tFWS1sKaVd0XRKSwngtJ6ZXSZ7OHH19VB7Ck5HPPrqUncOGfaMVTXA3svIFqZg9DlW8yCoHgSBgCqTT941Re47jzca2tNtvOM+WtZO5Cik/CgdfVR76Xkr1aUj5q1D/Mup36t/Z2r7S6Bg99Hvpf36t/Z2r7S6N+retu1faXQMHvo99Lpf1UDgptA6+K11kHNWEZDdq+0ugYPfR76Xw5qw/wB3auX6y6xL2qgcFFpHetdAxe+j30vJd1WoZSi0qHaFLqFParSMqRagOXNdAxe+j30ul/VQJyi0jHPyl1l0mrOA6O18fWugYPfR76Xg5qwjg3avtLqd+rf2dq+0ugYPfR76X9+rf2dq+0ujfq39navtLoGD30e+l/fq39navtLo36t/Z2r7S6Bg99Rnv91UG/Vv7O1faXXPMlaqjMvuuNWpSG2VL85fMcfhQM5OO33UZHYfdSnapurZ1ujykMWpCXkBYG5fI11b9X/srT9pdAxZ4HPDHbUg5GRg+2lKVeL9bZ1tauUSAtE2SGNzK1ZBI9dNafN4nOSTnFBitvcsZ80HJ9fDGK87Y03qrTMiZF02qFMt019TzaZCihUNajkqGPO4k16RRgddAv6Nskqw2nxebNcuEhx1Trry+HEqJPxq7dbDqVtuI3trG0pIBBFbe6igq4+n7XHdS5Ht0VlaDuQpDY3A1t+TYqZhmNw2PGFc3OiTuJ/WzXfRQYIBAwRx4dfrpO0RcoVusEp6dJajti5SgVLVj+8VTn1n2fGlLwetJdskpK0hSflOUcHj/eK6iKCyRq/T2xP9sRDwHJypOsNOjneIn26s0Q45SPmW+X6if6VBhR8+gbP+RP8ASgrfyx07/tiJ9utsbUVqnuBqDPYfWrkEKrt8Sj/sG/sJ/pUohx21b0R2Qvt6MA++gTpUm73/AFFPt9suzloi20JS442yhZeWpKVYO7lz6q6RfbnY4LEa5x/lK6OlYYaYUlJdSniTk8BgEc6LjYLrCvsm66dlsRkSwPGWZCSpK3QkJStPckD3VyfkrfY4hz4lyaeusZ11x1x5BKFpWBlCR1UFrC1nan2WFul2PJceUyqP0SnHEKHMEIB9/Kk1nUkuRe7jHl6vNt8WndC3GRFDmUgAkbgD29dXP5CzFBTz7zL8yRJckPSMqQtvONqW9vYABx7KuNOaectCrkZK0yTLlqktubQFI8lIA5de3NBwzNdRbfLdjlCpjEZQRLll1CEtnh9HOTzHmg11ag1lAg2y4PxXVPyIrO7oejUEjjjOSMddUt20BMkXe5yoDltDVye6Vwyo3SuJPk8jnH0TVjcdIybrKlGa40GXo7sbcyjYpYOClRHLgR8KDG32/VzDkOY5fG5gUpJkRC2nalJ6kqrph6zivLkvOQ5TEOM4tgyFeUOlB4jaPKx68YrnZ09qiQYca4XpnxOMtDilsN7HXtp81XsxW9enblGs70K3ymkOuzHXlLcTkFpairZ38aBohSW5cRt9lYcQ4nIUORrd3Vy2mOYduYjkJSW0BOE8hXUOVAUUUUBRRRQFUWtZCo2nLk4OGGAAe9WD+FXtLfhCJXpt5hsZcfW00lPbucGPgaC7tbIjW2MwBjom0ox3CumoTyPefjU0CvrX9Iac+tW/4TTO3xQnuFLOtvz/AE39at/wqplR6NHcPhQZUUUUBRRRQFFFFBio4Pfj40r+Dk7bNJzw/tKV/MVV3d5L8WG+7FiLmOpSNjKVJTvOe0nApW8Grabhppa5MRTalTpJWgr4pO9WRwoHVC0BCfLTyHXU9I3+0T9qq1uwW/o0/NK5D+8VQdP239ir/mKoLLpEfrp99AcQpewLBVzwDVd8gW7qZV/zDUs2eJHeLjTB3dRLhoKaZe7nPvsu3afYjkQ0APSJGdqVlIUE47jQzqlEG0tyNTNfJsnpC0hlB3l1Q60pTkkdftrhnRrtpu/XGdabKq6xblsLjLTqUKStKEpBJWQDy6q5pELVaHrdfJEJFwlx1Pp8TbeDZZS4lKRtKuHk7O3mo0DAdY2gwIsqM87JblqKWwy2pa854jaBuGPWKrJt/ucnUbtvtaIKGWo6Hi5KUoFW/gPvyPZS+5piYUm6SrCuRLflPy0x2pnRLiKcG3CVZCVfrd5rusui1SL8p/UkNmWG7fFYQ8fOUtBJIPlcSBjj10DG7qiJZY0Vq/yY0eY4kqLcdKlpAH0sAZAx1nhW2Tqu1MripK3XlS2w610TS1AoPAHIFKWtdKSnL2JkO3SJ8R2CYQjx5KWEsnduyc80HrAya0StKyY0eE1DsLqZPi6UpmNzSfFVbtykEKxuHHhgcqD1JPmjny66nA661RQtMZpLqtywkBRxjJrbQHdRRRQFFFFAUUUUBS9qlYXPssVQBD05JI7QhJV8aYaXL3h7WNhZTx6IPPq9Q2YH30DC2SW0k8yBmsqxayG0A89oBqVKASc01CxrUgz9OgHiLmhR7gk5pmb4ISD1DFImtZDj2rNOx0H5tErif3yngKe2lEtpJGCRQ1ZUUUUBRRRQFFGKnFBrVu3cOXDh7aWfB0rNolcP+8pXV/vFU0Hn7vjSj4PWlOWeVh1aP7SlcB1fOKoG1BGxOT1Cp3DtFcKYTwQkJlvYwOoUGE/1THfcK1NpmMO7cntFQVhIyc+wZri8Skf+Ld9wrJqI628HVSHHCBjaeujKzM5VN41SIVxVbrbbpN2mhIcdZZUlPRI7SVYHs5102zUkC4W7xwuGKhKlIcS+dhQpJ8oEmlpDx03q69uXJuSYtz6F1qSy2pSgpCEp2HAPZ3Vw3R964zbbcb5ZHm7Wh6RuaSgqSUqACVOJTkknHZWLPz12gRWEvSpzDTS+CFrWAF9x6/ZVTdtWtw5iYNthv3Wc42H+iYUkBLecbtyiB7M5pHZhOx2kSXm5lvgpmSH4SCz05SnHkJUk52gqyR6iM4qyssibZrw5cr/DebbuUBgLdZb3dE6ngUYRnv4cKBxtGo4VwguSXlmF0LhZdbkYQW1jmnJ4HvFdSbxbnJSYyZ7JeUNyUBwZPDI+40k3BUjU8y1Py7MpiH8pqKULHB5oJ273B25HAd1a7dFMDUyEW5t4OKnKEiO6wClLONoKF9mAOHOg9JQQpIUOuprFoFKMceGcZrKgKKKKAooooCiiigKXlEPa+bx/cQuP+ZR/oaYTypbs2XtZ3x0jIZTHZSf8u5X8VAxoIKEkdYrBQ8r2VmgbUJHYMVxXmSY1vkODGQghPfU2ZYkXBPTXi1TlnK3bw2hI/dCCk/CvQ2sBCccRika6xfFmdKD6SrmhSu8hR/Gnlvg2nuFZVlYZUUUVahUZFTWtzPEp88DCaAW6EkgniBnAGTjuo6ZOQN6cn1ikW2NTIXhNfRNuDkp1y1l5KM+Qn5wgeTS9AjuWeUxdNRWdxSpFwU14x40Tjco7fIB7MUHroOSe3h8aVvBwR8jy/VcZWf8AmKqzud9iWp5LcsP7l4IKGVqGNx7BS/oNcqRpuQ7aylC3LhJILqT+0VU2mYwHVChsTkjkKy3J7RVC3H1N0af9dgeaP7s1PQam65sH/lmo3SL3cntHvqN6R9IVR9BqTrmQT/wzXRBZvYeHjsiItnHJCDmqrMzkYXjU1otMhLE6T86pO8NpQVlI7eANdcC4RLpEQ/EcEhhxRSFA9Y5jHVypNgyIlq1zfTe32IzkhDSo6n9u0tpQndg9+eFVdxuFtuUmCzFcftVjlvyekkIV0SX3MJCCknlk7vdVj00bHEgK/vOojsrLokrAJQFAcsmlfwdSVvQZ7Qkuy4cWatqM+6rcpbY4c+vByPZTW2kIQEjgAKCAnqPbkY5JoCAF7scR14rOiggDHXnvqaKKAooooCiiigKKKKCPpJHbS/pchcu8ShxLkkDPcAPwq+cVtOR9EH4UvaCCnLCJCh+cvuOZ7U9IrB92KBk5DjVDqjL7bEMKwZD6R/lq+UfJOaX3T41qttP0YjW4j1n/APtRfCbOPWICJWmkgYCbo2kexKhTW15ie6lXWC2/HtOoKuJuaVpH+U5+NNDWQ0kHmBg1cYdMQzooookUYHXRRQU71lSvUarwCouCL4rsOMFJVk4PMVStaBYD7aHrlNftzL6pDcN1eQFkk+dz5mnKig1JRhIyADwGDx4ZpZ8G5SLRKSDyuUr+YqmrrPs+NJmh33o9jkKjsF8/KUrKQQP7xXbQOSCNie4VJwaok3a4qSki0PAYHJxH9an5Un9dnkH/AIiP60Zrou+H/QqcgCqP5UuPVaHx/wARH9a3Q7jMelIQ9blst/SWpaT+NCLTLfNhwLjI6KYxGk7EjKHW0qIB5Y91aJrNpTFabnoh+K52oS6EhtPDOU54CkrUdzm2i96olW5QTIQ3AAWRuxuXtPA+oiuhiG5O1yq36mfRcFxYYcjoUnYh4lR3Eo6ykED2Uad4CoiYqTB6HxbB2dFtCVH1Y4V1pUCkHluGa83jBy26jv0GyS0wobbTb6isFYZJ4qSlPbt4458aadIyrhLt7jtwW46kvq6Fx1AQpbW47VFPVwxwPGgYaKhOMcBgVNAUUUUBRRRQFFFFAUUUUHBdZAjxJTyjhLbC3CcdSQc/EVz6OZ6DS1tQRj5hKvfx/GtGulrRpe49CMurZ6JI7d5Aq3gtpYhMNI81tCUjuxQZOr2HOeGDmqTThMh2VPcTgvO9Gk9oHk/hXdqF8RrTJdBwoIwnvqLIwI9tioUMKUNxHrPH8aZRbmYK+sfndX6cBUUojyiAO1Sk8KeGlAtpUniFDNId6So3q1SV8VOXlCE/4Qkj8KfWcdEnbywKOtwVAAk8AOZqA4kkDPEnA4VVanhy5tsfZgYQ64napRVjcjjlI7DVJZotwh3yLFROU7AiJ+dQ6rLjalIBCSevn1UScxxorU262UDCx7VCtoOeNAUUUUEdZ9nxpV8G+75JlZPD5RlYH/EVTJLlx4bTj0l5DTbYClKUcYGaWvBk6h+wvutLS42u4SVJUk5BHSKoGpIylJyRwHKssetXvqEejT3CpoDHrV76goSocefbU0UFLO0vbZrsp15nc5LDfSq3HjsOU1F+01b77s8cacS43xRIaXtcR+6lXPjV3RQLDmh7OqyG0hhaYy3Q8spcPSFfUSvmatbHaGLND8WjLdLYzgOrK8ZOeZ76sqKCEjA449lTRRQFFFFAUUUUBRRRQFFFFAu63dSLdHj58qRKaaA7eOfhTAcJGOQFLuqUpevdij88yVPKH+FP/wB0wE5Hrzissyyl1MvpPFIqeIeeG4fu1aSnhFhunkG2ioeqqlAMvVBPNuG1t/znj+NdGo1rTaXEoHzjqggDvqapqoLtHU3H0w5jJF0Q4s+pW6nVng0jHYKTNWOrbu+m4aBw8cZyO4KzTm3goSUngRkd1WtnwIwaU9eSZNlssmfaw3GfccQh6SrB2I5bsHsprpS8J0YydLSAEhQYcbfKXFpQ2vCvNJJFBXafupdu0ZDmvYVxO3jDQhpKl/iPbT4g5TkK3eukHT81Cb6xCc0vbYDy2un3suISrYTzAHE+yn5Hm/8A7ZoMqKKKDRLjMy2lsSW0uMrACkKGQrjS14NG0M2J9ppKUIRcJKUpQMADpFU19Z9nxpW8G/6Hk/WUr+YqgaUejT3CpqEejT3CpoCiiigKKKKAooooCiiigKKKKAooooCiiigKKKgqAznqoFy4np9cW9lA3GPFddUOzdhKfvSfdV484EtqWOQG/wBlUsEdNra5v8+gjssg9nNR/irsvkgxrK8R55QG095FTZlnPppje3KmFeVTFk92PJ/Ctt0y7cYUbmkq3K9lb7JGEO3MsnqA954/jXMpzdfJSzyjMc+xRFZVtONdVFqPc5fbM8eQuqEJPaNpp2ZGGkDsSKSr8laVaXWRhS7qgq9oVTs35ie4VaKJpa19Z5V5spYgIbdebebe6F30boSeKTTLVPf9R2qx7flOY2y4oZaa3eW7/hTzPsosqNxLnqPUttmOWFdlatayrplLQVvZ8nakpPBPXxr0FsFKcHnk0lac1hcdS3BXyZZnWIDLxYdflZT5XPARz9uKclEBKlJztAyop4mgzK0gEqOMc81O4Z+6ky16nn3DWcm2v25caA3C6dHTY3OHftz6uNVSNYX1DMW8zEwV2WbKEcNhKw6hCnChKicdooPRwck8+oceHXSv4N/0PJ+spX8xVMyVDHAHA4cj1GlDwfXCExbJLT8thpz5RknYtwJVxdV1GgckejT3CprQ5KjxmkqkPNspxzcUEj76GpkZ9vpGJDbqBzW2oKSPaKDfRXKxcoEh0NR5sd1w/RQ6lR+41MifEjL2SZLTKiNwDiwnI9tB00VqVIZQyHnHUIbIyFrO0ffWMebElFQiymXynmG3ArHuoN9FcqrlBS90SpscOfqF1OfdWcmbFipCpMhppJ5FawKDfRWlmVHfa6Vh9t1sfTSoEe+tce5wJLpajzY7rg+ih1Kj7qDqormfnxI69kiQ2yop3AOK25HtrYuSw2z0zrqG2sZ3rO1OO80G2iueNOiSiRFksvlPPolhWO/FYm5QQ70PjsfpeWzpU7vdmg6sUVokSmYydz7qG09qzipZlMPMdM28hTf64VwoN1YL4kAcfKwfdWhi5QZDnRx5jDq/1UOBR+6sZVxiR9wdkNtqCVKAWraSQPXQUelVrel3yURnpJQQg9qUpCfwNdF/Iky4UHPFa95HaBWGkH2o+nW5L60tJfecWVLO3mtWOfqrGBIauWpn3mXW3kRk7NzagoAkZ6u+ud+cJsYCANqQMcc0vNla4MySkZckv7E+tIOPwruuN3hsx5OJsbpUtkJR0qd2e7NcTbrcRi2tSXEtBfzqtysc+NdIw6dNGrUBuTplI6rm2P8A2mmtvihPcKVdXONuytNLZWlaDdUYUk5B4Kpqa4IT3CiU0l6t0ta3bwdTKmrtNxiISBLSpKEbeXzm7O4e6nSkrwsBH5NnLSpDxkNFpoYKVqz5iwfoHrFAvaFvPyRel2p28WK6tT5jkjpIEpKXEk9akbu3sr1NKSWwFqJPanhSTp6Pcmbg14xpG1QUY8qSwENqQfVjjTu2CEDJz7c0CzIs0lzXS7k4AuCu2iIoKVx3dLu5d1K0WyX56327TEyCGokGQh5c1CklLjaTuDYGd3M869PKATk1ITgY3HHYKClu+nId5dQ9NMlCkEKHQvlHXyIpY8Hmm7Y7bJDrtuYW6ifICXHCVHg6r8K9Axg+7n30r+Df9DyfrKV/MVQXs62Q7iylubGRIbHJC+QqINsjQWFR4sVlhhQwUNjga7UejT3CpoKm36btECQX4ttjsO5yFt5zRdNPWy6PJduECLKWngFvNblAd+atqKDictkV2F4q6w2phIwlrGEgd1a7bZ7fa1LVBhMx9/PohgnvqxrFRPHhy5eugqXbDaXZplLt7CnvO34IPfXRPtcG4tJRPitSEDzQQcClyTr2KzKeQYMxTbEpMN59IGxCzt4ceJ4rSKs5ep4UeZPjKdeU5AZC3dqP1jhOO3s4UFlDgwocTxSOwy2ycjo0HArmhWC026T4xFtsdl08StsHNVUnWCWorbzVoub7il9EWW0ICkK7Dk+2sHdUOyLGuSxbpceWtRRHZkoG/pAPOIHUKC3uditV1kJduNvYkuJHkqeayQPfXU9BhyLf4o7Hbci429DjySB2V5+9qa9p0fZnFrlLuE+U426uFGLihtWocE47BVrDkXK7WdvxC9uMs9KsTJT7fRvtbSfonASMAUDRabXAt2/xCGxH6QeUWh5w9ZrV+TtpVL8aNtjl7OekHnVV6Du0652R+RNWp9LT60tSAnaX0JPBWOXL31wt+EOI8mO43Z7otEx9cdhXQt/OLSSCPO9XXQM10tEC5BLdxisSQD5PSN5x7c1nFgQ4UIRY0dluMeHRpRhPH1e2lRWqlyblaZ0bpWoC5DkKTHdTtUhfIE44ffVlY5su46mubYUFW2C2iMAPpuedn2ZxQWkCw2uBI6e3wGGFkncsA5NV2r7Pa5NtnTJkGM+8zHcKXHWtygdvbmmRHEcTniaW/CA+pvTklpri7ILbKB+spawMe4GgztFtjJ0nDhTI6HGER0rW0RjPk57a1aNtkWJDdkxIyY4kuqO1v9UEjj7q7r694rZnEtcF+iQPhXZbWBGt7DQGNqRnvPE1yr9Jsor9YLQlAdNuj+MPPhKVpB3Gt71mhXS4uIuENiU3HbShG9vOOA9ddM9QfvMOMeKUJU8r1YrptAUthb5HF1SviRXV060UGpYbEBzTEaKyhllu6I2obTtSMpUeApvb4oT3ClnW359pv61b/hVTKj0aO4fCiWVUuqrEzqG1PQJT0iO0pSFByO+W1gg93Crqqe73KdbxIebtjsxpvGxMcguLGOPA+2gq7Roli2Tm5bF6vkrZnDcmcVtn7qamzlIHDPqOfvrzy4aqt16cZRKf1DYFseWrpIqm0qGeSjjb99PlveZkRWnYzqX2lJG1xKgoKHbkUHTRUnnUUEdZ9nxpW8G/6Hk/WUr+YqmgqG8jIzgHHtpX8G/6Gk/WMr+YqgaUejT3CpqEejT3CpoCiiigKxUFZJTzyPjWVFB5/qWzS4Gm7o0gl8y7mmUkJRlQHSNH4INWt70u5dHpshh1tPjkdttCXEkbShe8E448SaaSCFZGSfuFSgAJwAR30CxbtMdO089f2Y702U6XnSzkJSdu0AHOeQFTL0VapKI+GHGHIwUWlNPqGCU/S48eNM9FAjWnSF40/ZIkeyTmhJYecdcbkKUpl7eSefnJ59VcNw0RqF2A23DnQGn5Mrxu4BYWW3lBO1KB17MAZHWc16PRQUenYd3ZtqWbym3h5BUEphpUlpIxgBI6hVVa9JS4sOysPPtLNvnOS1lOeIVuIH/upxooE/8AJB42C7QVPNh2ZJXLZXj0TpOQr4VbaRsZsFiahuO9NJyXHnf11k5Jq6ooCl3VG1642eIsA9LMS4R2pQkq+JFMVLFy6SRraC2hO4R4rrx9RVhKf4Ve6psmzbesyrhboWeJV0iwPVzq+V5v3VQW1wS77JknihlKUIPrUkE/GrxSwhlal8No3GsqyMqF13dKuUpHHoEBlB/eIHD76voDfRQmU4xhAz31RRUhcBofSlvlSvtHH3YpjRjaMchwq3S30Wdbfn+m/rVv+FVMqPRo7h8KWtbfn+m/rVv+FVMqPRo7h8KMZVBGesj21NFByToTU2K7FlNJdYeTtcQTncPbWNmtrFogNQoiNjDOdo7Mkn8a7aKANFFFByXCO5LZcYQ8uPuSPnEAZHGlvwXNKZ086048t5SLhJBWvmfnFU3dZ9nxpW8G/wCh5P1lK/mKoGlHo09wqahHo09wqaAooooCiiigKKKKAooooCiiigKKKKAooooIURjBNKkSRjVV/mrG5ENphhPu3K+9VNC1BJUVHgBn3caRoq1yLHIfa4rus9WTyygLKQfcmptKbSYdLMFm2IWtPlPKK1H28K6L4/0NueUThS/IT667GGwyyhtPJCQmq68KQ7LiRFHzlbyPUKyraIhtYmMNAeSy2FH1KIzVw3gp4dtV9vUHH5Do4hSsIPaBw/CrFOAOFWzvUs62/P8ATf1q3/CqmVHo0dw+FLGt1pFx04jI3fKjRx6sKFNCAQhI5EAZopNFFFAUUUUBjhRnjisSoJzk9wPClaNrmBLufiMaPcHldKpnp24yizuT5w34xwoGrr93xpW8G/6Hk/WUr+YqmZLiVJSvOAoJIzSz4N/0NJ+spX8xVA0o9GnuFTUI9GnuFTQFFFFAUUUUBRRRQFFFFAUUUUBRRRQFFFFBW6glJh2uY+o46JhZJ9Z4D76XrDHCpFri8QIsfpVD99XlfjVhrlSXbSIZVtMt5pnOO1X/ANGp0s2laZEvreXtR/gR5I/hrnflztyvUjI4dtUrqt9+lPn/ALHGKU/4jx/GrpSggEngB5R7qX4xL1tfcz85Of2g/ug4/CukYdY4ryt7O0EQWifOUncfbxrrCwlJyeVQykIaSkckjbWmW8mKw7IP0EE47qm2E1wStYFczWVkW2r5qJMaQfWsgqx7jT61ktpPaM0iTmilOmpC89JKuqHFE9hCtv3Yp8Z9GkHsFZVqaKKKsFFFFBqf4IWeONpORxI7q8fYktWhqI/pjUE5+a5cihUCQQEnc4d29HMcOIPZivZCMjAOPXXF8lQkS1ymoUcPLI3L6JO4n9bNBWXxOoy+n5BEEMBPHxoKzu3HliuHwW9P+Trvjezp/H5O/Z5uekVypsTkDj6uv10seDf9DyfrKV/MVQNKPRp7hU1CPRp7hU0BRRRQFFFFAUUUUBRRRQFFFFAUUUUBUEgc6msHD/ShqTddSlfK9sYZytaEuPpRnzlkbUf/ACpotUVuFBZYQfRoCM9uKT0tIu+vZa0rK2oSENdy+BIp4Qk44Vyr9OUfThvzymrY6W/SL8hI7Sa5mGtsqDHSPIba3q9SqLufGbnChg+aS8sfuit8MKeuUp0DyAkJQfZXV2viIWYxtBFUmpSZCGbcklK5zgbyP1E+WT+FXRISlIPdVE0oy9QyZONzcNsMtY6yrzj7OVc78xwdOPVwAk6Zwnan5UbwOwbVU1I8xPcKV9ZDbL00AMAXRsDu2qppa9Gn/CKuMMTRRRWgooooCiiigjrPs+NK3g3/AEPJ+spX8xVNJOPeB99K3g342aTx5XKV/MVQNKPRp7hU1CPRp7hU0BRRRQFFFFAUUUUBRRRQFFFFAUUUUBXLNkpjMuuqPoWy4RjqrqPrpe1g4tcZuCycOTHA1j93rrJTZx6BgqZgPXB1JL055TvH9XccfdTT5oITxJrTCYEeK0yhOEtpCMd1YXOQYkB5xPnbfJ76yrIidVfCcS5KnzTxDaejQfUOf3g132llTcFKlDy18fZnhVeGksWmPHyQXVjd2nd5R+NXbaQ20lI5JGKp0t9OK8y/EIb8hPFeMIT2msbDD8TtrbaxuW5la1HtUSfxrjuh+UL4xBGSzHT4y6R2jkmrxvi2DjmM1yr9MLOtBibpvP8AtVv+FVMyPRo7h8KWtbfn+m/rVv8AhVTKj0aO4fCuoyooooCiiigKKKKDmnOussuLjtF9xIBS3kDJz2mlrwYOKdsDy1tFlSrjKKkZztPSKzTYpIJOfV8aV/BsMWaSB/tKV/MVQNKPRp7hU1CPRp7hU0BRRRQFFFFAUUUUBRRRQFFFFAUUVBIBxnjQQTwV6uVKNqeVfNXSH/OjW9HQIPUVniT7M49ld2tr0bXZ19Acynj0bKBzUo1s0lafkexx2FcX1qLryuvKiVfdnFIRZdg/NjPVwNU9yUJlxjwwTsbWH3PZ1VZvyEsoUtfkoSkqJPKqmCvbFeuLoIW8rckH1eSB7QAfbWu1Y4dQAkXQkcUMJykdpPGumXIRFjOSHDgNJJ41qtkfoGApRy4slSvbxx99V01Qul1TAScx46ukkfvK6k/ComXLt06cirTEXKkAh+UvpFZ6k8kj3Ae+rjj11i0MIHV2DsrKsqosa2/P9N/Wrf8ACqmVHo0dw+FLWtvz/Tf1q3/CqmVHo0dw+FWMqKKKAooooCioJAIB66w6douFsOJKwPNB4+6gz6z7PjSt4N/0PJ+spX8xVM5WkE5PZ8aV/BupJs8nBH6RlfzFUDUjzE9wqaxSQEJ4jlWWR1GgKKjPro3DtoJoqNw7anI7RQFFRkdtG4UE0VG5PWaMjqNBNFGawLie0Y7aYMMgQVY664rlNjwo7kmSdiGh5/VWi6XuJAbLy3N5TwCEJKlZ7hSwq13TV0sO3dLsO0tnciIg4U/61GomYlEzrhFkac1RexdpaCIkXiwk8lntxTxnyd2PZWlhhEZpDLTaW20jA2jgB1VXT7k6twRoBT0h4Kcz5KB38qVbWuuWNxIuVwRb2zlhBDr6h1kck1vJEqSAngzGOCOo1zMMpZbMKBuUScvPAE8TxrZImsWtKY0RCpEtfBDY4g+s9ntq269N17nmHGKI/lynBhpsc1VnZreYMIZG59zylqPPJ41otdseL3j9xwqYrkPot+qrhGQnjzrnWP01ljFFFFdAsa2/P9N/Wrf8KqZUejR3D4Uta2/P9N/Wrf8ACqmVHo0dw+FBlRRRQFFFFByz31MR31toKlttKdT6yByryRmMmHY7dqdlahdpFzLTrxdUoFJWrydvLgMD2V7EsZyNpIxkj9b1Unx9CRmLklRuEtcBt/xtq3nb0TTuc7s95PCgtL5qmDYnkMzfGlOOIDmW461jbnH0QfdSforXFnttqealPLbWudIcSFJAOFLURw6q9HKEbjnZkgKOeI50qaS0vGZhyfli2sKkKmPLBWEqJSp1RT9xFTaJnCbRMxwwHhLsOB88o9XIUf6SrFkfPuD7NMSbDZseTbYmP/KFc1y0nZ50N+ObfHb6ZGwrQ2Mp9dc9l/UbL+qX/SbYf/EOjv2j8a1q8KFiSrAecOOvKf60wRtMWdqO20bXFX0aAjctpJKsDGTWwacsp52mFnl6IVuy/psv6Wh4UrJkAKWcqCBlaBknl1+qgeFSykZBV/zGx/8AKurU+lYMn5MNvtERQamtOvENDAaGcn186uRp6yZ2JtsHIHLoU5rNl/TZf0u/6TbWvykIWodvTNf/AJVrd8JcQnDMdJzy3SWwf4qaPyZsp4m1Q8/+SBXINGWdN4FwTCZwGui6Hok7O+titoyzZf0sr8Izqk5ZiQiP37mhJ9wrV/pBuK87IlsQQMkmchfXjnmnb8nLL12qFw4ZLCawVpuy5OLVBO7aD80nlmm2ZwbL+kSRrK9SlbGrhbYgyQS3IbUeHPmqtHj70kgzr6uQ2eOzxthCT7lU26b0rCjG5eOWiGlDsxa2iWU+jxgGrgacs21O60w8hIHoU9VIpPctik9yTbfd4FvSPE4ttCnDhS3bi0pRI7fKrvTrCUvgymypRjyVuz2+PsCqvpOlbJJjutG1Q0dMhSNyWU5Tkc6xtukLJCgMRvkyI50SAjctlJJrdmi4poWl3ebKc/1u52JtrqbamgD28a6Y1xaSFocvNijMcMtNvgg57DTINNWM5/siDw/3CaodZaRhyoMcWy1ROkRJb3BLSR5AOTW1UGnoalFMrV8VDQJHQsPIQO4nOasYVw03BQoRblbmyr6XjSFEe0muwaesa1n+yYRUcniwntrL8mrJ1WiDx/3CasQNSWJKQPlmCerjJRn41l+Ulj/2xA/9Qn+tcD2jLK5dmZ3ybF+aaLXRBlODk5zXYnTNkSkD5JhdnFhNBn+Utizj5Ygf+oR/WsRqiwHlereeO3hITz99YnTljDiR8kQez0CaprPpSAzeLwuTaIKY0h1tUYllJGA0nd9+aDXqq82ydctPNwp8aStFzQtSWnAsgAEdVOjeQhIPMDBqsiWW1supfjQYjbiTuCm2kj76s2wEjrGePGgmiiigKKKKArFxIUkhQyk8DWVHMYxQJdru95k67l2u4w241vRA6ZtGQpSxvKQrINb9Z3OfHmWyz2d/oJVzcWgOqSFdGlPFRx7a61WiUNdKuwCDF+TxG4njv6QqxiqzUFuvk5+FeI0Bkzrc8+ERluJw80rAHlZ4Zx10Hdoy7TphuMC6LS7LtsrxcuJTtDg2g5x3GmYYIyOOaWtFWidATcJt1aaamXKUX3GmlbktpCQlIB7gKZEZ2DIwaDKqHV9xuFss8l60wjMkhClAKUEpThPPJx2VfVyXNlb0CU03xU6ypCQeWSkigrtJT37jpmBPklJcfZQ6rbnZgp6qWLzc9T2mQi5SZ7CIzksNNWwNp3LQesL5nt9VXtih3G0aassFEVt15lDbb4K8BsBPHv49lLce36vOpJFwudmjzvnyiKTNCUR2v1gj/o0Ho0dW5pJIIKhnB6q2VrYCkoG4YOOPlFX3mthoIWM4yMgdVJyL3eD4QGbVIhNxrc5FW8nygpTm04J4H1059VLc21SndZQbmhtBYYiPMqUVccqIwMUHffLqzaITkh8lxQ8lLI4lajyGKqPB9eLjd7U8/dW9j4krbwniAAo8OHqxWd1sUjUL7DlydkwVW+SpyMqK+AHEkY8oY6udc/g701P04xNRPmvyVOylrR0iwrKepXtoG9PFNTUIGEgcuFTQUuqJ06BbZD1qiKlyg0ShveEpB9p9Vc+gp8i6aUt86asCQ8FLcwOflKAq6lILjTyE4ytspB9eD/WqDTUO6WPSVuhJjpeltAIdSVDyRvJPHOORoE+ZrWXKv73QXeJGaYkFhEFxJ2PgY3lxePIIPLt4V6lGUVMJUpQJPPGMez1V5vN0le2ot0sUGFGct9zlLk+PdKErZ3bSRjnz3cq9IjILcdtsnJQkJyTnOKDbWJBwr7qyoPm0CbNvV6Y11arauOhm3Ph0lwkKLxSgE8BxGM9ddGubvJs+mpk6AR07XRtbkAEtJUvBVtPYk11Xe1yZWqbFOaHzEPxjpTkDbvQkJ7+Iqv1la7tfLa+y1DaKo0lp9hLru5MnbjIxw2e0mg5/BzfZV2euUV+5s3aPFWAzJS3sWsEZ4p6sZx7KdwQQDmk3S9puy79Pvd3htWtUllLCYrDwcPkqzvKhjny9XKnJsYTwHMk/fQTRRRQFFFFAUUUUBgddGE0UUB3VgXWwooK0hQ6iazpb1rqKVp5mEYUDx92bKRHQ2XujAUrlxxQMe4dvqoyk+SefOk+2aquSdQR7TqGzi3KlhamXEPh5Kik5xkcR7QKv498tkuS5EZnR3H2xlxttwLIHsoLFITyFZbR2Ut2PVttu8OY8zIYbREdW0r50eTtJBz2cs13sagtUi3mczcIy4qdu55LgKRk4GT30FpyqNw4cefCqabqa1twLhIbmMPeJIUXEoXkpI/651w2fVbV3NudipaVEmxlvbulTkbTxwM5I9dA0E4qQAapo2obVLfUxEuEZ2SgEdCh1JUogZx91RpK9/L9kj3IMlkPleEZ5ALUkH24z7aC62jsrEJwr1Vzy5zENIVJeS2lSgkZ6yeVYSbpDiuFuRKZaWlJWoKWPJT2nsoO0iscj78Vw2y7wroyXbfJRIQOezmO8cxXFq69mxadm3VtgyTFTuDZVwJ4Dq76C7KkAZUQO+jKMZzkeqkGRrK/WhmLMvOmUxoDq20uPonpVs38B5HXxPIVe2jUK5l/u1rWwtoW3YS6v6e9O4cPePZQMG9rcQVpBHMZqVKSnmoDvNJF1145Bt18kIthdctEtuMWy7t6Qr2ceAOPKWBx7+VWFqumqJUxDVw08zEjK4rebnBez2Y4+ygZgtJIwc57KkkDn3VrRnbhWV5Pb1VRad1F8sO3Jh5gxZMF4NONk5whXFKsjhxFAw5Tk9o51OE1Q6Rvjl/hOywz0bCXlIYVn0iEnaVe8HnV6kbRj1mgnCaMdlFFAUUUUBRRRQFFFFAUUUUBST4UIy5KbCllbzRTdmVKcZTlSQM8adq0uJStZ3JBwjcMjke2gUJmkFtx5s9E2ZPuwiutRlvqHze7PUKTbeu0TYmnbVZoLrd6hymlSD0DjRSE+k3LIAVk5POvYXvJjb08FYHEVg0El4HanKk5JAAJPfQeKXptAtcmPHWqIuHf3ZU3/AFbYoNKJKTtHnjBHAZrJyL45YdRyo1zdvDMlLDRDcEx0HCgRtRgeanAOOsHrr2SQtTSlpbwBnlgHNbVAJKUpSkJPMADjQecXq1tMaiQ1ChqbZlaeeS4G2uC1/R3euqiyrQpq0Lg28uoj6fktuR0tKaS6oeTsUSAQSUq5V64PMbPWXAkn1dlZNtobypDaEq37MhI5dlB4fY5aHdR6dks3BKuhcKVsR4CmfFgUHyVLWkb8E4zxr0Hwd3GNa9LWiFcHuikyHXmW07FHcoOr4cBgU0PqMdzYwEtpK8kJSBWEiKxKnQ3JDSXFtOrKCR5p20FB4UkOHSrkllpTrkJ9uUEpSSdqTx76V7jHbfsTt31CmRGc1C8lBkMo3eJso8poFHPivyuA6+Neoo8vIXxG8DB7MChbaOhIKEkdIeBGRw9VB57oS5x2nps25dG48XkMfKcdlxHjjhSM5bA8nB4eymHwnsuO6Du7TSFrcca2pDY4klSaYIzaDhHRo2kFWAkAZzzrc2lLiQVgK76DyvUVgVakWm7urlXS2BTQlRnlEhs+cl0JHHhw4AZrph6ciX7XmqX5CJCWn24q2VodWjd8zk/xCvSlNoJcyhJ5cCMis+ibRxShIJ6wKDxS8W9mDpbXMZC3ktuXRlSCpRU4pO5heR1ngD7qZdOXTRqb6wYN5mvS3ThDTiXsKPrBTtHtr0JYHTJRgbd2cY9Vc8ZZLzg4cFnkkUEWu6Q7k26uE8XQy4Wl+SU4VnlSFr8S7FenJltiuLF+YMB3oxno3eAQr3Z4082mIxGjvhlsJC31KVxJyc866lpBWsKAISgqGeOD20HNYLY3ZrPFt8ZPkR2w3ntPWffVikbU451iySWkknJIrOgKKKKD/9k=" alt="F5c"><figcaption class="cap">F5c</figcaption></figure>
+<p class="qn">What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.</p>
+<p class="sub"><b>what the key says only both sides give</b></p>
+<div class="cl">The Co-oxidation evidence and the LSV OER ranking occur in the same general regime of rising anodic potential associated with OER.</div>
+<div class="cl">The two findings are not mutually contradictory.</div>
+<div class="cl">It is consistent, at only a weak compatibility level, to say facilitated Co oxidation could be part of why this catalyst family performs well.</div>
+<div class="cl">Neither the DFT/EELS result nor the LSV ranking alone supports the compatibility-level reading; only together do they permit it.</div>
+<div class="cl lim">The DFT/EELS evidence is composition-resolved only across CoCrOOH, CoFeOOH, CoFeCrOOH, and Co(OH)2, and the EELS signature itself is lumped (it does not distinguish the Co2+-&gt;Co3+ step from the Co3+-&gt;Co4+ step); nothing indicates this set matches or was tested</div>
+<div class="cl lim">The two sides are different kinds of quantities: computed step-wise thermodynamic energetics (Delta G) plus an experimental spectroscopic proxy for oxidation state, versus a kinetic/electrochemical performance metric (overpotential at a fixed current density, </div>
+<div class="cl lim">There is no shared measurement tying oxidation-state change to activity for the same catalyst; the LSV result by itself only ranks eta10 values and cannot show that Co oxidation (rather than some other compositional or structural factor) is responsible for Co5</div>
+<table class="sc"><tr><th>arm</th><th>what it held</th><th>combined</th><th>limits</th></tr>
+<tr><td><b>A</b></td><td>the measurement alone</td><td>0.00</td><td>0.00</td></tr>
+<tr class="hi"><td><b>B</b></td><td>+ the result handed forward</td><td>0.50</td><td>1.00</td></tr>
+<tr><td><b>C</b></td><td>the handed result alone</td><td>0.00</td><td>0.00</td></tr>
+<tr><td><b>N</b></td><td>the paper name only</td><td>0.00</td><td>0.00</td></tr>
+</table>
+<p class="sub">B&minus;A +0.50 &middot; B&minus;C +0.50 &middot; passes: <b>yes</b> &middot; borderline, decided on 2 samples</p>
+</div>
+</div>
+</div></body></html>

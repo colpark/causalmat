@@ -1,0 +1,54 @@
+Question as the solver sees it: What does this measurement, read together with the established earlier result below, settle about PRF/service_capability that neither settles on its own? Say what the combination supports and what it leaves open.
+
+Observation A is not a raw measurement here. It is a result already established by an earlier step, handed to this step as settled:
+  The same two materials that the earlier chemistry/morphology-vs-overpotential pairing distinguished (n14->n16: nitrogen-linked spectral shift plus flatter/sparser vs dense-platelet zinc morphology co-occurring with a plating overpotential gap that widens from about -0.05 V at low current density to about -0.10 V at high current density) are also the two materials that diverge in long-term symmetric-cycling stability: CnC HS stays within about 0.03 V out to 7100 min, while C HS develops growing voltage spikes starting around 2600 min and its trace ends near 4400 min at the noted battery-failure point. So the structural/chemical/electrochemical distinction already tied to CnC HS versus C HS also co-occurs with a large difference in how long each cell keeps cycling before instability/failure.
+  The qualifications recorded on that earlier result:
+    - Does not establish that the overpotential separation, the nitrogen chemical-state change, or the morphology difference causes the earlier voltage-spike onset and failure in C HS versus the stability of CnC HS -- it only shows the same two-sample comparison differs on both axes.
+    - Because chemistry, morphology, and overpotential behavior all co-occur in the same two samples by construction, this pairing cannot say which one (or some other unmeasured host difference) drives the divergent cycling lifetime.
+    - Mismatched quantity kinds: side A is a rate-dependent voltage-gap measured at two current-density points (a difference of differences), while side B is a cumulative time-course of voltage stability/failure over minutes of cycling; no dose-response or magnitude scaling between the two can be drawn.
+    - Only two samples/traces are compared, so this supports an ordering (CnC HS more stable, C HS fails earlier) and not a quantitative relationship.
+    - Inherits the earlier result's qualifications: the pyridinic/graphitic and Zn-N bond labels are the paper's interpretation, and neither the spectral shift nor the morphology was quantified.
+
+Observation B (None): Charge and discharge capacity fall from about 1.0 to about 0.9 mAh over 500 cycles and the 1st and 100th cycle profiles nearly overlap
+
+How the graph links them: the earlier result concludes a claim that points to B's claim through a n17 -> n18 edge
+Panels: F4f
+
+What the paper concluded, for your reference as the key's author:
+  Pre-zinced CnC HS in a Zn-MnO2 cell keeps ~90% of its capacity over 500 cycles and a three-cell stack powers a mobile phone
+
+You are drafting an answer key, not answering a question.
+
+Say what these two pieces of evidence, taken TOGETHER, actually permit -- and no more. The item
+exists because neither one answers the question alone, so a key that could be satisfied from one
+side is wrong.
+
+A key that overstates is worse than a key that says a thing cannot be determined. "Not
+identifiable" is correct and scorable whenever two candidate causes cannot be separated -- but only
+stated together with the comparison that shows it.
+
+Give:
+1. the combining proposition: what follows from putting the two together. If nothing does, say so
+   and set `combines` false.
+2. its limits: what the pair does NOT establish. Include any confound -- two variables moving
+   together by construction, a quantity set against a different KIND of quantity (a rate against a
+   cumulative amount, a test temperature against a service temperature, an absolute against a
+   normalized value), or too few points to support a relationship rather than an ordering.
+3. `not_identifiable`: if two causes cannot be separated here, name them. Otherwise null.
+4. the quantity kind on each side: rate, amount, cumulative or normalized, with units and window.
+5. three labels:
+   dependency: real if the conclusion needs BOTH observations, none if one suffices.
+   inference_validity: "follows", "follows, weakly", or "does not follow".
+   causal_strength: descriptive, associative, conditional mechanism, or discriminating.
+
+Reply with EXACTLY the JSON object below and nothing else.
+
+Your own instructions may describe a different output shape, with fields such as "question",
+"answer_key" or "grading". **Do not use it.** You are not writing a trace item here; you are
+drafting the key for one that already exists. A reply whose top-level object contains "question" is
+wrong, however good its content, and will be discarded.
+
+{"combines": true or false, "proposition": "...", "limits": ["..."],
+ "not_identifiable": "..." or null,
+ "quantity": {"a": {"kind": "...", "what": "..."}, "b": {"kind": "...", "what": "..."}},
+ "labels": {"dependency": "...", "inference_validity": "...", "causal_strength": "..."}}
