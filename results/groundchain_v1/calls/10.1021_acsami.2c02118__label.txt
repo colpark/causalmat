@@ -1,0 +1,25 @@
+Below is a six-step reasoning chain that an automated system wrote about one experimental paper. Label what each step is doing.
+
+[Step 1] Practical solid-state lithium-ion batteries require stable solid polymer electrolyte interfaces, but these buried solid-solid contacts cannot be fully understood from electrochemical current response alone.
+[Step 2] In PCL:LiTFSI, currents observed near reductive and oxidative limits may correspond either to minor surface events or to substantial decomposition, so the true electrochemical stability window and its performance implications remain ambiguous.
+[Step 3] The authors therefore design a three-electrode methodology with an embedded LiFePO4 reference and staircase potential holds, so that the working-electrode interface can be monitored at defined potentials and separated from counter-electrode contributions.
+[Step 4] Interleaving EIS with each potential step allows extraction of interphase resistance and apparent capacitance, which can be converted into estimates of interphase growth and reveal whether decomposition products become transport bottlenecks.
+[Step 5] Postmortem XPS and SEM then identify the chemical and morphological origin of these impedance changes, showing buildup of carbonaceous, alkoxide, oxide, fluoride, nitride, and related species, plus dendrite-like features during lithium plating.
+[Step 6] These species form low-conductivity SEI/CEI layers whose resistance exceeds that expected from the bulk polymer electrolyte, while dendrite penetration below 0 V changes the apparent resistance by creating alternative pathways and causing continued local degradation.
+[Step 7] Therefore, combining electrochemistry with spectroscopy yields a more reliable mechanistic picture: PCL:LiTFSI is effectively stable only from 1.5 to 4 V vs Li+/Li, and outside this range decomposition-induced interphases are the key bottleneck that must be kinetically or thermodynamically stabilized.
+
+Label each step exactly one of:
+
+  system        names the material, device or setup being studied, without asserting a result.
+  variable      names what was varied, substituted, controlled or compared.
+  observation   states something that was measured or seen -- a trend, a value, a comparison,
+                a feature in data. This is the kind of step a figure panel could show.
+  mechanism     explains why, in terms of a process or cause.
+  conclusion    states what the work establishes overall.
+
+A step can describe a measurement and still be a `mechanism` if its point is the explanation. Judge the step's job in the chain, not its vocabulary.
+
+For every step labelled `observation`, also give the single physical property it is about, in at most eight words, as `property`.
+
+Return JSON and nothing else:
+{"steps": [{"n": 1, "kind": "system|variable|observation|mechanism|conclusion", "property": ""}, ...]}

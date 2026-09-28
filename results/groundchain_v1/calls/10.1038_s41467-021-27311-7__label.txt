@@ -1,0 +1,25 @@
+Below is a six-step reasoning chain that an automated system wrote about one experimental paper. Label what each step is doing.
+
+[Step 1] Li-In alloys are commonly assumed to be chemically and electrochemically stable against sulfide solid electrolytes and are therefore widely used in laboratory ASSLB studies.
+[Step 2] The authors test whether this assumed stability still holds under more demanding conditions relevant to high power and high energy, namely high current density and high cathode loading.
+[Step 3] Long-term cycling of Li-In|LPSCl|LNO@NCM622 cells shows eventual capacity collapse and internal short circuit after ~900 cycles, indicating that the Li-In anode is not morphologically stable under these conditions.
+[Step 4] Cross-sectional SEM/EDX reveals that Li-In progressively invades the electrolyte from the interface and develops flame-like, striped, and network morphologies, demonstrating dendritic penetration as the direct failure mode.
+[Step 5] STEM-EELS, Raman, XPS, and AIMD show that indium reacts with LPSCl to form an interphase dominated by In-S species, especially In2S3, so the interface is not fully inert even though it remains relatively conductive and compact.
+[Step 6] This In2S3-containing interphase improves wettability/intimate contact, and under stack pressure the repeated lithiation-driven expansion of the Li-In matrix is funneled into grain boundaries and pores, enabling dense lateral alloy growth through the electrolyte rather than sharp crack-forming whiskers.
+[Step 7] Therefore, high current and high loading kinetically accelerate Li-In dendrite propagation until the electrolyte is penetrated and the cell shorts, implying that suppressing interfacial reactivity and reducing electrolyte porosity should inhibit this failure pathway.
+
+Label each step exactly one of:
+
+  system        names the material, device or setup being studied, without asserting a result.
+  variable      names what was varied, substituted, controlled or compared.
+  observation   states something that was measured or seen -- a trend, a value, a comparison,
+                a feature in data. This is the kind of step a figure panel could show.
+  mechanism     explains why, in terms of a process or cause.
+  conclusion    states what the work establishes overall.
+
+A step can describe a measurement and still be a `mechanism` if its point is the explanation. Judge the step's job in the chain, not its vocabulary.
+
+For every step labelled `observation`, also give the single physical property it is about, in at most eight words, as `property`.
+
+Return JSON and nothing else:
+{"steps": [{"n": 1, "kind": "system|variable|observation|mechanism|conclusion", "property": ""}, ...]}

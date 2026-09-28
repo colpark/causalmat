@@ -46,8 +46,19 @@ def fetch(url, binary=False, tries=3, timeout=45):
     return None
 
 
+BLOCK = re.compile(r'</(?:p|title|sec|td|tr|li|abstract|caption)>|<break\s*/?>', re.I)
+
+
 def strip(x):
-    return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', x or '')).strip()
+    """JATS to text, without inventing whitespace.
+
+    Replacing every tag with a space turns "<xref>Fig. 1</xref>a" into "Fig. 1 a", and
+    match_panels.py then reads the panel letter as a separate token. That is why four of five
+    papers came back with one or two use sentences while the pilot, whose letters sit inside the
+    xref, had 25. Block ends become a space; every other tag closes up.
+    """
+    x = BLOCK.sub(' ', x or '')
+    return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', x)).strip()
 
 
 # ---------------------------------------------------------------- Europe PMC JATS

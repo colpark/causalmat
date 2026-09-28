@@ -1,0 +1,21 @@
+A sentence below was written by an automated system summarising one paper. Separately, the paper's own authors wrote the caption and body text quoted underneath it. Rule whether the authors themselves state the same finding.
+
+THE AUTOMATED SYSTEM'S SENTENCE
+At the optimal 15 wt% ZnA loading, FT-IR, DSC, XRD, DMA, SEM, conductivity, and transference-number results collectively indicate coordination with CMC, decreased crystallinity, increased amorphous/free-volume character, higher interchain spacing, and more mobile Zn2+ transport pathways.
+
+THE AUTHORS' OWN TEXT FOR THIS FIGURE PANEL
+caption: ) of CMC, fitting with blue line and GPEA15, fitting with red line. The fitting curves was performed with the equivalent circuit models using Z-view software. Ionic conductivity (
+body: The measured real and imaginary parts are presented as the Nyquist plots in Fig. 7a,b, which are generally divided into two regions that are a semicircle at high frequency and a spike at low frequency. Figure 7b shows the Nyquist plot of the reassembled cells without the separators of CMC and GPEA15.
+
+Rule one of:
+
+  states        the authors' text asserts the same finding about the same property. Different
+                wording and extra detail are fine; the assertion has to be there.
+  related       the authors' text is about the same panel or property but does not assert this
+                particular finding.
+  absent        the authors' text does not carry this finding at all.
+
+Quote the authors' own words for `states`. If you cannot quote them, the ruling is not `states`.
+
+Return JSON and nothing else:
+{"verdict": "states|related|absent", "quote": "", "property": "the property both are about, at most eight words"}

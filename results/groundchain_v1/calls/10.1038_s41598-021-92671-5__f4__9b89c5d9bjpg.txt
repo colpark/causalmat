@@ -1,0 +1,21 @@
+A sentence below was written by an automated system summarising one paper. Separately, the paper's own authors wrote the caption and body text quoted underneath it. Rule whether the authors themselves state the same finding.
+
+THE AUTOMATED SYSTEM'S SENTENCE
+At the optimal 15 wt% ZnA loading, FT-IR, DSC, XRD, DMA, SEM, conductivity, and transference-number results collectively indicate coordination with CMC, decreased crystallinity, increased amorphous/free-volume character, higher interchain spacing, and more mobile Zn2+ transport pathways.
+
+THE AUTHORS' OWN TEXT FOR THIS FIGURE PANEL
+caption: ): (solid symbols) shear modulus, G′, and (hollow symbols) loss modulus, G″ of CMC host polymer in black colour and GPEA15 sample in blue colour. The shear modulus at 1 Hz ( | ) of (blue) GPEAx, (red) GPESx, and (green) GPETx systems. The curves in ( ) are drawn as guides to the eyes
+body: The shear modulus (G′) and loss modulus (G″) as a function of frequency for the CMC and GPEA15 at room temperature are revealed in Fig. 3a. Since the G′ increased with frequency, the G′ of all samples was compared at low frequency of 1 rad/s as shown in Fig. 3b.
+
+Rule one of:
+
+  states        the authors' text asserts the same finding about the same property. Different
+                wording and extra detail are fine; the assertion has to be there.
+  related       the authors' text is about the same panel or property but does not assert this
+                particular finding.
+  absent        the authors' text does not carry this finding at all.
+
+Quote the authors' own words for `states`. If you cannot quote them, the ruling is not `states`.
+
+Return JSON and nothing else:
+{"verdict": "states|related|absent", "quote": "", "property": "the property both are about, at most eight words"}

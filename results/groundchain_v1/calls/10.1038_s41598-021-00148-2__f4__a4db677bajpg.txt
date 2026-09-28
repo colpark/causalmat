@@ -1,0 +1,21 @@
+A sentence below was written by an automated system summarising one paper. Separately, the paper's own authors wrote the caption and body text quoted underneath it. Rule whether the authors themselves state the same finding.
+
+THE AUTOMATED SYSTEM'S SENTENCE
+These measurements indicate that discharge first involves Zn2+ uptake by two pathways: formation of spinel ZnMn2O4 and reversible insertion of Zn2+ into γ-/ε-MnO2 tunnels to produce tunnel-type ZnxMnO2.
+
+THE AUTHORS' OWN TEXT FOR THIS FIGURE PANEL
+caption: Figure 2. Discharge/charge voltage profiles for the first and fifth cycles of a Zn||EMD cell showing where electrodes were extracted for characterization
+body: (none)
+
+Rule one of:
+
+  states        the authors' text asserts the same finding about the same property. Different
+                wording and extra detail are fine; the assertion has to be there.
+  related       the authors' text is about the same panel or property but does not assert this
+                particular finding.
+  absent        the authors' text does not carry this finding at all.
+
+Quote the authors' own words for `states`. If you cannot quote them, the ruling is not `states`.
+
+Return JSON and nothing else:
+{"verdict": "states|related|absent", "quote": "", "property": "the property both are about, at most eight words"}

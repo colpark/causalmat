@@ -1,0 +1,21 @@
+A sentence below was written by an automated system summarising one paper. Separately, the paper's own authors wrote the caption and body text quoted underneath it. Rule whether the authors themselves state the same finding.
+
+THE AUTOMATED SYSTEM'S SENTENCE
+Cross-sectional SEM/EDX reveals that Li-In progressively invades the electrolyte from the interface and develops flame-like, striped, and network morphologies, demonstrating dendritic penetration as the direct failure mode.
+
+THE AUTHORS' OWN TEXT FOR THIS FIGURE PANEL
+caption: The cell after 100 cycles ) and (
+body: For the cell cycled 100 times (without a short circuit), as shown in Fig. 2b, unlike the resting cell, the Li-In alloy grew into the electrolyte layer by ~30 μm and exhibited a flame shape at the anode-electrolyte interface. Different from the streak pattern in the middle region of Li-In dendrites, the morphology displayed a flame shape similar to that of the cell after 100 cycles (Fig. 2b).
+
+Rule one of:
+
+  states        the authors' text asserts the same finding about the same property. Different
+                wording and extra detail are fine; the assertion has to be there.
+  related       the authors' text is about the same panel or property but does not assert this
+                particular finding.
+  absent        the authors' text does not carry this finding at all.
+
+Quote the authors' own words for `states`. If you cannot quote them, the ruling is not `states`.
+
+Return JSON and nothing else:
+{"verdict": "states|related|absent", "quote": "", "property": "the property both are about, at most eight words"}

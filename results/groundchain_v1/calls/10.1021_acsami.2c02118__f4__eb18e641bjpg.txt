@@ -1,0 +1,21 @@
+A sentence below was written by an automated system summarising one paper. Separately, the paper's own authors wrote the caption and body text quoted underneath it. Rule whether the authors themselves state the same finding.
+
+THE AUTOMATED SYSTEM'S SENTENCE
+Interleaving EIS with each potential step allows extraction of interphase resistance and apparent capacitance, which can be converted into estimates of interphase growth and reveal whether decomposition products become transport bottlenecks.
+
+THE AUTHORS' OWN TEXT FOR THIS FIGURE PANEL
+caption: Figure 3. Impedance response between the working electrode (WE) and reference electrode after each potential step at 40 °C. The impedance response between the counter electrode (CE) and the reference electrode at 40 °C is shown in light gray
+body: (none)
+
+Rule one of:
+
+  states        the authors' text asserts the same finding about the same property. Different
+                wording and extra detail are fine; the assertion has to be there.
+  related       the authors' text is about the same panel or property but does not assert this
+                particular finding.
+  absent        the authors' text does not carry this finding at all.
+
+Quote the authors' own words for `states`. If you cannot quote them, the ruling is not `states`.
+
+Return JSON and nothing else:
+{"verdict": "states|related|absent", "quote": "", "property": "the property both are about, at most eight words"}

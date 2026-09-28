@@ -1,0 +1,21 @@
+A sentence below was written by an automated system summarising one paper. Separately, the paper's own authors wrote the caption and body text quoted underneath it. Rule whether the authors themselves state the same finding.
+
+THE AUTOMATED SYSTEM'S SENTENCE
+Interleaving EIS with each potential step allows extraction of interphase resistance and apparent capacitance, which can be converted into estimates of interphase growth and reveal whether decomposition products become transport bottlenecks.
+
+THE AUTHORS' OWN TEXT FOR THIS FIGURE PANEL
+caption: Linear sweep voltammetry (solid line) and cyclic voltammetry (dotted line) of Li | PCL:LiTFSI | Cu–C or Al–C with a scan rate of 0.1 mV s–1 at 40 °C
+body: Furthermore, the absence of the feature between 1.5 and 0.6 V during subsequent cycles indicates that a passivation reaction took place, or that all of the reactants were consumed (see Figure 2b). The overpotential for lithium plating is also observed in the two subsequent cycles, indicating that the nucleation sites have to reform each time (see Figure 2b). However, it should be noted that Marchiori et al. estimated the upper ESW boundary of PCL:LiTFSI to 5.4 V vs Li+/Li, far higher than that observed here.22 In comparison, PEO:LiTFSI exhibited an oxidation onset at approximately 3.5 vs Li+/Li using SV at 60 °C.18 According to cyclic voltammetry, the current response observed between 4 ad 5 V decreases with each sweep, indicating either a gradual consumption of reactants or passivation at the electrolyte–electrode interface, which prevents further electrochemical degradation; see Figure 2b. According to CV, the first reduction sweep to −1 V had a coulombic efficiency of 39%, followed by 43 and 49% in the following cycles; see Figure 2b.
+
+Rule one of:
+
+  states        the authors' text asserts the same finding about the same property. Different
+                wording and extra detail are fine; the assertion has to be there.
+  related       the authors' text is about the same panel or property but does not assert this
+                particular finding.
+  absent        the authors' text does not carry this finding at all.
+
+Quote the authors' own words for `states`. If you cannot quote them, the ruling is not `states`.
+
+Return JSON and nothing else:
+{"verdict": "states|related|absent", "quote": "", "property": "the property both are about, at most eight words"}

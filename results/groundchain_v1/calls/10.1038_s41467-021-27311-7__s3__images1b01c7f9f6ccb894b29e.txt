@@ -1,0 +1,21 @@
+A sentence below was written by an automated system summarising one paper. Separately, the paper's own authors wrote the caption and body text quoted underneath it. Rule whether the authors themselves state the same finding.
+
+THE AUTOMATED SYSTEM'S SENTENCE
+Long-term cycling of Li-In|LPSCl|LNO@NCM622 cells shows eventual capacity collapse and internal short circuit after ~900 cycles, indicating that the Li-In anode is not morphologically stable under these conditions.
+
+THE AUTHORS' OWN TEXT FOR THIS FIGURE PANEL
+caption: Long-term cycling performance at 3.8 mA cm−2 at 25 °C. The inset shows the variation of discharge capacity and columbic efficiency from the 888th to 897th cycle
+body: Figure 1a shows the long-term cycling of the assembled cell Li-In|LPSCl|LNO@NCM622 at 3.8 mA cm−2 at 25 °C with a high loading of 4 mAh cm−2. The cell maintained a stable cycling capacity and near 100% columbic efficiency during charge-discharge cycling up to 890 cycles (Fig. 1a). In addition, the cycling performance shown in Fig. 1a further excludes the formation of Li2S; otherwise, the capacity decreases due to the increased interface impedance6–8. Therefore, the interface reaction between In and LPSCl does not induce increased internal resistance, which agrees well with the favorable cycling performance shown in Fig. 1a.
+
+Rule one of:
+
+  states        the authors' text asserts the same finding about the same property. Different
+                wording and extra detail are fine; the assertion has to be there.
+  related       the authors' text is about the same panel or property but does not assert this
+                particular finding.
+  absent        the authors' text does not carry this finding at all.
+
+Quote the authors' own words for `states`. If you cannot quote them, the ruling is not `states`.
+
+Return JSON and nothing else:
+{"verdict": "states|related|absent", "quote": "", "property": "the property both are about, at most eight words"}
