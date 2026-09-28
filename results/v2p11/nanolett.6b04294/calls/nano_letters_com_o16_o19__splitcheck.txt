@@ -1,0 +1,30 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+OBSERVATION A
+Na SXRD: same reflections persist through discharge/charge with only modest intensity loss
+
+OBSERVATION B
+Na XANES: discharged spectra keep a strong white line (~1.25 at ~7728 eV), unlike Co foil; charged lie between CoO and Co3O4
+
+Below are claims, each with a label. The labels mean:
+
+  a            reachable from OBSERVATION A alone
+  b            reachable from OBSERVATION B alone
+  combined     needs both; neither observation states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled a or b actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "a" | "b" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [a] Same SXRD reflections persist through discharge/charge with only modest intensity loss.
+2. [b] Discharged XANES white line remains strong (~1.25 at ~7728 eV) and distinct from Co foil.
+3. [b] Charged-state XANES spectra fall between CoO and Co3O4.
+4. [a] The crystalline oxide phase of PCO is largely retained on sodiation.
+5. [b] Co is not reduced to the metallic state.
+6. [a] XRD reflection retention alone would not exclude a small metallic Co fraction forming below diffraction detection.
+7. [b] The XANES oxidation-state signature alone would not exclude bulk amorphization of the oxide lattice.
+8. [combined] Structural retention (XRD) plus retained oxidized Co (XANES, unlike Co foil) together indicate sodiation reduces PCO only slightly, without producing metallic Co.

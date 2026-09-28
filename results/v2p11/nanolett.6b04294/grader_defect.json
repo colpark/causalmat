@@ -1,0 +1,19 @@
+{
+ "note": "The net-grader agent definition carries instructions from an older task.",
+ "file": ".claude/agents/net-grader.md",
+ "identical_copies": [
+  "trace_kit/agents/net-grader.md",
+  "skills/causalmat-graph-bench-2026-09-23/agents/net-grader.md"
+ ],
+ "md5": "b9065983612d9b26c584466c01dcaaae",
+ "stray_body": "Reply with one word first: CORRECT, PARTIAL, WRONG, or ABSTAIN (if the candidate says CANNOT DETERMINE), then one sentence why.\n\n## Rules\n\nSecond-read case (the question asks what a figure panel shows and the candidate is an independent description of the panel written without the paper): Grade whether the description and the observation name the same features of the same image. Different names for the same thing (stain names, map axes written in another order, instrument synonyms) are CORRECT. WRONG only when the image shows a different kind of data or contradicts the observation.",
+ "conflict": "The body tells the grader to reply with one word (CORRECT/PARTIAL/WRONG/ABSTAIN) and describes a panel-second-read task. Every grading prompt in v2.8 through v2.11 instead asks for per-claim JSON rulings.",
+ "grading_calls_this_run": 18,
+ "replies_starting_with_the_stray_verdict_word": 1,
+ "which": [
+  "nano_letters_spi_o16_o13__gradeB1.out.txt"
+ ],
+ "replies_without_a_rulings_block": 0,
+ "scope": "Affects every grading call in v2.8, v2.9, v2.10 and v2.11, since all used this same net-grader definition.",
+ "not_changed": "Left untouched for this pilot on purpose: changing the grader would make v2.11 incomparable with the v2.10 numbers it is being measured against."
+}

@@ -1,0 +1,32 @@
+You are checking someone else's labels. You have not seen their reasoning and should not try to reconstruct it.
+
+OBSERVATION A
+Na SXRD: same reflections persist through discharge/charge with only modest intensity loss
+
+OBSERVATION B
+Na SAXS contours stay nearly straight; I(q) curves overlap except a small drop at ~0.03-0.1 A-1 at 0.11/0.02 V
+
+Below are claims, each with a label. The labels mean:
+
+  a            reachable from OBSERVATION A alone
+  b            reachable from OBSERVATION B alone
+  combined     needs both; neither observation states it or implies it on its own
+
+For each claim, rule whether the label is right.
+
+Rule "disagree" whenever a claim labelled combined is in fact reachable from one side alone -- that is the error that matters here, because a claim wrongly called combined would make an item look like it composes when it does not. Also rule "disagree" if a claim labelled a or b actually needs both.
+
+Return JSON and nothing else, one entry per claim, in the same order:
+{"rulings": [{"n": 1, "verdict": "agree" | "disagree", "correct_tag": "a" | "b" | "combined", "why": "at most 25 words"}, ...]}
+
+THE CLAIMS
+1. [a] The Na SXRD reflections persist through discharge/charge with only modest intensity loss.
+2. [a] The crystalline oxide phase of PCO is largely retained during sodiation.
+3. [a] No metallic Co phase forms during discharge/charge.
+4. [a] SXRD probes crystallographic/phase-fraction change in the material.
+5. [b] The Na SAXS contours stay nearly straight and I(q) curves overlap except a small drop near q~0.03-0.1 A-1 at 0.11/0.02 V.
+6. [b] The pore structure of Na/PCO is barely altered over the first cycle.
+7. [b] SAXS probes nanoscale porosity/morphology change in the material.
+8. [combined] Neither technique alone constrains the other's structural aspect (crystallographic vs. porosity).
+9. [combined] PCO undergoes only slight sodiation-driven change overall, spanning both lattice and pore-network levels.
+10. [combined] Both observations together are needed to support that PCO stays structurally intact at both the lattice and pore-network level during the first cycle.
