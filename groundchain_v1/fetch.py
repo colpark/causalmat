@@ -19,8 +19,17 @@ UA = ('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) '
 EPMC = 'https://www.ebi.ac.uk/europepmc/webservices/rest'
 
 
-def folder_for(doi):
-    return doi.replace('/', '_')
+def journal_dir(container):
+    """MatMech nests <Journal>/<doi folder>/. detect_panels.py globs */*/data.json, so a flat
+    m2m_corpus/<doi folder>/ is invisible to it. Mirroring the journal level is what makes
+    scripts/panels/ run unchanged, which is the point of matching the layout at all."""
+    c = re.sub(r'[^A-Za-z0-9]+', '_', (container or 'Unknown')).strip('_')
+    return c[:60] or 'Unknown'
+
+
+def folder_for(doi, container=None):
+    leaf = doi.replace('/', '_')
+    return os.path.join(journal_dir(container), leaf) if container else leaf
 
 
 def fetch(url, binary=False, tries=3, timeout=45):
@@ -43,20 +52,40 @@ def strip(x):
 
 # ---------------------------------------------------------------- Europe PMC JATS
 
+PANEL_BOLD = re.compile(r'<bold>\s*([a-tA-T][0-9]?)\s*</bold>')
+
+
+def caption_text(blk):
+    """JATS caption to MatMech-style caption text.
+
+    Nature marks panel labels as <bold>a</bold>. Strip the tags naively and that becomes
+    "a Long-term cycling..." -- a bare letter the matcher cannot see, which is why the first
+    run put all 7 figures in tier C with zero panels matched. Turning them into "(a)" first
+    gives the matcher the same shape it reads everywhere in MatMech.
+    """
+    cap = re.search(r'<caption>.*?</caption>', blk, re.S)
+    cap = cap.group(0) if cap else ''
+    cap = PANEL_BOLD.sub(lambda m: f'({m.group(1)})', cap)
+    lbl = re.search(r'<label>(.*?)</label>', blk, re.S)
+    lbl = strip(lbl.group(1)) if lbl else ''
+    body = strip(cap)
+    return (f'{lbl}. {body}'.strip('. ') if lbl else body), lbl
+
+
 def epmc_figs(pmcid):
     """(caption, [graphic hrefs]) per figure, from the JATS full text"""
     xml = fetch(f'{EPMC}/{pmcid}/fullTextXML')
     if not xml or '<fig' not in xml: return None, None
     figs = []
-    for m in re.finditer(r'<fig\b.*?</fig>', xml, re.S):
+    # <fig[ >] not <fig\b -- \b matches the hyphen in <fig-count/>, which swallowed the first
+    # real figure block on any paper whose front matter carries one.
+    for m in re.finditer(r'<fig[ >].*?</fig>', xml, re.S):
         blk = m.group(0)
-        cap = strip(re.search(r'<caption>.*?</caption>', blk, re.S).group(0)
-                    if re.search(r'<caption>.*?</caption>', blk, re.S) else '')
-        lbl = strip(re.search(r'<label>(.*?)</label>', blk, re.S).group(1)
-                    if re.search(r'<label>(.*?)</label>', blk, re.S) else '')
-        hrefs = re.findall(r'xlink:href="([^"]+)"', blk) or re.findall(r'href="([^"]+)"', blk)
-        figs.append({'label': lbl, 'caption': (lbl + '. ' + cap).strip('. '), 'hrefs': hrefs})
-    # body text, for the "use" sentences match_panels needs
+        cap, lbl = caption_text(blk)
+        hrefs = [h for h in re.findall(r'xlink:href="([^"]+)"', blk)]
+        # prefer the full-size raster over the thumbnail
+        hrefs.sort(key=lambda h: (h.lower().endswith(('.gif',)), h))
+        figs.append({'label': lbl, 'caption': cap, 'hrefs': hrefs})
     body = re.search(r'<body>.*?</body>', xml, re.S)
     return figs, strip(body.group(0) if body else '')
 
@@ -189,9 +218,11 @@ def probe(dois):
 
 # ---------------------------------------------------------------- write the MatMech layout
 
-def write_paper(doi, figs, body, route, pmcid=None, title=None, year=None):
+def write_paper(doi, figs, body, route, pmcid=None, title=None, year=None,
+                container=None):
     """m2m_corpus/<doi folder>/{data.json,images/} -- byte-identical in shape to MatMech."""
-    fold = os.path.join(CORPUS, folder_for(doi))
+    rel = folder_for(doi, container)
+    fold = os.path.join(CORPUS, rel)
     imgs = os.path.join(fold, 'images')
     os.makedirs(imgs, exist_ok=True)
     info, kept, dropped = [], 0, []
@@ -209,14 +240,17 @@ def write_paper(doi, figs, body, route, pmcid=None, title=None, year=None):
         open(os.path.join(imgs, name), 'wb').write(blob)
         info.append({'image_path': f'images/{name}',
                      'image_caption': [f['caption']],
-                     'image_description': [body[:4000]] if body else []})
+                     # match_panels.py reads image_description to find "Fig. N(a)" use
+                     # sentences. Truncating it to 4000 chars hid every reference past the
+                     # early body and left panels_with_use at 0, so the whole body goes in.
+                     'image_description': [body] if body else []})
         kept += 1
     data = {'doi': doi, 'title': title, 'year': year,
             'source': {'route': route, 'pmcid': pmcid},
             'body_text': body or '',
             'image_info': info}
     json.dump(data, open(os.path.join(fold, 'data.json'), 'w'), indent=1)
-    return {'doi': doi, 'folder': folder_for(doi), 'figures': kept,
+    return {'doi': doi, 'folder': rel, 'figures': kept,
             'figures_dropped': len(dropped), 'route': route}
 
 
@@ -239,7 +273,8 @@ def get(dois):
         if not figs:
             res.append({'doi': doi, 'figures': 0, 'route': None, 'note': 'no figures found'})
             print(f'  {doi}: NO FIGURES'); continue
-        r = write_paper(doi, figs, body, route, pm, w.get('title'), w.get('year'))
+        r = write_paper(doi, figs, body, route, pm, w.get('title'), w.get('year'),
+                        w.get('container'))
         res.append(r)
         print(f"  {doi}: {r['figures']} figures via {route} "
               f"({r['figures_dropped']} image downloads failed)")
