@@ -16,3 +16,4 @@ Script: oa_harvest.py (sha bd3ccd23f9e38d97). Host A spark-112b (130.199.95.35).
 - 2026-10-01 07:30:14 UTC [wcs-180522] plan: {'oa_no_url': 1233, 'closed': 12745, 'oa_with_url': 2509}; shard_0 1839, shard_1 1903
 - 2026-10-01 07:30:14 UTC [wcs-180522] download shard 1: 1903 papers, 1903 to do, 8 workers
 - 2026-10-01 07:41:24 UTC [wcs-180522] download shard 1 done: {'no_url': 624, 'http_error': 596, 'ok': 454, 'robots_disallowed': 159, 'title_mismatch': 24, 'not_pdf': 46}
+- 2026-10-01 06:33:50 EST [spark-112b] PDFs mirrored both ways (rsync --ignore-existing): host A 415 -> 869, host B 454 -> 869; all 869 verified against oa_manifest.csv sha256 on both hosts

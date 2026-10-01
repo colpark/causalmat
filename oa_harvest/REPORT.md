@@ -7,7 +7,7 @@ Pool: 16487 papers (SEM + multimodal MatMech pool). Source: Unpaywall (email <ow
 - open access: **3742 (22.7%)**; closed: 12745
 - OA status: closed 12738, green 1740, gold 740, bronze 677, hybrid 585, not_in_unpaywall 7
 - downloaded and validated: **869**; download status of OA papers: no_url 1233, http_error 1180, ok 869, robots_disallowed 327, not_pdf 89, title_mismatch 44
-- disk used: 2.2 GB (host A 1.1 GB, host B 1.1 GB; PDFs split between hosts by DOI hash)
+- disk used: 2.2 GB per host. Downloads were split between hosts A and B by DOI hash, then mirrored both ways: each host now holds all 869 PDFs, every file verified against the sha256 in oa_manifest.csv.
 - sample estimate (249 papers): about 3,800 open access (23%) after year adjustment; exact: 3742 (22.7%)
 
 ## Licences (open-access papers)
@@ -123,4 +123,4 @@ Notes:
 - Wiley (onlinelibrary.wiley.com) and Elsevier (www.sciencedirect.com) refuse scripted requests (HTTP 403) even for open-access articles; their PDFs need a browser or the publishers' text-and-data-mining APIs (Elsevier API key, Wiley TDM token), which the BNL library can request.
 - `no_url`: Unpaywall knows the paper is open access but lists only landing pages; `oa_failed.csv` gives the landing pages for manual download.
 - `robots_disallowed`: the site's robots.txt forbids automated access, so it was not fetched (prompt rule).
-- PDFs stay on the nodes: host A ~/Documents/oa_harvest/pdfs (1.1 GB) and host B ~/Documents/oa_harvest/pdfs (1.1 GB), split by DOI hash. Total disk 2.2 GB.
+- PDFs stay on the nodes: host A and host B each hold the full set of 869 in ~/Documents/oa_harvest/pdfs/<journal>/ (2.2 GB per host).
